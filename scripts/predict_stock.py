@@ -495,13 +495,14 @@ def calculate_sentiment(titles):
     """ Calcola il sentiment medio di una lista di titoli di notizie. """
     total_sentiment = 0
     num_titles = len(titles)
-    
     for title in titles:
         sentiment_score = 0
+        count = 0
         for keyword, score in sentiment_dict.items():
             if re.search(r'\b' + re.escape(keyword) + r'\b', title.lower()):
                 sentiment_score += score
-        total_sentiment += sentiment_score
+                count += 1
+        total_sentiment += (sentiment_score / count)
     
     if num_titles > 0:
         average_sentiment = total_sentiment / num_titles
