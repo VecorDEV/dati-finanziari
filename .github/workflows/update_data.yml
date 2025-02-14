@@ -27,4 +27,4 @@ jobs:
 
       - name: Run the code
         run: |
-          python scripts\predict_stocks.py  # Sostituisci con il percorso effettivo del tuo codice
+          python scripts/predict_stocks.py  # Sostituisci con il percorso effettivo del tuo codice
