@@ -485,28 +485,39 @@ sentiment_dict = {
     "overleveraged": 0.1
 }
 
-def analyze_sentiment(title):
-    """ Analizza il sentiment di un titolo in base al dizionario di parole chiave. """
-    title_lower = title.lower()
-    sentiment_scores = []
-
-    for word, score in sentiment_dict.items():
-        if word in title_lower:
-            sentiment_scores.append(score)
+def calculate_sentiment(titles):
+    """ Calcola il sentiment medio di una lista di titoli di notizie. """
+    total_sentiment = 0
+    num_titles = len(titles)
     
-    if sentiment_scores:
-        return sum(sentiment_scores) / len(sentiment_scores)  # Media dei punteggi trovati
-    return 0.5  # Neutrale se nessuna parola chiave è trovata
+    for title in titles:
+        sentiment_score = 0
+        for keyword, score in sentiment_dict.items():
+            if re.search(r'\b' + re.escape(keyword) + r'\b', title.lower()):
+                sentiment_score += score
+        total_sentiment += sentiment_score
+    
+    if num_titles > 0:
+        average_sentiment = total_sentiment / num_titles
+    else:
+        average_sentiment = 0  # Se non ci sono titoli, il sentiment è 0
+    
+    return average_sentiment
 
-# Esegui il recupero per ogni simbolo e analizza il sentiment
-news_dict = {}
-for symbol in symbol_list:
-    news_dict[symbol] = get_stock_news(symbol)
+def get_sentiment_for_all_symbols(symbol_list):
+    sentiment_results = {}
+    
+    for symbol in symbol_list:
+        titles = get_stock_news(symbol)
+        sentiment = calculate_sentiment(titles)
+        sentiment_results[symbol] = sentiment
+    
+    return sentiment_results
 
-# Stampa i titoli delle notizie con il sentiment
-for symbol, titles in news_dict.items():
-    print(f"\n🔹 Notizie per {symbol}:")
-    for i, title in enumerate(titles, 1):
-        sentiment_score = analyze_sentiment(title)
-        print(f"{i}. {title} | Sentiment: {sentiment_score:.2f}")
+# Calcolare il sentiment medio per ogni simbolo
+sentiment_for_symbols = get_sentiment_for_all_symbols(symbol_list)
+
+# Stampare i risultati
+for symbol, sentiment in sentiment_for_symbols.items():
+    print(f"Symbol: {symbol}, Average Sentiment: {sentiment}")
 
