@@ -1,6 +1,13 @@
 import re
 import feedparser
 
+GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
+REPO_NAME = "VecorDEV/dati-finanziari"
+
+
+# Lista globale per memorizzare le probabilità di ciascun simbolo
+symbol_probabilities = []
+
 # Lista dei simboli azionari da cercare
 symbol_list = ["AAPL", "MSFT", "GOOGL", "AMZN", "META", "TSLA", "V", "JPM", "JNJ", "WMT",
         "NVDA", "PYPL", "DIS", "NFLX", "NIO", "NRG", "ADBE", "INTC", "CSCO", "PFE",
@@ -521,4 +528,60 @@ sentiment_for_symbols = get_sentiment_for_all_symbols(symbol_list)
 # Stampare i risultati
 for symbol, sentiment in sentiment_for_symbols.items():
     print(f"Symbol: {symbol}, Average Sentiment: {sentiment}")
+
+
+
+def create_classification_file():
+    # Ordina la lista di simboli per probabilità (decrescente) e per nome (alfabetico) in caso di probabilità uguali
+    sorted_symbols = sorted(symbol_probabilities, key=lambda x: (-x[1], x[0]))
+
+    # Crea il contenuto del file HTML
+    html_content = []
+    html_content.append("<html><head><title>Classifica dei Simboli</title></head><body>")
+    html_content.append("<h1>Classifica dei Simboli in Base alla Probabilità di Crescita</h1>")
+    html_content.append("<table border='1'><tr><th>Simbolo</th><th>Probabilità</th></tr>")
+    
+    # Aggiungi ogni simbolo e la sua probabilità alla tabella HTML
+    for symbol, probability in sorted_symbols:
+        html_content.append(f"<tr><td>{symbol}</td><td>{probability:.2f}%</td></tr>")
+    
+    html_content.append("</table></body></html>")
+
+    # Salva il file HTML nella cartella 'results'
+    file_path = "results/classifica.html"
+    
+    # Salva il file su GitHub
+    github = Github(GITHUB_TOKEN)
+    repo = github.get_repo(REPO_NAME)
+    try:
+        contents = repo.get_contents(file_path)
+        repo.update_file(contents.path, "Updated classification", "\n".join(html_content), contents.sha)
+    except GithubException:
+        # Se il file non esiste, creiamo un nuovo file
+        repo.create_file(file_path, "Created classification", "\n".join(html_content))
+    
+    print("Classifica aggiornata con successo!")
+
+# Funzione per salvare la previsione in un file HTML (modificata per registrare la probabilità)
+def upload_prediction_html(repo, symbol, probability):
+    # Aggiungi la probabilità al dizionario delle probabilità
+    symbol_probabilities.append((symbol, probability))
+
+    file_path = f"results/{symbol.upper()}_RESULT.html"
+
+    html_content = []
+    html_content.append(f"<html><head><title>Previsione per {symbol}</title></head><body>")
+    html_content.append(f"<h1>Previsione per: ({symbol})</h1>")
+
+    html_content.append("<table border='1'><tr><th>Probability</th></tr>")
+    html_content.append("<tr>")
+    html_content.append(f"<td>{probability}</td>")
+    html_content.append("</table></body></html>")
+        
+    try:
+        contents = repo.get_contents(file_path)
+        repo.update_file(contents.path, f"Updated probability for {symbol}", "\n".join(html_content), contents.sha)
+    except Exception as e:
+        # Se il file non esiste, lo creiamo
+        repo.create_file(file_path, f"Created probability for {symbol}", "\n".join(html_content))
 
