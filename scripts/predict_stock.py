@@ -530,7 +530,7 @@ for symbol, sentiment in sentiment_for_symbols.items():
 
 #Crea la classifica
 # Ordina la lista di simboli per probabilità (decrescente) e per nome (alfabetico) in caso di probabilità uguali
-sorted_symbols = sorted(sentiment_for_symbols, key=lambda x: (-x[1], x[0]))
+sorted_symbols = sorted(sentiment_for_symbols, key=lambda x: (-float(x[1]), x[0]))
 
 # Crea il contenuto del file HTML
 html_content = []
