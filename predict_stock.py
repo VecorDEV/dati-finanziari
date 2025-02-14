@@ -1,4 +1,28 @@
 import re
+import feedparser
+
+# Lista dei simboli azionari da cercare
+symbol_list = ["AAPL", "GOOGL", "TSLA"]  # Puoi aggiungere altri simboli
+
+def get_stock_news(symbol):
+    """ Recupera i titoli delle notizie per un determinato simbolo. """
+    url = f"https://news.google.com/rss/search?q={symbol}+stock&hl=en-US&gl=US&ceid=US:en"
+    feed = feedparser.parse(url)
+    
+    titles = [entry.title for entry in feed.entries]
+    return titles
+
+# Esegui il recupero per ogni simbolo
+news_dict = {}
+for symbol in symbol_list:
+    news_dict[symbol] = get_stock_news(symbol)
+
+# Stampa i titoli delle notizie per ogni simbolo
+for symbol, titles in news_dict.items():
+    print(f"\n🔹 Notizie per {symbol}:")
+    for i, title in enumerate(titles, 1):
+        print(f"{i}. {title}")
+        
 
 # Dataset esteso di parole e frasi con i rispettivi punteggi
 dizionario = [
