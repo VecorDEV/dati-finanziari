@@ -2,7 +2,20 @@ import re
 import feedparser
 
 # Lista dei simboli azionari da cercare
-symbol_list = ["AAPL", "GOOGL", "TSLA"]  # Puoi aggiungere altri simboli
+symbol_list = ["AAPL", "MSFT", "GOOGL", "AMZN", "META", "TSLA", "V", "JPM", "JNJ", "WMT",
+        "NVDA", "PYPL", "DIS", "NFLX", "NIO", "NRG", "ADBE", "INTC", "CSCO", "PFE",
+        "KO", "PEP", "MRK", "ABT", "XOM", "CVX", "T", "MCD", "NKE", "HD",
+        "IBM", "CRM", "BMY", "ORCL", "ACN", "LLY", "QCOM", "HON", "COST", "SBUX",
+        "CAT", "LOW", "MS", "GS", "AXP", "INTU", "AMGN", "GE", "FIS", "CVS",
+        "DE", "BDX", "NOW", "SCHW", "LMT", "ADP", "C", "PLD", "NSC", "TMUS",
+        "ITW", "FDX", "PNC", "SO", "APD", "ADI", "ICE", "ZTS", "TJX", "CL",
+        "MMC", "EL", "GM", "CME", "EW", "AON", "D", "PSA", "AEP", "TROW", 
+        "LNTH", "HE", "BTDR", "NAAS", "SCHL", "TGT", "SYK", "BKNG", "DUK", "USB",
+        "EURUSD", "USDJPY", "GBPUSD", "AUDUSD", "USDCAD", "USDCHF", "NZDUSD", "EURGBP", "EURJPY", "GBPJPY",
+        "AUDJPY", "CADJPY", "CHFJPY", "EURAUD", "EURNZD", "EURCAD", "EURCHF", "GBPCHF", "GBPJPY", "AUDCAD",
+        "BTCUSD", "ETHUSD", "LTCUSD", "XRPUSD", "BCHUSD", "EOSUSD", "XLMUSD", "ADAUSD", "TRXUSD", "NEOUSD",
+        "DASHUSD", "XMRUSD", "ETCUSD", "ZECUSD", "BNBUSD", "DOGEUSD", "USDTUSD", "LINKUSD", "ATOMUSD", "XTZUSD",
+        "CCUSD", "XAUUSD", "XAGUSD", "GCUSD", "ZSUSX", "CTUSX", "ZCUSX", "OJUSX", "RBUSD"]  # Puoi aggiungere altri simboli
 
 def get_stock_news(symbol):
     """ Recupera i titoli delle notizie per un determinato simbolo. """
@@ -12,20 +25,9 @@ def get_stock_news(symbol):
     titles = [entry.title for entry in feed.entries]
     return titles
 
-# Esegui il recupero per ogni simbolo
-news_dict = {}
-for symbol in symbol_list:
-    news_dict[symbol] = get_stock_news(symbol)
-
-# Stampa i titoli delle notizie per ogni simbolo
-for symbol, titles in news_dict.items():
-    print(f"\n🔹 Notizie per {symbol}:")
-    for i, title in enumerate(titles, 1):
-        print(f"{i}. {title}")
-        
-
+# Dizionario di parole chiave con il loro punteggio di sentiment
 # Dataset esteso di parole e frasi con i rispettivi punteggi
-dizionario = [
+sentiment_dict = [
     ("gain", 0.9),
     ("profit", 0.8),
     ("growth", 0.7),
@@ -504,6 +506,62 @@ dizionario = [
     ("asset management", 0.7),
     ("overleveraged", 0.1)
 ]
+
+def analyze_sentiment(title):
+    """ Analizza il sentiment di un titolo in base al dizionario di parole chiave. """
+    title_lower = title.lower()
+    sentiment_scores = []
+
+    for word, score in sentiment_dict.items():
+        if word in title_lower:
+            sentiment_scores.append(score)
+    
+    if sentiment_scores:
+        return sum(sentiment_scores) / len(sentiment_scores)  # Media dei punteggi trovati
+    return 0.5  # Neutrale se nessuna parola chiave è trovata
+
+# Esegui il recupero per ogni simbolo e analizza il sentiment
+news_dict = {}
+for symbol in symbol_list:
+    news_dict[symbol] = get_stock_news(symbol)
+
+# Stampa i titoli delle notizie con il sentiment
+for symbol, titles in news_dict.items():
+    print(f"\n🔹 Notizie per {symbol}:")
+    for i, title in enumerate(titles, 1):
+        sentiment_score = analyze_sentiment(title)
+        print(f"{i}. {title} | Sentiment: {sentiment_score:.2f}")
+
+
+
+
+import re
+import feedparser
+
+# Lista dei simboli azionari da cercare
+symbol_list = ["AAPL", "GOOGL", "TSLA"]  # Puoi aggiungere altri simboli
+
+def get_stock_news(symbol):
+    """ Recupera i titoli delle notizie per un determinato simbolo. """
+    url = f"https://news.google.com/rss/search?q={symbol}+stock&hl=en-US&gl=US&ceid=US:en"
+    feed = feedparser.parse(url)
+    
+    titles = [entry.title for entry in feed.entries]
+    return titles
+
+# Esegui il recupero per ogni simbolo
+news_dict = {}
+for symbol in symbol_list:
+    news_dict[symbol] = get_stock_news(symbol)
+
+# Stampa i titoli delle notizie per ogni simbolo
+for symbol, titles in news_dict.items():
+    print(f"\n🔹 Notizie per {symbol}:")
+    for i, title in enumerate(titles, 1):
+        print(f"{i}. {title}")
+        
+
+
 
 # Funzione per creare un dizionario a partire dalla lista
 def crea_dizionario(dati):
