@@ -502,7 +502,8 @@ def calculate_sentiment(titles):
             if re.search(r'\b' + re.escape(keyword) + r'\b', title.lower()):
                 sentiment_score += score
                 count += 1
-        total_sentiment += (sentiment_score / count)
+        if count != 0:
+                total_sentiment += (sentiment_score / count)
     
     if num_titles > 0:
         average_sentiment = total_sentiment / num_titles
