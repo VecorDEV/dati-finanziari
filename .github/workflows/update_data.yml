@@ -1,0 +1,30 @@
+name: Run Code Automatically and Manually
+
+on:
+  # Trigger per eseguire il workflow manualmente
+  workflow_dispatch:
+  
+  # Trigger per eseguire il workflow ogni giorno alle 8:00 AM UTC
+  schedule:
+    - cron: '0 8 * * *'
+
+jobs:
+  run_code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'  # Specifica la versione di Python (ad esempio, 3.8)
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas numpy matplotlib  # Aggiungi qui tutte le dipendenze necessarie per il tuo codice
+
+      - name: Run the code
+        run: |
+          python path/to/your/code.py  # Sostituisci con il percorso effettivo del tuo codice
