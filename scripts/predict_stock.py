@@ -528,6 +528,9 @@ for symbol, sentiment in sentiment_for_symbols.items():
     print(f"Symbol: {symbol}, Average Sentiment: {sentiment}")
 
 
+create_classification_file()
+
+
 
 def create_classification_file():
     # Ordina la lista di simboli per probabilità (decrescente) e per nome (alfabetico) in caso di probabilità uguali
