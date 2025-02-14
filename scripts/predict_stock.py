@@ -523,40 +523,51 @@ def get_sentiment_for_all_symbols(symbol_list):
     
     return sentiment_results
 
+
 # Calcolare il sentiment medio per ogni simbolo
 sentiment_for_symbols = get_sentiment_for_all_symbols(symbol_list)
 
 # Ordinare i simboli in base al sentiment medio (decrescente)
 sorted_symbols = sorted(sentiment_for_symbols.items(), key=lambda x: x[1], reverse=True)
 
-# Stampare i risultati ordinati
+# Crea il contenuto del file HTML
+html_content = []
+html_content.append("<html><head><title>Classifica dei Simboli</title></head><body>")
+html_content.append("<h1>Classifica dei Simboli in Base alla Probabilità di Crescita</h1>")
+html_content.append("<table border='1'><tr><th>Simbolo</th><th>Probabilità</th></tr>")
+
+# Aggiungi ogni simbolo e la sua probabilità alla tabella HTML
 for symbol, sentiment in sorted_symbols:
-    print(f"Symbol: {symbol}, Average Sentiment: {sentiment}")
+    html_content.append(f"<tr><td>{symbol}</td><td>{sentiment:.2f}</td></tr>")
 
+html_content.append("</table></body></html>")
 
-  # Crea il contenuto del file HTML
-    html_content = []
-    html_content.append("<html><head><title>Classifica dei Simboli</title></head><body>")
-    html_content.append("<h1>Classifica dei Simboli in Base alla Probabilità di Crescita</h1>")
-    html_content.append("<table border='1'><tr><th>Simbolo</th><th>Probabilità</th></tr>")
-    
-    # Aggiungi ogni simbolo e la sua probabilità alla tabella HTML
-    for symbol, probability in sorted_symbols:
-        html_content.append(f"<tr><td>{symbol}</td><td>{probability:.2f}%</td></tr>")
-    
-    html_content.append("</table></body></html>")
+# Percorso del file HTML
+file_path = "results/classifica.html"
 
-    # Salva il file HTML nella cartella 'results'
-    file_path = "results/classifica.html"
-    
-    # Salva il file su GitHub
-    github = Github(GITHUB_TOKEN)
-    repo = github.get_repo(REPO_NAME)
+# Autenticazione GitHub
+github = Github(GITHUB_TOKEN)
+repo = github.get_repo(REPO_NAME)
+
+# Verifica se la cartella 'results' esiste
+try:
+    # Cerchiamo di accedere al contenuto di 'results' per vedere se esiste
+    repo.get_contents("results")
+except GithubException:
+    # La cartella non esiste, quindi creiamo un file vuoto in quella cartella per farla apparire
     try:
-        contents = repo.get_contents(file_path)
-        repo.update_file(contents.path, "Updated classification", "\n".join(html_content), contents.sha)
-    except GithubException:
-        # Se il file non esiste, creiamo un nuovo file
-        repo.create_file(file_path, "Created classification", "\n".join(html_content))
-    
-    print("Classifica aggiornata con successo!")
+        # Crea un file vuoto (per esempio, 'dummy.txt') in 'results'
+        repo.create_file("results/dummy.txt", "Create results folder", "")
+    except GithubException as e:
+        print(f"Errore nella creazione della cartella: {e}")
+
+# Ora creiamo o aggiorniamo il file 'classifica.html'
+try:
+    # Controlliamo se il file esiste
+    contents = repo.get_contents(file_path)
+    repo.update_file(contents.path, "Updated classification", "\n".join(html_content), contents.sha)
+except GithubException:
+    # Se il file non esiste, creiamo un nuovo file
+    repo.create_file(file_path, "Created classification", "\n".join(html_content))
+
+print("Classifica aggiornata con successo!")
