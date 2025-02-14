@@ -1,3 +1,4 @@
+from github import Github
 import re
 import feedparser
 import os
