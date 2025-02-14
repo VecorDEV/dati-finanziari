@@ -523,39 +523,10 @@ def get_sentiment_for_all_symbols(symbol_list):
 # Calcolare il sentiment medio per ogni simbolo
 sentiment_for_symbols = get_sentiment_for_all_symbols(symbol_list)
 
-# Stampare i risultati
-for symbol, sentiment in sentiment_for_symbols.items():
+# Ordinare i simboli in base al sentiment medio (decrescente)
+sorted_symbols = sorted(sentiment_for_symbols.items(), key=lambda x: x[1], reverse=True)
+
+# Stampare i risultati ordinati
+for symbol, sentiment in sorted_symbols:
     print(f"Symbol: {symbol}, Average Sentiment: {sentiment}")
-
-
-#Crea la classifica
-# Ordina la lista di simboli per probabilità (decrescente) e per nome (alfabetico) in caso di probabilità uguali
-sorted_symbols = sorted(sentiment_for_symbols, key=lambda x: (-float(x[1]), x[0]))
-
-# Crea il contenuto del file HTML
-html_content = []
-html_content.append("<html><head><title>Classifica dei Simboli</title></head><body>")
-html_content.append("<h1>Classifica dei Simboli in Base alla Probabilità di Crescita</h1>")
-html_content.append("<table border='1'><tr><th>Simbolo</th><th>Probabilità</th></tr>")
-
-# Aggiungi ogni simbolo e la sua probabilità alla tabella HTML
-for symbol, probability in sorted_symbols:
-        html_content.append(f"<tr><td>{symbol}</td><td>{probability:.2f}%</td></tr>")
-
-html_content.append("</table></body></html>")
-
-# Salva il file HTML nella cartella 'results'
-file_path = "results/classifica.html"
-
-# Salva il file su GitHub
-github = Github(GITHUB_TOKEN)
-repo = github.get_repo(REPO_NAME)
-try:
-        contents = repo.get_contents(file_path)
-        repo.update_file(contents.path, "Updated classification", "\n".join(html_content), contents.sha)
-except GithubException:
-        # Se il file non esiste, creiamo un nuovo file
-        repo.create_file(file_path, "Created classification", "\n".join(html_content))
-
-print("Classifica aggiornata con successo!")
 
