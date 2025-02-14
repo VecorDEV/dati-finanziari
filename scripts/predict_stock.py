@@ -23,7 +23,7 @@ def get_stock_news(symbol):
     feed = feedparser.parse(url)
     
     titles = [entry.title for entry in feed.entries]
-        print(titles)
+    print(titles)
     return titles
 
 # Dizionario di parole chiave con il loro punteggio di sentiment
