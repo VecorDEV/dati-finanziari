@@ -540,7 +540,7 @@ html_content.append("<table border='1'><tr><th>Simbolo</th><th>Probabilità</th>
 
 # Aggiungi ogni simbolo e la sua probabilità alla tabella HTML
 for symbol, probability in sorted_symbols:
-html_content.append(f"<tr><td>{symbol}</td><td>{probability:.2f}%</td></tr>")
+        html_content.append(f"<tr><td>{symbol}</td><td>{probability:.2f}%</td></tr>")
 
 html_content.append("</table></body></html>")
 
@@ -551,11 +551,11 @@ file_path = "results/classifica.html"
 github = Github(GITHUB_TOKEN)
 repo = github.get_repo(REPO_NAME)
 try:
-contents = repo.get_contents(file_path)
-repo.update_file(contents.path, "Updated classification", "\n".join(html_content), contents.sha)
+        contents = repo.get_contents(file_path)
+        repo.update_file(contents.path, "Updated classification", "\n".join(html_content), contents.sha)
 except GithubException:
-# Se il file non esiste, creiamo un nuovo file
-repo.create_file(file_path, "Created classification", "\n".join(html_content))
+        # Se il file non esiste, creiamo un nuovo file
+        repo.create_file(file_path, "Created classification", "\n".join(html_content))
 
 print("Classifica aggiornata con successo!")
 
