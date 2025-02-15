@@ -27,5 +27,5 @@ jobs:
 
     - name: Run prediction script
       env:
-        GITHUB_TOKEN: ${{ secrets.MY_GITHUB_PAT }} # Token GitHub con permessi di scrittura sul repository
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Token GitHub con permessi di scrittura sul repository
       run: python scripts/predict_stock.py  # Percorso corretto del tuo codice
