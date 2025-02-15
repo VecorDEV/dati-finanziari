@@ -135,7 +135,7 @@ sentiment_dict = {
     "boosts": 0.8,
     "boosted": 0.8,
     "benefit": 0.8,
-    "benefits": 0.8.
+    "benefits": 0.8,
     "billion": 0.7,
     "billions": 0.7,
     "borrow": 0.5,
