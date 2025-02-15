@@ -539,12 +539,12 @@ def get_sentiment_for_all_symbols(symbol_list):
         html_content.append(f"<td>{sentiment * 100}</td>")
         html_content.append("</table></body></html>")
         
-    try:
-        contents = repo.get_contents(file_path)
-        repo.update_file(contents.path, f"Updated probability for {symbol}", "\n".join(html_content), contents.sha)
-    except Exception as e:
-        # Se il file non esiste, lo creiamo
-        repo.create_file(file_path, f"Created probability for {symbol}", "\n".join(html_content))
+        try:
+            contents = repo.get_contents(file_path)
+            repo.update_file(contents.path, f"Updated probability for {symbol}", "\n".join(html_content), contents.sha)
+        except Exception as e:
+            # Se il file non esiste, lo creiamo
+            repo.create_file(file_path, f"Created probability for {symbol}", "\n".join(html_content))
     
     return sentiment_results
 
