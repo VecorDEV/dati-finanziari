@@ -533,60 +533,30 @@ sentiment_for_symbols = get_sentiment_for_all_symbols(symbol_list)
 # Ordinare i simboli in base al sentiment medio (decrescente)
 sorted_symbols = sorted(sentiment_for_symbols.items(), key=lambda x: x[1], reverse=True)
 
+
 # Crea il contenuto del file HTML
 html_content = []
 html_content.append("<html><head><title>Classifica dei Simboli</title></head><body>")
 html_content.append("<h1>Classifica dei Simboli in Base alla Probabilità di Crescita</h1>")
 html_content.append("<table border='1'><tr><th>Simbolo</th><th>Probabilità</th></tr>")
-
+    
 # Aggiungi ogni simbolo e la sua probabilità alla tabella HTML
-for symbol, sentiment in sorted_symbols:
-    html_content.append(f"<tr><td>{symbol}</td><td>{sentiment:.2f}</td></tr>")
-
+for symbol, probability in sorted_symbols:
+        html_content.append(f"<tr><td>{symbol}</td><td>{probability:.2f}%</td></tr>")
+    
 html_content.append("</table></body></html>")
 
-# Percorso del file HTML
+# Salva il file HTML nella cartella 'results'
 file_path = "results/classifica.html"
-
-# Autenticazione GitHub
+    
+# Salva il file su GitHub
 github = Github(GITHUB_TOKEN)
 repo = github.get_repo(REPO_NAME)
-
-# Funzione per creare il file "dummy" se la cartella non esiste
-def create_dummy_file():
-    try:
-        # Tentiamo di ottenere contenuto della cartella "results"
-        repo.get_contents("results")
-        print("La cartella 'results' esiste già.")
-    except GithubException as e:
-        # La cartella non esiste, quindi creiamo un file dummy
-        try:
-            print("Creazione della cartella 'results' con un file dummy...")
-            repo.create_file("results/dummy.txt", "Create results folder", "")
-        except GithubException as error:
-            print(f"Errore nella creazione della cartella 'results': {error}")
-
-# Controllo dei permessi del token GitHub
 try:
-    # Proviamo a leggere il repository per testare i permessi
-    repo.get_contents("")
-    print(f"Accesso al repository {repo.name} riuscito.")
-except GithubException as e:
-    print(f"Errore nell'accesso al repository: {e}")
-    exit(1)  # Uscita dal programma se non è possibile accedere al repo
-
-# Creare il file dummy se la cartella non esiste
-create_dummy_file()
-
-# Ora creiamo o aggiorniamo il file 'classifica.html'
-try:
-    # Controlliamo se il file esiste
-    contents = repo.get_contents(file_path)
-    repo.update_file(contents.path, "Updated classification", "\n".join(html_content), contents.sha)
-    print("File aggiornato correttamente.")
+        contents = repo.get_contents(file_path)
+        repo.update_file(contents.path, "Updated classification", "\n".join(html_content), contents.sha)
 except GithubException:
-    # Se il file non esiste, creiamo un nuovo file
-    repo.create_file(file_path, "Created classification", "\n".join(html_content))
-    print("File creato correttamente.")
-
+        # Se il file non esiste, creiamo un nuovo file
+        repo.create_file(file_path, "Created classification", "\n".join(html_content))
+    
 print("Classifica aggiornata con successo!")
