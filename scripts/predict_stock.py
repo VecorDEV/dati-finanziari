@@ -1141,20 +1141,32 @@ sentiment_dict = {
     "zero sum": 0.4
 }
 
+
+def normalize_text(text):
+    """ Pulisce e normalizza il testo per una migliore corrispondenza. """
+    text = text.lower()  # Converti tutto in minuscolo
+    text = re.sub(r'[-_/]', ' ', text)  # Sostituisci trattini e underscore con spazi
+    text = re.sub(r'\s+', ' ', text).strip()  # Rimuovi spazi multipli e spazi iniziali/finali
+    return text
+
 def calculate_sentiment(titles):
-    """ Calcola il sentiment medio di una lista di titoli di notizie. """
+    """ Calcola il sentiment medio di una lista di titoli di notizie con normalizzazione. """
     total_sentiment = 0
     num_titles = len(titles)
+    
     for title in titles:
+        normalized_title = normalize_text(title)  # Normalizza il titolo
         sentiment_score = 0
         count = 0
+
         for keyword, score in sentiment_dict.items():
-            if re.search(r'\b' + re.escape(keyword) + r'\b', title.lower()):
+            if re.search(r'\b' + re.escape(keyword) + r'\b', normalized_title):
                 sentiment_score += score
                 count += 1
+
         if count != 0:
-                total_sentiment += (sentiment_score / count)
-    
+            total_sentiment += (sentiment_score / count)
+
     if num_titles > 0:
         average_sentiment = total_sentiment / num_titles
     else:
