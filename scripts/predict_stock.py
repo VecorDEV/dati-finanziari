@@ -527,7 +527,24 @@ def get_sentiment_for_all_symbols(symbol_list):
         titles = get_stock_news(symbol)
         sentiment = calculate_sentiment(titles)
         sentiment_results[symbol] = sentiment
-        upload_prediction_html(repo, symbol, sentiment * 100)
+
+        file_path = f"results/{symbol.upper()}_RESULT.html"
+
+        html_content = []
+        html_content.append(f"<html><head><title>Previsione per {symbol}</title></head><body>")
+        html_content.append(f"<h1>Previsione per: ({symbol})</h1>")
+
+        html_content.append("<table border='1'><tr><th>Probability</th></tr>")
+        html_content.append("<tr>")
+        html_content.append(f"<td>{sentiment * 100}</td>")
+        html_content.append("</table></body></html>")
+        
+    try:
+        contents = repo.get_contents(file_path)
+        repo.update_file(contents.path, f"Updated probability for {symbol}", "\n".join(html_content), contents.sha)
+    except Exception as e:
+        # Se il file non esiste, lo creiamo
+        repo.create_file(file_path, f"Created probability for {symbol}", "\n".join(html_content))
     
     return sentiment_results
 
@@ -560,27 +577,3 @@ except GithubException:
         repo.create_file(file_path, "Created classification", "\n".join(html_content))
     
 print("Classifica aggiornata con successo!")
-
-
-# Funzione per salvare la previsione in un file HTML (modificata per registrare la probabilità)
-def upload_prediction_html(repo, symbol, probability):
-    # Aggiungi la probabilità al dizionario delle probabilità
-    symbol_probabilities.append((symbol, probability))
-
-    file_path = f"results/{symbol.upper()}_RESULT.html"
-
-    html_content = []
-    html_content.append(f"<html><head><title>Previsione per {symbol}</title></head><body>")
-    html_content.append(f"<h1>Previsione per: ({symbol})</h1>")
-
-    html_content.append("<table border='1'><tr><th>Probability</th></tr>")
-    html_content.append("<tr>")
-    html_content.append(f"<td>{probability}</td>")
-    html_content.append("</table></body></html>")
-        
-    try:
-        contents = repo.get_contents(file_path)
-        repo.update_file(contents.path, f"Updated probability for {symbol}", "\n".join(html_content), contents.sha)
-    except Exception as e:
-        # Se il file non esiste, lo creiamo
-        repo.create_file(file_path, f"Created probability for {symbol}", "\n".join(html_content))
