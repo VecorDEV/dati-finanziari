@@ -525,6 +525,9 @@ def get_sentiment_for_all_symbols(symbol_list):
 
 
 # Calcolare il sentiment medio per ogni simbolo
+from github import Github, GithubException
+
+# Calcolare il sentiment medio per ogni simbolo
 sentiment_for_symbols = get_sentiment_for_all_symbols(symbol_list)
 
 # Ordinare i simboli in base al sentiment medio (decrescente)
@@ -549,25 +552,41 @@ file_path = "results/classifica.html"
 github = Github(GITHUB_TOKEN)
 repo = github.get_repo(REPO_NAME)
 
-# Verifica se la cartella 'results' esiste
-try:
-    # Cerchiamo di accedere al contenuto di 'results' per vedere se esiste
-    repo.get_contents("results")
-except GithubException:
-    # La cartella non esiste, quindi creiamo un file vuoto in quella cartella per farla apparire
+# Funzione per creare il file "dummy" se la cartella non esiste
+def create_dummy_file():
     try:
-        # Crea un file vuoto (per esempio, 'dummy.txt') in 'results'
-        repo.create_file("results/dummy.txt", "Create results folder", "")
+        # Tentiamo di ottenere contenuto della cartella "results"
+        repo.get_contents("results")
+        print("La cartella 'results' esiste già.")
     except GithubException as e:
-        print(f"Errore nella creazione della cartella: {e}")
+        # La cartella non esiste, quindi creiamo un file dummy
+        try:
+            print("Creazione della cartella 'results' con un file dummy...")
+            repo.create_file("results/dummy.txt", "Create results folder", "")
+        except GithubException as error:
+            print(f"Errore nella creazione della cartella 'results': {error}")
+
+# Controllo dei permessi del token GitHub
+try:
+    # Proviamo a leggere il repository per testare i permessi
+    repo.get_contents("")
+    print(f"Accesso al repository {repo.name} riuscito.")
+except GithubException as e:
+    print(f"Errore nell'accesso al repository: {e}")
+    exit(1)  # Uscita dal programma se non è possibile accedere al repo
+
+# Creare il file dummy se la cartella non esiste
+create_dummy_file()
 
 # Ora creiamo o aggiorniamo il file 'classifica.html'
 try:
     # Controlliamo se il file esiste
     contents = repo.get_contents(file_path)
     repo.update_file(contents.path, "Updated classification", "\n".join(html_content), contents.sha)
+    print("File aggiornato correttamente.")
 except GithubException:
     # Se il file non esiste, creiamo un nuovo file
     repo.create_file(file_path, "Created classification", "\n".join(html_content))
+    print("File creato correttamente.")
 
 print("Classifica aggiornata con successo!")
