@@ -27,6 +27,5 @@ jobs:
 
     - name: Run prediction script
       env:
-        FMP_API_KEY: ${{ secrets.FMP_API_KEY }}   # Assicurati di aver aggiunto la chiave API nei segreti del repo
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Token GitHub con permessi di scrittura sul repository
       run: python scripts/predict_stock.py  # Percorso corretto del tuo codice
