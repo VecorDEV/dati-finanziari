@@ -42,6 +42,801 @@ def get_stock_news(symbol):
 # Dizionario di parole chiave con il loro punteggio di sentiment
 # Dataset esteso di parole e frasi con i rispettivi punteggi
 sentiment_dict = {
+    "acquisition": 0.7,
+    "appreciation": 0.9,
+    "assets": 0.8,
+    "advance": 0.8,
+    "agreement": 0.7,
+    "allocation": 0.6,
+    "arbitrage": 0.5,
+    "augmented": 0.7,
+    "attraction": 0.7,
+    "affluence": 0.9,
+    "accelerator": 0.7,
+    "ascend": 0.8,
+    "advantage": 0.8,
+    "amplification": 0.7,
+    "abundance": 0.9,
+    "amendment": 0.6,
+    "allowance": 0.6,
+    "achievement": 0.8,
+    "accession": 0.7,
+    "ascension": 0.8,
+    "allocation": 0.6,
+    "acceptance": 0.7,
+    "announcement": 0.5,
+    "assessment": 0.5,
+    "accreditation": 0.6,
+    "authorization": 0.6,
+    "assurance": 0.7,
+    "advancement": 0.8,
+    "aspiration": 0.7,
+    "activation": 0.6,
+    "adjustment": 0.5,
+    "assignment": 0.5,
+    "appropriation": 0.5,
+    "adoption": 0.6,
+    "achievement": 0.8,
+    "acceleration": 0.8,
+    "announcement": 0.5,
+    "appraisal": 0.6,
+    "amortization": 0.4,
+    "arrest": 0.1,
+    "adversity": 0.2,
+    "anomaly": 0.3,
+    "attrition": 0.2,
+    "antitrust": 0.2,
+    "aversion": 0.2,
+    "arrears": 0.1,
+    "abandonment": 0.1,
+    "alienation": 0.2,
+    "asymmetry": 0.3,
+    "ambiguity": 0.3,
+    "anxiety": 0.2,
+    "arbitration": 0.5,
+    "adjustment": 0.5,
+    "austerity": 0.3,
+    "audit": 0.4,
+    "amendment": 0.6,
+    "apprehension": 0.2,
+    "abrogation": 0.1,
+    "annulment": 0.1,
+    "arrogation": 0.1,
+    "admonition": 0.2,
+    "antagonism": 0.2,
+    "abysmal": 0.1,
+    "accountability": 0.6,
+    "arrestment": 0.2,
+    "attrition": 0.3,
+    "aftermath": 0.2,
+    
+    "bullish": 0.9,
+    "bankruptcy": 0.1,
+    "balance": 0.7,
+    "buy": 0.8,
+    "boost": 0.8,
+    "benefit": 0.8,
+    "billion": 0.7,
+    "borrow": 0.5,
+    "bonds": 0.7,
+    "breakthrough": 0.8,
+    "benchmark": 0.7,
+    "bust": 0.2,
+    "bargain": 0.8,
+    "broker": 0.6,
+    "boom": 0.9,
+    "bank": 0.7,
+    "budget": 0.6,
+    "bid": 0.7,
+    "boosted": 0.8,
+    "bailout": 0.3,
+    "beneficiary": 0.7,
+    "bipartisan": 0.6,
+    "blockchain": 0.6,
+    "banknotes": 0.6,
+    "bail": 0.3,
+    "banking": 0.7,
+    "barrier": 0.3,
+    "bottom line": 0.6,
+    "balance sheet": 0.7,
+    "bull": 0.9,
+    "backlog": 0.4,
+    "budgeting": 0.5,
+    "backer": 0.6,
+    "brisk": 0.7,
+    "bankable": 0.7,
+    "burnout": 0.2,
+    "barometer": 0.6,
+    "benchmarking": 0.6,
+    "blockbuster": 0.8,
+    "balance of payments": 0.6,
+    "breach": 0.2,
+    "blowout": 0.1,
+    "bribe": 0.0,
+    "brutal": 0.1,
+    "bust up": 0.2,
+    "bank run": 0.1,
+
+    "capital": 0.8,
+    "cash": 0.8,
+    "crash": 0.1,
+    "cautious": 0.3,
+    "climb": 0.8,
+    "coup": 0.2,
+    "contract": 0.6,
+    "consumer": 0.7,
+    "capitalism": 0.7,
+    "credit": 0.7,
+    "cut": 0.3,
+    "climate": 0.7,
+    "collapse": 0.1,
+    "creditor": 0.6,
+    "currency": 0.6,
+    "commodities": 0.7,
+    "change": 0.6,
+    "company": 0.7,
+    "consumerism": 0.6,
+    "competition": 0.7,
+    "coupon": 0.6,
+    "contribution": 0.7,
+    "crisis": 0.1,
+    "consolidation": 0.6,
+    "capitalization": 0.8,
+    "collateral": 0.5,
+    "compliance": 0.6,
+    "collaboration": 0.7,
+    "consumer confidence": 0.8,
+    "credibility": 0.7,
+    "closure": 0.3,
+    "cost": 0.4,
+    "commitment": 0.7,
+    "clawback": 0.3,
+    "cutback": 0.3,
+    "contraction": 0.3,
+    "conservative": 0.4,
+    "corruption": 0.0,
+    "capital gains": 0.8,
+    "cash flow": 0.7,
+    "credit rating": 0.6,
+    "contribution margin": 0.7,
+    "crisis management": 0.3,
+    "correlation": 0.5,
+    "capital-raise": 0.7,
+    "compensation": 0.6,
+    "consequence": 0.4,
+    "covenant": 0.5,
+    "circulation": 0.6,
+    "counterfeit": 0.1,
+    "convergence": 0.7,
+    "compensation package": 0.7,
+    "compensation": 0.7,
+    "capital flow": 0.6,
+    "corruption scandal": 0.1,
+    
+    "debt": 0.2,
+    "dividend": 0.8,
+    "deficit": 0.1,
+    "decline": 0.2,
+    "depreciation": 0.3,
+    "drop": 0.2,
+    "demand": 0.8,
+    "default": 0.1,
+    "downturn": 0.2,
+    "devaluation": 0.3,
+    "disruption": 0.3,
+    "disposal": 0.5,
+    "discount": 0.6,
+    "dilution": 0.4,
+    "development": 0.7,
+    "derivatives": 0.5,
+    "declining": 0.3,
+    "distribution": 0.6,
+    "debt ceiling": 0.2,
+    "decline rate": 0.2,
+    "dominance": 0.7,
+    "deregulation": 0.5,
+    "distressed": 0.2,
+    "downsize": 0.3,
+    "drain": 0.2,
+    "delisting": 0.1,
+    "doubt": 0.2,
+    "diminish": 0.3,
+    "declining market": 0.3,
+    "deterioration": 0.2,
+    "diversification": 0.7,
+    "direct investment": 0.7,
+    "downward": 0.2,
+    "danger": 0.1,
+    "decline in-sales": 0.2,
+    "debt reduction": 0.6,
+    "discrepancy": 0.3,
+    "debt to equity": 0.4,
+    "dismantling": 0.3,
+    "deflation": 0.2,
+    "debtor": 0.3,
+    "debt servicing": 0.3,
+    "dominant": 0.7,
+    "diversified": 0.7,
+    "dormant": 0.3,
+    "downward spiral": 0.2,
+    "dysfunction": 0.1,
+
+    "equity": 0.8,
+    "earnings": 0.8,
+    "emerging": 0.7,
+    "expansion": 0.8,
+    "efficiency": 0.7,
+    "exit": 0.5,
+    "estimation": 0.7,
+    "expenditure": 0.5,
+    "enterprise": 0.7,
+    "evaluation": 0.6,
+    "euro": 0.7,
+    "equilibrium": 0.6,
+    "economic": 0.7,
+    "endowment": 0.7,
+    "elevate": 0.8,
+    "exceed": 0.8,
+    "expectation": 0.7,
+    "excess": 0.3,
+    "enrichment": 0.8,
+    "evidence": 0.6,
+    "exposure": 0.5,
+    "encouragement": 0.7,
+    "evaluation": 0.6,
+    "enterprise value": 0.7,
+    "employer": 0.6,
+    "equity market": 0.7,
+    "extraction": 0.5,
+    "exclusivity": 0.7,
+    "escrow": 0.6,
+    "emission": 0.5,
+    "exodus": 0.2,
+    "evasion": 0.1,
+    "equitable": 0.7,
+    "equilibrium price": 0.6,
+    "empowerment": 0.7,
+    "examination": 0.5,
+    "empirical": 0.6,
+    "effort": 0.7,
+    "equivalent": 0.6,
+    "elasticity": 0.6,
+    "entitlement": 0.6,
+    "enactment": 0.5,
+    "enforce": 0.6,
+    "establishment": 0.7,
+    "enlightenment": 0.7,
+    "equity fund": 0.7,
+
+    "financial": 0.8,
+    "fund": 0.8,
+    "forecast": 0.7,
+    "failure": 0.2,
+    "fluctuation": 0.3,
+    "funding": 0.7,
+    "profit": 0.8,
+    "flexibility": 0.7,
+    "favorable": 0.8,
+    "fall": 0.2,
+    "fraud": 0.1,
+    "fiscal": 0.6,
+    "futures": 0.6,
+    "fee": 0.5,
+    "flow": 0.7,
+    "facility": 0.6,
+    "focus": 0.7,
+    "fintech": 0.7,
+    "finance": 0.8,
+    "foreign": 0.6,
+    "fast track": 0.7,
+    "foreclosure": 0.1,
+    "failing": 0.2,
+    "frenzy": 0.3,
+    "fallout": 0.2,
+    "failure rate": 0.2,
+    "fundamentals": 0.7,
+    "freeze": 0.3,
+    "flare": 0.2,
+    "forecasting": 0.7,
+    "fraudulent": 0.1,
+    "favorable outlook": 0.8,
+    "financing": 0.7,
+    "fifth quarter": 0.6,
+    "fractional": 0.6,
+    "federal": 0.6,
+    "flow through": 0.7,
+    "forward looking": 0.7,
+    "fledgling": 0.5,
+    "fire sale": 0.1,
+    "full disclosure": 0.7,
+    "financial innovation": 0.7,
+    "fiscal policy": 0.6,
+    "free market": 0.7,
+    "falling prices": 0.3,
+    "falling price": 0.3,
+    "falling": 0.3,
+
+    "growth": 0.8,
+    "growths": 0.8,
+    "gain": 0.9,
+    "gains": 0.9,
+    "growth rate": 0.8,
+    "gains": 0.9,
+    "guarantee": 0.8,
+    "government": 0.7,
+    "gross": 0.7,
+    "global": 0.7,
+    "green": 0.8,
+    "grants": 0.7,
+    "guidance": 0.7,
+    "glut": 0.2,
+    "gap": 0.3,
+    "gloom": 0.2,
+    "grave": 0.1,
+    "gridlock": 0.3,
+    "grind": 0.3,
+    "gross margin": 0.7,
+    "gross product": 0.7,
+    "gains per share": 0.8,
+    "geopolitical": 0.6,
+    "gdp": 0.7,
+    "greenfield": 0.7,
+    "governance": 0.6,
+    "garnishment": 0.2,
+    "growing market": 0.8,
+    "government debt": 0.3,
+    "garnishee": 0.2,
+    "globalization": 0.6,
+    "grip": 0.3,
+    "gap analysis": 0.5,
+    "global demand": 0.7,
+    "gains tax": 0.5,
+    "gross revenue": 0.7,
+    "goodwill": 0.6,
+    "graft": 0.1,
+    "gold": 0.8,
+    "guarantor": 0.6,
+    "growth stock": 0.8,
+    "good debt": 0.7,
+    "global recession": 0.2,
+
+    "hike": 0.8,
+    "high": 0.8,
+    "highs": 0.8,
+    "hub": 0.6,
+    "hedge": 0.7,
+    "holding": 0.7,
+    "holdings": 0.7,
+    "hit": 0.3,
+    "hurdle": 0.4,
+    "harvest": 0.7,
+    "healthy": 0.8,
+    "hoarding": 0.2,
+    "heading": 0.6,
+    "headwind": 0.3,
+    "headline": 0.6,
+    "hedging": 0.7,
+    "hyperinflation": 0.2,
+    "high risk": 0.3,
+    "high risks": 0.3,
+    "hedge fund": 0.6,
+    "housing": 0.7,
+    "holding company": 0.7,
+    "harmonic": 0.6,
+    "high yield": 0.7,
+    "healthy growth": 0.8,
+    "hypothetical": 0.5,
+    "haircut": 0.2,
+    "hold": 0.6,
+    "harness": 0.7,
+    "hype": 0.4,
+    "high performance": 0.8,
+    "household": 0.6,
+    "high value": 0.8,
+    "hollow": 0.2,
+    "hunting": 0.6,
+    "headcount": 0.6,
+    "hasty": 0.3,
+    "healthcare": 0.7,
+    "hustle": 0.4,
+    "hardship": 0.2,
+    "hard asset": 0.7,
+    "hollowed out": 0.2,
+    "heightened": 0.3,
+    "heavily indebted": 0.2,
+    "harbinger": 0.3,
+
+    "income": 0.8,
+    "investment": 0.8,
+    "inflation": 0.3,
+    "inflate": 0.3,
+    "increase": 0.7,
+    "impact": 0.6,
+    "improvement": 0.8,
+    "interest": 0.7,
+    "insight": 0.7,
+    "insights": 0.7,
+    "investor": 0.8,
+    "indicator": 0.6,
+    "inflationary": 0.3,
+    "innovative": 0.8,
+    "insurance": 0.7,
+    "initial": 0.6,
+    "institution": 0.7,
+    "integrity": 0.8,
+    "investment grade": 0.7,
+    "intelligence": 0.7,
+    "increase rate": 0.6,
+    "inventory": 0.6,
+    "indebtedness": 0.2,
+    "interest rate": 0.6,
+    "impactful": 0.7,
+    "incursion": 0.3,
+    "illiquid": 0.2,
+    "illiquidity": 0.2,
+    "infrastructure": 0.7,
+    "impairment": 0.2,
+    "insolvency": 0.1,
+    "income tax": 0.4,
+    "incentive": 0.7,
+    "issue": 0.5,
+    "input": 0.6,
+    "inflated": 0.3,
+    "inflating": 0.3,
+    "insider": 0.5,
+    "intangible": 0.6,
+    "increased demand": 0.7,
+    "internal": 0.6,
+    "independent": 0.7,
+    "invest": 0.8,
+    "incorporation": 0.6,
+    "illegal": 0.1,
+    "intervention": 0.4,
+    "investing": 0.8,
+    "impaired": 0.2,
+    "interest bearing": 0.7,
+    "interest": 0.7,
+    "interesting": 0.6,
+    "interested": 0.7,
+
+    "job": 0.7,
+    "jobs": 0.7,
+    "judgment": 0.6,
+    "judgments": 0.6,
+    "joint": 0.7,
+    "jump": 0.8,
+    "jumps": 0.8,
+    "junks": 0.2,
+    "junk": 0.2,
+    "justice": 0.8,
+    "juncture": 0.5,
+    "justification": 0.6,
+    "jittery": 0.3,
+    "journey": 0.7,
+    "juggle": 0.5,
+    "jackpot": 0.9,
+    "jackpots": 0.9,
+    "jockey": 0.6,
+    "jumpstart": 0.8,
+    "juggernaut": 0.7,
+    "jockeying": 0.6,
+    "justice system": 0.6,
+    "job market": 0.7,
+    "jack up": 0.3,
+    "judicious": 0.7,
+    "jobless": 0.2,
+
+    "key": 0.7,
+    "keys": 0.7,
+    "knowledge": 0.7,
+    "kpi": 0.7,
+    "kingdom": 0.6,
+    "kicker": 0.6,
+    "knockout": 0.7,
+    "keep": 0.6,
+    "keynote": 0.7,
+    "keystone": 0.7,
+    "knot": 0.3,
+    "kickback": 0.2,
+    "keen": 0.7,
+    "kettle": 0.5,
+    "kill": 0.2,
+    "key player": 0.8,
+    "kind": 0.6,
+    "kerfuffle": 0.3,
+    "kickstart": 0.7,
+    "knock on": 0.4,
+    "knocks on": 0.4,
+    "knocked on": 0.4,
+    "kudos": 0.8,
+
+    "loss": 0.2,
+    "losses": 0.2,
+    "lost": 0.2,
+    "liquidity": 0.6,
+    "loan": 0.7,
+    "leveraged": 0.5,
+    "liability": 0.3,
+    "liquid": 0.7,
+    "long": 0.7,
+    "lift": 0.8,
+    "low": 0.3,
+    "leading": 0.8,
+    "leverage": 0.6,
+    "lending": 0.7,
+    "losses": 0.2,
+    "lead": 0.8,
+    "lag": 0.4,
+    "liquidation": 0.1,
+    "low risk": 0.7,
+    "low risks": 0.7,
+    "low cost": 0.7,
+    "limit": 0.5,
+    "limits": 0.5,
+    "limited": 0.5,
+    "lucrative": 0.9,
+    "late": 0.3,
+    "lack": 0.2,
+    "long term": 0.8,
+    "long terms": 0.8,
+    "law": 0.6,
+    "large cap": 0.7,
+    "lookout": 0.6,
+    "line item": 0.5,
+    "long position": 0.7,
+    "long positions": 0.7,
+    "leading indicator": 0.7,
+    "liquid assets": 0.7,
+    "lull": 0.3,
+    "leveraged buyout": 0.6,
+    "low growth": 0.3,
+    "loss making": 0.2,
+    "leveraging": 0.6,
+    "limited": 0.5,
+    "launch": 0.7,
+    "low value": 0.3,
+    "lifetime value": 0.7,
+    "liquidate": 0.1,
+
+    "market": 0.8,
+    "markets": 0.8,
+    "management": 0.7,
+    "money": 0.8,
+    "merger": 0.8,
+    "magnitude": 0.7,
+    "margin": 0.7,
+    "momentum": 0.8,
+    "move": 0.7,
+    "moves": 0.7,
+    "moved": 0.7,
+    "maturity": 0.7,
+    "million": 0.7,
+    "monitor": 0.6,
+    "master": 0.8,
+    "markup": 0.7,
+    "minimize": 0.7,
+    "maximization": 0.8,
+    "maximizations": 0.8,
+    "market share": 0.8,
+    "multiplier": 0.7,
+    "mechanism": 0.7,
+    "material": 0.6,
+    "modest": 0.6,
+    "manipulation": 0.2,
+    "marketplace": 0.7,
+    "margin call": 0.3,
+    "move up": 0.8,
+    "moves up": 0.8,
+    "moved up": 0.7,
+    "marginal": 0.6,
+    "model": 0.7,
+    "medium": 0.6,
+    "money market": 0.7,
+    "manufacture": 0.7,
+    "monetary": 0.7,
+    "markup pricing": 0.7,
+    "monthly": 0.6,
+    "maturity date": 0.7,
+    "monitoring": 0.6,
+    "market risk": 0.4,
+    "market risks": 0.4,
+    "mid term": 0.6,
+    "mid terms": 0.6,
+    "money supply": 0.6,
+    "move forward": 0.7,
+    "modification": 0.6,
+    "mining": 0.6,
+    "multinational": 0.7,
+    "multinationals": 0.7,
+    "market value": 0.8,
+    "market values": 0.8,
+
+    "net": 0.8,
+    "neutral": 0.5,
+    "niche": 0.7,
+    "negotiation": 0.7,
+    "note": 0.6,
+    "narrative": 0.6,
+    "non performing": 0.2,
+    "nominal": 0.6,
+    "nucleus": 0.7,
+    "narrow": 0.4,
+    "national": 0.6,
+    "new": 0.7,
+    "nondiscretionary": 0.6,
+    "negative": 0.2,
+    "next": 0.6,
+    "nonprofit": 0.7,
+    "new product": 0.7,
+    "new products": 0.7,
+    "non cash": 0.6,
+    "net profit": 0.8,
+    "net profits": 0.8,
+    "note worthy": 0.7,
+    "non essential": 0.3,
+    "net worth": 0.8,
+    "narrative driven": 0.6,
+    "nurture": 0.7,
+    "non compliant": 0.2,
+    "nervous": 0.3,
+    "non recourse": 0.5,
+    "no growth": 0.3,
+    "no growths": 0.3,
+    "new investment": 0.8,
+    "new investments": 0.8,
+    "nominated": 0.6,
+    "non cyclical": 0.7,
+    "noteworthy": 0.7,
+    "negotiable": 0.6,
+    "normalization": 0.7,
+    "non disclosure": 0.5,
+    "net gain": 0.8,
+    "net gains": 0.8,
+
+    "offer": 0.7,
+    "offers": 0.7,
+    "offered": 0.6,
+    "outlook": 0.7,
+    "outlooks": 0.7,
+    "option": 0.7,
+    "options": 0.7,
+    "overperform": 0.8,
+    "outperform": 0.8,
+    "optimistic": 0.8,
+    "opportunity": 0.8,
+    "opportunities": 0.8,
+    "organic": 0.7,
+    "overdue": 0.3,
+    "overhead": 0.5,
+    "overvalued": 0.2,
+    "obligation": 0.4,
+    "obligations": 0.4,
+    "ownership": 0.7,
+    "offset": 0.6,
+    "outflow": 0.3,
+    "overleveraged": 0.2,
+    "operational": 0.6,
+    "overhaul": 0.6,
+    "optionality": 0.7,
+    "opting": 0.6,
+    "overestimate": 0.3,
+    "outstanding": 0.8,
+    "overcapacity": 0.3,
+    "overreaction": 0.3,
+    "overexposure": 0.3,
+    "overperformance": 0.8,
+    "obsolescence": 0.2,
+    "outsourcing": 0.6,
+    "overfunded": 0.7,
+    "optimization": 0.7,
+    "optimizations": 0.7,
+    "operating profit": 0.8,
+    "overstretch": 0.3,
+    "oversupply": 0.2,
+    "offerings": 0.7,
+    "on track": 0.7,
+    "overcome": 0.8,
+    "oscillation": 0.4,
+    "overproduction": 0.3,
+    "organic growth": 0.8,
+    "organic growths": 0.8,
+}
+
+def calculate_sentiment(titles):
+    """ Calcola il sentiment medio di una lista di titoli di notizie. """
+    total_sentiment = 0
+    num_titles = len(titles)
+    for title in titles:
+        sentiment_score = 0
+        count = 0
+        for keyword, score in sentiment_dict.items():
+            if re.search(r'\b' + re.escape(keyword) + r'\b', title.lower()):
+                sentiment_score += score
+                count += 1
+        if count != 0:
+                total_sentiment += (sentiment_score / count)
+    
+    if num_titles > 0:
+        average_sentiment = total_sentiment / num_titles
+    else:
+        average_sentiment = 0  # Se non ci sono titoli, il sentiment è 0
+    
+    return average_sentiment
+
+def get_sentiment_for_all_symbols(symbol_list):
+    sentiment_results = {}
+    
+    for symbol in symbol_list:
+        titles = get_stock_news(symbol)
+        sentiment = calculate_sentiment(titles)
+        sentiment_results[symbol] = sentiment
+
+        file_path = f"results/{symbol.upper()}_RESULT.html"
+
+        html_content = []
+        html_content.append(f"<html><head><title>Previsione per {symbol}</title></head><body>")
+        html_content.append(f"<h1>Previsione per: ({symbol})</h1>")
+
+        html_content.append("<table border='1'><tr><th>Probability</th></tr>")
+        html_content.append("<tr>")
+        html_content.append(f"<td>{sentiment * 100}</td>")
+        html_content.append("</table></body></html>")
+        
+        try:
+            contents = repo.get_contents(file_path)
+            repo.update_file(contents.path, f"Updated probability for {symbol}", "\n".join(html_content), contents.sha)
+        except Exception as e:
+            # Se il file non esiste, lo creiamo
+            repo.create_file(file_path, f"Created probability for {symbol}", "\n".join(html_content))
+    
+    return sentiment_results
+
+
+
+# Calcolare il sentiment medio per ogni simbolo
+sentiment_for_symbols = get_sentiment_for_all_symbols(symbol_list)
+
+# Ordinare i simboli in base al sentiment medio (decrescente)
+sorted_symbols = sorted(sentiment_for_symbols.items(), key=lambda x: x[1], reverse=True)
+
+
+# Crea il contenuto del file HTML
+html_content = []
+html_content.append("<html><head><title>Classifica dei Simboli</title></head><body>")
+html_content.append("<h1>Classifica dei Simboli in Base alla Probabilità di Crescita</h1>")
+html_content.append("<table border='1'><tr><th>Simbolo</th><th>Probabilità</th></tr>")
+    
+# Aggiungi ogni simbolo e la sua probabilità alla tabella HTML
+for symbol, probability in sorted_symbols:
+        html_content.append(f"<tr><td>{symbol}</td><td>{probability*100:.2f}%</td></tr>")
+    
+html_content.append("</table></body></html>")
+
+try:
+        contents = repo.get_contents(file_path)
+        repo.update_file(contents.path, "Updated classification", "\n".join(html_content), contents.sha)
+except GithubException:
+        # Se il file non esiste, creiamo un nuovo file
+        repo.create_file(file_path, "Created classification", "\n".join(html_content))
+    
+print("Classifica aggiornata con successo!")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''
+sentiment_dict = {
     "gain": 0.9,
     "profit": 0.8,
     "growth": 0.7,
@@ -498,82 +1293,4 @@ sentiment_dict = {
     "asset management": 0.7,
     "overleveraged": 0.1
 }
-
-def calculate_sentiment(titles):
-    """ Calcola il sentiment medio di una lista di titoli di notizie. """
-    total_sentiment = 0
-    num_titles = len(titles)
-    for title in titles:
-        sentiment_score = 0
-        count = 0
-        for keyword, score in sentiment_dict.items():
-            if re.search(r'\b' + re.escape(keyword) + r'\b', title.lower()):
-                sentiment_score += score
-                count += 1
-        if count != 0:
-                total_sentiment += (sentiment_score / count)
-    
-    if num_titles > 0:
-        average_sentiment = total_sentiment / num_titles
-    else:
-        average_sentiment = 0  # Se non ci sono titoli, il sentiment è 0
-    
-    return average_sentiment
-
-def get_sentiment_for_all_symbols(symbol_list):
-    sentiment_results = {}
-    
-    for symbol in symbol_list:
-        titles = get_stock_news(symbol)
-        sentiment = calculate_sentiment(titles)
-        sentiment_results[symbol] = sentiment
-
-        file_path = f"results/{symbol.upper()}_RESULT.html"
-
-        html_content = []
-        html_content.append(f"<html><head><title>Previsione per {symbol}</title></head><body>")
-        html_content.append(f"<h1>Previsione per: ({symbol})</h1>")
-
-        html_content.append("<table border='1'><tr><th>Probability</th></tr>")
-        html_content.append("<tr>")
-        html_content.append(f"<td>{sentiment * 100}</td>")
-        html_content.append("</table></body></html>")
-        
-        try:
-            contents = repo.get_contents(file_path)
-            repo.update_file(contents.path, f"Updated probability for {symbol}", "\n".join(html_content), contents.sha)
-        except Exception as e:
-            # Se il file non esiste, lo creiamo
-            repo.create_file(file_path, f"Created probability for {symbol}", "\n".join(html_content))
-    
-    return sentiment_results
-
-
-
-# Calcolare il sentiment medio per ogni simbolo
-sentiment_for_symbols = get_sentiment_for_all_symbols(symbol_list)
-
-# Ordinare i simboli in base al sentiment medio (decrescente)
-sorted_symbols = sorted(sentiment_for_symbols.items(), key=lambda x: x[1], reverse=True)
-
-
-# Crea il contenuto del file HTML
-html_content = []
-html_content.append("<html><head><title>Classifica dei Simboli</title></head><body>")
-html_content.append("<h1>Classifica dei Simboli in Base alla Probabilità di Crescita</h1>")
-html_content.append("<table border='1'><tr><th>Simbolo</th><th>Probabilità</th></tr>")
-    
-# Aggiungi ogni simbolo e la sua probabilità alla tabella HTML
-for symbol, probability in sorted_symbols:
-        html_content.append(f"<tr><td>{symbol}</td><td>{probability*100:.2f}%</td></tr>")
-    
-html_content.append("</table></body></html>")
-
-try:
-        contents = repo.get_contents(file_path)
-        repo.update_file(contents.path, "Updated classification", "\n".join(html_content), contents.sha)
-except GithubException:
-        # Se il file non esiste, creiamo un nuovo file
-        repo.create_file(file_path, "Created classification", "\n".join(html_content))
-    
-print("Classifica aggiornata con successo!")
+'''
