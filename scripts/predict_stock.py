@@ -3,7 +3,7 @@ import re
 import feedparser
 import os
 
-GITHUB_TOKEN = os.getenv("MY_GITHUB_PAT")
+GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 REPO_NAME = "VecorDEV/dati-finanziari"
 
 
