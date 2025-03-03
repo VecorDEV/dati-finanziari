@@ -8,6 +8,7 @@ REPO_NAME = "VecorDEV/dati-finanziari"
 
 # Salva il file HTML nella cartella 'results'
 file_path = "results/classifica.html"
+news_path = "results/news.html"
     
 # Salva il file su GitHub
 github = Github(GITHUB_TOKEN)
@@ -1176,6 +1177,7 @@ def calculate_sentiment(titles):
 
 def get_sentiment_for_all_symbols(symbol_list):
     sentiment_results = {}
+    all_news_entries = []  # Lista per salvare tutti i titoli e sentimenti
     
     for symbol in symbol_list:
         titles = get_stock_news(symbol)
@@ -1183,54 +1185,66 @@ def get_sentiment_for_all_symbols(symbol_list):
         sentiment_results[symbol] = sentiment
 
         file_path = f"results/{symbol.upper()}_RESULT.html"
+        html_content = [f"<html><head><title>Previsione per {symbol}</title></head><body>",
+                        f"<h1>Previsione per: ({symbol})</h1>",
+                        "<table border='1'><tr><th>Probability</th></tr>",
+                        f"<tr><td>{sentiment * 100:.2f}%</td></tr>",
+                        "</table></body></html>"]
 
-        html_content = []
-        html_content.append(f"<html><head><title>Previsione per {symbol}</title></head><body>")
-        html_content.append(f"<h1>Previsione per: ({symbol})</h1>")
-
-        html_content.append("<table border='1'><tr><th>Probability</th></tr>")
-        html_content.append("<tr>")
-        html_content.append(f"<td>{sentiment * 100}</td>")
-        html_content.append("</table></body></html>")
-        
         try:
             contents = repo.get_contents(file_path)
             repo.update_file(contents.path, f"Updated probability for {symbol}", "\n".join(html_content), contents.sha)
-        except Exception as e:
-            # Se il file non esiste, lo creiamo
+        except GithubException:
             repo.create_file(file_path, f"Created probability for {symbol}", "\n".join(html_content))
-    
-    return sentiment_results
 
+        # Aggiungi le notizie e i sentimenti alla lista per il file `news.html`
+        for title in titles:
+            title_sentiment = calculate_sentiment([title])  # Calcola il sentiment specifico del titolo
+            all_news_entries.append((symbol, title, title_sentiment))
 
+    return sentiment_results, all_news_entries
 
 # Calcolare il sentiment medio per ogni simbolo
-sentiment_for_symbols = get_sentiment_for_all_symbols(symbol_list)
+sentiment_for_symbols, all_news_entries = get_sentiment_for_all_symbols(symbol_list)
 
 # Ordinare i simboli in base al sentiment medio (decrescente)
 sorted_symbols = sorted(sentiment_for_symbols.items(), key=lambda x: x[1], reverse=True)
 
+# Crea il contenuto del file classifica.html
+html_classifica = ["<html><head><title>Classifica dei Simboli</title></head><body>",
+                   "<h1>Classifica dei Simboli in Base alla Probabilità di Crescita</h1>",
+                   "<table border='1'><tr><th>Simbolo</th><th>Probabilità</th></tr>"]
 
-# Crea il contenuto del file HTML
-html_content = []
-html_content.append("<html><head><title>Classifica dei Simboli</title></head><body>")
-html_content.append("<h1>Classifica dei Simboli in Base alla Probabilità di Crescita</h1>")
-html_content.append("<table border='1'><tr><th>Simbolo</th><th>Probabilità</th></tr>")
-    
-# Aggiungi ogni simbolo e la sua probabilità alla tabella HTML
 for symbol, probability in sorted_symbols:
-        html_content.append(f"<tr><td>{symbol}</td><td>{probability*100:.2f}%</td></tr>")
-    
-html_content.append("</table></body></html>")
+    html_classifica.append(f"<tr><td>{symbol}</td><td>{probability*100:.2f}%</td></tr>")
+
+html_classifica.append("</table></body></html>")
 
 try:
-        contents = repo.get_contents(file_path)
-        repo.update_file(contents.path, "Updated classification", "\n".join(html_content), contents.sha)
+    contents = repo.get_contents(file_path)
+    repo.update_file(contents.path, "Updated classification", "\n".join(html_classifica), contents.sha)
 except GithubException:
-        # Se il file non esiste, creiamo un nuovo file
-        repo.create_file(file_path, "Created classification", "\n".join(html_content))
-    
+    repo.create_file(file_path, "Created classification", "\n".join(html_classifica))
+
 print("Classifica aggiornata con successo!")
+
+# Creazione del file news.html con i titoli e il sentiment
+html_news = ["<html><head><title>Notizie e Sentiment</title></head><body>",
+             "<h1>Notizie Finanziarie con Sentiment</h1>",
+             "<table border='1'><tr><th>Simbolo</th><th>Notizia</th><th>Sentiment</th></tr>"]
+
+for symbol, title, sentiment in all_news_entries:
+    html_news.append(f"<tr><td>{symbol}</td><td>{title}</td><td>{sentiment:.2f}</td></tr>")
+
+html_news.append("</table></body></html>")
+
+try:
+    contents = repo.get_contents(news_path)
+    repo.update_file(contents.path, "Updated news sentiment", "\n".join(html_news), contents.sha)
+except GithubException:
+    repo.create_file(news_path, "Created news sentiment", "\n".join(html_news))
+
+print("News aggiornata con successo!")
 
 
 
