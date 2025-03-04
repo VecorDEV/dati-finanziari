@@ -1171,7 +1171,7 @@ def calculate_sentiment(titles):
     if num_titles > 0:
         average_sentiment = total_sentiment / num_titles
     else:
-        average_sentiment = 0  # Se non ci sono titoli, il sentiment è 0
+        average_sentiment = 0.5  # Se non ci sono titoli, il sentiment è 0
     
     return average_sentiment
 
