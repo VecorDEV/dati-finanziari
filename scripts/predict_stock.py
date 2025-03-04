@@ -1188,7 +1188,7 @@ def get_sentiment_for_all_symbols(symbol_list):
         html_content = [f"<html><head><title>Previsione per {symbol}</title></head><body>",
                         f"<h1>Previsione per: ({symbol})</h1>",
                         "<table border='1'><tr><th>Probability</th></tr>",
-                        f"<tr><td>{sentiment * 100:.2f}%</td></tr>",
+                        f"<tr><td>{sentiment * 100}</td></tr>",
                         "</table></body></html>"]
 
         try:
