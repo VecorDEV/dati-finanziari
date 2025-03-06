@@ -1246,7 +1246,7 @@ def normalize_text(text):
     text = re.sub(r'\s+', ' ', text).strip()  # Rimuovi spazi multipli e spazi iniziali/finali
     return text
 
-def calculate_sentiment(titles, sentiment_dict):
+def calculate_sentiment(titles):
     """Calcola il sentiment medio di una lista di titoli di notizie con gestione delle negazioni."""
     negation_words = {    # Parole di negazione
     "not", "never", "no", "without", "none", "nobody", "nowhere", "nothing", "neither", "nor",  
