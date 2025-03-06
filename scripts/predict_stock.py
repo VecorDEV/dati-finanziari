@@ -1207,7 +1207,7 @@ sentiment_dict = {
     "zenith": 0.8,
     "zero coupon": 0.6,
     "zero inflation": 0.7,
-    "zero sum": 0.4
+    "zero sum": 0.4,
 
     #Figure importanti
     "warren buffett": 0.95,
