@@ -1246,30 +1246,40 @@ def normalize_text(text):
     text = re.sub(r'\s+', ' ', text).strip()  # Rimuovi spazi multipli e spazi iniziali/finali
     return text
 
-def calculate_sentiment(titles):
-    """ Calcola il sentiment medio di una lista di titoli di notizie con normalizzazione. """
+def calculate_sentiment(titles, sentiment_dict):
+    """Calcola il sentiment medio di una lista di titoli di notizie con gestione delle negazioni."""
+    negation_words = {    # Parole di negazione
+    "not", "never", "no", "without", "none", "nobody", "nowhere", "nothing", "neither", "nor",  
+    "less", "little", "few", "hardly", "barely", "scarcely", "rarely", "unlikely", "declining",  
+    "down", "drop", "reduced", "weaker", "lower", "limited", "shrinking", "slowing", "small"
+}
     total_sentiment = 0
     num_titles = len(titles)
-    
+
     for title in titles:
-        normalized_title = normalize_text(title)  # Normalizza il titolo
+        normalized_title = title.lower()  # Normalizza il titolo
+        words = normalized_title.split()  # Divide il titolo in parole
         sentiment_score = 0
         count = 0
 
-        for keyword, score in sentiment_dict.items():
-            if re.search(r'\b' + re.escape(keyword) + r'\b', normalized_title):
+        for i, word in enumerate(words):
+            if word in sentiment_dict:  # Se la parola è nel dizionario di sentiment
+                score = sentiment_dict[word]
+
+                # Controlla se c'è una negazione prima (max 2 parole di distanza)
+                if i > 0 and words[i-1] in negation_words:
+                    score = 1 - score  # Inverte il sentiment
+
                 sentiment_score += score
                 count += 1
 
-        if count != 0:
-            total_sentiment += (sentiment_score / count)
+        if count > 0:
+            total_sentiment += sentiment_score / count  # Media del titolo
+        else:
+            total_sentiment += 0.5  # Titolo neutro se non ha parole chiave
 
-    if num_titles > 0:
-        average_sentiment = total_sentiment / num_titles
-    else:
-        average_sentiment = 0.5  # Se non ci sono titoli, il sentiment è 0
-    
-    return average_sentiment
+    return total_sentiment / num_titles if num_titles > 0 else 0.5
+
 
 def get_sentiment_for_all_symbols(symbol_list):
     sentiment_results = {}
