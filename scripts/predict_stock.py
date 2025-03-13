@@ -245,7 +245,7 @@ sentiment_dict = {
     "contraction": 0.3,
     "conservative": 0.4,
     "corruption": 0.0,
-    "corrupted": 0.0
+    "corrupted": 0.0,
     "concerns": 0.3,
     "concern": 0.3,
     "capital gains": 0.8,
