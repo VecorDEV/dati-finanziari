@@ -1176,20 +1176,20 @@ def calculate_sentiment(titles):
     num_titles = len(titles)
     
     for title in titles:
-        normalized_title = normalize_text(title)  # Normalizza il titolo
-        sentiment_score = 0
-        count = 0
+    normalized_title = normalize_text(title)  # Normalizza il titolo
+    sentiment_score = 0
+    count = 0
 
-        for keyword, score in sentiment_dict.items():
-            if re.search(r'\b' + re.escape(keyword) + r'\b', normalized_title):
-                sentiment_score += score
-                count += 1
+    for keyword, score in sentiment_dict.items():
+        if re.search(r'\b' + re.escape(keyword) + r'\b', normalized_title):
+            sentiment_score += score
+            count += 1
 
-        if count != 0:
-            total_sentiment += (sentiment_score / count)
-        else:
-            total_sentiment = 0.5 #Vuol dire che non ha trovato nessun riscontro nella notizia e la setta come neutra
-
+    if count != 0:
+        total_sentiment += (sentiment_score / count)
+    else:
+        total_sentiment += 0.5  # Assegna 0.5 se nessuna parola viene trovata
+        
     if num_titles > 0:
         average_sentiment = total_sentiment / num_titles
     else:
