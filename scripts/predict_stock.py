@@ -1187,6 +1187,8 @@ def calculate_sentiment(titles):
 
         if count != 0:
             total_sentiment += (sentiment_score / count)
+        else:
+            total_sentiment = 0.5 #Vuol dire che non ha trovato nessun riscontro nella notizia e la setta come neutra
 
     if num_titles > 0:
         average_sentiment = total_sentiment / num_titles
