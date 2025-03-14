@@ -275,6 +275,7 @@ sentiment_dict = {
     "decline": 0.2,
     "depreciation": 0.3,
     "drop": 0.2,
+    "drops": 0.2,
     "demand": 0.8,
     "downturn": 0.2,
     "devaluation": 0.3,
@@ -839,6 +840,9 @@ sentiment_dict = {
     "progress": 0.8,
     "problem": 0.15,
     "problems": 0.1,
+    "product release": 0.7,
+    "product releases": 0.7,
+    "product released": 0.7,
 
     "quality": 0.6,
     "quantitative": 0.55,
@@ -853,6 +857,7 @@ sentiment_dict = {
     "quality control": 0.6,
     "quaint": 0.6,
 
+    "rapid": 0.7,
     "revenue": 0.8,
     "revenues": 0.8,
     "recovery": 0.7,
