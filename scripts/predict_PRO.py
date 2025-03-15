@@ -4,14 +4,16 @@ from bs4 import BeautifulSoup
 # URL della pagina di CityFalcon per Tesla
 url = 'https://www.cityfalcon.ai/news/directory/stocks/tesla-tsla/news'
 
-# Fare la richiesta HTTP per ottenere la pagina
-response = requests.get(url)
+# Intestazioni per imitare un browser reale
+headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36'
+}
+
+# Fare la richiesta HTTP con intestazione
+response = requests.get(url, headers=headers)
 
 # Verifica che la richiesta sia stata eseguita con successo
 if response.status_code == 200:
-    # Stampa una parte del contenuto HTML per il debug
-    print(response.text[:1000])  # Stampa i primi 1000 caratteri dell'HTML per verificare il contenuto
-
     # Usa BeautifulSoup per analizzare il contenuto HTML
     soup = BeautifulSoup(response.content, 'html.parser')
 
