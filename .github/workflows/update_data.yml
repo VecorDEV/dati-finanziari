@@ -24,6 +24,7 @@ jobs:
         pip install requests beautifulsoup4 scikit-learn xgboost PyGithub pandas numpy
         pip install feedparser
         pip install selenium
+        pip install selenium webdriver-manager
         
 
     - name: Run prediction script
