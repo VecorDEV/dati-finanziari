@@ -13,7 +13,7 @@ if response.status_code == 200:
     soup = BeautifulSoup(response.content, 'html.parser')
 
     # Cerca l'elemento che contiene il sentiment, usando la classe fornita
-    sentiment_element = soup.find('span', class_='styles-module__range_value___089bM')  # Usa la classe che hai trovato
+    sentiment_element = soup.find('span', class_='styles-module__range_value___O89bM')  # Usa la classe che hai trovato
 
     # Verifica se l'elemento è stato trovato
     if sentiment_element:
