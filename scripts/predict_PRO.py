@@ -9,6 +9,9 @@ response = requests.get(url)
 
 # Verifica che la richiesta sia stata eseguita con successo
 if response.status_code == 200:
+    # Stampa una parte del contenuto HTML per il debug
+    print(response.text[:1000])  # Stampa i primi 1000 caratteri dell'HTML per verificare il contenuto
+
     # Usa BeautifulSoup per analizzare il contenuto HTML
     soup = BeautifulSoup(response.content, 'html.parser')
 
