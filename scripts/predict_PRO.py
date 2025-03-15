@@ -22,7 +22,7 @@ driver.get(url)
 time.sleep(5)
 
 # Trova l'elemento che contiene la percentuale del sentiment usando la classe identificata
-sentiment_element = driver.find_element(By.CLASS_NAME, 'styles-module__range_value___089bM')
+sentiment_element = driver.find_element(By.CLASS_NAME, 'styles-module__range_value___O89bM')
 
 # Ottieni il testo del sentiment
 sentiment_text = sentiment_element.text
