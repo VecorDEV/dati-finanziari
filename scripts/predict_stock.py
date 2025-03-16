@@ -235,7 +235,11 @@ sentiment_dict = {
     "compensation": 0.7,
     "capital flow": 0.6,
     "corruption scandal": 0.1,
-    
+
+    "damage": 0.1,
+    "damages": 0.1,
+    "damaged": 0.1,
+    "damaging": 0.1,
     "debt": 0.2,
     "deal": 0.8,
     "deals": 0.8,
