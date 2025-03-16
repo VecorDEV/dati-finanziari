@@ -175,6 +175,8 @@ sentiment_dict = {
     "capital": 0.7,
     "cash": 0.65,
     "crash": 0.1,
+    "crashes": 0.1,
+    "crashed": 0.1,
     "cautious": 0.35,
     "caution": 0.35,
     "cautiously": 0.65,
