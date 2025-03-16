@@ -253,7 +253,7 @@ sentiment_dict = {
     "depreciation": 0.3,
     "drop": 0.2,
     "drops": 0.2,
-    "demand": 0.8,
+    "demand": 0.7,
     "downturn": 0.2,
     "down": 0.3,
     "downgrade": 0.25,
