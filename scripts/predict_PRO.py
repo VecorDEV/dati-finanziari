@@ -82,15 +82,17 @@ sentiment_dict = {
     "slightly": 0.5,  # Attenuatore
 }
 
-# Funzione per calcolare il punteggio del sentiment
 def calculate_sentiment(titles):
     total_sentiment = 0
     total_absolute_sentiment = 0  # Somma assoluta dei punteggi (per la normalizzazione)
 
     for title in titles:
-
+        print(f"Analyzing: {title}\n")
+        
         # Elaboriamo il testo con spaCy
         doc = nlp(title)
+
+        title_sentiment = 0  # Sentiment totale della notizia
 
         # Analizziamo le parole nel testo
         for token in doc:
@@ -99,37 +101,44 @@ def calculate_sentiment(titles):
                 word_sentiment = sentiment_dict[token.text.lower()]
                 total_absolute_sentiment += abs(word_sentiment)  # Sommiamo l'assoluto del punteggio
                 
+                # Stampa la parola e il suo punteggio
+                print(f"Word: {token.text} - Sentiment: {word_sentiment}")
+
                 # Se è un nome modificato da un aggettivo, modifichiamo il punteggio
                 if token.pos_ == "NOUN" or token.pos_ == "PROPN":
-                    # Controlliamo se l'aggettivo (aggettivi, avverbi) lo modifica
                     for child in token.children:
                         if child.pos_ == "ADJ" or child.pos_ == "ADV":
-                            # Modifichiamo il punteggio in base alla relazione
-                            word_sentiment += sentiment_dict.get(child.text.lower(), 0)
+                            adj_or_adv_sentiment = sentiment_dict.get(child.text.lower(), 0)
+                            print(f"  - {child.text} modifies {token.text} with sentiment: {adj_or_adv_sentiment}")
+                            word_sentiment += adj_or_adv_sentiment
                 
                 # Gestiamo gli avverbi che intensificano il verbo (come "sharply")
                 if token.pos_ == "VERB" and any(child.pos_ == "ADV" for child in token.children):
                     for child in token.children:
                         if child.pos_ == "ADV" and child.text.lower() in sentiment_dict:
                             word_sentiment *= sentiment_dict[child.text.lower()]
+                            print(f"  - {child.text} intensifies {token.text} with multiplier")
                 
-                # Sommiamo il punteggio del token
-                total_sentiment += word_sentiment
-    
+                # Sommiamo il punteggio del token alla notizia
+                title_sentiment += word_sentiment
+
         # Normalizziamo il punteggio per farlo rientrare tra -1 e 1
         if total_absolute_sentiment > 0:
-            normalized_sentiment = total_sentiment / total_absolute_sentiment
+            normalized_sentiment = title_sentiment / total_absolute_sentiment
             # Limitiamo il punteggio tra -1 e 1
             normalized_sentiment = max(-1, min(1, normalized_sentiment))
         else:
             normalized_sentiment = 0  # Nel caso in cui non ci siano parole con punteggio
+        
+        # Stampiamo il sentiment totale della notizia
+        print(f"Overall Sentiment for this title: {normalized_sentiment}\n")
+        
+        # Restituiamo la notizia e il sentiment finale
+        print(f"Final Sentiment: {title} - {normalized_sentiment}\n")
+    
 
-    print(title + "    -    " + str(normalized_sentiment))
-
-
+# Recuperiamo i titoli delle notizie per "TSLA" (come esempio)
 titles = get_stock_news("TSLA")
 
-# Calcoliamo il sentiment
+# Calcoliamo il sentiment per ogni titolo
 calculate_sentiment(titles)
-
-#print("Sentiment score:", sentiment_score)
