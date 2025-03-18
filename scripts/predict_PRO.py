@@ -14,43 +14,76 @@ def get_stock_news(symbol):
     feed = feedparser.parse(url)
     
     titles = [entry.title for entry in feed.entries]
-    #print(titles)
     return titles
 
 
 # Dizionario personalizzato di parole con i punteggi di sentiment
 sentiment_dict = {
-    "demand": 0.7,  # Positivo
-    "slower": -0.5,  # Negativo
-    "ai": 0.5,  # Positivo
-    "expansion": 0.6,  # Positivo
-    "growth": 0.8,  # Positivo
-    "production": 0.4,  # Positivo
-    "delays": -0.7,  # Negativo
-    "stock": 0.4,  # Positivo
-    "earnings": 0.9,  # Positivo
-    "plunges": -0.8,  # Molto negativo
-    "highs": 0.8,  # Positivo
-    "record": 0.9,  # Positivo
-    "issues": -0.6,  # Negativo
-    "hits": 0.5,  # Positivo
-    "drops": -0.8,  # Negativo
-    "sharply": 1.5,  # Intensificatore
-    "solid": 0.6,  # Positivo
-    "faces": 0.2,  # Neutrale, ma associato a sfide, quindi negativo
-    "challenges": -0.6,  # Negativo
-    "supply": -0.7,  # Negativo
-    "chain": -0.7,  # Negativo
-    "market": -0.6,  # Negativo
-    "saturation": -0.6,  # Negativo
-    "reports": 0.3,  # Positivo
-    "new": 0.0,  # Neutrale
-    "data": 0.4,  # Positivo
-    "center": 0.4,  # Positivo
+    # Parole Positive
+    "ai": 0.5,  
+    "boom": 0.8,  
+    "booming": 1.0,  
+    "earnings": 0.9,  
+    "expansion": 0.6,  
+    "highs": 0.8,  
+    "innovation": 0.7,  
+    "outperformance": 1.0,  
+    "outlook": 0.7,  
+    "profits": 0.9,  
+    "record": 1.0,  
+    "revenue": 0.9,  
+    "robust": 0.8,  
+
+    # Parole Negative
+    "challenges": -0.6,  
+    "crisis": -1.0,  
+    "decline": -0.7,  
+    "delays": -0.7,  
+    "faces": 0.2,  
+    "fall": -0.7,  
+    "issues": -0.6,  
+    "lagging": -0.6,  
+    "liabilities": -0.7,  
+    "losses": -0.8,  
+    "market": -0.6,  
+    "slowdown": -0.7,  
+    "solid": 0.6,  
+    "struggles": -0.7,  
+    "underperform": -0.8,  
+    "weakness": -0.7,  
+    "volatility": -0.8,  
+    "weak": -0.8,  
+    "uncertainty": -0.8,  
+    "insolvency": -1.0,  
+    "debt": -0.9,  
+    "bankruptcy": -1.0,  
+    "disappointment": -0.8,  
+    "lag": -0.6,  
+    "saturation": -0.6,  
+
+    # Avverbi (modificatori)
+    "extremely": 1.5,  # Intensificatore forte
+    "strongly": 1.5,  # Intensificatore forte
+    "highly": 1.5,  # Intensificatore forte
+    "severely": 1.5,  # Intensificatore forte
+    "significantly": 1.5,  # Intensificatore
+    "moderately": 0.5,  # Attenuatore
+    "steadily": 1.2,  # Intensificatore moderato
+    "somewhat": 0.5,  # Attenuatore
+    "slightly": 0.5,  # Attenuatore
+    "unexpectedly": 1.0,  # Neutrale (non altera, ma può suggerire un cambiamento inaspettato)
+    "eventually": 1.0,  # Neutrale
+    "increasingly": 1.2,  # Intensificatore
+    "gradually": 1.0,  # Intensificatore (ma più morbido)
+    "dramatically": 1.5,  # Intensificatore forte
+    "rapidly": 1.5,  # Intensificatore forte
+    "sharply": 1.5,  # Intensificatore forte
+    "substantially": 1.5,  # Intensificatore forte
+    "slightly": 0.5,  # Attenuatore
 }
 
 # Funzione per calcolare il punteggio del sentiment
-def calculate_sentiment(doc):
+def calculate_sentiment(titles):
     total_sentiment = 0
     total_absolute_sentiment = 0  # Somma assoluta dei punteggi (per la normalizzazione)
 
@@ -94,7 +127,9 @@ def calculate_sentiment(doc):
     print(title + "    -    " + normalized_sentiment)
 
 
+titles = get_stock_news("TSLA")
+
 # Calcoliamo il sentiment
-calculate_sentiment(doc)
+calculate_sentiment(titles)
 
 #print("Sentiment score:", sentiment_score)
