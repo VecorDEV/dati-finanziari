@@ -1,4 +1,8 @@
 import spacy
+from github import Github, GithubException
+import re
+import feedparser
+import os
 
 # Carichiamo il modello di lingua inglese
 nlp = spacy.load("en_core_web_sm")
