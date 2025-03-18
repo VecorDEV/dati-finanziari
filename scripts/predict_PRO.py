@@ -124,7 +124,7 @@ def calculate_sentiment(titles):
         else:
             normalized_sentiment = 0  # Nel caso in cui non ci siano parole con punteggio
 
-    print(title + "    -    " + normalized_sentiment)
+    print(title + "    -    " + str(normalized_sentiment))
 
 
 titles = get_stock_news("TSLA")
