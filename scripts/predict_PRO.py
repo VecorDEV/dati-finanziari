@@ -1032,15 +1032,25 @@ sentiment_dict = {
     "zeroingly": -1.2,  # Intensificatore negativo, indica azzeramento e fallimento
 }
 
+
+def normalize_text(text):
+    """ Pulisce e normalizza il testo per una migliore corrispondenza. """
+    text = text.lower()  # Converti tutto in minuscolo
+    text = re.sub(r'[-_/]', ' ', text)  # Sostituisci trattini e underscore con spazi
+    text = re.sub(r'\s+', ' ', text).strip()  # Rimuovi spazi multipli e spazi iniziali/finali
+    return text
+
+
 def calculate_sentiment(titles):
     total_sentiment = 0
     total_absolute_sentiment = 0  # Somma assoluta dei punteggi (per la normalizzazione)
 
     for title in titles:
         print(f"Analyzing: {title}\n")
+        normalized_title = normalize_text(title)  # Normalizza il titolo
         
         # Elaboriamo il testo con spaCy
-        doc = nlp(title)
+        doc = nlp(normalized_title)
 
         title_sentiment = 0  # Sentiment totale della notizia
 
