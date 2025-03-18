@@ -1043,9 +1043,6 @@ def normalize_text(text):
 
 
 def calculate_sentiment(titles):
-    total_sentiment = 0
-    total_absolute_sentiment = 0  # Somma assoluta dei punteggi (per la normalizzazione)
-
     for title in titles:
         print(f"Analyzing: {title}\n")
         normalized_title = normalize_text(title)  # Normalizza il titolo
@@ -1054,6 +1051,7 @@ def calculate_sentiment(titles):
         doc = nlp(normalized_title)
 
         title_sentiment = 0  # Sentiment totale della notizia
+        sentiment_values = []  # Lista per memorizzare i punteggi sentiment per la normalizzazione
 
         # Analizziamo le parole nel testo
         for token in doc:
@@ -1061,7 +1059,7 @@ def calculate_sentiment(titles):
             
             if lemma in sentiment_dict:  # Controlliamo il lemma invece della forma originale
                 word_sentiment = sentiment_dict[lemma]
-                total_absolute_sentiment += abs(word_sentiment)  # Sommiamo l'assoluto del punteggio
+                sentiment_values.append(word_sentiment)  # Aggiungiamo il sentiment alla lista
                 
                 # Stampa la parola e il suo punteggio
                 print(f"Word: {token.text} (Lemma: {lemma}) - Sentiment: {word_sentiment}")
@@ -1085,17 +1083,16 @@ def calculate_sentiment(titles):
                 # Sommiamo il punteggio del token alla notizia
                 title_sentiment += word_sentiment
 
-        # Normalizziamo il punteggio per farlo rientrare tra -1 e 1
-        if total_absolute_sentiment > 0:
-            normalized_sentiment = title_sentiment / total_absolute_sentiment
+        # Calcoliamo il sentiment finale basato solo sulle parole con sentiment
+        if sentiment_values:
+            normalized_sentiment = sum(sentiment_values) / len(sentiment_values)  # Media del sentiment
             normalized_sentiment = max(-1, min(1, normalized_sentiment))  # Limitiamo tra -1 e 1
         else:
             normalized_sentiment = 0  # Nessuna parola con punteggio
         
         # Stampiamo il sentiment totale della notizia
-        print(f"Overall Sentiment for this title: {normalized_sentiment}\n")
+        #print(f"Overall Sentiment for this title: {normalized_sentiment}\n")
         print(f"Final Sentiment: {title} - {normalized_sentiment}\n")
-    
 
 # Recuperiamo i titoli delle notizie per "TSLA" (come esempio)
 titles = get_stock_news("TSLA")
