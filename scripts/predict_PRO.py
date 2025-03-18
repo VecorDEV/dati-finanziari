@@ -3,6 +3,17 @@ import spacy
 # Carichiamo il modello di lingua inglese
 nlp = spacy.load("en_core_web_sm")
 
+
+def get_stock_news(symbol):
+    """ Recupera i titoli delle notizie per un determinato simbolo. """
+    url = f"https://news.google.com/rss/search?q={symbol}+stock&hl=en-US&gl=US&ceid=US:en"
+    feed = feedparser.parse(url)
+    
+    titles = [entry.title for entry in feed.entries]
+    #print(titles)
+    return titles
+
+
 # Dizionario personalizzato di parole con i punteggi di sentiment
 sentiment_dict = {
     "demand": 0.7,  # Positivo
