@@ -820,6 +820,7 @@ sentiment_dict = {
     "slightly": 0.5,  # Attenuatore
 
     "takeoff": 1.0,  
+    "trade": 0.6,
     "top": 1.0,  
     "triumph": 1.0,  
     "thrive": 0.9,  
