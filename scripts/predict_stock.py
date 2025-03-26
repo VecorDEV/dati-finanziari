@@ -40,7 +40,7 @@ def get_stock_news(symbol):
     
     # Data attuale
     now = datetime.utcnow()
-    one_month_ago = now - timedelta(days=30)
+    one_month_ago = now - timedelta(days=60)
 
     news = []
     for entry in feed.entries:
@@ -1125,7 +1125,7 @@ def normalize_text(text):
     text = re.sub(r'\s+', ' ', text).strip()  # Rimuovi spazi multipli e spazi iniziali/finali
     return text
 
-def calculate_sentiment(news, decay_factor=0.05):
+def calculate_sentiment(news, decay_factor=0.06):
     """Calcola il sentiment medio ponderato di una lista di titoli di notizie."""
     total_sentiment = 0
     total_weight = 0
