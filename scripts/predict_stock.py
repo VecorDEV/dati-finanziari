@@ -48,7 +48,7 @@ def get_stock_news(symbol):
             # Converte la data della notizia
             news_date = datetime.strptime(entry.published, "%a, %d %b %Y %H:%M:%S %Z")
             if news_date >= one_month_ago:
-                news.append(entry.title)
+                news.append(entry.title, news_date)
         except ValueError:
             continue  # Se c'è un problema con la conversione della data, salta la notizia
 
