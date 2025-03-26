@@ -40,7 +40,7 @@ def get_stock_news(symbol):
     
     # Data attuale
     now = datetime.utcnow()
-    one_month_ago = now - timedelta(days=60)
+    one_month_ago = now - timedelta(days=90)
 
     news = []
     for entry in feed.entries:
@@ -104,6 +104,8 @@ sentiment_dict = {
     "acceptance": 0.7,
     "accreditation": 0.6,
     "authorized": 0.6,
+    "approval": 0.6,
+    "approved": 0.7,
     "assurance": 0.7,
     "advancement": 0.8,
     "aspiration": 0.7,
@@ -207,6 +209,7 @@ sentiment_dict = {
     "climb": 0.8,
     "climbed": 0.7,
     "climbs": 0.8,
+    "close to get": 0.8,
     "coup": 0.2,
     "couch potato portfolio": 0.75,
     "credit": 0.7,
