@@ -2,6 +2,8 @@ from github import Github, GithubException
 import re
 import feedparser
 import os
+from datetime import datetime, timedelta
+import math
 
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 REPO_NAME = "VecorDEV/dati-finanziari"
@@ -32,13 +34,33 @@ symbol_list = ["AAPL", "MSFT", "GOOGL", "AMZN", "META", "TSLA", "V", "JPM", "JNJ
         "COCOA", "XAUUSD", "XAGUSD", "OIL"]  # Puoi aggiungere altri simboli
 
 def get_stock_news(symbol):
+    """ Recupera i titoli e le date delle notizie per un determinato simbolo negli ultimi 30 giorni. """
+    url = f"https://news.google.com/rss/search?q={symbol}+stock&hl=en-US&gl=US&ceid=US:en"
+    feed = feedparser.parse(url)
+    
+    # Data attuale
+    now = datetime.utcnow()
+    one_month_ago = now - timedelta(days=30)
+
+    news = []
+    for entry in feed.entries:
+        try:
+            # Converte la data della notizia
+            news_date = datetime.strptime(entry.published, "%a, %d %b %Y %H:%M:%S %Z")
+            if news_date >= one_month_ago:
+                news.append((entry.title, news_date))
+        except ValueError:
+            continue  # Se c'è un problema con la conversione della data, salta la notizia
+
+    return news
+'''def get_stock_news(symbol):
     """ Recupera i titoli delle notizie per un determinato simbolo. """
     url = f"https://news.google.com/rss/search?q={symbol}+stock&hl=en-US&gl=US&ceid=US:en"
     feed = feedparser.parse(url)
     
     titles = [entry.title for entry in feed.entries]
     #print(titles)
-    return titles
+    return titles'''
 
 
 # Lista di negazioni da considerare
@@ -1103,7 +1125,49 @@ def normalize_text(text):
     text = re.sub(r'\s+', ' ', text).strip()  # Rimuovi spazi multipli e spazi iniziali/finali
     return text
 
-def calculate_sentiment(titles):
+def calculate_sentiment(news, decay_factor=0.05):
+    """Calcola il sentiment medio ponderato di una lista di titoli di notizie."""
+    total_sentiment = 0
+    total_weight = 0
+    now = datetime.utcnow()
+
+    for title, date in news:
+        days_old = (now - date).days  # Calcola l'età della notizia in giorni
+        weight = math.exp(-decay_factor * days_old)  # Applica il decadimento esponenziale
+
+        normalized_title = normalize_text(title)  # Normalizza il titolo
+        sentiment_score = 0
+        count = 0
+
+        words = normalized_title.split()
+
+        for i, word in enumerate(words):
+            if word in sentiment_dict:
+                score = sentiment_dict[word]
+
+                if i > 0 and words[i - 1] in negation_words:
+                    score = 1 - score  # Inverto il punteggio
+
+                sentiment_score += score
+                count += 1
+
+        if count != 0:
+            sentiment_score /= count  # Normalizza il punteggio
+        else:
+            sentiment_score = 0.5  # Sentiment neutro se nessuna parola è trovata
+
+        total_sentiment += sentiment_score * weight
+        total_weight += weight
+
+    if total_weight > 0:
+        average_sentiment = total_sentiment / total_weight
+    else:
+        average_sentiment = 0.5  # Sentiment neutro se non ci sono notizie
+
+    return average_sentiment
+
+
+'''def calculate_sentiment(titles):
     """Calcola il sentiment medio di una lista di titoli di notizie tenendo conto delle negazioni."""
     total_sentiment = 0
     num_titles = len(titles)
@@ -1136,7 +1200,7 @@ def calculate_sentiment(titles):
     else:
         average_sentiment = 0.5  # Se non ci sono titoli, il sentiment è 0.5
 
-    return average_sentiment
+    return average_sentiment'''
 
 
 def get_sentiment_for_all_symbols(symbol_list):
