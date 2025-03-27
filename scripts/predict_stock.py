@@ -1218,7 +1218,8 @@ def get_sentiment_for_all_symbols(symbol_list):
     all_news_entries = []  # Lista per salvare tutti i titoli e sentimenti
     
     for symbol in symbol_list:
-        titles = get_stock_news(symbol)
+        news = get_stock_news(symbol)
+        titles = news[0]
         sentiment = calculate_sentiment(titles)
         sentiment_results[symbol] = sentiment
 
