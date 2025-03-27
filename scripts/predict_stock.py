@@ -1218,8 +1218,7 @@ def get_sentiment_for_all_symbols(symbol_list):
     all_news_entries = []  # Lista per salvare tutti i titoli e sentimenti
     
     for symbol in symbol_list:
-        news = get_stock_news(symbol)
-        titles = news[0]
+        titles = get_stock_news(symbol)
         sentiment = calculate_sentiment(titles)
         sentiment_results[symbol] = sentiment
 
@@ -1239,7 +1238,7 @@ def get_sentiment_for_all_symbols(symbol_list):
         # Aggiungi le notizie e i sentimenti alla lista per il file `news.html`
         for title in titles:
             title_sentiment = calculate_sentiment([title])  # Calcola il sentiment specifico del titolo
-            all_news_entries.append((symbol, title, title_sentiment))
+            all_news_entries.append((symbol, title[0], title_sentiment))
 
     return sentiment_results, all_news_entries
 
