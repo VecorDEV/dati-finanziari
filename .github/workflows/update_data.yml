@@ -32,8 +32,8 @@ jobs:
       run: |
         pip install requests beautifulsoup4 scikit-learn xgboost PyGithub pandas numpy feedparser
         pip install cython murmurhash  # Installa dipendenze di compilazione
-        #pip install spacy==3.0.6  # Installa una versione stabile di spaCy
-        #python -m spacy download en_core_web_sm  # Scarica il modello linguistico per spaCy
+        pip install spacy==3.0.6  # Installa una versione stabile di spaCy
+        python -m spacy download en_core_web_sm  # Scarica il modello linguistico per spaCy
         #pip install textblob
 
     - name: Run prediction script
