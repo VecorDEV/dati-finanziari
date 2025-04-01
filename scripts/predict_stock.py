@@ -369,7 +369,6 @@ sentiment_dict = {
 
     "financial crisis": 0.1,
     "fund": 0.8,
-    "forecast": 0.65,
     "failure": 0.1,
     "fail": 0.1,
     "fails": 0.1,
@@ -664,7 +663,6 @@ sentiment_dict = {
     "move up": 0.85,
     "moves up": 0.85,
     "moved up": 0.75,
-    "model": 0.7,
     "money market": 0.7,
     "manufacture": 0.65,
     "markup pricing": 0.7,
@@ -1047,7 +1045,6 @@ sentiment_dict = {
     "worst case": 0.2,
     "warning": 0.2,
     "warnings": 0.2,
-    "will": 0.65,
     "winners": 0.9,
     "win win": 0.9,
     "worth": 0.8,
