@@ -34,9 +34,9 @@ jobs:
         pip install cython murmurhash  # Installa dipendenze di compilazione
         #pip install spacy==3.0.6  # Installa una versione stabile di spaCy
         #python -m spacy download en_core_web_sm  # Scarica il modello linguistico per spaCy
-        pip install textblob
+        #pip install textblob
 
     - name: Run prediction script
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Token GitHub con permessi di scrittura sul repository
-      run: python scripts/predict_NEW.py  # Percorso corretto del tuo codice
+      run: python scripts/predict_stock.py  # Percorso corretto del tuo codice
