@@ -1130,10 +1130,13 @@ sentiment_dict = {
 
 
 def normalize_text(text):
-    """ Pulisce e normalizza il testo per una migliore corrispondenza. """
-    text = text.lower()  # Converti tutto in minuscolo
-    text = re.sub(r'[-_/]', ' ', text)  # Sostituisci trattini e underscore con spazi
-    text = re.sub(r'\s+', ' ', text).strip()  # Rimuovi spazi multipli e spazi iniziali/finali
+    #Pulisce e normalizza il testo per una migliore corrispondenza.
+    
+    text = re.sub(r'\s-\s[^-]+$', '', text)    # Rimuove la parte dopo l'ultimo " - " (se presente)
+    text = text.lower()    # Converti tutto in minuscolo
+    text = re.sub(r'[-_/]', ' ', text)    # Sostituisci trattini e underscore con spazi
+    text = re.sub(r'\s+', ' ', text).strip()    # Rimuovi spazi multipli e spazi iniziali/finali
+    
     return text
 
 def lemmatize_words(words):
