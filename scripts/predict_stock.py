@@ -4,6 +4,10 @@ import feedparser
 import os
 from datetime import datetime, timedelta
 import math
+import spacy
+
+# Carica il modello linguistico per l'inglese
+nlp = spacy.load("en_core_web_sm")
 
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 REPO_NAME = "VecorDEV/dati-finanziari"
@@ -1132,7 +1136,54 @@ def normalize_text(text):
     text = re.sub(r'\s+', ' ', text).strip()  # Rimuovi spazi multipli e spazi iniziali/finali
     return text
 
+def lemmatize_words(words):
+    """Lemmatizza le parole usando spaCy e restituisce una lista di lemmi."""
+    doc = nlp(" ".join(words))  # Analizza le parole con spaCy
+    return [token.lemma_ for token in doc]
+
 def calculate_sentiment(news, decay_factor=0.06):
+    """Calcola il sentiment medio ponderato di una lista di titoli di notizie."""
+    total_sentiment = 0
+    total_weight = 0
+    now = datetime.utcnow()
+
+    for title, date in news:
+        days_old = (now - date).days  # Calcola l'età della notizia in giorni
+        weight = math.exp(-decay_factor * days_old)  # Applica il decadimento esponenziale
+
+        normalized_title = normalize_text(title)  # Normalizza il titolo
+        sentiment_score = 0
+        count = 0
+
+        words = normalized_title.split()  # Parole del titolo
+        lemmatized_words = lemmatize_words(words)  # Lemmatizza le parole
+
+        for i, word in enumerate(lemmatized_words):
+            if word in sentiment_dict:
+                score = sentiment_dict[word]
+
+                if i > 0 and lemmatized_words[i - 1] in negation_words:
+                    score = 1 - score  # Inverto il punteggio
+
+                sentiment_score += score
+                count += 1
+
+        if count != 0:
+            sentiment_score /= count  # Normalizza il punteggio
+        else:
+            sentiment_score = 0.5  # Sentiment neutro se nessuna parola è trovata
+
+        total_sentiment += sentiment_score * weight
+        total_weight += weight
+
+    if total_weight > 0:
+        average_sentiment = total_sentiment / total_weight
+    else:
+        average_sentiment = 0.5  # Sentiment neutro se non ci sono notizie
+
+    return average_sentiment
+    
+'''def calculate_sentiment(news, decay_factor=0.06):
     """Calcola il sentiment medio ponderato di una lista di titoli di notizie."""
     total_sentiment = 0
     total_weight = 0
@@ -1172,7 +1223,7 @@ def calculate_sentiment(news, decay_factor=0.06):
         average_sentiment = 0.5  # Sentiment neutro se non ci sono notizie
 
     return average_sentiment
-
+'''
 
 '''def calculate_sentiment(titles):
     """Calcola il sentiment medio di una lista di titoli di notizie tenendo conto delle negazioni."""
