@@ -1360,7 +1360,7 @@ def get_sentiment_for_all_symbols(symbol_list):
 sentiment_for_symbols, all_news_entries = get_sentiment_for_all_symbols(symbol_list)
 
 # Ordinare i simboli in base al sentiment medio (decrescente)
-sorted_symbols = sorted(sentiment_for_symbols.items(), key=lambda x: x[1], reverse=True)
+sorted_symbols = sorted(sentiment_for_symbols.items(), key=lambda x: x[1]["90_days"], reverse=True)
 
 # Crea il contenuto del file classifica.html
 html_classifica = ["<html><head><title>Classifica dei Simboli</title></head><body>",
