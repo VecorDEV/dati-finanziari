@@ -1317,9 +1317,9 @@ def get_sentiment_for_all_symbols(symbol_list):
         news_data = get_stock_news(symbol)  # Ottieni le notizie divise per periodo
 
         # Calcola il sentiment per ciascun intervallo di tempo
-        sentiment_90_days = calculate_sentiment([title for title, _ in news_data["last_90_days"]])
-        sentiment_30_days = calculate_sentiment([title for title, _ in news_data["last_30_days"]])
-        sentiment_7_days = calculate_sentiment([title for title, _ in news_data["last_7_days"]])
+        sentiment_90_days = calculate_sentiment(news_data["last_90_days"])  
+        sentiment_30_days = calculate_sentiment(news_data["last_30_days"])  
+        sentiment_7_days = calculate_sentiment(news_data["last_7_days"])  
 
         sentiment_results[symbol] = {
             "90_days": sentiment_90_days,
