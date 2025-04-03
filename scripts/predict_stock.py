@@ -1367,7 +1367,12 @@ html_classifica = ["<html><head><title>Classifica dei Simboli</title></head><bod
                    "<h1>Classifica dei Simboli in Base alla Probabilità di Crescita</h1>",
                    "<table border='1'><tr><th>Simbolo</th><th>Probabilità</th></tr>"]
 
-for symbol, probability in sorted_symbols:
+# Aggiungere i simboli alla classifica con la probabilità calcolata
+for symbol, sentiment_dict in sorted_symbols:
+    # Estrai il sentiment per i 90 giorni
+    probability = sentiment_dict["90_days"]
+    
+    # Aggiungi la riga alla classifica
     html_classifica.append(f"<tr><td>{symbol}</td><td>{probability*100:.2f}%</td></tr>")
 
 html_classifica.append("</table></body></html>")
