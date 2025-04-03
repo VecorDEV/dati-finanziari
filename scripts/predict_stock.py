@@ -49,7 +49,7 @@ def get_stock_news(symbol):
     now = datetime.utcnow()
     days_90 = now - timedelta(days=90)
     days_30 = now - timedelta(days=30)
-    days_7 = now - timedelta(days=7)
+    days_7 = now - timedelta(days=3)
 
     # Liste per i diversi intervalli di tempo
     news_90_days = []
