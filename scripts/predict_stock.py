@@ -1189,7 +1189,7 @@ def lemmatize_words(words):
     doc = nlp(" ".join(words))  # Analizza le parole con spaCy
     return [token.lemma_ for token in doc]
 
-def calculate_sentiment(news, decay_factor=0.06):
+def calculate_sentiment(news, decay_factor=0.03):    #Prima era 0.06
     """Calcola il sentiment medio ponderato di una lista di titoli di notizie."""
     total_sentiment = 0
     total_weight = 0
