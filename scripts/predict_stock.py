@@ -37,7 +37,52 @@ symbol_list = ["AAPL", "MSFT", "GOOGL", "AMZN", "META", "TSLA", "V", "JPM", "JNJ
         "DASHUSD", "XMRUSD", "ETCUSD", "ZECUSD", "BNBUSD", "DOGEUSD", "USDTUSD", "LINKUSD", "ATOMUSD", "XTZUSD",
         "COCOA", "XAUUSD", "XAGUSD", "OIL"]  # Puoi aggiungere altri simboli
 
+import feedparser
+from datetime import datetime, timedelta
+
 def get_stock_news(symbol):
+    """ Recupera i titoli e le date delle notizie per un determinato simbolo negli ultimi 90, 30 e 7 giorni. """
+    url = f"https://news.google.com/rss/search?q={symbol}+stock&hl=en-US&gl=US&ceid=US:en"
+    feed = feedparser.parse(url)
+    
+    # Date di riferimento
+    now = datetime.utcnow()
+    days_90 = now - timedelta(days=90)
+    days_30 = now - timedelta(days=30)
+    days_7 = now - timedelta(days=7)
+
+    # Liste per i diversi intervalli di tempo
+    news_90_days = []
+    news_30_days = []
+    news_7_days = []
+
+    for entry in feed.entries:
+        try:
+            # Converte la data della notizia
+            news_date = datetime.strptime(entry.published, "%a, %d %b %Y %H:%M:%S %Z")
+
+            # Notizie degli ultimi 90 giorni
+            if news_date >= days_90:
+                news_90_days.append((entry.title, news_date))
+
+            # Notizie dell'ultimo mese (30 giorni)
+            if news_date >= days_30:
+                news_30_days.append((entry.title, news_date))
+
+            # Notizie degli ultimi 7 giorni
+            if news_date >= days_7:
+                news_7_days.append((entry.title, news_date))
+
+        except ValueError:
+            continue  # Se c'è un problema con la conversione della data, salta la notizia
+
+    return {
+        "last_90_days": news_90_days,
+        "last_30_days": news_30_days,
+        "last_7_days": news_7_days
+    }
+    
+'''def get_stock_news(symbol):
     """ Recupera i titoli e le date delle notizie per un determinato simbolo negli ultimi 30 giorni. """
     url = f"https://news.google.com/rss/search?q={symbol}+stock&hl=en-US&gl=US&ceid=US:en"
     feed = feedparser.parse(url)
@@ -56,7 +101,7 @@ def get_stock_news(symbol):
         except ValueError:
             continue  # Se c'è un problema con la conversione della data, salta la notizia
 
-    return news
+    return news'''
 '''def get_stock_news(symbol):
     """ Recupera i titoli delle notizie per un determinato simbolo. """
     url = f"https://news.google.com/rss/search?q={symbol}+stock&hl=en-US&gl=US&ceid=US:en"
@@ -1269,16 +1314,34 @@ def get_sentiment_for_all_symbols(symbol_list):
     all_news_entries = []  # Lista per salvare tutti i titoli e sentimenti
     
     for symbol in symbol_list:
-        titles = get_stock_news(symbol)
-        sentiment = calculate_sentiment(titles)
-        sentiment_results[symbol] = sentiment
+        news_data = get_stock_news(symbol)  # Ottieni le notizie divise per periodo
+
+        # Calcola il sentiment per ciascun intervallo di tempo
+        sentiment_90_days = calculate_sentiment([title for title, _ in news_data["last_90_days"]])
+        sentiment_30_days = calculate_sentiment([title for title, _ in news_data["last_30_days"]])
+        sentiment_7_days = calculate_sentiment([title for title, _ in news_data["last_7_days"]])
+
+        sentiment_results[symbol] = {
+            "90_days": sentiment_90_days,
+            "30_days": sentiment_30_days,
+            "7_days": sentiment_7_days
+        }
 
         file_path = f"results/{symbol.upper()}_RESULT.html"
-        html_content = [f"<html><head><title>Previsione per {symbol}</title></head><body>",
-                        f"<h1>Previsione per: ({symbol})</h1>",
-                        "<table border='1'><tr><th>Probability</th></tr>",
-                        f"<tr><td>{sentiment * 100}</td></tr>",
-                        "</table></body></html>"]
+        html_content = [
+            f"<html><head><title>Previsione per {symbol}</title></head><body>",
+            f"<h1>Previsione per: ({symbol})</h1>",
+            "<table border='1'><tr><th>Probability</th></tr>",
+            f"<tr><td>{sentiment_90_days * 100}</td></tr>",
+            "</table>",
+            "<table border='1'><tr><th>Probability30</th></tr>",  # Nuova riga per 30 giorni
+            f"<tr><td>{sentiment_30_days * 100}</td></tr>",
+            "</table>",
+            "<table border='1'><tr><th>Probability7</th></tr>",  # Nuova riga per 7 giorni
+            f"<tr><td>{sentiment_7_days * 100}</td></tr>",
+            "</table>",
+            "</body></html>"
+        ]
 
         try:
             contents = repo.get_contents(file_path)
@@ -1286,10 +1349,10 @@ def get_sentiment_for_all_symbols(symbol_list):
         except GithubException:
             repo.create_file(file_path, f"Created probability for {symbol}", "\n".join(html_content))
 
-        # Aggiungi le notizie e i sentimenti alla lista per il file `news.html`
-        for title in titles:
+        # Aggiungi le notizie e i sentimenti alla lista per il file `news.html` (solo le notizie degli ultimi 90 giorni)
+        for title, news_date in news_data["last_90_days"]:
             title_sentiment = calculate_sentiment([title])  # Calcola il sentiment specifico del titolo
-            all_news_entries.append((symbol, title[0], title_sentiment))
+            all_news_entries.append((symbol, title, title_sentiment))
 
     return sentiment_results, all_news_entries
 
