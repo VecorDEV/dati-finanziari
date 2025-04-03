@@ -1351,7 +1351,7 @@ def get_sentiment_for_all_symbols(symbol_list):
 
         # Aggiungi le notizie e i sentimenti alla lista per il file `news.html` (solo le notizie degli ultimi 90 giorni)
         for title, news_date in news_data["last_90_days"]:
-            title_sentiment = calculate_sentiment([title])  # Calcola il sentiment specifico del titolo
+            title_sentiment = calculate_sentiment([(title, news_date)])  # Passa (titolo, data)
             all_news_entries.append((symbol, title, title_sentiment))
 
     return sentiment_results, all_news_entries
