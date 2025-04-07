@@ -22,7 +22,7 @@ jobs:
       run: pip install requests
 
     - name: Esegui lo script Python
-      run: python script.py
+      run: python scripts/indicators.py
 
     - name: Commit e push dei risultati
       run: |
