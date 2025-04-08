@@ -27,7 +27,7 @@ jobs:
         run: python scripts/indicators.py
 
       - name: Carica file HTML degli indicatori
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: indicatori-tecnici
           path: results/indicatori.html
