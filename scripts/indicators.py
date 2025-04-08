@@ -54,16 +54,20 @@ def calcola_punteggio(indicatori):
 
 # Funzione per calcolare gli indicatori tecnici
 def calcola_indicatori(ticker):
+    # Scarica i dati storici
     data = yf.download(ticker, period="1mo", interval="1d")  # Dati degli ultimi 30 giorni
+    
+    # Assicurati che i dati siano monodimensionali per ogni indicatore
+    close_data = data['Close'].squeeze()  # Rende la serie monodimensionale se è 2D
 
     # Calcolo degli indicatori
-    rsi = RSIIndicator(data['Close'], window=14).rsi()[-1]  # Ultimo valore RSI
-    macd = MACD(data['Close']).macd()[-1]  # Ultimo valore MACD
-    macd_signal = MACD(data['Close']).macd_signal()[-1]  # Ultimo valore Signal MACD
-    stochastic_k = ta.momentum.StochasticOscillator(data['High'], data['Low'], data['Close'], window=14).stoch()[-1]  # Ultimo valore Stochastic %K
-    ema = EMAIndicator(data['Close'], window=10).ema_indicator()[-1]  # Ultimo valore EMA (10)
-    cci = ta.trend.CCIIndicator(data['High'], data['Low'], data['Close'], window=14).cci()[-1]  # Ultimo valore CCI
-    williams_r = ta.momentum.WilliamsRIndicator(data['High'], data['Low'], data['Close'], window=14).williams_r()[-1]  # Ultimo valore Williams %R
+    rsi = RSIIndicator(close_data, window=14).rsi()[-1]  # Ultimo valore RSI
+    macd = MACD(close_data).macd()[-1]  # Ultimo valore MACD
+    macd_signal = MACD(close_data).macd_signal()[-1]  # Ultimo valore Signal MACD
+    stochastic_k = ta.momentum.StochasticOscillator(data['High'], data['Low'], close_data, window=14).stoch()[-1]  # Ultimo valore Stochastic %K
+    ema = EMAIndicator(close_data, window=10).ema_indicator()[-1]  # Ultimo valore EMA (10)
+    cci = ta.trend.CCIIndicator(data['High'], data['Low'], close_data, window=14).cci()[-1]  # Ultimo valore CCI
+    williams_r = ta.momentum.WilliamsRIndicator(data['High'], data['Low'], close_data, window=14).williams_r()[-1]  # Ultimo valore Williams %R
 
     # Creiamo un dizionario con i valori degli indicatori
     indicatori = {
