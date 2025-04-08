@@ -3,6 +3,117 @@ import ta
 import pandas as pd
 import os
 
+from ta.momentum import RSIIndicator, StochasticOscillator, WilliamsRIndicator
+from ta.trend import MACD, EMAIndicator, CCIIndicator
+from ta.volatility import BollingerBands
+
+# Crea la cartella results se non esiste
+os.makedirs("results", exist_ok=True)
+
+# Lista di asset da analizzare
+assets = ["AAPL", "TSLA", "NVDA", "MSFT", "AMZN"]
+
+# Funzione per calcolare la percentuale in base agli indicatori
+def calcola_punteggio(indicatori, close_price, bb_upper, bb_lower):
+    punteggio = 0
+
+    if indicatori["RSI (14)"] > 70:
+        punteggio -= 8
+    elif indicatori["RSI (14)"] < 30:
+        punteggio += 8
+    else:
+        punteggio += 4
+
+    if indicatori["MACD Line"] > indicatori["MACD Signal"]:
+        punteggio += 8
+    else:
+        punteggio -= 6
+
+    if indicatori["Stochastic %K"] > 80:
+        punteggio -= 6
+    elif indicatori["Stochastic %K"] < 20:
+        punteggio += 6
+
+    if indicatori["EMA (10)"] < close_price:
+        punteggio += 7
+
+    if indicatori["CCI (14)"] > 0:
+        punteggio += 6
+    else:
+        punteggio -= 4
+
+    if indicatori["Williams %R"] > -20:
+        punteggio -= 4
+    else:
+        punteggio += 4
+
+    # Bollinger Bands
+    if close_price > bb_upper:
+        punteggio -= 5
+    elif close_price < bb_lower:
+        punteggio += 5
+
+    return round(((punteggio + 44) * 100) / 88, 2)  # normalizzazione 0-100
+
+# Analizza ogni asset
+righe = []
+for ticker in assets:
+    data = yf.download(ticker, period="3mo", interval="1d", auto_adjust=True)
+    data.dropna(inplace=True)
+
+    close = data['Close'].squeeze()
+    high = data['High'].squeeze()
+    low = data['Low'].squeeze()
+
+    # Indicatori tecnici
+    rsi = RSIIndicator(close).rsi().iloc[-1]
+    macd = MACD(close)
+    macd_line = macd.macd().iloc[-1]
+    macd_signal = macd.macd_signal().iloc[-1]
+    stoch = StochasticOscillator(high, low, close)
+    stoch_k = stoch.stoch().iloc[-1]
+    stoch_d = stoch.stoch_signal().iloc[-1]
+    ema_10 = EMAIndicator(close, window=10).ema_indicator().iloc[-1]
+    cci = CCIIndicator(high, low, close).cci().iloc[-1]
+    will_r = WilliamsRIndicator(high, low, close).williams_r().iloc[-1]
+
+    bb = BollingerBands(close)
+    bb_upper = bb.bollinger_hband().iloc[-1]
+    bb_lower = bb.bollinger_lband().iloc[-1]
+    bb_width = bb.bollinger_wband().iloc[-1]
+
+    indicators = {
+        "RSI (14)": round(rsi, 2),
+        "MACD Line": round(macd_line, 2),
+        "MACD Signal": round(macd_signal, 2),
+        "Stochastic %K": round(stoch_k, 2),
+        "Stochastic %D": round(stoch_d, 2),
+        "EMA (10)": round(ema_10, 2),
+        "CCI (14)": round(cci, 2),
+        "Williams %R": round(will_r, 2),
+        "BB Upper": round(bb_upper, 2),
+        "BB Lower": round(bb_lower, 2),
+        "BB Width": round(bb_width, 4),
+    }
+
+    percentuale = calcola_punteggio(indicators, close.iloc[-1], bb_upper, bb_lower)
+
+    # Prepara la riga per la tabella
+    riga = {"Asset": ticker, "Probabilità Crescita (%)": percentuale}
+    riga.update(indicators)
+    righe.append(riga)
+
+# Crea il DataFrame finale
+df = pd.DataFrame(righe)
+
+# Salva in HTML
+df.to_html("results/indicatori.html", index=False, border=0, classes="table table-striped")
+
+'''import yfinance as yf
+import ta
+import pandas as pd
+import os
+
 # Funzione per calcolare la percentuale di previsione
 def calcola_punteggio(indicatori):
     punteggio = 0
@@ -91,3 +202,4 @@ for ticker in assets:
 df = pd.DataFrame(risultati)
 os.makedirs("results", exist_ok=True)
 df.to_html("results/indicatori.html", index=False, border=1, classes="table table-striped")
+'''
