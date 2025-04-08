@@ -1,9 +1,8 @@
 import yfinance as yf
 import ta
 from ta.momentum import RSIIndicator
-from ta.trend import MACD
-from ta.volatility import AverageTrueRange
-from ta.trend import EMAIndicator
+from ta.trend import MACD, EMAIndicator, CCIIndicator
+from ta.momentum import StochasticOscillator, WilliamsRIndicator
 import pandas as pd
 from datetime import datetime
 
@@ -53,7 +52,6 @@ def calcola_punteggio(indicatori):
     return punteggio_normalizzato
 
 # Funzione per calcolare gli indicatori tecnici
-# Funzione per calcolare gli indicatori tecnici
 def calcola_indicatori(ticker):
     data = yf.download(ticker, period="1mo", interval="1d")  # Dati degli ultimi 30 giorni
 
@@ -61,10 +59,10 @@ def calcola_indicatori(ticker):
     rsi = RSIIndicator(data['Close'], window=14).rsi().iloc[-1]  # Ultimo valore RSI
     macd = MACD(data['Close']).macd().iloc[-1]  # Ultimo valore MACD
     macd_signal = MACD(data['Close']).macd_signal().iloc[-1]  # Ultimo valore Signal MACD
-    stochastic_k = ta.momentum.StochasticOscillator(data['High'], data['Low'], data['Close'], window=14).stoch().iloc[-1]  # Ultimo valore Stochastic %K
+    stochastic_k = StochasticOscillator(data['High'], data['Low'], data['Close'], window=14).stoch().iloc[-1]  # Ultimo valore Stochastic %K
     ema = EMAIndicator(data['Close'], window=10).ema_indicator().iloc[-1]  # Ultimo valore EMA (10)
-    cci = ta.trend.CCIIndicator(data['High'], data['Low'], data['Close'], window=14).cci().iloc[-1]  # Ultimo valore CCI
-    williams_r = ta.momentum.WilliamsRIndicator(data['High'], data['Low'], data['Close'], window=14).williams_r().iloc[-1]  # Ultimo valore Williams %R
+    cci = CCIIndicator(data['High'], data['Low'], data['Close'], window=14).cci().iloc[-1]  # Ultimo valore CCI
+    williams_r = WilliamsRIndicator(data['High'], data['Low'], data['Close'], window=14).williams_r().iloc[-1]  # Ultimo valore Williams %R
 
     # Creiamo un dizionario con i valori degli indicatori
     indicatori = {
