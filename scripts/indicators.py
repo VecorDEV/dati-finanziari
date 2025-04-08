@@ -71,56 +71,72 @@ def calcola_punteggio(indicatori, close_price, bb_upper, bb_lower):
 # Analizza ogni asset
 righe = []
 for ticker in assets:
-    data = yf.download(ticker, period="3mo", interval="1d", auto_adjust=True)
-    data.dropna(inplace=True)
+    try:
+        print(f"Analizzando {ticker}...")
+        
+        # Scarica i dati storici per l'asset
+        data = yf.download(ticker, period="3mo", interval="1d", auto_adjust=True)
+        if data.empty:
+            raise ValueError(f"Nessun dato disponibile per {ticker}.")
+        
+        data.dropna(inplace=True)
 
-    close = data['Close'].squeeze()
-    high = data['High'].squeeze()
-    low = data['Low'].squeeze()
+        close = data['Close'].squeeze()
+        high = data['High'].squeeze()
+        low = data['Low'].squeeze()
 
-    # Indicatori tecnici
-    rsi = RSIIndicator(close).rsi().iloc[-1]
-    macd = MACD(close)
-    macd_line = macd.macd().iloc[-1]
-    macd_signal = macd.macd_signal().iloc[-1]
-    stoch = StochasticOscillator(high, low, close)
-    stoch_k = stoch.stoch().iloc[-1]
-    stoch_d = stoch.stoch_signal().iloc[-1]
-    ema_10 = EMAIndicator(close, window=10).ema_indicator().iloc[-1]
-    cci = CCIIndicator(high, low, close).cci().iloc[-1]
-    will_r = WilliamsRIndicator(high, low, close).williams_r().iloc[-1]
+        # Indicatori tecnici
+        rsi = RSIIndicator(close).rsi().iloc[-1]
+        macd = MACD(close)
+        macd_line = macd.macd().iloc[-1]
+        macd_signal = macd.macd_signal().iloc[-1]
+        stoch = StochasticOscillator(high, low, close)
+        stoch_k = stoch.stoch().iloc[-1]
+        stoch_d = stoch.stoch_signal().iloc[-1]
+        ema_10 = EMAIndicator(close, window=10).ema_indicator().iloc[-1]
+        cci = CCIIndicator(high, low, close).cci().iloc[-1]
+        will_r = WilliamsRIndicator(high, low, close).williams_r().iloc[-1]
 
-    bb = BollingerBands(close)
-    bb_upper = bb.bollinger_hband().iloc[-1]
-    bb_lower = bb.bollinger_lband().iloc[-1]
-    bb_width = bb.bollinger_wband().iloc[-1]
+        bb = BollingerBands(close)
+        bb_upper = bb.bollinger_hband().iloc[-1]
+        bb_lower = bb.bollinger_lband().iloc[-1]
+        bb_width = bb.bollinger_wband().iloc[-1]
 
-    indicators = {
-        "RSI (14)": round(rsi, 2),
-        "MACD Line": round(macd_line, 2),
-        "MACD Signal": round(macd_signal, 2),
-        "Stochastic %K": round(stoch_k, 2),
-        "Stochastic %D": round(stoch_d, 2),
-        "EMA (10)": round(ema_10, 2),
-        "CCI (14)": round(cci, 2),
-        "Williams %R": round(will_r, 2),
-        "BB Upper": round(bb_upper, 2),
-        "BB Lower": round(bb_lower, 2),
-        "BB Width": round(bb_width, 4),
-    }
+        indicators = {
+            "RSI (14)": round(rsi, 2),
+            "MACD Line": round(macd_line, 2),
+            "MACD Signal": round(macd_signal, 2),
+            "Stochastic %K": round(stoch_k, 2),
+            "Stochastic %D": round(stoch_d, 2),
+            "EMA (10)": round(ema_10, 2),
+            "CCI (14)": round(cci, 2),
+            "Williams %R": round(will_r, 2),
+            "BB Upper": round(bb_upper, 2),
+            "BB Lower": round(bb_lower, 2),
+            "BB Width": round(bb_width, 4),
+        }
 
-    percentuale = calcola_punteggio(indicators, close.iloc[-1], bb_upper, bb_lower)
+        percentuale = calcola_punteggio(indicators, close.iloc[-1], bb_upper, bb_lower)
 
-    # Prepara la riga per la tabella
-    riga = {"Asset": ticker, "Probabilità Crescita (%)": percentuale}
-    riga.update(indicators)
-    righe.append(riga)
+        # Prepara la riga per la tabella
+        riga = {"Asset": ticker, "Probabilità Crescita (%)": percentuale}
+        riga.update(indicators)
+        righe.append(riga)
+        
+    except Exception as e:
+        # Gestione dell'errore per ciascun asset
+        print(f"Errore durante l'analisi di {ticker}: {e}")
 
 # Crea il DataFrame finale
 df = pd.DataFrame(righe)
 
 # Salva in HTML
 df.to_html("results/indicatori.html", index=False, border=0, classes="table table-striped")
+
+
+
+
+
 
 '''import yfinance as yf
 import ta
