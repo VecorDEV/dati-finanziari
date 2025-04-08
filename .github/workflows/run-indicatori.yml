@@ -5,6 +5,9 @@ on:
     - cron: "0 6 * * *"
   workflow_dispatch:
 
+permissions:
+  contents: write
+  
 jobs:
   run-indicators:
     runs-on: ubuntu-latest
@@ -31,3 +34,14 @@ jobs:
         with:
           name: indicatori-tecnici
           path: results/indicatori.html
+
+      - name: Configura Git
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "actions@github.com"
+
+      - name: Aggiungi e fai commit dei risultati
+        run: |
+          git add results/indicatori.html
+          git commit -m "Aggiorna indicatori tecnici"
+          git push
