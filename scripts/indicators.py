@@ -128,7 +128,26 @@ df = pd.DataFrame(righe)
 # Salva in HTML
 df.to_html("results/indicatori.html", index=False, border=0, classes="table table-striped")
 
+#CREA IL FILE DI CLASSIFICA
+# Ordina i dati in base alla probabilità di crescita (decrescente)
+df_sorted = df.sort_values(by="Probabilità Crescita (%)", ascending=False)
 
+# Costruisci l'HTML personalizzato
+html = "<html><head><title>Classifica dei Simboli</title></head><body>\n"
+html += "<h1>Classifica dei Simboli in Base alla Probabilità di Crescita</h1>\n"
+html += "<table border='1'><tr><th>Simbolo</th><th>Probabilità</th></tr>\n"
+
+for _, row in df_sorted.iterrows():
+    simbolo = row["Asset"]
+    probabilita = f"{row['Probabilità Crescita (%)']:.2f}%"
+    html += f"<tr><td>{simbolo}</td><td>{probabilita}</td></tr>\n"
+
+html += "</table></body></html>"
+
+# Scrivi l'HTML su file
+with open("results/sortedByIndicators.html", "w", encoding="utf-8") as f:
+    f.write(html)
+        
 
 
 
