@@ -1,1101 +1,1301 @@
-import spacy
 from github import Github, GithubException
 import re
 import feedparser
 import os
+from datetime import datetime, timedelta
+import math
+import spacy
 
-# Carichiamo il modello di lingua inglese
+# Carica il modello linguistico per l'inglese
 nlp = spacy.load("en_core_web_sm")
 
+GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
+REPO_NAME = "VecorDEV/dati-finanziari"
+
+# Salva il file HTML nella cartella 'results'
+file_path = "results/classifica.html"
+news_path = "results/news.html"
+    
+# Salva il file su GitHub
+github = Github(GITHUB_TOKEN)
+repo = github.get_repo(REPO_NAME)
+
+
+# Lista dei simboli azionari da cercare
+symbol_list = ["AAPL", "MSFT", "GOOGL", "AMZN", "META", "TSLA", "V", "JPM", "JNJ", "WMT",
+        "NVDA", "PYPL", "DIS", "NFLX", "NIO", "NRG", "ADBE", "INTC", "CSCO", "PFE",
+        "KO", "PEP", "MRK", "ABT", "XOM", "CVX", "T", "MCD", "NKE", "HD",
+        "IBM", "CRM", "BMY", "ORCL", "ACN", "LLY", "QCOM", "HON", "COST", "SBUX",
+        "CAT", "LOW", "MS", "GS", "AXP", "INTU", "AMGN", "GE", "FIS", "CVS",
+        "DE", "BDX", "NOW", "SCHW", "LMT", "ADP", "C", "PLD", "NSC", "TMUS",
+        "ITW", "FDX", "PNC", "SO", "APD", "ADI", "ICE", "ZTS", "TJX", "CL",
+        "MMC", "EL", "GM", "CME", "EW", "AON", "D", "PSA", "AEP", "TROW", 
+        "LNTH", "HE", "BTDR", "NAAS", "SCHL", "TGT", "SYK", "BKNG", "DUK", "USB",
+        "EURUSD", "USDJPY", "GBPUSD", "AUDUSD", "USDCAD", "USDCHF", "NZDUSD", "EURGBP", "EURJPY", "GBPJPY",
+        "AUDJPY", "CADJPY", "CHFJPY", "EURAUD", "EURNZD", "EURCAD", "EURCHF", "GBPCHF", "GBPJPY", "AUDCAD",
+        "BTCUSD", "ETHUSD", "LTCUSD", "XRPUSD", "BCHUSD", "EOSUSD", "XLMUSD", "ADAUSD", "TRXUSD", "NEOUSD",
+        "DASHUSD", "XMRUSD", "ETCUSD", "ZECUSD", "BNBUSD", "DOGEUSD", "USDTUSD", "LINKUSD", "ATOMUSD", "XTZUSD",
+        "COCOA", "XAUUSD", "XAGUSD", "OIL"]  # Puoi aggiungere altri simboli
+
+import feedparser
+from datetime import datetime, timedelta
 
 def get_stock_news(symbol):
-    """ Recupera i titoli delle notizie per un determinato simbolo. """
+    """ Recupera i titoli e le date delle notizie per un determinato simbolo negli ultimi 90, 30 e 7 giorni. """
     url = f"https://news.google.com/rss/search?q={symbol}+stock&hl=en-US&gl=US&ceid=US:en"
     feed = feedparser.parse(url)
     
-    titles = [entry.title for entry in feed.entries]
-    return titles
+    # Date di riferimento
+    now = datetime.utcnow()
+    days_90 = now - timedelta(days=90)
+    days_30 = now - timedelta(days=30)
+    days_7 = now - timedelta(days=3)
+
+    # Liste per i diversi intervalli di tempo
+    news_90_days = []
+    news_30_days = []
+    news_7_days = []
+
+    for entry in feed.entries:
+        try:
+            # Converte la data della notizia
+            news_date = datetime.strptime(entry.published, "%a, %d %b %Y %H:%M:%S %Z")
+
+            # Notizie degli ultimi 90 giorni
+            if news_date >= days_90:
+                news_90_days.append((entry.title, news_date))
+
+            # Notizie dell'ultimo mese (30 giorni)
+            if news_date >= days_30:
+                news_30_days.append((entry.title, news_date))
+
+            # Notizie degli ultimi 7 giorni
+            if news_date >= days_7:
+                news_7_days.append((entry.title, news_date))
+
+        except ValueError:
+            continue  # Se c'è un problema con la conversione della data, salta la notizia
+
+    return {
+        "last_90_days": news_90_days,
+        "last_30_days": news_30_days,
+        "last_7_days": news_7_days
+    }
+    
 
 
-# Dizionario personalizzato di parole con i punteggi di sentiment
+# Lista di negazioni da considerare
+negation_words = {"not", "never", "no", "without", "don't", "dont", "doesn't", "doesnt"}
+
+
+# Dizionario di parole chiave con il loro punteggio di sentiment
 sentiment_dict = {
-    "achieve": 0.8,  
-    "achievement": 0.9,  
-    "advantage": 0.7,  
-    "advancing": 0.8,  
-    "all-time": 1.0,  
-    "amazing": 1.0,  
-    "appealing": 0.7,  
-    "ascending": 0.7,  
-    "asset": 0.8,  
-    "attractive": 0.8,  
-    "audacious": 0.6,  
-    "autonomous": 0.7,  
-    "alarm": -0.7,  
-    "anxiety": -0.8,  
-    "atrocious": -1.0,  
-    "ailing": -0.7,  
-    "adverse": -0.8,  
-    "aggravate": -0.8,  
-    "abandon": -0.9,  
-    "absent": -0.7,  
-    "atrophy": -0.9,  
-    "alarming": -0.9,  
-    "awkward": -0.6,  
-    "anti": -0.8,
-    "absolutely": 1.5,  # Intensificatore forte
-    "adequately": 0.6,  # Moderato, attenuante
-    "aggressively": 1.2,  # Intensificatore
-    "almost": 0.5,  # Attenuatore
-    "angrily": -1.0,  # Intensificatore negativo
-    "anxiously": -1.0,  # Intensificatore negativo
-    "apparently": 1.0,  # Neutrale, ma può dare una sfumatura positiva o negativa
-    "arguably": 1.0,  # Neutrale, ma enfatizza un punto di vista
-    "assiduously": 1.2,  # Intensificatore positivo
-    "astonishingly": 1.5,  # Intensificatore positivo
-    "awkwardly": -0.5,  # Attenuante o negativo
-    "adequately": 0.6,  # Attenuatore
+    "ai": 0.6,
+    "analyst rating": 0.6,
+    "acquisition": 0.7,
+    "acquisitions": 0.7,
+    "appreciation": 0.9,
+    "advance": 0.8,
+    "advanced": 0.8,
+    "agreement": 0.7,
+    "agreements": 0.7,
+    "agree": 0.7,
+    "agreed": 0.6,
+    "allocation": 0.6,
+    "augmented": 0.7,
+    "augment": 0.7,
+    "augments": 0.7,
+    "attraction": 0.85,
+    "attractions": 0.85,
+    "attractive": 0.85,
+    "attractives": 0.85,
+    "affluence": 0.9,
+    "accelerator": 0.7,
+    "ascend": 0.8,
+    "advantage": 0.8,
+    "advantaged": 0.8,
+    "amplification": 0.7,
+    "abundance": 0.9,
+    "amendment": 0.6,
+    "allowance": 0.6,
+    "achievement": 0.8,
+    "accession": 0.7,
+    "ascension": 0.8,
+    "allocation": 0.6,
+    "acceptance": 0.7,
+    "accreditation": 0.6,
+    "authorized": 0.6,
+    "approval": 0.6,
+    "approved": 0.7,
+    "assurance": 0.7,
+    "advancement": 0.8,
+    "aspiration": 0.7,
+    "adoption": 0.6,
+    "achievement": 0.8,
+    "acceleration": 0.8,
+    "appraisal": 0.6,
+    "amortization": 0.4,
+    "arrest": 0.1,
+    "arrested": 0.1,
+    "arrests": 0.1,
+    "adversity": 0.2,
+    "anomaly": 0.3,
+    "attrition": 0.2,
+    "antitrust": 0.2,
+    "aversion": 0.2,
+    "arrears": 0.1,
+    "abandonment": 0.1,
+    "alienation": 0.2,
+    "asymmetry": 0.3,
+    "ambiguity": 0.3,
+    "anxiety": 0.2,
+    "adjustment": 0.6,
+    "adjusted earnings": 0.7,
+    "algorithmic trading": 0.6,
+    "austerity": 0.3,
+    "audit": 0.4,
+    "amendment": 0.6,
+    "apprehension": 0.2,
+    "abrogation": 0.1,
+    "annulment": 0.1,
+    "arrogation": 0.1,
+    "admonition": 0.2,
+    "antagonism": 0.2,
+    "abysmal": 0.1,
+    "accountability": 0.6,
+    "arrestment": 0.2,
+    "attrition": 0.3,
+    "aftermath": 0.2,
 
-    "bull": 0.9,  
-    "bullish": 1.0,  
-    "bullishness": 1.0,  
-    "bulls": 0.9,  
-    "bullmarket": 1.0,  
-    "bullishtrend": 1.0, 
-    "boom": 0.8,  
-    "booming": 1.0,  
-    "boost": 0.9,  
-    "better": 0.8,  
-    "brilliant": 1.0,  
-    "breakthrough": 1.0,  
-    "benefit": 0.7,  
-    "balance": 0.6,  
-    "bountiful": 1.0,  
-    "bright": 0.8,  
-    "billion": 0.8,  
-    "bonanza": 1.0,  
-    "bustling": 0.7,  
-    "broadening": 0.6, 
-    "bear": -0.9,  
-    "bearish": -1.0,  
-    "bearishness": -1.0,  
-    "bears": -0.9,  
-    "bearmarket": -1.0,  
-    "bearishtrend": -1.0,  
-    "blow": -0.8,  
-    "bust": -1.0,  
-    "balk": -0.7,  
-    "bad": -0.9,  
-    "burden": -0.8,  
-    "bruising": -0.9,  
-    "barren": -0.8,  
-    "bitter": -0.7,  
-    "bumpy": -0.6,  
-    "bankrupt": -1.0,  
-    "blunder": -0.9,  
-    "block": -0.7,  
-    "bleak": -0.8,
-    "broadly": 0.6,  # Avverbio che indica una valutazione generale, attenuante
-    "briskly": 1.1,  # Intensificatore positivo, indica un'azione rapida e positiva
-    "boldly": 1.2,  # Intensificatore positivo, denota coraggio o audacia
-    "badly": -1.0,  # Intensificatore negativo
-    "bitterly": -1.0,  # Intensificatore negativo
-    "broadly": 0.7,  # Intensifica un concetto neutro, ma spesso positivo
-    "barely": -0.5,  # Attenuante che riduce l'intensità positiva o negativa
-    "brutally": -1.5,  # Intensificatore negativo, esprime un'azione severa
-    "boldly": 1.1,  # Intensificatore positivo
-    "blatantly": -1.2,  # Intensificatore negativo
-    "bullishly": 1.2,  # Intensificatore positivo
-    "bearishly": -1.2,  # Intensificatore negativo
+    "bad": 0.1,
+    "badly": 0.1,
+    "bull": 0.9,
+    "bullish": 0.9,
+    "bully": 0.7,
+    "bear": 0.3,
+    "bear market": 0.2,
+    "bankruptcy": 0.1,
+    "bankrupt": 0.1,
+    "balanced": 0.6,
+    "bomb": 0.65,
+    "boom": 0.9,
+    "booms": 0.9,
+    "buy": 0.9,
+    "buys": 0.9,
+    "bought": 0.85,
+    "boost": 0.8,
+    "boosts": 0.8,
+    "boosted": 0.8,
+    "benefit": 0.8,
+    "benefits": 0.8,
+    "billion": 0.6,
+    "billions": 0.6,
+    "bonds": 0.7,
+    "breakthrough": 0.7,
+    "benchmark": 0.7,
+    "bust": 0.1,
+    "bargain": 0.8,
+    "bid": 0.7,
+    "bailout": 0.3,
+    "beneficiary": 0.7,
+    "blockchain": 0.6,
+    "bail": 0.3,
+    "barrier": 0.4,
+    "bottom line": 0.6,
+    "balance sheet": 0.6,
+    "backlog": 0.4,
+    "backer": 0.65,
+    "brisk": 0.7,
+    "burnout": 0.2,
+    "blockbuster": 0.8,
+    "balance of payments": 0.6,
+    "breach": 0.2,
+    "blowout": 0.1,
+    "bribe": 0.0,
+    "brutal": 0.1,
+    "bust up": 0.2,
+    "bank run": 0.1,
+    "bubble": 0.2,
 
-    "climb": 0.8,  
-    "climbing": 0.9,  
-    "confidence": 1.0,  
-    "confidenceboost": 1.0,  
-    "creative": 0.9,  
-    "capital": 0.8,  
-    "cashflow": 0.9,  
-    "comfortable": 0.7,  
-    "clutch": 1.0,  
-    "cash": 0.9,  
-    "cheerful": 0.8,  
-    "cuttingedge": 1.0,  
-    "catalyst": 0.8,  
-    "committed": 0.8,  
-    "consistently": 0.9,  
-    "contribute": 0.7,  
-    "courageous": 1.0,  
-    "clearly": 0.7,  
-    "collapse": -1.0,  
-    "crash": -1.0,  
-    "contraction": -0.8,  
-    "costly": -0.9,  
-    "caution": -0.7,  
-    "crisis": -1.0,  
-    "clumsy": -0.8,  
-    "chaos": -1.0,  
-    "criticism": -0.9,  
-    "corruption": -1.0,  
-    "cramped": -0.7,  
-    "cutback": -0.8,  
-    "cliff": -0.9,  
-    "complicated": -0.8,  
-    "constrained": -0.7,  
-    "counterproductive": -0.9,  
-    "collapse": -1.0,  
-    "convoluted": -0.8,  
-    "corrupt": -1.0,  
-    "carefully": 0.6,  # Avverbio che indica attenzione e ponderazione, attenuante
-    "confidently": 1.1,  # Intensificatore positivo che denota sicurezza
-    "cautiously": -0.6,  # Avverbio che attenua una situazione positiva
-    "crashingly": -1.2,  # Intensificatore negativo, esprime un crollo grave
-    "clearly": 0.7,  # Avverbio positivo che indica chiarezza
-    "clumsily": -1.0,  # Intensificatore negativo, denota goffaggine o errori
-    "critically": -1.0,  # Intensificatore negativo, indica un problema grave
-    "conservatively": -0.5,  # Avverbio che attenua, denota approccio prudente
-    "competitively": 0.8,  # Intensificatore positivo, denota competitività
-    "courageously": 1.2,  # Intensificatore positivo, denota azione audace
+    "capital": 0.7,
+    "cancellation": 0.2,
+    "cancellations": 0.2,
+    "cash": 0.65,
+    "crash": 0.1,
+    "crashes": 0.1,
+    "crashed": 0.1,
+    "cautious": 0.35,
+    "caution": 0.35,
+    "cautiously": 0.65,
+    "climb": 0.8,
+    "climbed": 0.7,
+    "climbs": 0.8,
+    "close to get": 0.8,
+    "coup": 0.2,
+    "couch potato portfolio": 0.75,
+    "credit": 0.7,
+    "credit crunch": 0.2,
+    "cut": 0.2,
+    "cuts": 0.2,
+    "collapse": 0.1,
+    "collapsed": 0.1,
+    "creditor": 0.65,
+    "correction": 0.3,
+    "commodities": 0.7,
+    "change": 0.65,
+    "competition": 0.3,
+    "coupon": 0.6,
+    "contribution": 0.7,
+    "crisis": 0.1,
+    "consolidation": 0.7,
+    "capitalization": 0.8,
+    "collateral damage": 0.3,
+    "compliance": 0.65,
+    "collaboration": 0.7,
+    "consumer confidence": 0.8,
+    "credibility": 0.8,
+    "closure": 0.3,
+    "commitment": 0.7,
+    "clawback": 0.3,
+    "cutback": 0.3,
+    "come to an end": 0.3,
+    "comes to an end": 0.3,
+    "came to an end": 0.3,
+    "coming to an end": 0.3,
+    "contraction": 0.3,
+    "conservative": 0.4,
+    "corruption": 0.0,
+    "corrupted": 0.0,
+    "concerns": 0.2,
+    "concern": 0.2,
+    "capital gains": 0.8,
+    "cash flow": 0.7,
+    "credit rating": 0.65,
+    "contribution margin": 0.7,
+    "crisis management": 0.3,
+    "capital raise": 0.7,
+    "compensation": 0.65,
+    "counterfeit": 0.1,
+    "convergence": 0.65,
+    "compensation package": 0.7,
+    "compensation": 0.7,
+    "capital flow": 0.6,
+    "corruption scandal": 0.1,
 
-    "dynamic": 0.9,  
-    "driving": 0.8,  
-    "diligent": 0.9,  
-    "diversification": 0.8,  
-    "dawn": 0.9,  
-    "distinguished": 1.0,  
-    "dazzling": 1.0,  
-    "dedicated": 0.8,  
-    "dominant": 0.9,  
-    "dramatic": 0.8,  
-    "dynamicgrowth": 1.0,  
-    "development": 0.8,  
-    "driven": 0.9,  
-    "delightful": 0.9,  
-    "double": 0.7,  
-    "decent": 0.7,  
-    "durable": 0.8,  
-    "deal": 0.8,  
-    "deliver": 0.9,  
-    "dividend": 0.8,  
-    "decline": -0.9,  
-    "downturn": -1.0,  
-    "debt": -0.9,  
-    "damaging": -1.0,  
-    "disaster": -1.0,  
-    "downfall": -1.0,  
-    "doubt": -0.9,  
-    "deficit": -0.9,  
-    "delayed": -0.8,  
-    "deterioration": -1.0,  
-    "disruptive": -0.9,  
-    "dismal": -0.9,  
-    "difficult": -0.8,  
-    "drain": -0.8,  
-    "declining": -0.9,  
-    "destructive": -1.0,  
-    "dismayed": -0.9,  
-    "doubtful": -0.8,  
-    "dramatically": 1.1,  # Intensificatore positivo, indica un cambiamento significativo
-    "diligently": 0.9,  # Intensificatore positivo, denota lavoro costante e applicato
-    "desperately": -1.2,  # Intensificatore negativo, indica una condizione critica
-    "deliberately": -0.6,  # Avverbio che attenua una situazione, denota ponderazione
-    "downwardly": -0.8,  # Intensificatore negativo, denota un movimento verso il basso
-    "doubtfully": -0.7,  # Intensificatore negativo, denota incertezza o scetticismo
-    "decisively": 0.9,  # Intensificatore positivo, denota decisione e sicurezza
-    "dramatically": 1.2,  # Intensificatore positivo, denota un cambiamento improvviso
-    "delightfully": 1.0,  # Intensificatore positivo, denota qualcosa di piacevole o gratificante
+    "damage": 0.1,
+    "damages": 0.1,
+    "damaged": 0.1,
+    "damaging": 0.1,
+    "debt": 0.2,
+    "deal": 0.8,
+    "deals": 0.8,
+    "delay": 0.2,
+    "delays": 0.2,
+    "delayed": 0.2,
+    "dividend": 0.8,
+    "deficit": 0.1,
+    "decline": 0.2,
+    "declines": 0.2,
+    "depreciation": 0.3,
+    "drop": 0.2,
+    "drops": 0.2,
+    "downturn": 0.2,
+    "down": 0.3,
+    "downgrade": 0.25,
+    "devaluation": 0.3,
+    "disruption": 0.3,
+    "discount": 0.6,
+    "dilution": 0.4,
+    "die": 0.2,
+    "dies": 0.2,
+    "died": 0.2,
+    "dead": 0.2,
+    "death": 0.2,
+    "development": 0.7,
+    "declining": 0.3,
+    "delisting": 0.2,
+    "delisted": 0.2,
+    "distribution": 0.65,
+    "dissatisfaction": 0.2,
+    "dissatisfactions": 0.2,
+    "debt ceiling": 0.2,
+    "decline rate": 0.2,
+    "dominance": 0.7,
+    "distressed": 0.2,
+    "downsize": 0.3,
+    "drain": 0.2,
+    "delisting": 0.1,
+    "doubt": 0.2,
+    "diminish": 0.3,
+    "declining market": 0.1,
+    "deterioration": 0.2,
+    "diversification": 0.7,
+    "direct investment": 0.7,
+    "downward": 0.2,
+    "danger": 0.1,
+    "decline in sales": 0.1,
+    "debt reduction": 0.65,
+    "discrepancy": 0.3,
+    "debt to equity": 0.4,
+    "dismantling": 0.3,
+    "deflation": 0.2,
+    "debtor": 0.3,
+    "debt servicing": 0.3,
+    "dominant": 0.7,
+    "diversified": 0.7,
+    "dormant": 0.3,
+    "downward spiral": 0.2,
+    "dysfunction": 0.1,
 
-    "earnings": 0.9,  
-    "expand": 0.8,  
-    "expansion": 1.0,  
-    "exceed": 0.9,  
-    "excel": 1.0,  
-    "exceptional": 1.0,  
-    "excellent": 1.0,  
-    "enhance": 0.8,  
-    "elevate": 0.8,  
-    "empower": 1.0,  
-    "exponential": 1.0,  
-    "efficient": 0.9,  
-    "equity": 0.8,  
-    "euphoria": 1.0,  
-    "entrepreneurial": 0.9,  
-    "elite": 0.9,  
-    "enrich": 0.8,  
-    "exceptionally": 1.2,  
-    "elevated": 0.9,  
-    "engaged": 0.8,  
-    "exhilarating": 1.0,  
-    "economiccrisis": -1.0,  
-    "end": -0.8,  
-    "exhausted": -0.9,  
-    "error": -0.8,  
-    "exaggerate": -0.7,  
-    "embarrassing": -0.9,  
-    "expose": -0.8,  
-    "exploitation": -1.0,  
-    "excessive": -0.7,  
-    "evade": -0.8,  
-    "evasion": -0.9,  
-    "eliminate": -0.6,  
-    "embittered": -1.0,  
-    "excruciating": -1.0,  
-    "enfeeble": -0.8,  
-    "exhausting": -0.9,  
-    "exclusion": -0.8,  
-    "endangered": -0.8,  
-    "erosion": -0.9,  
-    "exceptionally": 1.2,  # Intensificatore positivo, denota qualcosa di eccezionale
-    "efficiently": 0.9,  # Avverbio positivo, denota ottimizzazione e prestazioni elevate
-    "exponentially": 1.3,  # Intensificatore positivo, denota crescita rapida e significativa
-    "excessively": -0.7,  # Avverbio negativo che denota esagerazione o qualcosa al di là del necessario
-    "exhaustively": -0.8,  # Avverbio negativo, denota qualcosa di troppo stancante o estenuante
-    "embarrassingly": -1.0,  # Intensificatore negativo, denota qualcosa di imbarazzante
-    "evidently": 0.7,  # Avverbio positivo che denota chiarezza o evidenza
-    "eagerly": 1.1,  # Avverbio positivo che denota un'aspettativa positiva
-    "extremely": 1.5,  # Intensificatore forte
-    "exclusively": -0.5,  # Avverbio che limita qualcosa in modo negativo, denota esclusività negativa
+    "equity": 0.8,
+    "earning": 0.7,
+    "earnings": 0.7,
+    "emerging": 0.7,
+    "expansion": 0.8,
+    "efficiency": 0.7,
+    "exit": 0.4,
+    "estimation": 0.7,
+    "expenditure": 0.3,
+    "enterprise": 0.7,
+    "evercore isi": 0.75,
+    "equilibrium": 0.65,
+    "economic slowdown": 0.15,
+    "endowment": 0.7,
+    "elevate": 0.8,
+    "erode": 0.2,
+    "erodes": 0.2,
+    "eroding": 0.2,
+    "eroded": 0.2,
+    "exceed": 0.8,
+    "expectation": 0.7,
+    "excess": 0.35,
+    "enrichment": 0.8,
+    "encouragement": 0.7,
+    "enterprise value": 0.7,
+    "equity market": 0.7,
+    "exclusivity": 0.7,
+    "escrow": 0.65,
+    "exodus": 0.2,
+    "evasion": 0.1,
+    "equitable": 0.7,
+    "equilibrium price": 0.65,
+    "empowerment": 0.7,
+    "effort": 0.7,
+    "elasticity": 0.7,
+    "enforce": 0.65,
+    "enforcing": 0.65,
+    "establishment": 0.7,
+    "enlightenment": 0.7,
+    "equity fund": 0.7,
 
-    "flourish": 1.0,  
-    "flourishing": 1.0,  
-    "favorable": 0.9,  
-    "fantastic": 1.0,  
-    "forward": 0.8,  
-    "flexible": 0.8,  
-    "favorableoutlook": 0.9,  
-    "fortuitous": 1.0,  
-    "financiallyhealthy": 1.0,  
-    "fortune": 1.0,  
-    "futureproof": 1.0,  
-    "foundational": 0.8,  
-    "focus": 0.8,  
-    "fame": 0.7,  
-    "fasttrack": 1.0,  
-    "futuristic": 0.9,  
-    "fair": 0.8,  
-    "failure": -1.0,  
-    "failing": -1.0,  
-    "fragile": -0.9,  
-    "flawed": -0.8,  
-    "falter": -0.9,  
-    "fall": -1.0,  
-    "frustration": -0.9,  
-    "foreclosure": -1.0,  
-    "fiasco": -1.0,  
-    "famine": -1.0,  
-    "fraud": -1.0,  
-    "financialcrisis": -1.0,  
-    "fallout": -0.8,  
-    "feeble": -0.7,  
-    "failingmarket": -1.0,  
-    "flounder": -0.8,  
-    "flop": -1.0,  
-    "favorably": 1.1,  # Intensificatore positivo che denota un risultato positivo
-    "frequently": 0.7,  # Avverbio neutro, denota frequenza ma senza un'intensificazione chiara
-    "falteringly": -1.2,  # Intensificatore negativo, denota una debolezza evidente
-    "financially": 0.8,  # Relativo alla stabilità finanziaria, positivo ma non intensivo
-    "fearfully": -1.0,  # Intensificatore negativo, denota paura o apprensione
-    "flamboyantly": 1.0,  # Intensificatore positivo, denota un comportamento audace
-    "faintly": -0.5,  # Intensificatore attenuante, denota una lieve presenza di qualcosa negativo
-    "frenetically": -0.7,  # Intensificatore negativo, denota agitazione o caos
-    "firmly": 1.0,  # Intensificatore positivo, denota fermezza e determinazione
-    "frantically": -1.0,  # Intensificatore negativo, denota ansia o disordine
+    "financial crisis": 0.1,
+    "fund": 0.8,
+    "failure": 0.1,
+    "fail": 0.1,
+    "fails": 0.1,
+    "failed": 0.1,
+    "fluctuation": 0.3,
+    "funding": 0.7,
+    "flexibility": 0.7,
+    "favorable": 0.8,
+    "fall": 0.15,
+    "fell": 0.15,
+    "fraud": 0.0,
+    "flow": 0.7,
+    "fintech": 0.7,
+    "finance": 0.7,
+    "flourish": 0.7,
+    "fast track": 0.7,
+    "foreclosure": 0.1,
+    "failing": 0.1,
+    "frenzy": 0.3,
+    "fallout": 0.2,
+    "failure rate": 0.2,
+    "fundamentals": 0.7,
+    "freeze": 0.3,
+    "flare": 0.2,
+    "forecasting": 0.65,
+    "fraudulent": 0.1,
+    "favorable outlook": 0.8,
+    "favorable": 0.8,
+    "financing": 0.7,
+    "flow through": 0.7,
+    "forward looking": 0.7,
+    "fledgling": 0.4,
+    "fire sale": 0.1,
+    "full disclosure": 0.7,
+    "financial innovation": 0.7,
+    "free market": 0.7,
+    "falling prices": 0.2,
+    "falling price": 0.2,
+    "falling": 0.2,
 
-    "growth": 0.9,  
-    "growing": 1.0,  
-    "great": 1.0,  
-    "gain": 0.9,  
-    "gains": 0.9,  
-    "good": 0.8,  
-    "golden": 1.0,  
-    "gigantic": 1.0,  
-    "generous": 0.8,  
-    "grateful": 0.8,  
-    "groundbreaking": 1.0,  
-    "glowing": 1.0,  
-    "glorious": 1.0,  
-    "growingstrong": 1.0,  
-    "growthrate": 0.9,  
-    "genuine": 0.8,  
-    "green": 0.7,  
-    "gorgeous": 1.0,
-    "grim": -0.9,  
-    "grinding": -0.8,  
-    "grief": -1.0,  
-    "gloom": -0.9,  
-    "grind": -0.8,  
-    "grousing": -0.7,  
-    "greed": -1.0,  
-    "gutted": -1.0,  
-    "grouchy": -0.7,  
-    "glum": -0.8,  
-    "glitch": -0.7,  
-    "gasp": -0.6,  
-    "grip": -0.7,  
-    "grievance": -0.9,  
-    "grouch": -0.8,  
-    "guilt": -1.0,  
-    "gratefully": 0.8,  # Avverbio positivo che esprime gratitudine
-    "graciously": 0.9,  # Intensificatore positivo che indica comportamento generoso
-    "gracefully": 1.0,  # Intensificatore positivo che implica eleganza e successo
-    "grimly": -1.0,  # Intensificatore negativo che implica pessimismo
-    "greedily": -1.0,  # Intensificatore negativo, denota avidità
-    "grouchily": -0.8,  # Intensificatore negativo che denota comportamento scontroso
-    "glowingly": 1.1,  # Intensificatore positivo che denota successo e felicità
-    "grindingly": -0.9,  # Intensificatore negativo che implica una fatica costante
-    "grudgingly": -0.8,  # Intensificatore negativo che implica resistenza o mancanza di entusiasmo
+    "growth": 0.9,
+    "growths": 0.9,
+    "gain": 0.9,
+    "gains": 0.9,
+    "growth rate": 0.9,
+    "growing dissatisfaction": 0.1,
+    "guarantee": 0.8,
+    "gross": 0.6,
+    "green": 0.8,
+    "grants": 0.7,
+    "guidance": 0.7,
+    "glut": 0.2,
+    "gap": 0.3,
+    "gloom": 0.2,
+    "grave": 0.1,
+    "gridlock": 0.3,
+    "grind": 0.3,
+    "gross margin": 0.7,
+    "gross product": 0.7,
+    "gains per share": 0.8,
+    "greenfield": 0.7,
+    "garnishment": 0.2,
+    "growing market": 0.9,
+    "government debt": 0.2,
+    "garnishee": 0.2,
+    "globalization": 0.65,
+    "grip": 0.4,
+    "global demand": 0.7,
+    "gross revenue": 0.7,
+    "goodwill": 0.65,
+    "graft": 0.1,
+    "gold": 0.8,
+    "guarantor": 0.65,
+    "growth stock": 0.9,
+    "good debt": 0.7,
+    "good": 0.9,
+    "goodly": 0.9,
+    "global recession": 0.2,
 
-    "high": 0.8,  
-    "higher": 0.9,  
-    "highs": 0.8,  
-    "healthy": 0.9,  
-    "hedge": 0.6,  
-    "hero": 1.0,  
-    "historic": 0.8,  
-    "hope": 0.7,  
-    "hopeful": 0.9,  
-    "hot": 0.7,  
-    "huge": 1.0,  
-    "hike": 0.6,  
-    "headway": 0.7,  
-    "hefty": 0.8,  
-    "helpful": 0.7,  
-    "handsome": 0.9,  
-    "harvest": 0.8,  
-    "highlight": 0.7,  
-    "honeymoon": 0.9,  
-    "hypergrowth": 1.0,  
-    "hit": -0.8,  
-    "halt": -0.9,  
-    "hardship": -1.0,  
-    "harsh": -0.8,  
-    "hazard": -0.9,  
-    "heavy": -0.7,  
-    "headwind": -0.8,  
-    "hedgingloss": -0.9,  
-    "hurdle": -0.7,  
-    "hurt": -0.9,  
-    "hostile": -1.0,  
-    "hoax": -1.0,  
-    "havoc": -1.0,  
-    "hopeless": -1.0,  
-    "hollow": -0.8,  
-    "halted": -0.9,  
-    "hype" : -0.2,  # A volte può essere positivo, ma spesso ha una connotazione negativa  
-    "hiddenrisk": -0.9,  
-    "heavily": -0.8,  # Intensificatore negativo, denota impatto forte  
-    "hopefully": 0.7,  # Attenuatore positivo, indica aspettative positive  
-    "harshly": -1.0,  # Intensificatore negativo  
-    "honestly": 0.6,  # Leggero intensificatore positivo  
-    "hastily": -0.7,  # Intensificatore negativo, suggerisce azioni avventate  
-    "hugely": 1.2,  # Intensificatore positivo, enfatizza la grandezza di un evento  
-    "historically": 0.5,  # Neutrale, può dare contesto a una tendenza  
-    "highly": 1.1,  # Intensificatore positivo, enfatizza importanza o crescita  
+    "hike": 0.8,
+    "high": 0.8,
+    "highs": 0.8,
+    "holding company": 0.7,
+    "holding companies": 0.7,
+    "holding structure": 0.6,
+    "holding structures": 0.6,
+    "holding pattern": 0.4,
+    "holding fund": 0.7,
+    "holding funds": 0.7,
+    "holding patterns": 0.4,
+    "holding losses": 0.2,
+    "holding loss": 0.2,
+    "holding steady": 0.8,
+    "holding off": 0.4,
+    "hold off": 0.4,
+    "holds off": 0.4,
+    "holding gains": 0.9,
+    "holding back": 0.3,
+    "hold back": 0.3,
+    "holds back": 0.3,
+    "holding onto": 0.6,
+    "hit": 0.3,
+    "hurdle": 0.3,
+    "healthy": 0.8,
+    "hoarding": 0.2,
+    "headwind": 0.3,
+    "headwinds": 0.3,
+    "hyperinflation": 0.1,
+    "high risk": 0.2,
+    "high risks": 0.2,
+    "hedge fund": 0.4,
+    "holding company": 0.7,
+    "harmonic": 0.6,
+    "high yield": 0.8,
+    "healthy growth": 0.8,
+    "haircut": 0.2,
+    "high performance": 0.9,
+    "high performances": 0.9,
+    "high value": 0.9,
+    "hollow": 0.2,
+    "high headcount": 0.65,
+    "high impact": 0.7,
+    "hasty": 0.3,
+    "healthcare": 0.7,
+    "hustle": 0.4,
+    "hardship": 0.2,
+    "hard asset": 0.7,
+    "hollowed out": 0.2,
+    "hollow out": 0.2,
+    "heavily indebted": 0.0,
 
-    "increase": 0.8,  
-    "increasing": 0.9,  
-    "innovation": 1.0,  
-    "innovative": 1.0,  
-    "improve": 0.9,  
-    "improvement": 1.0,  
-    "improving": 0.9,  
-    "income": 0.8,  
-    "insightful": 0.7,  
-    "investment": 0.8,  
-    "investor": 0.7,  
-    "influential": 0.8,  
-    "inflow": 0.7,  
-    "impressive": 1.0,  
-    "intelligent": 0.9,  
-    "independent": 0.7,  
-    "inspiring": 1.0,  
-    "ideal": 0.9,  
-    "important": 0.8,  
-    "initiative": 0.7,  
-    "integrity": 0.8,  
-    "incentive": 0.7,  
-    "inflationresistant": 0.9,  
-    "inflation": -0.9,  
-    "insolvent": -1.0,  
-    "instability": -0.9,  
-    "inefficiency": -1.0,  
-    "inefficient": -0.9,  
-    "insecurity": -0.8,  
-    "insufficient": -0.9,  
-    "issue": -0.7,  
-    "incapable": -0.8,  
-    "incompetent": -1.0,  
-    "irrelevant": -0.7,  
-    "insignificant": -0.7,  
-    "inconvenient": -0.7,  
-    "inconsistency": -0.8,  
-    "incorrect": -0.9,  
-    "irregular": -0.8,  
-    "isolated": -0.7,  
-    "instability": -0.9,  
-    "incident": -0.7,  
-    "increasingly": 1.2,  # Intensificatore positivo, denota crescita progressiva  
-    "insightfully": 1.1,  # Intensificatore positivo, denota saggezza o visione  
-    "impressively": 1.2,  # Intensificatore positivo, enfatizza un risultato eccellente  
-    "insufficiently": -1.0,  # Intensificatore negativo, denota mancanza  
-    "inefficiently": -1.2,  # Intensificatore negativo, enfatizza l'inefficienza  
-    "insecurely": -1.0,  # Intensificatore negativo, denota insicurezza  
-    "inconsistently": -1.0,  # Intensificatore negativo, denota mancanza di coerenza  
+    "ia": 0.6,
+    "income": 0.8,
+    "incomes": 0.8,
+    "investment": 0.8,
+    "inflation": 0.3,
+    "inflate": 0.3,
+    "increase": 0.8,
+    "increased": 0.8,
+    "increased competition": 0.2,
+    "improvement": 0.8,
+    "interest": 0.7,
+    "insight": 0.7,
+    "insights": 0.7,
+    "inflationary": 0.3,
+    "innovative": 0.8,
+    "insurance": 0.7,
+    "integrity": 0.8,
+    "investment grade": 0.7,
+    "intelligence": 0.7,
+    "increase rate": 0.7,
+    "increased rate": 0.7,
+    "indebtedness": 0.2,
+    "interest rate": 0.6,
+    "impactful": 0.7,
+    "incursion": 0.3,
+    "illiquid": 0.2,
+    "illiquidity": 0.2,
+    "impairment": 0.2,
+    "insolvency": 0.1,
+    "income tax": 0.4,
+    "incentive": 0.7,
+    "issue": 0.1,
+    "issues": 0.1,
+    "inflated": 0.3,
+    "inflating": 0.3,
+    "insider trading": 0.1,
+    "increased demand": 0.7,
+    "increase demand": 0.7,
+    "increased competition": 0.25,
+    "increase competition": 0.25,
+    "independent": 0.7,
+    "invest": 0.65,
+    "incorporation": 0.6,
+    "illegal": 0.0,
+    "investing": 0.65,
+    "impaired": 0.2,
+    "interest bearing": 0.7,
+    "interest": 0.7,
+    "interesting": 0.7,
+    "interested": 0.7,
 
-    "jump": 0.8,  
-    "jumping": 0.9,  
-    "jolt": 0.7,  
-    "jubilant": 1.0,  
-    "joy": 1.0,  
-    "joyful": 1.0,  
-    "juicy": 0.8,  # Spesso usato in ambito finanziario per indicare rendimenti attraenti
-    "justify": 0.7,  
-    "justified": 0.8,  
-    "jittery": -0.8,  
-    "jeopardy": -1.0,  
-    "jeopardize": -1.0,  
-    "jaded": -0.7,  
-    "jammed": -0.8,  
-    "jerky": -0.7,  
-    "junk": -1.0,  
-    "junkbond": -1.0,  
-    "judgmental": -0.9,  
-    "jumpiness": -0.7,  
-    "joyfully": 1.2,  # Intensificatore positivo, indica entusiasmo e ottimismo
-    "jubilantly": 1.3,  # Intensificatore positivo, enfatizza una forte positività
-    "jarringly": -1.2,  # Intensificatore negativo, indica un impatto negativo improvviso
-    "jitterily": -1.1,  # Intensificatore negativo, enfatizza insicurezza o instabilità
-    "justly": 0.6,  # Attenuante positivo, indica equità e correttezza
+    "job": 0.7,
+    "jobs": 0.7,
+    "joint": 0.7,
+    "jump": 0.9,
+    "jumps": 0.9,
+    "junks": 0.2,
+    "junk": 0.2,
+    "justice": 0.8,
+    "jittery": 0.3,
+    "jackpot": 0.9,
+    "jackpots": 0.9,
+    "jockey": 0.65,
+    "jumpstart": 0.8,
+    "juggernaut": 0.7,
+    "jockeying": 0.6,
+    "justice system": 0.65,
+    "job market": 0.7,
+    "jack up": 0.3,
+    "judicious": 0.7,
+    "jobless": 0.2,
 
-    "keen": 0.7,  
-    "keenness": 0.8,  
-    "key": 0.9,  
-    "kickstart": 1.0,  
-    "king": 1.0,  
-    "knockout": 0.9,  
-    "knowhow": 0.8,  
-    "knowledgeable": 0.9,  
-    "keenly": 0.7,  
-    "knock": -0.7,  
-    "knockeddown": -0.9,  
-    "knockoutblow": -1.0,  
-    "kill": -1.0,  
-    "killing": -1.0,  
-    "kneedeep": -0.8,  
-    "knotted": -0.7,  
-    "kickback": -0.9,  
-    "keptdown": -0.8,  
-    "keenly": 1.1,  # Intensificatore positivo, indica forte interesse o entusiasmo  
-    "knowingly": 0.6,  # Avverbio neutro-positivo, denota consapevolezza  
-    "knockingly": -1.0,  # Intensificatore negativo, indica forte critica o attacco  
+    "kicker": 0.6,
+    "knockout": 0.7,
+    "keep growing": 0.9,
+    "keep increasing": 0.9,
+    "keep holding": 0.7,
+    "keep outperforming": 0.9,
+    "keep strengthening": 0.9,
+    "keep stable": 0.6,
+    "keep waiting": 0.4,
+    "keep struggling": 0.3,
+    "keep losing": 0.2,
+    "knot": 0.3,
+    "kickback": 0.2,
+    "keen on": 0.7,
+    "kill": 0.2,
+    "key player": 0.8,
+    "kind": 0.6,
+    "kerfuffle": 0.3,
+    "kickstart": 0.7,
+    "kudos": 0.8,
 
-    "lead": 0.9,  
-    "leading": 1.0,  
-    "leadership": 1.0,  
-    "leap": 0.8,  
-    "leaping": 0.9,  
-    "leverage": 0.7,  
-    "lucrative": 1.0,  
-    "lift": 0.8,  
-    "landmark": 0.9,  
-    "limitless": 1.0,  
-    "legendary": 1.0,  
-    "lightweight": 0.7,  
-    "longterm": 0.8,  
-    "loyal": 0.9,  
-    "luxury": 0.9,  
-    "loss": -1.0, 
-    "losses": -1.0,
-    "losing": -1.0,  
-    "lost": -0.9,  
-    "lag": -0.8,  
-    "lagging": -0.9,  
-    "liability": -0.8,  
-    "lawsuit": -0.9,  
-    "layoff": -1.0,  
-    "limited": -0.7,  
-    "low": -0.8,  
-    "lack": -0.9,  
-    "lousy": -1.0,  
-    "looming": -0.8,  
-    "liquidation": -1.0,  
-    "leak": -0.7,  
-    "largely": 0.6,  # Avverbio positivo che indica un effetto significativo  
-    "lightly": 0.7,  # Intensificatore positivo, indica leggerezza e agilità  
-    "loudly": -0.6,  # Intensificatore negativo se usato in senso di protesta o allarme  
-    "likely": 0.5,  # Avverbio positivo ma attenuato, denota possibilità positiva  
-    "loosely": -0.5,  # Attenuante negativo, indica mancanza di precisione  
+    "layoff": 0.2,
+    "loss": 0.1,
+    "losses": 0.1,
+    "lost": 0.1,
+    "liquidity": 0.65,
+    "loan": 0.7,
+    "loans": 0.7,
+    "liability": 0.3,
+    "liquid": 0.7,
+    "long": 0.7,
+    "lift": 0.8,
+    "low": 0.3,
+    "lows": 0.3,
+    "leading": 0.8,
+    "lending": 0.7,
+    "lead": 0.8,
+    "lag": 0.35,
+    "liquidation": 0.15,
+    "low risk": 0.7,
+    "low risks": 0.7,
+    "low cost": 0.7,
+    "low costs": 0.7,
+    "lower than anticipated": 0.25,
+    "lower than expected": 0.25,
+    "lucrative": 0.9,
+    "late": 0.3,
+    "lack": 0.2,
+    "long term": 0.7,
+    "long terms": 0.7,
+    "large cap": 0.7,
+    "long position": 0.7,
+    "long positions": 0.7,
+    "leading indicator": 0.7,
+    "liquid assets": 0.7,
+    "lull": 0.3,
+    "leveraged buyout": 0.7,
+    "low growth": 0.2,
+    "loss making": 0.1,
+    "leveraging": 0.6,
+    "launch": 0.7,
+    "low value": 0.3,
+    "lifetime value": 0.7,
+    "liquidate": 0.1,
 
-    "market": 0.9,  
-    "momentum": 1.0,  
-    "money": 0.8,  
-    "magnificent": 1.0,  
-    "master": 1.0,  
-    "merger": 0.8,  
-    "modern": 0.7,  
-    "maximized": 1.0,  
-    "mature": 0.7,  
-    "moneyflow": 0.9,  
-    "metamorphosis": 1.0,  
-    "magnify": 0.8,  
-    "marvelous": 1.0,  
-    "milestone": 1.0,  
-    "motivated": 0.9,  
-    "movement": 0.8,  
-    "maximizing": 1.0,  
-    "marketshare": 0.8,  
-    "meltdown": -1.0,  
-    "mismanagement": -1.0,  
-    "melancholy": -0.8,  
-    "misfortune": -0.9,  
-    "misstep": -0.8,  
-    "malfunction": -1.0,  
-    "mishap": -0.8,  
-    "mortgage": -0.7,  
-    "manipulation": -1.0,  
-    "mediocre": -0.7,  
-    "minimized": -0.8,  
-    "marketdecline": -1.0,  
-    "monetaryloss": -1.0,  
-    "moneyloss": -0.9,  
-    "mistake": -0.9,  
-    "monotony": -0.7,  
-    "misaligned": -0.8, 
-    "magnificently": 1.2,  # Intensificatore positivo, denota eccellenza
-    "miserably": -1.0,  # Intensificatore negativo, denota fallimento o disastro
-    "moderately": 0.6,  # Attenuante, indica una valutazione neutra o leggermente positiva
-    "mercilessly": -1.2,  # Intensificatore negativo, denota un impatto negativo forte
-    "manipulatively": -1.0,  # Intensificatore negativo, legato a pratiche manipolative
-    "methodically": 0.7,  # Avverbio positivo, denota precisione e organizzazione
-    "motivatingly": 1.1,  # Intensificatore positivo, denota azioni motivanti
-    "mildly": 0.5,  # Attenuante positivo, che indica una leggera positività
+    "market risk": 0.4,
+    "market risks": 0.4,
+    "market crisis": 0.1,
+    "market share": 0.7,
+    "market downturn": 0.2,
+    "merger": 0.8,
+    "magnitude": 0.7,
+    "momentum": 0.8,
+    "maturity": 0.7,
+    "million": 0.65,
+    "millions": 0.65,
+    "master": 0.8,
+    "markup": 0.7,
+    "minimize": 0.7,
+    "miss": 0.2,
+    "missing": 0.2,
+    "missed": 0.2,
+    "maximization": 0.85,
+    "maximizations": 0.85,
+    "multiplier": 0.7,
+    "modest": 0.4,
+    "manipulation": 0.2,
+    "margin call": 0.3,
+    "move up": 0.85,
+    "moves up": 0.85,
+    "moved up": 0.75,
+    "money market": 0.7,
+    "manufacture": 0.65,
+    "markup pricing": 0.7,
+    "money supply": 0.65,
+    "move forward": 0.7,
+    "mining": 0.6,
+    "multinational": 0.7,
+    "multinationals": 0.7,
+    "most attractive": 0.8,
+    "magnificent": 0.75,
+    "magnific": 0.75,
 
-    "net": 0.8,  
-    "new": 0.9,  
-    "notable": 1.0,  
-    "noble": 1.0,  
-    "nurture": 0.8,  
-    "navigating": 0.7,  
-    "nearrecord": 1.0,  
-    "niche": 0.7,  
-    "nurturing": 0.8,  
-    "nice": 0.7,  
-    "nifty": 0.9,  
-    "noble": 1.0,  
-    "nourishing": 0.8,  
-    "noteworthy": 1.0,  
-    "newmarket": 1.0,  
-    "nextlevel": 1.0,  
-    "negative": -1.0,  
-    "narrow": -0.8,  
-    "nagging": -0.7,  
-    "nosedive": -1.0,  
-    "noxious": -1.0,  
-    "nadir": -1.0,  
-    "numb": -0.8,  
-    "nonperforming": -1.0,  
-    "nonviable": -1.0,  
-    "nuisance": -0.8,  
-    "nervous": -0.8,  
-    "negligible": -0.6,  
-    "nightmare": -1.0,  
-    "needy": -0.7,  
-    "negligent": -0.9,  
-    "negatively": -1.0,  # Intensificatore negativo, denota una valutazione peggiorativa
-    "nervously": -0.7,  # Intensificatore negativo, denota ansia o incertezza
-    "narrowly": -0.6,  # Intensificatore negativo, denota una condizione ristretta
-    "notably": 0.8,  # Avverbio che indica qualcosa di degno di nota, generalmente positivo
-    "naturally": 0.7,  # Avverbio che indica una progressione naturale, positiva
-    "negligibly": -0.5,  # Avverbio che attenua una situazione negativa
+    "niche": 0.8,
+    "non performing": 0.1,
+    "narrow": 0.4,
+    "new": 0.65,
+    "negative": 0.1,
+    "negative earnings": 0.0,
+    "new product": 0.8,
+    "new products": 0.8,
+    "net profit": 0.7,
+    "net profits": 0.7,
+    "note worthy": 0.7,
+    "non essential": 0.3,
+    "net worth": 0.7,
+    "nurture": 0.7,
+    "non compliant": 0.2,
+    "nervous": 0.3,
+    "no growth": 0.2,
+    "no growths": 0.2,
+    "new investment": 0.8,
+    "new investments": 0.8,
+    "non cyclical": 0.6,
+    "noteworthy": 0.7,
+    "normalization": 0.65,
+    "net gain": 0.8,
+    "net gains": 0.8,
+    "not reachable": 0.15,
+    "not reached": 0.1,
 
-    "outperformance": 1.0,  
-    "outlook": 0.8,  
-    "optimistic": 1.0,  
-    "opportunity": 0.9,  
-    "outperform": 1.0,  
-    "outstanding": 1.0,  
-    "outpacing": 0.9,  
-    "optimal": 0.9,  
-    "ontrack": 1.0,  
-    "overflowing": 1.0,  
-    "opulent": 1.0,  
-    "overachieve": 1.0,  
-    "overwhelming": 1.0,  
-    "organic": 0.7,  
-    "overperforming": 0.9,  
-    "overseas": 0.7,  
-    "opportunityrich": 1.0,  
-    "overload": -0.8,  
-    "obstacle": -0.9,  
-    "outdated": -0.8,  
-    "overextended": -0.7,  
-    "overdue": -0.8,  
-    "oversaturated": -0.9,  
-    "overburdened": -0.8,  
-    "outofcontrol": -1.0,  
-    "obsolete": -0.9,  
-    "overpriced": -0.9,  
-    "overwhelmed": -0.9,  
-    "outage": -0.8,  
-    "overconsumption": -0.7,  
-    "overreaction": -0.7,  
-    "oversupply": -0.9,  
-    "offtrack": -0.9,  
-    "optimistically": 1.2,  # Intensificatore positivo, indica ottimismo
-    "overwhelmingly": 1.3,  # Intensificatore positivo, denota una forza travolgente
-    "overcautiously": -0.6,  # Avverbio negativo, denota eccessiva cautela
-    "offensively": -1.0,  # Intensificatore negativo, denota un comportamento problematico
-    "obviously": 0.7,  # Avverbio positivo che indica chiarezza
-    "overzealously": -0.7,  # Avverbio negativo che indica un comportamento eccessivamente entusiasta
-    "outwardly": 0.6,  # Avverbio che indica un'apparenza positiva, ma senza implicazioni forti
+    "offer": 0.65,
+    "offers": 0.65,
+    "overperform": 0.9,
+    "outperform": 0.9,
+    "optimistic": 0.8,
+    "opportunity": 0.8,
+    "opportunities": 0.8,
+    "organic": 0.7,
+    "overdue": 0.3,
+    "overhead": 0.7,
+    "overvalued": 0.2,
+    "offset": 0.65,
+    "outflow": 0.3,
+    "overleveraged": 0.2,
+    "overestimate": 0.3,
+    "outstanding": 0.8,
+    "overcapacity": 0.3,
+    "overreaction": 0.3,
+    "overexposure": 0.3,
+    "overperformance": 0.8,
+    "obsolescence": 0.2,
+    "overfunded": 0.7,
+    "optimization": 0.7,
+    "optimizations": 0.7,
+    "operating profit": 0.8,
+    "overstretch": 0.3,
+    "oversupply": 0.2,
+    "offerings": 0.7,
+    "on track": 0.7,
+    "overcome": 0.8,
+    "oscillation": 0.35,
+    "overproduction": 0.3,
+    "organic growth": 0.8,
+    "organic growths": 0.8,
 
-    "profit": 1.0,  
-    "profits": 0.9,  
-    "positive": 0.9,  
-    "prosperity": 1.0,  
-    "progress": 0.9,  
-    "promising": 1.0,  
-    "productive": 0.8,  
-    "potential": 0.8,  
-    "powerful": 1.0,  
-    "pioneering": 1.0,  
-    "praise": 0.9,  
-    "prize": 1.0,  
-    "performing": 0.8,  
-    "profitable": 1.0,  
-    "precious": 0.8,  
-    "plentiful": 1.0,  
-    "progressive": 0.9,  
-    "platform": 0.8,  
-    "perfect": 1.0,  
-    "partnership": 0.8,  
-    "plunge": -1.0,  
-    "plummeting": -1.0,  
-    "problem": -0.9,  
-    "poor": -0.9,  
-    "pessimistic": -1.0,  
-    "pressure": -0.8,  
-    "pitfall": -1.0,  
-    "panic": -1.0,  
-    "paralysis": -1.0,  
-    "peril": -1.0,  
-    "punish": -0.9,  
-    "precarious": -1.0,  
-    "pollution": -0.8,  
-    "pathos": -0.9,  
-    "problems": -0.8,  
-    "poorperformance": -1.0,  
-    "pricecut": -0.8,  
-    "profitably": 1.2,  # Intensificatore positivo che denota guadagni
-    "positively": 1.1,  # Intensificatore positivo che enfatizza una situazione favorevole
-    "progressively": 1.0,  # Avverbio che denota un progresso continuo
-    "perfectly": 1.2,  # Intensificatore positivo, denota prestazioni impeccabili
-    "pessimistically": -1.1,  # Intensificatore negativo, suggerisce una visione molto negativa
-    "poorly": -1.0,  # Intensificatore negativo, denota una performance scadente
-    "precisely": 0.7,  # Avverbio che denota precisione, generalmente neutro ma positivo in contesti finanziari
-    "precariously": -1.2,  # Intensificatore negativo, denota una situazione instabile e rischiosa
-    "potentially": 0.8,  # Avverbio che indica possibilità positive, ma non garantite
-    "painfully": -1.2,  # Intensificatore negativo, suggerisce dolore o difficoltà gravi
+    "panic": 0.1,
+    "panic selling": 0.1,
+    "profits": 0.8,
+    "profit": 0.8,
+    "profit margin": 0.8,
+    "positive": 0.9,
+    "positively": 0.9,
+    "premium": 0.8,
+    "predict": 0.6,
+    "prediction": 0.6,
+    "predictions": 0.6,
+    "pioneer": 0.8,
+    "purchasing": 0.7,
+    "prosper": 0.9,
+    "prospered": 0.9,
+    "prospers": 0.9,
+    "plan": 0.8,
+    "plans": 0.8,
+    "positive growth": 0.9,
+    "positive growths": 0.9,
+    "payoff": 0.8,
+    "peak": 0.65,
+    "peaking": 0.7,
+    "price increase": 0.65,
+    "power": 0.7,
+    "price cut": 0.4,
+    "plunge": 0.2,
+    "plunges": 0.2,
+    "plunged": 0.2,
+    "plummeted": 0.2,
+    "pressure": 0.3,
+    "pressures": 0.3,
+    "pressured": 0.3,
+    "pandemic": 0.2,
+    "pessimistic": 0.2,
+    "plentiful": 0.8,
+    "penetrant": 0.65,
+    "premium rate": 0.8,
+    "plunge risk": 0.3,
+    "poor performance": 0.2,
+    "poor": 0.1,
+    "progress": 0.8,
+    "problem": 0.15,
+    "problems": 0.1,
+    "product release": 0.7,
+    "product releases": 0.7,
+    "product released": 0.7,
+    "pull back": 0.2,
+    "pulls back": 0.2,
+    "pulling back": 0.2,
+    "pulled back": 0.2,
 
-    "quality": 0.9,  
-    "quick": 0.8,  
-    "quicker": 0.9,  
-    "quantum": 1.0,  
-    "quintessential": 1.0,  
-    "qualified": 0.8,  
-    "quantitative": 0.8,  
-    "quaint": 0.7,  
-    "quiet": 0.6,  
-    "quest": 1.0,  
-    "qualitygrowth": 1.0,
-    "quagmire": -1.0,  
-    "quicksand": -1.0,  
-    "quiver": -0.8,  
-    "quashed": -0.9,  
-    "questionable": -0.8,  
-    "quandary": -0.9,  
-    "quarrel": -0.9,  
-    "quash": -0.8,  
-    "quitting": -0.9,  
-    "quizzical": -0.7,  
-    "quickly": 0.9,  # Intensificatore positivo, denota un'azione rapida
-    "quietly": 0.6,  # Avverbio che attenua, indica tranquillità o discrezione
-    "quizzically": -0.7,  # Intensificatore negativo, denota dubbi o incertezze
-    "questionably": -0.8,  # Intensificatore negativo, suggerisce incertezze o sospetti
-    "quarrelsomely": -1.0,  # Intensificatore negativo, suggerisce conflitti
+    "quality": 0.65,
+    "quick": 0.8,
+    "quarantine": 0.2,
+    "questionable": 0.3,
+    "quiet": 0.4,
+    "quick turnaround": 0.65,
+    "quality control": 0.65,
+    "quaint": 0.65,
 
-    "revenue": 0.9,  
-    "record": 1.0,  
-    "robust": 0.8,  
-    "resilient": 1.0,  
-    "rise": 0.9,  
-    "rising": 1.0,  
-    "reliable": 0.8,  
-    "rewarding": 1.0,  
-    "refreshing": 0.8,  
-    "recovery": 0.9,  
-    "renaissance": 1.0,  
-    "revolutionary": 1.0,  
-    "return": 0.8,  
-    "reinvigorated": 1.0,  
-    "resurgence": 0.9,  
-    "revitalization": 1.0,  
-    "rapid": 0.9,  
-    "recession": -1.0,  
-    "reduction": -0.8,  
-    "risk": -0.7,  
-    "rot": -1.0,  
-    "reliance": -0.6,  
-    "reversal": -0.9,  
-    "reproach": -0.8,  
-    "reprimand": -0.9,  
-    "retreat": -0.8,  
-    "ruin": -1.0,  
-    "regression": -0.9,  
-    "reduced": -0.7,  
-    "receding": -0.8,  
-    "reckless": -0.9,  
-    "resentment": -0.8,  
-    "riskaverse": -0.7,  
-    "rocky": -0.8,  
-    "reparations": -0.9,  
-    "relinquish": -0.7, 
-    "robustly": 1.1,  # Intensificatore positivo
-    "rapidly": 1.1,  # Intensificatore positivo, indica un miglioramento rapido
-    "reluctantly": -0.6,  # Avverbio che attenua la volontà o decisione positiva
-    "reliably": 0.8,  # Avverbio positivo che indica affidabilità
-    "recklessly": -1.2,  # Intensificatore negativo, indica una gestione imprudente
-    "regrettably": -1.0,  # Intensificatore negativo, denota un rimpianto
-    "repeatedly": -0.7,  # Avverbio che indica ripetizione, spesso in un contesto negativo
-    "resolutely": 1.0,  # Intensificatore positivo, denota determinazione
+    "rapid": 0.7,
+    "revenue": 0.8,
+    "rebound": 0.8,
+    "rebounds": 0.8,
+    "revenues": 0.8,
+    "recovery": 0.7,
+    "reinvestment": 0.6,
+    "reduction": 0.3,
+    "reductions": 0.3,
+    "resilience": 0.8,
+    "risk": 0.2,
+    "risks": 0.2,
+    "robust": 0.8,
+    "recession": 0.1,
+    "rebalancing": 0.65,
+    "revenue growth": 0.9,
+    "revenue growths": 0.9,
+    "reliable": 0.9,
+    "raise": 0.8,
+    "rise": 0.8,
+    "rises": 0.8,
+    "rising price": 0.3,
+    "rising prices": 0.3,
+    "rising debt": 0.2,
+    "refinancing": 0.6,
+    "reduction in force": 0.3,
+    "risk aversion": 0.3,
+    "rally": 0.8,
+    "recovery plan": 0.75,
+    "reliable performance": 0.8,
+    "reinforcement": 0.7,
+    "reinvestment strategy": 0.8,
+    "risky": 0.2,
+    "repayment": 0.6,
+    "recessionary": 0.2,
+    "redemption": 0.65,
+    "revenue stream": 0.75,
+    "revenue model": 0.8,
+    "reserves": 0.6,
+    "revenue per share": 0.8,
+    
+    "share": 0.8,
+    "shares": 0.8,
+    "shared": 0.8,
+    "shocking": 0.2,
+    "shocked": 0.2,
+    "shock": 0.2,
+    "surge": 0.8,
+    "surges": 0.8,
+    "strong": 0.8,
+    "strategy": 0.75,
+    "strategic": 0.75,
+    "strategies": 0.75,
+    "successful": 0.9,
+    "savings": 0.7,
+    "sustainability": 0.8,
+    "sustainable": 0.8,
+    "stability": 0.8,
+    "securities": 0.7,
+    "security": 0.7,
+    "secure": 0.9,
+    "security breach": 0.1,
+    "skepticism": 0.3,
+    "steady": 0.7,
+    "subsidy": 0.7,
+    "startup": 0.65,
+    "startups": 0.65,
+    "solid": 0.8,
+    "sell": 0.3,
+    "sell off": 0.2,
+    "sells": 0.3,
+    "setback": 0.2,
+    "setbacks": 0.2,
+    "sold": 0.3,
+    "sold out": 0.7,
+    "spend on growth": 0.9,
+    "spends on growth": 0.9,
+    "spend efficiently": 0.8,
+    "spend more than": 0.4,
+    "spends more than": 0.4,
+    "surplus": 0.8,
+    "stimulus": 0.7,
+    "short": 0.3,
+    "shrinking": 0.2,
+    "shrink": 0.2,
+    "slow": 0.3,
+    "slows": 0.3,
+    "slower": 0.3,
+    "slowing": 0.3,
+    "slowdown": 0.25,
+    "slash": 0.3,
+    "slashing": 0.3,
+    "slashed": 0.3,
+    "slide": 0.3,
+    "slides": 0.3,
+    "savings plan": 0.7,
+    "stagnation": 0.2,
+    "stagnant": 0.2,
+    "stagflation": 0.2,
+    "steep": 0.7,
+    "scalability": 0.7,
+    "softening": 0.3,
+    "soar": 0.8,
+    "soars": 0.8,
+    "saturation": 0.35,
+    "shutdown": 0.2,
+    "squeeze": 0.3,
+    "sale": 0.65,
+    "sales": 0.65,
+    "synergy": 0.75,
+    "share price": 0.65,
+    "spin off": 0.7,
+    "stimulation": 0.7,
+    "speed": 0.7,
+    "stock market crash": 0.1,
+    "simply wall st": 0.7,
+    "suffered": 0.25,
+    "suffer": 0.25,
+    "suffers": 0.25,
+    "suffering": 0.25,
+    
+    "tax": 0.3,
+    "taxes": 0.3,
+    "taxed": 0.2,
+    "tangible": 0.65,
+    "treasury": 0.7,
+    "trust": 0.8,
+    "technologic": 0.7,
+    "technology stock": 0.8,
+    "tactical": 0.7,
+    "takeover": 0.7,
+    "tailwind": 0.8,
+    "taxation": 0.35,
+    "tighten": 0.3,
+    "thrive": 0.7,
+    "thrives": 0.7,
+    "thriving": 0.7,
+    "thrived": 0.7,
+    "trade off": 0.65,
+    "tactical position": 0.7,
+    "targeted": 0.65,
+    "tangible asset": 0.8,
+    "turbulence": 0.2,
+    "trouble": 0.2,
+    "troubles": 0.15,
+    "transparency": 0.8,
+    "total return": 0.65,
+    "top line": 0.7,
+    "turnkey": 0.7,
+    "turmoil": 0.2,
+    "takedown": 0.3,
+    "toxic": 0.2,
+    "toxic asset": 0.1,
+    "toxic assets": 0.1,
+    "threaten": 0.1,
+    "trade war": 0.2,
+    "too much": 0.1,
+    
+    "underperform": 0.2,
+    "unemployment": 0.1,
+    "upturn": 0.8,
+    "unsecured": 0.3,
+    "unforeseen": 0.3,
+    "utility": 0.7,
+    "utilities": 0.7,
+    "unified": 0.65,
+    "unfavorable": 0.2,
+    "unpredictable": 0.3,
+    "usury": 0.1,
+    "upside": 0.8,
+    "up": 0.9,
+    "upgrade": 0.8,
+    "upgraded": 0.8,
+    "upgrades": 0.8,
+    "underutilized": 0.35,
+    "unavailable": 0.3,
+    "unrealized": 0.35,
+    "uncovered": 0.3,
+    "unsustainable": 0.2,
+    "unprofitable": 0.1,
+    "unfavorable trend": 0.1,
+    "uncertainty": 0.3,
+    "uncertain": 0.3,
+    "underperformance": 0.2,
+    "under": 0.2,
+    "upward": 0.8,
+    "uncapped": 0.7,
+    "unquestionable": 0.65,
+    "unlimited": 0.8,
+    "unpredictability": 0.25,
 
-    "success": 1.0,  
-    "surge": 0.9,  
-    "strong": 1.0,  
-    "stability": 0.8,  
-    "steady": 0.8,  
-    "skyrocket": 1.0,  
-    "stellar": 1.0,  
-    "surpassing": 0.9,  
-    "strategic": 0.8,  
-    "superior": 1.0,  
-    "sustainable": 0.9,  
-    "savings": 0.7,  
-    "solid": 0.8,  
-    "sharp": 0.9,  
-    "significant": 0.8,  
-    "stimulate": 0.7,  
-    "spectacular": 1.0,  
-    "savvy": 0.9,  
-    "steadygrowth": 1.0,  
-    "scale": 0.8,  
-    "struggle": -0.9,  
-    "slump": -1.0,  
-    "slowdown": -0.8,  
-    "stagnation": -1.0,  
-    "subpar": -0.9,  
-    "scam": -1.0,  
-    "suffering": -0.9,  
-    "shrink": -0.8,  
-    "suffocate": -1.0,  
-    "stiff": -0.7,  
-    "shady": -0.8,  
-    "sink": -1.0,  
-    "stricken": -0.9,  
-    "sluggish": -0.8,  
-    "scarcity": -0.7,  
-    "soured": -0.9,  
-    "squander": -1.0,  
-    "sick": -0.8,  
-    "significantly": 1.2,  # Intensificatore positivo, denota un cambiamento importante
-    "successfully": 1.1,  # Intensificatore positivo, denota il raggiungimento di un obiettivo
-    "steadily": 0.8,  # Avverbio positivo che denota una crescita costante
-    "sharply": 1.5,  # Intensificatore positivo, denota un cambiamento rapido e significativo
-    "slowly": -0.7,  # Intensificatore negativo, denota un progresso lento o una difficoltà
-    "stubbornly": -0.5,  # Intensificatore negativo, denota resistenza ai cambiamenti
-    "strikingly": 1.0,  # Intensificatore positivo, denota una caratteristica eccezionale
-    "significantly": 1.2,  # Intensificatore positivo
-    "shadily": -1.0,  # Intensificatore negativo, denota comportamenti ambigui o illeciti
-    "sparsely": -0.6,  # Intensificatore negativo, denota una scarsità
-    "substantially": 1.5,  # Intensificatore forte
-    "slightly": 0.5,  # Attenuatore
+    "volatility": 0.3,
+    "viability": 0.65,
+    "viable": 0.65,
+    "vulnerable": 0.2,
+    "victory": 0.9,
+    "victories": 0.9,
+    "violation": 0.2,
+    "violations": 0.2,
+    "vacancy": 0.3,
+    "verifiable": 0.7,
+    "venture capital": 0.4,
+    "visibility": 0.65,
+    "visible": 0.65,
+    "vanguard": 0.8,
+    "valuation risk": 0.3,
+    "vigor": 0.8,
+    "vantage": 0.8,
+    "vantages": 0.8,
+    "volatile": 0.2,
+    "victimized": 0.1,
+    "vicious": 0.1,
+    "valiant": 0.8,
+    "verification": 0.65,
+    "void": 0.2,
+    "vulnerability": 0.2,
+    "vulnerabilities": 0.2,
+    "volume trading": 0.6,
+    "value creation": 0.75,
+    "vertical": 0.65,
 
-    "takeoff": 1.0,  
-    "trade": 0.6,
-    "top": 1.0,  
-    "triumph": 1.0,  
-    "thrive": 0.9,  
-    "tremendous": 1.0,  
-    "tangible": 0.8,  
-    "topping": 0.9,  
-    "thriving": 1.0,  
-    "trust": 0.8,  
-    "trailblazing": 1.0,  
-    "transformative": 1.0,  
-    "trending": 0.8,  
-    "talent": 0.9,  
-    "testament": 1.0,  
-    "turnaround": 1.0,  
-    "treasure": 1.0,  
-    "target": 0.8,  
-    "trendsetting": 1.0,  
-    "topnotch": 1.0,  
-    "tumble": -0.9,  
-    "trouble": -1.0,  
-    "turmoil": -1.0,  
-    "tarnish": -0.8,  
-    "threat": -1.0,  
-    "tragic": -1.0,  
-    "turbulent": -0.9,  
-    "trapped": -0.8,  
-    "tiring": -0.6,  
-    "tax": -0.7,  
-    "trivial": -0.6,  
-    "tension": -0.9,  
-    "tear": -0.8,  
-    "tangled": -0.7,  
-    "tough": -0.7,  
-    "threatening": -1.0,  
-    "triumphantly": 1.2,  # Intensificatore positivo, esprime una vittoria netta
-    "tremendously": 1.2,  # Intensificatore positivo, indica grande successo
-    "tactically": 0.8,  # Avverbio neutro, che implica una mossa ben ponderata
-    "tensely": -0.8,  # Intensificatore negativo, denota una situazione di alta pressione
-    "tragically": -1.2,  # Intensificatore negativo, denota una situazione drammatica
-    "turbulently": -1.1,  # Intensificatore negativo, denota caos o instabilità
-    "tactfully": 0.7,  # Avverbio positivo, che indica una gestione o azione diplomatica
-    "timidly": -0.6,  # Intensificatore negativo, denota incertezza o paura
+    "war": 0.2,
+    "wars": 0.15,
+    "wealth": 0.9,
+    "win": 0.9,
+    "wins": 0.9,
+    "won": 0.9,
+    "weakness": 0.2,
+    "weaknesses": 0.2,
+    "weak": 0.2,
+    "weaker": 0.2,
+    "weaker than expected": 0.15,
+    "withdraw": 0.3,
+    "withdrawal": 0.3,
+    "withdrawals": 0.3,
+    "wave": 0.6,
+    "waves": 0.6,
+    "wealthy": 0.8,
+    "widening": 0.7,
+    "wide": 0.7,
+    "wholesale": 0.7,
+    "well being": 0.8,
+    "workforce": 0.7,
+    "worst case": 0.2,
+    "warning": 0.2,
+    "warnings": 0.2,
+    "winners": 0.9,
+    "win win": 0.9,
+    "worth": 0.8,
+    "write off": 0.2,
+    "wage growth": 0.7,
+    "waterfall": 0.6,
+    "waterfalls": 0.6,
+    "worsen": 0.1,
+    "worse": 0.1,
+    "worst": 0.1,
+    "weaken": 0.2,
+    "waiting": 0.4,
+    "widen": 0.6,
+    "worry": 0.2,
+    "worried": 0.2,
+    "welfare": 0.8,
+    "whipsaw": 0.2,
+    "wild": 0.3,
+    "winds": 0.6,
+    "wind": 0.6,
+    
+    "x efficiency": 0.7,
+    "x factor": 0.8,
+    "xenocurrency": 0.6,
+    "xenophobic": 0.2,
+    "xerox effect": 0.5,
+    "xit": 0.3,
 
-    "up": 0.7,  
-    "uptick": 0.8,  
-    "upgrade": 0.9,  
-    "upgraded": 1.0,  
-    "uptrend": 1.0,  
-    "upswing": 0.9,  
-    "upside": 0.8,  
-    "upbeat": 0.9,  
-    "unstoppable": 1.0,  
-    "unshakable": 0.9,  
-    "unprecedented": 1.0,  
-    "undervalued": 0.7,  
-    "unique": 0.8,  
-    "unwavering": 0.9,  
-    "unmatched": 1.0,  
-    "unlimited": 0.9,  
-    "unbeatable": 1.0,  
-    "uncertain": -0.8,  
-    "uncertainty": -1.0,  
-    "unemployment": -1.0,  
-    "underperform": -0.9,  
-    "underperformed": -1.0,  
-    "underperforming": -1.0,  
-    "underwhelming": -0.8,  
-    "unprofitable": -1.0,  
-    "unrecoverable": -1.0,  
-    "unrealized": -0.7,  
-    "unsuccessful": -1.0,  
-    "unstable": -0.9,  
-    "unrest": -1.0,  
-    "unexpectedly": -0.6,  
-    "unsecured": -0.8,  
-    "unfavorable": -1.0,  
-    "unclear": -0.7,  
-    "upward": 0.9,  # Indica un movimento positivo o una crescita
-    "unexpectedly": -0.6,  # Indica un evento inaspettato, può essere negativo
-    "unusually": -0.5,  # Attenuante che può indicare variabilità
-    "unquestionably": 1.1,  # Intensificatore positivo, rafforza un'affermazione
-    "unfortunately": -1.0,  # Intensificatore negativo
-    "ultimately": 0.6,  # Avverbio che può attenuare o rafforzare un concetto
-    "undoubtedly": 1.0,  # Intensificatore positivo, denota certezza
-    "urgently": -0.8,  # Spesso usato in contesti negativi di crisi
-    "uncertainly": -0.7,  # Indica un'inaspettata situazione spesso negativa
+    "yield": 0.7,
+    "yields curve": 0.6,
+    "young market": 0.4,
+    "young": 0.4,
+    "yellow flag": 0.3,
+    "yield spread": 0.7,
+    "yield growth": 0.8,
+    "yield risk": 0.3,
+    "yield risks": 0.3,
 
-    "value": 0.8,  
-    "valuable": 0.9,  
-    "valuation": 0.7,  
-    "venture": 0.8,  
-    "versatile": 0.7,  
-    "vibrant": 0.9,  
-    "victory": 1.0,  
-    "vigorous": 0.8,  
-    "visionary": 1.0,  
-    "vital": 0.9,  
-    "viable": 0.8,  
-    "velocity": 0.7,  
-    "venturecapital": 0.9,  
-    "vault": 0.8,  
-    "vindicated": 0.9,  
-    "volatile": -0.8,  
-    "volatility": -1.0,  
-    "vulnerable": -0.9,  
-    "vacillate": -0.7,  
-    "vanish": -0.8,  
-    "void": -1.0,  
-    "vexing": -0.9,  
-    "violation": -1.0,  
-    "victim": -0.8,  
-    "veto": -0.7,  
-    "vanquished": -1.0,  
-    "vastly": 1.1,  # Intensificatore positivo, indica una grandezza significativa  
-    "vigorously": 1.2,  # Intensificatore positivo, indica forza e determinazione  
-    "visibly": 0.7,  # Avverbio positivo che enfatizza chiarezza  
-    "voluntarily": 0.6,  # Avverbio attenuante, indica scelta consapevole  
-    "vaguely": -0.6,  # Avverbio attenuante, indica incertezza  
-    "violently": -1.2,  # Intensificatore negativo, denota instabilità o impatto forte  
-    "vertiginously": -1.0,  # Intensificatore negativo, indica forte caduta o instabilità  
+    "z score": 0.7,
+    "zombie company": 0.2,
+    "zombie bank": 0.2,
+    "zigzag market": 0.35,
+    "zig zag": 0.35,
+    "zigzag": 0.35,
+    "zenith": 0.8,
+    "zero coupon": 0.6,
+    "zero inflation": 0.7,
+    "zero sum": 0.4,
 
-    "wealth": 1.0,  
-    "wealthy": 1.0,  
-    "wellbeing": 0.9,  
-    "winning": 1.0,  
-    "win": 0.9,  
-    "wisdom": 0.8,  
-    "worthwhile": 0.7,  
-    "welcome": 0.8,  
-    "widespreadgrowth": 0.9,  
-    "workable": 0.7,  
-    "wellmanaged": 0.9,  
-    "worldclass": 1.0,  
-    "wonders": 1.0,  
-    "whopping": 0.8,  
-    "willpower": 0.8,  
-    "weakness": -1.0,  
-    "weak": -0.9,  
-    "worse": -1.0,  
-    "worst": -1.0,  
-    "worsening": -1.0,  
-    "worry": -0.8,  
-    "worrisome": -0.9,  
-    "waste": -1.0,  
-    "waning": -0.8,  
-    "withering": -0.9,  
-    "withdrawal": -0.8,  
-    "woes": -0.9,  
-    "wreck": -1.0,  
-    "worthless": -1.0,  
-    "wobbly": -0.8,  
-    "washedout": -0.9, 
-    "widely": 0.7,  # Indica ampia diffusione, attenuante positivo  
-    "wisely": 1.1,  # Intensificatore positivo, denota scelte sagge  
-    "wildly": -0.7,  # Può attenuare negativamente se riferito a volatilità  
-    "wrongly": -1.0,  # Intensificatore negativo, indica errore o ingiustizia  
-    "weakly": -1.0,  # Intensificatore negativo, rafforza debolezza  
-    "woefully": -1.2,  # Intensificatore negativo molto forte  
-    "warmly": 0.8,  # Avverbio positivo, indica accoglienza positiva  
-    "wonderfully": 1.2,  # Intensificatore positivo molto forte  
-
-    "xenial": 0.7,  # Indica ospitalità e buone relazioni, positivo per partnership
-    "x factor": 0.9,  # Espressione che indica un vantaggio speciale o una qualità unica
-    "xenodochial": 0.6,  # Indica cordialità e accoglienza, utile in un contesto aziendale
-    "xcelerate": 1.0,  # Forma modificata di "accelerate", spesso usata in branding per crescita
-    "xtraordinary": 1.0,  # Variante di "extraordinary", sinonimo di successo e innovazione
-    "xenophobia": -1.0,  # Termine negativo che indica ostilità verso gli stranieri, dannoso per il business globale
-    "xhausted": -0.9,  # Forma modificata di "exhausted", usata per indicare risorse o mercati esauriti
-    "xcruciating": -1.0,  # Variante di "excruciating", usata per indicare difficoltà finanziarie estreme
-    "xcluded": -0.8,  # Variante di "excluded", negativa per mercati o aziende escluse da opportunità
-    "xcessively": -1.0,  # Variante di "excessively", indica esagerazione spesso con connotazione negativa
-    "xceptionally": 1.2,  # Variante di "exceptionally", enfatizza un risultato positivo in modo forte
-    "xponentially": 1.1,  # Variante di "exponentially", suggerisce crescita rapida e progressiva
-
-    "yield": 0.8,  # Rendimento, spesso positivo in ambito finanziario  
-    "yielding": 0.7,  # Produzione di profitti o risultati positivi  
-    "yes": 0.9,  # Espressione di conferma positiva  
-    "youthful": 0.6,  # Vitalità e innovazione  
-    "yearlygrowth": 1.0,  # Crescita annuale, fortemente positiva  
-    "yenrally": 0.8,  # Rally della valuta yen, positivo nei mercati  
-    "yielddrop": -0.8,  # Diminuzione dei rendimenti, negativo in finanza  
-    "yieldcurveinversion": -1.0,  # Segnale di recessione, fortemente negativo  
-    "yawn": -0.6,  # Noioso, poco interessante  
-    "yoyo": -0.8,  # Alta volatilità, spesso negativa per gli investitori  
-    "yenweakness": -0.9,  # Debolezza della valuta yen, negativo nei mercati  
-    "yearly": 0.7,  # Indica continuità e stabilità nel tempo  
-    "yawningly": -0.9,  # Espressione di noia o stagnazione  
-    "youthfully": 0.8,  # Denota energia e innovazione  
-    "yieldingly": 0.6,  # Indica flessibilità e adattabilità  
-
-    "zenith": 1.0,  # Il punto più alto, indica massimo successo
-    "zest": 0.8,  # Entusiasmo ed energia positiva
-    "zesty": 0.7,  # Spirito vivace e dinamico
-    "zeal": 0.9,  # Grande determinazione e passione
-    "zealous": 0.8,  # Forte dedizione, spesso in un contesto positivo
-    "zoom": 0.9,  # Rapida crescita o aumento
-    "zippy": 0.7,  # Vivace, energico, attivo
-    "zillion": 0.6,  # Termine iperbolico per enormi quantità (usato positivamente)
-    "zero": -1.0,  # Assenza di valore, molto negativo in finanza
-    "zapped": -0.8,  # Esausto, eliminato, colpito negativamente
-    "zealous" : -0.6,  # Può avere una connotazione negativa di eccesso o ossessione
-    "zigzag": -0.7,  # Indica instabilità e mancanza di direzione
-    "zombie": -1.0,  # Spesso usato per "zombie companies", aziende senza crescita
-    "zoneofuncertainty": -0.9,  # Indica incertezza e instabilità
-    "zappedout": -0.8,  # Esaurito, senza energia, negativo per aziende o mercati
-    "zeroed": -0.9,  # Azzerato, fallito, estremamente negativo
-    "zealously": 1.1,  # Intensificatore positivo, denota grande impegno
-    "zestfully": 1.2,  # Intensificatore positivo, denota entusiasmo ed energia
-    "zigzaggingly": -1.0,  # Intensificatore negativo, denota incertezza e volatilità
-    "zeroingly": -1.2,  # Intensificatore negativo, indica azzeramento e fallimento
+    #Figure importanti
+    "warren buffett": 0.80,
+    "elon musk": 0.65,
+    "musk": 0.65,
+    "donald trump": 0.3,
+    "trump": 0.3,
+    "jim cramer": 0.65,
+    "cathie wood": 0.65,
+    "jerome powell": 0.65,
+    "jamie dimon": 0.65,
+    "ray dalio": 0.65,
+    "peter thiel": 0.65,
+    "bill ackman": 0.60,
+    "charlie munger": 0.65,
+    "larry fink": 0.65,
+    "michael burry": 0.65,
+    "ken griffin": 0.65,
+    "david tepper": 0.65,
+    "george soros": 0.65,
+    "jeff bezos": 0.65,
+    "mark zuckerberg": 0.65,
+    "tim cook": 0.65,
+    "sundar pichai": 0.65,
+    "satya nadella": 0.65,
+    "sam altman": 0.65,
+    "kathy jones": 0.65,
+    "liz ann sonders": 0.65,
+    "paul tudor jones": 0.65
 }
 
 
 def normalize_text(text):
-    """ Pulisce e normalizza il testo per una migliore corrispondenza. """
-    text = text.lower()  # Converti tutto in minuscolo
-    text = re.sub(r'[-_/]', ' ', text)  # Sostituisci trattini e underscore con spazi
-    text = re.sub(r'\s+', ' ', text).strip()  # Rimuovi spazi multipli e spazi iniziali/finali
+    #Pulisce e normalizza il testo per una migliore corrispondenza.
+    
+    text = re.sub(r'\s-\s[^-]+$', '', text)    # Rimuove la parte dopo l'ultimo " - " (se presente)
+    text = text.lower()    # Converti tutto in minuscolo
+    text = re.sub(r'[-_/]', ' ', text)    # Sostituisci trattini e underscore con spazi
+    text = re.sub(r'\s+', ' ', text).strip()    # Rimuovi spazi multipli e spazi iniziali/finali
+    
     return text
 
+def lemmatize_words(words):
+    """Lemmatizza le parole usando spaCy e restituisce una lista di lemmi."""
+    doc = nlp(" ".join(words))  # Analizza le parole con spaCy
+    return [token.lemma_ for token in doc]
 
-def calculate_sentiment(titles):
-    for title in titles:
-        print(f"Analyzing: {title}\n")
+def calculate_sentiment(news, decay_factor=0.03):    #Prima era 0.06
+    """Calcola il sentiment medio ponderato di una lista di titoli di notizie."""
+    total_sentiment = 0
+    total_weight = 0
+    now = datetime.utcnow()
+
+    for title, date in news:
+        days_old = (now - date).days  # Calcola l'età della notizia in giorni
+        weight = math.exp(-decay_factor * days_old)  # Applica il decadimento esponenziale
+
         normalized_title = normalize_text(title)  # Normalizza il titolo
-        
-        # Elaboriamo il testo con spaCy
-        doc = nlp(normalized_title)
+        sentiment_score = 0
+        count = 0
 
-        title_sentiment = 0  # Sentiment totale della notizia
-        sentiment_values = []  # Lista per memorizzare i punteggi sentiment per la normalizzazione
+        words = normalized_title.split()  # Parole del titolo
+        lemmatized_words = lemmatize_words(words)  # Lemmatizza le parole
 
-        # Analizziamo le parole nel testo
-        for token in doc:
-            lemma = token.lemma_.lower()  # Usiamo il lemma della parola per cercarlo nel dizionario
-            
-            if lemma in sentiment_dict:  # Controlliamo il lemma invece della forma originale
-                word_sentiment = sentiment_dict[lemma]
-                sentiment_values.append(word_sentiment)  # Aggiungiamo il sentiment alla lista
-                
-                # Stampa la parola e il suo punteggio
-                print(f"Word: {token.text} (Lemma: {lemma}) - Sentiment: {word_sentiment}")
+        for i, word in enumerate(lemmatized_words):
+            if word in sentiment_dict:
+                score = sentiment_dict[word]
 
-                # Se è un nome modificato da un aggettivo, modifichiamo il punteggio
-                if token.pos_ in {"NOUN", "PROPN"}:
-                    for child in token.children:
-                        if child.pos_ in {"ADJ", "ADV"}:
-                            adj_or_adv_sentiment = sentiment_dict.get(child.lemma_.lower(), 0)
-                            print(f"  - {child.text} modifies {token.text} with sentiment: {adj_or_adv_sentiment}")
-                            word_sentiment += adj_or_adv_sentiment
-                
-                # Gestiamo gli avverbi che intensificano il verbo (come "sharply")
-                if token.pos_ == "VERB" and any(child.pos_ == "ADV" for child in token.children):
-                    for child in token.children:
-                        adv_lemma = child.lemma_.lower()
-                        if child.pos_ == "ADV" and adv_lemma in sentiment_dict:
-                            word_sentiment *= sentiment_dict[adv_lemma]
-                            print(f"  - {child.text} intensifies {token.text} with multiplier")
-                
-                # Sommiamo il punteggio del token alla notizia
-                title_sentiment += word_sentiment
+                if i > 0 and lemmatized_words[i - 1] in negation_words:
+                    score = 1 - score  # Inverto il punteggio
 
-        # Calcoliamo il sentiment finale basato solo sulle parole con sentiment
-        if sentiment_values:
-            normalized_sentiment = sum(sentiment_values) / len(sentiment_values)  # Media del sentiment
-            normalized_sentiment = max(-1, min(1, normalized_sentiment))  # Limitiamo tra -1 e 1
+                sentiment_score += score
+                count += 1
+
+        if count != 0:
+            sentiment_score /= count  # Normalizza il punteggio
         else:
-            normalized_sentiment = 0  # Nessuna parola con punteggio
-        
-        # Stampiamo il sentiment totale della notizia
-        #print(f"Overall Sentiment for this title: {normalized_sentiment}\n")
-        print(f"Final Sentiment: {title} - {normalized_sentiment}\n")
+            sentiment_score = 0.5  # Sentiment neutro se nessuna parola è trovata
 
-# Recuperiamo i titoli delle notizie per "TSLA" (come esempio)
-titles = get_stock_news("TSLA")
+        total_sentiment += sentiment_score * weight
+        total_weight += weight
 
-# Calcoliamo il sentiment per ogni titolo
-calculate_sentiment(titles)
+    if total_weight > 0:
+        average_sentiment = total_sentiment / total_weight
+    else:
+        average_sentiment = 0.5  # Sentiment neutro se non ci sono notizie
+
+    return average_sentiment
+
+
+
+def get_sentiment_for_all_symbols(symbol_list):
+    sentiment_results = {}
+    all_news_entries = []  # Lista per salvare tutti i titoli e sentimenti
+    
+    for symbol in symbol_list:
+        news_data = get_stock_news(symbol)  # Ottieni le notizie divise per periodo
+
+        # Calcola il sentiment per ciascun intervallo di tempo
+        sentiment_90_days = calculate_sentiment(news_data["last_90_days"])  
+        sentiment_30_days = calculate_sentiment(news_data["last_30_days"])  
+        sentiment_7_days = calculate_sentiment(news_data["last_7_days"])  
+
+        sentiment_results[symbol] = {
+            "90_days": sentiment_90_days,
+            "30_days": sentiment_30_days,
+            "7_days": sentiment_7_days
+        }
+
+        file_path = f"results/{symbol.upper()}_RESULT.html"
+        html_content = [
+            f"<html><head><title>Previsione per {symbol}</title></head><body>",
+            f"<h1>Previsione per: ({symbol})</h1>",
+            "<table border='1'><tr><th>Probability</th></tr>",
+            f"<tr><td>{sentiment_90_days * 100}</td></tr>",
+            "</table>",
+            "<table border='1'><tr><th>Probability30</th></tr>",  # Nuova riga per 30 giorni
+            f"<tr><td>{sentiment_30_days * 100}</td></tr>",
+            "</table>",
+            "<table border='1'><tr><th>Probability7</th></tr>",  # Nuova riga per 7 giorni
+            f"<tr><td>{sentiment_7_days * 100}</td></tr>",
+            "</table>",
+            "</body></html>"
+        ]
+
+        try:
+            contents = repo.get_contents(file_path)
+            repo.update_file(contents.path, f"Updated probability for {symbol}", "\n".join(html_content), contents.sha)
+        except GithubException:
+            repo.create_file(file_path, f"Created probability for {symbol}", "\n".join(html_content))
+
+        # Aggiungi le notizie e i sentimenti alla lista per il file `news.html` (solo le notizie degli ultimi 90 giorni)
+        for title, news_date in news_data["last_90_days"]:
+            title_sentiment = calculate_sentiment([(title, news_date)])  # Passa (titolo, data)
+            all_news_entries.append((symbol, title, title_sentiment))
+
+    return sentiment_results, all_news_entries
+
+# Calcolare il sentiment medio per ogni simbolo
+sentiment_for_symbols, all_news_entries = get_sentiment_for_all_symbols(symbol_list)
+
+# Ordinare i simboli in base al sentiment medio (decrescente)
+sorted_symbols = sorted(sentiment_for_symbols.items(), key=lambda x: x[1]["90_days"], reverse=True)
+
+# Crea il contenuto del file classifica.html
+html_classifica = ["<html><head><title>Classifica dei Simboli</title></head><body>",
+                   "<h1>Classifica dei Simboli in Base alla Probabilità di Crescita</h1>",
+                   "<table border='1'><tr><th>Simbolo</th><th>Probabilità</th></tr>"]
+
+# Aggiungere i simboli alla classifica con la probabilità calcolata
+for symbol, sentiment_dict in sorted_symbols:
+    # Estrai il sentiment per i 90 giorni
+    probability = sentiment_dict["90_days"]
+    
+    # Aggiungi la riga alla classifica
+    html_classifica.append(f"<tr><td>{symbol}</td><td>{probability*100:.2f}%</td></tr>")
+
+html_classifica.append("</table></body></html>")
+
+try:
+    contents = repo.get_contents(file_path)
+    repo.update_file(contents.path, "Updated classification", "\n".join(html_classifica), contents.sha)
+except GithubException:
+    repo.create_file(file_path, "Created classification", "\n".join(html_classifica))
+
+print("Classifica aggiornata con successo!")
+
+# Creazione del file news.html con i titoli e il sentiment
+html_news = ["<html><head><title>Notizie e Sentiment</title></head><body>",
+             "<h1>Notizie Finanziarie con Sentiment</h1>",
+             "<table border='1'><tr><th>Simbolo</th><th>Notizia</th><th>Sentiment</th></tr>"]
+
+for symbol, title, sentiment in all_news_entries:
+    html_news.append(f"<tr><td>{symbol}</td><td>{title}</td><td>{sentiment:.2f}</td></tr>")
+
+html_news.append("</table></body></html>")
+
+try:
+    contents = repo.get_contents(news_path)
+    repo.update_file(contents.path, "Updated news sentiment", "\n".join(html_news), contents.sha)
+except GithubException:
+    repo.create_file(news_path, "Created news sentiment", "\n".join(html_news))
+
+print("News aggiornata con successo!")
+
