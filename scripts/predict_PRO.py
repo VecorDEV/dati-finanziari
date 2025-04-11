@@ -1331,22 +1331,19 @@ def get_sentiment_for_all_symbols(symbol_list):
             }
     
             percentuale = calcola_punteggio(indicators, close.iloc[-1], bb_upper, bb_lower)
-            # Crea tabella indicatori tecnici
-            tabella_indicatori = pd.DataFrame(indicators.items(), columns=["Indicatore", "Valore"]).to_html(index=False, border=0)
-        
+            
             # Crea tabella dei dati storici (ultimi 90 giorni)
             dati_storici = data.tail(90)
             dati_storici['Date'] = dati_storici.index.strftime('%Y-%m-%d')  # Aggiungi la colonna Date
             dati_storici_html = dati_storici[['Date', 'Close', 'High', 'Low', 'Open', 'Volume']].to_html(index=False, border=1)
-            
+        
         except Exception as e:
             # Gestione dell'errore per ciascun asset
             print(f"PARTE INDICATORI TECNICI: Errore durante l'analisi di {symbol}: {e}")
             # Continua senza indicatori nel caso di errore
             tabella_indicatori = None
-            storico_html = None
+            dati_storici_html = None
             percentuale = None
-
 
         # Aggiorna il file html
         file_path = f"results/{symbol.upper()}_RESULT.html"
@@ -1381,9 +1378,7 @@ def get_sentiment_for_all_symbols(symbol_list):
             html_content.append("<p>No technical indicators available.</p>")
         
         # Aggiungi i dati storici degli ultimi 90 giorni
-        if storico_html:
-            #html_content.append("<h2>Dati Storici (ultimi 90 giorni)</h2>")
-            #html_content.append(storico_html)
+        if dati_storici_html:
             html_content += [
                 "<h2>Dati Storici (ultimi 90 giorni)</h2>",
                 dati_storici_html,  # Usa il DataFrame formattato
@@ -1393,8 +1388,7 @@ def get_sentiment_for_all_symbols(symbol_list):
             html_content.append("<p>No historical data available.</p>")
         
         html_content.append("</body></html>")
-
-        # Scrittura del file HTML
+        
         try:
             contents = repo.get_contents(file_path)
             repo.update_file(contents.path, f"Updated probability for {symbol}", "\n".join(html_content), contents.sha)
