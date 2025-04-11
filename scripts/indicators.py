@@ -11,15 +11,7 @@ from ta.volatility import BollingerBands
 os.makedirs("results", exist_ok=True)
 
 # Lista di asset da analizzare
-assets = ["AAPL", "MSFT", "GOOGL", "AMZN", "META", "TSLA", "V", "JPM", "JNJ", "WMT",
-        "NVDA", "PYPL", "DIS", "NFLX", "NIO", "NRG", "ADBE", "INTC", "CSCO", "PFE",
-        "KO", "PEP", "MRK", "ABT", "XOM", "CVX", "T", "MCD", "NKE", "HD",
-        "IBM", "CRM", "BMY", "ORCL", "ACN", "LLY", "QCOM", "HON", "COST", "SBUX",
-        "CAT", "LOW", "MS", "GS", "AXP", "INTU", "AMGN", "GE", "FIS", "CVS",
-        "DE", "BDX", "NOW", "SCHW", "LMT", "ADP", "C", "PLD", "NSC", "TMUS",
-        "ITW", "FDX", "PNC", "SO", "APD", "ADI", "ICE", "ZTS", "TJX", "CL",
-        "MMC", "EL", "GM", "CME", "EW", "AON", "D", "PSA", "AEP", "TROW", 
-        "LNTH", "HE", "BTDR", "NAAS", "SCHL", "TGT", "SYK", "BKNG", "DUK", "USB"]
+assets = ["AAPL", "MSFT"]
 
 # Funzione per calcolare la percentuale in base agli indicatori
 def calcola_punteggio(indicatori, close_price, bb_upper, bb_lower):
@@ -62,6 +54,53 @@ def calcola_punteggio(indicatori, close_price, bb_upper, bb_lower):
         punteggio += 5
 
     return round(((punteggio + 44) * 100) / 88, 2)  # normalizzazione 0-100
+
+
+def aggiorna_file_html(ticker, percentuale, indicators, storico_df):
+    file_path = f"results/{ticker}_RESULT.html"
+
+    if not os.path.exists(file_path):
+        print(f"File {file_path} non trovato, saltato.")
+        return
+
+    with open(file_path, "r", encoding="utf-8") as f:
+        contenuto = f.read()
+
+    # Crea tabella indicatori tecnici
+    tabella_indicatori = pd.DataFrame(indicators.items(), columns=["Indicatore", "Valore"]).to_html(index=False, border=0)
+
+    # Crea tabella dei dati storici (ultimi 90 giorni)
+    storico_html = storico_df.tail(90).to_html(index=False, border=0)
+
+    # Costruisci il nuovo blocco HTML
+    nuovo_blocco = f"""
+<!-- INDICATORI_INIZIO -->
+<h2>Indicatori Tecnici</h2>
+<p>Probabilità di crescita: <strong>{percentuale}%</strong></p>
+{tabella_indicatori}
+
+<h2>Dati Storici (ultimi 90 giorni)</h2>
+{storico_html}
+<!-- INDICATORI_FINE -->
+"""
+
+    # Se il blocco esiste già, sostituiscilo
+    if "<!-- INDICATORI_INIZIO -->" in contenuto and "<!-- INDICATORI_FINE -->" in contenuto:
+        contenuto = re.sub(
+            r'<!-- INDICATORI_INIZIO -->.*?<!-- INDICATORI_FINE -->',
+            nuovo_blocco,
+            contenuto,
+            flags=re.DOTALL
+        )
+    else:
+        # Inserisci prima del </body> se non esiste ancora
+        contenuto = contenuto.replace("</body>", f"{nuovo_blocco}</body>")
+
+    with open(file_path, "w", encoding="utf-8") as f:
+        f.write(contenuto)
+
+    print(f"{ticker} aggiornato con indicatori tecnici e dati storici.")
+
 
 # Analizza ogni asset
 righe = []
@@ -117,6 +156,8 @@ for ticker in assets:
         riga = {"Asset": ticker, "Probabilità Crescita (%)": percentuale}
         riga.update(indicators)
         righe.append(riga)
+
+        aggiorna_file_html(ticker, percentuale, indicators, data)
         
     except Exception as e:
         # Gestione dell'errore per ciascun asset
