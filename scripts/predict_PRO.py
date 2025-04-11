@@ -1286,9 +1286,7 @@ def get_sentiment_for_all_symbols(symbol_list):
             "7_days": sentiment_7_days
         }
 
-
-        #Prepara i dati relativi agli indicatori
-
+        # Prepara i dati relativi agli indicatori
         try:
             # Scarica i dati storici per l'asset
             data = yf.download(symbol, period="3mo", interval="1d", auto_adjust=True)
@@ -1337,16 +1335,20 @@ def get_sentiment_for_all_symbols(symbol_list):
             tabella_indicatori = pd.DataFrame(indicators.items(), columns=["Indicatore", "Valore"]).to_html(index=False, border=0)
         
             # Crea tabella dei dati storici (ultimi 90 giorni)
-            storico_html = storico_df.tail(90).to_html(index=False, border=0)
+            storico_html = data.tail(90).to_html(index=False, border=0)
             
         except Exception as e:
             # Gestione dell'errore per ciascun asset
             print(f"PARTE INDICATORI TECNICI: Errore durante l'analisi di {symbol}: {e}")
+            # Continua senza indicatori nel caso di errore
+            tabella_indicatori = None
+            storico_html = None
+            percentuale = None
 
 
-        #Aggiorna il file html
-
+        # Aggiorna il file html
         file_path = f"results/{symbol.upper()}_RESULT.html"
+        
         html_content = [
             f"<html><head><title>Previsione per {symbol}</title></head><body>",
             f"<h1>Previsione per: ({symbol})</h1>",
@@ -1363,24 +1365,29 @@ def get_sentiment_for_all_symbols(symbol_list):
             # Aggiunta della nuova sezione con gli indicatori tecnici e la probabilità calcolata
             "<hr>",
             "<h2>Indicatori Tecnici</h2>",
-            f"<p><strong>Probabilità calcolata sugli indicatori tecnici:</strong> {percentuale}%</p>",
-            "<table border='1'><tr><th>Indicatore</th><th>Valore</th></tr>",
         ]
-
-        # Aggiungi gli indicatori tecnici alla tabella
-        for nome, valore in indicators.items():
-            html_content.append(f"<tr><td>{nome}</td><td>{valore}</td></tr>")
         
-        # Fine della tabella indicatori tecnici
-        html_content.append("</table>")
-
+        if percentuale is not None:
+            html_content.append(f"<p><strong>Probabilità calcolata sugli indicatori tecnici:</strong> {percentuale}%</p>")
+        else:
+            html_content.append("<p><strong>Impossibile calcolare la probabilità sugli indicatori tecnici.</strong></p>")
+        
+        # Aggiungi gli indicatori tecnici alla tabella
+        if tabella_indicatori:
+            html_content.append(tabella_indicatori)
+        else:
+            html_content.append("<p>No technical indicators available.</p>")
+        
         # Aggiungi i dati storici degli ultimi 90 giorni
-        html_content += [
-            "<h2>Dati Storici (ultimi 90 giorni)</h2>",
-            data.tail(90).to_html(index=False, border=1),  # Visualizza solo gli ultimi 90 giorni
-            "</body></html>"
-        ]
+        if storico_html:
+            html_content.append("<h2>Dati Storici (ultimi 90 giorni)</h2>")
+            html_content.append(storico_html)
+        else:
+            html_content.append("<p>No historical data available.</p>")
+        
+        html_content.append("</body></html>")
 
+        # Scrittura del file HTML
         try:
             contents = repo.get_contents(file_path)
             repo.update_file(contents.path, f"Updated probability for {symbol}", "\n".join(html_content), contents.sha)
