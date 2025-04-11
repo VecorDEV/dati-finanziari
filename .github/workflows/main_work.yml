@@ -1,53 +1,46 @@
-name: Aggiorna Dati
+name: Aggiorna dati
 
 on:
+  workflow_dispatch:  # Trigger manuale
   schedule:
-    - cron: "0 6 * * *"
-  workflow_dispatch:
+    - cron: '0 8 * * *'  # Esegui ogni giorno alle 8:00 AM UTC
 
-permissions:
-  contents: write
-  
 jobs:
-  run-indicators:
+  build-and-run:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+    - name: Checkout repository
+      uses: actions/checkout@v2
 
-      - name: Setup Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'  # Assicurati che la versione di Python sia corretta
 
-      - name: Installa dipendenze
-        run: |
-          python -m pip install --upgrade pip
-          pip install yfinance ta pandas
+    - name: Install build dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install build-essential python3-dev  # Installa dipendenze di compilazione
 
-          #Aggiunto di recente
-          pip install requests beautifulsoup4 scikit-learn xgboost PyGithub numpy feedparser
-          #pip install cython murmurhash  # Installa dipendenze di compilazione
-          pip install spacy==3.0.6  # Installa una versione stabile di spaCy
-          python -m spacy download en_core_web_sm  # Scarica il modello linguistico per spaCy
+    - name: Upgrade pip and setuptools
+      run: |
+        python -m pip install --upgrade pip
+        pip install --upgrade setuptools
 
-      - name: Esegui script
-        run: python scripts/indicators.py
+    - name: Install dependencies
+      run: |
+        pip install yfinance ta pandas
+        #Aggiunto di recente
+        pip install requests beautifulsoup4 scikit-learn xgboost PyGithub numpy feedparser
+        #pip install cython murmurhash  # Installa dipendenze di compilazione
+        pip install spacy==3.0.6  # Installa una versione stabile di spaCy
+        python -m spacy download en_core_web_sm  # Scarica il modello linguistico per spaCy
 
-      - name: Carica file HTML degli indicatori
-        uses: actions/upload-artifact@v4
-        with:
-          name: indicatori-tecnici
-          path: results/indicatori.html
 
-      - name: Configura Git
-        run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "actions@github.com"
+          
+    - name: Run prediction script
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Token GitHub con permessi di scrittura sul repository
+      run: python scripts/predict_PRO.py  # Percorso corretto del tuo codice
 
-      - name: Aggiungi e fai commit dei risultati
-        run: |
-          git add results/indicatori.html
-          git commit -m "Aggiorna indicatori tecnici"
-          git push
