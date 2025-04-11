@@ -1287,6 +1287,7 @@ def get_sentiment_for_all_symbols(symbol_list):
         }
 
         # Prepara i dati relativi agli indicatori
+        tabella_indicatori = None  # Inizializza la variabile tabella_indicatori
         try:
             # Scarica i dati storici per l'asset
             data = yf.download(symbol, period="3mo", interval="1d", auto_adjust=True)
