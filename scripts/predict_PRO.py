@@ -1335,7 +1335,9 @@ def get_sentiment_for_all_symbols(symbol_list):
             tabella_indicatori = pd.DataFrame(indicators.items(), columns=["Indicatore", "Valore"]).to_html(index=False, border=0)
         
             # Crea tabella dei dati storici (ultimi 90 giorni)
-            storico_html = data.tail(90).to_html(index=False, border=0)
+            dati_storici = data.tail(90)
+            dati_storici['Date'] = dati_storici.index.strftime('%Y-%m-%d')  # Aggiungi la colonna Date
+            dati_storici_html = dati_storici[['Date', 'Close', 'High', 'Low', 'Open', 'Volume']].to_html(index=False, border=1)
             
         except Exception as e:
             # Gestione dell'errore per ciascun asset
@@ -1380,8 +1382,13 @@ def get_sentiment_for_all_symbols(symbol_list):
         
         # Aggiungi i dati storici degli ultimi 90 giorni
         if storico_html:
-            html_content.append("<h2>Dati Storici (ultimi 90 giorni)</h2>")
-            html_content.append(storico_html)
+            #html_content.append("<h2>Dati Storici (ultimi 90 giorni)</h2>")
+            #html_content.append(storico_html)
+            html_content += [
+                "<h2>Dati Storici (ultimi 90 giorni)</h2>",
+                dati_storici_html,  # Usa il DataFrame formattato
+                "</body></html>"
+            ]
         else:
             html_content.append("<p>No historical data available.</p>")
         
