@@ -5,6 +5,14 @@ import os
 from datetime import datetime, timedelta
 import math
 import spacy
+#Librerie per ottenere dati storici e calcolare indicatori
+import yfinance as yf
+import ta
+import pandas as pd
+from ta.momentum import RSIIndicator, StochasticOscillator, WilliamsRIndicator
+from ta.trend import MACD, EMAIndicator, CCIIndicator
+from ta.volatility import BollingerBands
+
 
 # Carica il modello linguistico per l'inglese
 nlp = spacy.load("en_core_web_sm")
@@ -1146,6 +1154,8 @@ sentiment_dict = {
 }
 
 
+
+#Normalizza il testo della notizia, rimuovendo impurità
 def normalize_text(text):
     #Pulisce e normalizza il testo per una migliore corrispondenza.
     
@@ -1156,11 +1166,17 @@ def normalize_text(text):
     
     return text
 
+
+
+#Trova i lemmi delle parole per una ricerca più completa
 def lemmatize_words(words):
     """Lemmatizza le parole usando spaCy e restituisce una lista di lemmi."""
     doc = nlp(" ".join(words))  # Analizza le parole con spaCy
     return [token.lemma_ for token in doc]
 
+
+
+#Calcola il sentiment basato sulle notizie del singolo asset
 def calculate_sentiment(news, decay_factor=0.03):    #Prima era 0.06
     """Calcola il sentiment medio ponderato di una lista di titoli di notizie."""
     total_sentiment = 0
@@ -1205,6 +1221,53 @@ def calculate_sentiment(news, decay_factor=0.03):    #Prima era 0.06
 
 
 
+
+# Funzione per calcolare la percentuale in base agli indicatori
+def calcola_punteggio(indicatori, close_price, bb_upper, bb_lower):
+    punteggio = 0
+
+    if indicatori["RSI (14)"] > 70:
+        punteggio -= 8
+    elif indicatori["RSI (14)"] < 30:
+        punteggio += 8
+    else:
+        punteggio += 4
+
+    if indicatori["MACD Line"] > indicatori["MACD Signal"]:
+        punteggio += 8
+    else:
+        punteggio -= 6
+
+    if indicatori["Stochastic %K"] > 80:
+        punteggio -= 6
+    elif indicatori["Stochastic %K"] < 20:
+        punteggio += 6
+
+    if indicatori["EMA (10)"] < close_price:
+        punteggio += 7
+
+    if indicatori["CCI (14)"] > 0:
+        punteggio += 6
+    else:
+        punteggio -= 4
+
+    if indicatori["Williams %R"] > -20:
+        punteggio -= 4
+    else:
+        punteggio += 4
+
+    # Bollinger Bands
+    if close_price > bb_upper:
+        punteggio -= 5
+    elif close_price < bb_lower:
+        punteggio += 5
+
+    return round(((punteggio + 44) * 100) / 88, 2)  # normalizzazione 0-100
+
+
+
+
+#Inserisce tutti i risultati nel file html
 def get_sentiment_for_all_symbols(symbol_list):
     sentiment_results = {}
     all_news_entries = []  # Lista per salvare tutti i titoli e sentimenti
@@ -1223,6 +1286,66 @@ def get_sentiment_for_all_symbols(symbol_list):
             "7_days": sentiment_7_days
         }
 
+
+        #Prepara i dati relativi agli indicatori
+
+        try:
+            # Scarica i dati storici per l'asset
+            data = yf.download(symbol, period="3mo", interval="1d", auto_adjust=True)
+            if data.empty:
+                raise ValueError(f"Nessun dato disponibile per {symbol}.")
+            
+            data.dropna(inplace=True)
+    
+            close = data['Close'].squeeze()
+            high = data['High'].squeeze()
+            low = data['Low'].squeeze()
+    
+            # Indicatori tecnici
+            rsi = RSIIndicator(close).rsi().iloc[-1]
+            macd = MACD(close)
+            macd_line = macd.macd().iloc[-1]
+            macd_signal = macd.macd_signal().iloc[-1]
+            stoch = StochasticOscillator(high, low, close)
+            stoch_k = stoch.stoch().iloc[-1]
+            stoch_d = stoch.stoch_signal().iloc[-1]
+            ema_10 = EMAIndicator(close, window=10).ema_indicator().iloc[-1]
+            cci = CCIIndicator(high, low, close).cci().iloc[-1]
+            will_r = WilliamsRIndicator(high, low, close).williams_r().iloc[-1]
+    
+            bb = BollingerBands(close)
+            bb_upper = bb.bollinger_hband().iloc[-1]
+            bb_lower = bb.bollinger_lband().iloc[-1]
+            bb_width = bb.bollinger_wband().iloc[-1]
+    
+            indicators = {
+                "RSI (14)": round(rsi, 2),
+                "MACD Line": round(macd_line, 2),
+                "MACD Signal": round(macd_signal, 2),
+                "Stochastic %K": round(stoch_k, 2),
+                "Stochastic %D": round(stoch_d, 2),
+                "EMA (10)": round(ema_10, 2),
+                "CCI (14)": round(cci, 2),
+                "Williams %R": round(will_r, 2),
+                "BB Upper": round(bb_upper, 2),
+                "BB Lower": round(bb_lower, 2),
+                "BB Width": round(bb_width, 4),
+            }
+    
+            percentuale = calcola_punteggio(indicators, close.iloc[-1], bb_upper, bb_lower)
+            # Crea tabella indicatori tecnici
+            tabella_indicatori = pd.DataFrame(indicators.items(), columns=["Indicatore", "Valore"]).to_html(index=False, border=0)
+        
+            # Crea tabella dei dati storici (ultimi 90 giorni)
+            storico_html = storico_df.tail(90).to_html(index=False, border=0)
+            
+        except Exception as e:
+            # Gestione dell'errore per ciascun asset
+            print(f"PARTE INDICATORI TECNICI: Errore durante l'analisi di {symbol}: {e}")
+
+
+        #Aggiorna il file html
+
         file_path = f"results/{symbol.upper()}_RESULT.html"
         html_content = [
             f"<html><head><title>Previsione per {symbol}</title></head><body>",
@@ -1236,6 +1359,25 @@ def get_sentiment_for_all_symbols(symbol_list):
             "<table border='1'><tr><th>Probability7</th></tr>",  # Nuova riga per 7 giorni
             f"<tr><td>{sentiment_7_days * 100}</td></tr>",
             "</table>",
+            
+            # Aggiunta della nuova sezione con gli indicatori tecnici e la probabilità calcolata
+            "<hr>",
+            "<h2>Indicatori Tecnici</h2>",
+            f"<p><strong>Probabilità calcolata sugli indicatori tecnici:</strong> {percentuale}%</p>",
+            "<table border='1'><tr><th>Indicatore</th><th>Valore</th></tr>",
+        ]
+
+        # Aggiungi gli indicatori tecnici alla tabella
+        for nome, valore in indicators.items():
+            html_content.append(f"<tr><td>{nome}</td><td>{valore}</td></tr>")
+        
+        # Fine della tabella indicatori tecnici
+        html_content.append("</table>")
+
+        # Aggiungi i dati storici degli ultimi 90 giorni
+        html_content += [
+            "<h2>Dati Storici (ultimi 90 giorni)</h2>",
+            data.tail(90).to_html(index=False, border=1),  # Visualizza solo gli ultimi 90 giorni
             "</body></html>"
         ]
 
@@ -1251,6 +1393,10 @@ def get_sentiment_for_all_symbols(symbol_list):
             all_news_entries.append((symbol, title, title_sentiment))
 
     return sentiment_results, all_news_entries
+
+
+
+
 
 # Calcolare il sentiment medio per ogni simbolo
 sentiment_for_symbols, all_news_entries = get_sentiment_for_all_symbols(symbol_list)
@@ -1298,4 +1444,3 @@ except GithubException:
     repo.create_file(news_path, "Created news sentiment", "\n".join(html_news))
 
 print("News aggiornata con successo!")
-
