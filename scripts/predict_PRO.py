@@ -1337,10 +1337,12 @@ def get_sentiment_for_all_symbols(symbol_list):
             percentuale = calcola_punteggio(indicators, close.iloc[-1], bb_upper, bb_lower)
 
             # Crea tabella dei dati storici (ultimi 90 giorni)
-            dati_storici = data.tail(90).copy()
-            dati_storici.reset_index(inplace=True)  # <-- Questo fa sì che la colonna Date diventi una colonna normale
+            dati_storici = data.tail(90).copy().reset_index()  # reset_index() aggiunge la colonna "Date"
+            # Converte la colonna "Date" nel formato YYYY-MM-DD
             dati_storici['Date'] = dati_storici['Date'].dt.strftime('%Y-%m-%d')
-            dati_storici_html = dati_storici[['Date', 'Close', 'High', 'Low', 'Open', 'Volume']].to_html(index=False, border=1)
+            # Seleziona solo le colonne desiderate (senza colonne ridondanti)
+            dati_storici = dati_storici[['Date', 'Close', 'High', 'Low', 'Open', 'Volume']]
+            dati_storici_html = dati_storici.to_html(index=False, border=1)
 
         except Exception as e:
             # Gestione dell'errore per ciascun asset
