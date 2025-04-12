@@ -1295,6 +1295,29 @@ def get_sentiment_for_all_symbols(symbol_list):
                 raise ValueError(f"Nessun dato disponibile per {symbol}.")
             
             data.dropna(inplace=True)
+
+            # Crea tabella dei dati storici (ultimi 90 giorni)
+            close = data['Close']
+            high = data['High']
+            low = data['Low']
+            open_ = data['Open']
+            volume = data['Volume']
+            
+            # Aggiungi la colonna Date
+            dati_storici_df = pd.DataFrame({
+                'Date': data.index.strftime('%Y-%m-%d'),  # Le date in formato 'YYYY-MM-DD'
+                'Close': close,
+                'High': high,
+                'Low': low,
+                'Open': open_,
+                'Volume': volume
+            })
+            
+            # Filtra gli ultimi 90 giorni
+            dati_storici_df = dati_storici_df.tail(90)
+            
+            # Converte il DataFrame in una tabella HTML
+            dati_storici_html = dati_storici_df.to_html(index=False, border=1)
     
             close = data['Close'].squeeze()
             high = data['High'].squeeze()
@@ -1335,32 +1358,6 @@ def get_sentiment_for_all_symbols(symbol_list):
             tabella_indicatori = pd.DataFrame(indicators.items(), columns=["Indicatore", "Valore"]).to_html(index=False, border=0)
 
             percentuale = calcola_punteggio(indicators, close.iloc[-1], bb_upper, bb_lower)
-
-            # Crea tabella dei dati storici (ultimi 90 giorni)
-            if not data.empty:
-                # Recupera tutti i dati necessari direttamente
-                close = data['Close']
-                high = data['High']
-                low = data['Low']
-                open_ = data['Open']
-                volume = data['Volume']
-                dates = data.index.strftime('%Y-%m-%d')  # Le date in formato 'YYYY-MM-DD'
-            
-                # Crea un DataFrame con i dati
-                dati_storici_df = pd.DataFrame({
-                    'Date': dates,
-                    'Close': close,
-                    'High': high,
-                    'Low': low,
-                    'Open': open_,
-                    'Volume': volume
-                })
-            
-                # Filtra gli ultimi 90 giorni
-                dati_storici_df = dati_storici_df.tail(90)  # Ultimi 90 giorni
-            
-                # Converte il DataFrame in una tabella HTML
-                dati_storici_html = dati_storici_df.to_html(index=False, border=1)
 
           
         except Exception as e:
