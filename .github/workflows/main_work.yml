@@ -31,11 +31,15 @@ jobs:
     - name: Install dependencies
       run: |
         pip install yfinance ta pandas
-
+        #Aggiunto di recente
+        pip install requests beautifulsoup4 scikit-learn xgboost PyGithub numpy feedparser
+        #pip install cython murmurhash  # Installa dipendenze di compilazione
+        pip install spacy==3.0.6  # Installa una versione stabile di spaCy
+        python -m spacy download en_core_web_sm  # Scarica il modello linguistico per spaCy
 
           
     - name: Run prediction script
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Token GitHub con permessi di scrittura sul repository
-      run: python scripts/test.py  # Percorso corretto del tuo codice
+      run: python scripts/predict_PRO.py  # Percorso corretto del tuo codice
 
