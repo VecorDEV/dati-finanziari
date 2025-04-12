@@ -1296,29 +1296,6 @@ def get_sentiment_for_all_symbols(symbol_list):
             
             data.dropna(inplace=True)
 
-            # Crea tabella dei dati storici (ultimi 90 giorni)
-            close = data['Close']
-            high = data['High']
-            low = data['Low']
-            open_ = data['Open']
-            volume = data['Volume']
-            
-            # Aggiungi la colonna Date
-            dati_storici_df = pd.DataFrame({
-                'Date': data.index.strftime('%Y-%m-%d'),  # Le date in formato 'YYYY-MM-DD'
-                'Close': close,
-                'High': high,
-                'Low': low,
-                'Open': open_,
-                'Volume': volume
-            })
-            
-            # Filtra gli ultimi 90 giorni
-            dati_storici_df = dati_storici_df.tail(90)
-            
-            # Converte il DataFrame in una tabella HTML
-            dati_storici_html = dati_storici_df.to_html(index=False, border=1)
-    
             close = data['Close'].squeeze()
             high = data['High'].squeeze()
             low = data['Low'].squeeze()
@@ -1359,6 +1336,12 @@ def get_sentiment_for_all_symbols(symbol_list):
 
             percentuale = calcola_punteggio(indicators, close.iloc[-1], bb_upper, bb_lower)
 
+            # Crea tabella dei dati storici (ultimi 90 giorni)
+            dati_storici = data.tail(90)
+            dati_storici['Date'] = dati_storici.index.strftime('%Y-%m-%d')  # Aggiungi la colonna Date
+            dati_storici_html = dati_storici[['Date', 'Close', 'High', 'Low', 'Open', 'Volume']].to_html(index=False, border=1)
+        
+      
           
         except Exception as e:
             # Gestione dell'errore per ciascun asset
