@@ -1330,7 +1330,10 @@ def get_sentiment_for_all_symbols(symbol_list):
                 "BB Lower": round(bb_lower, 2),
                 "BB Width": round(bb_width, 4),
             }
-    
+
+            # CREA LA TABELLA HTML DEGLI INDICATORI TECNICI
+            tabella_indicatori = pd.DataFrame(indicators.items(), columns=["Indicatore", "Valore"]).to_html(index=False, border=0)
+
             percentuale = calcola_punteggio(indicators, close.iloc[-1], bb_upper, bb_lower)
             
             # Crea tabella dei dati storici (ultimi 90 giorni)
