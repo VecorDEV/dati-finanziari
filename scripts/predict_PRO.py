@@ -1335,12 +1335,13 @@ def get_sentiment_for_all_symbols(symbol_list):
             tabella_indicatori = pd.DataFrame(indicators.items(), columns=["Indicatore", "Valore"]).to_html(index=False, border=0)
 
             percentuale = calcola_punteggio(indicators, close.iloc[-1], bb_upper, bb_lower)
-            
+
             # Crea tabella dei dati storici (ultimi 90 giorni)
-            dati_storici = data.tail(90)
-            dati_storici['Date'] = dati_storici.index.strftime('%Y-%m-%d')  # Aggiungi la colonna Date
+            dati_storici = data.tail(90).copy()
+            dati_storici.reset_index(inplace=True)  # <-- Questo fa sì che la colonna Date diventi una colonna normale
+            dati_storici['Date'] = dati_storici['Date'].dt.strftime('%Y-%m-%d')
             dati_storici_html = dati_storici[['Date', 'Close', 'High', 'Low', 'Open', 'Volume']].to_html(index=False, border=1)
-        
+
         except Exception as e:
             # Gestione dell'errore per ciascun asset
             print(f"PARTE INDICATORI TECNICI: Errore durante l'analisi di {symbol}: {e}")
