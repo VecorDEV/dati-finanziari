@@ -282,7 +282,6 @@ sentiment_dict = {
     "contribution margin": 0.7,
     "crisis management": 0.3,
     "capital raise": 0.7,
-    "compensation": 0.65,
     "counterfeit": 0.1,
     "convergence": 0.65,
     "compensation package": 0.7,
