@@ -45,6 +45,35 @@ symbol_list = ["AAPL", "MSFT", "GOOGL", "AMZN", "META", "TSLA", "V", "JPM", "JNJ
         "DASHUSD", "XMRUSD", "ETCUSD", "ZECUSD", "BNBUSD", "DOGEUSD", "USDTUSD", "LINKUSD", "ATOMUSD", "XTZUSD",
         "COCOA", "XAUUSD", "XAGUSD", "OIL"]  # Puoi aggiungere altri simboli
 
+symbol_list_for_yfinance = [
+    # Stocks (unchanged)
+    "AAPL", "MSFT", "GOOGL", "AMZN", "META", "TSLA", "V", "JPM", "JNJ", "WMT",
+    "NVDA", "PYPL", "DIS", "NFLX", "NIO", "NRG", "ADBE", "INTC", "CSCO", "PFE",
+    "KO", "PEP", "MRK", "ABT", "XOM", "CVX", "T", "MCD", "NKE", "HD",
+    "IBM", "CRM", "BMY", "ORCL", "ACN", "LLY", "QCOM", "HON", "COST", "SBUX",
+    "CAT", "LOW", "MS", "GS", "AXP", "INTU", "AMGN", "GE", "FIS", "CVS",
+    "DE", "BDX", "NOW", "SCHW", "LMT", "ADP", "C", "PLD", "NSC", "TMUS",
+    "ITW", "FDX", "PNC", "SO", "APD", "ADI", "ICE", "ZTS", "TJX", "CL",
+    "MMC", "EL", "GM", "CME", "EW", "AON", "D", "PSA", "AEP", "TROW", 
+    "LNTH", "HE", "BTDR", "NAAS", "SCHL", "TGT", "SYK", "BKNG", "DUK", "USB",
+
+    # Forex (with =X)
+    "EURUSD=X", "USDJPY=X", "GBPUSD=X", "AUDUSD=X", "USDCAD=X", "USDCHF=X", "NZDUSD=X", "EURGBP=X",
+    "EURJPY=X", "GBPJPY=X", "AUDJPY=X", "CADJPY=X", "CHFJPY=X", "EURAUD=X", "EURNZD=X", "EURCAD=X",
+    "EURCHF=X", "GBPCHF=X", "AUDCAD=X",
+
+    # Crypto (with -USD)
+    "BTC-USD", "ETH-USD", "LTC-USD", "XRP-USD", "BCH-USD", "EOS-USD", "XLM-USD", "ADA-USD",
+    "TRX-USD", "NEO-USD", "DASH-USD", "XMR-USD", "ETC-USD", "ZEC-USD", "BNB-USD", "DOGE-USD",
+    "USDT-USD", "LINK-USD", "ATOM-USD", "XTZ-USD",
+
+    # Commodities (correct tickers)
+    "CC=F",       # Cocoa
+    "XAUUSD=X",   # Gold spot
+    "XAGUSD=X",   # Silver spot
+    "CL=F"        # Crude oil
+]
+
 import feedparser
 from datetime import datetime, timedelta
 
@@ -1270,8 +1299,9 @@ def calcola_punteggio(indicatori, close_price, bb_upper, bb_lower):
 def get_sentiment_for_all_symbols(symbol_list):
     sentiment_results = {}
     all_news_entries = []  # Lista per salvare tutti i titoli e sentimenti
-    
-    for symbol in symbol_list:
+        
+    for idx,symbol in enumerate(symbol_list):
+        adjusted_symbol = symbol_list_for_yfinance[idx]    #Per usare i simboli accettati da yfinance
         news_data = get_stock_news(symbol)  # Ottieni le notizie divise per periodo
 
         # Calcola il sentiment per ciascun intervallo di tempo
@@ -1289,7 +1319,7 @@ def get_sentiment_for_all_symbols(symbol_list):
         tabella_indicatori = None  # Inizializza la variabile tabella_indicatori
         try:
             # Scarica i dati storici per l'asset
-            data = yf.download(symbol, period="3mo", interval="1d", auto_adjust=True)
+            data = yf.download(adjusted_symbol, period="3mo", interval="1d", auto_adjust=True)
             if data.empty:
                 raise ValueError(f"Nessun dato disponibile per {symbol}.")
             
