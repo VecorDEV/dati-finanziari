@@ -1300,8 +1300,7 @@ def get_sentiment_for_all_symbols(symbol_list):
     sentiment_results = {}
     all_news_entries = []  # Lista per salvare tutti i titoli e sentimenti
         
-    for idx,symbol in enumerate(symbol_list):
-        adjusted_symbol = symbol_list_for_yfinance[idx]    #Per usare i simboli accettati da yfinance
+    for symbol, adjusted_symbol in zip(symbol_list, symbol_list_for_yfinance):
         news_data = get_stock_news(symbol)  # Ottieni le notizie divise per periodo
 
         # Calcola il sentiment per ciascun intervallo di tempo
