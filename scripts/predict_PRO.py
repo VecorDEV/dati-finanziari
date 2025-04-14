@@ -69,8 +69,8 @@ symbol_list_for_yfinance = [
 
     # Commodities (correct tickers)
     "CC=F",       # Cocoa
-    "XAUUSD=X",   # Gold spot
-    "XAGUSD=X",   # Silver spot
+    "GC=F",   # Gold spot
+    "SI=F",   # Silver spot
     "CL=F"        # Crude oil
 ]
 
