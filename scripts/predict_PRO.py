@@ -74,8 +74,6 @@ symbol_list_for_yfinance = [
     "CL=F"        # Crude oil
 ]
 
-import feedparser
-from datetime import datetime, timedelta
 
 def get_stock_news(symbol):
     """ Recupera i titoli e le date delle notizie per un determinato simbolo negli ultimi 90, 30 e 7 giorni. """
@@ -1298,15 +1296,17 @@ def calcola_punteggio(indicatori, close_price, bb_upper, bb_lower):
 #Inserisce tutti i risultati nel file html
 def get_sentiment_for_all_symbols(symbol_list):
     sentiment_results = {}
-    all_news_entries = []  # Lista per salvare tutti i titoli e sentimenti
-        
-    for symbol, adjusted_symbol in zip(symbol_list, symbol_list_for_yfinance):
-        news_data = get_stock_news(symbol)  # Ottieni le notizie divise per periodo
+    percentuali_tecniche = {}
+    percentuali_combine = {}
+    all_news_entries = []
 
-        # Calcola il sentiment per ciascun intervallo di tempo
-        sentiment_90_days = calculate_sentiment(news_data["last_90_days"])  
-        sentiment_30_days = calculate_sentiment(news_data["last_30_days"])  
-        sentiment_7_days = calculate_sentiment(news_data["last_7_days"])  
+    for symbol, adjusted_symbol in zip(symbol_list, symbol_list_for_yfinance):
+        news_data = get_stock_news(symbol)
+
+        # Sentiment da notizie
+        sentiment_90_days = calculate_sentiment(news_data["last_90_days"])
+        sentiment_30_days = calculate_sentiment(news_data["last_30_days"])
+        sentiment_7_days = calculate_sentiment(news_data["last_7_days"])
 
         sentiment_results[symbol] = {
             "90_days": sentiment_90_days,
@@ -1314,21 +1314,21 @@ def get_sentiment_for_all_symbols(symbol_list):
             "7_days": sentiment_7_days
         }
 
-        # Prepara i dati relativi agli indicatori
-        tabella_indicatori = None  # Inizializza la variabile tabella_indicatori
+        tabella_indicatori = None
+        percentuale = None
+        dati_storici_html = None
+
         try:
-            # Scarica i dati storici per l'asset
             data = yf.download(adjusted_symbol, period="3mo", interval="1d", auto_adjust=True)
             if data.empty:
                 raise ValueError(f"Nessun dato disponibile per {symbol}.")
-            
+
             data.dropna(inplace=True)
 
             close = data['Close'].squeeze()
             high = data['High'].squeeze()
             low = data['Low'].squeeze()
-    
-            # Indicatori tecnici
+
             rsi = RSIIndicator(close).rsi().iloc[-1]
             macd = MACD(close)
             macd_line = macd.macd().iloc[-1]
@@ -1339,12 +1339,11 @@ def get_sentiment_for_all_symbols(symbol_list):
             ema_10 = EMAIndicator(close, window=10).ema_indicator().iloc[-1]
             cci = CCIIndicator(high, low, close).cci().iloc[-1]
             will_r = WilliamsRIndicator(high, low, close).williams_r().iloc[-1]
-    
             bb = BollingerBands(close)
             bb_upper = bb.bollinger_hband().iloc[-1]
             bb_lower = bb.bollinger_lband().iloc[-1]
             bb_width = bb.bollinger_wband().iloc[-1]
-    
+
             indicators = {
                 "RSI (14)": round(rsi, 2),
                 "MACD Line": round(macd_line, 2),
@@ -1359,90 +1358,87 @@ def get_sentiment_for_all_symbols(symbol_list):
                 "BB Width": round(bb_width, 4),
             }
 
-            # CREA LA TABELLA HTML DEGLI INDICATORI TECNICI
             tabella_indicatori = pd.DataFrame(indicators.items(), columns=["Indicatore", "Valore"]).to_html(index=False, border=0)
 
             percentuale = calcola_punteggio(indicators, close.iloc[-1], bb_upper, bb_lower)
+            percentuali_tecniche[symbol] = percentuale
 
-            # Crea tabella dei dati storici (ultimi 90 giorni)
             dati_storici = data.tail(90)
-            dati_storici['Date'] = dati_storici.index.strftime('%Y-%m-%d')  # Aggiungi la colonna Date
+            dati_storici['Date'] = dati_storici.index.strftime('%Y-%m-%d')
             dati_storici_html = dati_storici[['Date', 'Close', 'High', 'Low', 'Open', 'Volume']].to_html(index=False, border=1)
-        
-      
-          
-        except Exception as e:
-            # Gestione dell'errore per ciascun asset
-            print(f"PARTE INDICATORI TECNICI: Errore durante l'analisi di {symbol}: {e}")
-            # Continua senza indicatori nel caso di errore
-            tabella_indicatori = None
-            dati_storici_html = None
-            percentuale = None
 
-        # Aggiorna il file html
+        except Exception as e:
+            print(f"Errore durante l'analisi di {symbol}: {e}")
+
+        # GENERA FILE HTML INDIVIDUALE
         file_path = f"results/{symbol.upper()}_RESULT.html"
-        
+
         html_content = [
             f"<html><head><title>Previsione per {symbol}</title></head><body>",
             f"<h1>Previsione per: ({symbol})</h1>",
             "<table border='1'><tr><th>Probability</th></tr>",
-            f"<tr><td>{sentiment_90_days * 100}</td></tr>",
+            f"<tr><td>{sentiment_90_days * 100:.2f}%</td></tr>",
             "</table>",
-            "<table border='1'><tr><th>Probability30</th></tr>",  # Nuova riga per 30 giorni
-            f"<tr><td>{sentiment_30_days * 100}</td></tr>",
+            "<table border='1'><tr><th>Probability30</th></tr>",
+            f"<tr><td>{sentiment_30_days * 100:.2f}%</td></tr>",
             "</table>",
-            "<table border='1'><tr><th>Probability7</th></tr>",  # Nuova riga per 7 giorni
-            f"<tr><td>{sentiment_7_days * 100}</td></tr>",
+            "<table border='1'><tr><th>Probability7</th></tr>",
+            f"<tr><td>{sentiment_7_days * 100:.2f}%</td></tr>",
             "</table>",
-            
-            # Aggiunta della nuova sezione con gli indicatori tecnici e la probabilità calcolata
-            "<hr>",
-            "<h2>Indicatori Tecnici</h2>",
+            "<hr><h2>Indicatori Tecnici</h2>"
         ]
-        
+
         if percentuale is not None:
-            html_content.append(f"<p><strong>Probabilità calcolata sugli indicatori tecnici:</strong> {percentuale}%</p>")
+            html_content.append(f"<p><strong>Probabilità tecnica:</strong> {percentuale:.2f}%</p>")
         else:
-            html_content.append("<p><strong>Impossibile calcolare la probabilità sugli indicatori tecnici.</strong></p>")
-        
-        # Aggiungi gli indicatori tecnici alla tabella
+            html_content.append("<p><strong>Impossibile calcolare la probabilità tecnica.</strong></p>")
+
         if tabella_indicatori:
             html_content.append(tabella_indicatori)
         else:
             html_content.append("<p>No technical indicators available.</p>")
-        
-        # Aggiungi i dati storici degli ultimi 90 giorni
+
         if dati_storici_html:
             html_content += [
                 "<h2>Dati Storici (ultimi 90 giorni)</h2>",
-                dati_storici_html,  # Usa il DataFrame formattato
-                "</body></html>"
+                dati_storici_html,
             ]
         else:
             html_content.append("<p>No historical data available.</p>")
-        
+
         html_content.append("</body></html>")
-        
+
         try:
             contents = repo.get_contents(file_path)
             repo.update_file(contents.path, f"Updated probability for {symbol}", "\n".join(html_content), contents.sha)
         except GithubException:
             repo.create_file(file_path, f"Created probability for {symbol}", "\n".join(html_content))
 
-        # Aggiungi le notizie e i sentimenti alla lista per il file `news.html` (solo le notizie degli ultimi 90 giorni)
+        # Salva le notizie
         for title, news_date in news_data["last_90_days"]:
-            title_sentiment = calculate_sentiment([(title, news_date)])  # Passa (titolo, data)
+            title_sentiment = calculate_sentiment([(title, news_date)])
             all_news_entries.append((symbol, title, title_sentiment))
 
-    return sentiment_results, all_news_entries
+    # CALCOLA MEDIA PONDERATA (fuori dal ciclo principale)
+    for symbol in sentiment_results:
+        if symbol in percentuali_tecniche:
+            sentiment_90 = sentiment_results[symbol]["90_days"] * 100
+            tecnica = percentuali_tecniche[symbol]
+            combinata = (sentiment_90 * 0.6) + (tecnica * 0.4)
+            percentuali_combine[symbol] = combinata
+
+    return sentiment_results, percentuali_combine, all_news_entries
 
 
 
 
 
 # Calcolare il sentiment medio per ogni simbolo
-sentiment_for_symbols, all_news_entries = get_sentiment_for_all_symbols(symbol_list)
+sentiment_for_symbols, percentuali_combine, all_news_entries = get_sentiment_for_all_symbols(symbol_list)
 
+
+
+#PER CREARE LA CLASSIFICA NORMALE-------------------------------------------------------------------------
 # Ordinare i simboli in base al sentiment medio (decrescente)
 sorted_symbols = sorted(sentiment_for_symbols.items(), key=lambda x: x[1]["90_days"], reverse=True)
 
@@ -1468,6 +1464,37 @@ except GithubException:
     repo.create_file(file_path, "Created classification", "\n".join(html_classifica))
 
 print("Classifica aggiornata con successo!")
+
+
+
+#PER CREARE LA CLASSIFICA PRO----------------------------------------------------------------------------
+# Ordinare i simboli in base alla percentuale combinata (decrescente)
+sorted_symbols_pro = sorted(percentuali_combine.items(), key=lambda x: x[1], reverse=True)
+
+# Crea il contenuto del file classificaPRO.html
+html_classifica_pro = ["<html><head><title>Classifica Combinata</title></head><body>",
+                       "<h1>Classifica Combinata (60% Sentiment + 40% Indicatori Tecnici)</h1>",
+                       "<table border='1'><tr><th>Simbolo</th><th>Media Ponderata</th><th>Sentiment 90g</th><th>Indicatori Tecnici</th></tr>"]
+
+# Aggiungi le righe
+for symbol, media in sorted_symbols_pro:
+    html_classifica_pro.append(
+        f"<tr><td>{symbol}</td><td>{media:.2f}%</td></tr>"
+    )
+
+html_classifica_pro.append("</table></body></html>")
+
+# Scrivi il file su GitHub
+pro_file_path = "results/classificaPRO.html"
+try:
+    contents = repo.get_contents(pro_file_path)
+    repo.update_file(contents.path, "Updated combined classification", "\n".join(html_classifica_pro), contents.sha)
+except GithubException:
+    repo.create_file(pro_file_path, "Created combined classification", "\n".join(html_classifica_pro))
+
+print("Classifica PRO aggiornata con successo!")
+
+
 
 # Creazione del file news.html con i titoli e il sentiment
 html_news = ["<html><head><title>Notizie e Sentiment</title></head><body>",
