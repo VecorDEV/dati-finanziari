@@ -6,9 +6,42 @@ from fredapi import Fred
 
 # --- CONFIGURAZIONE ---
 ASSETS = {
-    "BTC-USD": "Bitcoin",
-    "AAPL": "Apple",
-    "EURUSD=X": "Euro/Dollaro"
+    # Azioni
+    "AAPL": "Apple", "MSFT": "Microsoft", "GOOGL": "Alphabet", "AMZN": "Amazon", "META": "Meta",
+    "TSLA": "Tesla", "V": "Visa", "JPM": "JPMorgan", "JNJ": "Johnson & Johnson", "WMT": "Walmart",
+    "NVDA": "NVIDIA", "PYPL": "PayPal", "DIS": "Disney", "NFLX": "Netflix", "NIO": "NIO",
+    "NRG": "NRG Energy", "ADBE": "Adobe", "INTC": "Intel", "CSCO": "Cisco", "PFE": "Pfizer",
+    "KO": "Coca-Cola", "PEP": "PepsiCo", "MRK": "Merck", "ABT": "Abbott", "XOM": "ExxonMobil",
+    "CVX": "Chevron", "T": "AT&T", "MCD": "McDonald's", "NKE": "Nike", "HD": "Home Depot",
+    "IBM": "IBM", "CRM": "Salesforce", "BMY": "Bristol-Myers", "ORCL": "Oracle", "ACN": "Accenture",
+    "LLY": "Eli Lilly", "QCOM": "Qualcomm", "HON": "Honeywell", "COST": "Costco", "SBUX": "Starbucks",
+    "CAT": "Caterpillar", "LOW": "Lowe's", "MS": "Morgan Stanley", "GS": "Goldman Sachs", "AXP": "American Express",
+    "INTU": "Intuit", "AMGN": "Amgen", "GE": "General Electric", "FIS": "FIS", "CVS": "CVS Health",
+    "DE": "Deere & Co.", "BDX": "Becton Dickinson", "NOW": "ServiceNow", "SCHW": "Schwab", "LMT": "Lockheed Martin",
+    "ADP": "ADP", "C": "Citigroup", "PLD": "Prologis", "NSC": "Norfolk Southern", "TMUS": "T-Mobile",
+    "ITW": "Illinois Tool Works", "FDX": "FedEx", "PNC": "PNC", "SO": "Southern Company", "APD": "Air Products",
+    "ADI": "Analog Devices", "ICE": "Intercontinental Exchange", "ZTS": "Zoetis", "TJX": "TJX Companies", "CL": "Colgate",
+    "MMC": "Marsh McLennan", "EL": "Estée Lauder", "GM": "General Motors", "CME": "CME Group", "EW": "Edwards Lifesciences",
+    "AON": "Aon", "D": "Dominion Energy", "PSA": "Public Storage", "AEP": "American Electric Power", "TROW": "T. Rowe Price",
+    "LNTH": "Lantheus", "HE": "Hawaiian Electric", "BTDR": "Bitdeer", "NAAS": "NaaS Technology", "SCHL": "Scholastic",
+    "TGT": "Target", "SYK": "Stryker", "BKNG": "Booking Holdings", "DUK": "Duke Energy", "USB": "US Bancorp",
+
+    # Forex
+    "EURUSD=X": "EUR/USD", "USDJPY=X": "USD/JPY", "GBPUSD=X": "GBP/USD", "AUDUSD=X": "AUD/USD",
+    "USDCAD=X": "USD/CAD", "USDCHF=X": "USD/CHF", "NZDUSD=X": "NZD/USD", "EURGBP=X": "EUR/GBP",
+    "EURJPY=X": "EUR/JPY", "GBPJPY=X": "GBP/JPY", "AUDJPY=X": "AUD/JPY", "CADJPY=X": "CAD/JPY",
+    "CHFJPY=X": "CHF/JPY", "EURAUD=X": "EUR/AUD", "EURNZD=X": "EUR/NZD", "EURCAD=X": "EUR/CAD",
+    "EURCHF=X": "EUR/CHF", "GBPCHF=X": "GBP/CHF", "AUDCAD=X": "AUD/CAD",
+
+    # Cripto
+    "BTC-USD": "Bitcoin", "ETH-USD": "Ethereum", "LTC-USD": "Litecoin", "XRP-USD": "XRP",
+    "BCH-USD": "Bitcoin Cash", "EOS-USD": "EOS", "XLM-USD": "Stellar", "ADA-USD": "Cardano",
+    "TRX-USD": "TRON", "NEO-USD": "NEO", "DASH-USD": "Dash", "XMR-USD": "Monero",
+    "ETC-USD": "Ethereum Classic", "ZEC-USD": "Zcash", "BNB-USD": "Binance Coin", "DOGE-USD": "Dogecoin",
+    "USDT-USD": "Tether", "LINK-USD": "Chainlink", "ATOM-USD": "Cosmos", "XTZ-USD": "Tezos",
+
+    # Commodities
+    "CC=F": "Cocoa Futures", "GC=F": "Gold Futures", "SI=F": "Silver Futures", "CL=F": "Crude Oil Futures"
 }
 
 FRED_SERIES = {
