@@ -1,34 +1,45 @@
-name: Esegui Analisi Macro
+name: Predizione Macro
 
 on:
-  workflow_dispatch:
+  workflow_dispatch:  # Avvio manuale da interfaccia
+  schedule:
+    - cron: '0 8 * * *'  # Esecuzione automatica giornaliera alle 8:00 UTC
 
 jobs:
-  run-analysis:
+  build-and-run:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Clona il repository
-        uses: actions/checkout@v3
+    - name: Checkout repository
+      uses: actions/checkout@v2
 
-      - name: Imposta Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: 3.11
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
 
-      - name: Installa le dipendenze
-        run: |
-          pip install yfinance fredapi pandas numpy
+    - name: Install system dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install build-essential python3-dev
 
-      - name: Esegui lo script
-        env:
-          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
-        run: |
-          sed -i "s/YOUR_FRED_API_KEY/${FRED_API_KEY}/" predict_MACRO.py
-          python predict_MACRO.py
+    - name: Upgrade pip and setuptools
+      run: |
+        python -m pip install --upgrade pip
+        pip install --upgrade setuptools
 
-      - name: Carica CSV come artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: impact-scores
-          path: impact_scores_all.csv
+    - name: Install Python dependencies
+      run: |
+        pip install yfinance fredapi pandas numpy
+
+    - name: Inserisci API Key e esegui script macro
+      env:
+        FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+      run: |
+        sed -i "s/YOUR_FRED_API_KEY/${FRED_API_KEY}/" predict_MACRO.py
+        python predict_MACRO.py
+
+    - name: Stampa contenuto CSV nei log
+      run: |
+        echo "Contenuto del file impact_scores_all.csv:"
+        cat impact_scores_all.csv
