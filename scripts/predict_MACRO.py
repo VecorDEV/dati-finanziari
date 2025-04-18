@@ -52,15 +52,16 @@ def analyze_impact(events_df, asset_series, days=[1, 3, 5, 7]):
         prev = events_df.iloc[i - 1]
         event_date = pd.to_datetime(row["date"])
         
-        # Trova la data più vicina nel dataset dell'asset
-        closest_asset_date = asset_series.index[(asset_series.index - event_date).abs().argmin()]
+        # Calcola i delta in giorni e trova l'indice del più vicino
+        deltas = (asset_series.index - event_date).days  # array di int
+        idx_closest = int(np.argmin(np.abs(deltas)))
+        closest_asset_date = asset_series.index[idx_closest]
         
-        # Verifica che la data dell'asset più vicina sia in un intervallo accettabile
+        # Scarta se la differenza è > 30 giorni
         if abs((closest_asset_date - event_date).days) > 30:
-            continue  # Scarta se la differenza tra le date è troppo alta (ad esempio 30 giorni)
+            continue
         
         direction = "up" if row["value"] > prev["value"] else "down"
-        
         for d in days:
             future_date = closest_asset_date + timedelta(days=d)
             if future_date in asset_series.index:
