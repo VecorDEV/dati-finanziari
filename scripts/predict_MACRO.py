@@ -4,7 +4,7 @@ import yfinance as yf
 from datetime import timedelta
 from fredapi import Fred
 
-# --- CONFIGURAZIONE ---
+# --- CONFIG ---
 ASSETS = {
     "BTC-USD": "Bitcoin",
     "AAPL": "Apple",
@@ -18,44 +18,49 @@ FRED_SERIES = {
     "FedFunds": "FEDFUNDS"
 }
 
-API_KEY = "586442cd31253d8596bdc4c2a28fdffe"  # Inserisci qui la tua chiave API FRED
+API_KEY = "586442cd31253d8596bdc4c2a28fdffe"
 fred = Fred(api_key=API_KEY)
 
-# --- SCARICA SERIE FRED ---
 def download_fred_series(series_id):
     data = fred.get_series(series_id)
     data = data.reset_index()
     data.columns = ["date", "value"]
     return data
 
-# --- SCARICA DATI ASSET ---
 def get_asset_data(ticker):
     return yf.download(ticker, period="3y")["Close"]
 
-# --- IMPATTO EVENTO ---
 def analyze_impact(events_df, asset_series, days=[1, 3, 5, 7]):
     impact_rows = []
     for i in range(1, len(events_df)):
         row = events_df.iloc[i]
         prev = events_df.iloc[i - 1]
-        event_date = pd.to_datetime(row["date"])
-        if event_date not in asset_series:
+        raw_date = pd.to_datetime(row["date"])
+
+        idx = asset_series.index.get_indexer([raw_date], method='nearest')
+        if idx[0] == -1:
             continue
+        event_date = asset_series.index[idx[0]]
+
         direction = "up" if row["value"] > prev["value"] else "down"
         for d in days:
             future_date = event_date + timedelta(days=d)
-            if future_date in asset_series.index:
-                change_pct = (asset_series[future_date] - asset_series[event_date]) / asset_series[event_date] * 100
-                impact_rows.append({
-                    "event_date": event_date,
-                    "day_offset": d,
-                    "change_pct": change_pct,
-                    "event_value": row["value"],
-                    "direction": direction
-                })
+            if future_date > asset_series.index[-1]:
+                continue
+            future_idx = asset_series.index.get_indexer([future_date], method='nearest')
+            if future_idx[0] == -1:
+                continue
+            future_date = asset_series.index[future_idx[0]]
+            change_pct = (asset_series[future_date] - asset_series[event_date]) / asset_series[event_date] * 100
+            impact_rows.append({
+                "event_date": event_date,
+                "day_offset": d,
+                "change_pct": change_pct,
+                "event_value": row["value"],
+                "direction": direction
+            })
     return pd.DataFrame(impact_rows)
 
-# --- CALCOLO IMPACT SCORE ---
 def calculate_impact_score(impact_df):
     if impact_df.empty:
         return 0.0
@@ -66,7 +71,6 @@ def calculate_impact_score(impact_df):
     score = (avg_move * 0.5) + (std_dev * 0.3) + (freq_strong_move * 100 * 0.2)
     return round(score, 2)
 
-# --- ANALISI DIREZIONALE ---
 def analyze_direction(impact_df):
     total = len(impact_df)
     if total == 0:
@@ -88,7 +92,6 @@ def analyze_direction(impact_df):
         "direction": direction
     }
 
-# --- GENERA SEGNALE BUY/SELL ---
 def generate_signal(score, direction, pos_pct, neg_pct):
     if score > 25 and direction == "Positive" and pos_pct > 60:
         return "BUY"
@@ -101,8 +104,10 @@ def generate_signal(score, direction, pos_pct, neg_pct):
 impact_summary = []
 
 for ticker, asset_name in ASSETS.items():
+    print(f"Analisi {asset_name} ({ticker})")
     asset_data = get_asset_data(ticker)
     for event_name, fred_series_id in FRED_SERIES.items():
+        print(f"  Evento: {event_name}")
         events_df = download_fred_series(fred_series_id)
         events_df["date"] = pd.to_datetime(events_df["date"])
         impact_df = analyze_impact(events_df, asset_data)
@@ -121,6 +126,6 @@ for ticker, asset_name in ASSETS.items():
             "Signal": signal
         })
 
-# --- ESPORTA RISULTATO ---
 summary_df = pd.DataFrame(impact_summary)
 summary_df.to_csv("impact_scores_all.csv", index=False)
+print("Creato il file impact_scores_all.csv")
