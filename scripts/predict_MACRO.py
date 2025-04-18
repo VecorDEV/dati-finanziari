@@ -21,13 +21,23 @@ FRED_SERIES = {
 API_KEY = "586442cd31253d8596bdc4c2a28fdffe"  # <-- Inserisci qui la tua chiave
 fred = Fred(api_key=API_KEY)
 
-def download_fred_series(series_id, start_date="2000-01-01"):
+def download_fred_series(series_id, years_back=5):
+    # Calcola la data di inizio per i dati
+    end_date = pd.to_datetime("today")
+    start_date = end_date - pd.DateOffset(years=years_back)
+    
+    # Ottieni i dati dalla serie FRED
     data = fred.get_series(series_id)
-    data = data[data.index >= pd.to_datetime(start_date)]  # Filtro per data
+    
+    # Filtra i dati in base alla data di inizio
+    data = data[data.index >= start_date]
+    
+    print(f"Dati scaricati per {series_id}: {len(data)} righe")
+    
+    # Rendi i dati un DataFrame con colonne 'date' e 'value'
     data = data.reset_index()
     data.columns = ["date", "value"]
-    print(f"Data per {series_id}:")
-    print(data.head())
+    
     return data
 
 # --- SCARICA DATI ASSET ---
