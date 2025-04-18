@@ -51,13 +51,21 @@ def analyze_impact(events_df, asset_series, days=[1, 3, 5, 7]):
         row = events_df.iloc[i]
         prev = events_df.iloc[i - 1]
         event_date = pd.to_datetime(row["date"])
-        if event_date not in asset_series:
-            continue
+        
+        # Trova la data più vicina nel dataset dell'asset
+        closest_asset_date = asset_series.index.get_loc(event_date, method='nearest')
+        closest_date = asset_series.index[closest_asset_date]
+        
+        # Verifica che la data dell'asset più vicina sia in un intervallo accettabile
+        if abs((closest_date - event_date).days) > 30:
+            continue  # Scarta se la differenza tra le date è troppo alta (ad esempio 30 giorni)
+        
         direction = "up" if row["value"] > prev["value"] else "down"
+        
         for d in days:
-            future_date = event_date + timedelta(days=d)
+            future_date = closest_date + timedelta(days=d)
             if future_date in asset_series.index:
-                change_pct = (asset_series[future_date] - asset_series[event_date]) / asset_series[event_date] * 100
+                change_pct = (asset_series[future_date] - asset_series[closest_date]) / asset_series[closest_date] * 100
                 impact_rows.append({
                     "event_date": event_date,
                     "day_offset": d,
