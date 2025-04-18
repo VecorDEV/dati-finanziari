@@ -1,38 +1,35 @@
-name: Aggiorna macro segnali
+name: Esegui Analisi Macro
 
 on:
-  workflow_dispatch:  # Trigger manuale
-  schedule:
-    - cron: '0 8 * * *'  # Esegui ogni giorno alle 8:00 AM UTC
+  workflow_dispatch:  # Avvio manuale da GitHub UI
 
 jobs:
-  build-and-run:
+  run-analysis:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Clona il repository
+        uses: actions/checkout@v3
 
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.8'  # Assicurati che la versione di Python sia corretta
+      - name: Imposta Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
 
-    - name: Install build dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get install build-essential python3-dev  # Installa dipendenze di compilazione
+      - name: Installa le dipendenze
+        run: |
+          pip install yfinance fredapi pandas numpy
 
-    - name: Upgrade pip and setuptools
-      run: |
-        python -m pip install --upgrade pip
-        pip install --upgrade setuptools
+      - name: Esegui lo script
+        env:
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}  # inserisci la tua chiave nei secrets
+        run: |
+          echo "Inserisco FRED API key nel file"
+          sed -i "s/YOUR_FRED_API_KEY/${FRED_API_KEY}/" predict_MACRO.py
+          python predict_MACRO.py
 
-    - name: Install dependencies
-      run: |
-        pip install yfinance fredapi pandas numpy
-          
-    - name: Run prediction script
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Token GitHub con permessi di scrittura sul repository
-      run: python scripts/predict_MACRO.py  # Percorso corretto del tuo codice
+      - name: Carica CSV come artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: impact-scores
+          path: impact_scores_all.csv
