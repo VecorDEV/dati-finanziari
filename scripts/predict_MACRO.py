@@ -1,3 +1,4 @@
+import time
 import pandas as pd
 import numpy as np
 import yfinance as yf
@@ -73,17 +74,13 @@ def download_fred_series(series_id, years_back=5):
     
     return data
 
-# --- SCARICA DATI ASSET ---
 def get_asset_data(ticker):
     return yf.download(ticker, period="3y")["Close"]
-
 
 def get_nearest_date(dates, target_date):
     if len(dates) == 0:
         return None, None
     deltas = np.abs(dates - target_date)
-    if len(deltas) == 0:
-        return None, None
     idx = int(np.argmin(deltas))
     return dates[idx], deltas[idx].days
 
@@ -97,7 +94,6 @@ def analyze_impact(events_df, asset_series, days=[1, 3, 5, 7], tol_days=3):
         # 1) Trova il trading day più vicino all'evento
         start_date, diff_start = get_nearest_date(asset_series.index, event_date)
         if start_date is None:
-            print(f"[SKIP] Nessuna data valida per asset - evento il {event_date.date()}")
             continue  # Skip se non ci sono dati
         if diff_start > tol_days:
             continue  # scarta se la differenza è > tol_days
@@ -108,15 +104,12 @@ def analyze_impact(events_df, asset_series, days=[1, 3, 5, 7], tol_days=3):
         for d in days:
             target = event_date + timedelta(days=d)
             end_date, diff_end = get_nearest_date(asset_series.index, target)
-            if end_date is None or diff_end > tol_days:
-                continue  # scarta se fuori tolleranza o mancano dati
+            if diff_end > tol_days:
+                continue  # scarta se fuori tolleranza
 
             # 3) Calcola la variazione % tra start_date e end_date
-            try:
-                change_pct = (asset_series.loc[end_date]
-                              - asset_series.loc[start_date]) / asset_series.loc[start_date] * 100
-            except KeyError:
-                continue  # Se manca uno dei due dati, salta
+            change_pct = (asset_series.loc[end_date]
+                          - asset_series.loc[start_date]) / asset_series.loc[start_date] * 100
 
             impact_rows.append({
                 "event_date":   event_date,
@@ -134,83 +127,77 @@ def calculate_impact_score(impact_df):
         return 0.0
 
     # Assicuriamoci che change_pct sia floating
-    changes = impact_df["change_pct"].astype(float).abs()
-
-    # Calcolo esplicito con cast a float
-    avg_move     = float(changes.mean())
-    std_dev      = float(changes.std())
-    freq_strong  = float((changes > 2).sum()) / len(changes)
-
-    score = (avg_move * 0.5) + (std_dev * 0.3) + (freq_strong * 100 * 0.2)
-    return round(score, 2)
-
-# --- ANALISI DIREZIONALE ---
-def analyze_direction(impact_df):
-    # Se non ci sono dati, ritorna neutro
-    if impact_df.empty:
-        return {"pos_pct": 0.0, "neg_pct": 0.0, "correlation": 0.0, "direction": "Neutral"}
-
-    # Forziamo i tipi numerici
     changes = impact_df["change_pct"].astype(float)
-    values  = impact_df["event_value"].astype(float)
-    total   = len(changes)
+    return changes.mean()
 
-    # Calcolo percentuali
-    pos_pct = (changes > 0).sum() / total * 100.0
-    neg_pct = (changes < 0).sum() / total * 100.0
+def analyze_direction(impact_df):
+    if impact_df.empty:
+        return {"direction": "none", "pos_pct": 0, "neg_pct": 0, "correlation": 0}
 
-    # Correlazione
-    corr = float(values.corr(changes))
+    pos = impact_df[impact_df["change_pct"] > 0].shape[0]
+    neg = impact_df[impact_df["change_pct"] < 0].shape[0]
+    direction = "up" if pos > neg else "down"
+    pos_pct = (pos / impact_df.shape[0]) * 100
+    neg_pct = (neg / impact_df.shape[0]) * 100
 
-    # Direzione media
-    mean_change = float(changes.mean())
-    if mean_change > 0.3:
-        direction = "Positive"
-    elif mean_change < -0.3:
-        direction = "Negative"
-    else:
-        direction = "Neutral"
+    correlation = np.corrcoef(impact_df["change_pct"], impact_df["event_value"])[0, 1]
 
-    return {
-        "pos_pct": round(pos_pct, 2),
-        "neg_pct": round(neg_pct, 2),
-        "correlation": round(corr, 2),
-        "direction": direction
-    }
+    return {"direction": direction, "pos_pct": pos_pct, "neg_pct": neg_pct, "correlation": correlation}
 
-# --- GENERA SEGNALE BUY/SELL ---
 def generate_signal(score, direction, pos_pct, neg_pct):
-    if score > 25 and direction == "Positive" and pos_pct > 60:
+    if direction == "up" and score > 0 and pos_pct > 60:
         return "BUY"
-    elif score > 25 and direction == "Negative" and neg_pct > 60:
+    if direction == "down" and score < 0 and neg_pct > 60:
         return "SELL"
-    else:
-        return "NEUTRAL"
+    return "HOLD"
 
-# --- MAIN ---
+# --- SCARICA DATI MACRO UNA VOLTA SOLA ---
+macro_data = {}
+for event_name, fred_series_id in FRED_SERIES.items():
+    try:
+        events_df = download_fred_series(fred_series_id)
+        events_df["date"] = pd.to_datetime(events_df["date"])
+        macro_data[event_name] = events_df
+        time.sleep(1.5)  # Evita rate limiting
+    except Exception as e:
+        print(f"[ERRORE] Impossibile scaricare {event_name} ({fred_series_id}): {e}")
+
+# --- CICLO PRINCIPALE PER OGNI ASSET ---
 impact_summary = []
 
 for ticker, asset_name in ASSETS.items():
-    asset_data = get_asset_data(ticker)
-    for event_name, fred_series_id in FRED_SERIES.items():
-        events_df = download_fred_series(fred_series_id)
-        events_df["date"] = pd.to_datetime(events_df["date"])
-        impact_df = analyze_impact(events_df, asset_data)
-        score = calculate_impact_score(impact_df)
-        directionals = analyze_direction(impact_df)
-        signal = generate_signal(score, directionals["direction"], directionals["pos_pct"], directionals["neg_pct"])
-        impact_summary.append({
-            "Event": event_name,
-            "Asset": asset_name,
-            "Ticker": ticker,
-            "Impact Score": score,
-            "Positive %": directionals["pos_pct"],
-            "Negative %": directionals["neg_pct"],
-            "Macro Corr.": directionals["correlation"],
-            "Directional Impact": directionals["direction"],
-            "Signal": signal
-        })
+    try:
+        asset_data = get_asset_data(ticker)
+        if asset_data.empty:
+            print(f"[WARNING] Nessun dato trovato per {ticker}")
+            continue
+    except Exception as e:
+        print(f"[ERRORE] Download asset {ticker} fallito: {e}")
+        continue
 
-# --- ESPORTA RISULTATO ---
+    for event_name, events_df in macro_data.items():
+        try:
+            impact_df = analyze_impact(events_df, asset_data)
+            score = calculate_impact_score(impact_df)
+            directionals = analyze_direction(impact_df)
+            signal = generate_signal(score, directionals["direction"], directionals["pos_pct"], directionals["neg_pct"])
+
+            impact_summary.append({
+                "Event": event_name,
+                "Asset": asset_name,
+                "Ticker": ticker,
+                "Impact Score": score,
+                "Positive %": directionals["pos_pct"],
+                "Negative %": directionals["neg_pct"],
+                "Macro Corr.": directionals["correlation"],
+                "Directional Impact": directionals["direction"],
+                "Signal": signal
+            })
+
+        except Exception as e:
+            print(f"[ERRORE] Analisi {event_name} su {ticker}: {e}")
+
+# --- ESPORTA RISULTATI ---
 summary_df = pd.DataFrame(impact_summary)
 summary_df.to_csv("impact_scores_all.csv", index=False)
+print("Analisi completata ed esportata in 'impact_scores_all.csv'")
