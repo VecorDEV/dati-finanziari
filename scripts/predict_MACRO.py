@@ -24,6 +24,8 @@ fred = Fred(api_key=API_KEY)
 # --- SCARICA SERIE FRED ---
 def download_fred_series(series_id):
     data = fred.get_series(series_id)
+    print(f"Data per {series_id}:")
+    print(data.head())
     data = data.reset_index()
     data.columns = ["date", "value"]
     return data
