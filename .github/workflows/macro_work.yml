@@ -1,7 +1,7 @@
 name: Esegui Analisi Macro
 
 on:
-  workflow_dispatch:  # Avvio manuale da GitHub UI
+  workflow_dispatch:
 
 jobs:
   run-analysis:
@@ -22,14 +22,13 @@ jobs:
 
       - name: Esegui lo script
         env:
-          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}  # inserisci la tua chiave nei secrets
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
         run: |
-          echo "Inserisco FRED API key nel file"
           sed -i "s/YOUR_FRED_API_KEY/${FRED_API_KEY}/" predict_MACRO.py
           python predict_MACRO.py
 
       - name: Carica CSV come artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v2
         with:
           name: impact-scores
           path: impact_scores_all.csv
