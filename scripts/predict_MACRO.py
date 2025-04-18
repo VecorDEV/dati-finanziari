@@ -18,7 +18,7 @@ FRED_SERIES = {
     "FedFunds": "FEDFUNDS"
 }
 
-API_KEY = "586442cd31253d8596bdc4c2a28fdffe"
+API_KEY = "586442cd31253d8596bdc4c2a28fdffe"  # <-- Inserisci qui la tua chiave
 fred = Fred(api_key=API_KEY)
 
 # --- SCARICA SERIE FRED ---
@@ -39,19 +39,11 @@ def analyze_impact(events_df, asset_series, days=[1, 3, 5, 7]):
         row = events_df.iloc[i]
         prev = events_df.iloc[i - 1]
         event_date = pd.to_datetime(row["date"])
-        
-        # Trova la data più vicina nell'asset series
-        closest_date = asset_series.index.get_indexer([event_date], method='nearest')
-        if closest_date[0] == -1:
+        if event_date not in asset_series:
             continue
-        event_date = asset_series.index[closest_date[0]]
-        
-        print(f"{row['date'].date()} matched with market data at {event_date.date()}")  # Debug
-        
         direction = "up" if row["value"] > prev["value"] else "down"
         for d in days:
             future_date = event_date + timedelta(days=d)
-            # Assicurati che future_date sia presente nel dataset dell'asset
             if future_date in asset_series.index:
                 change_pct = (asset_series[future_date] - asset_series[event_date]) / asset_series[event_date] * 100
                 impact_rows.append({
@@ -61,9 +53,6 @@ def analyze_impact(events_df, asset_series, days=[1, 3, 5, 7]):
                     "event_value": row["value"],
                     "direction": direction
                 })
-            else:
-                # Se la data non è presente, stampa un messaggio di log e continua
-                print(f"Warning: {future_date} not found in asset data for {row['date']}")
     return pd.DataFrame(impact_rows)
 
 # --- CALCOLO IMPACT SCORE ---
@@ -132,6 +121,6 @@ for ticker, asset_name in ASSETS.items():
             "Signal": signal
         })
 
-# --- SALVA RISULTATO ---
+# --- ESPORTA RISULTATO ---
 summary_df = pd.DataFrame(impact_summary)
 summary_df.to_csv("impact_scores_all.csv", index=False)
