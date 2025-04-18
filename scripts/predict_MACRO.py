@@ -78,12 +78,14 @@ def get_asset_data(ticker):
     return yf.download(ticker, period="3y")["Close"]
 
 
-def get_nearest_date(index, target_date):
-    """Ritorna la date dell'index più vicina a target_date e la differenza in giorni."""
-    deltas = (index - target_date).days
-    idx = int(np.argmin(np.abs(deltas)))
-    nearest = index[idx]
-    return nearest, abs((nearest - target_date).days)
+def get_nearest_date(dates, target_date):
+    if len(dates) == 0:
+        return None, None
+    deltas = np.abs(dates - target_date)
+    if len(deltas) == 0:
+        return None, None
+    idx = int(np.argmin(deltas))
+    return dates[idx], deltas[idx].days
 
 def analyze_impact(events_df, asset_series, days=[1, 3, 5, 7], tol_days=3):
     impact_rows = []
@@ -94,6 +96,9 @@ def analyze_impact(events_df, asset_series, days=[1, 3, 5, 7], tol_days=3):
 
         # 1) Trova il trading day più vicino all'evento
         start_date, diff_start = get_nearest_date(asset_series.index, event_date)
+        if start_date is None:
+            print(f"[SKIP] Nessuna data valida per asset - evento il {event_date.date()}")
+            continue  # Skip se non ci sono dati
         if diff_start > tol_days:
             continue  # scarta se la differenza è > tol_days
 
@@ -103,12 +108,15 @@ def analyze_impact(events_df, asset_series, days=[1, 3, 5, 7], tol_days=3):
         for d in days:
             target = event_date + timedelta(days=d)
             end_date, diff_end = get_nearest_date(asset_series.index, target)
-            if diff_end > tol_days:
-                continue  # scarta se fuori tolleranza
+            if end_date is None or diff_end > tol_days:
+                continue  # scarta se fuori tolleranza o mancano dati
 
             # 3) Calcola la variazione % tra start_date e end_date
-            change_pct = (asset_series.loc[end_date]
-                          - asset_series.loc[start_date]) / asset_series.loc[start_date] * 100
+            try:
+                change_pct = (asset_series.loc[end_date]
+                              - asset_series.loc[start_date]) / asset_series.loc[start_date] * 100
+            except KeyError:
+                continue  # Se manca uno dei due dati, salta
 
             impact_rows.append({
                 "event_date":   event_date,
