@@ -92,37 +92,48 @@ def calculate_impact_score(impact_df):
     if impact_df.empty:
         return 0.0
 
-    # Assicuriamoci che change_pct sia float
-    abs_changes = impact_df["change_pct"].astype(float).abs()
+    # Assicuriamoci che change_pct sia floating
+    changes = impact_df["change_pct"].astype(float).abs()
 
-    # Cast esplicito a float, così non rimane una Series di un elemento
-    avg_move       = float(abs_changes.mean())
-    std_dev        = float(abs_changes.std())
-    freq_strong    = float((abs_changes > 2).sum()) / len(abs_changes)
+    # Calcolo esplicito con cast a float
+    avg_move     = float(changes.mean())
+    std_dev      = float(changes.std())
+    freq_strong  = float((changes > 2).sum()) / len(changes)
 
-    # Calcolo
     score = (avg_move * 0.5) + (std_dev * 0.3) + (freq_strong * 100 * 0.2)
     return round(score, 2)
 
 # --- ANALISI DIREZIONALE ---
 def analyze_direction(impact_df):
-    total = len(impact_df)
-    if total == 0:
-        return {"pos_pct": 0, "neg_pct": 0, "correlation": 0, "direction": "Neutral"}
-    pos_pct = (impact_df["change_pct"] > 0).sum() / total * 100
-    neg_pct = (impact_df["change_pct"] < 0).sum() / total * 100
-    correlation = impact_df["event_value"].corr(impact_df["change_pct"])
-    mean_change = impact_df["change_pct"].mean()
+    # Se non ci sono dati, ritorna neutro
+    if impact_df.empty:
+        return {"pos_pct": 0.0, "neg_pct": 0.0, "correlation": 0.0, "direction": "Neutral"}
+
+    # Forziamo i tipi numerici
+    changes = impact_df["change_pct"].astype(float)
+    values  = impact_df["event_value"].astype(float)
+    total   = len(changes)
+
+    # Calcolo percentuali
+    pos_pct = (changes > 0).sum() / total * 100.0
+    neg_pct = (changes < 0).sum() / total * 100.0
+
+    # Correlazione
+    corr = float(values.corr(changes))
+
+    # Direzione media
+    mean_change = float(changes.mean())
     if mean_change > 0.3:
         direction = "Positive"
     elif mean_change < -0.3:
         direction = "Negative"
     else:
         direction = "Neutral"
+
     return {
         "pos_pct": round(pos_pct, 2),
         "neg_pct": round(neg_pct, 2),
-        "correlation": round(correlation, 2) if correlation is not None else 0,
+        "correlation": round(corr, 2),
         "direction": direction
     }
 
