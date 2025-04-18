@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import yfinance as yf
 from datetime import timedelta
+import sys
 from fredapi import Fred
 
 # --- CONFIGURAZIONE ---
@@ -19,8 +20,8 @@ FRED_SERIES = {
     "FedFunds": "FEDFUNDS"
 }
 
-API_KEY = "586442cd31253d8596bdc4c2a28fdffe"  # Inserisci la tua chiave
-fred = Fred(api_key=API_KEY)
+fred_api_key = sys.argv[1]
+fred = Fred(api_key=fred_api_key)
 
 SIGNIFICANT_MACRO_CHANGE = 2.0  # soglia percentuale per eventi macro significativi
 SIGNIFICANT_ASSET_REACTION = 1.0  # soglia percentuale per reazioni significative degli asset
