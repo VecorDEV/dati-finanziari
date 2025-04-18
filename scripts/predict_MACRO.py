@@ -91,11 +91,17 @@ def analyze_impact(events_df, asset_series, days=[1, 3, 5, 7], tol_days=3):
 def calculate_impact_score(impact_df):
     if impact_df.empty:
         return 0.0
-    abs_changes = impact_df["change_pct"].abs()
-    avg_move = abs_changes.mean()
-    std_dev = abs_changes.std()
-    freq_strong_move = (abs_changes > 2).sum() / len(impact_df)
-    score = (avg_move * 0.5) + (std_dev * 0.3) + (freq_strong_move * 100 * 0.2)
+
+    # Assicuriamoci che change_pct sia float
+    abs_changes = impact_df["change_pct"].astype(float).abs()
+
+    # Cast esplicito a float, così non rimane una Series di un elemento
+    avg_move       = float(abs_changes.mean())
+    std_dev        = float(abs_changes.std())
+    freq_strong    = float((abs_changes > 2).sum()) / len(abs_changes)
+
+    # Calcolo
+    score = (avg_move * 0.5) + (std_dev * 0.3) + (freq_strong * 100 * 0.2)
     return round(score, 2)
 
 # --- ANALISI DIREZIONALE ---
