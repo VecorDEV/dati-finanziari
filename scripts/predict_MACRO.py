@@ -7,42 +7,9 @@ from fredapi import Fred
 
 # --- CONFIGURAZIONE ---
 ASSETS = {
-    # Azioni
     "AAPL": "Apple", "MSFT": "Microsoft", "GOOGL": "Alphabet", "AMZN": "Amazon", "META": "Meta",
     "TSLA": "Tesla", "V": "Visa", "JPM": "JPMorgan", "JNJ": "Johnson & Johnson", "WMT": "Walmart",
-    "NVDA": "NVIDIA", "PYPL": "PayPal", "DIS": "Disney", "NFLX": "Netflix", "NIO": "NIO",
-    "NRG": "NRG Energy", "ADBE": "Adobe", "INTC": "Intel", "CSCO": "Cisco", "PFE": "Pfizer",
-    "KO": "Coca-Cola", "PEP": "PepsiCo", "MRK": "Merck", "ABT": "Abbott", "XOM": "ExxonMobil",
-    "CVX": "Chevron", "T": "AT&T", "MCD": "McDonald's", "NKE": "Nike", "HD": "Home Depot",
-    "IBM": "IBM", "CRM": "Salesforce", "BMY": "Bristol-Myers", "ORCL": "Oracle", "ACN": "Accenture",
-    "LLY": "Eli Lilly", "QCOM": "Qualcomm", "HON": "Honeywell", "COST": "Costco", "SBUX": "Starbucks",
-    "CAT": "Caterpillar", "LOW": "Lowe's", "MS": "Morgan Stanley", "GS": "Goldman Sachs", "AXP": "American Express",
-    "INTU": "Intuit", "AMGN": "Amgen", "GE": "General Electric", "FIS": "FIS", "CVS": "CVS Health",
-    "DE": "Deere & Co.", "BDX": "Becton Dickinson", "NOW": "ServiceNow", "SCHW": "Schwab", "LMT": "Lockheed Martin",
-    "ADP": "ADP", "C": "Citigroup", "PLD": "Prologis", "NSC": "Norfolk Southern", "TMUS": "T-Mobile",
-    "ITW": "Illinois Tool Works", "FDX": "FedEx", "PNC": "PNC", "SO": "Southern Company", "APD": "Air Products",
-    "ADI": "Analog Devices", "ICE": "Intercontinental Exchange", "ZTS": "Zoetis", "TJX": "TJX Companies", "CL": "Colgate",
-    "MMC": "Marsh McLennan", "EL": "Estée Lauder", "GM": "General Motors", "CME": "CME Group", "EW": "Edwards Lifesciences",
-    "AON": "Aon", "D": "Dominion Energy", "PSA": "Public Storage", "AEP": "American Electric Power", "TROW": "T. Rowe Price",
-    "LNTH": "Lantheus", "HE": "Hawaiian Electric", "BTDR": "Bitdeer", "NAAS": "NaaS Technology", "SCHL": "Scholastic",
-    "TGT": "Target", "SYK": "Stryker", "BKNG": "Booking Holdings", "DUK": "Duke Energy", "USB": "US Bancorp",
-
-    # Forex
-    "EURUSD=X": "EUR/USD", "USDJPY=X": "USD/JPY", "GBPUSD=X": "GBP/USD", "AUDUSD=X": "AUD/USD",
-    "USDCAD=X": "USD/CAD", "USDCHF=X": "USD/CHF", "NZDUSD=X": "NZD/USD", "EURGBP=X": "EUR/GBP",
-    "EURJPY=X": "EUR/JPY", "GBPJPY=X": "GBP/JPY", "AUDJPY=X": "AUD/JPY", "CADJPY=X": "CAD/JPY",
-    "CHFJPY=X": "CHF/JPY", "EURAUD=X": "EUR/AUD", "EURNZD=X": "EUR/NZD", "EURCAD=X": "EUR/CAD",
-    "EURCHF=X": "EUR/CHF", "GBPCHF=X": "GBP/CHF", "AUDCAD=X": "AUD/CAD",
-
-    # Cripto
-    "BTC-USD": "Bitcoin", "ETH-USD": "Ethereum", "LTC-USD": "Litecoin", "XRP-USD": "XRP",
-    "BCH-USD": "Bitcoin Cash", "EOS-USD": "EOS", "XLM-USD": "Stellar", "ADA-USD": "Cardano",
-    "TRX-USD": "TRON", "NEO-USD": "NEO", "DASH-USD": "Dash", "XMR-USD": "Monero",
-    "ETC-USD": "Ethereum Classic", "ZEC-USD": "Zcash", "BNB-USD": "Binance Coin", "DOGE-USD": "Dogecoin",
-    "USDT-USD": "Tether", "LINK-USD": "Chainlink", "ATOM-USD": "Cosmos", "XTZ-USD": "Tezos",
-
-    # Commodities
-    "CC=F": "Cocoa Futures", "GC=F": "Gold Futures", "SI=F": "Silver Futures", "CL=F": "Crude Oil Futures"
+    "NVDA": "NVIDIA", "PYPL": "PayPal", "DIS": "Disney", "NFLX": "Netflix"
 }
 
 FRED_SERIES = {
@@ -52,8 +19,11 @@ FRED_SERIES = {
     "FedFunds": "FEDFUNDS"
 }
 
-API_KEY = "586442cd31253d8596bdc4c2a28fdffe"  # <-- Inserisci qui la tua chiave
+API_KEY = "586442cd31253d8596bdc4c2a28fdffe"  # Inserisci la tua chiave
 fred = Fred(api_key=API_KEY)
+
+SIGNIFICANT_MACRO_CHANGE = 2.0  # soglia percentuale per eventi macro significativi
+SIGNIFICANT_ASSET_REACTION = 1.0  # soglia percentuale per reazioni significative degli asset
 
 def download_fred_series(series_id, years_back=5):
     # Calcola la data di inizio per i dati
@@ -66,12 +36,13 @@ def download_fred_series(series_id, years_back=5):
     # Filtra i dati in base alla data di inizio
     data = data[data.index >= start_date]
     
-    print(f"Dati scaricati per {series_id}: {len(data)} righe")
-    
-    # Rendi i dati un DataFrame con colonne 'date' e 'value'
-    data = data.reset_index()
-    data.columns = ["date", "value"]
-    
+    # Aggiungi le colonne di variazione percentuale
+    data["prev_value"] = data["value"].shift(1)
+    data["change_pct"] = (data["value"] - data["prev_value"]) / data["prev_value"] * 100
+    data["value_change"] = data["change_pct"].apply(
+        lambda x: "up" if x >= SIGNIFICANT_MACRO_CHANGE else ("down" if x <= -SIGNIFICANT_MACRO_CHANGE else "none")
+    )
+
     return data
 
 def get_asset_data(ticker):
@@ -84,120 +55,76 @@ def get_nearest_date(dates, target_date):
     idx = int(np.argmin(deltas))
     return dates[idx], deltas[idx].days
 
-def analyze_impact(events_df, asset_series, days=[1, 3, 5, 7], tol_days=3):
-    impact_rows = []
-    for i in range(1, len(events_df)):
-        row  = events_df.iloc[i]
-        prev = events_df.iloc[i-1]
-        event_date = pd.to_datetime(row["date"])
+# --- CALCOLO IMPACTO SUGLI ASSET IN BASE ALLA VARIAZIONE MACRO RECENTE ---
+impact_results = []
 
-        # 1) Trova il trading day più vicino all'evento
-        start_date, diff_start = get_nearest_date(asset_series.index, event_date)
-        if start_date is None:
-            continue  # Skip se non ci sono dati
-        if diff_start > tol_days:
-            continue  # scarta se la differenza è > tol_days
+for macro_name, macro_df in FRED_SERIES.items():
+    # Prendi l'ultimo dato (il più recente)
+    latest_macro_value = macro_df.iloc[-1]
+    last_change_pct = macro_df["change_pct"].iloc[-1]
+    latest_direction = "up" if last_change_pct >= SIGNIFICANT_MACRO_CHANGE else ("down" if last_change_pct <= -SIGNIFICANT_MACRO_CHANGE else "none")
+    
+    print(f"Ultimo dato di {macro_name}: {latest_macro_value} con variazione percentuale {last_change_pct}% ({latest_direction})")
 
-        direction = "up" if row["value"] > prev["value"] else "down"
+    # Per ogni tipo di variazione macro (up o down), cerca la risposta storica
+    if latest_direction != "none":
+        for ticker, asset_name in ASSETS.items():
+            asset_data = get_asset_data(ticker)
+            if asset_data.empty:
+                continue
 
-        # 2) Per ogni offset, trova il trading day più vicino
-        for d in days:
-            target = event_date + timedelta(days=d)
-            end_date, diff_end = get_nearest_date(asset_series.index, target)
-            if diff_end > tol_days:
-                continue  # scarta se fuori tolleranza
+            # Cerca tutti gli eventi in cui il macro dato è salito o sceso (up o down)
+            positive_reactions = 0
+            negative_reactions = 0
+            total_events = 0
 
-            # 3) Calcola la variazione % tra start_date e end_date
-            change_pct = (asset_series.loc[end_date]
-                          - asset_series.loc[start_date]) / asset_series.loc[start_date] * 100
+            # Filtra gli eventi nel passato in cui c'è stata una variazione significativa
+            for date, value in macro_df.iterrows():
+                if value["value_change"] == latest_direction:
+                    event_date = date
+                    if event_date not in asset_data.index:
+                        nearest_idx = asset_data.index.get_indexer([event_date], method="nearest")[0]
+                        event_date = asset_data.index[nearest_idx]
 
-            impact_rows.append({
-                "event_date":   event_date,
-                "day_offset":   d,
-                "change_pct":   change_pct,
-                "event_value":  row["value"],
-                "direction":    direction
+                    if event_date not in asset_data.index or event_date + pd.Timedelta(days=5) > asset_data.index[-1]:
+                        continue
+
+                    start_price = asset_data.loc[event_date]
+                    future_idx = asset_data.index.get_indexer([event_date + pd.Timedelta(days=5)], method="nearest")[0]
+                    end_price = asset_data.iloc[future_idx]
+
+                    change_pct = (end_price - start_price) / start_price * 100
+
+                    # Considera solo reazioni significative dell'asset
+                    if abs(change_pct) < SIGNIFICANT_ASSET_REACTION:
+                        continue  # ignora se la reazione è troppo piccola
+
+                    total_events += 1
+                    if change_pct > 0:
+                        positive_reactions += 1
+                    elif change_pct < 0:
+                        negative_reactions += 1
+
+            if total_events > 0:
+                pos_pct = positive_reactions / total_events * 100
+                neg_pct = negative_reactions / total_events * 100
+            else:
+                pos_pct = 0
+                neg_pct = 0
+
+            impact_results.append({
+                "Macro Factor": macro_name,
+                "Macro Direction": latest_direction,
+                "Asset": ticker,
+                "Positive Impact %": round(pos_pct, 2),
+                "Negative Impact %": round(neg_pct, 2),
+                "Occurrences": total_events
             })
 
-    return pd.DataFrame(impact_rows)
-
-# --- CALCOLO IMPACT SCORE ---
-def calculate_impact_score(impact_df):
-    if impact_df.empty:
-        return 0.0
-
-    # Assicuriamoci che change_pct sia floating
-    changes = impact_df["change_pct"].astype(float)
-    return changes.mean()
-
-def analyze_direction(impact_df):
-    if impact_df.empty:
-        return {"direction": "none", "pos_pct": 0, "neg_pct": 0, "correlation": 0}
-
-    pos = impact_df[impact_df["change_pct"] > 0].shape[0]
-    neg = impact_df[impact_df["change_pct"] < 0].shape[0]
-    direction = "up" if pos > neg else "down"
-    pos_pct = (pos / impact_df.shape[0]) * 100
-    neg_pct = (neg / impact_df.shape[0]) * 100
-
-    correlation = np.corrcoef(impact_df["change_pct"], impact_df["event_value"])[0, 1]
-
-    return {"direction": direction, "pos_pct": pos_pct, "neg_pct": neg_pct, "correlation": correlation}
-
-def generate_signal(score, direction, pos_pct, neg_pct):
-    if direction == "up" and score > 0 and pos_pct > 60:
-        return "BUY"
-    if direction == "down" and score < 0 and neg_pct > 60:
-        return "SELL"
-    return "HOLD"
-
-# --- SCARICA DATI MACRO UNA VOLTA SOLA ---
-macro_data = {}
-for event_name, fred_series_id in FRED_SERIES.items():
-    try:
-        events_df = download_fred_series(fred_series_id)
-        events_df["date"] = pd.to_datetime(events_df["date"])
-        macro_data[event_name] = events_df
-        time.sleep(1.5)  # Evita rate limiting
-    except Exception as e:
-        print(f"[ERRORE] Impossibile scaricare {event_name} ({fred_series_id}): {e}")
-
-# --- CICLO PRINCIPALE PER OGNI ASSET ---
-impact_summary = []
-
-for ticker, asset_name in ASSETS.items():
-    try:
-        asset_data = get_asset_data(ticker)
-        if asset_data.empty:
-            print(f"[WARNING] Nessun dato trovato per {ticker}")
-            continue
-    except Exception as e:
-        print(f"[ERRORE] Download asset {ticker} fallito: {e}")
-        continue
-
-    for event_name, events_df in macro_data.items():
-        try:
-            impact_df = analyze_impact(events_df, asset_data)
-            score = calculate_impact_score(impact_df)
-            directionals = analyze_direction(impact_df)
-            signal = generate_signal(score, directionals["direction"], directionals["pos_pct"], directionals["neg_pct"])
-
-            impact_summary.append({
-                "Event": event_name,
-                "Asset": asset_name,
-                "Ticker": ticker,
-                "Impact Score": score,
-                "Positive %": directionals["pos_pct"],
-                "Negative %": directionals["neg_pct"],
-                "Macro Corr.": directionals["correlation"],
-                "Directional Impact": directionals["direction"],
-                "Signal": signal
-            })
-
-        except Exception as e:
-            print(f"[ERRORE] Analisi {event_name} su {ticker}: {e}")
+# --- STAMPA RISULTATI FINALI ---
+impact_df = pd.DataFrame(impact_results)
+print("\n=== IMPACT SCORE COMPLETO (per aumento/diminuzione macro) ===")
+print(impact_df.head(30))  # Mostra solo le prime 30 righe per leggibilità
 
 # --- ESPORTA RISULTATI ---
-summary_df = pd.DataFrame(impact_summary)
-summary_df.to_csv("impact_scores_all.csv", index=False)
-print("Analisi completata ed esportata in 'impact_scores_all.csv'")
+impact_df.to_csv("impact_scores_recent.csv", index=False)
