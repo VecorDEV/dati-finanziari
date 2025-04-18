@@ -51,6 +51,7 @@ def analyze_impact(events_df, asset_series, days=[1, 3, 5, 7]):
         direction = "up" if row["value"] > prev["value"] else "down"
         for d in days:
             future_date = event_date + timedelta(days=d)
+            # Assicurati che future_date sia presente nel dataset dell'asset
             if future_date in asset_series.index:
                 change_pct = (asset_series[future_date] - asset_series[event_date]) / asset_series[event_date] * 100
                 impact_rows.append({
@@ -60,6 +61,9 @@ def analyze_impact(events_df, asset_series, days=[1, 3, 5, 7]):
                     "event_value": row["value"],
                     "direction": direction
                 })
+            else:
+                # Se la data non è presente, stampa un messaggio di log e continua
+                print(f"Warning: {future_date} not found in asset data for {row['date']}")
     return pd.DataFrame(impact_rows)
 
 # --- CALCOLO IMPACT SCORE ---
