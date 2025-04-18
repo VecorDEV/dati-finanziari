@@ -18,7 +18,7 @@ FRED_SERIES = {
     "FedFunds": "FEDFUNDS"
 }
 
-API_KEY = "YOUR_FRED_API_KEY"  # <-- Inserisci qui la tua chiave
+API_KEY = "586442cd31253d8596bdc4c2a28fdffe"  # Inserisci qui la tua chiave API FRED
 fred = Fred(api_key=API_KEY)
 
 # --- SCARICA SERIE FRED ---
