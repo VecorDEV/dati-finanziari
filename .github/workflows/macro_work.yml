@@ -36,8 +36,8 @@ jobs:
       env:
         FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
       run: |
-        sed -i "s/YOUR_FRED_API_KEY/${FRED_API_KEY}/" predict_MACRO.py
-        python predict_MACRO.py
+        sed -i "s/YOUR_FRED_API_KEY/${FRED_API_KEY}/" scripts/predict_MACRO.py
+        python scripts/predict_MACRO.py
 
     - name: Stampa contenuto CSV nei log
       run: |
