@@ -44,35 +44,47 @@ def download_fred_series(series_id, years_back=5):
 def get_asset_data(ticker):
     return yf.download(ticker, period="3y")["Close"]
 
-# --- IMPATTO EVENTO ---
-def analyze_impact(events_df, asset_series, days=[1, 3, 5, 7]):
+
+def get_nearest_date(index, target_date):
+    """Ritorna la date dell'index più vicina a target_date e la differenza in giorni."""
+    deltas = (index - target_date).days
+    idx = int(np.argmin(np.abs(deltas)))
+    nearest = index[idx]
+    return nearest, abs((nearest - target_date).days)
+
+def analyze_impact(events_df, asset_series, days=[1, 3, 5, 7], tol_days=3):
     impact_rows = []
     for i in range(1, len(events_df)):
-        row = events_df.iloc[i]
-        prev = events_df.iloc[i - 1]
+        row  = events_df.iloc[i]
+        prev = events_df.iloc[i-1]
         event_date = pd.to_datetime(row["date"])
-        
-        # Calcola i delta in giorni e trova l'indice del più vicino
-        deltas = (asset_series.index - event_date).days  # array di int
-        idx_closest = int(np.argmin(np.abs(deltas)))
-        closest_asset_date = asset_series.index[idx_closest]
-        
-        # Scarta se la differenza è > 30 giorni
-        if abs((closest_asset_date - event_date).days) > 30:
-            continue
-        
+
+        # 1) Trova il trading day più vicino all'evento
+        start_date, diff_start = get_nearest_date(asset_series.index, event_date)
+        if diff_start > tol_days:
+            continue  # scarta se la differenza è > tol_days
+
         direction = "up" if row["value"] > prev["value"] else "down"
+
+        # 2) Per ogni offset, trova il trading day più vicino
         for d in days:
-            future_date = closest_asset_date + timedelta(days=d)
-            if future_date in asset_series.index:
-                change_pct = (asset_series[future_date] - asset_series[closest_asset_date]) / asset_series[closest_asset_date] * 100
-                impact_rows.append({
-                    "event_date": event_date,
-                    "day_offset": d,
-                    "change_pct": change_pct,
-                    "event_value": row["value"],
-                    "direction": direction
-                })
+            target = event_date + timedelta(days=d)
+            end_date, diff_end = get_nearest_date(asset_series.index, target)
+            if diff_end > tol_days:
+                continue  # scarta se fuori tolleranza
+
+            # 3) Calcola la variazione % tra start_date e end_date
+            change_pct = (asset_series.loc[end_date]
+                          - asset_series.loc[start_date]) / asset_series.loc[start_date] * 100
+
+            impact_rows.append({
+                "event_date":   event_date,
+                "day_offset":   d,
+                "change_pct":   change_pct,
+                "event_value":  row["value"],
+                "direction":    direction
+            })
+
     return pd.DataFrame(impact_rows)
 
 # --- CALCOLO IMPACT SCORE ---
