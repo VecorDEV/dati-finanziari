@@ -27,24 +27,21 @@ SIGNIFICANT_MACRO_CHANGE = 2.0  # soglia percentuale per eventi macro significat
 SIGNIFICANT_ASSET_REACTION = 1.0  # soglia percentuale per reazioni significative degli asset
 
 def download_fred_series(series_id, years_back=5):
-    # Calcola la data di inizio per i dati
     end_date = pd.to_datetime("today")
     start_date = end_date - pd.DateOffset(years=years_back)
-    
-    # Ottieni i dati dalla serie FRED
+
+    # Ottieni la Series e trasformala in DataFrame
     data = fred.get_series(series_id)
-    
-    # Filtra i dati in base alla data di inizio
     data = data[data.index >= start_date]
-    
-    # Aggiungi le colonne di variazione percentuale
-    data["prev_value"] = data["value"].shift(1)
-    data["change_pct"] = (data["value"] - data["prev_value"]) / data["prev_value"] * 100
-    data["value_change"] = data["change_pct"].apply(
+    df = pd.DataFrame(data, columns=["value"])
+
+    df["prev_value"] = df["value"].shift(1)
+    df["change_pct"] = (df["value"] - df["prev_value"]) / df["prev_value"] * 100
+    df["value_change"] = df["change_pct"].apply(
         lambda x: "up" if x >= SIGNIFICANT_MACRO_CHANGE else ("down" if x <= -SIGNIFICANT_MACRO_CHANGE else "none")
     )
 
-    return data
+    return df
 
 def get_asset_data(ticker):
     return yf.download(ticker, period="3y")["Close"]
