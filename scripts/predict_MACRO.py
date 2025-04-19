@@ -26,7 +26,7 @@ fred = Fred(api_key=fred_api_key)
 SIGNIFICANT_MACRO_CHANGE = 2.0  # soglia percentuale per eventi macro significativi
 SIGNIFICANT_ASSET_REACTION = 1.0  # soglia percentuale per reazioni significative degli asset
 
-def download_fred_series(series_id, years_back=5):
+def download_fred_series(series_id, years_back=10):
     end_date = pd.to_datetime("today")
     start_date = end_date - pd.DateOffset(years=years_back)
 
@@ -44,7 +44,7 @@ def download_fred_series(series_id, years_back=5):
     return df
 
 def get_asset_data(ticker):
-    return yf.download(ticker, period="3y")["Close"]
+    return yf.download(ticker, period="10y")["Close"]
 
 def get_nearest_date(dates, target_date):
     if len(dates) == 0:
