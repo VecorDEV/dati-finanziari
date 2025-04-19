@@ -89,9 +89,9 @@ for macro_name, series_id in FRED_SERIES.items():
                     if event_date not in asset_data.index or event_date + pd.Timedelta(days=5) > asset_data.index[-1]:
                         continue
 
-                    start_price = asset_data.loc[event_date]
+                    start_price = float(asset_data.loc[event_date])
                     future_idx = asset_data.index.get_indexer([event_date + pd.Timedelta(days=5)], method="nearest")[0]
-                    end_price = asset_data.iloc[future_idx]
+                    end_price = float(asset_data.iloc[future_idx])
 
                     change_pct = (end_price - start_price) / start_price * 100
 
