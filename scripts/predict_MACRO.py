@@ -59,29 +59,31 @@ def get_nearest_date(dates, target_date):
 # --- CALCOLO IMPACTO SUGLI ASSET IN BASE ALLA VARIAZIONE MACRO RECENTE ---
 impact_results = []
 
-for macro_name, macro_df in FRED_SERIES.items():
+for macro_name, series_id in FRED_SERIES.items():
+    macro_df = download_fred_series(series_id)
+
+    if macro_df.empty or "change_pct" not in macro_df.columns:
+        continue
+
     # Prendi l'ultimo dato (il più recente)
     latest_macro_value = macro_df.iloc[-1]
     last_change_pct = macro_df["change_pct"].iloc[-1]
     latest_direction = "up" if last_change_pct >= SIGNIFICANT_MACRO_CHANGE else ("down" if last_change_pct <= -SIGNIFICANT_MACRO_CHANGE else "none")
     
-    print(f"Ultimo dato di {macro_name}: {latest_macro_value} con variazione percentuale {last_change_pct}% ({latest_direction})")
+    print(f"\nUltimo dato di {macro_name}: {latest_macro_value['value']} con variazione {round(last_change_pct, 2)}% ({latest_direction})")
 
-    # Per ogni tipo di variazione macro (up o down), cerca la risposta storica
     if latest_direction != "none":
         for ticker, asset_name in ASSETS.items():
             asset_data = get_asset_data(ticker)
             if asset_data.empty:
                 continue
 
-            # Cerca tutti gli eventi in cui il macro dato è salito o sceso (up o down)
             positive_reactions = 0
             negative_reactions = 0
             total_events = 0
 
-            # Filtra gli eventi nel passato in cui c'è stata una variazione significativa
-            for date, value in macro_df.iterrows():
-                if value["value_change"] == latest_direction:
+            for date, row in macro_df.iterrows():
+                if row["value_change"] == latest_direction:
                     event_date = date
                     if event_date not in asset_data.index:
                         nearest_idx = asset_data.index.get_indexer([event_date], method="nearest")[0]
@@ -96,14 +98,13 @@ for macro_name, macro_df in FRED_SERIES.items():
 
                     change_pct = (end_price - start_price) / start_price * 100
 
-                    # Considera solo reazioni significative dell'asset
                     if abs(change_pct) < SIGNIFICANT_ASSET_REACTION:
-                        continue  # ignora se la reazione è troppo piccola
+                        continue
 
                     total_events += 1
                     if change_pct > 0:
                         positive_reactions += 1
-                    elif change_pct < 0:
+                    else:
                         negative_reactions += 1
 
             if total_events > 0:
