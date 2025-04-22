@@ -24,9 +24,10 @@ FRED_SERIES = {
 fred_api_key = sys.argv[1]
 fred = Fred(api_key=fred_api_key)
 
-SIGNIFICANT_MACRO_CHANGE = 0.3  # soglia percentuale per evento macro significativo
-SIGNIFICANT_ASSET_REACTION = 1.5  # soglia reazione significativa su asset
-WINDOW_DAYS = 10  # finestra temporale per reazione asset
+SIGNIFICANT_MACRO_CHANGE = 2.0     # soglia variazione macro
+SIGNIFICANT_ASSET_REACTION = 1.0   # soglia reazione asset
+WINDOW_DAYS = 10
+MIN_OCCURRENCES = 10               # soglia per filtro statistico
 
 # --- FUNZIONI ---
 
@@ -55,14 +56,12 @@ for macro_name, series_id in FRED_SERIES.items():
     if macro_df.empty or "change_pct" not in macro_df.columns:
         continue
 
-    # Prendi l'ultima variazione
     last_change_pct = macro_df["change_pct"].iloc[-1]
     latest_direction = "up" if last_change_pct >= SIGNIFICANT_MACRO_CHANGE else ("down" if last_change_pct <= -SIGNIFICANT_MACRO_CHANGE else "none")
     latest_macro_value = macro_df.iloc[-1]
 
     print(f"\nUltimo dato di {macro_name}: {latest_macro_value['value']} con variazione {round(last_change_pct, 2)}% ({latest_direction})")
 
-    # Analizza entrambe le direzioni: up e down
     for direction in ["up", "down"]:
         for ticker, asset_name in ASSETS.items():
             asset_data = get_asset_data(ticker)
@@ -72,6 +71,7 @@ for macro_name, series_id in FRED_SERIES.items():
             positive_reactions = 0
             negative_reactions = 0
             total_events = 0
+            impact_magnitudes = []
 
             for date, row in macro_df.iterrows():
                 if row["value_change"] == direction:
@@ -93,27 +93,31 @@ for macro_name, series_id in FRED_SERIES.items():
                         continue
 
                     total_events += 1
+                    impact_magnitudes.append(change_pct)
                     if change_pct > 0:
                         positive_reactions += 1
                     else:
                         negative_reactions += 1
 
-            if total_events > 0:
+            if total_events >= MIN_OCCURRENCES:
                 pos_pct = positive_reactions / total_events * 100
                 neg_pct = negative_reactions / total_events * 100
+                avg_impact = np.mean(impact_magnitudes)
                 impact_results.append({
                     "Macro Factor": macro_name,
                     "Macro Direction": direction,
                     "Asset": ticker,
                     "Positive Impact %": round(pos_pct, 2),
                     "Negative Impact %": round(neg_pct, 2),
+                    "Average Impact %": round(avg_impact, 2),
                     "Occurrences": total_events
                 })
 
-# --- ESPORTA E MOSTRA ---
+# --- ESPORTAZIONE E VISUALIZZAZIONE ---
 impact_df = pd.DataFrame(impact_results)
 
-print("\n=== IMPACT SCORE COMPLETO ===")
-print(impact_df.head(30))  # mostra solo le prime righe
+pd.set_option("display.max_rows", None)  # Mostra tutte le righe
+print("\n=== IMPACT SCORE COMPLETO (FILTRATO) ===")
+print(impact_df)
 
-impact_df.to_csv("impact_scores_recent.csv", index=False)
+impact_df.to_csv("impact_scores_filtered.csv", index=False)
