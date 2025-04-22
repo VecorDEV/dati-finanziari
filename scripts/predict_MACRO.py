@@ -20,40 +20,33 @@ FRED_SERIES = {
     "FedFunds": "FEDFUNDS"
 }
 
+# --- PARAMETRI ---
 fred_api_key = sys.argv[1]
 fred = Fred(api_key=fred_api_key)
 
-SIGNIFICANT_MACRO_CHANGE = 0.5  # soglia percentuale per eventi macro significativi
-SIGNIFICANT_ASSET_REACTION = 1.0  # soglia percentuale per reazioni significative degli asset
+SIGNIFICANT_MACRO_CHANGE = 2.0  # soglia percentuale per evento macro significativo
+SIGNIFICANT_ASSET_REACTION = 1.0  # soglia reazione significativa su asset
+WINDOW_DAYS = 10  # finestra temporale per reazione asset
+
+# --- FUNZIONI ---
 
 def download_fred_series(series_id, years_back=10):
     end_date = pd.to_datetime("today")
     start_date = end_date - pd.DateOffset(years=years_back)
-
-    # Ottieni la Series e trasformala in DataFrame
     data = fred.get_series(series_id)
     data = data[data.index >= start_date]
     df = pd.DataFrame(data, columns=["value"])
-
     df["prev_value"] = df["value"].shift(1)
     df["change_pct"] = (df["value"] - df["prev_value"]) / df["prev_value"] * 100
     df["value_change"] = df["change_pct"].apply(
         lambda x: "up" if x >= SIGNIFICANT_MACRO_CHANGE else ("down" if x <= -SIGNIFICANT_MACRO_CHANGE else "none")
     )
-
     return df
 
 def get_asset_data(ticker):
     return yf.download(ticker, period="10y")["Close"]
 
-def get_nearest_date(dates, target_date):
-    if len(dates) == 0:
-        return None, None
-    deltas = np.abs(dates - target_date)
-    idx = int(np.argmin(deltas))
-    return dates[idx], deltas[idx].days
-
-# --- CALCOLO IMPACTO SUGLI ASSET IN BASE ALLA VARIAZIONE MACRO RECENTE ---
+# --- CALCOLO IMPATTO MACRO SUGLI ASSET ---
 impact_results = []
 
 for macro_name, series_id in FRED_SERIES.items():
@@ -62,14 +55,15 @@ for macro_name, series_id in FRED_SERIES.items():
     if macro_df.empty or "change_pct" not in macro_df.columns:
         continue
 
-    # Prendi l'ultimo dato (il più recente)
-    latest_macro_value = macro_df.iloc[-1]
+    # Prendi l'ultima variazione
     last_change_pct = macro_df["change_pct"].iloc[-1]
     latest_direction = "up" if last_change_pct >= SIGNIFICANT_MACRO_CHANGE else ("down" if last_change_pct <= -SIGNIFICANT_MACRO_CHANGE else "none")
-    
+    latest_macro_value = macro_df.iloc[-1]
+
     print(f"\nUltimo dato di {macro_name}: {latest_macro_value['value']} con variazione {round(last_change_pct, 2)}% ({latest_direction})")
 
-    if latest_direction != "none":
+    # Analizza entrambe le direzioni: up e down
+    for direction in ["up", "down"]:
         for ticker, asset_name in ASSETS.items():
             asset_data = get_asset_data(ticker)
             if asset_data.empty:
@@ -80,17 +74,17 @@ for macro_name, series_id in FRED_SERIES.items():
             total_events = 0
 
             for date, row in macro_df.iterrows():
-                if row["value_change"] == latest_direction:
+                if row["value_change"] == direction:
                     event_date = date
                     if event_date not in asset_data.index:
                         nearest_idx = asset_data.index.get_indexer([event_date], method="nearest")[0]
                         event_date = asset_data.index[nearest_idx]
 
-                    if event_date not in asset_data.index or event_date + pd.Timedelta(days=5) > asset_data.index[-1]:
+                    if event_date + pd.Timedelta(days=WINDOW_DAYS) > asset_data.index[-1]:
                         continue
 
                     start_price = float(asset_data.loc[event_date])
-                    future_idx = asset_data.index.get_indexer([event_date + pd.Timedelta(days=5)], method="nearest")[0]
+                    future_idx = asset_data.index.get_indexer([event_date + pd.Timedelta(days=WINDOW_DAYS)], method="nearest")[0]
                     end_price = float(asset_data.iloc[future_idx])
 
                     change_pct = (end_price - start_price) / start_price * 100
@@ -107,23 +101,19 @@ for macro_name, series_id in FRED_SERIES.items():
             if total_events > 0:
                 pos_pct = positive_reactions / total_events * 100
                 neg_pct = negative_reactions / total_events * 100
-            else:
-                pos_pct = 0
-                neg_pct = 0
+                impact_results.append({
+                    "Macro Factor": macro_name,
+                    "Macro Direction": direction,
+                    "Asset": ticker,
+                    "Positive Impact %": round(pos_pct, 2),
+                    "Negative Impact %": round(neg_pct, 2),
+                    "Occurrences": total_events
+                })
 
-            impact_results.append({
-                "Macro Factor": macro_name,
-                "Macro Direction": latest_direction,
-                "Asset": ticker,
-                "Positive Impact %": round(pos_pct, 2),
-                "Negative Impact %": round(neg_pct, 2),
-                "Occurrences": total_events
-            })
-
-# --- STAMPA RISULTATI FINALI ---
+# --- ESPORTA E MOSTRA ---
 impact_df = pd.DataFrame(impact_results)
-print("\n=== IMPACT SCORE COMPLETO (per aumento/diminuzione macro) ===")
-print(impact_df.head(30))  # Mostra solo le prime 30 righe per leggibilità
 
-# --- ESPORTA RISULTATI ---
+print("\n=== IMPACT SCORE COMPLETO ===")
+print(impact_df.head(30))  # mostra solo le prime righe
+
 impact_df.to_csv("impact_scores_recent.csv", index=False)
