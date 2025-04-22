@@ -23,7 +23,7 @@ FRED_SERIES = {
 fred_api_key = sys.argv[1]
 fred = Fred(api_key=fred_api_key)
 
-SIGNIFICANT_MACRO_CHANGE = 2.0  # soglia percentuale per eventi macro significativi
+SIGNIFICANT_MACRO_CHANGE = 0.5  # soglia percentuale per eventi macro significativi
 SIGNIFICANT_ASSET_REACTION = 1.0  # soglia percentuale per reazioni significative degli asset
 
 def download_fred_series(series_id, years_back=10):
