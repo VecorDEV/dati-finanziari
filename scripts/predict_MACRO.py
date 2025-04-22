@@ -114,6 +114,6 @@ for macro_name, series_id in FRED_SERIES.items():
 impact_df = pd.DataFrame(impact_results)
 
 print("\n=== IMPACT SCORE COMPLETO ===")
-print(impact_df.head(30))  # mostra solo le prime righe
+print(impact_df.head(100))  # mostra solo le prime righe
 
 impact_df.to_csv("impact_scores_recent.csv", index=False)
