@@ -1,5 +1,6 @@
 import feedparser
 from datetime import datetime, timedelta
+from time import mktime
 from newspaper import Article
 
 def get_article_text(url):
@@ -8,12 +9,15 @@ def get_article_text(url):
         article.download()
         article.parse()
         return article.text.strip()
-    except:
+    except Exception as e:
+        print(f"[!] Errore newspaper per {url}: {e}")
         return None
 
 def get_stock_news(symbol):
     url = f"https://news.google.com/rss/search?q={symbol}+stock&hl=en-US&gl=US&ceid=US:en"
     feed = feedparser.parse(url)
+
+    print(f"=== Trovate {len(feed.entries)} voci nel feed RSS ===")
 
     now = datetime.utcnow()
     days_90 = now - timedelta(days=90)
@@ -25,21 +29,26 @@ def get_stock_news(symbol):
     news_7_days = []
 
     for entry in feed.entries:
-        try:
-            news_date = datetime.strptime(entry.published, "%a, %d %b %Y %H:%M:%S %Z")
-            full_text = get_article_text(entry.link)
-
-            if full_text:
-                formatted = f"{entry.title} -£ {full_text}"
-
-                if news_date >= days_90:
-                    news_90_days.append((formatted, news_date))
-                if news_date >= days_30:
-                    news_30_days.append((formatted, news_date))
-                if news_date >= days_7:
-                    news_7_days.append((formatted, news_date))
-        except Exception:
+        # parsing data in modo robusto
+        if hasattr(entry, "published_parsed"):
+            news_date = datetime.utcfromtimestamp(mktime(entry.published_parsed))
+        else:
+            print(f"[!] Nessuna published_parsed per entry, salto.")
             continue
+
+        full_text = get_article_text(entry.link)
+        if not full_text:
+            print(f"[!] Impossibile recuperare il corpo da: {entry.link}")
+            continue
+
+        formatted = f"{entry.title} -£ {full_text}"
+
+        if news_date >= days_90:
+            news_90_days.append((formatted, news_date))
+        if news_date >= days_30:
+            news_30_days.append((formatted, news_date))
+        if news_date >= days_7:
+            news_7_days.append((formatted, news_date))
 
     return {
         "last_90_days": news_90_days,
@@ -47,14 +56,17 @@ def get_stock_news(symbol):
         "last_7_days": news_7_days
     }
 
-# Esegui e salva le notizie in un file
-notizie = get_stock_news("AAPL")
+if __name__ == "__main__":
+    notizie = get_stock_news("AAPL")
 
-with open("notizie_output.txt", "w", encoding="utf-8") as f:
-    if not notizie["last_7_days"]:
-        f.write("Nessuna notizia trovata per gli ultimi 7 giorni.\n")
-    for titolo_corpo, data in notizie["last_7_days"]:
-        f.write(f"{data.date()}: {titolo_corpo}\n\n")
+    # scrivo il file
+    with open("notizie_output.txt", "w", encoding="utf-8") as f:
+        if not notizie["last_7_days"]:
+            f.write("Nessuna notizia trovata per gli ultimi 7 giorni.\n")
+        for titolo_corpo, data in notizie["last_7_days"]:
+            f.write(f"{data.date()}: {titolo_corpo}\n\n")
+
+    print("Esecuzione completata, ho scritto notizie_output.txt")
 
 
 '''
