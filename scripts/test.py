@@ -3,20 +3,21 @@ from datetime import datetime, timedelta
 from time import mktime
 from newspaper import Article
 import requests
-import re
+from bs4 import BeautifulSoup
 
 def resolve_url(url):
     """
-    Segue i redirect HTTP e poi, se la pagina contiene un meta-refresh,
-    estrae il vero URL dall'attributo content.
+    Scarica il wrapper Google News, estrae dal <meta property="og:url"> 
+    il vero URL dell'articolo.
     """
     try:
-        resp = requests.get(url, timeout=10, allow_redirects=True)
+        resp = requests.get(url, timeout=10)
         html = resp.text
-        # Cerca un tag <meta http-equiv="refresh" content="0; URL='...'>
-        m = re.search(r'<meta http-equiv="refresh"[^>]*content="[^"]*URL=\'?(.*?)\'?"', html, re.IGNORECASE)
-        if m:
-            return m.group(1)
+        soup = BeautifulSoup(html, "html.parser")
+        og = soup.find("meta", property="og:url")
+        if og and og.get("content"):
+            return og["content"]
+        # fallback all'URL finale della richiesta
         return resp.url
     except Exception as e:
         print(f"[!] Errore resolve_url({url}): {e}")
@@ -34,8 +35,8 @@ def get_article_text(url):
         return None
 
 def get_stock_news(symbol):
-    url = f"https://news.google.com/rss/search?q={symbol}+stock&hl=en-US&gl=US&ceid=US:en"
-    feed = feedparser.parse(url)
+    rss = f"https://news.google.com/rss/search?q={symbol}+stock&hl=en-US&gl=US&ceid=US:en"
+    feed = feedparser.parse(rss)
     print(f"=== Trovate {len(feed.entries)} voci nel feed RSS ===")
 
     now = datetime.utcnow()
@@ -51,23 +52,21 @@ def get_stock_news(symbol):
             print(f"[!] Impossibile recuperare il corpo da: {entry.link}")
             continue
 
-        formatted = f"{entry.title} -£ {full_text}"
-        if news_date >= days_90: news_90.append((formatted, news_date))
-        if news_date >= days_30: news_30.append((formatted, news_date))
-        if news_date >= days_7:  news_7.append((formatted, news_date))
+        combined = f"{entry.title} -£ {full_text}"
+        if news_date >= days_90: news_90.append((combined, news_date))
+        if news_date >= days_30: news_30.append((combined, news_date))
+        if news_date >= days_7:  news_7.append((combined, news_date))
 
     return {"last_90_days": news_90, "last_30_days": news_30, "last_7_days": news_7}
 
 if __name__ == "__main__":
     notizie = get_stock_news("AAPL")
-
     with open("notizie_output.txt", "w", encoding="utf-8") as f:
         if not notizie["last_7_days"]:
             f.write("Nessuna notizia trovata per gli ultimi 7 giorni.\n")
         else:
-            for titolo_corpo, data in notizie["last_7_days"]:
-                f.write(f"{data.date()}: {titolo_corpo}\n\n")
-
+            for testo, data in notizie["last_7_days"]:
+                f.write(f"{data.date()}: {testo}\n\n")
     print("Esecuzione completata, ho scritto notizie_output.txt")
 
 
