@@ -12,7 +12,6 @@ def get_article_text(url):
         return None
 
 def get_stock_news(symbol):
-    """ Recupera titoli + corpo delle notizie per un simbolo negli ultimi 90, 30 e 7 giorni. """
     url = f"https://news.google.com/rss/search?q={symbol}+stock&hl=en-US&gl=US&ceid=US:en"
     feed = feedparser.parse(url)
 
@@ -39,7 +38,6 @@ def get_stock_news(symbol):
                     news_30_days.append((formatted, news_date))
                 if news_date >= days_7:
                     news_7_days.append((formatted, news_date))
-
         except Exception:
             continue
 
@@ -49,10 +47,14 @@ def get_stock_news(symbol):
         "last_7_days": news_7_days
     }
 
-
+# Esegui e salva le notizie in un file
 notizie = get_stock_news("AAPL")
-for titolo_corpo, data in notizie["last_7_days"]:
-    print(f"{data.date()}: {titolo_corpo}\n")
+
+with open("notizie_output.txt", "w", encoding="utf-8") as f:
+    if not notizie["last_7_days"]:
+        f.write("Nessuna notizia trovata per gli ultimi 7 giorni.\n")
+    for titolo_corpo, data in notizie["last_7_days"]:
+        f.write(f"{data.date()}: {titolo_corpo}\n\n")
 
 
 '''
