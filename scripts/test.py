@@ -1,15 +1,58 @@
-import yfinance as yf
-import pandas as pd
+import feedparser
+from datetime import datetime, timedelta
+from newspaper import Article
 
-data = yf.download("AAPL", period="3mo", interval="1d", auto_adjust=True)
-dati_storici = data.tail(90).copy().reset_index()
-dati_storici['Date'] = dati_storici['Date'].dt.strftime('%Y-%m-%d')
-dati_storici = dati_storici[['Date', 'Close', 'High', 'Low', 'Open', 'Volume']]
-print(dati_storici.head())
-html = dati_storici.to_html(index=False, border=1)
-print(html)
+def get_article_text(url):
+    try:
+        article = Article(url)
+        article.download()
+        article.parse()
+        return article.text.strip()
+    except:
+        return None
+
+def get_stock_news(symbol):
+    """ Recupera titoli + corpo delle notizie per un simbolo negli ultimi 90, 30 e 7 giorni. """
+    url = f"https://news.google.com/rss/search?q={symbol}+stock&hl=en-US&gl=US&ceid=US:en"
+    feed = feedparser.parse(url)
+
+    now = datetime.utcnow()
+    days_90 = now - timedelta(days=90)
+    days_30 = now - timedelta(days=30)
+    days_7 = now - timedelta(days=7)
+
+    news_90_days = []
+    news_30_days = []
+    news_7_days = []
+
+    for entry in feed.entries:
+        try:
+            news_date = datetime.strptime(entry.published, "%a, %d %b %Y %H:%M:%S %Z")
+            full_text = get_article_text(entry.link)
+
+            if full_text:
+                formatted = f"{entry.title} -£ {full_text}"
+
+                if news_date >= days_90:
+                    news_90_days.append((formatted, news_date))
+                if news_date >= days_30:
+                    news_30_days.append((formatted, news_date))
+                if news_date >= days_7:
+                    news_7_days.append((formatted, news_date))
+
+        except Exception:
+            continue
+
+    return {
+        "last_90_days": news_90_days,
+        "last_30_days": news_30_days,
+        "last_7_days": news_7_days
+    }
 
 
+notizie = get_stock_news("AAPL")
+for titolo_corpo, data in notizie["last_7_days"]:
+    print(f"{data.date()}: {titolo_corpo}\n")
 
 
 '''
