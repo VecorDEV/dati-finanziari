@@ -2,10 +2,26 @@ import feedparser
 from datetime import datetime, timedelta
 from time import mktime
 from newspaper import Article
+import requests  # << nuova dipendenza!
+
+def resolve_url(url):
+    """
+    Segue i redirect fino al URL finale e lo restituisce.
+    """
+    try:
+        resp = requests.get(url, timeout=10, allow_redirects=True)
+        return resp.url
+    except Exception as e:
+        print(f"[!] Errore nel resolve_url({url}): {e}")
+        return url
 
 def get_article_text(url):
+    """
+    Risolve il wrapper Google News, poi scarica e estrae il testo.
+    """
     try:
-        article = Article(url)
+        real_url = resolve_url(url)
+        article = Article(real_url)
         article.download()
         article.parse()
         return article.text.strip()
@@ -24,25 +40,21 @@ def get_stock_news(symbol):
     days_30 = now - timedelta(days=30)
     days_7 = now - timedelta(days=7)
 
-    news_90_days = []
-    news_30_days = []
-    news_7_days = []
+    news_90_days, news_30_days, news_7_days = [], [], []
 
     for entry in feed.entries:
-        # parsing data in modo robusto
-        if hasattr(entry, "published_parsed"):
-            news_date = datetime.utcfromtimestamp(mktime(entry.published_parsed))
-        else:
-            print(f"[!] Nessuna published_parsed per entry, salto.")
+        # parsing data
+        if not hasattr(entry, "published_parsed"):
             continue
+        news_date = datetime.utcfromtimestamp(mktime(entry.published_parsed))
 
+        # estrai il testo
         full_text = get_article_text(entry.link)
         if not full_text:
             print(f"[!] Impossibile recuperare il corpo da: {entry.link}")
             continue
 
         formatted = f"{entry.title} -£ {full_text}"
-
         if news_date >= days_90:
             news_90_days.append((formatted, news_date))
         if news_date >= days_30:
@@ -59,7 +71,6 @@ def get_stock_news(symbol):
 if __name__ == "__main__":
     notizie = get_stock_news("AAPL")
 
-    # scrivo il file
     with open("notizie_output.txt", "w", encoding="utf-8") as f:
         if not notizie["last_7_days"]:
             f.write("Nessuna notizia trovata per gli ultimi 7 giorni.\n")
