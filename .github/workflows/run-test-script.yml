@@ -27,3 +27,9 @@ jobs:
 
     - name: Run the script
       run: python scripts/test.py
+
+    - name: Upload news output
+      uses: actions/upload-artifact@v3
+      with:
+        name: notizie-AAPL
+        path: notizie_output.txt
