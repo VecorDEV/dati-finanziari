@@ -21,7 +21,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install feedparser newspaper3k lxml_html_clean requests beautifulsoup4
+        pip install feedparser newspaper3k readability-lxml requests beautifulsoup4 lxml html5lib nltk
 
     - name: Run the script
       run: python scripts/test.py
