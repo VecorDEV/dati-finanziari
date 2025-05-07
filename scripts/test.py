@@ -5,6 +5,7 @@ from urllib.parse import urlparse, parse_qs, unquote
 from newspaper import Article
 import requests
 from bs4 import BeautifulSoup
+from readability import Document
 
 HEADERS = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 '
                          '(KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'}
@@ -33,28 +34,38 @@ def resolve_url(url):
     except Exception as e:
         print(f"[!] Errore resolve_url({url}): {e}")
         return url
+      
 
 def get_article_text(url):
     """
-    1) Risolve il vero URL.
-    2) Scarica manualmente l’HTML con requests+HEADERS.
-    3) Inietta l’HTML in newspaper3k via set_html().
-    4) Effettua il parsing e restituisce solo il testo.
+    1) Risolve il URL reale.
+    2) Scarica l’HTML con requests+HEADERS.
+    3) Prima prova con newspaper3k.
+    4) Se il testo è troppo breve o contiene “Sign in”, fallback con Readability.
     """
     try:
         real_url = resolve_url(url)
-        # 1) Scarica la pagina con HEADERS
+
+        # scarica la pagina
         resp = requests.get(real_url, headers=HEADERS, timeout=10)
         resp.raise_for_status()
+        html = resp.text
 
-        # 2) Crea l’oggetto Article e inietta l’HTML scaricato
+        # 1) Prova con newspaper3k
         article = Article(real_url, language='en')
-        article.download_state = 2  # forza lo stato “download avvenuto”
-        article.set_html(resp.text)
-
-        # 3) Parsing
+        article.download_state = 2
+        article.set_html(html)
         article.parse()
-        return article.text.strip()
+        text = article.text.strip()
+
+        # 2) Se è troppo corto o sembra un paywall, usa Readability
+        if len(text) < 200 or "Sign in" in text:
+            doc = Document(html)
+            summary_html = doc.summary()
+            soup = BeautifulSoup(summary_html, 'html.parser')
+            text = soup.get_text(separator='\n').strip()
+
+        return text
 
     except Exception as e:
         print(f"[!] Errore in get_article_text({url}): {e}")
