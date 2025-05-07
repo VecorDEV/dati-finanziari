@@ -1,33 +1,48 @@
 import feedparser
 from datetime import datetime, timedelta
 from time import mktime
+from urllib.parse import urlparse, parse_qs, unquote
 from newspaper import Article
 import requests
 from bs4 import BeautifulSoup
 
+HEADERS = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 '
+                         '(KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'}
+
 def resolve_url(url):
     """
-    Scarica il wrapper Google News, estrae dal <meta property="og:url"> 
-    il vero URL dell'articolo.
+    - Se l’URL di Google News è del tipo ...?url=<encoded_url>&..., 
+      estrae e ritorna direttamente <encoded_url>.
+    - Altrimenti, scarica la pagina con HEADERS e cerca il meta og:url,
+      infine cade sul resp.url di requests.
     """
+    # 1) Estrai parametro `url` se presente
+    parsed = urlparse(url)
+    qs = parse_qs(parsed.query)
+    if 'url' in qs:
+        return unquote(qs['url'][0])
+
+    # 2) Fallback: scarica e cerca <meta property="og:url">
     try:
-        resp = requests.get(url, timeout=10)
-        html = resp.text
-        soup = BeautifulSoup(html, "html.parser")
+        resp = requests.get(url, headers=HEADERS, timeout=10)
+        soup = BeautifulSoup(resp.text, "html.parser")
         og = soup.find("meta", property="og:url")
         if og and og.get("content"):
             return og["content"]
-        # fallback all'URL finale della richiesta
         return resp.url
     except Exception as e:
         print(f"[!] Errore resolve_url({url}): {e}")
         return url
 
 def get_article_text(url):
+    """
+    Scarica e parsea l’articolo con newspaper3k, passando i nostri HEADERS.
+    """
     try:
         real_url = resolve_url(url)
-        article = Article(real_url)
-        article.download()
+        article = Article(real_url, language='en')  # imposta lingua se serve
+        # forziamo un User-Agent
+        article.download(request_kwargs={'headers': HEADERS})
         article.parse()
         return article.text.strip()
     except Exception as e:
@@ -35,13 +50,18 @@ def get_article_text(url):
         return None
 
 def get_stock_news(symbol):
-    rss = f"https://news.google.com/rss/search?q={symbol}+stock&hl=en-US&gl=US&ceid=US:en"
+    rss = (f"https://news.google.com/rss/search?"
+           f"q={symbol}+stock&hl=en-US&gl=US&ceid=US:en")
     feed = feedparser.parse(rss)
     print(f"=== Trovate {len(feed.entries)} voci nel feed RSS ===")
 
     now = datetime.utcnow()
-    days_90, days_30, days_7 = now - timedelta(days=90), now - timedelta(days=30), now - timedelta(days=7)
-    news_90, news_30, news_7 = [], [], []
+    bounds = {
+        'last_90_days': now - timedelta(days=90),
+        'last_30_days': now - timedelta(days=30),
+        'last_7_days':  now - timedelta(days=7),
+    }
+    results = {k: [] for k in bounds}
 
     for entry in feed.entries:
         if not hasattr(entry, "published_parsed"):
@@ -52,12 +72,12 @@ def get_stock_news(symbol):
             print(f"[!] Impossibile recuperare il corpo da: {entry.link}")
             continue
 
-        combined = f"{entry.title} -£ {full_text}"
-        if news_date >= days_90: news_90.append((combined, news_date))
-        if news_date >= days_30: news_30.append((combined, news_date))
-        if news_date >= days_7:  news_7.append((combined, news_date))
+        combined = f"{entry.title}\n\n{full_text}"
+        for period, cutoff in bounds.items():
+            if news_date >= cutoff:
+                results[period].append((news_date, combined))
 
-    return {"last_90_days": news_90, "last_30_days": news_30, "last_7_days": news_7}
+    return results
 
 if __name__ == "__main__":
     notizie = get_stock_news("AAPL")
@@ -65,7 +85,7 @@ if __name__ == "__main__":
         if not notizie["last_7_days"]:
             f.write("Nessuna notizia trovata per gli ultimi 7 giorni.\n")
         else:
-            for testo, data in notizie["last_7_days"]:
+            for data, testo in notizie["last_7_days"]:
                 f.write(f"{data.date()}: {testo}\n\n")
     print("Esecuzione completata, ho scritto notizie_output.txt")
 
