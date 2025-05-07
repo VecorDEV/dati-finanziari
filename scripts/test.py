@@ -36,17 +36,28 @@ def resolve_url(url):
 
 def get_article_text(url):
     """
-    Scarica e parsea l’articolo con newspaper3k, passando i nostri HEADERS.
+    1) Risolve il vero URL.
+    2) Scarica manualmente l’HTML con requests+HEADERS.
+    3) Inietta l’HTML in newspaper3k via set_html().
+    4) Effettua il parsing e restituisce solo il testo.
     """
     try:
         real_url = resolve_url(url)
-        article = Article(real_url, language='en')  # imposta lingua se serve
-        # forziamo un User-Agent
-        article.download(request_kwargs={'headers': HEADERS})
+        # 1) Scarica la pagina con HEADERS
+        resp = requests.get(real_url, headers=HEADERS, timeout=10)
+        resp.raise_for_status()
+
+        # 2) Crea l’oggetto Article e inietta l’HTML scaricato
+        article = Article(real_url, language='en')
+        article.download_state = 2  # forza lo stato “download avvenuto”
+        article.set_html(resp.text)
+
+        # 3) Parsing
         article.parse()
         return article.text.strip()
+
     except Exception as e:
-        print(f"[!] Errore newspaper per {url}: {e}")
+        print(f"[!] Errore in get_article_text({url}): {e}")
         return None
 
 def get_stock_news(symbol):
