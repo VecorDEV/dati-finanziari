@@ -28,7 +28,7 @@ jobs:
 
       - name: Install Python dependencies
         run: |
-          pip install yfinance fredapi pandas numpy
+          pip install yfinance==0.2.58 fredapi pandas numpy
 
       - name: Esegui script macro con API FRED
         env:
