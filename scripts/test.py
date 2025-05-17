@@ -35,9 +35,7 @@ class FinBERTSentiment:
         self.model.to(self.device)
 
     def predict(self, texts):
-        enc = self.tokenizer(
-            texts, padding=True, truncation=True, return_tensors="pt"
-        ).to(self.device)
+        enc = self.tokenizer(texts, padding=True, truncation=True, max_length=128, return_tensors="pt").to(self.device)
         out   = self.model(**enc)
         probs = torch.nn.functional.softmax(out.logits, dim=-1)
         results = []
