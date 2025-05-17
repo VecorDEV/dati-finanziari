@@ -4,29 +4,85 @@ import feedparser
 import os
 from datetime import datetime, timedelta
 import math
-import spacy
-#Librerie per ottenere dati storici e calcolare indicatori
+
+# Transformer per FinBERT
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
+import torch
+
+# Librerie per ottenere dati storici e calcolare indicatori
 import yfinance as yf
-import ta
 import pandas as pd
 from ta.momentum import RSIIndicator, StochasticOscillator, WilliamsRIndicator
 from ta.trend import MACD, EMAIndicator, CCIIndicator
 from ta.volatility import BollingerBands
 
+# ------------------------------------------------------------
+# 1) Setup FinBERT
+# ------------------------------------------------------------
+TOKENIZER = AutoTokenizer.from_pretrained("yiyanghkust/finbert-tone")
+MODEL     = AutoModelForSequenceClassification.from_pretrained("yiyanghkust/finbert-tone")
 
-# Carica il modello linguistico per l'inglese
-nlp = spacy.load("en_core_web_sm")
+class FinBERTSentiment:
+    def __init__(self, tokenizer, model):
+        self.tokenizer = tokenizer
+        self.model     = model
+        self.device    = "cuda" if torch.cuda.is_available() else "cpu"
+        self.model.to(self.device)
 
+    def predict(self, texts):
+        enc = self.tokenizer(texts, padding=True, truncation=True, return_tensors="pt").to(self.device)
+        out = self.model(**enc)
+        probs = torch.nn.functional.softmax(out.logits, dim=-1)
+        results = []
+        for lab, sc in zip(probs.argmax(dim=-1), probs.max(dim=-1).values):
+            label = self.model.config.id2label[int(lab)]
+            results.append({"label": label.lower(), "score": float(sc.cpu())})
+        return results
+
+finbert = FinBERTSentiment(TOKENIZER, MODEL)
+
+# ------------------------------------------------------------
+# 2) Funzioni di sentiment con FinBERT
+# ------------------------------------------------------------
+def calculate_sentiment_finbert(news, decay_factor=0.03):
+    """
+    news: list of (title:str, date:datetime)
+    Ritorna una lista di dict con raw_score in [-1,+1], confidence e peso temporale.
+    """
+    mapping = {"positive": +0.5, "negative": -0.5, "neutral": 0.0}
+    now = datetime.utcnow()
+    results = []
+
+    for title, date in news:
+        pred = finbert.predict([title])[0]
+        raw       = mapping.get(pred["label"], 0.0)
+        confidence = pred["score"]
+        days_old  = (now - date).days
+        w_time    = math.exp(-decay_factor * days_old)
+        results.append({
+            "raw_score": raw,
+            "confidence": confidence,
+            "weight_time": w_time
+        })
+    return results
+
+def aggregate_sentiment(news, decay_factor=0.03):
+    """
+    news: list of (title, date)
+    Restituisce un singolo score continuo in [-1,+1], ponderato per recency e confidence.
+    """
+    recs = calculate_sentiment_finbert(news, decay_factor)
+    num = sum(r["weight_time"] * r["confidence"] * r["raw_score"] for r in recs)
+    den = sum(r["weight_time"] * r["confidence"] for r in recs)
+    return (num / den) if den > 0 else 0.0
+
+# ------------------------------------------------------------
+# 3) Resto del tuo script (invariato), tranne dove calcoli il sentiment:
+# ------------------------------------------------------------
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
-REPO_NAME = "VecorDEV/dati-finanziari"
-
-# Salva il file HTML nella cartella 'results'
-file_path = "results/classifica.html"
-news_path = "results/news.html"
-    
-# Salva il file su GitHub
-github = Github(GITHUB_TOKEN)
-repo = github.get_repo(REPO_NAME)
+REPO_NAME    = "VecorDEV/dati-finanziari"
+github       = Github(GITHUB_TOKEN)
+repo         = github.get_repo(REPO_NAME)
 
 
 # Lista dei simboli azionari da cercare
@@ -1299,23 +1355,23 @@ def calcola_punteggio(indicatori, close_price, bb_upper, bb_lower):
 def get_sentiment_for_all_symbols(symbol_list):
     sentiment_results = {}
     percentuali_tecniche = {}
-    percentuali_combine = {}
-    all_news_entries = []
+    percentuali_combine  = {}
+    all_news_entries     = []
 
-    
     for symbol, adjusted_symbol in zip(symbol_list, symbol_list_for_yfinance):
-        news_data = get_stock_news(symbol)  # Ottieni le notizie divise per periodo
+        news_data = get_stock_news(symbol)
 
-        # Calcola il sentiment per ciascun intervallo di tempo
-        sentiment_90_days = calculate_sentiment(news_data["last_90_days"])  
-        sentiment_30_days = calculate_sentiment(news_data["last_30_days"])  
-        sentiment_7_days = calculate_sentiment(news_data["last_7_days"])  
+        # **Qui usi aggregate_sentiment** al posto del vecchio calculate_sentiment
+        sentiment_90_days = aggregate_sentiment(news_data["last_90_days"])
+        sentiment_30_days = aggregate_sentiment(news_data["last_30_days"])
+        sentiment_7_days  = aggregate_sentiment(news_data["last_7_days"])
 
         sentiment_results[symbol] = {
             "90_days": sentiment_90_days,
             "30_days": sentiment_30_days,
             "7_days": sentiment_7_days
         }
+
 
         # Prepara i dati relativi agli indicatori
         tabella_indicatori = None  # Inizializza la variabile tabella_indicatori
@@ -1430,7 +1486,7 @@ def get_sentiment_for_all_symbols(symbol_list):
 
         # Aggiungi le notizie e i sentimenti alla lista per il file `news.html` (solo le notizie degli ultimi 90 giorni)
         for title, news_date in news_data["last_90_days"]:
-            title_sentiment = calculate_sentiment([(title, news_date)])  # Passa (titolo, data)
+            title_sentiment = aggregate_sentiment([(title, news_date)])
             all_news_entries.append((symbol, title, title_sentiment))
 
     # CALCOLA MEDIA PONDERATA (fuori dal ciclo principale)
