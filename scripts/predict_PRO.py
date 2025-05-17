@@ -76,10 +76,12 @@ symbol_list_for_yfinance = [
 
 
 def get_stock_news(symbol):
-    """ Recupera i titoli e le date delle notizie per un determinato simbolo negli ultimi 90, 30 e 7 giorni. """
-    url = f"https://news.google.com/rss/search?q={symbol}+stock&hl=en-US&gl=US&ceid=US:en"
+    """Recupera i titoli e le date delle notizie per un determinato simbolo negli ultimi 90, 30 e 7 giorni."""
+    # Espande la query per aumentare la varietà di notizie rilevanti
+    query = f"{symbol} stock OR investing OR finance"
+    url = f"https://news.google.com/rss/search?q={query}&hl=en-US&gl=US&ceid=US:en"
     feed = feedparser.parse(url)
-    
+
     # Date di riferimento
     now = datetime.utcnow()
     days_90 = now - timedelta(days=90)
@@ -91,25 +93,33 @@ def get_stock_news(symbol):
     news_30_days = []
     news_7_days = []
 
+    seen_titles = set()  # Per evitare duplicati
+
     for entry in feed.entries:
+        title = entry.title.strip()
+
+        if title in seen_titles:
+            continue
+        seen_titles.add(title)
+
         try:
             # Converte la data della notizia
             news_date = datetime.strptime(entry.published, "%a, %d %b %Y %H:%M:%S %Z")
 
             # Notizie degli ultimi 90 giorni
             if news_date >= days_90:
-                news_90_days.append((entry.title, news_date))
+                news_90_days.append((title, news_date))
 
             # Notizie dell'ultimo mese (30 giorni)
             if news_date >= days_30:
-                news_30_days.append((entry.title, news_date))
+                news_30_days.append((title, news_date))
 
             # Notizie degli ultimi 7 giorni
             if news_date >= days_7:
-                news_7_days.append((entry.title, news_date))
+                news_7_days.append((title, news_date))
 
-        except ValueError:
-            continue  # Se c'è un problema con la conversione della data, salta la notizia
+        except (ValueError, AttributeError):
+            continue  # Salta la notizia se manca la data o ha formato errato
 
     return {
         "last_90_days": news_90_days,
