@@ -12,6 +12,7 @@ import pandas as pd
 from ta.momentum import RSIIndicator, StochasticOscillator, WilliamsRIndicator
 from ta.trend import MACD, EMAIndicator, CCIIndicator
 from ta.volatility import BollingerBands
+from urllib.parse import quote_plus
 
 
 # Carica il modello linguistico per l'inglese
@@ -75,57 +76,62 @@ symbol_list_for_yfinance = [
 ]
 
 
-def get_stock_news(symbol):
-    """Recupera i titoli e le date delle notizie per un determinato simbolo negli ultimi 90, 30 e 7 giorni."""
-    # Espande la query per aumentare la varietà di notizie rilevanti
-    url = f"https://news.google.com/rss/search?q={symbol}+stock+OR+investing+OR+finance&hl=en-US&gl=US&ceid=US:en"
-    feed = feedparser.parse(url)
 
-    # Date di riferimento
+def get_stock_news(symbol):
+    """Recupera molti più titoli e date delle notizie per un determinato simbolo negli ultimi 90, 30 e 7 giorni."""
+    query_variants = [
+        f"{symbol} stock",
+        f"{symbol} investing",
+        f"{symbol} earnings",
+        f"{symbol} news",
+        f"{symbol} financial results",
+        f"{symbol} analysis",
+        f"{symbol} quarterly report",
+        f"{symbol} Wall Street"
+    ]
+
+    base_url = "https://news.google.com/rss/search?q={}&hl=en-US&gl=US&ceid=US:en"
+
     now = datetime.utcnow()
     days_90 = now - timedelta(days=90)
     days_30 = now - timedelta(days=30)
-    days_7 = now - timedelta(days=3)
+    days_7  = now - timedelta(days=7)
 
-    # Liste per i diversi intervalli di tempo
     news_90_days = []
     news_30_days = []
-    news_7_days = []
+    news_7_days  = []
 
-    seen_titles = set()  # Per evitare duplicati
+    seen_titles = set()
 
-    for entry in feed.entries:
-        title = entry.title.strip()
+    for raw_query in query_variants:
+        query = quote_plus(raw_query)
+        url = base_url.format(query)
+        feed = feedparser.parse(url)
 
-        if title in seen_titles:
-            continue
-        seen_titles.add(title)
+        for entry in feed.entries:
+            try:
+                title = entry.title.strip()
+                if title in seen_titles:
+                    continue
+                seen_titles.add(title)
 
-        try:
-            # Converte la data della notizia
-            news_date = datetime.strptime(entry.published, "%a, %d %b %Y %H:%M:%S %Z")
+                news_date = datetime.strptime(entry.published, "%a, %d %b %Y %H:%M:%S %Z")
 
-            # Notizie degli ultimi 90 giorni
-            if news_date >= days_90:
-                news_90_days.append((title, news_date))
+                if news_date >= days_90:
+                    news_90_days.append((title, news_date))
+                if news_date >= days_30:
+                    news_30_days.append((title, news_date))
+                if news_date >= days_7:
+                    news_7_days.append((title, news_date))
 
-            # Notizie dell'ultimo mese (30 giorni)
-            if news_date >= days_30:
-                news_30_days.append((title, news_date))
-
-            # Notizie degli ultimi 7 giorni
-            if news_date >= days_7:
-                news_7_days.append((title, news_date))
-
-        except (ValueError, AttributeError):
-            continue  # Salta la notizia se manca la data o ha formato errato
+            except (ValueError, AttributeError):
+                continue
 
     return {
         "last_90_days": news_90_days,
         "last_30_days": news_30_days,
-        "last_7_days": news_7_days
+        "last_7_days":  news_7_days
     }
-    
 
 
 # Lista di negazioni da considerare
