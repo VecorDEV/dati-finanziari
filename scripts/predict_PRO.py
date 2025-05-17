@@ -78,8 +78,7 @@ symbol_list_for_yfinance = [
 def get_stock_news(symbol):
     """Recupera i titoli e le date delle notizie per un determinato simbolo negli ultimi 90, 30 e 7 giorni."""
     # Espande la query per aumentare la varietà di notizie rilevanti
-    query = f"{symbol} stock OR investing OR finance"
-    url = f"https://news.google.com/rss/search?q={query}&hl=en-US&gl=US&ceid=US:en"
+    url = f"https://news.google.com/rss/search?q={symbol}+stock+OR+investing+OR+finance&hl=en-US&gl=US&ceid=US:en"
     feed = feedparser.parse(url)
 
     # Date di riferimento
