@@ -3,108 +3,111 @@ import pandas as pd
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import accuracy_score, precision_score, recall_score, confusion_matrix
-from sklearn.utils import class_weight
+from sklearn.utils import resample
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import LSTM, Dense, Dropout
+from tensorflow.keras.callbacks import EarlyStopping
 from ta.momentum import RSIIndicator
 from ta.trend import MACD
+from ta.volume import OnBalanceVolumeIndicator
+import warnings
+warnings.filterwarnings("ignore")
 
-assets = ["AAPL", "GOOGL", "MSFT", "AMZN", "META"]
-sequence_length = 60
-future_days = 5
-target_threshold = 0.01  # Abbassato a +1%
+# Config
+assets = ['AAPL', 'GOOGL', 'MSFT', 'AMZN', 'META']
+threshold = 0.01  # +1%
+n_past_days = 20
 results = []
 
 for symbol in assets:
     print(f"\n📊 Elaborazione {symbol}...")
 
-    df = yf.download(symbol, start="2015-01-01", progress=False)
+    df = yf.download(symbol, period="5y", interval="1d", auto_adjust=True)
+    df = df.dropna()
 
-    if df.shape[0] < sequence_length + future_days:
-        print(f"⚠️ Dati insufficienti per {symbol}, saltato.")
-        continue
+    # Indicatori tecnici
+    df['RSI'] = RSIIndicator(close=df['Close']).rsi()
+    df['MACD'] = MACD(close=df['Close']).macd()
+    df['OBV'] = OnBalanceVolumeIndicator(close=df['Close'], volume=df['Volume']).on_balance_volume()
+    df = df.dropna()
 
-    close_series = pd.Series(df['Close'].values.flatten(), index=df.index)
-    df['RSI'] = RSIIndicator(close=close_series).rsi()
-    macd = MACD(close=close_series)
-    df['MACD'] = macd.macd()
-    df['MACD_signal'] = macd.macd_signal()
-    df['MACD_diff'] = macd.macd_diff()
-    df['Volume_Change'] = df['Volume'].pct_change()
-
-    # Target: crescita ≥ +1%
-    df['Target'] = (df['Close'].shift(-future_days) / df['Close']) - 1
-    df['Target'] = df['Target'].apply(lambda x: 1 if x >= target_threshold else 0)
-
+    # Target: crescita percentuale > threshold nel giorno successivo
+    df['Target'] = (df['Close'].shift(-1) > df['Close'] * (1 + threshold)).astype(int)
     df.dropna(inplace=True)
 
-    features = ['Close', 'RSI', 'MACD', 'MACD_signal', 'MACD_diff', 'Volume_Change']
-    data = df[features]
+    # Feature scaling
+    features = ['Close', 'RSI', 'MACD', 'OBV']
     scaler = MinMaxScaler()
-    scaled_data = scaler.fit_transform(data)
+    scaled_data = scaler.fit_transform(df[features])
+    target = df['Target'].values
 
+    # Creazione sequenze
     X, y = [], []
-    for i in range(sequence_length, len(scaled_data) - future_days):
-        X.append(scaled_data[i-sequence_length:i])
-        y.append(df['Target'].iloc[i + future_days])
-
+    for i in range(n_past_days, len(scaled_data)):
+        X.append(scaled_data[i - n_past_days:i])
+        y.append(target[i])
     X, y = np.array(X), np.array(y)
 
-    if len(X) < 100:
-        print(f"⚠️ Dati insufficienti per addestramento in {symbol}, saltato.")
-        continue
+    # Bilanciamento classi
+    X_df = pd.DataFrame({'sequence': list(X), 'label': y})
+    class_0 = X_df[X_df['label'] == 0]
+    class_1 = X_df[X_df['label'] == 1]
+    if len(class_1) > 0:
+        class_0_downsampled = resample(class_0, replace=False, n_samples=len(class_1), random_state=42)
+        X_balanced = pd.concat([class_1, class_0_downsampled])
+    else:
+        X_balanced = class_0
+    X_balanced = X_balanced.sample(frac=1, random_state=42)
+    X = np.stack(X_balanced['sequence'].values)
+    y = X_balanced['label'].values
 
-    # Train-test split
+    # Split train/test
     split = int(0.8 * len(X))
     X_train, X_test = X[:split], X[split:]
     y_train, y_test = y[:split], y[split:]
 
-    # Bilanciamento dei pesi
-    weights = class_weight.compute_class_weight('balanced', classes=np.unique(y_train), y=y_train)
-    class_weights = dict(enumerate(weights))
-
     # Modello LSTM
     model = Sequential([
         LSTM(64, return_sequences=True, input_shape=(X.shape[1], X.shape[2])),
-        Dropout(0.2),
+        Dropout(0.3),
         LSTM(32),
         Dropout(0.2),
         Dense(1, activation='sigmoid')
     ])
-    model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
-    model.fit(X_train, y_train, epochs=5, batch_size=32, verbose=0, class_weight=class_weights)
+    model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+
+    # Early stopping
+    es = EarlyStopping(monitor='val_loss', patience=5, restore_best_weights=True)
+
+    # Addestramento
+    model.fit(X_train, y_train, epochs=20, batch_size=32, validation_split=0.2, callbacks=[es], verbose=0)
 
     # Valutazione
-    y_pred_prob = model.predict(X_test, verbose=0).flatten()
-    y_pred_class = (y_pred_prob > 0.5).astype(int)
+    y_pred_prob = model.predict(X_test).flatten()
+    y_pred = (y_pred_prob > 0.5).astype(int)
 
-    acc = accuracy_score(y_test, y_pred_class)
-    precision = precision_score(y_test, y_pred_class, zero_division=0)
-    recall = recall_score(y_test, y_pred_class, zero_division=0)
-    cm = confusion_matrix(y_test, y_pred_class)
+    acc = accuracy_score(y_test, y_pred) * 100
+    prec = precision_score(y_test, y_pred, zero_division=0) * 100
+    rec = recall_score(y_test, y_pred, zero_division=0) * 100
+    conf_matrix = confusion_matrix(y_test, y_pred).tolist()
+    last_prob = model.predict(X[-1:])[0][0] * 100
 
-    # Previsione attuale
-    last_sequence = scaled_data[-sequence_length:]
-    last_sequence = np.expand_dims(last_sequence, axis=0)
-    current_prediction = model.predict(last_sequence, verbose=0)[0][0]
-    prob_growth = round(current_prediction * 100, 2)
-
-    print(f"✅ {symbol} → Probabilità crescita +1%: {prob_growth}%")
-    print(f"   - Accuratezza storica: {round(acc * 100, 2)}%")
-    print(f"   - Precisione: {round(precision * 100, 2)}%")
-    print(f"   - Recall: {round(recall * 100, 2)}%")
-    print(f"   - Confusion matrix: {cm.tolist()}")
+    print(f"✅ {symbol} → Probabilità crescita +1%: {last_prob:.2f}%")
+    print(f"   - Accuratezza storica: {acc:.2f}%")
+    print(f"   - Precisione: {prec:.2f}%")
+    print(f"   - Recall: {rec:.2f}%")
+    print(f"   - Confusion matrix: {conf_matrix}")
 
     results.append({
         "Asset": symbol,
-        "Probabilità_Crescita_+1%": prob_growth,
-        "Accuratezza_Storica": round(acc * 100, 2),
-        "Precisione": round(precision * 100, 2),
-        "Recall": round(recall * 100, 2)
+        "Probabilità_Crescita_+1%": round(last_prob, 2),
+        "Accuratezza_Storica": round(acc, 2),
+        "Precisione": round(prec, 2),
+        "Recall": round(rec, 2),
+        "Confusion_Matrix": conf_matrix
     })
 
-# Output finale
-df_results = pd.DataFrame(results)
-print("\n📈 Risultato finale (soglia +1%):")
-print(df_results.to_string(index=False))
-df_results.to_csv("risultati_backtest_1p.csv", index=False)
+# Salva risultati
+results_df = pd.DataFrame(results)
+results_df.to_csv("risultati_premium.csv", index=False)
+print("\n📁 Risultati salvati in 'risultati_premium.csv'")
