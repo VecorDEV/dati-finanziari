@@ -26,9 +26,9 @@ for symbol in assets:
     df = df.dropna()
 
     # Indicatori tecnici
-    df['RSI'] = RSIIndicator(close=df['Close']).rsi()
-    df['MACD'] = MACD(close=df['Close']).macd()
-    df['OBV'] = OnBalanceVolumeIndicator(close=df['Close'], volume=df['Volume']).on_balance_volume()
+    df['RSI'] = RSIIndicator(close=df['Close']).rsi().values.flatten()
+df['MACD'] = MACD(close=df['Close']).macd().values.flatten()
+df['OBV'] = OnBalanceVolumeIndicator(close=df['Close'], volume=df['Volume']).on_balance_volume().values.flatten()
     df = df.dropna()
 
     # Target: crescita percentuale > threshold nel giorno successivo
