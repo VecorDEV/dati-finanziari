@@ -12,8 +12,10 @@ from ta.trend import MACD
 df = yf.download("AAPL", start="2015-01-01", end="2024-01-01")
 
 # Calcolo indicatori tecnici (usando .astype(float) per evitare errori)
-df['RSI'] = RSIIndicator(close=df['Close'].astype(float)).rsi()
-macd = MACD(close=df['Close'].astype(float))
+close_series = pd.Series(df['Close'].values.flatten(), index=df.index)
+
+df['RSI'] = RSIIndicator(close=close_series).rsi()
+macd = MACD(close=close_series)
 df['MACD'] = macd.macd()
 df['MACD_signal'] = macd.macd_signal()
 df['MACD_diff'] = macd.macd_diff()
