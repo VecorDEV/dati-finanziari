@@ -1,106 +1,80 @@
-# filename: lstm_technical_indicators_aapl.py
-
 import yfinance as yf
-import numpy as np
 import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
-
 from sklearn.preprocessing import MinMaxScaler
-from sklearn.model_selection import train_test_split
-
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import LSTM, Dense, Dropout
+from ta.momentum import RSIIndicator
+from ta.trend import MACD
 
-# === 1. Scarica dati storici AAPL ===
-df = yf.download('AAPL', start='2010-01-01', end='2024-12-31')
+# Download dati
+df = yf.download("AAPL", start="2015-01-01", end="2024-01-01")
 
-# === 2. Calcolo indicatori tecnici ===
-# Se non hai TA-Lib, installa con: pip install TA-Lib
-import talib
+# Calcolo indicatori con `ta`
+df['RSI'] = RSIIndicator(close=df['Close']).rsi()
+macd = MACD(close=df['Close'])
+df['MACD'] = macd.macd()
+df['MACD_signal'] = macd.macd_signal()
+df['MACD_diff'] = macd.macd_diff()
+df['Volume_Change'] = df['Volume'].pct_change()
 
-df['RSI'] = talib.RSI(df['Close'], timeperiod=14)
-df['MACD'], df['MACD_signal'], _ = talib.MACD(df['Close'], fastperiod=12, slowperiod=26, signalperiod=9)
-df['SMA20'] = df['Close'].rolling(window=20).mean()
-df['SMA50'] = df['Close'].rolling(window=50).mean()
-
-# Normalizza volumi
-vol_scaler = MinMaxScaler()
-df['Volume_norm'] = vol_scaler.fit_transform(df[['Volume']])
-
-# Rimuovi NaN creati dagli indicatori
+# Drop NaN
 df.dropna(inplace=True)
 
-# === 3. Prepara sequenze multivariate ===
-features = ['Close', 'RSI', 'MACD', 'MACD_signal', 'SMA20', 'SMA50', 'Volume_norm']
+# Feature set
+features = ['Close', 'RSI', 'MACD', 'MACD_signal', 'MACD_diff', 'Volume_Change']
+data = df[features]
 
+# Normalizzazione
 scaler = MinMaxScaler()
-scaled = scaler.fit_transform(df[features])
-df_scaled = pd.DataFrame(scaled, columns=features, index=df.index)
+scaled_data = scaler.fit_transform(data)
 
-# Target: 1 se il Close del giorno successivo è più alto, 0 altrimenti
-df_scaled['Target'] = np.where(df['Close'].shift(-1) > df['Close'], 1, 0)
-df_scaled.dropna(inplace=True)
+# Costruzione sequenze per LSTM
+sequence_length = 60
+X, y = [], []
 
-def create_sequences(data, feature_cols, target_col, window=60):
-    X, y = [], []
-    for i in range(window, len(data)):
-        X.append(data.iloc[i-window:i][feature_cols].values)
-        y.append(data.iloc[i][target_col])
-    return np.array(X), np.array(y)
+for i in range(sequence_length, len(scaled_data)):
+    X.append(scaled_data[i-sequence_length:i])
+    # Target: chiusura successiva > chiusura attuale (1 = salita)
+    y.append(1 if scaled_data[i][0] > scaled_data[i-1][0] else 0)
 
-X, y = create_sequences(df_scaled, features, 'Target', window=60)
+X, y = np.array(X), np.array(y)
 
-# === 4. Split train/test e costruzione modello ===
-X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.2, shuffle=False
-)
+# Divisione train/test
+split = int(0.8 * len(X))
+X_train, X_test = X[:split], X[split:]
+y_train, y_test = y[:split], y[split:]
 
+# Costruzione modello LSTM
 model = Sequential([
-    LSTM(64, return_sequences=True, input_shape=(X_train.shape[1], X_train.shape[2])),
+    LSTM(64, return_sequences=True, input_shape=(X.shape[1], X.shape[2])),
     Dropout(0.2),
     LSTM(32),
     Dropout(0.2),
     Dense(1, activation='sigmoid')
 ])
 
-model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
-history = model.fit(
-    X_train, y_train,
-    epochs=15,
-    batch_size=32,
-    validation_split=0.1,
-    verbose=2
-)
+model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
+model.fit(X_train, y_train, epochs=10, batch_size=32, validation_split=0.1, verbose=1)
 
-# === 5. Predizioni probabilistiche ===
-probs = model.predict(X_test).flatten()
+# Valutazione
+loss, accuracy = model.evaluate(X_test, y_test, verbose=0)
+print(f"Accuracy su dati di test: {accuracy * 100:.2f}%")
 
-# Aggiungi le predizioni al dataframe di test per allinearle alle date
-test_idx = df_scaled.index[-len(probs):]
-pred_df = pd.DataFrame({
-    'Date': test_idx,
-    'Close': df.loc[test_idx, 'Close'],
-    'Prob_Growth': probs
-}).set_index('Date')
+# Ultima sequenza per previsione futura
+last_sequence = scaled_data[-sequence_length:]
+last_sequence = np.expand_dims(last_sequence, axis=0)
+prediction = model.predict(last_sequence)[0][0]
+prob_growth = prediction * 100
+print(f"Probabilità stimata di crescita: {prob_growth:.2f}%")
 
-# Stampa prime 10 probabilità
-print("Prime 10 probabilità di crescita futura:")
-print(pred_df['Prob_Growth'].head(10).apply(lambda p: f"{p:.2%}"))
-
-# === 6. Visualizzazione segnali su grafico ===
-threshold = 0.6
-buy_signals = pred_df['Prob_Growth'] > threshold
-
-plt.figure(figsize=(14, 6))
-plt.plot(pred_df.index, pred_df['Close'], label='Close Price')
-plt.scatter(
-    pred_df.index[buy_signals],
-    pred_df['Close'][buy_signals],
-    marker='^', s=80, label=f'Buy (Prob > {threshold})'
-)
-plt.title('AAPL Close Price & Buy Signals')
-plt.xlabel('Date')
-plt.ylabel('Price')
+# Grafico
+plt.figure(figsize=(12, 6))
+plt.plot(df['Close'], label='Prezzo di Chiusura')
+plt.title(f"Probabilità stimata di crescita: {prob_growth:.2f}%")
+plt.xlabel("Data")
+plt.ylabel("Prezzo")
 plt.legend()
 plt.tight_layout()
 plt.savefig("grafico_segnali.png")
