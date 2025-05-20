@@ -25,7 +25,7 @@ jobs:
 
     - name: Run PREMIUM prediction script
       run: |
-        python predict_PREMIUM.py
+        python scripts/predict_PREMIUM.py
 
     - name: Upload grafico come artefatto
       uses: actions/upload-artifact@v4
