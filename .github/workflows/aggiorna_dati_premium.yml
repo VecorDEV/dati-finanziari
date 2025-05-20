@@ -28,7 +28,7 @@ jobs:
         python predict_PREMIUM.py
 
     - name: Upload grafico come artefatto
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: grafico-segnali
         path: grafico_segnali.png
