@@ -15,9 +15,9 @@ prediction_threshold = 0.01  # 1% crescita
 
 # Funzione di preprocessing
 def preprocess_data(df):
-    df['RSI'] = RSIIndicator(close=df['Close']).rsi().values.flatten()
-    df['MACD'] = MACD(close=df['Close']).macd().values.flatten()
-    df['OBV'] = OnBalanceVolumeIndicator(close=df['Close'], volume=df['Volume']).on_balance_volume().values.flatten()
+    df['RSI'] = RSIIndicator(close=df['Close']).rsi().to_numpy().ravel()
+    df['MACD'] = MACD(close=df['Close']).macd().to_numpy().ravel()
+    df['OBV'] = OnBalanceVolumeIndicator(close=df['Close'], volume=df['Volume']).on_balance_volume().to_numpy().ravel()
     df = df.dropna()
     return df
 
