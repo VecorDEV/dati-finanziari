@@ -1382,7 +1382,34 @@ def get_sentiment_for_all_symbols(symbol_list):
 
             percentuale = calcola_punteggio(indicators, close.iloc[-1], bb_upper, bb_lower)
 
-            percentuale = calcola_punteggio(indicators, close.iloc[-1], bb_upper, bb_lower)
+
+
+            # ────────────────────────────────────────
+            # 1) RECUPERO DATI FONDAMENTALI DA yfinance
+            # ────────────────────────────────────────
+            ticker_obj = yf.Ticker(adjusted_symbol)
+            info = ticker_obj.info  # dizionario con decine di campi
+
+            # Scegli i campi che ti interessano, ad es.:
+            fondamentali = {
+                "Trailing P/E": info.get("trailingPE", "N/A"),
+                "Forward P/E": info.get("forwardPE", "N/A"),
+                "EPS Growth (YoY)": info.get("earningsQuarterlyGrowth", "N/A"),
+                "Revenue Growth (YoY)": info.get("revenueGrowth", "N/A"),
+                "Profit Margins": info.get("profitMargins", "N/A"),
+                "Debt to Equity": info.get("debtToEquity", "N/A"),
+                "Dividend Yield": info.get("dividendYield", "N/A")
+            }
+
+            # Costruisci la tabella HTML
+            tabella_fondamentali = (
+                pd.DataFrame(fondamentali.items(), columns=["Fundamentale", "Valore"])
+                  .to_html(index=False, border=0, float_format="%.4f")
+            )
+
+
+            
+            #percentuale = calcola_punteggio(indicators, close.iloc[-1], bb_upper, bb_lower)
             percentuali_tecniche[symbol] = percentuale
             
             # Crea tabella dei dati storici (ultimi 90 giorni)
@@ -1424,6 +1451,13 @@ def get_sentiment_for_all_symbols(symbol_list):
             html_content.append(tabella_indicatori)
         else:
             html_content.append("<p>No technical indicators available.</p>")
+
+        # Aggiungi i dati fondamentali
+        html_content.append("<h2>Dati Fondamentali</h2>")
+        if tabella_fondamentali:
+            html_content.append(tabella_fondamentali)
+        else:
+            html_content.append("<p>Nessun dato fondamentale disponibile.</p>")
         
         # Aggiungi i dati storici degli ultimi 90 giorni
         if dati_storici_html:
