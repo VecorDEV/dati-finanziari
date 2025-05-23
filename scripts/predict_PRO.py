@@ -1386,18 +1386,18 @@ def get_sentiment_for_all_symbols(symbol_list):
             # ────────────────────────────────────────
             # 1) RECUPERO DATI FONDAMENTALI DA yfinance
             # ────────────────────────────────────────
-            ticker = yf.Ticker(adjusted_symbol)
-            info   = ticker.info  # dizionario originale di Yahoo Finance
-            
-            # 2) Estrazione diretta dei campi di interesse, senza modifiche
-            fondamentali_raw = {
-                "Trailing P/E":         info.get("trailingPE"),
-                "Forward P/E":          info.get("forwardPE"),
-                "EPS Growth (YoY)":     info.get("earningsGrowth"),
-                "Revenue Growth (YoY)": info.get("revenueGrowth"),
-                "Profit Margins":       info.get("profitMargins"),
-                "Debt to Equity":       info.get("debtToEquity"),
-                "Dividend Yield":       info.get("dividendYield"),
+            ticker_obj = yf.Ticker(adjusted_symbol)
+            info = ticker_obj.info  # dizionario con decine di campi
+
+            # Scegli i campi che ti interessano, ad es.:
+            fondamentali = {
+                "Trailing P/E": info.get("trailingPE", "N/A"),
+                "Forward P/E": info.get("forwardPE", "N/A"),
+                "EPS Growth (YoY)": info.get("earningsQuarterlyGrowth", "N/A"),
+                "Revenue Growth (YoY)": info.get("revenueGrowth", "N/A"),
+                "Profit Margins": info.get("profitMargins", "N/A"),
+                "Debt to Equity": info.get("debtToEquity", "N/A"),
+                "Dividend Yield": info.get("dividendYield", "N/A")
             }
 
 
