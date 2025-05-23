@@ -1309,6 +1309,10 @@ def calcola_punteggio(indicatori, close_price, bb_upper, bb_lower):
 
 
 def to_percent(val):
+    """
+    Converte una frazione (es. 0.0334) in percentuale arrotondata a 2 decimali (3.34).
+    Se val è None o non numerico, restituisce "N/A".
+    """
     if isinstance(val, (int, float)):
         return round(val * 100, 2)
     return "N/A"
@@ -1393,16 +1397,22 @@ def get_sentiment_for_all_symbols(symbol_list):
             # 1) RECUPERO DATI FONDAMENTALI DA yfinance
             # ────────────────────────────────────────
             ticker = yf.Ticker(adjusted_symbol)
-            info = ticker.info
-
+            info   = ticker.info
+            
+            # Preleva il raw dividend yield e normalizza
+            raw_div_yield = info.get("dividendYield")
+            # Se per errore il valore fosse già > 1 (es. 3.4 per 3.4%), lo correggiamo
+            if isinstance(raw_div_yield, (int, float)) and raw_div_yield > 1:
+                raw_div_yield = raw_div_yield / 100
+            
             fondamentali = {
-                "Trailing P/E":           round(info.get("trailingPE",      float("nan")), 2),
-                "Forward P/E":            round(info.get("forwardPE",       float("nan")), 2),
-                "EPS Growth (YoY)":       to_percent(info.get("earningsGrowth")),
-                "Revenue Growth (YoY)":   to_percent(info.get("revenueGrowth")),
-                "Profit Margins":         to_percent(info.get("profitMargins")),
-                "Debt to Equity":         round(info.get("debtToEquity",    float("nan")), 2),
-                "Dividend Yield":         to_percent(info.get("dividendYield")),
+                "Trailing P/E":         round(info.get("trailingPE",     float("nan")), 2),
+                "Forward P/E":          round(info.get("forwardPE",      float("nan")), 2),
+                "EPS Growth (YoY)":     to_percent(info.get("earningsGrowth")),
+                "Revenue Growth (YoY)": to_percent(info.get("revenueGrowth")),
+                "Profit Margins":       to_percent(info.get("profitMargins")),
+                "Debt to Equity":       round(info.get("debtToEquity",   float("nan")), 2),
+                "Dividend Yield":       to_percent(raw_div_yield),
             }
 
             # Costruisci la tabella HTML
