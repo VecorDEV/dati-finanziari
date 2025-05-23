@@ -1308,6 +1308,11 @@ def calcola_punteggio(indicatori, close_price, bb_upper, bb_lower):
     return round(((punteggio + 44) * 100) / 88, 2)  # normalizzazione 0-100
 
 
+def to_percent(val):
+    if isinstance(val, (int, float)):
+        return round(val * 100, 2)
+    return "N/A"
+    
 
 
 #Inserisce tutti i risultati nel file html
@@ -1387,18 +1392,17 @@ def get_sentiment_for_all_symbols(symbol_list):
             # ────────────────────────────────────────
             # 1) RECUPERO DATI FONDAMENTALI DA yfinance
             # ────────────────────────────────────────
-            ticker_obj = yf.Ticker(adjusted_symbol)
-            info = ticker_obj.info  # dizionario con decine di campi
+            ticker = yf.Ticker(adjusted_symbol)
+            info = ticker.info
 
-            # Scegli i campi che ti interessano, ad es.:
             fondamentali = {
-                "Trailing P/E": info.get("trailingPE", "N/A"),
-                "Forward P/E": info.get("forwardPE", "N/A"),
-                "EPS Growth (YoY)": info.get("earningsQuarterlyGrowth", "N/A"),
-                "Revenue Growth (YoY)": info.get("revenueGrowth", "N/A"),
-                "Profit Margins": info.get("profitMargins", "N/A"),
-                "Debt to Equity": info.get("debtToEquity", "N/A"),
-                "Dividend Yield": info.get("dividendYield", "N/A")
+                "Trailing P/E":           round(info.get("trailingPE",      float("nan")), 2),
+                "Forward P/E":            round(info.get("forwardPE",       float("nan")), 2),
+                "EPS Growth (YoY)":       to_percent(info.get("earningsGrowth")),
+                "Revenue Growth (YoY)":   to_percent(info.get("revenueGrowth")),
+                "Profit Margins":         to_percent(info.get("profitMargins")),
+                "Debt to Equity":         round(info.get("debtToEquity",    float("nan")), 2),
+                "Dividend Yield":         to_percent(info.get("dividendYield")),
             }
 
             # Costruisci la tabella HTML
