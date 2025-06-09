@@ -1483,11 +1483,23 @@ def get_sentiment_for_all_symbols(symbol_list):
             all_news_entries.append((symbol, title, title_sentiment))
 
     # CALCOLA MEDIA PONDERATA (fuori dal ciclo principale)
+    w7 = 0.5
+    w30 = 0.3
+    w90 = 0.2
+    
     for symbol in sentiment_results:
         if symbol in percentuali_tecniche:
+            sentiment_7 = sentiment_results[symbol]["7_days"] * 100
+            sentiment_30 = sentiment_results[symbol]["30_days"] * 100
             sentiment_90 = sentiment_results[symbol]["90_days"] * 100
+    
+            # Nuovo sentiment combinato (invece di usare solo quello a 90 giorni)
+            sentiment_combinato = (w7 * sentiment_7) + (w30 * sentiment_30) + (w90 * sentiment_90)
+    
             tecnica = percentuali_tecniche[symbol]
-            combinata = (sentiment_90 * 0.6) + (tecnica * 0.4)
+            
+            # Combinazione sentiment + tecnica
+            combinata = (sentiment_combinato * 0.6) + (tecnica * 0.4)
             percentuali_combine[symbol] = combinata
 
     return sentiment_results, percentuali_combine, all_news_entries
