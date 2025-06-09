@@ -1483,8 +1483,8 @@ def get_sentiment_for_all_symbols(symbol_list):
             all_news_entries.append((symbol, title, title_sentiment))
 
     # CALCOLA MEDIA PONDERATA (fuori dal ciclo principale)
-    w7 = 0.38
-    w30 = 0.42
+    w7 = 0.5
+    w30 = 0.3
     w90 = 0.2
     
     for symbol in sentiment_results:
