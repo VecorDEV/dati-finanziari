@@ -1,9 +1,9 @@
 name: Aggiorna dati
 
 on:
-  workflow_dispatch:  # Trigger manuale
+  workflow_dispatch:
   schedule:
-    - cron: '0 8 * * *'  # Esegui ogni giorno alle 8:00 AM UTC
+    - cron: '0 8 * * *'  # Ogni giorno alle 08:00 UTC
 
 jobs:
   build-and-run:
@@ -30,11 +30,14 @@ jobs:
 
     - name: Install dependencies
       run: |
-        # Blocca yfinance alla penultima release
-        pip install yfinance==0.2.58 ta pandas
+        # Installazione principali
+        pip install ta pandas
         pip install requests beautifulsoup4 scikit-learn xgboost PyGithub numpy feedparser
         pip install spacy==3.0.6
         python -m spacy download en_core_web_sm
+
+        # Aggiorna yfinance all'ultima versione disponibile
+        pip install --upgrade yfinance
 
     - name: Run prediction script
       env:
