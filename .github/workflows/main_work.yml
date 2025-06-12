@@ -30,8 +30,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          # Blocchiamo yfinance a 0.2.58 per evitare il 401
-          pip install yfinance==0.2.58 ta pandas
+          # Aggiornato yfinance a 0.2.63 per risolvere errori HTTP 401 (cookie/crumb fix)
+          pip install yfinance==0.2.63 ta pandas
           pip install requests beautifulsoup4 scikit-learn xgboost PyGithub numpy feedparser
           pip install spacy==3.0.6
           python -m spacy download en_core_web_sm
