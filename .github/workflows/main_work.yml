@@ -28,13 +28,22 @@ jobs:
           python -m pip install --upgrade pip
           pip install --upgrade setuptools
 
-      - name: Install dependencies
+      - name: Install dependencies (no cache, update HTTP libs)
         run: |
-          # Aggiornato yfinance a 0.2.63 per risolvere errori HTTP 401 (cookie/crumb fix)
-          pip install yfinance==0.2.63 ta pandas
-          pip install requests beautifulsoup4 scikit-learn xgboost PyGithub numpy feedparser
+          pip install --no-cache-dir --upgrade yfinance==0.2.63
+          pip install --no-cache-dir --upgrade requests urllib3
+          pip install ta pandas beautifulsoup4 scikit-learn xgboost PyGithub numpy feedparser
           pip install spacy==3.0.6
           python -m spacy download en_core_web_sm
+
+      - name: Debug versions
+        run: |
+          python - <<'EOF'
+          import yfinance, requests, urllib3
+          print("yfinance  =", yfinance.__version__)
+          print("requests =", requests.__version__)
+          print("urllib3  =", urllib3.__version__)
+          EOF
 
       - name: Run prediction script
         env:
