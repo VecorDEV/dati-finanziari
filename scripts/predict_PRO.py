@@ -1344,6 +1344,10 @@ def get_sentiment_for_all_symbols(symbol_list):
             close = data['Close'].squeeze()
             high = data['High'].squeeze()
             low = data['Low'].squeeze()
+            
+            print(f"\n=== DEBUG {symbol} / {adjusted_symbol} ===")
+            print("Columns:", data.columns.tolist())
+            print(data[["Close","Adj Close"]].tail(3))
     
             # Indicatori tecnici
             rsi = RSIIndicator(close).rsi().iloc[-1]
