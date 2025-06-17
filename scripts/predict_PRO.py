@@ -1340,7 +1340,17 @@ def get_sentiment_for_all_symbols(symbol_list):
                 raise ValueError(f"Nessun dato disponibile per {symbol}.")
             
             data.dropna(inplace=True)
-
+            
+            # Recupera il prezzo reale di mercato corrente
+            ticker_obj = yf.Ticker(adjusted_symbol)
+            real_price = ticker_obj.info.get('regularMarketPrice', None)
+            
+            # Sovrascrivi l'ultimo prezzo Close con quello reale se disponibile
+            if real_price is not None:
+                data.at[data.index[-1], 'Close'] = real_price
+            
+            print(f"Prezzo reale aggiornato per {symbol}: {real_price}")
+            
             close = data['Close'].squeeze()
             high = data['High'].squeeze()
             low = data['Low'].squeeze()
