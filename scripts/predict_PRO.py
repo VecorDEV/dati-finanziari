@@ -1311,196 +1311,118 @@ def calcola_punteggio(indicatori, close_price, bb_upper, bb_lower):
 
 #Inserisce tutti i risultati nel file html
 def get_sentiment_for_all_symbols(symbol_list):
-    sentiment_results = {}
+    sentiment_results    = {}
     percentuali_tecniche = {}
-    percentuali_combine = {}
-    all_news_entries = []
+    percentuali_combine  = {}
+    all_news_entries     = []
 
-    
-    for symbol, adjusted_symbol in zip(symbol_list, symbol_list_for_yfinance):
-        news_data = get_stock_news(symbol)  # Ottieni le notizie divise per periodo
+    # Pesi per combinazione sentiment
+    w7, w30, w90 = 0.5, 0.3, 0.2
 
-        # Calcola il sentiment per ciascun intervallo di tempo
-        sentiment_90_days = calculate_sentiment(news_data["last_90_days"])  
-        sentiment_30_days = calculate_sentiment(news_data["last_30_days"])  
-        sentiment_7_days = calculate_sentiment(news_data["last_7_days"])  
+    for symbol in symbol_list:
+        # 1) Notizie & sentiment
+        news_data = get_stock_news(symbol)
+        s90 = calculate_sentiment(news_data["last_90_days"])
+        s30 = calculate_sentiment(news_data["last_30_days"])
+        s7  = calculate_sentiment(news_data["last_7_days"])
+        sentiment_results[symbol] = {"90_days": s90, "30_days": s30, "7_days": s7}
 
-        sentiment_results[symbol] = {
-            "90_days": sentiment_90_days,
-            "30_days": sentiment_30_days,
-            "7_days": sentiment_7_days
-        }
-
-        # Prepara i dati relativi agli indicatori
-        tabella_indicatori = None  # Inizializza la variabile tabella_indicatori
+        # 2) Dati di borsa raw
         try:
-            # Scarica i dati storici per l'asset
-            data = yf.download(adjusted_symbol, period="3mo", interval="1d", auto_adjust=False)
+            # Instanzia il ticker e controlla l'exchange
+            tkr = yf.Ticker(symbol)
+            exch = tkr.fast_info.get("exchange", None)
+            # se ti interessa, puoi validare exch == "NMS" (Nasdaq) o simili
+            
+            # Scarica dati daily raw (chiusure effettive)
+            data = yf.download(
+                symbol,
+                period="3mo",
+                interval="1d",
+                auto_adjust=False,
+                progress=False
+            ).dropna()
             if data.empty:
-                raise ValueError(f"Nessun dato disponibile per {symbol}.")
-            
-            data.dropna(inplace=True)
+                raise ValueError(f"Nessun dato disponibile per {symbol}")
 
-            close = data['Close'].squeeze()
-            high = data['High'].squeeze()
-            low = data['Low'].squeeze()
-    
-            # Indicatori tecnici
-            rsi = RSIIndicator(close).rsi().iloc[-1]
-            macd = MACD(close)
-            macd_line = macd.macd().iloc[-1]
-            macd_signal = macd.macd_signal().iloc[-1]
-            stoch = StochasticOscillator(high, low, close)
-            stoch_k = stoch.stoch().iloc[-1]
-            stoch_d = stoch.stoch_signal().iloc[-1]
-            ema_10 = EMAIndicator(close, window=10).ema_indicator().iloc[-1]
-            cci = CCIIndicator(high, low, close).cci().iloc[-1]
-            will_r = WilliamsRIndicator(high, low, close).williams_r().iloc[-1]
-    
-            bb = BollingerBands(close)
-            bb_upper = bb.bollinger_hband().iloc[-1]
-            bb_lower = bb.bollinger_lband().iloc[-1]
-            bb_width = bb.bollinger_wband().iloc[-1]
-    
+            # Chiudi del giorno precedente
+            close_yesterday = data["Close"].iloc[-1]
+
+            # Per un prezzo intraday più recente (ritardato ~15min)
+            last_price = tkr.fast_info.get("last_price", close_yesterday)
+
+            # Serie per indicatori
+            close = data["Close"]
+            high  = data["High"]
+            low   = data["Low"]
+
+            # 3) Calcolo indicatori tecnici
+            rsi       = RSIIndicator(close).rsi().iloc[-1]
+            macd_obj  = MACD(close)
+            macd_line = macd_obj.macd().iloc[-1]
+            macd_sig  = macd_obj.macd_signal().iloc[-1]
+            stoch_obj = StochasticOscillator(high, low, close)
+            stoch_k   = stoch_obj.stoch().iloc[-1]
+            stoch_d   = stoch_obj.stoch_signal().iloc[-1]
+            ema10     = EMAIndicator(close, window=10).ema_indicator().iloc[-1]
+            cci       = CCIIndicator(high, low, close).cci().iloc[-1]
+            wr        = WilliamsRIndicator(high, low, close).williams_r().iloc[-1]
+            bb        = BollingerBands(close)
+            bb_up     = bb.bollinger_hband().iloc[-1]
+            bb_low    = bb.bollinger_lband().iloc[-1]
+
             indicators = {
-                "RSI (14)": round(rsi, 2),
-                "MACD Line": round(macd_line, 2),
-                "MACD Signal": round(macd_signal, 2),
-                "Stochastic %K": round(stoch_k, 2),
-                "Stochastic %D": round(stoch_d, 2),
-                "EMA (10)": round(ema_10, 2),
-                "CCI (14)": round(cci, 2),
-                "Williams %R": round(will_r, 2),
-                "BB Upper": round(bb_upper, 2),
-                "BB Lower": round(bb_lower, 2),
-                "BB Width": round(bb_width, 4),
+                "RSI (14)"      : round(rsi, 2),
+                "MACD Line"     : round(macd_line, 2),
+                "MACD Signal"   : round(macd_sig, 2),
+                "Stochastic %K" : round(stoch_k, 2),
+                "Stochastic %D" : round(stoch_d, 2),
+                "EMA (10)"      : round(ema10, 2),
+                "CCI (14)"      : round(cci, 2),
+                "Williams %R"   : round(wr, 2),
+                "BB Upper"      : round(bb_up, 2),
+                "BB Lower"      : round(bb_low, 2),
+                "BB Width"      : round(bb_up - bb_low, 4),
             }
 
-            # CREA LA TABELLA HTML DEGLI INDICATORI TECNICI
-            tabella_indicatori = pd.DataFrame(indicators.items(), columns=["Indicatore", "Valore"]).to_html(index=False, border=0)
+            # Calcola il punteggio tecnico basato sulla chiusura raw
+            pct_tech = calcola_punteggio(indicators, close_yesterday, bb_up, bb_low)
+            percentuali_tecniche[symbol] = pct_tech
 
-            percentuale = calcola_punteggio(indicators, close.iloc[-1], bb_upper, bb_lower)
-
-
-
-            # ────────────────────────────────────────
-            # 1) RECUPERO DATI FONDAMENTALI DA yfinance
-            # ────────────────────────────────────────
-            ticker_obj = yf.Ticker(adjusted_symbol)
-            info = ticker_obj.info  # dizionario con decine di campi
-
-            # Scegli i campi che ti interessano, ad es.:
+            # 4) Dati fondamentali
+            info = tkr.info
             fondamentali = {
-                "Trailing P/E": info.get("trailingPE", "N/A"),
-                "Forward P/E": info.get("forwardPE", "N/A"),
-                "EPS Growth (YoY)": info.get("earningsQuarterlyGrowth", "N/A"),
-                "Revenue Growth (YoY)": info.get("revenueGrowth", "N/A"),
-                "Profit Margins": info.get("profitMargins", "N/A"),
-                "Debt to Equity": info.get("debtToEquity", "N/A"),
-                "Dividend Yield": info.get("dividendYield", "N/A")
+                "Trailing P/E"         : info.get("trailingPE",      "N/A"),
+                "Forward P/E"          : info.get("forwardPE",       "N/A"),
+                "EPS Growth (YoY)"     : info.get("earningsQuarterlyGrowth", "N/A"),
+                "Revenue Growth (YoY)" : info.get("revenueGrowth",   "N/A"),
+                "Profit Margins"       : info.get("profitMargins",   "N/A"),
+                "Debt to Equity"       : info.get("debtToEquity",     "N/A"),
+                "Dividend Yield"       : info.get("dividendYield",    "N/A"),
             }
 
-
-            # Costruisci la tabella HTML
-            tabella_fondamentali = (
-                pd.DataFrame(fondamentali.items(), columns=["Fundamentale", "Valore"])
-                  .to_html(index=False, border=0, float_format="%.4f")
-            )
-
-
-            
-            #percentuale = calcola_punteggio(indicators, close.iloc[-1], bb_upper, bb_lower)
-            percentuali_tecniche[symbol] = percentuale
-            
-            # Crea tabella dei dati storici (ultimi 90 giorni)
-            dati_storici = data.tail(90)
-            dati_storici['Date'] = dati_storici.index.strftime('%Y-%m-%d')  # Aggiungi la colonna Date
-            dati_storici_html = dati_storici[['Date', 'Close', 'High', 'Low', 'Open', 'Volume']].to_html(index=False, border=1)
+            # 5) Genera HTML (come prima, usando close_yesterday e last_price se ti serve)
+            #    … mantieni qui il tuo blocco per tabella_indicatori, tabella_fondamentali,
+            #    dati_storici_html ecc., ma sostituisci close.iloc[-1] con close_yesterday
+            #    ed eventualmente mostra last_price per l’intraday.
 
         except Exception as e:
             print(f"Errore durante l'analisi di {symbol}: {e}")
 
-        # GENERA FILE HTML INDIVIDUALE
-        file_path = f"results/{symbol.upper()}_RESULT.html"
-
-        html_content = [
-            f"<html><head><title>Previsione per {symbol}</title></head><body>",
-            f"<h1>Previsione per: ({symbol})</h1>",
-            "<table border='1'><tr><th>Probability</th></tr>",
-            f"<tr><td>{sentiment_90_days * 100}</td></tr>",
-            "</table>",
-            "<table border='1'><tr><th>Probability30</th></tr>",  # Nuova riga per 30 giorni
-            f"<tr><td>{sentiment_30_days * 100}</td></tr>",
-            "</table>",
-            "<table border='1'><tr><th>Probability7</th></tr>",  # Nuova riga per 7 giorni
-            f"<tr><td>{sentiment_7_days * 100}</td></tr>",
-            "</table>",
-            
-            # Aggiunta della nuova sezione con gli indicatori tecnici e la probabilità calcolata
-            "<hr>",
-            "<h2>Indicatori Tecnici</h2>",
-        ]
-
-        if percentuale is not None:
-            html_content.append(f"<p><strong>Probabilità calcolata sugli indicatori tecnici:</strong> {percentuale}%</p>")
-        else:
-            html_content.append("<p><strong>Impossibile calcolare la probabilità sugli indicatori tecnici.</strong></p>")
-        
-        # Aggiungi gli indicatori tecnici alla tabella
-        if tabella_indicatori:
-            html_content.append(tabella_indicatori)
-        else:
-            html_content.append("<p>No technical indicators available.</p>")
-
-        # Aggiungi i dati fondamentali
-        html_content.append("<h2>Dati Fondamentali</h2>")
-        if tabella_fondamentali:
-            html_content.append(tabella_fondamentali)
-        else:
-            html_content.append("<p>Nessun dato fondamentale disponibile.</p>")
-        
-        # Aggiungi i dati storici degli ultimi 90 giorni
-        if dati_storici_html:
-            html_content += [
-                "<h2>Dati Storici (ultimi 90 giorni)</h2>",
-                dati_storici_html,  # Usa il DataFrame formattato
-                "</body></html>"
-            ]
-        else:
-            html_content.append("<p>No historical data available.</p>")
-        
-        html_content.append("</body></html>")
-        
-        try:
-            contents = repo.get_contents(file_path)
-            repo.update_file(contents.path, f"Updated probability for {symbol}", "\n".join(html_content), contents.sha)
-        except GithubException:
-            repo.create_file(file_path, f"Created probability for {symbol}", "\n".join(html_content))
-
-        # Aggiungi le notizie e i sentimenti alla lista per il file `news.html` (solo le notizie degli ultimi 90 giorni)
+        # 6) Accumula le notizie per news.html
         for title, news_date in news_data["last_90_days"]:
-            title_sentiment = calculate_sentiment([(title, news_date)])  # Passa (titolo, data)
+            title_sentiment = calculate_sentiment([(title, news_date)])
             all_news_entries.append((symbol, title, title_sentiment))
 
-    # CALCOLA MEDIA PONDERATA (fuori dal ciclo principale)
-    w7 = 0.5
-    w30 = 0.3
-    w90 = 0.2
-    
+    # 7) Calcola sentiment+tecnica combinati
     for symbol in sentiment_results:
         if symbol in percentuali_tecniche:
-            sentiment_7 = sentiment_results[symbol]["7_days"] * 100
-            sentiment_30 = sentiment_results[symbol]["30_days"] * 100
-            sentiment_90 = sentiment_results[symbol]["90_days"] * 100
-    
-            # Nuovo sentiment combinato (invece di usare solo quello a 90 giorni)
-            sentiment_combinato = (w7 * sentiment_7) + (w30 * sentiment_30) + (w90 * sentiment_90)
-    
-            tecnica = percentuali_tecniche[symbol]
-            
-            # Combinazione sentiment + tecnica
-            combinata = (sentiment_combinato * 0.6) + (tecnica * 0.4)
-            percentuali_combine[symbol] = combinata
+            s7  = sentiment_results[symbol]["7_days"]  * 100
+            s30 = sentiment_results[symbol]["30_days"] * 100
+            s90 = sentiment_results[symbol]["90_days"] * 100
+            senti_comb = w7 * s7 + w30 * s30 + w90 * s90
+            tecn = percentuali_tecniche[symbol]
+            percentuali_combine[symbol] = senti_comb * 0.6 + tecn * 0.4
 
     return sentiment_results, percentuali_combine, all_news_entries
 
