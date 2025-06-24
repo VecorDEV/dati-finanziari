@@ -1,7 +1,6 @@
 import os
 import pandas as pd
 import requests
-import csv
 
 GDELT_LOCAL_FILE = "gdelt_latest.csv"
 
@@ -15,6 +14,7 @@ def scarica_ultimo_gdelt_file():
     return file_url
 
 def scarica_file_localmente(file_url, local_file):
+    print("Controllo file GDELT locale...")
     if os.path.exists(local_file):
         print(f"File locale trovato: {local_file}")
         return local_file
@@ -38,48 +38,38 @@ def carica_gdelt_csv(local_file):
     df = pd.read_csv(local_file, sep='\t', names=columns, quoting=3, low_memory=False)
     return df
 
-def filtra_e_calcola_sentiment(df, keyword, max_links=50):
+def filtra_e_calcola_sentiment(df, keyword, max_links=5):
     mask_link = df['DocumentIdentifier'].str.contains(keyword, case=False, na=False)
     mask_theme = df['V2Themes'].str.contains(keyword, case=False, na=False)
     filtered = df[mask_link | mask_theme]
     
     if filtered.empty:
-        return None, None, None
-    
+        return None, 0, []
+
     tones = filtered['V2Tone'].dropna().apply(lambda x: float(str(x).split(',')[0]))
     sentiment_mean = tones.mean() if not tones.empty else None
 
     links = filtered['DocumentIdentifier'].dropna().unique()[:max_links]
-    return sentiment_mean, len(links), ";".join(links)
+    return sentiment_mean, len(links), list(links)
 
 def aggiorna_file_gdelt():
     file_url = scarica_ultimo_gdelt_file()
     scarica_file_localmente(file_url, GDELT_LOCAL_FILE)
 
 if __name__ == "__main__":
-    if not os.path.exists(GDELT_LOCAL_FILE):
-        print("File GDELT locale non trovato, scaricamento automatico...")
-        aggiorna_file_gdelt()
-
+    aggiorna_file_gdelt()
     df = carica_gdelt_csv(GDELT_LOCAL_FILE)
     
-    symbols = ["AAPL", "BTC", "GOLD", "GOOG", "TSLA", "ETH"]  # <-- Sostituisci con i tuoi 120 simboli
-
-    risultati = []
+    symbols = ["AAPL", "BTC", "GOLD", "GOOG", "TSLA", "ETH"]  # <-- Sostituisci con la tua lista
 
     for asset in symbols:
         sentiment, num_links, links = filtra_e_calcola_sentiment(df, asset)
+        print(f"\n--- {asset} ---")
         if sentiment is not None:
-            print(f"{asset} -> Sentiment medio: {sentiment:.2f} su {num_links} articoli.")
-            risultati.append([asset, sentiment, num_links, links])
+            print(f"Sentiment medio: {sentiment:.2f}")
+            print(f"Numero articoli: {num_links}")
+            print("URL articoli (max 5):")
+            for url in links:
+                print(f" - {url}")
         else:
-            print(f"{asset} -> Nessun dato trovato.")
-            risultati.append([asset, "N/D", 0, ""])
-
-    output_file = "sentiment_risultati.csv"
-    with open(output_file, mode='w', newline='', encoding='utf-8') as f:
-        writer = csv.writer(f)
-        writer.writerow(["Asset", "Sentiment medio", "Numero articoli", "Lista URL articoli"])
-        writer.writerows(risultati)
-
-    print(f"\nRisultati salvati in '{output_file}'")
+            print("Nessun dato trovato.") 
