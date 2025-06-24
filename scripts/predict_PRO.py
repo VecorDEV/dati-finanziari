@@ -75,11 +75,151 @@ symbol_list_for_yfinance = [
     "CL=F"        # Crude oil
 ]
 
+symbol_name_map = {
+    # Stocks
+    "AAPL": ["Apple", "Apple Inc."],
+    "MSFT": ["Microsoft", "Microsoft Corporation"],
+    "GOOGL": ["Google", "Alphabet", "Alphabet Inc."],
+    "AMZN": ["Amazon", "Amazon.com"],
+    "META": ["Meta", "Facebook", "Meta Platforms"],
+    "TSLA": ["Tesla", "Tesla Inc."],
+    "V": ["Visa", "Visa Inc."],
+    "JPM": ["JPMorgan", "JPMorgan Chase"],
+    "JNJ": ["Johnson & Johnson", "JNJ"],
+    "WMT": ["Walmart"],
+    "NVDA": ["NVIDIA", "Nvidia Corp."],
+    "PYPL": ["PayPal"],
+    "DIS": ["Disney", "The Walt Disney Company"],
+    "NFLX": ["Netflix"],
+    "NIO": ["NIO Inc."],
+    "NRG": ["NRG Energy"],
+    "ADBE": ["Adobe", "Adobe Inc."],
+    "INTC": ["Intel", "Intel Corporation"],
+    "CSCO": ["Cisco", "Cisco Systems"],
+    "PFE": ["Pfizer"],
+    "KO": ["Coca-Cola", "The Coca-Cola Company"],
+    "PEP": ["Pepsi", "PepsiCo"],
+    "MRK": ["Merck"],
+    "ABT": ["Abbott", "Abbott Laboratories"],
+    "XOM": ["ExxonMobil", "Exxon"],
+    "CVX": ["Chevron"],
+    "T": ["AT&T"],
+    "MCD": ["McDonald's"],
+    "NKE": ["Nike"],
+    "HD": ["Home Depot"],
+    "IBM": ["IBM", "International Business Machines"],
+    "CRM": ["Salesforce"],
+    "BMY": ["Bristol-Myers", "Bristol-Myers Squibb"],
+    "ORCL": ["Oracle"],
+    "ACN": ["Accenture"],
+    "LLY": ["Eli Lilly"],
+    "QCOM": ["Qualcomm"],
+    "HON": ["Honeywell"],
+    "COST": ["Costco"],
+    "SBUX": ["Starbucks"],
+    "CAT": ["Caterpillar"],
+    "LOW": ["Lowe's"],
+    "MS": ["Morgan Stanley"],
+    "GS": ["Goldman Sachs"],
+    "AXP": ["American Express"],
+    "INTU": ["Intuit"],
+    "AMGN": ["Amgen"],
+    "GE": ["General Electric"],
+    "FIS": ["Fidelity National Information Services"],
+    "CVS": ["CVS Health"],
+    "DE": ["Deere", "John Deere"],
+    "BDX": ["Becton Dickinson"],
+    "NOW": ["ServiceNow"],
+    "SCHW": ["Charles Schwab"],
+    "LMT": ["Lockheed Martin"],
+    "ADP": ["ADP", "Automatic Data Processing"],
+    "C": ["Citigroup"],
+    "PLD": ["Prologis"],
+    "NSC": ["Norfolk Southern"],
+    "TMUS": ["T-Mobile"],
+    "ITW": ["Illinois Tool Works"],
+    "FDX": ["FedEx"],
+    "PNC": ["PNC Financial"],
+    "SO": ["Southern Company"],
+    "APD": ["Air Products & Chemicals"],
+    "ADI": ["Analog Devices"],
+    "ICE": ["Intercontinental Exchange"],
+    "ZTS": ["Zoetis"],
+    "TJX": ["TJX Companies"],
+    "CL": ["Colgate-Palmolive"],
+    "MMC": ["Marsh & McLennan"],
+    "EL": ["Estée Lauder"],
+    "GM": ["General Motors"],
+    "CME": ["CME Group"],
+    "EW": ["Edwards Lifesciences"],
+    "AON": ["Aon plc"],
+    "D": ["Dominion Energy"],
+    "PSA": ["Public Storage"],
+    "AEP": ["American Electric Power"],
+    "TROW": ["T. Rowe Price"],
+    "LNTH": ["Lantheus"],
+    "HE": ["Hawaiian Electric"],
+    "BTDR": ["Bitdeer"],
+    "NAAS": ["NaaS Technology"],
+    "SCHL": ["Scholastic"],
+    "TGT": ["Target"],
+    "SYK": ["Stryker"],
+    "BKNG": ["Booking Holdings", "Booking.com"],
+    "DUK": ["Duke Energy"],
+    "USB": ["U.S. Bancorp"],
 
+    # Forex
+    "EURUSD": ["EUR/USD", "Euro Dollar", "Euro vs USD"],
+    "USDJPY": ["USD/JPY", "Dollar Yen", "USD vs JPY"],
+    "GBPUSD": ["GBP/USD", "British Pound", "Sterling", "GBP vs USD"],
+    "AUDUSD": ["AUD/USD", "Australian Dollar", "Aussie Dollar"],
+    "USDCAD": ["USD/CAD", "US Dollar vs Canadian Dollar", "Loonie"],
+    "USDCHF": ["USD/CHF", "US Dollar vs Swiss Franc"],
+    "NZDUSD": ["NZD/USD", "New Zealand Dollar"],
+    "EURGBP": ["EUR/GBP", "Euro vs Pound"],
+    "EURJPY": ["EUR/JPY", "Euro vs Yen"],
+    "GBPJPY": ["GBP/JPY", "Pound vs Yen"],
+    "AUDJPY": ["AUD/JPY", "Aussie vs Yen"],
+    "CADJPY": ["CAD/JPY", "Canadian Dollar vs Yen"],
+    "CHFJPY": ["CHF/JPY", "Swiss Franc vs Yen"],
+    "EURAUD": ["EUR/AUD", "Euro vs Aussie"],
+    "EURNZD": ["EUR/NZD", "Euro vs Kiwi"],
+    "EURCAD": ["EUR/CAD", "Euro vs Canadian Dollar"],
+    "EURCHF": ["EUR/CHF", "Euro vs Swiss Franc"],
+    "GBPCHF": ["GBP/CHF", "Pound vs Swiss Franc"],
+    "AUDCAD": ["AUD/CAD", "Aussie vs Canadian Dollar"],
 
-def get_stock_news(symbol):
-    """Recupera molti più titoli e date delle notizie per un determinato simbolo negli ultimi 90, 30 e 7 giorni."""
-    query_variants = [
+    # Crypto
+    "BTCUSD": ["Bitcoin", "BTC"],
+    "ETHUSD": ["Ethereum", "ETH"],
+    "LTCUSD": ["Litecoin", "LTC"],
+    "XRPUSD": ["Ripple", "XRP"],
+    "BCHUSD": ["Bitcoin Cash", "BCH"],
+    "EOSUSD": ["EOS"],
+    "XLMUSD": ["Stellar", "XLM"],
+    "ADAUSD": ["Cardano", "ADA"],
+    "TRXUSD": ["Tron", "TRX"],
+    "NEOUSD": ["NEO"],
+    "DASHUSD": ["Dash"],
+    "XMRUSD": ["Monero", "XMR"],
+    "ETCUSD": ["Ethereum Classic", "ETC"],
+    "ZECUSD": ["Zcash", "ZEC"],
+    "BNBUSD": ["Binance Coin", "BNB"],
+    "DOGEUSD": ["Dogecoin", "DOGE"],
+    "USDTUSD": ["Tether", "USDT"],
+    "LINKUSD": ["Chainlink", "LINK"],
+    "ATOMUSD": ["Cosmos", "ATOM"],
+    "XTZUSD": ["Tezos", "XTZ"],
+
+    # Commodities
+    "COCOA": ["Cocoa", "Cocoa Futures"],
+    "XAUUSD": ["Gold", "XAU/USD", "Gold price", "Gold spot"],
+    "XAGUSD": ["Silver", "XAG/USD", "Silver price", "Silver spot"],
+    "OIL": ["Crude oil", "Oil price", "WTI", "Brent", "Brent oil", "WTI crude"]
+}
+
+def generate_query_variants(symbol):
+    base_variants = [
         f"{symbol} stock",
         f"{symbol} investing",
         f"{symbol} earnings",
@@ -87,8 +227,29 @@ def get_stock_news(symbol):
         f"{symbol} financial results",
         f"{symbol} analysis",
         f"{symbol} quarterly report",
-        f"{symbol} Wall Street"
+        f"{symbol} Wall Street",
     ]
+    
+    name_variants = symbol_name_map.get(symbol.upper(), [])
+    for name in name_variants:
+        base_variants += [
+            f"{name} stock",
+            f"{name} investing",
+            f"{name} earnings",
+            f"{name} news",
+            f"{name} financial results",
+            f"{name} analysis",
+            f"{name} quarterly report",
+        ]
+    
+    return list(set(base_variants))  # Rimuove duplicati
+   
+
+MAX_ARTICLES_PER_SYMBOL = 500  # Limite massimo per asset
+
+def get_stock_news(symbol):
+    """Recupera titoli e date delle notizie per un determinato simbolo, includendo varianti di nome."""
+    query_variants = generate_query_variants(symbol)
 
     base_url = "https://news.google.com/rss/search?q={}&hl=en-US&gl=US&ceid=US:en"
 
@@ -102,18 +263,25 @@ def get_stock_news(symbol):
     news_7_days  = []
 
     seen_titles = set()
+    total_articles = 0
 
     for raw_query in query_variants:
+        if total_articles >= MAX_ARTICLES_PER_SYMBOL:
+            break  # Fermati se superato il limite
+
         query = quote_plus(raw_query)
         url = base_url.format(query)
         feed = feedparser.parse(url)
 
         for entry in feed.entries:
+            if total_articles >= MAX_ARTICLES_PER_SYMBOL:
+                break
+
             try:
                 title = entry.title.strip()
-                if title in seen_titles:
+                if title.lower() in seen_titles:
                     continue
-                seen_titles.add(title)
+                seen_titles.add(title.lower())
 
                 news_date = datetime.strptime(entry.published, "%a, %d %b %Y %H:%M:%S %Z")
 
@@ -123,6 +291,8 @@ def get_stock_news(symbol):
                     news_30_days.append((title, news_date))
                 if news_date >= days_7:
                     news_7_days.append((title, news_date))
+
+                total_articles += 1
 
             except (ValueError, AttributeError):
                 continue
