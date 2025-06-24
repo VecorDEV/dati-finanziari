@@ -119,7 +119,7 @@ symbol_name_map = {
     "SBUX": ["Starbucks"],
     "CAT": ["Caterpillar"],
     "LOW": ["Lowe's"],
-    "MS": ["Morgan Stanley"],
+    "MS": ["Morgan Stanley", "Morgan Stanley Bank", "MS bank", "MS financial"]
     "GS": ["Goldman Sachs"],
     "AXP": ["American Express"],
     "INTU": ["Intuit"],
@@ -200,7 +200,7 @@ symbol_name_map = {
     "ADAUSD": ["Cardano", "ADA"],
     "TRXUSD": ["Tron", "TRX"],
     "NEOUSD": ["NEO"],
-    "DASHUSD": ["Dash"],
+    "DASHUSD": ["Dash crypto", "Dash cryptocurrency", "DASH coin", "DASH token", "Digital Cash", "Dash blockchain", "Dash digital currency"]
     "XMRUSD": ["Monero", "XMR"],
     "ETCUSD": ["Ethereum Classic", "ETC"],
     "ZECUSD": ["Zcash", "ZEC"],
