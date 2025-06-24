@@ -6,7 +6,11 @@ GDELT_LOCAL_FILE = "gdelt_latest.csv"
 
 def scarica_ultimo_gdelt_file():
     url = 'http://data.gdeltproject.org/gdeltv2/lastupdate.txt'
-    r = requests.get(url)
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 ' +
+                      '(KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36'
+    }
+    r = requests.get(url, headers=headers)
     r.raise_for_status()
     last_update_info = r.text.strip().split('\n')[0]
     file_name = last_update_info.split(' ')[-1]
@@ -14,15 +18,19 @@ def scarica_ultimo_gdelt_file():
     return file_url
 
 def scarica_file_localmente(file_url, local_file):
-    print("Controllo file GDELT locale...")
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 ' +
+                      '(KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36'
+    }
     if os.path.exists(local_file):
         print(f"File locale trovato: {local_file}")
         return local_file
     print("Scaricamento file GDELT...")
-    r = requests.get(file_url, stream=True)
-    with open(local_file, "wb") as f:
-        for chunk in r.iter_content(chunk_size=8192):
-            f.write(chunk)
+    with requests.get(file_url, headers=headers, stream=True) as r:
+        r.raise_for_status()
+        with open(local_file, "wb") as f:
+            for chunk in r.iter_content(chunk_size=8192):
+                f.write(chunk)
     print("File scaricato.")
     return local_file
 
