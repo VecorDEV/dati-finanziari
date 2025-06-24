@@ -26,4 +26,4 @@ jobs:
         pip install pandas requests
 
     - name: Run sentiment analysis script
-      run: python main.py
+      run: python scripts/main.py
