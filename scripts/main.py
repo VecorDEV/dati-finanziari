@@ -3,78 +3,78 @@ import pandas as pd
 from ta.momentum import RSIIndicator, StochasticOscillator, WilliamsRIndicator
 from ta.trend import MACD, EMAIndicator, CCIIndicator
 from ta.volatility import BollingerBands
+import csv
 
 def fetch_and_prepare_data_all_days(symbol):
     symbol = symbol.upper()
-    # 1) scarica tutti i dati disponibili
     data = yf.download(symbol, period="max", interval="1d", auto_adjust=False)
     if data.empty:
         raise ValueError(f"Nessun dato disponibile per {symbol}.")
-    # 2) pulizia
     data.dropna(inplace=True)
 
-    # 3) aggiorna l'ultimo close con il prezzo di mercato corrente (se disponibile)
     info = yf.Ticker(symbol).info
     real_price = info.get('regularMarketPrice', None)
     if real_price is not None:
         data.at[data.index[-1], 'Close'] = real_price
 
-    # 4) calcolo indicatori su tutta la serie
-    close = data['Close']
-    high  = data['High']
-    low   = data['Low']
-    open_ = data['Open']
-    vol   = data['Volume']
+    close  = data['Close'].squeeze()
+    high   = data['High'].squeeze()
+    low    = data['Low'].squeeze()
+    open_  = data['Open'].squeeze()
+    volume = data['Volume'].squeeze()
 
-    # Indicatori
-    ema10     = EMAIndicator(close, window=10).ema_indicator()
-    rsi       = RSIIndicator(close).rsi()
+    ema10     = EMAIndicator(close, window=10).ema_indicator().squeeze()
+    rsi       = RSIIndicator(close).rsi().squeeze()
     macd_obj  = MACD(close)
-    macd_line = macd_obj.macd()
-    macd_sig  = macd_obj.macd_signal()
+    macd_line = macd_obj.macd().squeeze()
+    macd_sig  = macd_obj.macd_signal().squeeze()
     stoch_obj = StochasticOscillator(high, low, close)
-    stoch_k   = stoch_obj.stoch()
-    stoch_d   = stoch_obj.stoch_signal()
-    cci       = CCIIndicator(high, low, close).cci()
-    willr     = WilliamsRIndicator(high, low, close).williams_r()
+    stoch_k   = stoch_obj.stoch().squeeze()
+    stoch_d   = stoch_obj.stoch_signal().squeeze()
+    cci       = CCIIndicator(high, low, close).cci().squeeze()
+    willr     = WilliamsRIndicator(high, low, close).williams_r().squeeze()
     bb_obj    = BollingerBands(close)
-    bb_up     = bb_obj.bollinger_hband()
-    bb_w      = bb_obj.bollinger_wband()
+    bb_up     = bb_obj.bollinger_hband().squeeze()
+    bb_w      = bb_obj.bollinger_wband().squeeze()
 
-    # Media volume e media banda BB statiche
-    vol_mean   = vol.mean()
-    bbw_mean   = bb_w.mean()
+    vol_mean = volume.mean()
+    bbw_mean = bb_w.mean()
 
-    # 5) costruisco il DataFrame delle feature binarie
     features_df = pd.DataFrame({
-        'f1': (close > open_).astype(int),
-        'f2': (vol > vol_mean).astype(int),
-        'f3': (ema10 > close).astype(int),
-        'f4': (rsi > 50).astype(int),
-        'f5': (macd_line > macd_sig).astype(int),
-        'f6': (stoch_k > stoch_d).astype(int),
-        'f7': (cci > 0).astype(int),
-        'f8': (willr > -50).astype(int),
-        'f9': (close > bb_up).astype(int),
+        'f1':  (close > open_).astype(int),
+        'f2':  (volume > vol_mean).astype(int),
+        'f3':  (ema10 > close).astype(int),
+        'f4':  (rsi > 50).astype(int),
+        'f5':  (macd_line > macd_sig).astype(int),
+        'f6':  (stoch_k > stoch_d).astype(int),
+        'f7':  (cci > 0).astype(int),
+        'f8':  (willr > -50).astype(int),
+        'f9':  (close > bb_up).astype(int),
         'f10': (bb_w > bbw_mean).astype(int),
     }, index=data.index)
 
-    # 6) rimuovo i primi giorni in cui gli indicatori non sono calcolabili (NaN)
     features_df.dropna(inplace=True)
+    return features_df  # ora restituiamo direttamente il DataFrame
 
-    # 7) converto in lista di liste
-    #    ogni elemento è una lista di 10 interi, corrispondente a un giorno
-    features_list = features_df.values.tolist()
+if __name__ == "__main__":
+    symbol = "AAPL"
+    features_df = fetch_and_prepare_data_all_days(symbol)
 
-    return features_list
+    # 1) Stampare TUTTE le liste di feature:
+    # Ogni riga del DF .values.tolist() è una lista di 10 valori 0/1
+    all_features = features_df.values.tolist()
+    print(all_features)  
 
-# ESEMPIO
-symbol = "AAPL"
-features_per_day = fetch_and_prepare_data_all_days(symbol)
-print(f"Numero di giorni elaborati: {len(features_per_day)}")
-print("Prime 5 giornate di features:")
-for feat in features_per_day:
-    print(feat)
+    # 2) (Opzionale) Esportare in CSV per analisi esterna:
+    with open('features_per_day.csv', 'w', newline='') as f:
+        writer = csv.writer(f)
+        # Intestazione: date + f1..f10
+        writer.writerow(['Date'] + [f'f{i}' for i in range(1, 11)])
+        for date, row in zip(features_df.index.strftime('%Y-%m-%d'), all_features):
+            writer.writerow([date] + row)
+    print("✓ Esportato in features_per_day.csv")
+
+
 
 
 
