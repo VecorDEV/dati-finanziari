@@ -14,17 +14,23 @@ def fetch_all_features(symbol):
     data.dropna(inplace=True)
 
     # Calcolo indicatori
-    data['RSI'] = RSIIndicator(data['Close']).rsi()
-    macd = MACD(data['Close'])
+    data['RSI'] = RSIIndicator(close=data['Close']).rsi()
+    
+    macd = MACD(close=data['Close'])
     data['MACD_line'] = macd.macd()
     data['MACD_signal'] = macd.macd_signal()
-    stoch = StochasticOscillator(data['High'], data['Low'], data['Close'])
+    
+    stoch = StochasticOscillator(high=data['High'], low=data['Low'], close=data['Close'])
     data['Stoch_K'] = stoch.stoch()
     data['Stoch_D'] = stoch.stoch_signal()
-    data['EMA10'] = EMAIndicator(data['Close'], window=10).ema_indicator()
-    data['CCI'] = CCIIndicator(data['High'], data['Low'], data['Close']).cci()
-    data['WILLR'] = WilliamsRIndicator(data['High'], data['Low'], data['Close']).williams_r()
-    bb = BollingerBands(data['Close'])
+    
+    data['EMA10'] = EMAIndicator(close=data['Close'], window=10).ema_indicator()
+    
+    data['CCI'] = CCIIndicator(high=data['High'], low=data['Low'], close=data['Close']).cci()
+    
+    data['WILLR'] = WilliamsRIndicator(high=data['High'], low=data['Low'], close=data['Close']).williams_r()
+    
+    bb = BollingerBands(close=data['Close'])
     data['BB_upper'] = bb.bollinger_hband()
     data['BB_lower'] = bb.bollinger_lband()
     data['BB_width'] = bb.bollinger_wband()
