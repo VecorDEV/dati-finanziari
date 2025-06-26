@@ -5,67 +5,66 @@ from ta.trend import MACD, EMAIndicator, CCIIndicator
 from ta.volatility import BollingerBands
 
 def fetch_all_features(symbol):
-    # Scarica tutti i dati disponibili a intervallo giornaliero
+    # 1) scarica TUTTI i dati giornalieri disponibili
     data = yf.download(symbol.upper(), interval="1d", auto_adjust=False)
-
     if data.empty:
         raise ValueError(f"Nessun dato disponibile per {symbol}.")
-
     data.dropna(inplace=True)
 
-    # Calcolo indicatori
-    data['RSI'] = RSIIndicator(close=data['Close']).rsi()
-    
-    macd = MACD(close=data['Close'])
-    data['MACD_line'] = macd.macd()
-    data['MACD_signal'] = macd.macd_signal()
-    
-    stoch = StochasticOscillator(high=data['High'], low=data['Low'], close=data['Close'])
-    data['Stoch_K'] = stoch.stoch()
-    data['Stoch_D'] = stoch.stoch_signal()
-    
-    data['EMA10'] = EMAIndicator(close=data['Close'], window=10).ema_indicator()
-    
-    data['CCI'] = CCIIndicator(high=data['High'], low=data['Low'], close=data['Close']).cci()
-    
-    data['WILLR'] = WilliamsRIndicator(high=data['High'], low=data['Low'], close=data['Close']).williams_r()
-    
-    bb = BollingerBands(close=data['Close'])
-    data['BB_upper'] = bb.bollinger_hband()
-    data['BB_lower'] = bb.bollinger_lband()
-    data['BB_width'] = bb.bollinger_wband()
+    # 2) estrai le Series monodimensionali
+    close = data["Close"]   # pandas.Series
+    high  = data["High"]
+    low   = data["Low"]
+    open_ = data["Open"]
+    vol   = data["Volume"]
 
-    # Medie mobili per confronto
-    data['Volume_mean'] = data['Volume'].rolling(window=10).mean()
-    data['BB_width_mean'] = data['BB_width'].rolling(window=10).mean()
+    # 3) calcola indicatori tecnici passando SEMPRE Series 1-D
+    data["RSI"] = RSIIndicator(close=close).rsi()
+    macd = MACD(close=close)
+    data["MACD_line"]   = macd.macd()
+    data["MACD_signal"] = macd.macd_signal()
+    stoch = StochasticOscillator(high=high, low=low, close=close)
+    data["Stoch_K"] = stoch.stoch()
+    data["Stoch_D"] = stoch.stoch_signal()
+    data["EMA10"] = EMAIndicator(close=close, window=10).ema_indicator()
+    data["CCI"]   = CCIIndicator(high=high, low=low, close=close).cci()
+    data["WILLR"] = WilliamsRIndicator(high=high, low=low, close=close).williams_r()
+    bb = BollingerBands(close=close)
+    data["BB_upper"] = bb.bollinger_hband()
+    data["BB_lower"] = bb.bollinger_lband()
+    data["BB_width"] = bb.bollinger_wband()
 
-    # Rimuove righe con NaN (iniziali degli indicatori)
+    # 4) rolling means per confronto
+    data["Vol_mean"]      = vol.rolling(window=10).mean()
+    data["BBw_mean"]      = data["BB_width"].rolling(window=10).mean()
+
+    # 5) dropna per rimuovere i primi giorni senza indicatori completi
     data.dropna(inplace=True)
 
-    # Genera lista di feature binarie
+    # 6) costruisci la matrice [[f1…f10], …]
     feature_matrix = []
-
-    for _, row in data.iterrows():
+    for idx, row in data.iterrows():
         features = [
-            int(row['Close'] > row['Open']),
-            int(row['Volume'] > row['Volume_mean']),
-            int(row['EMA10'] > row['Close']),
-            int(row['RSI'] > 50),
-            int(row['MACD_line'] > row['MACD_signal']),
-            int(row['Stoch_K'] > row['Stoch_D']),
-            int(row['CCI'] > 0),
-            int(row['WILLR'] > -50),
-            int(row['Close'] > row['BB_upper']),
-            int(row['BB_width'] > row['BB_width_mean'])
+            int(row["Close"]   > row["Open"]),
+            int(row["Volume"]  > row["Vol_mean"]),
+            int(row["EMA10"]   > row["Close"]),
+            int(row["RSI"]     > 50),
+            int(row["MACD_line"]   > row["MACD_signal"]),
+            int(row["Stoch_K"] > row["Stoch_D"]),
+            int(row["CCI"]     > 0),
+            int(row["WILLR"]   > -50),
+            int(row["Close"]   > row["BB_upper"]),
+            int(row["BB_width"]> row["BBw_mean"])
         ]
         feature_matrix.append(features)
 
     return feature_matrix
-    
-    
-symbol = "AAPL"
-all_features = fetch_all_features(symbol)
-print(all_features)
+
+# --- USO ---
+if __name__ == "__main__":
+    symbol = "AAPL"
+    all_features = fetch_all_features(symbol)
+    print(all_features)  # [[0/1,...,0/1], [0/1,...,0/1], ...]
 
 
 
