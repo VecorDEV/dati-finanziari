@@ -119,7 +119,7 @@ symbol_name_map = {
     "SBUX": ["Starbucks"],
     "CAT": ["Caterpillar"],
     "LOW": ["Lowe's"],
-    "MS": ["Morgan Stanley", "Morgan Stanley Bank", "MS bank", "MS financial"]
+    "MS": ["Morgan Stanley", "Morgan Stanley Bank", "MS bank", "MS financial"],
     "GS": ["Goldman Sachs"],
     "AXP": ["American Express"],
     "INTU": ["Intuit"],
