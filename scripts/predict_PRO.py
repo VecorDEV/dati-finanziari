@@ -200,7 +200,7 @@ symbol_name_map = {
     "ADAUSD": ["Cardano", "ADA"],
     "TRXUSD": ["Tron", "TRX"],
     "NEOUSD": ["NEO"],
-    "DASHUSD": ["Dash crypto", "Dash cryptocurrency", "DASH coin", "DASH token", "Digital Cash", "Dash blockchain", "Dash digital currency"]
+    "DASHUSD": ["Dash crypto", "Dash cryptocurrency", "DASH coin", "DASH token", "Digital Cash", "Dash blockchain", "Dash digital currency"],
     "XMRUSD": ["Monero", "XMR"],
     "ETCUSD": ["Ethereum Classic", "ETC"],
     "ZECUSD": ["Zcash", "ZEC"],
