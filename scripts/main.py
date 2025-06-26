@@ -1,70 +1,66 @@
 import yfinance as yf
+import numpy as np
 import pandas as pd
 from ta.momentum import RSIIndicator, StochasticOscillator, WilliamsRIndicator
 from ta.trend import MACD, EMAIndicator, CCIIndicator
 from ta.volatility import BollingerBands
 
-def fetch_all_features(symbol):
-    # 1) scarica TUTTI i dati giornalieri disponibili
-    data = yf.download(symbol.upper(), interval="1d", auto_adjust=False)
+def fetch_and_prepare_data(symbol):
+    adjusted_symbol = symbol.upper()
+    data = yf.download(adjusted_symbol, period="3mo", interval="1d", auto_adjust=False)
+
     if data.empty:
         raise ValueError(f"Nessun dato disponibile per {symbol}.")
+
     data.dropna(inplace=True)
 
-    # 2) estrai le Series monodimensionali
-    close = data["Close"]   # pandas.Series
-    high  = data["High"]
-    low   = data["Low"]
-    open_ = data["Open"]
-    vol   = data["Volume"]
+    # Recupera il prezzo reale di mercato corrente
+    ticker_obj = yf.Ticker(adjusted_symbol)
+    real_price = ticker_obj.info.get('regularMarketPrice', None)
 
-    # 3) calcola indicatori tecnici passando SEMPRE Series 1-D
-    data["RSI"] = RSIIndicator(close=close).rsi()
-    macd = MACD(close=close)
-    data["MACD_line"]   = macd.macd()
-    data["MACD_signal"] = macd.macd_signal()
-    stoch = StochasticOscillator(high=high, low=low, close=close)
-    data["Stoch_K"] = stoch.stoch()
-    data["Stoch_D"] = stoch.stoch_signal()
-    data["EMA10"] = EMAIndicator(close=close, window=10).ema_indicator()
-    data["CCI"]   = CCIIndicator(high=high, low=low, close=close).cci()
-    data["WILLR"] = WilliamsRIndicator(high=high, low=low, close=close).williams_r()
-    bb = BollingerBands(close=close)
-    data["BB_upper"] = bb.bollinger_hband()
-    data["BB_lower"] = bb.bollinger_lband()
-    data["BB_width"] = bb.bollinger_wband()
+    if real_price is not None:
+        data.at[data.index[-1], 'Close'] = real_price
 
-    # 4) rolling means per confronto
-    data["Vol_mean"]      = vol.rolling(window=10).mean()
-    data["BBw_mean"]      = data["BB_width"].rolling(window=10).mean()
+    close = data['Close'].squeeze()
+    high = data['High'].squeeze()
+    low = data['Low'].squeeze()
+    open_ = data['Open'].squeeze()
+    volume = data['Volume'].squeeze()
 
-    # 5) dropna per rimuovere i primi giorni senza indicatori completi
-    data.dropna(inplace=True)
+    # Indicatori tecnici
+    rsi = RSIIndicator(close).rsi().iloc[-1]
+    macd = MACD(close)
+    macd_line = macd.macd().iloc[-1]
+    macd_signal = macd.macd_signal().iloc[-1]
+    stoch = StochasticOscillator(high, low, close)
+    stoch_k = stoch.stoch().iloc[-1]
+    stoch_d = stoch.stoch_signal().iloc[-1]
+    ema_10 = EMAIndicator(close, window=10).ema_indicator().iloc[-1]
+    cci = CCIIndicator(high, low, close).cci().iloc[-1]
+    will_r = WilliamsRIndicator(high, low, close).williams_r().iloc[-1]
+    bb = BollingerBands(close)
+    bb_upper = bb.bollinger_hband().iloc[-1]
+    bb_lower = bb.bollinger_lband().iloc[-1]
+    bb_width = bb.bollinger_wband().iloc[-1]
 
-    # 6) costruisci la matrice [[f1…f10], …]
-    feature_matrix = []
-    for idx, row in data.iterrows():
-        features = [
-            int(row["Close"]   > row["Open"]),
-            int(row["Volume"]  > row["Vol_mean"]),
-            int(row["EMA10"]   > row["Close"]),
-            int(row["RSI"]     > 50),
-            int(row["MACD_line"]   > row["MACD_signal"]),
-            int(row["Stoch_K"] > row["Stoch_D"]),
-            int(row["CCI"]     > 0),
-            int(row["WILLR"]   > -50),
-            int(row["Close"]   > row["BB_upper"]),
-            int(row["BB_width"]> row["BBw_mean"])
-        ]
-        feature_matrix.append(features)
+    features = [
+        int(close.iloc[-1] > open_.iloc[-1]),                   # Chiusura > Apertura
+        int(volume.iloc[-1] > volume.mean()),                  # Volume sopra la media
+        int(ema_10 > close.iloc[-1]),                          # EMA10 sopra prezzo attuale
+        int(rsi > 50),                                         # RSI > 50
+        int(macd_line > macd_signal),                          # MACD positivo
+        int(stoch_k > stoch_d),                                # Stocastico positivo
+        int(cci > 0),                                          # CCI positivo
+        int(will_r > -50),                                     # Williams %R zona forza
+        int(close.iloc[-1] > bb_upper),                        # Prezzo oltre banda sup.
+        int(bb_width > bb.bollinger_wband().mean())            # Banda larga
+    ]
 
-    return feature_matrix
+    return features
 
-# --- USO ---
-if __name__ == "__main__":
-    symbol = "AAPL"
-    all_features = fetch_all_features(symbol)
-    print(all_features)  # [[0/1,...,0/1], [0/1,...,0/1], ...]
+# ESEMPIO
+symbol = "AAPL"
+print(fetch_and_prepare_data(symbol))
 
 
 
