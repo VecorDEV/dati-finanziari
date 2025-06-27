@@ -127,11 +127,11 @@ class QuantumSimModel:
         for i in range(self.n - 1):
             qml.CNOT(wires=[i, i+1])
         
-        return qml.expval(qml.PauliZ(0))  # output scalare, va bene per la rete
+        return qml.expval(qml.PauliZ(0))  # 👈 Scalare reale in output
 
     def _simulate(self, x, thetas):
         qnode = qml.QNode(self.circuit, self.dev, interface='autograd')
-        return qnode(x, thetas)  # ritorna uno scalare
+        return qnode(x, thetas)  # 👈 Restituisce float
 
     def _forward(self, p):
         z1 = self.W1 @ p + self.b1
