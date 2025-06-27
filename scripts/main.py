@@ -135,6 +135,7 @@ class QuantumSimModel:
         return qnode(x, thetas)  # restituisce un vettore
 
     def _forward(self, p):
+        p = np.array(p)  # 👈 aggiungi questa riga
         print(f"W1 shape: {self.W1.shape}, p shape: {p.shape}, b1 shape: {self.b1.shape}")
         z1 = self.W1 @ p + self.b1
         a1 = relu(z1)
