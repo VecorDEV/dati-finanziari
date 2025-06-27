@@ -167,7 +167,7 @@ class QuantumSimModel:
         patience_counter = 0
     
         def quantum_forward(thetas_, x_):
-            return self._simulate(x_, thetas_)
+            return np.array(self._simulate(x_, thetas_))
     
         grad_quantum_forward = qml.jacobian(quantum_forward, argnum=0)
     
