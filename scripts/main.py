@@ -135,6 +135,7 @@ class QuantumSimModel:
         return qnode(x, thetas)  # restituisce un vettore
 
     def _forward(self, p):
+        print(f"W1 shape: {self.W1.shape}, p shape: {p.shape}, b1 shape: {self.b1.shape}")
         z1 = self.W1 @ p + self.b1
         a1 = relu(z1)
         z2 = np.dot(self.W2, a1) + self.b2
@@ -157,9 +158,9 @@ class QuantumSimModel:
         self.v[param_name] = v
         return update
 
-    def fit(self, data: List[float], labels: List[int]):
-        data = normalize(np.array(data))
-        X, y = [], []
+    def fit(self, X, y):
+        X = np.array(X)
+        y = np.array(y)
         for i in range(self.window, len(data)):
             X.append(data[i-self.window:i])
             y.append(labels[i])
@@ -257,21 +258,20 @@ if __name__ == "__main__":
     # --- FILTRA SOLO 5 FEATURE ---
     features_df = features_df[['f1', 'f2', 'f4', 'f5', 'f10']]
 
-    x_vec = features_df.values.tolist()  # Ogni giorno ha ora 5 feature binarie
-    x_vec = np.array(x_vec)
+    x_vec = features_df.values  # np.array già
+    x_vec = normalize(x_vec)    # normalizza TUTTO prima di creare finestre
 
     window_size = 3
     n_features_per_day = x_vec.shape[1]  # Ora è 5 invece di 10
 
     X = []
     y = []
-
-    # Loop fino a len(x_vec) - 1 per usare x_vec[i + 1][0] come etichetta
+    
     for i in range(window_size, len(x_vec) - 1):
-        window = x_vec[i - window_size:i]        # shape (3, 5)
-        flattened = window.flatten()             # shape (15,)
+        window = x_vec[i - window_size:i]    # shape (3, 5)
+        flattened = window.flatten()         # shape (15,)
         X.append(flattened)
-        y.append(x_vec[i][0])  # oppure: x_vec[i + 1][0] per "vero" giorno successivo
+        y.append(x_vec[i][0])  # etichetta per il giorno corrente
 
     model = QuantumSimModel(n_features=window_size * n_features_per_day, window=window_size)
     model.fit(X, y)
