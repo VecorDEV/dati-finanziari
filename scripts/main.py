@@ -126,9 +126,10 @@ class QuantumSimModel:
                 qml.RY(thetas[i, j], wires=i)
         for i in range(self.n - 1):
             qml.CNOT(wires=[i, i+1])
-        
-        # MEDIA su tutti i qubit → restituisce uno scalare
-        return sum(qml.expval(qml.PauliZ(i)) for i in range(self.n)) / self.n
+    
+        # Corretta media delle misure
+        expectations = [qml.expval(qml.PauliZ(i)) for i in range(self.n)]
+        return sum(expectations) / len(expectations)
 
     def _simulate(self, x, thetas):
         qnode = qml.QNode(self.circuit, self.dev, interface='autograd')
