@@ -63,7 +63,6 @@ def fetch_and_prepare_data_all_days(symbol):
 
 
 import numpy as np
-from typing import List
 import pennylane as qml
 
 def relu(x):
@@ -78,15 +77,12 @@ def normalize(data):
     return (data - mu) / sigma
 
 def encode_qubit(x):
-    theta = np.pi * x  # Assume x is normalized in [-1, 1]
-    return theta
+    return np.pi * x  # x normalizzato in [-1, 1]
 
 class QuantumSimModel:
-    def __init__(self, n_features: int, hidden_size: int = 10,
-                 lr: float = 0.01, reg: float = 0.001,
-                 batch_size: int = 16, epochs: int = 200,
-                 patience: int = 20, tol: float = 1e-4,
-                 n_rotations: int = 3, window: int = 3):
+    def __init__(self, n_features, hidden_size=10, lr=0.01, reg=0.001,
+                 batch_size=16, epochs=200, patience=20, tol=1e-4,
+                 n_rotations=3, window=3):
 
         self.n = n_features
         self.k = n_rotations
@@ -99,44 +95,47 @@ class QuantumSimModel:
         self.patience = patience
         self.tol = tol
 
-        self.dev = qml.device("default.qubit", wires=n_features)
+        # Quantum device (puoi sostituire con "lightning.qubit" se disponibile)
+        self.dev = qml.device("default.qubit", wires=self.n)
 
-        self.thetas = np.random.uniform(0, 2*np.pi, (n_features, n_rotations))
+        # Parametri quantistici
+        self.thetas = np.random.uniform(0, 2*np.pi, (self.n, self.k))
 
-        self.W1 = np.random.randn(hidden_size, n_features) * 0.1
+        # Parametri MLP
+        self.W1 = np.random.randn(hidden_size, self.n) * 0.1
         self.b1 = np.zeros(hidden_size)
         self.W2 = np.random.randn(hidden_size) * 0.1
         self.b2 = 0.0
 
-        self.m = {}
-        self.v = {}
-        for param in ['W1', 'b1', 'W2', 'b2']:
-            self.m[param] = 0
-            self.v[param] = 0
+        # Adam optimizer
+        self.m = {k: 0 for k in ['W1', 'b1', 'W2', 'b2']}
+        self.v = {k: 0 for k in ['W1', 'b1', 'W2', 'b2']}
         self.beta1 = 0.9
         self.beta2 = 0.999
         self.epsilon = 1e-8
         self.iteration = 0
 
-    def circuit(self, x, thetas):
-        for i, val in enumerate(x):
-            qml.RY(encode_qubit(val), wires=i)
+        # Costruzione del QNode una volta sola
+        self.qnode = qml.QNode(self._circuit, self.dev, interface='autograd')
+
+        # Funzione differenziabile rispetto a thetas
+        self._quantum_forward = lambda thetas, x: np.array(self.qnode(x, thetas))
+        self.grad_quantum_forward = qml.jacobian(self._quantum_forward, argnum=0)
+
+    def _circuit(self, x, thetas):
+        for i in range(self.n):
+            qml.RY(encode_qubit(x[i]), wires=i)
         for i in range(self.n):
             for j in range(self.k):
                 qml.RY(thetas[i, j], wires=i)
         for i in range(self.n - 1):
             qml.CNOT(wires=[i, i + 1])
-    
-        # Ritorna lista di expectation values
         return [qml.expval(qml.PauliZ(i)) for i in range(self.n)]
 
     def _simulate(self, x, thetas):
-        qnode = qml.QNode(self.circuit, self.dev, interface='autograd')
-        return qnode(x, thetas)  # restituisce un vettore
+        return self.qnode(x, thetas)
 
     def _forward(self, p):
-        p = np.array(p)  # 👈 aggiungi questa riga
-        print(f"W1 shape: {self.W1.shape}, p shape: {p.shape}, b1 shape: {self.b1.shape}")
         z1 = self.W1 @ p + self.b1
         a1 = relu(z1)
         z2 = np.dot(self.W2, a1) + self.b2
@@ -148,34 +147,27 @@ class QuantumSimModel:
 
     def _adam_update(self, param_name, grad):
         self.iteration += 1
-        m = self.m[param_name]
-        v = self.v[param_name]
+        m, v = self.m[param_name], self.v[param_name]
         m = self.beta1 * m + (1 - self.beta1) * grad
         v = self.beta2 * v + (1 - self.beta2) * (grad ** 2)
         m_hat = m / (1 - self.beta1 ** self.iteration)
         v_hat = v / (1 - self.beta2 ** self.iteration)
         update = self.lr * m_hat / (np.sqrt(v_hat) + self.epsilon)
-        self.m[param_name] = m
-        self.v[param_name] = v
+        self.m[param_name], self.v[param_name] = m, v
         return update
 
     def fit(self, X, y):
         X = np.array(X)
         y = np.array(y)
-    
+
         best_val_loss = float('inf')
         patience_counter = 0
-    
-        def quantum_forward(thetas_, x_):
-            return np.array(self._simulate(x_, thetas_))
-    
-        grad_quantum_forward = qml.jacobian(quantum_forward, argnum=0)
-    
+
         for epoch in range(self.epochs):
             indices = np.arange(len(X))
             np.random.shuffle(indices)
             total_loss = 0
-    
+
             for start in range(0, len(X), self.batch_size):
                 end = start + self.batch_size
                 batch_indices = indices[start:end]
@@ -184,47 +176,49 @@ class QuantumSimModel:
                 grad_b1 = np.zeros_like(self.b1)
                 grad_W2 = np.zeros_like(self.W2)
                 grad_b2 = 0.0
-    
+
                 for idx in batch_indices:
                     x_batch = X[idx]
                     y_batch = y[idx]
-    
+
                     p = self._simulate(x_batch, self.thetas)
                     out, a1 = self._forward(p)
                     loss = self._loss(y_batch, out)
                     total_loss += loss
-    
+
                     dL_dout = -(y_batch / (out + 1e-9)) + ((1 - y_batch) / (1 - out + 1e-9))
                     dout_dz2 = out * (1 - out)
                     dL_dz2 = dL_dout * dout_dz2
-    
+
                     grad_W2 += dL_dz2 * a1
                     grad_b2 += dL_dz2
-    
+
                     dz2_da1 = self.W2
                     da1_dz1 = (a1 > 0).astype(float)
                     dL_dz1 = dL_dz2 * dz2_da1 * da1_dz1
-    
+
                     grad_W1 += np.outer(dL_dz1, p)
                     grad_b1 += dL_dz1
-    
+
                     dL_dp = dL_dz1 @ self.W1
-                    grad_p = grad_quantum_forward(self.thetas, x_batch)
+                    grad_p = self.grad_quantum_forward(self.thetas, x_batch)
                     grad_thetas += np.tensordot(dL_dp, grad_p, axes=(0, 0))
-    
+
+                # Regularizzazione
                 grad_W1 += self.reg * self.W1
                 grad_W2 += self.reg * self.W2
                 grad_thetas += self.reg * self.thetas
-    
+
+                # Aggiornamento parametri
                 self.W1 -= self._adam_update('W1', grad_W1 / len(batch_indices))
                 self.b1 -= self._adam_update('b1', grad_b1 / len(batch_indices))
                 self.W2 -= self._adam_update('W2', grad_W2 / len(batch_indices))
                 self.b2 -= self._adam_update('b2', grad_b2 / len(batch_indices))
                 self.thetas -= self.lr * (grad_thetas / len(batch_indices))
-    
+
             avg_loss = total_loss / len(X)
             print(f"Epoch {epoch+1}/{self.epochs} - Loss: {avg_loss:.4f}")
-    
+
             if avg_loss + self.tol < best_val_loss:
                 best_val_loss = avg_loss
                 patience_counter = 0
@@ -234,14 +228,14 @@ class QuantumSimModel:
                     print(f"Early stopping at epoch {epoch+1}")
                     break
 
-    def predict_proba(self, data: List[float]) -> float:
+    def predict_proba(self, data):
         data = normalize(np.array(data))
         x = data[-self.window:]
         p = self._simulate(x, self.thetas)
         out, _ = self._forward(p)
         return out
 
-    def predict(self, data: List[float]) -> int:
+    def predict(self, data):
         return int(self.predict_proba(data) >= 0.5)
 
 
