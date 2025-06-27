@@ -122,14 +122,19 @@ class QuantumSimModel:
         self._quantum_forward = lambda thetas, x: np.array(self.qnode(x, thetas))
         self.grad_quantum_forward = qml.jacobian(self._quantum_forward, argnum=0)
 
-    def _circuit(self, x, thetas):
-        for i in range(self.n):
-            qml.RY(encode_qubit(x[i]), wires=i)
-        for i in range(self.n):
-            for j in range(self.k):
+    def circuit(self, x, thetas):
+        # Encode classical inputs via RY rotations
+        for i, val in enumerate(x):
+            qml.RY(encode_qubit(val), wires=i)
+        
+        # Apply parametrized quantum layers with entanglement
+        for j in range(self.k):  # depth / number of layers
+            for i in range(self.n):
                 qml.RY(thetas[i, j], wires=i)
-        for i in range(self.n - 1):
-            qml.CNOT(wires=[i, i + 1])
+            for i in range(self.n - 1):
+                qml.CNOT(wires=[i, i + 1])
+        
+        # Return expectation values
         return [qml.expval(qml.PauliZ(i)) for i in range(self.n)]
 
     def _simulate(self, x, thetas):
