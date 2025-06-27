@@ -127,7 +127,8 @@ class QuantumSimModel:
         for i in range(self.n - 1):
             qml.CNOT(wires=[i, i+1])
         
-        return qml.expval(qml.PauliZ(0))  # 👈 Scalare reale in output
+        # MEDIA su tutti i qubit → restituisce uno scalare
+        return sum(qml.expval(qml.PauliZ(i)) for i in range(self.n)) / self.n
 
     def _simulate(self, x, thetas):
         qnode = qml.QNode(self.circuit, self.dev, interface='autograd')
