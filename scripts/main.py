@@ -162,20 +162,20 @@ class QuantumSimModel:
     def fit(self, X, y):
         X = np.array(X)
         y = np.array(y)
-
+    
         best_val_loss = float('inf')
         patience_counter = 0
-
+    
         def quantum_forward(thetas_, x_):
             return self._simulate(x_, thetas_)
-
-        grad_quantum_forward = qml.grad(quantum_forward, argnum=0)
-
+    
+        grad_quantum_forward = qml.jacobian(quantum_forward, argnum=0)
+    
         for epoch in range(self.epochs):
             indices = np.arange(len(X))
             np.random.shuffle(indices)
             total_loss = 0
-
+    
             for start in range(0, len(X), self.batch_size):
                 end = start + self.batch_size
                 batch_indices = indices[start:end]
@@ -184,47 +184,47 @@ class QuantumSimModel:
                 grad_b1 = np.zeros_like(self.b1)
                 grad_W2 = np.zeros_like(self.W2)
                 grad_b2 = 0.0
-
+    
                 for idx in batch_indices:
                     x_batch = X[idx]
                     y_batch = y[idx]
-
+    
                     p = self._simulate(x_batch, self.thetas)
                     out, a1 = self._forward(p)
                     loss = self._loss(y_batch, out)
                     total_loss += loss
-
+    
                     dL_dout = -(y_batch / (out + 1e-9)) + ((1 - y_batch) / (1 - out + 1e-9))
                     dout_dz2 = out * (1 - out)
                     dL_dz2 = dL_dout * dout_dz2
-
+    
                     grad_W2 += dL_dz2 * a1
                     grad_b2 += dL_dz2
-
+    
                     dz2_da1 = self.W2
                     da1_dz1 = (a1 > 0).astype(float)
                     dL_dz1 = dL_dz2 * dz2_da1 * da1_dz1
-
+    
                     grad_W1 += np.outer(dL_dz1, p)
                     grad_b1 += dL_dz1
-
+    
                     dL_dp = dL_dz1 @ self.W1
                     grad_p = grad_quantum_forward(self.thetas, x_batch)
-                    grad_thetas += dL_dp[:, None] * grad_p
-
+                    grad_thetas += np.tensordot(dL_dp, grad_p, axes=(0, 0))
+    
                 grad_W1 += self.reg * self.W1
                 grad_W2 += self.reg * self.W2
                 grad_thetas += self.reg * self.thetas
-
+    
                 self.W1 -= self._adam_update('W1', grad_W1 / len(batch_indices))
                 self.b1 -= self._adam_update('b1', grad_b1 / len(batch_indices))
                 self.W2 -= self._adam_update('W2', grad_W2 / len(batch_indices))
                 self.b2 -= self._adam_update('b2', grad_b2 / len(batch_indices))
                 self.thetas -= self.lr * (grad_thetas / len(batch_indices))
-
+    
             avg_loss = total_loss / len(X)
             print(f"Epoch {epoch+1}/{self.epochs} - Loss: {avg_loss:.4f}")
-
+    
             if avg_loss + self.tol < best_val_loss:
                 best_val_loss = avg_loss
                 patience_counter = 0
