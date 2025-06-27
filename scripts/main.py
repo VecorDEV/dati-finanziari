@@ -126,13 +126,14 @@ class QuantumSimModel:
                 qml.RY(thetas[i, j], wires=i)
         for i in range(self.n - 1):
             qml.CNOT(wires=[i, i+1])
-        return qml.probs(wires=range(self.n))
+        
+        return qml.state()
 
     def _simulate(self, x, thetas):
         qnode = qml.QNode(self.circuit, self.dev, interface='autograd')
-        probs = qnode(x, thetas)
-        index = 2 ** self.n - 1  # Index of |11...1>
-        return probs[index]
+        state = qnode(x, thetas)           # vettore di ampiezze, lunghezza 2**n
+        prob_11 = np.abs(state[-1]) ** 2   # probabilità dello stato |11...1>
+        return prob_11
 
     def _forward(self, p):
         z1 = self.W1 @ p + self.b1
