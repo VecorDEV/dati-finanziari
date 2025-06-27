@@ -56,30 +56,13 @@ def fetch_and_prepare_data_all_days(symbol):
     features_df.dropna(inplace=True)
     return features_df  # ora restituiamo direttamente il DataFrame
 
-if __name__ == "__main__":
-    symbol = "AAPL"
-    features_df = fetch_and_prepare_data_all_days(symbol)
-
-    # 1) Stampare TUTTE le liste di feature:
-    # Ogni riga del DF .values.tolist() è una lista di 10 valori 0/1
-    all_features = features_df.values.tolist()
-    print(all_features)  
-
-    # 2) (Opzionale) Esportare in CSV per analisi esterna:
-    with open('features_per_day.csv', 'w', newline='') as f:
-        writer = csv.writer(f)
-        # Intestazione: date + f1..f10
-        writer.writerow(['Date'] + [f'f{i}' for i in range(1, 11)])
-        for date, row in zip(features_df.index.strftime('%Y-%m-%d'), all_features):
-            writer.writerow([date] + row)
-    print("✓ Esportato in features_per_day.csv")
 
 
 
 
 
 
-'''import numpy as np
+import numpy as np
 from typing import List
 import pennylane as qml
 
@@ -260,4 +243,43 @@ class QuantumSimModel:
         return out
 
     def predict(self, data: List[float]) -> int:
-        return int(self.predict_proba(data) >= 0.5)'''
+        return int(self.predict_proba(data) >= 0.5)
+
+
+
+        
+
+
+if __name__ == "__main__":
+    symbol = "AAPL"
+    features_df = fetch_and_prepare_data_all_days(symbol)
+
+    x_vec = features_df.values.tolist()  # Ogni giorno ha 10 feature binarie
+    x_vec = np.array(x_vec)
+
+    window_size = 3
+    n_features_per_day = x_vec.shape[1]
+
+    X = []
+    y = []
+
+    # Loop fino a len(x_vec) - 1 per usare x_vec[i + 1][0] come etichetta
+    for i in range(window_size, len(x_vec) - 1):
+        window = x_vec[i - window_size:i]        # shape (3, 10)
+        flattened = window.flatten()             # shape (30,)
+        X.append(flattened)
+        y.append(x_vec[i][0])  # oppure: x_vec[i + 1][0] per "vero" giorno successivo
+
+    model = QuantumSimModel(n_features=window_size * n_features_per_day, window=window_size)
+    model.fit(X, y)
+
+    # Previsione per il giorno successivo all'ultima finestra
+    last_days = x_vec[-window_size:]             # ultimi 3 giorni
+    x_input = last_days.flatten().tolist()       # shape (30,)
+    prediction = model.predict(x_input)
+    proba = model.predict_proba(x_input)
+
+    print(f"Probabilità rialzo: {proba:.3f}")
+    print("Previsione:", "Rialzo" if prediction == 1 else "Ribasso")
+
+
