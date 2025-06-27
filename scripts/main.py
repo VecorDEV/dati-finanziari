@@ -161,9 +161,6 @@ class QuantumSimModel:
     def fit(self, X, y):
         X = np.array(X)
         y = np.array(y)
-        for i in range(self.window, len(data)):
-            X.append(data[i-self.window:i])
-            y.append(labels[i])
 
         best_val_loss = float('inf')
         patience_counter = 0
