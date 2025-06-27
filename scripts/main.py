@@ -127,9 +127,8 @@ class QuantumSimModel:
         for i in range(self.n - 1):
             qml.CNOT(wires=[i, i+1])
     
-        # Corretta media delle misure
-        expectations = [qml.expval(qml.PauliZ(i)) for i in range(self.n)]
-        return sum(expectations) / len(expectations)
+        # Usa qml.math.mean, compatibile con autograd
+        return qml.math.mean([qml.expval(qml.PauliZ(i)) for i in range(self.n)])
 
     def _simulate(self, x, thetas):
         qnode = qml.QNode(self.circuit, self.dev, interface='autograd')
