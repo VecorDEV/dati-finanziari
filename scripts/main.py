@@ -254,19 +254,22 @@ if __name__ == "__main__":
     symbol = "AAPL"
     features_df = fetch_and_prepare_data_all_days(symbol)
 
-    x_vec = features_df.values.tolist()  # Ogni giorno ha 10 feature binarie
+    # --- FILTRA SOLO 5 FEATURE ---
+    features_df = features_df[['f1', 'f2', 'f4', 'f5', 'f10']]
+
+    x_vec = features_df.values.tolist()  # Ogni giorno ha ora 5 feature binarie
     x_vec = np.array(x_vec)
 
     window_size = 3
-    n_features_per_day = x_vec.shape[1]
+    n_features_per_day = x_vec.shape[1]  # Ora è 5 invece di 10
 
     X = []
     y = []
 
     # Loop fino a len(x_vec) - 1 per usare x_vec[i + 1][0] come etichetta
     for i in range(window_size, len(x_vec) - 1):
-        window = x_vec[i - window_size:i]        # shape (3, 10)
-        flattened = window.flatten()             # shape (30,)
+        window = x_vec[i - window_size:i]        # shape (3, 5)
+        flattened = window.flatten()             # shape (15,)
         X.append(flattened)
         y.append(x_vec[i][0])  # oppure: x_vec[i + 1][0] per "vero" giorno successivo
 
@@ -275,7 +278,7 @@ if __name__ == "__main__":
 
     # Previsione per il giorno successivo all'ultima finestra
     last_days = x_vec[-window_size:]             # ultimi 3 giorni
-    x_input = last_days.flatten().tolist()       # shape (30,)
+    x_input = last_days.flatten().tolist()       # shape (15,)
     prediction = model.predict(x_input)
     proba = model.predict_proba(x_input)
 
