@@ -127,13 +127,11 @@ class QuantumSimModel:
         for i in range(self.n - 1):
             qml.CNOT(wires=[i, i+1])
         
-        return qml.state()
+        return qml.expval(qml.PauliZ(0))  # output scalare, va bene per la rete
 
     def _simulate(self, x, thetas):
         qnode = qml.QNode(self.circuit, self.dev, interface='autograd')
-        state = qnode(x, thetas)           # vettore di ampiezze, lunghezza 2**n
-        prob_11 = np.abs(state[-1]) ** 2   # probabilità dello stato |11...1>
-        return prob_11
+        return qnode(x, thetas)  # ritorna uno scalare
 
     def _forward(self, p):
         z1 = self.W1 @ p + self.b1
