@@ -132,8 +132,7 @@ class QuantumSimModel:
 
     def _simulate(self, x, thetas):
         qnode = qml.QNode(self.circuit, self.dev, interface='autograd')
-        expectations = qnode(x, thetas)  # vettore di float
-        return np.mean(expectations)     # output scalare
+        return qnode(x, thetas)  # restituisce un vettore
 
     def _forward(self, p):
         z1 = self.W1 @ p + self.b1
