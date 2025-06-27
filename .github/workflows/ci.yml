@@ -26,7 +26,6 @@ jobs:
         pip install pandas numpy requests
         pip install yfinance ta
         pip install pennylane
-        - name: Install dependencies
 
     - name: Run sentiment analysis script
       run: python scripts/main.py
