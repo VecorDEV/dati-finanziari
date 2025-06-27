@@ -125,14 +125,15 @@ class QuantumSimModel:
             for j in range(self.k):
                 qml.RY(thetas[i, j], wires=i)
         for i in range(self.n - 1):
-            qml.CNOT(wires=[i, i+1])
+            qml.CNOT(wires=[i, i + 1])
     
-        # Usa qml.math.mean, compatibile con autograd
-        return qml.math.mean([qml.expval(qml.PauliZ(i)) for i in range(self.n)])
+        # Ritorna lista di expectation values
+        return [qml.expval(qml.PauliZ(i)) for i in range(self.n)]
 
     def _simulate(self, x, thetas):
         qnode = qml.QNode(self.circuit, self.dev, interface='autograd')
-        return qnode(x, thetas)  # 👈 Restituisce float
+        expectations = qnode(x, thetas)  # vettore di float
+        return np.mean(expectations)     # output scalare
 
     def _forward(self, p):
         z1 = self.W1 @ p + self.b1
