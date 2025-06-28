@@ -95,19 +95,15 @@ class QuantumSimModel:
         self.patience = patience
         self.tol = tol
 
-        # Quantum device (puoi sostituire con "lightning.qubit" se disponibile)
         self.dev = qml.device("default.qubit", wires=self.n)
 
-        # Parametri quantistici
         self.thetas = np.random.uniform(0, 2*np.pi, (self.n, self.k))
 
-        # Parametri MLP
         self.W1 = np.random.randn(hidden_size, self.n) * 0.1
         self.b1 = np.zeros(hidden_size)
         self.W2 = np.random.randn(hidden_size) * 0.1
         self.b2 = 0.0
 
-        # Adam optimizer
         self.m = {k: 0 for k in ['W1', 'b1', 'W2', 'b2']}
         self.v = {k: 0 for k in ['W1', 'b1', 'W2', 'b2']}
         self.beta1 = 0.9
@@ -115,30 +111,23 @@ class QuantumSimModel:
         self.epsilon = 1e-8
         self.iteration = 0
 
-        # Costruzione del QNode una volta sola
-        self.qnode = qml.QNode(self._circuit, self.dev, interface='autograd')
-
-        # Funzione differenziabile rispetto a thetas
-        self._quantum_forward = lambda thetas, x: np.array(self.qnode(x, thetas))
-        self.grad_quantum_forward = qml.jacobian(self._quantum_forward, argnum=0)
+        # Rimosso self.qnode dal costruttore per evitare errore
 
     def circuit(self, x, thetas):
-        # Encode classical inputs via RY rotations
         for i, val in enumerate(x):
             qml.RY(encode_qubit(val), wires=i)
-        
-        # Apply parametrized quantum layers with entanglement
-        for j in range(self.k):  # depth / number of layers
+
+        for j in range(self.k):
             for i in range(self.n):
                 qml.RY(thetas[i, j], wires=i)
             for i in range(self.n - 1):
                 qml.CNOT(wires=[i, i + 1])
-        
-        # Return expectation values
+
         return [qml.expval(qml.PauliZ(i)) for i in range(self.n)]
 
     def _simulate(self, x, thetas):
-        return self.qnode(x, thetas)
+        qnode = qml.QNode(self.circuit, self.dev, interface='autograd')
+        return qnode(x, thetas)
 
     def _forward(self, p):
         z1 = self.W1 @ p + self.b1
@@ -206,15 +195,13 @@ class QuantumSimModel:
                     grad_b1 += dL_dz1
 
                     dL_dp = dL_dz1 @ self.W1
-                    grad_p = self.grad_quantum_forward(self.thetas, x_batch)
+                    grad_p = qml.jacobian(lambda t, x: qml.QNode(self.circuit, self.dev, interface='autograd')(x, t), argnum=0)(self.thetas, x_batch)
                     grad_thetas += np.tensordot(dL_dp, grad_p, axes=(0, 0))
 
-                # Regularizzazione
                 grad_W1 += self.reg * self.W1
                 grad_W2 += self.reg * self.W2
                 grad_thetas += self.reg * self.thetas
 
-                # Aggiornamento parametri
                 self.W1 -= self._adam_update('W1', grad_W1 / len(batch_indices))
                 self.b1 -= self._adam_update('b1', grad_b1 / len(batch_indices))
                 self.W2 -= self._adam_update('W2', grad_W2 / len(batch_indices))
