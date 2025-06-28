@@ -14,7 +14,7 @@ import time
 
 def fetch_and_prepare_data_all_days(symbol):
     symbol = symbol.upper()
-    data = yf.download(symbol, period="max", interval="1d", auto_adjust=False)
+    data = yf.download(symbol, period="5y", interval="1d", auto_adjust=False)
     if data.empty:
         raise ValueError(f"Nessun dato disponibile per {symbol}.")
     data.dropna(inplace=True)
@@ -89,7 +89,7 @@ class QuantumSimModel:
         lr=0.01,
         reg=0.001,
         batch_size=16,
-        epochs=50,
+        epochs=25,
         patience=5,
         tol=1e-3,
         n_rotations=1,
