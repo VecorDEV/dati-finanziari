@@ -240,7 +240,7 @@ class QuantumSimModel:
 # ────────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
-    symbol = "AAPL"
+    symbol = "OIL"
     df = fetch_and_prepare_data_all_days(symbol)
 
     # Prendo solo 5 feature
