@@ -164,12 +164,12 @@ class QuantumSimModel:
         best, wait = float("inf"), 0
         t0 = time.time()
 
-        for ep in range(1, self.epochs+1):
+        for ep in range(1, self.epochs + 1):
             idx = np.random.permutation(len(X))
             total_loss = 0.0
 
             for start in range(0, len(X), self.batch_size):
-                batch = idx[start:start+self.batch_size]
+                batch = idx[start:start + self.batch_size]
                 gW1 = np.zeros_like(self.W1)
                 gb1 = np.zeros_like(self.b1)
                 gW2 = np.zeros_like(self.W2)
@@ -178,40 +178,42 @@ class QuantumSimModel:
 
                 for i in batch:
                     xi, yi = X[i], y[i]
+                    # simulazione + forward
                     p = self._simulate(xi)
                     out, a1 = self._forward(p)
                     loss = self._loss(yi, out)
                     total_loss += loss
 
-                    # Grad MLP
+                    # gradiente MLP
                     dL_do = -(yi/(out+1e-9)) + ((1-yi)/(1-out+1e-9))
-                    d_out = out*(1-out)
-                    d2 = dL_do * d_out
+                    d_out = out * (1 - out)
+                    d2    = dL_do * d_out
 
                     gW2 += d2 * a1
                     gb2 += d2
-                    d1 = (self.W2 * d2) * (a1>0)
+                    d1 = (self.W2 * d2) * (a1 > 0)
                     gW1 += np.outer(d1, p)
                     gb1 += d1
 
-                    # Grad quantistico
-                    dL_dp = d1 @ self.W1
-                    grad_q = self.grad_qnode(xi, self.thetas)  # (layers, wires, param)
-                    # tensordot su primo asse dL_dp con primo asse grad_q
-                    gT += np.tensordot(dL_dp, grad_q, axes=(0, 1))
+                    # **gradiente quantistico corretto**
+                    dL_dp = d1 @ self.W1                         # shape (n,)
+                    grad_q = self.grad_qnode(xi, self.thetas)    # shape (n, layers, wires)
+                    # sommiamo lungo il primo asse di entrambi
+                    gT   += np.tensordot(dL_dp, grad_q, axes=([0], [0]))  # result shape (layers, wires)
 
-                # Regolarizzazione + update
-                gW1 += self.reg*self.W1
-                gW2 += self.reg*self.W2
-                gT  += self.reg*self.thetas
+                # regolarizzazione
+                gW1 += self.reg * self.W1
+                gW2 += self.reg * self.W2
+                gT  += self.reg * self.thetas
 
-                self.W1     -= self._adam_step("W1", gW1/len(batch))
-                self.b1     -= self._adam_step("b1", gb1/len(batch))
-                self.W2     -= self._adam_step("W2", gW2/len(batch))
-                self.b2     -= self._adam_step("b2", gb2/len(batch))
-                self.thetas -= self.lr*(gT/len(batch))
+                # aggiornamento parametri
+                self.W1     -= self._adam_step("W1", gW1 / len(batch))
+                self.b1     -= self._adam_step("b1", gb1 / len(batch))
+                self.W2     -= self._adam_step("W2", gW2 / len(batch))
+                self.b2     -= self._adam_step("b2", gb2 / len(batch))
+                self.thetas -= self.lr * (gT / len(batch))
 
-            avg = total_loss/len(X)
+            avg = total_loss / len(X)
             print(f"Epoch {ep}/{self.epochs} — Loss: {avg:.5f}")
 
             if avg + self.tol < best:
@@ -222,7 +224,7 @@ class QuantumSimModel:
                     print(f"Early stopping at epoch {ep}")
                     break
 
-        print(f"Training completed in {time.time()-t0:.1f}s")
+        print(f"Training completed in {time.time() - t0:.1f}s")
 
     def predict_proba(self, data):
         data = normalize(np.array(data))
