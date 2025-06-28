@@ -19,20 +19,19 @@ def fetch_and_prepare_data_all_days(symbol):
         raise ValueError(f"Nessun dato disponibile per {symbol}.")
     data.dropna(inplace=True)
 
-    # Aggiorna l'ultimo prezzo di chiusura
     info = yf.Ticker(symbol).info
     real_price = info.get("regularMarketPrice", None)
     if real_price is not None:
         data.at[data.index[-1], "Close"] = real_price
 
-    # Estraggo e "squeeze" per sicurezza in 1D
+    # squeeze per ottenere array 1D
     close  = data["Close"].squeeze()
     high   = data["High"].squeeze()
     low    = data["Low"].squeeze()
     open_  = data["Open"].squeeze()
     volume = data["Volume"].squeeze()
 
-    # Indicatori tecnici
+    # indicatori tecnici
     ema10     = EMAIndicator(close, window=10).ema_indicator().squeeze()
     rsi       = RSIIndicator(close).rsi().squeeze()
     macd_obj  = MACD(close)
@@ -47,7 +46,6 @@ def fetch_and_prepare_data_all_days(symbol):
     bb_up     = bb_obj.bollinger_hband().squeeze()
     bb_w      = bb_obj.bollinger_wband().squeeze()
 
-    # Medie usate per binarizzazione
     vol_mean = volume.mean()
     bbw_mean = bb_w.mean()
 
@@ -109,39 +107,35 @@ class QuantumSimModel:
         self.patience = patience
         self.tol = tol
 
-        # Backend più veloce
+        # Backend Lightning (C++), supporta parameter-shift analytic
         self.dev = qml.device("lightning.qubit", wires=self.n)
 
         # Parametri quantistici
         self.thetas = np.random.uniform(0, 2*np.pi, (self.n, self.k))
 
-        # Tester MLP classica
+        # Architettura MLP classica
         self.W1 = np.random.randn(hidden_size, self.n) * 0.1
         self.b1 = np.zeros(hidden_size)
         self.W2 = np.random.randn(hidden_size) * 0.1
         self.b2 = 0.0
 
-        # Stato per Adam
-        self.m = {n: 0 for n in ["W1","b1","W2","b2"]}
-        self.v = {n: 0 for n in ["W1","b1","W2","b2"]}
+        # Stato Adam
+        self.m = {name: 0 for name in ["W1","b1","W2","b2"]}
+        self.v = {name: 0 for name in ["W1","b1","W2","b2"]}
         self.beta1 = 0.9
         self.beta2 = 0.999
         self.epsilon = 1e-8
         self.iteration = 0
 
-        # QNode unico, backprop
-        self.qnode = qml.QNode(
-            self._circuit, self.dev,
-            interface="autograd",
-            diff_method="backprop"
-        )
-        self.grad_qnode = qml.grad(self.qnode, argnum=1)
+        # QNode e suo jacobian (parameter-shift di default)
+        self.qnode = qml.QNode(self._circuit, self.dev, interface="autograd")
+        self.grad_qnode = qml.jacobian(self.qnode, argnum=1)
 
     def _circuit(self, x, thetas):
         # Encoding
         for i, v in enumerate(x):
             qml.RY(encode_qubit(v), wires=i)
-        # Un solo layer parametrico
+        # Un layer parametrico
         for i in range(self.n):
             qml.RY(thetas[i, 0], wires=i)
         for i in range(self.n - 1):
@@ -178,8 +172,8 @@ class QuantumSimModel:
         X = normalize(np.array(X))
         y = np.array(y)
         best, wait = float("inf"), 0
-
         t0 = time.time()
+
         for epoch in range(1, self.epochs + 1):
             idx = np.random.permutation(len(X))
             total_loss = 0.0
@@ -194,15 +188,15 @@ class QuantumSimModel:
 
                 for i in batch:
                     xi, yi = X[i], y[i]
-                    # forward quantistico + classico
                     p = self._simulate(xi, self.thetas)
                     out, a1 = self._forward(p)
                     loss = self._loss(yi, out)
                     total_loss += loss
-                    # backward MLP
+
+                    # Gradiente MLP
                     dL_do = -(yi/(out+1e-9)) + ((1-yi)/(1-out+1e-9))
-                    d_out = out*(1-out)
-                    d2 = dL_do * d_out
+                    d_out = out * (1 - out)
+                    d2    = dL_do * d_out
 
                     gW2 += d2 * a1
                     gb2 += d2
@@ -211,21 +205,22 @@ class QuantumSimModel:
                     gW1 += np.outer(d1, p)
                     gb1 += d1
 
-                    # backward quantistico
+                    # Gradiente quantistico (parameter-shift)
                     dL_dp = d1 @ self.W1
                     grad_q = self.grad_qnode(xi, self.thetas)  # (n, n_rot)
-                    gT += np.tensordot(dL_dp, grad_q, axes=(0, 0))
+                    gT   += np.tensordot(dL_dp, grad_q, axes=(0, 0))
 
-                # reg + update
+                # Regolarizzazione
                 gW1 += self.reg * self.W1
                 gW2 += self.reg * self.W2
                 gT  += self.reg * self.thetas
 
-                self.W1   -= self._adam_step("W1", gW1/len(batch))
-                self.b1   -= self._adam_step("b1", gb1/len(batch))
-                self.W2   -= self._adam_step("W2", gW2/len(batch))
-                self.b2   -= self._adam_step("b2", gb2/len(batch))
-                self.thetas -= self.lr * (gT/len(batch))
+                # Aggiornamento parametri
+                self.W1   -= self._adam_step("W1", gW1 / len(batch))
+                self.b1   -= self._adam_step("b1", gb1 / len(batch))
+                self.W2   -= self._adam_step("W2", gW2 / len(batch))
+                self.b2   -= self._adam_step("b2", gb2 / len(batch))
+                self.thetas -= self.lr * (gT / len(batch))
 
             avg = total_loss / len(X)
             print(f"Epoch {epoch}/{self.epochs} — Loss: {avg:.5f}")
@@ -261,7 +256,6 @@ if __name__ == "__main__":
     # Seleziono 5 feature
     df = df[["f1","f2","f4","f5","f10"]]
 
-    # Costruisco le finestre
     x_all = df.values
     window = 3
     X, y = [], []
@@ -270,14 +264,12 @@ if __name__ == "__main__":
         X.append(win.flatten())
         y.append(int(x_all[i][0]))
 
-    # Alleno il modello
     model = QuantumSimModel(
         n_features=window * x_all.shape[1],
         window=window
     )
     model.fit(X, y)
 
-    # Previsione per il giorno successivo
     last = x_all[-window:]
     inp  = last.flatten()
     proba = model.predict_proba(inp)
