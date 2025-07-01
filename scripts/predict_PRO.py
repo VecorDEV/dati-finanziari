@@ -1662,9 +1662,9 @@ def get_sentiment_for_all_symbols(symbol_list):
             repo.create_file(file_path, f"Created probability for {symbol}", "\n".join(html_content))
 
         # Aggiungi le notizie e i sentimenti alla lista per il file `news.html` (solo le notizie degli ultimi 90 giorni)
-        for title, news_date in news_data["last_90_days"]:
-            title_sentiment = calculate_sentiment([(title, news_date)])  # Passa (titolo, data)
-            all_news_entries.append((symbol, title, title_sentiment))
+        for title, news_date, link in news_data["last_90_days"]:
+            title_sentiment = calculate_sentiment([(title, news_date)])  # Se la tua funzione ha bisogno della data
+            all_news_entries.append((symbol, title, title_sentiment, link))
 
     # CALCOLA MEDIA PONDERATA (fuori dal ciclo principale)
     w7 = 0.5
@@ -1756,13 +1756,16 @@ print("Classifica PRO aggiornata con successo!")
 
 
 
-# Creazione del file news.html con i titoli e il sentiment
+# Creazione del file news.html con i titoli, sentiment e link
 html_news = ["<html><head><title>Notizie e Sentiment</title></head><body>",
              "<h1>Notizie Finanziarie con Sentiment</h1>",
-             "<table border='1'><tr><th>Simbolo</th><th>Notizia</th><th>Sentiment</th></tr>"]
+             "<table border='1'><tr><th>Simbolo</th><th>Notizia</th><th>Sentiment</th><th>Link</th></tr>"]
 
-for symbol, title, sentiment in all_news_entries:
-    html_news.append(f"<tr><td>{symbol}</td><td>{title}</td><td>{sentiment:.2f}</td></tr>")
+for symbol, title, sentiment, url in all_news_entries:
+    html_news.append(
+        f"<tr><td>{symbol}</td><td>{title}</td><td>{sentiment:.2f}</td>"
+        f"<td><a href='{url}' target='_blank'>Leggi</a></td></tr>"
+    )
 
 html_news.append("</table></body></html>")
 
