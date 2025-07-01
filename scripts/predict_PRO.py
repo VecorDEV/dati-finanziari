@@ -1399,7 +1399,7 @@ def calculate_sentiment(news, decay_factor=0.03):    #Prima era 0.06
     total_weight = 0
     now = datetime.utcnow()
 
-    for title, date in news:
+    for title, date, link in news:
         days_old = (now - date).days  # Calcola l'età della notizia in giorni
         weight = math.exp(-decay_factor * days_old)  # Applica il decadimento esponenziale
 
