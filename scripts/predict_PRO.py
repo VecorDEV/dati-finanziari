@@ -248,7 +248,7 @@ def generate_query_variants(symbol):
 MAX_ARTICLES_PER_SYMBOL = 500  # Limite massimo per asset
 
 def get_stock_news(symbol):
-    """Recupera titoli e date delle notizie per un determinato simbolo, includendo varianti di nome."""
+    """Recupera titoli, date e link delle notizie per un determinato simbolo, includendo varianti di nome."""
     query_variants = generate_query_variants(symbol)
 
     base_url = "https://news.google.com/rss/search?q={}&hl=en-US&gl=US&ceid=US:en"
@@ -279,6 +279,9 @@ def get_stock_news(symbol):
 
             try:
                 title = entry.title.strip()
+                link = entry.link.strip()
+
+                # Evita titoli duplicati
                 if title.lower() in seen_titles:
                     continue
                 seen_titles.add(title.lower())
@@ -286,11 +289,11 @@ def get_stock_news(symbol):
                 news_date = datetime.strptime(entry.published, "%a, %d %b %Y %H:%M:%S %Z")
 
                 if news_date >= days_90:
-                    news_90_days.append((title, news_date))
+                    news_90_days.append((title, news_date, link))
                 if news_date >= days_30:
-                    news_30_days.append((title, news_date))
+                    news_30_days.append((title, news_date, link))
                 if news_date >= days_7:
-                    news_7_days.append((title, news_date))
+                    news_7_days.append((title, news_date, link))
 
                 total_articles += 1
 
