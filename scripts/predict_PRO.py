@@ -1765,7 +1765,59 @@ print("Classifica PRO aggiornata con successo!")
 
 
 
-# Creazione del file news.html con i titoli, sentiment e link
+
+# Creazione del file news.html con solo 5 notizie positive e 5 negative per simbolo
+html_news = ["<html><head><title>Notizie e Sentiment</title></head><body>",
+             "<h1>Notizie Finanziarie con Sentiment</h1>",
+             "<table border='1'><tr><th>Simbolo</th><th>Notizia</th><th>Sentiment</th><th>Link</th></tr>"]
+
+# Raggruppa le notizie per simbolo
+news_by_symbol = defaultdict(list)
+for symbol, title, sentiment, url in all_news_entries:
+    news_by_symbol[symbol].append((title, sentiment, url))
+
+# Per ogni simbolo, prendi le 5 notizie col sentiment più basso e le 5 col più alto
+for symbol, entries in news_by_symbol.items():
+    # Ordina per sentiment (dal più negativo al più positivo)
+    sorted_entries = sorted(entries, key=lambda x: x[1])
+
+    # Prendi le 5 peggiori e le 5 migliori
+    selected_entries = sorted_entries[:5] + sorted_entries[-5:]
+
+    # Rimuove eventuali duplicati (se ci sono meno di 10 notizie)
+    selected_entries = list(dict.fromkeys(selected_entries))
+
+    for title, sentiment, url in selected_entries:
+        html_news.append(
+            f"<tr><td>{symbol}</td><td>{title}</td><td>{sentiment:.2f}</td>"
+            f"<td><a href='{url}' target='_blank'>Leggi</a></td></tr>"
+        )
+
+html_news.append("</table></body></html>")
+
+try:
+    contents = repo.get_contents(news_path)
+    repo.update_file(contents.path, "Updated news sentiment", "\n".join(html_news), contents.sha)
+except GithubException:
+    repo.create_file(news_path, "Created news sentiment", "\n".join(html_news))
+
+print("News aggiornata con successo!")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''# Creazione del file news.html con i titoli, sentiment e link
 html_news = ["<html><head><title>Notizie e Sentiment</title></head><body>",
              "<h1>Notizie Finanziarie con Sentiment</h1>",
              "<table border='1'><tr><th>Simbolo</th><th>Notizia</th><th>Sentiment</th><th>Link</th></tr>"]
@@ -1784,4 +1836,4 @@ try:
 except GithubException:
     repo.create_file(news_path, "Created news sentiment", "\n".join(html_news))
 
-print("News aggiornata con successo!")
+print("News aggiornata con successo!")'''
