@@ -13,6 +13,7 @@ from ta.momentum import RSIIndicator, StochasticOscillator, WilliamsRIndicator
 from ta.trend import MACD, EMAIndicator, CCIIndicator
 from ta.volatility import BollingerBands
 from urllib.parse import quote_plus
+from collections import defaultdict
 
 
 # Carica il modello linguistico per l'inglese
