@@ -41,12 +41,12 @@ symbol_list = ["AAPL", "MSFT", "GOOGL", "AMZN", "META", "TSLA", "V", "JPM", "JNJ
         "ITW", "FDX", "PNC", "SO", "APD", "ADI", "ICE", "ZTS", "TJX", "CL",
         "MMC", "EL", "GM", "CME", "EW", "AON", "D", "PSA", "AEP", "TROW", 
         "LNTH", "HE", "BTDR", "NAAS", "SCHL", "TGT", "SYK", "BKNG", "DUK", "USB",
-        '''"ARM", "BABA", "BIDU", "COIN", "DDOG", "HTZ", "JD", "LCID", "LYFT", "NET", "PDD", #NEW
-        "PLTR", "RIVN", "ROKU", "SHOP", "SNOW", "SQ", "TWLO", "UBER", "ZI", "ZM", "DUOL",'''    #NEW
+        "ARM", "BABA", "BIDU", "COIN", "DDOG", "HTZ", "JD", "LCID", "LYFT", "NET", "PDD", #NEW
+        "PLTR", "RIVN", "ROKU", "SHOP", "SNOW", "SQ", "TWLO", "UBER", "ZI", "ZM", "DUOL",    #NEW
         "EURUSD", "USDJPY", "GBPUSD", "AUDUSD", "USDCAD", "USDCHF", "NZDUSD", "EURGBP", "EURJPY", "GBPJPY",
         "AUDJPY", "CADJPY", "CHFJPY", "EURAUD", "EURNZD", "EURCAD", "EURCHF", "GBPCHF", "AUDCAD",
-        '''"^GSPC", "^DJI", "^IXIC", "^RUT", "^VIX", "^FTSE", "^GDAXI", "^FCHI", "^STOXX50E", "^IBEX", #NEW
-        "^N225", "^HSI", "^SSEC", "^KS11", "^AXJO", "^BVSP", "^MXX", "^TA125.TA", "^GSPTSE",'''        #NEW
+        "^GSPC", "^DJI", "^IXIC", "^RUT", "^VIX", "^FTSE", "^GDAXI", "^FCHI", "^STOXX50E", "^IBEX", #NEW
+        "^N225", "^HSI", "^SSEC", "^KS11", "^AXJO", "^BVSP", "^MXX", "^TA125.TA", "^GSPTSE",      #NEW
         "BTCUSD", "ETHUSD", "LTCUSD", "XRPUSD", "BCHUSD", "EOSUSD", "XLMUSD", "ADAUSD", "TRXUSD", "NEOUSD",
         "DASHUSD", "XMRUSD", "ETCUSD", "ZECUSD", "BNBUSD", "DOGEUSD", "USDTUSD", "LINKUSD", "ATOMUSD", "XTZUSD",
         "COCOA", "XAUUSD", "XAGUSD", "OIL"]  # Puoi aggiungere altri simboli
@@ -62,8 +62,8 @@ symbol_list_for_yfinance = [
     "ITW", "FDX", "PNC", "SO", "APD", "ADI", "ICE", "ZTS", "TJX", "CL",
     "MMC", "EL", "GM", "CME", "EW", "AON", "D", "PSA", "AEP", "TROW", 
     "LNTH", "HE", "BTDR", "NAAS", "SCHL", "TGT", "SYK", "BKNG", "DUK", "USB",
-    '''"BABA", "HTZ", "UBER", "LYFT", "PLTR", "SNOW", "ROKU", "TWLO", "SQ", "COIN",
-    "RIVN", "LCID", "DDOG", "NET", "SHOP", "ZI", "ZM", "BIDU", "PDD", "JD", "ARM", "DUOL",'''
+    "BABA", "HTZ", "UBER", "LYFT", "PLTR", "SNOW", "ROKU", "TWLO", "SQ", "COIN",
+    "RIVN", "LCID", "DDOG", "NET", "SHOP", "ZI", "ZM", "BIDU", "PDD", "JD", "ARM", "DUOL",
 
     # Forex (with =X)
     "EURUSD=X", "USDJPY=X", "GBPUSD=X", "AUDUSD=X", "USDCAD=X", "USDCHF=X", "NZDUSD=X", "EURGBP=X",
@@ -71,10 +71,10 @@ symbol_list_for_yfinance = [
     "EURCHF=X", "GBPCHF=X", "AUDCAD=X",
 
     # Global Indices
-    '''"^GSPC", "^DJI", "^IXIC", "^RUT", "^VIX",
+    "^GSPC", "^DJI", "^IXIC", "^RUT", "^VIX",
     "^FTSE", "^GDAXI", "^FCHI", "^STOXX50E", "^IBEX",
     "^N225", "^HSI", "^SSEC", "^KS11", "^AXJO",
-    "^BVSP", "^MXX", "^TA125.TA", "^GSPTSE",'''
+    "^BVSP", "^MXX", "^TA125.TA", "^GSPTSE",
 
     # Crypto (with -USD)
     "BTC-USD", "ETH-USD", "LTC-USD", "XRP-USD", "BCH-USD", "EOS-USD", "XLM-USD", "ADA-USD",
@@ -180,7 +180,7 @@ symbol_name_map = {
     "BKNG": ["Booking Holdings", "Booking.com"],
     "DUK": ["Duke Energy"],
     "USB": ["U.S. Bancorp"],
-    '''"BABA": ["Alibaba", "Alibaba Group", "阿里巴巴"],
+    "BABA": ["Alibaba", "Alibaba Group", "阿里巴巴"],
     "HTZ": ["Hertz", "Hertz Global", "Hertz Global Holdings"],
     "UBER": ["Uber", "Uber Technologies", "Uber Technologies Inc."],
     "LYFT": ["Lyft", "Lyft Inc."],
@@ -201,7 +201,7 @@ symbol_name_map = {
     "PDD": ["Pinduoduo", "PDD Holdings", "Pinduoduo Inc.", "拼多多"],
     "JD": ["JD.com", "京东"],
     "ARM": ["Arm", "Arm Holdings", "Arm Holdings plc"],
-    "DUOL": ["Duolingo", "Duolingo Inc.", "DUOL"],'''
+    "DUOL": ["Duolingo", "Duolingo Inc.", "DUOL"],
 
     # Forex
     "EURUSD": ["EUR/USD", "Euro Dollar", "Euro vs USD"],
@@ -225,7 +225,7 @@ symbol_name_map = {
     "AUDCAD": ["AUD/CAD", "Aussie vs Canadian Dollar"],
 
     #Index
-    '''"^GSPC": ["S&P 500", "Standard & Poor's 500", "S&P", "SPX", "US500"],
+    "^GSPC": ["S&P 500", "Standard & Poor's 500", "S&P", "SPX", "US500"],
     "^DJI": ["Dow Jones", "Dow Jones Industrial Average", "DJIA", "US30"],
     "^IXIC": ["Nasdaq", "NASDAQ Composite", "IXIC", "US100"],
     "^RUT": ["Russell 2000", "Russell", "RUT", "US2000"],
@@ -246,7 +246,7 @@ symbol_name_map = {
     "^BVSP": ["Bovespa", "Ibovespa", "Brasil Index", "Brazil 50"],
     "^MXX": ["IPC Mexico", "Mexican Bolsa", "Mexico Index"],
     "^TA125.TA": ["TA-125", "Tel Aviv 125", "Israel Index"],
-    "^GSPTSE": ["S&P/TSX Composite", "TSX", "Canada Index", "Toronto Stock Exchange"],'''
+    "^GSPTSE": ["S&P/TSX Composite", "TSX", "Canada Index", "Toronto Stock Exchange"],
 
     # Crypto
     "BTCUSD": ["Bitcoin", "BTC"],
