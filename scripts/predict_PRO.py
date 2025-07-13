@@ -30,6 +30,13 @@ news_path = "results/news.html"
 github = Github(GITHUB_TOKEN)
 repo = github.get_repo(REPO_NAME)
 
+'''
+"ARM", "BABA", "BIDU", "COIN", "DDOG", "HTZ", "JD", "LCID", "LYFT", "NET", "PDD", #NEW
+        "PLTR", "RIVN", "ROKU", "SHOP", "SNOW", "SQ", "TWLO", "UBER", "ZI", "ZM", "DUOL",    #NEW
+
+        "^GSPC", "^DJI", "^IXIC", "^RUT", "^VIX", "^FTSE", "^GDAXI", "^FCHI", "^STOXX50E", "^IBEX", #NEW
+        "^N225", "^HSI", "^SSEC", "^KS11", "^AXJO", "^BVSP", "^MXX", "^TA125.TA", "^GSPTSE",      #NEW
+        '''
 
 # Lista dei simboli azionari da cercare
 symbol_list = ["AAPL", "MSFT", "GOOGL", "AMZN", "META", "TSLA", "V", "JPM", "JNJ", "WMT",
@@ -41,16 +48,23 @@ symbol_list = ["AAPL", "MSFT", "GOOGL", "AMZN", "META", "TSLA", "V", "JPM", "JNJ
         "ITW", "FDX", "PNC", "SO", "APD", "ADI", "ICE", "ZTS", "TJX", "CL",
         "MMC", "EL", "GM", "CME", "EW", "AON", "D", "PSA", "AEP", "TROW", 
         "LNTH", "HE", "BTDR", "NAAS", "SCHL", "TGT", "SYK", "BKNG", "DUK", "USB",
-        "ARM", "BABA", "BIDU", "COIN", "DDOG", "HTZ", "JD", "LCID", "LYFT", "NET", "PDD", #NEW
-        "PLTR", "RIVN", "ROKU", "SHOP", "SNOW", "SQ", "TWLO", "UBER", "ZI", "ZM", "DUOL",    #NEW
+        
         "EURUSD", "USDJPY", "GBPUSD", "AUDUSD", "USDCAD", "USDCHF", "NZDUSD", "EURGBP", "EURJPY", "GBPJPY",
         "AUDJPY", "CADJPY", "CHFJPY", "EURAUD", "EURNZD", "EURCAD", "EURCHF", "GBPCHF", "AUDCAD",
-        "^GSPC", "^DJI", "^IXIC", "^RUT", "^VIX", "^FTSE", "^GDAXI", "^FCHI", "^STOXX50E", "^IBEX", #NEW
-        "^N225", "^HSI", "^SSEC", "^KS11", "^AXJO", "^BVSP", "^MXX", "^TA125.TA", "^GSPTSE",      #NEW
+        
         "BTCUSD", "ETHUSD", "LTCUSD", "XRPUSD", "BCHUSD", "EOSUSD", "XLMUSD", "ADAUSD", "TRXUSD", "NEOUSD",
         "DASHUSD", "XMRUSD", "ETCUSD", "ZECUSD", "BNBUSD", "DOGEUSD", "USDTUSD", "LINKUSD", "ATOMUSD", "XTZUSD",
         "COCOA", "XAUUSD", "XAGUSD", "OIL"]  # Puoi aggiungere altri simboli
 
+'''
+"BABA", "HTZ", "UBER", "LYFT", "PLTR", "SNOW", "ROKU", "TWLO", "SQ", "COIN",
+    "RIVN", "LCID", "DDOG", "NET", "SHOP", "ZI", "ZM", "BIDU", "PDD", "JD", "ARM", "DUOL",
+
+    "^GSPC", "^DJI", "^IXIC", "^RUT", "^VIX",
+    "^FTSE", "^GDAXI", "^FCHI", "^STOXX50E", "^IBEX",
+    "^N225", "^HSI", "^SSEC", "^KS11", "^AXJO",
+    "^BVSP", "^MXX", "^TA125.TA", "^GSPTSE",
+    '''
 symbol_list_for_yfinance = [
     # Stocks (unchanged)
     "AAPL", "MSFT", "GOOGL", "AMZN", "META", "TSLA", "V", "JPM", "JNJ", "WMT",
@@ -62,8 +76,7 @@ symbol_list_for_yfinance = [
     "ITW", "FDX", "PNC", "SO", "APD", "ADI", "ICE", "ZTS", "TJX", "CL",
     "MMC", "EL", "GM", "CME", "EW", "AON", "D", "PSA", "AEP", "TROW", 
     "LNTH", "HE", "BTDR", "NAAS", "SCHL", "TGT", "SYK", "BKNG", "DUK", "USB",
-    "BABA", "HTZ", "UBER", "LYFT", "PLTR", "SNOW", "ROKU", "TWLO", "SQ", "COIN",
-    "RIVN", "LCID", "DDOG", "NET", "SHOP", "ZI", "ZM", "BIDU", "PDD", "JD", "ARM", "DUOL",
+    
 
     # Forex (with =X)
     "EURUSD=X", "USDJPY=X", "GBPUSD=X", "AUDUSD=X", "USDCAD=X", "USDCHF=X", "NZDUSD=X", "EURGBP=X",
@@ -71,10 +84,7 @@ symbol_list_for_yfinance = [
     "EURCHF=X", "GBPCHF=X", "AUDCAD=X",
 
     # Global Indices
-    "^GSPC", "^DJI", "^IXIC", "^RUT", "^VIX",
-    "^FTSE", "^GDAXI", "^FCHI", "^STOXX50E", "^IBEX",
-    "^N225", "^HSI", "^SSEC", "^KS11", "^AXJO",
-    "^BVSP", "^MXX", "^TA125.TA", "^GSPTSE",
+    
 
     # Crypto (with -USD)
     "BTC-USD", "ETH-USD", "LTC-USD", "XRP-USD", "BCH-USD", "EOS-USD", "XLM-USD", "ADA-USD",
