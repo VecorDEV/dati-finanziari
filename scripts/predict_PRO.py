@@ -257,7 +257,7 @@ symbol_name_map = {
     "HKG50": ["Hang Seng", "Hong Kong Hang Seng", "Hang Seng Index"],
     "CHN50": ["Shanghai Composite", "SSEC", "China Shanghai", "Shanghai Composite Index"],
     "IND50": ["Nifty 50", "Nifty", "India Nifty", "Nifty 50 Index"],
-    "KOR200": ["KOSPI", "KOSPI 200", "Korea KOSPI", "KOSPI Index"]
+    "KOR200": ["KOSPI", "KOSPI 200", "Korea KOSPI", "KOSPI Index"],
     
     # Crypto
     "BTCUSD": ["Bitcoin", "BTC"],
