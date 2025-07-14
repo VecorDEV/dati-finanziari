@@ -54,7 +54,10 @@ symbol_list = ["AAPL", "MSFT", "GOOGL", "AMZN", "META", "TSLA", "V", "JPM", "JNJ
         
         "EURUSD", "USDJPY", "GBPUSD", "AUDUSD", "USDCAD", "USDCHF", "NZDUSD", "EURGBP", "EURJPY", "GBPJPY",
         "AUDJPY", "CADJPY", "CHFJPY", "EURAUD", "EURNZD", "EURCAD", "EURCHF", "GBPCHF", "AUDCAD",
-        
+
+        "SPX500", "DJ30", "NAS100", "NASCOMP", "RUS2000", "VIX", "EU50", "GER40", "UK100",
+        "FRA40", "SWI20", "SPA35", "NETH25", "JPN225", "HKG50", "CHN50", "IND50", "KOR200",
+               
         "BTCUSD", "ETHUSD", "LTCUSD", "XRPUSD", "BCHUSD", "EOSUSD", "XLMUSD", "ADAUSD", "TRXUSD", "NEOUSD",
         "DASHUSD", "XMRUSD", "ETCUSD", "ZECUSD", "BNBUSD", "DOGEUSD", "USDTUSD", "LINKUSD", "ATOMUSD", "XTZUSD",
         "COCOA", "XAUUSD", "XAGUSD", "OIL"]  # Puoi aggiungere altri simboli
@@ -85,7 +88,8 @@ symbol_list_for_yfinance = [
     "EURCHF=X", "GBPCHF=X", "AUDCAD=X",
 
     # Global Indices
-    
+    "^GSPC", "^DJI", "^NDX", "^IXIC", "^RUT", "^VIX", "FEZ", "^GDAXI", "^FTSE",
+    "^FCHI", "^SSMI", "IBEX.MC", "^AEX", "^N225", "^HSI", "000001.SS", "^NSEI", "^KS11",
 
     # Crypto (with -USD)
     "BTC-USD", "ETH-USD", "LTC-USD", "XRP-USD", "BCH-USD", "EOS-USD", "XLM-USD", "ADA-USD",
