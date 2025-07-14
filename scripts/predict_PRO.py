@@ -36,6 +36,9 @@ repo = github.get_repo(REPO_NAME)
 
         "^GSPC", "^DJI", "^IXIC", "^RUT", "^VIX", "^FTSE", "^GDAXI", "^FCHI", "^STOXX50E", "^IBEX", #NEW
         "^N225", "^HSI", "^SSEC", "^KS11", "^AXJO", "^BVSP", "^MXX", "^TA125.TA", "^GSPTSE",      #NEW
+
+"SPX500", "DJ30", "NAS100", "NASCOMP", "RUS2000", "VIX", "EU50", "GER40", "UK100",
+"FRA40", "SWI20", "SPA35", "NETH25", "JPN225", "HKG50", "CHN50", "IND50", "KOR200",
         '''
 
 # Lista dei simboli azionari da cercare
@@ -60,10 +63,8 @@ symbol_list = ["AAPL", "MSFT", "GOOGL", "AMZN", "META", "TSLA", "V", "JPM", "JNJ
 "BABA", "HTZ", "UBER", "LYFT", "PLTR", "SNOW", "ROKU", "TWLO", "SQ", "COIN",
     "RIVN", "LCID", "DDOG", "NET", "SHOP", "ZI", "ZM", "BIDU", "PDD", "JD", "ARM", "DUOL",
 
-    "^GSPC", "^DJI", "^IXIC", "^RUT", "^VIX",
-    "^FTSE", "^GDAXI", "^FCHI", "^STOXX50E", "^IBEX",
-    "^N225", "^HSI", "^SSEC", "^KS11", "^AXJO",
-    "^BVSP", "^MXX", "^TA125.TA", "^GSPTSE",
+"^GSPC", "^DJI", "^NDX", "^IXIC", "^RUT", "^VIX", "FEZ", "^GDAXI", "^FTSE",
+"^FCHI", "^SSMI", "IBEX.MC", "^AEX", "^N225", "^HSI", "000001.SS", "^NSEI", "^KS11",
     '''
 symbol_list_for_yfinance = [
     # Stocks (unchanged)
@@ -235,29 +236,25 @@ symbol_name_map = {
     "AUDCAD": ["AUD/CAD", "Aussie vs Canadian Dollar"],
 
     #Index
-    "^GSPC": ["S&P 500", "Standard & Poor's 500", "S&P", "SPX", "US500"],
-    "^DJI": ["Dow Jones", "Dow Jones Industrial Average", "DJIA", "US30"],
-    "^IXIC": ["Nasdaq", "NASDAQ Composite", "IXIC", "US100"],
-    "^RUT": ["Russell 2000", "Russell", "RUT", "US2000"],
-    "^VIX": ["VIX", "CBOE Volatility Index", "Fear Index"],
-
-    "^FTSE": ["FTSE 100", "FTSE", "UK100", "Financial Times Stock Exchange"],
-    "^GDAXI": ["DAX", "Deutscher Aktienindex", "Germany 40", "GER40"],
-    "^FCHI": ["CAC 40", "France 40", "FRA40"],
-    "^STOXX50E": ["Euro Stoxx 50", "EU50", "Eurozone 50"],
-    "^IBEX": ["IBEX 35", "Spain 35", "ESP35"],
-
-    "^N225": ["Nikkei 225", "Nikkei", "Japan 225", "JP225"],
-    "^HSI": ["Hang Seng", "Hang Seng Index", "Hong Kong Index", "HK50"],
-    "^SSEC": ["Shanghai Composite", "SSE Composite", "SSEC", "China Index"],
-    "^KS11": ["KOSPI", "Korea Composite Stock Price Index", "South Korea Index"],
-    "^AXJO": ["ASX 200", "Australia 200", "AU200"],
-
-    "^BVSP": ["Bovespa", "Ibovespa", "Brasil Index", "Brazil 50"],
-    "^MXX": ["IPC Mexico", "Mexican Bolsa", "Mexico Index"],
-    "^TA125.TA": ["TA-125", "Tel Aviv 125", "Israel Index"],
-    "^GSPTSE": ["S&P/TSX Composite", "TSX", "Canada Index", "Toronto Stock Exchange"],
-
+    "SPX500": ["S&P 500", "SPX", "S&P", "S&P 500 Index", "Standard & Poor's 500"],
+    "DJ30": ["Dow Jones", "DJIA", "Dow Jones Industrial", "Dow 30", "Dow Jones Industrial Average"],
+    "NAS100": ["Nasdaq 100", "NDX", "Nasdaq100", "NASDAQ 100 Index"],
+    "NASCOMP": ["Nasdaq Composite", "IXIC", "Nasdaq", "Nasdaq Composite Index"],
+    "RUS2000": ["Russell 2000", "RUT", "Russell Small Cap", "Russell 2K"],
+    "VIX": ["VIX", "Volatility Index", "Fear Gauge", "CBOE Volatility Index"],
+    "EU50": ["Euro Stoxx 50", "Euro Stoxx", "STOXX50", "Euro Stoxx 50 Index"],
+    "GER40": ["DAX", "DAX 40", "German DAX", "Frankfurt DAX"],
+    "UK100": ["FTSE 100", "FTSE", "UK FTSE 100", "FTSE Index"],
+    "FRA40": ["CAC 40", "CAC", "France CAC 40", "CAC40 Index"],
+    "SWI20": ["Swiss Market Index", "SMI", "Swiss SMI", "Swiss Market"],
+    "SPA35": ["IBEX 35", "IBEX", "Spanish IBEX", "IBEX 35 Index"],
+    "NETH25": ["AEX", "Dutch AEX", "Amsterdam Exchange", "AEX Index"],
+    "JPN225": ["Nikkei 225", "Nikkei", "Japan Nikkei", "Nikkei Index"],
+    "HKG50": ["Hang Seng", "Hong Kong Hang Seng", "Hang Seng Index"],
+    "CHN50": ["Shanghai Composite", "SSEC", "China Shanghai", "Shanghai Composite Index"],
+    "IND50": ["Nifty 50", "Nifty", "India Nifty", "Nifty 50 Index"],
+    "KOR200": ["KOSPI", "KOSPI 200", "Korea KOSPI", "KOSPI Index"]
+    
     # Crypto
     "BTCUSD": ["Bitcoin", "BTC"],
     "ETHUSD": ["Ethereum", "ETH"],
