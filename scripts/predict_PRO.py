@@ -1581,28 +1581,30 @@ def get_sentiment_for_all_symbols(symbol_list):
         # Prepara i dati relativi agli indicatori
         tabella_indicatori = None  # Inizializza la variabile tabella_indicatori
         try:
-            # 1) scarico solo gli ultimi 10 giorni, come nel tuo script minimalista
-            data = yf.download(str(adjusted_symbol).strip().upper(), period="3mo", auto_adjust=False, progress=False)
+            # 1. Scarica dati per un solo ticker → niente MultiIndex
+            ticker = str(adjusted_symbol).strip().upper()
+            data = yf.download(ticker, period="3mo", auto_adjust=False, progress=False)
+            
+            # 2. Check: dataset vuoto?
             if data.empty:
                 raise ValueError(f"Nessun dato disponibile per {symbol} ({adjusted_symbol})")
+            
+            # 3. (Facoltativo) Normalizza eventuale MultiIndex legacy
             if isinstance(data.columns, pd.MultiIndex):
                 try:
-                    # Cerca di estrarre i dati per il ticker corrente
-                    data = data.xs(adjusted_symbol, axis=1, level=1)
+                    data = data.xs(ticker, axis=1, level=1)
                 except KeyError:
-                    raise ValueError(f"Ticker {adjusted_symbol} non trovato nel MultiIndex: {data.columns}")
-        
-            # 2) estrazione sicura di Close/High/Low
-            if isinstance(data.columns, pd.MultiIndex):
-                close = data['Close'][adjusted_symbol]
-                high  = data['High'][adjusted_symbol]
-                low   = data['Low'][adjusted_symbol]
-            else:
+                    raise ValueError(f"Ticker {ticker} non trovato nel MultiIndex: {data.columns}")
+            
+            # 4. Estrazione sicura delle colonne
+            try:
                 close = data['Close']
                 high  = data['High']
                 low   = data['Low']
-        
-            # 3) stampa di debug
+            except KeyError as e:
+                raise ValueError(f"Colonna mancante per {symbol}: {e}")
+            
+            # 5. Stampa debug
             try:
                 ultimo_close = float(close.iloc[-1])
                 print(f"DEBUG: {symbol} ({adjusted_symbol}) → Ultimo Close: {ultimo_close}")
@@ -1652,26 +1654,34 @@ def get_sentiment_for_all_symbols(symbol_list):
             # 1) RECUPERO DATI FONDAMENTALI DA yfinance
             # ────────────────────────────────────────
             ticker_obj = yf.Ticker(adjusted_symbol)
-            info = ticker_obj.info  # dizionario con decine di campi
-
-            # Scegli i campi che ti interessano, ad es.:
+            try:
+                info = ticker_obj.info or {}
+            except Exception as e:
+                print(f"Errore nel recupero dati fondamentali per {symbol}: {e}")
+                info = {}
+            
+            # Funzione helper per validare numeri
+            def safe_value(key):
+                value = info.get(key)
+                if isinstance(value, (int, float)):
+                    return round(value, 4)
+                return "N/A"
+            
+            # Costruisci il dizionario con valori sicuri
             fondamentali = {
-                "Trailing P/E": info.get("trailingPE", "N/A"),
-                "Forward P/E": info.get("forwardPE", "N/A"),
-                "EPS Growth (YoY)": info.get("earningsQuarterlyGrowth", "N/A"),
-                "Revenue Growth (YoY)": info.get("revenueGrowth", "N/A"),
-                "Profit Margins": info.get("profitMargins", "N/A"),
-                "Debt to Equity": info.get("debtToEquity", "N/A"),
-                "Dividend Yield": info.get("dividendYield", "N/A")
+                "Trailing P/E": safe_value("trailingPE"),
+                "Forward P/E": safe_value("forwardPE"),
+                "EPS Growth (YoY)": safe_value("earningsQuarterlyGrowth"),
+                "Revenue Growth (YoY)": safe_value("revenueGrowth"),
+                "Profit Margins": safe_value("profitMargins"),
+                "Debt to Equity": safe_value("debtToEquity"),
+                "Dividend Yield": safe_value("dividendYield")
             }
-
-
+            
             # Costruisci la tabella HTML
-            tabella_fondamentali = (
-                pd.DataFrame(fondamentali.items(), columns=["Fundamentale", "Valore"])
-                  .to_html(index=False, border=0, float_format="%.4f")
-            )
-
+            tabella_fondamentali = pd.DataFrame(
+                fondamentali.items(), columns=["Fundamentale", "Valore"]
+            ).to_html(index=False, border=0)
 
             
             #percentuale = calcola_punteggio(indicators, close.iloc[-1], bb_upper, bb_lower)
