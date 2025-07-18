@@ -1670,7 +1670,7 @@ def get_sentiment_for_all_symbols(symbol_list):
             percentuali_tecniche[symbol] = percentuale
             
             # Crea tabella dei dati storici (ultimi 90 giorni)
-            dati_storici = data.tail(90)
+            dati_storici = data.tail(90).copy()
             dati_storici['Date'] = dati_storici.index.strftime('%Y-%m-%d')  # Aggiungi la colonna Date
             dati_storici_html = dati_storici[['Date', 'Close', 'High', 'Low', 'Open', 'Volume']].to_html(index=False, border=1)
 
