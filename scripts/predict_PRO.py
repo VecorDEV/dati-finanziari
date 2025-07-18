@@ -1581,14 +1581,13 @@ def get_sentiment_for_all_symbols(symbol_list):
         # Prepara i dati relativi agli indicatori
         tabella_indicatori = None  # Inizializza la variabile tabella_indicatori
         try:
-            # 1) Scarico i dati
-            data = yf.download(adjusted_symbol, period="3mo", interval="1d", auto_adjust=False)
+            # 1) scarico solo gli ultimi 10 giorni, come nel tuo script minimalista
+            data = yf.download(adjusted_symbol, period="3mo", auto_adjust=False)
             if data.empty:
-                raise ValueError(f"Nessun dato disponibile per {symbol}.")
-
-            # 2) DEBUG: estrazione corretta dell’ultimo prezzo di chiusura
+                raise ValueError(f"Nessun dato disponibile per {symbol} ({adjusted_symbol})")
+        
+            # 2) estrazione sicura di Close/High/Low
             if isinstance(data.columns, pd.MultiIndex):
-                # Quando yfinance ti restituisce MultiIndex
                 close = data['Close'][adjusted_symbol]
                 high  = data['High'][adjusted_symbol]
                 low   = data['Low'][adjusted_symbol]
@@ -1596,14 +1595,15 @@ def get_sentiment_for_all_symbols(symbol_list):
                 close = data['Close']
                 high  = data['High']
                 low   = data['Low']
-
+        
+            # 3) stampa di debug
             try:
                 ultimo_close = float(close.iloc[-1])
                 print(f"DEBUG: {symbol} ({adjusted_symbol}) → Ultimo Close: {ultimo_close}")
             except Exception as e:
-                print(f"DEBUG ERROR: {symbol} → Errore nell’estrazione di close: {e}")
-            
-    
+                print(f"DEBUG ERROR: impossibile ricavare close per {symbol} → {e}")
+                
+        
             # Indicatori tecnici
             rsi = RSIIndicator(close).rsi().iloc[-1]
             macd = MACD(close)
