@@ -1590,6 +1590,10 @@ def get_sentiment_for_all_symbols(symbol_list):
             close = data['Close']
             high = data['High']
             low = data['Low']
+            
+            # DEBUG: stampa simbolo e ultimo prezzo di chiusura
+            ultimo_close = close.iloc[-1]
+            print(f"DEBUG: {symbol} ({adjusted_symbol}) - Ultimo Close: {ultimo_close}")
         
     
             # Indicatori tecnici
