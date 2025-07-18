@@ -1581,23 +1581,26 @@ def get_sentiment_for_all_symbols(symbol_list):
         # Prepara i dati relativi agli indicatori
         tabella_indicatori = None  # Inizializza la variabile tabella_indicatori
         try:
-            # Scarica i dati storici per l'asset
-            # Modificato per avere dati come nel primo codice
+            # 1) Scarico i dati
             data = yf.download(adjusted_symbol, period="10d", interval="1d", auto_adjust=False)
             if data.empty:
                 raise ValueError(f"Nessun dato disponibile per {symbol}.")
+
+            # 2) DEBUG: estrazione corretta dell’ultimo prezzo di chiusura
+            if isinstance(data.columns, pd.MultiIndex):
+                # Quando yfinance ti restituisce MultiIndex
+                close = data['Close'][adjusted_symbol]
+                high  = data['High'][adjusted_symbol]
+                low   = data['Low'][adjusted_symbol]
+            else:
+                close = data['Close']
+                high  = data['High']
+                low   = data['Low']
+
+            # Prendo uno scalare float
+            ultimo_close = float(close.iloc[-1])
+            print(f"DEBUG: {symbol} ({adjusted_symbol}) → Ultimo Close: {ultimo_close}")
             
-            close = data['Close']
-            high = data['High']
-            low = data['Low']
-            
-            # DEBUG: stampa simbolo e ultimo prezzo di chiusura
-            # Estrai l'ultimo prezzo di chiusura come singolo valore float
-            ultimo_close = close.iloc[-1]
-            
-            # Verifica che sia uno scalare
-            print(f"DEBUG: {symbol} ({adjusted_symbol}) - Ultimo Close: {ultimo_close} (tipo: {type(ultimo_close)})")
-        
     
             # Indicatori tecnici
             rsi = RSIIndicator(close).rsi().iloc[-1]
