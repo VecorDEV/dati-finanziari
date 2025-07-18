@@ -1582,25 +1582,14 @@ def get_sentiment_for_all_symbols(symbol_list):
         tabella_indicatori = None  # Inizializza la variabile tabella_indicatori
         try:
             # Scarica i dati storici per l'asset
-            data = yf.download(adjusted_symbol, period="3mo", interval="1d", auto_adjust=True)
+            # Modificato per avere dati come nel primo codice
+            data = yf.download(adjusted_symbol, period="10d", interval="1d", auto_adjust=False)
             if data.empty:
                 raise ValueError(f"Nessun dato disponibile per {symbol}.")
             
-            data.dropna(inplace=True)
-            
-            # Recupera il prezzo reale di mercato corrente
-            ticker_obj = yf.Ticker(adjusted_symbol)
-            real_price = ticker_obj.info.get('regularMarketPrice', None)
-            
-            # Sovrascrivi l'ultimo prezzo Close con quello reale se disponibile
-            #if real_price is not None:
-                #data.at[data.index[-1], 'Close'] = real_price
-            
-            print(f"Prezzo reale aggiornato per {symbol}: {real_price}")
-            
-            close = data['Close'].squeeze()
-            high = data['High'].squeeze()
-            low = data['Low'].squeeze()
+            close = data['Close']
+            high = data['High']
+            low = data['Low']
         
     
             # Indicatori tecnici
