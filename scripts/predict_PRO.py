@@ -1582,7 +1582,7 @@ def get_sentiment_for_all_symbols(symbol_list):
         tabella_indicatori = None  # Inizializza la variabile tabella_indicatori
         try:
             # 1) Scarico i dati
-            data = yf.download(adjusted_symbol, period="10d", interval="1d", auto_adjust=False)
+            data = yf.download(adjusted_symbol, period="3mo", interval="1d", auto_adjust=False)
             if data.empty:
                 raise ValueError(f"Nessun dato disponibile per {symbol}.")
 
