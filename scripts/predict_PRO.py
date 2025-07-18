@@ -1597,9 +1597,11 @@ def get_sentiment_for_all_symbols(symbol_list):
                 high  = data['High']
                 low   = data['Low']
 
-            # Prendo uno scalare float
-            ultimo_close = float(close.iloc[-1])
-            print(f"DEBUG: {symbol} ({adjusted_symbol}) → Ultimo Close: {ultimo_close}")
+            try:
+                ultimo_close = float(close.iloc[-1])
+                print(f"DEBUG: {symbol} ({adjusted_symbol}) → Ultimo Close: {ultimo_close}")
+            except Exception as e:
+                print(f"DEBUG ERROR: {symbol} → Errore nell’estrazione di close: {e}")
             
     
             # Indicatori tecnici
