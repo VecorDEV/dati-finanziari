@@ -1582,9 +1582,15 @@ def get_sentiment_for_all_symbols(symbol_list):
         tabella_indicatori = None  # Inizializza la variabile tabella_indicatori
         try:
             # 1) scarico solo gli ultimi 10 giorni, come nel tuo script minimalista
-            data = yf.download(adjusted_symbol, period="3mo", auto_adjust=False)
+            data = yf.download(str(adjusted_symbol).strip().upper(), period="3mo", auto_adjust=False, progress=False)
             if data.empty:
                 raise ValueError(f"Nessun dato disponibile per {symbol} ({adjusted_symbol})")
+            if isinstance(data.columns, pd.MultiIndex):
+                try:
+                    # Cerca di estrarre i dati per il ticker corrente
+                    data = data.xs(adjusted_symbol, axis=1, level=1)
+                except KeyError:
+                    raise ValueError(f"Ticker {adjusted_symbol} non trovato nel MultiIndex: {data.columns}")
         
             # 2) estrazione sicura di Close/High/Low
             if isinstance(data.columns, pd.MultiIndex):
