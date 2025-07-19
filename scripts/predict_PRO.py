@@ -71,8 +71,8 @@ symbol_list_for_yfinance = [
     "ITW", "FDX", "PNC", "SO", "APD", "ADI", "ICE", "ZTS", "TJX", "CL",
     "MMC", "EL", "GM", "CME", "EW", "AON", "D", "PSA", "AEP", "TROW", 
     "LNTH", "HE", "BTDR", "NAAS", "SCHL", "TGT", "SYK", "BKNG", "DUK", "USB",
-    "BABA", "HTZ", "UBER", "LYFT", "PLTR", "SNOW", "ROKU", "TWLO", "SQ", "COIN",
-    "RIVN", "LCID", "DDOG", "NET", "SHOP", "ZI", "ZM", "BIDU", "PDD", "JD", "ARM", "DUOL",
+    "ARM", "BABA", "BIDU", "COIN", "DDOG", "HTZ", "JD", "LCID", "LYFT", "NET", "PDD",
+    "PLTR", "RIVN", "ROKU", "SHOP", "SNOW", "SQ", "TWLO", "UBER", "ZI", "ZM", "DUOL"
 
     # Forex (with =X)
     "EURUSD=X", "USDJPY=X", "GBPUSD=X", "AUDUSD=X", "USDCAD=X", "USDCHF=X", "NZDUSD=X", "EURGBP=X",
