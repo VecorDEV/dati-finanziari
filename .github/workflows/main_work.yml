@@ -6,6 +6,7 @@ on:
     - cron: '30 23 * * *'  # 01:30 ora italiana
     - cron: '30 6 * * *'   # 08:30 ora italiana
     - cron: '30 16 * * *'  # 18:30 ora italiana
+
 jobs:
   build-and-run:
     runs-on: ubuntu-latest
@@ -17,33 +18,46 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.9'
+          python-version: '3.10'
 
       - name: Install build dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y build-essential python3-dev
 
-      - name: Upgrade pip and setuptools
+      - name: Upgrade pip, setuptools e wheel
         run: |
-          python -m pip install --upgrade pip
-          pip install --upgrade setuptools
+          python -m pip install --upgrade pip setuptools wheel
 
-      - name: Install dependencies (no cache, update HTTP libs)
+      - name: Install Python dependencies (no cache, pacchetti binari)
         run: |
-          pip install --no-cache-dir --upgrade yfinance==0.2.63
-          pip install --no-cache-dir --upgrade requests urllib3
-          pip install ta pandas beautifulsoup4 scikit-learn xgboost PyGithub numpy feedparser
-          pip install spacy==3.0.6
+          # Installa numpy per primo, così tutte le librerie native si allineano
+          pip install --no-cache-dir --upgrade numpy
+
+          # Librerie di rete e finanza
+          pip install --no-cache-dir --upgrade yfinance==0.2.63 \
+            requests urllib3 feedparser
+
+          # Analisi dati e ML
+          pip install --no-cache-dir --upgrade pandas ta \
+            beautifulsoup4 scikit-learn xgboost PyGithub
+
+          # spaCy aggiornato a una versione con wheel per Python 3.10
+          pip install --no-cache-dir --prefer-binary spacy==3.7.2
+
+          # Modello linguistico
           python -m spacy download en_core_web_sm
 
       - name: Debug versions
         run: |
           python - <<'EOF'
-          import yfinance, requests, urllib3
+          import yfinance, requests, urllib3, numpy, pandas, spacy
           print("yfinance  =", yfinance.__version__)
           print("requests =", requests.__version__)
           print("urllib3  =", urllib3.__version__)
+          print("numpy     =", numpy.__version__)
+          print("pandas    =", pandas.__version__)
+          print("spacy     =", spacy.__version__)
           EOF
 
       - name: Run prediction script
