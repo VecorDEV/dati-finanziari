@@ -283,6 +283,9 @@ symbol_name_map = {
     "OIL": ["Crude oil", "Oil price", "WTI", "Brent", "Brent oil", "WTI crude"]
 }
 
+indicator_data = {}
+fundamental_data = {}
+
 def generate_query_variants(symbol):
     base_variants = [
         f"{symbol} stock",
@@ -1692,6 +1695,11 @@ def get_sentiment_for_all_symbols(symbol_list):
             dati_storici['Date'] = dati_storici.index.strftime('%Y-%m-%d')  # Aggiungi la colonna Date
             dati_storici_html = dati_storici[['Date', 'Close', 'High', 'Low', 'Open', 'Volume']].to_html(index=False, border=1)
 
+        
+        #Salvo in variabili globali per generare il daily brief
+        indicator_data[symbol] = indicators
+        fundamental_data[symbol] = fondamentali
+
         except Exception as e:
             print(f"Errore durante l'analisi di {symbol}: {e}")
 
@@ -1777,7 +1785,8 @@ def get_sentiment_for_all_symbols(symbol_list):
             combinata = (sentiment_combinato * 0.6) + (tecnica * 0.4)
             percentuali_combine[symbol] = combinata
 
-    return sentiment_results, percentuali_combine, all_news_entries
+    #return sentiment_results, percentuali_combine, all_news_entries
+    return sentiment_results, percentuali_combine, all_news_entries, indicator_data, fundamental_data
 
 
 
@@ -1785,7 +1794,7 @@ def get_sentiment_for_all_symbols(symbol_list):
 
 
 # Calcolare il sentiment medio per ogni simbolo
-sentiment_for_symbols, percentuali_combine, all_news_entries = get_sentiment_for_all_symbols(symbol_list)
+sentiment_for_symbols, percentuali_combine, all_news_entries, indicator_data, fundamental_data = get_sentiment_for_all_symbols(symbol_list)
 
 
 
@@ -1896,26 +1905,79 @@ print("News aggiornata con successo!")
 
 
 
+def generate_fluid_market_summary_v2(sentiment_results, percentuali_combine, all_news_entries, symbol_name_map, indicator_data, fundamental_data):
 
+    # News per simbolo
+    news_by_symbol = defaultdict(list)
+    for symbol, title, sentiment, url in all_news_entries:
+        news_by_symbol[symbol].append((title, sentiment, url))
 
+    # Ordina asset per performance combinata
+    ranked = sorted(percentuali_combine.items(), key=lambda x: x[1], reverse=True)
+    movers = ranked[:2] + list(reversed(ranked[-2:]))
 
-'''# Creazione del file news.html con i titoli, sentiment e link
-html_news = ["<html><head><title>Notizie e Sentiment</title></head><body>",
-             "<h1>Notizie Finanziarie con Sentiment</h1>",
-             "<table border='1'><tr><th>Simbolo</th><th>Notizia</th><th>Sentiment</th><th>Link</th></tr>"]
+    # Trova la notizia più significativa in assoluto (1 sola)
+    all_news_entries_sorted = sorted(all_news_entries, key=lambda x: abs(x[2]), reverse=True)
+    top_news = None
+    for symbol, title, sentiment, url in all_news_entries_sorted:
+        if abs(sentiment) > 0.45:  # soglia significatività
+            top_news = (symbol, title)
+            break
 
-for symbol, title, sentiment, url in all_news_entries:
-    html_news.append(
-        f"<tr><td>{symbol}</td><td>{title}</td><td>{sentiment:.2f}</td>"
-        f"<td><a href='{url}' target='_blank'>Leggi</a></td></tr>"
-    )
+    summary_lines = []
 
-html_news.append("</table></body></html>")
+    for symbol, change in movers:
+        name = symbol_name_map.get(symbol, [symbol])[0]
+        sentiment_7d = sentiment_results.get(symbol, {}).get("7_days", 0) * 100
+        abs_sentiment = abs(sentiment_7d)
 
-try:
-    contents = repo.get_contents(news_path)
-    repo.update_file(contents.path, "Updated news sentiment", "\n".join(html_news), contents.sha)
-except GithubException:
-    repo.create_file(news_path, "Created news sentiment", "\n".join(html_news))
+        # Segnali extra
+        signals = []
 
-print("News aggiornata con successo!")'''
+        # RSI overbought/oversold
+        rsi = indicator_data.get(symbol, {}).get("RSI (14)")
+        if rsi:
+            if rsi > 70:
+                signals.append("overbought")
+            elif rsi < 30:
+                signals.append("oversold")
+
+        # Valutazione fondamentale interessante
+        pe = fundamental_data.get(symbol, {}).get("Trailing P/E")
+        if isinstance(pe, (float, int)):
+            if pe < 15:
+                signals.append("undervalued")
+            elif pe > 35:
+                signals.append("expensive")
+
+        # Genera frase base
+        if change > 1.5:
+            tone = "rallying"
+        elif change > 0.5:
+            tone = "trading higher"
+        elif change < -1.5:
+            tone = "under pressure"
+        elif change < -0.5:
+            tone = "slipping"
+        else:
+            tone = "little changed"
+
+        phrase = f"{name} is {tone} ({change:+.1f}%)"
+
+        # Se è l'asset con la top news, aggiungi la notizia
+        if top_news and top_news[0] == symbol:
+            phrase += f" after \"{top_news[1].lower()}\""
+
+        # Altrimenti, se ha sentiment forte
+        elif abs_sentiment > 6:
+            phrase += f", driven by {'bullish' if sentiment_7d > 0 else 'bearish'} sentiment"
+
+        # Altrimenti, se ci sono segnali tecnici/fondamentali chiari
+        elif signals:
+            phrase += f" amid {', '.join(signals)} signals"
+
+        phrase += "."
+
+        summary_lines.append(phrase)
+
+    return "Market Today:\n" + " ".join(summary_lines)
