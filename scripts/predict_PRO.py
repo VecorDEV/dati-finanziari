@@ -1696,9 +1696,9 @@ def get_sentiment_for_all_symbols(symbol_list):
             dati_storici_html = dati_storici[['Date', 'Close', 'High', 'Low', 'Open', 'Volume']].to_html(index=False, border=1)
 
         
-        #Salvo in variabili globali per generare il daily brief
-        indicator_data[symbol] = indicators
-        fundamental_data[symbol] = fondamentali
+            #Salvo in variabili globali per generare il daily brief
+            indicator_data[symbol] = indicators
+            fundamental_data[symbol] = fondamentali
 
         except Exception as e:
             print(f"Errore durante l'analisi di {symbol}: {e}")
