@@ -1901,83 +1901,99 @@ print("News aggiornata con successo!")
 
 
 
+def generate_fluid_market_summary_v2(
+    sentiment_results, percentuali_combine, all_news_entries, 
+    symbol_name_map, indicator_data, fundamental_data
+):
 
-
-
-
-def generate_fluid_market_summary_v2(sentiment_results, percentuali_combine, all_news_entries, symbol_name_map, indicator_data, fundamental_data):
-
-    # News per simbolo
+    # Raggruppa news per simbolo
     news_by_symbol = defaultdict(list)
     for symbol, title, sentiment, url in all_news_entries:
         news_by_symbol[symbol].append((title, sentiment, url))
 
-    # Ordina asset per performance combinata
+    # Seleziona top e bottom performer
     ranked = sorted(percentuali_combine.items(), key=lambda x: x[1], reverse=True)
-    movers = ranked[:2] + list(reversed(ranked[-2:]))
+    top_symbols = [s for s, _ in ranked[:2]]
+    bottom_symbols = [s for s, _ in ranked[-2:] if s not in top_symbols]
+    selected_symbols = (top_symbols + bottom_symbols)[:4]  # max 4 asset
 
-    # Trova la notizia più significativa in assoluto (1 sola)
-    all_news_entries_sorted = sorted(all_news_entries, key=lambda x: abs(x[2]), reverse=True)
+    # Trova la notizia più significativa (1 sola, con soglia)
     top_news = None
-    for symbol, title, sentiment, url in all_news_entries_sorted:
-        if abs(sentiment) > 0.45:  # soglia significatività
+    sorted_news = sorted(all_news_entries, key=lambda x: abs(x[2]), reverse=True)
+    for symbol, title, sentiment, url in sorted_news:
+        if abs(sentiment) > 0.45 and symbol in selected_symbols:
             top_news = (symbol, title)
             break
 
     summary_lines = []
 
-    for symbol, change in movers:
+    for symbol in selected_symbols:
         name = symbol_name_map.get(symbol, [symbol])[0]
+        score = percentuali_combine.get(symbol, 0)
         sentiment_7d = sentiment_results.get(symbol, {}).get("7_days", 0) * 100
-        abs_sentiment = abs(sentiment_7d)
-
-        # Segnali extra
-        signals = []
-
-        # RSI overbought/oversold
         rsi = indicator_data.get(symbol, {}).get("RSI (14)")
-        if rsi:
-            if rsi > 70:
-                signals.append("overbought")
-            elif rsi < 30:
-                signals.append("oversold")
-
-        # Valutazione fondamentale interessante
+        macd_line = indicator_data.get(symbol, {}).get("MACD Line")
+        macd_signal = indicator_data.get(symbol, {}).get("MACD Signal")
         pe = fundamental_data.get(symbol, {}).get("Trailing P/E")
-        if isinstance(pe, (float, int)):
-            if pe < 15:
-                signals.append("undervalued")
-            elif pe > 35:
-                signals.append("expensive")
 
-        # Genera frase base
-        if change > 1.5:
-            tone = "rallying"
-        elif change > 0.5:
-            tone = "trading higher"
-        elif change < -1.5:
-            tone = "under pressure"
-        elif change < -0.5:
-            tone = "slipping"
-        else:
-            tone = "little changed"
+        # Trigger prioritari → frase
+        phrase = ""
+        if score > 70:
+            phrase = f"📈 Positive signal on {name}: expected upside today ({int(score)}%)."
+        elif score < 30:
+            phrase = f"🔻 Weak outlook for {name}: downside risk estimated at {int(100 - score)}%."
+        elif rsi is not None and rsi < 30:
+            phrase = f"📉 {name} in oversold territory (RSI {int(rsi)}): technical rebound possible."
+        elif rsi is not None and rsi > 70:
+            phrase = f"⚠️ {name} looks overbought (RSI {int(rsi)}): possible pullback ahead."
+        elif macd_line is not None and macd_signal is not None and macd_line > macd_signal:
+            phrase = f"🔄 Bullish MACD crossover on {name}: potential trend shift."
+        elif pe and isinstance(pe, (int, float)) and pe < 15:
+            phrase = f"💰 {name} appears undervalued (P/E {pe:.1f})."
 
-        phrase = f"{name} is {tone} ({change:+.1f}%)"
+        # Se nessun trigger forte, frase neutra
+        if not phrase:
+            delta = score - 50
+            if delta > 10:
+                phrase = f"{name} trading higher today (+{delta:.1f}%)."
+            elif delta < -10:
+                phrase = f"{name} under pressure today ({delta:.1f}%)."
+            else:
+                phrase = f"{name} little changed."
 
-        # Se è l'asset con la top news, aggiungi la notizia
+        # Se c'è la notizia significativa legata a questo asset
         if top_news and top_news[0] == symbol:
-            phrase += f" after \"{top_news[1].lower()}\""
-
-        # Altrimenti, se ha sentiment forte
-        elif abs_sentiment > 6:
-            phrase += f", driven by {'bullish' if sentiment_7d > 0 else 'bearish'} sentiment"
-
-        # Altrimenti, se ci sono segnali tecnici/fondamentali chiari
-        elif signals:
-            phrase += f" amid {', '.join(signals)} signals"
-
-        phrase += "."
+            phrase += f" News: \"{top_news[1].capitalize()}\""
 
         summary_lines.append(phrase)
 
-    return "Market Today:\n" + " ".join(summary_lines)
+    return "📰 <b>Market Today:</b><br>" + "<br>".join(summary_lines)
+
+
+
+brief_text = generate_fluid_market_summary_v2(
+    sentiment_for_symbols,
+    percentuali_combine,
+    all_news_entries,
+    symbol_name_map,
+    indicator_data,
+    fundamental_data
+)
+
+# Salva il brief in HTML
+html_content = f"""
+<html>
+  <head><title>Market Brief</title></head>
+  <body>
+    <h1>📊 Daily Market Summary</h1>
+    <p style='font-family: Arial; font-size: 16px;'>{brief_text}</p>
+  </body>
+</html>
+"""
+
+file_path = "results/daily_brief.html"
+try:
+    contents = repo.get_contents(file_path)
+    repo.update_file(file_path, "Updated daily brief", html_content, contents.sha)
+except GithubException:
+    repo.create_file(file_path, "Created daily brief", html_content)
