@@ -97,7 +97,7 @@ symbol_list_for_yfinance = [
     "GC=F",   # Gold spot
     "SI=F",   # Silver spot
     "SI=F",   # Silver spot
-    "CL=F"        # Crude oil
+    "CL=F",        # Crude oil
     "NG=F"        # Natural gas
 ]
 
@@ -285,7 +285,7 @@ symbol_name_map = {
     "GOLD": ["Gold", "XAU/USD", "Gold price", "Gold spot"],
     "XAGUSD": ["Silver", "XAG/USD", "Silver price", "Silver spot"],
     "SILVER": ["Silver", "XAG/USD", "Silver price", "Silver spot"],
-    "OIL": ["Crude oil", "Oil price", "WTI", "Brent", "Brent oil", "WTI crude"]
+    "OIL": ["Crude oil", "Oil price", "WTI", "Brent", "Brent oil", "WTI crude"],
     "NATGAS": ["Natural gas", "Gas price", "Natgas", "Henry Hub", "NG=F", "Natural gas futures"]
 }
 
