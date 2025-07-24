@@ -1910,89 +1910,69 @@ def generate_fluid_market_summary_v2(
     sentiment_results, percentuali_combine, all_news_entries, 
     symbol_name_map, indicator_data, fundamental_data
 ):
-
-    # Raggruppa news per simbolo
+    
+    # Raggruppa notizie per simbolo
     news_by_symbol = defaultdict(list)
     for symbol, title, sentiment, url in all_news_entries:
         news_by_symbol[symbol].append((title, sentiment, url))
 
-    # Seleziona top e bottom performer
+    # Seleziona 2 top e 2 bottom performer
     ranked = sorted(percentuali_combine.items(), key=lambda x: x[1], reverse=True)
     top_symbols = [s for s, _ in ranked[:2]]
     bottom_symbols = [s for s, _ in ranked[-2:] if s not in top_symbols]
-    selected_symbols = (top_symbols + bottom_symbols)[:4]  # max 4 asset
+    selected_symbols = (top_symbols + bottom_symbols)[:4]
 
-    # Trova la notizia più significativa (una sola, con soglia)
+    # Seleziona notizia più significativa, se molto positiva/negativa
     top_news = None
     sorted_news = sorted(all_news_entries, key=lambda x: abs(x[2]), reverse=True)
     for symbol, title, sentiment, url in sorted_news:
         if abs(sentiment) > 0.45 and symbol in selected_symbols:
-            top_news = (symbol, title)
+            top_news = (symbol, title.strip().rstrip("."))
             break
 
-    # Varianti linguistiche per i diversi casi
+    # Frasi variabili per ciascun tipo di segnale
     templates = {
         "strong_positive": [
-            "📈 {name} is showing strong upward momentum today ({score}%).",
-            "🚀 Bullish outlook for {name}: gains expected ({score}%).",
-            "📊 {name} flashing buy signals with {score}% confidence."
+            "{name} is expected to rise ({score}%)",
+            "{name} showing upward momentum ({score}%)",
+            "Bullish signals on {name} ({score}% upside)",
         ],
         "strong_negative": [
-            "🔻 {name} may face downside risk ({risk}% drop probability).",
-            "⚠️ Bearish setup for {name}, with {risk}% chance of losses.",
-            "📉 Negative signals for {name}: downside seen at {risk}%."
-        ],
-        "rsi_overbought": [
-            "⚠️ {name} appears overbought (RSI {rsi}): pullback risk ahead.",
-            "📏 High RSI ({rsi}) on {name} suggests market may cool off.",
-            "🚨 {name} may be overheating (RSI {rsi})."
+            "{name} under pressure ({risk}% downside risk)",
+            "Bearish outlook for {name} ({risk}% probability of losses)",
+            "{name} facing negative momentum ({risk}% risk)",
         ],
         "rsi_oversold": [
-            "📉 {name} is in oversold territory (RSI {rsi}): rebound possible.",
-            "🔄 {name} could bounce back soon (RSI {rsi}).",
-            "📊 RSI at {rsi} hints at a recovery attempt for {name}."
+            "{name} looks oversold (RSI {rsi})",
+            "{name} may rebound from oversold levels (RSI {rsi})",
         ],
-        "macd_bullish": [
-            "🔄 Bullish MACD crossover detected on {name}.",
-            "📈 MACD crossover for {name}: possible upward trend.",
-            "📊 {name} shows positive MACD signal — trend reversal ahead?"
-        ],
-        "undervalued": [
-            "💰 {name} appears undervalued with a P/E of {pe:.1f}.",
-            "📉 {name} trades at low valuation (P/E {pe:.1f}).",
-            "🧐 {name} may be underpriced (P/E ratio {pe:.1f})."
+        "rsi_overbought": [
+            "{name} appears overbought (RSI {rsi})",
+            "{name} might face selling pressure (RSI {rsi})",
         ],
         "mild_positive": [
-            "{name} trading slightly higher today (+{delta:.1f}%).",
-            "{name} gains ground (+{delta:.1f}%) in early moves.",
-            "{name} trends up modestly (+{delta:.1f}%)."
+            "{name} slightly bullish (+{delta:.1f}%)",
+            "{name} trading modestly higher (+{delta:.1f}%)",
         ],
         "mild_negative": [
-            "{name} under some pressure today ({delta:.1f}%).",
-            "{name} trading lower (-{delta:.1f}%).",
-            "{name} facing light selling pressure ({delta:.1f}%)."
+            "{name} trading lower ({delta:.1f}%)",
+            "{name} facing mild selling (-{delta:.1f}%)",
         ],
         "neutral": [
-            "{name} little changed on the day.",
-            "{name} shows limited movement today.",
-            "{name} stable so far."
+            "{name} little changed",
+            "{name} stable on the day",
         ]
     }
 
-    summary_lines = []
+    phrases = []
 
     for symbol in selected_symbols:
         name = symbol_name_map.get(symbol, [symbol])[0]
         score = percentuali_combine.get(symbol, 0)
-        sentiment_7d = sentiment_results.get(symbol, {}).get("7_days", 0) * 100
         rsi = indicator_data.get(symbol, {}).get("RSI (14)")
-        macd_line = indicator_data.get(symbol, {}).get("MACD Line")
-        macd_signal = indicator_data.get(symbol, {}).get("MACD Signal")
-        pe = fundamental_data.get(symbol, {}).get("Trailing P/E")
-
+        delta = score - 50
         phrase = ""
 
-        # Trigger prioritari
         if score > 70:
             phrase = random.choice(templates["strong_positive"]).format(name=name, score=int(score))
         elif score < 30:
@@ -2001,28 +1981,33 @@ def generate_fluid_market_summary_v2(
             phrase = random.choice(templates["rsi_oversold"]).format(name=name, rsi=int(rsi))
         elif rsi is not None and rsi > 70:
             phrase = random.choice(templates["rsi_overbought"]).format(name=name, rsi=int(rsi))
-        elif macd_line is not None and macd_signal is not None and macd_line > macd_signal:
-            phrase = random.choice(templates["macd_bullish"]).format(name=name)
-        elif isinstance(pe, (int, float)) and pe < 15:
-            phrase = random.choice(templates["undervalued"]).format(name=name, pe=pe)
+        elif delta > 10:
+            phrase = random.choice(templates["mild_positive"]).format(name=name, delta=delta)
+        elif delta < -10:
+            phrase = random.choice(templates["mild_negative"]).format(name=name, delta=delta)
+        else:
+            phrase = random.choice(templates["neutral"]).format(name=name)
 
-        # Se nessun trigger attivato → fallback neutro o moderato
-        if not phrase:
-            delta = score - 50
-            if delta > 10:
-                phrase = random.choice(templates["mild_positive"]).format(name=name, delta=delta)
-            elif delta < -10:
-                phrase = random.choice(templates["mild_negative"]).format(name=name, delta=delta)
-            else:
-                phrase = random.choice(templates["neutral"]).format(name=name)
-
-        # Se c'è la notizia significativa legata a questo asset
+        # Se è presente una notizia rilevante per questo asset
         if top_news and top_news[0] == symbol:
-            phrase += f" News: \"{top_news[1].capitalize()}\""
+            phrase += f" after news: \"{top_news[1]}\""
 
-        summary_lines.append(phrase)
+        phrases.append(phrase)
 
-    return "📰 <b>Market Today:</b><br>" + "<br>".join(summary_lines)
+    # Se nessuna frase valida
+    if not phrases:
+        return "📰 <b>Market Today:</b><br>No major market developments."
+
+    # Costruzione fluida del mini paragrafo
+    summary = "📰 <b>Market Today:</b><br>"
+    if len(phrases) == 1:
+        summary += phrases[0] + "."
+    else:
+        summary += phrases[0] + ", "
+        summary += ", ".join(phrases[1:-1])
+        summary += f", and {phrases[-1]}."
+
+    return summary
 
 
 
