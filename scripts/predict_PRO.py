@@ -31,10 +31,8 @@ github = Github(GITHUB_TOKEN)
 repo = github.get_repo(REPO_NAME)
 
 '''
-        "ARM", "BABA", "BIDU", "COIN", "DDOG", "HTZ", "JD", "LCID", "LYFT", "NET", "PDD", #NEW
-        "PLTR", "RIVN", "ROKU", "SHOP", "SNOW", "SQ", "TWLO", "UBER", "ZI", "ZM", "DUOL",    #NEW
-        "SPX500", "DJ30", "NAS100", "NASCOMP", "RUS2000", "VIX", "EU50", "GER40", "UK100",
-        "FRA40", "SWI20", "ESP35", "NETH25", "JPN225", "HKG50", "CHN50", "IND50", "KOR200",
+        
+        
         '''
 
 # Lista dei simboli azionari da cercare
@@ -47,23 +45,23 @@ symbol_list = ["AAPL", "MSFT", "GOOGL", "AMZN", "META", "TSLA", "V", "JPM", "JNJ
         "ITW", "FDX", "PNC", "SO", "APD", "ADI", "ICE", "ZTS", "TJX", "CL",
         "MMC", "EL", "GM", "CME", "EW", "AON", "D", "PSA", "AEP", "TROW", 
         "LNTH", "HE", "BTDR", "NAAS", "SCHL", "TGT", "SYK", "BKNG", "DUK", "USB",
-        
+        "ARM", "BABA", "BIDU", "COIN", "DDOG", "HTZ", "JD", "LCID", "LYFT", "NET", "PDD", #NEW
+        "PLTR", "RIVN", "ROKU", "SHOP", "SNOW", "SQ", "TWLO", "UBER", "ZI", "ZM", "DUOL",    #NEW
         
         "EURUSD", "USDJPY", "GBPUSD", "AUDUSD", "USDCAD", "USDCHF", "NZDUSD", "EURGBP", "EURJPY", "GBPJPY",
         "AUDJPY", "CADJPY", "CHFJPY", "EURAUD", "EURNZD", "EURCAD", "EURCHF", "GBPCHF", "AUDCAD",
 
-        
+        "SPX500", "DJ30", "NAS100", "NASCOMP", "RUS2000", "VIX", "EU50", "GER40", "UK100",
+        "FRA40", "SWI20", "ESP35", "NETH25", "JPN225", "HKG50", "CHN50", "IND50", "KOR200",
                
         "BTCUSD", "ETHUSD", "LTCUSD", "XRPUSD", "BCHUSD", "EOSUSD", "XLMUSD", "ADAUSD", "TRXUSD", "NEOUSD",
         "DASHUSD", "XMRUSD", "ETCUSD", "ZECUSD", "BNBUSD", "DOGEUSD", "USDTUSD", "LINKUSD", "ATOMUSD", "XTZUSD",
-        "COCOA", "XAUUSD", "XAGUSD", "OIL"]  # Puoi aggiungere altri simboli
+        "COCOA", "XAUUSD", "GOLD", "XAGUSD", "SILVER", "OIL", "NATGAS"]  # Puoi aggiungere altri simboli
 
 '''
-    "ARM", "BABA", "BIDU", "COIN", "DDOG", "HTZ", "JD", "LCID", "LYFT", "NET", "PDD",
-    "PLTR", "RIVN", "ROKU", "SHOP", "SNOW", "SQ", "TWLO", "UBER", "ZI", "ZM", "DUOL",
+    
 
-    "^GSPC", "^DJI", "^NDX", "^IXIC", "^RUT", "^VIX", "^STOXX50E", "^GDAXI", "^FTSE",
-    "^FCHI", "^SSMI", "^IBEX", "^AEX", "^N225", "^HSI", "000001.SS", "^NSEI", "^KS200",
+    
     '''
 symbol_list_for_yfinance = [
     # Stocks (unchanged)
@@ -76,7 +74,8 @@ symbol_list_for_yfinance = [
     "ITW", "FDX", "PNC", "SO", "APD", "ADI", "ICE", "ZTS", "TJX", "CL",
     "MMC", "EL", "GM", "CME", "EW", "AON", "D", "PSA", "AEP", "TROW", 
     "LNTH", "HE", "BTDR", "NAAS", "SCHL", "TGT", "SYK", "BKNG", "DUK", "USB",
-    
+    "ARM", "BABA", "BIDU", "COIN", "DDOG", "HTZ", "JD", "LCID", "LYFT", "NET", "PDD",
+    "PLTR", "RIVN", "ROKU", "SHOP", "SNOW", "SQ", "TWLO", "UBER", "ZI", "ZM", "DUOL",
 
     # Forex (with =X)
     "EURUSD=X", "USDJPY=X", "GBPUSD=X", "AUDUSD=X", "USDCAD=X", "USDCHF=X", "NZDUSD=X", "EURGBP=X",
@@ -84,7 +83,8 @@ symbol_list_for_yfinance = [
     "EURCHF=X", "GBPCHF=X", "AUDCAD=X",
 
     # Global Indices
-    
+    "^GSPC", "^DJI", "^NDX", "^IXIC", "^RUT", "^VIX", "^STOXX50E", "^GDAXI", "^FTSE",
+    "^FCHI", "^SSMI", "^IBEX", "^AEX", "^N225", "^HSI", "000001.SS", "^NSEI", "^KS200",
 
     # Crypto (with -USD)
     "BTC-USD", "ETH-USD", "LTC-USD", "XRP-USD", "BCH-USD", "EOS-USD", "XLM-USD", "ADA-USD",
@@ -94,8 +94,11 @@ symbol_list_for_yfinance = [
     # Commodities (correct tickers)
     "CC=F",       # Cocoa
     "GC=F",   # Gold spot
+    "GC=F",   # Gold spot
+    "SI=F",   # Silver spot
     "SI=F",   # Silver spot
     "CL=F"        # Crude oil
+    "NG=F"        # Natural gas
 ]
 
 symbol_name_map = {
@@ -279,8 +282,11 @@ symbol_name_map = {
     # Commodities
     "COCOA": ["Cocoa", "Cocoa Futures"],
     "XAUUSD": ["Gold", "XAU/USD", "Gold price", "Gold spot"],
+    "GOLD": ["Gold", "XAU/USD", "Gold price", "Gold spot"],
     "XAGUSD": ["Silver", "XAG/USD", "Silver price", "Silver spot"],
+    "SILVER": ["Silver", "XAG/USD", "Silver price", "Silver spot"],
     "OIL": ["Crude oil", "Oil price", "WTI", "Brent", "Brent oil", "WTI crude"]
+    "NATGAS": ["Natural gas", "Gas price", "Natgas", "Henry Hub", "NG=F", "Natural gas futures"]
 }
 
 indicator_data = {}
