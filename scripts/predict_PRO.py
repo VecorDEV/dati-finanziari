@@ -9,6 +9,7 @@ import spacy
 import yfinance as yf
 import ta
 import pandas as pd
+import random
 from ta.momentum import RSIIndicator, StochasticOscillator, WilliamsRIndicator
 from ta.trend import MACD, EMAIndicator, CCIIndicator
 from ta.volatility import BollingerBands
