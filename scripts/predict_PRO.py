@@ -31,6 +31,8 @@ news_path = "results/news.html"
 github = Github(GITHUB_TOKEN)
 repo = github.get_repo(REPO_NAME)
 
+crescita_settimanale = {}
+
 '''
         
         
@@ -1572,7 +1574,7 @@ def get_sentiment_for_all_symbols(symbol_list):
     percentuali_tecniche = {}
     percentuali_combine = {}
     all_news_entries = []
-    crescita_settimanale = {}
+
 
     
     for symbol, adjusted_symbol in zip(symbol_list, symbol_list_for_yfinance):
