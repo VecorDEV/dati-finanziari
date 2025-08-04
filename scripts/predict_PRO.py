@@ -1572,6 +1572,7 @@ def get_sentiment_for_all_symbols(symbol_list):
     percentuali_tecniche = {}
     percentuali_combine = {}
     all_news_entries = []
+    crescita_settimanale = {}
 
     
     for symbol, adjusted_symbol in zip(symbol_list, symbol_list_for_yfinance):
@@ -1588,6 +1589,17 @@ def get_sentiment_for_all_symbols(symbol_list):
             "7_days": sentiment_7_days
         }
 
+        # Calcola la variazione percentuale nell'ultima settimana
+        try:
+            close_now = close.iloc[-1]
+            close_week_ago = close.iloc[-6]  # assuming daily data and markets open ~5 days/week
+            growth_weekly = ((close_now - close_week_ago) / close_week_ago) * 100
+            crescita_settimanale[symbol] = round(growth_weekly, 2)
+        except Exception as e:
+            print(f"Errore nel calcolo crescita settimanale per {symbol}: {e}")
+            crescita_settimanale[symbol] = None
+
+        
         # Prepara i dati relativi agli indicatori
         tabella_indicatori = None  # Inizializza la variabile tabella_indicatori
         try:
@@ -1901,6 +1913,33 @@ except GithubException:
 
 print("News aggiornata con successo!")
 
+
+
+#PER CREARE LA CLASSIFICA FIRE
+# Ordina in base alla crescita settimanale (crescente), e poi in ordine alfabetico in caso di parità
+sorted_crescita = sorted(
+    [(symbol, growth) for symbol, growth in crescita_settimanale.items() if growth is not None],
+    key=lambda x: (x[1], x[0])
+)
+
+# Costruisci il file HTML
+html_fire = ["<html><head><title>Classifica per Crescita Settimanale</title></head><body>",
+             "<h1>Asset Ordinati per Crescita Settimanale</h1>",
+             "<table border='1'><tr><th>Simbolo</th><th>Crescita 7gg (%)</th></tr>"]
+
+for symbol, growth in sorted_crescita:
+    html_fire.append(f"<tr><td>{symbol}</td><td>{growth:.2f}%</td></tr>")
+
+html_fire.append("</table></body></html>")
+
+fire_file_path = "results/fire.html"
+try:
+    contents = repo.get_contents(fire_file_path)
+    repo.update_file(contents.path, "Aggiornata classifica crescita settimanale", "\n".join(html_fire), contents.sha)
+except GithubException:
+    repo.create_file(fire_file_path, "Creata classifica crescita settimanale", "\n".join(html_fire))
+
+print("Fire aggiornato con successo!")
 
 
 
