@@ -31,8 +31,6 @@ news_path = "results/news.html"
 github = Github(GITHUB_TOKEN)
 repo = github.get_repo(REPO_NAME)
 
-crescita_settimanale = {}
-
 '''
         
         
@@ -1574,7 +1572,7 @@ def get_sentiment_for_all_symbols(symbol_list):
     percentuali_tecniche = {}
     percentuali_combine = {}
     all_news_entries = []
-
+    crescita_settimanale = {}
 
     
     for symbol, adjusted_symbol in zip(symbol_list, symbol_list_for_yfinance):
@@ -1594,7 +1592,7 @@ def get_sentiment_for_all_symbols(symbol_list):
         # Calcola la variazione percentuale nell'ultima settimana
         try:
             close_now = close.iloc[-1]
-            close_week_ago = close.iloc[-6]  # assuming daily data and markets open ~5 days/week
+            close_week_ago = close.iloc[-6]  # 5 giorni di mercato fa
             growth_weekly = ((close_now - close_week_ago) / close_week_ago) * 100
             crescita_settimanale[symbol] = round(growth_weekly, 2)
         except Exception as e:
@@ -1807,16 +1805,14 @@ def get_sentiment_for_all_symbols(symbol_list):
             percentuali_combine[symbol] = combinata
 
     #return sentiment_results, percentuali_combine, all_news_entries
-    return sentiment_results, percentuali_combine, all_news_entries, indicator_data, fundamental_data
-
+    return sentiment_results, percentuali_combine, all_news_entries, indicator_data, fundamental_data, crescita_settimanale
 
 
 
 
 
 # Calcolare il sentiment medio per ogni simbolo
-sentiment_for_symbols, percentuali_combine, all_news_entries, indicator_data, fundamental_data = get_sentiment_for_all_symbols(symbol_list)
-
+sentiment_for_symbols, percentuali_combine, all_news_entries, indicator_data, fundamental_data, crescita_settimanale = get_sentiment_for_all_symbols(symbol_list)
 
 
 #PER CREARE LA CLASSIFICA NORMALE-------------------------------------------------------------------------
