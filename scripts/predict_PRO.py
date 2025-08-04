@@ -1929,7 +1929,8 @@ print("News aggiornata con successo!")
 # Ordina in base alla crescita settimanale (crescente), e poi in ordine alfabetico in caso di parità
 sorted_crescita = sorted(
     [(symbol, growth) for symbol, growth in crescita_settimanale.items() if growth is not None],
-    key=lambda x: (x[1], x[0])
+    key=lambda x: (x[1], x[0]),
+    reverse=True  # 👈 aggiunto questo
 )
 
 # Costruisci il file HTML
