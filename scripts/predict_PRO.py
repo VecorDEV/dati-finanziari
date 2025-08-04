@@ -1589,16 +1589,6 @@ def get_sentiment_for_all_symbols(symbol_list):
             "7_days": sentiment_7_days
         }
 
-        # Calcola la variazione percentuale nell'ultima settimana
-        try:
-            close_now = close.iloc[-1]
-            close_week_ago = close.iloc[-6]  # 5 giorni di mercato fa
-            growth_weekly = ((close_now - close_week_ago) / close_week_ago) * 100
-            crescita_settimanale[symbol] = round(growth_weekly, 2)
-        except Exception as e:
-            print(f"Errore nel calcolo crescita settimanale per {symbol}: {e}")
-            crescita_settimanale[symbol] = None
-
         
         # Prepara i dati relativi agli indicatori
         tabella_indicatori = None  # Inizializza la variabile tabella_indicatori
@@ -1633,7 +1623,29 @@ def get_sentiment_for_all_symbols(symbol_list):
             except Exception as e:
                 print(f"DEBUG ERROR: impossibile ricavare close per {symbol} → {e}")
                 
-        
+
+            # Calcola la variazione percentuale nell'ultima settimana
+            from datetime import timedelta
+
+
+            # Calcolo crescita settimanale rispetto a 7 giorni di calendario fa
+            try:
+                latest_date = close.index[-1]
+                date_7_days_ago = latest_date - timedelta(days=7)
+            
+                # Trova la data più vicina a 7 giorni fa (più recente tra quelle <= date_7_days_ago)
+                close_week_ago = close[close.index <= date_7_days_ago].iloc[-1]
+                close_now = close.loc[latest_date]
+            
+                growth_weekly = ((close_now - close_week_ago) / close_week_ago) * 100
+                crescita_settimanale[symbol] = round(growth_weekly, 2)
+            
+                print(f"DEBUG crescita {symbol}: oggi={close_now}, 7gg fa={close_week_ago}, crescita={growth_weekly:.2f}%")
+            except Exception as e:
+                print(f"Errore nel calcolo crescita settimanale per {symbol}: {e}")
+                crescita_settimanale[symbol] = None
+
+    
             # Indicatori tecnici
             rsi = RSIIndicator(close).rsi().iloc[-1]
             macd = MACD(close)
