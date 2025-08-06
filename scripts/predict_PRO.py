@@ -46,13 +46,13 @@ symbol_list = ["AAPL", "MSFT", "GOOGL", "AMZN", "META", "TSLA", "V", "JPM", "JNJ
         "ITW", "FDX", "PNC", "SO", "APD", "ADI", "ICE", "ZTS", "TJX", "CL",
         "MMC", "EL", "GM", "CME", "EW", "AON", "D", "PSA", "AEP", "TROW", 
         "LNTH", "HE", "BTDR", "NAAS", "SCHL", "TGT", "SYK", "BKNG", "DUK", "USB",
-        "ARM", "BABA", "BIDU", "COIN", "DDOG", "HTZ", "JD", "LCID", "LYFT", "NET", "PDD", #NEW
+        "ARM", "BABA", "BIDU", "COIN", "PST.MI", "DDOG", "HTZ", "JD", "LCID", "LYFT", "NET", "PDD", #NEW
         "PLTR", "RIVN", "ROKU", "SHOP", "SNOW", "SQ", "TWLO", "UBER", "ZI", "ZM", "DUOL",    #NEW
         
         "EURUSD", "USDJPY", "GBPUSD", "AUDUSD", "USDCAD", "USDCHF", "NZDUSD", "EURGBP", "EURJPY", "GBPJPY",
         "AUDJPY", "CADJPY", "CHFJPY", "EURAUD", "EURNZD", "EURCAD", "EURCHF", "GBPCHF", "AUDCAD",
 
-        "SPX500", "DJ30", "NAS100", "NASCOMP", "RUS2000", "VIX", "EU50", "GER40", "UK100",
+        "SPX500", "DJ30", "NAS100", "NASCOMP", "RUS2000", "VIX", "EU50", "ITA40", "GER40", "UK100",
         "FRA40", "SWI20", "ESP35", "NETH25", "JPN225", "HKG50", "CHN50", "IND50", "KOR200",
                
         "BTCUSD", "ETHUSD", "LTCUSD", "XRPUSD", "BCHUSD", "EOSUSD", "XLMUSD", "ADAUSD", "TRXUSD", "NEOUSD",
@@ -75,7 +75,7 @@ symbol_list_for_yfinance = [
     "ITW", "FDX", "PNC", "SO", "APD", "ADI", "ICE", "ZTS", "TJX", "CL",
     "MMC", "EL", "GM", "CME", "EW", "AON", "D", "PSA", "AEP", "TROW", 
     "LNTH", "HE", "BTDR", "NAAS", "SCHL", "TGT", "SYK", "BKNG", "DUK", "USB",
-    "ARM", "BABA", "BIDU", "COIN", "DDOG", "HTZ", "JD", "LCID", "LYFT", "NET", "PDD",
+    "ARM", "BABA", "BIDU", "COIN", "PST.MI", "DDOG", "HTZ", "JD", "LCID", "LYFT", "NET", "PDD",
     "PLTR", "RIVN", "ROKU", "SHOP", "SNOW", "SQ", "TWLO", "UBER", "ZI", "ZM", "DUOL",
 
     # Forex (with =X)
@@ -84,7 +84,7 @@ symbol_list_for_yfinance = [
     "EURCHF=X", "GBPCHF=X", "AUDCAD=X",
 
     # Global Indices
-    "^GSPC", "^DJI", "^NDX", "^IXIC", "^RUT", "^VIX", "^STOXX50E", "^GDAXI", "^FTSE",
+    "^GSPC", "^DJI", "^NDX", "^IXIC", "^RUT", "^VIX", "^STOXX50E", "FTSEMIB.MI", "^GDAXI", "^FTSE",
     "^FCHI", "^SSMI", "^IBEX", "^AEX", "^N225", "^HSI", "000001.SS", "^NSEI", "^KS200",
 
     # Crypto (with -USD)
@@ -204,6 +204,7 @@ symbol_name_map = {
     "TWLO": ["Twilio", "Twilio Inc."],
     "SQ": ["Block", "Square", "Block Inc.", "Square Inc."],
     "COIN": ["Coinbase", "Coinbase Global", "Coinbase Global Inc."],
+    "PST.MI": ["Poste Italiane", "Poste Italiane S.p.A."],
     "RIVN": ["Rivian", "Rivian Automotive", "Rivian Automotive Inc."],
     "LCID": ["Lucid", "Lucid Motors", "Lucid Group", "Lucid Group Inc."],
     "DDOG": ["Datadog", "Datadog Inc."],
@@ -246,6 +247,7 @@ symbol_name_map = {
     "RUS2000": ["Russell 2000", "RUT", "Russell Small Cap", "Russell 2K"],
     "VIX": ["VIX", "Volatility Index", "Fear Gauge", "CBOE Volatility Index"],
     "EU50": ["Euro Stoxx 50", "Euro Stoxx", "STOXX50", "Euro Stoxx 50 Index"],
+    "ITA40": ["FTSE MIB", "MIB", "FTSE MIB Index", "Italy 40"],
     "GER40": ["DAX", "DAX 40", "German DAX", "Frankfurt DAX"],
     "UK100": ["FTSE 100", "FTSE", "UK FTSE 100", "FTSE Index"],
     "FRA40": ["CAC 40", "CAC", "France CAC 40", "CAC40 Index"],
