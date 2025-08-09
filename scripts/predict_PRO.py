@@ -15,8 +15,7 @@ from ta.trend import MACD, EMAIndicator, CCIIndicator
 from ta.volatility import BollingerBands
 from urllib.parse import quote_plus
 from collections import defaultdict
-from transformers import pipeline    #Per implementare l'IA
-from transformers import T5ForConditionalGeneration, T5Tokenizer
+from transformers import pipeline, T5ForConditionalGeneration, T5Tokenizer    #Per implementare l'IA
 
 
 # Carica il modello linguistico per l'inglese
