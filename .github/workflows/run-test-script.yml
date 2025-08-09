@@ -1,11 +1,7 @@
-name: Aggiorna dati
+name: Test
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '30 23 * * *'  # 01:30 ora italiana
-    - cron: '30 6 * * *'   # 08:30 ora italiana
-    - cron: '30 16 * * *'  # 18:30 ora italiana
 
 jobs:
   build-and-run:
