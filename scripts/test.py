@@ -3,9 +3,10 @@ from transformers import T5Tokenizer, T5ForConditionalGeneration
 
 
 # MODELLO 1 DI IA PER RAFFINAMENTO FRASI
-model_name_paraphrase = "ramsrigouthamg/t5_paraphraser"
+# Cambiato modello a uno più performante per parafrasi
+model_name_paraphrase = "Vamsi/T5_Paraphrase_Paws"
 
-tokenizer_paraphrase = AutoTokenizer.from_pretrained(model_name_paraphrase, use_fast=False)
+tokenizer_paraphrase = AutoTokenizer.from_pretrained(model_name_paraphrase)
 model_paraphrase = AutoModelForSeq2SeqLM.from_pretrained(model_name_paraphrase)
 
 paraphraser = pipeline(
@@ -21,19 +22,20 @@ def migliora_frase(frase: str) -> str:
     """
     risultati = paraphraser(
         frase,
-        max_length=150,        # più lunghezza per output più ricco
+        max_length=150,        # output più lungo e ricco
         num_return_sequences=3, # più alternative generate
-        num_beams=5,            # beam search più ampia per qualità
+        num_beams=5,            # beam search più ampio per qualità
         do_sample=True,         # sampling per varietà
         temperature=0.8         # temperatura moderata per creatività
     )
-    # Prendi la prima parafrasi generata (puoi cambiarla se vuoi)
+    # Prendi la prima parafrasi generata (puoi modificarlo per scegliere diversamente)
     frase_migliorata = risultati[0]['generated_text']
     return frase_migliorata
 
 
 # MODELLO 2 DI IA PER GENERAZIONE TIPS
-model_name = "t5-small"
+# Cambiato a t5-base per output più sofisticati
+model_name = "t5-base"
 tokenizer = T5Tokenizer.from_pretrained(model_name)
 model = T5ForConditionalGeneration.from_pretrained(model_name)
 
