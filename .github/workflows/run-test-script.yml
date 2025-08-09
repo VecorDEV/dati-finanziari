@@ -22,14 +22,16 @@ jobs:
           sudo apt-get install -y build-essential python3-dev
 
       - name: Clear Huggingface model cache
-        run: rm -rf ~/.cache/huggingface/hub/models--ramsrigouthamg--t5_paraphraser || true
+        run: |
+          rm -rf ~/.cache/huggingface/hub/models--ramsrigouthamg--t5_paraphraser || true
+          rm -rf ~/.cache/huggingface/hub/models--google--flan-t5-base || true
 
       - name: Upgrade pip, setuptools e wheel
         run: python -m pip install --upgrade pip setuptools wheel
 
       - name: Install Python dependencies (con protobuf e sentencepiece)
         run: |
-          pip install --no-cache-dir transformers>=4.30 sentencepiece protobuf torch tiktoken blobfile
+          pip install --no-cache-dir transformers>=4.30 sentencepiece protobuf torch
 
       - name: Run prediction script
         env:
