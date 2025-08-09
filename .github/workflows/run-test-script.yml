@@ -34,7 +34,7 @@ jobs:
 
       - name: Install Python dependencies
         run: |
-          pip install --no-cache-dir protobuf==3.20.3 transformers==4.30.2 sentencepiece torch accelerate bitsandbytes
+          pip install --no-cache-dir protobuf==3.20.3 transformers==4.30.2 sentencepiece torch accelerate
 
       - name: Run prediction script
         env:
