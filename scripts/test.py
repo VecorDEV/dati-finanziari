@@ -2,8 +2,7 @@ from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline
 from transformers import T5Tokenizer, T5ForConditionalGeneration
 
 
-# MODELLO 1 DI IA PER RAFFINAMENTO FRASI
-# Cambiato modello a uno più performante per parafrasi
+# MODELLO 1 DI IA PER RAFFINAMENTO FRASI (parafrasi)
 model_name_paraphrase = "Vamsi/T5_Paraphrase_Paws"
 
 tokenizer_paraphrase = AutoTokenizer.from_pretrained(model_name_paraphrase)
@@ -16,43 +15,43 @@ paraphraser = pipeline(
 )
 
 def migliora_frase(frase: str) -> str:
-    """
-    Accetta una frase in input e restituisce una versione migliorata sintatticamente
-    e stilisticamente tramite parafrasi, con parametri di generazione migliorati.
-    """
     risultati = paraphraser(
         frase,
-        max_length=150,        # output più lungo e ricco
-        num_return_sequences=3, # più alternative generate
-        num_beams=5,            # beam search più ampio per qualità
-        do_sample=True,         # sampling per varietà
-        temperature=0.8         # temperatura moderata per creatività
+        max_new_tokens=150,        # usa max_new_tokens per evitare warning
+        num_return_sequences=3,
+        num_beams=5,
+        do_sample=True,
+        temperature=0.8,
+        no_repeat_ngram_size=2
     )
-    # Prendi la prima parafrasi generata (puoi modificarlo per scegliere diversamente)
-    frase_migliorata = risultati[0]['generated_text']
-    return frase_migliorata
+    # Prendi la prima parafrasi
+    return risultati[0]['generated_text']
 
 
-# MODELLO 2 DI IA PER GENERAZIONE TIPS
-# Cambiato a t5-base per output più sofisticati
+# MODELLO 2 DI IA PER GENERAZIONE MINI TIP (t5-base)
 model_name = "t5-base"
 tokenizer = T5Tokenizer.from_pretrained(model_name)
 model = T5ForConditionalGeneration.from_pretrained(model_name)
 
 def genera_mini_tip_from_summary(summary: str) -> str:
-    # Prompt migliorato per chiarezza
-    input_text = (
-        f"Write one or two concise tips explaining important financial terms or events from this summary, "
-        f"for a beginner reader:\n{summary}"
+    prompt = (
+        "Given the following financial market summaries, write one concise and educational tip "
+        "explaining an important financial term or event for beginner traders.\n\n"
+        "Summary: The stock market showed volatility today with tech stocks leading gains. Apple shares rose by 3%.\n"
+        "Tip: Apple’s stock rise indicates strong investor confidence in their latest products.\n\n"
+        "Summary: The energy sector dropped due to falling oil prices.\n"
+        "Tip: Lower oil prices can reduce profits for energy companies, causing their stocks to fall.\n\n"
+        f"Summary: {summary}\nTip:"
     )
-    
-    input_ids = tokenizer.encode(input_text, return_tensors="pt", truncation=True)
+    input_ids = tokenizer.encode(prompt, return_tensors="pt", truncation=True)
     outputs = model.generate(
         input_ids,
-        max_length=100,      # output più lungo
-        num_beams=5,         # beam search più esteso per qualità
-        do_sample=True,      # sampling per creatività
-        temperature=0.7,     # temperatura moderata
+        max_new_tokens=100,
+        num_beams=5,
+        do_sample=True,
+        temperature=0.9,
+        top_p=0.9,
+        no_repeat_ngram_size=2,
         early_stopping=True
     )
     tip = tokenizer.decode(outputs[0], skip_special_tokens=True)
@@ -71,5 +70,5 @@ brief_text = (
 brief_text_ai = migliora_frase(brief_text)
 print("Frase migliorata:", brief_text_ai)
 
-mini_tip = genera_mini_tip_from_summary(brief_text)
+mini_tip = genera_mini_tip_from_summary(brief_text_ai)
 print("Mini tip generato:", mini_tip)
