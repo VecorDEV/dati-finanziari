@@ -1,6 +1,6 @@
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline
 
-# Mantieni la parte di parafrasi se vuoi
+# Parafrasatore (puoi tenerlo per migliorare il summary)
 model_name_paraphrase = "Vamsi/T5_Paraphrase_Paws"
 tokenizer_paraphrase = AutoTokenizer.from_pretrained(model_name_paraphrase)
 model_paraphrase = AutoModelForSeq2SeqLM.from_pretrained(model_name_paraphrase)
@@ -19,16 +19,17 @@ def migliora_frase(frase: str) -> str:
     return risultati[0]['generated_text']
 
 
-# Usa flan-t5-base o flan-t5-large per generare il mini tip
-model_name_tip = "google/flan-t5-base"  # o "google/flan-t5-large"
+# Modello più potente per generare mini tip (puoi scegliere flan-t5-base o flan-t5-large)
+model_name_tip = "google/flan-t5-large"
 tokenizer_tip = AutoTokenizer.from_pretrained(model_name_tip)
 model_tip = AutoModelForSeq2SeqLM.from_pretrained(model_name_tip)
 
 def genera_mini_tip_from_summary(summary: str) -> str:
     prompt = (
-        "You are a financial expert. Given the following market summary, "
-        "write one concise and educational tip explaining an important financial concept or event "
-        "that would help beginner traders understand the market better.\n\n"
+        "You are a financial educator. Based on this market summary or general financial knowledge, "
+        "write one concise, clear, and educational tip about an important financial concept, indicator, or event. "
+        "The tip should help beginner traders understand finance better. "
+        "It does not have to be a summary but can be a relevant explanation, e.g. about RSI, VIX, or market behavior.\n\n"
         f"Market summary: {summary}\nTip:"
     )
     input_ids = tokenizer_tip.encode(prompt, return_tensors="pt", truncation=True)
