@@ -1960,9 +1960,6 @@ print("Fire aggiornato con successo!")
 
 
 
-import random
-import math
-
 def generate_fluid_market_summary_english(
     sentiment_for_symbols,
     percentuali_combine,
@@ -2209,17 +2206,18 @@ def generate_fluid_market_summary_english(
 
     paragraph_sentences.append(closing)
 
-    # --- GENERATE per-asset journalistic sentences ---
+    # --- GENERATE per-asset journalistic sentences for all symbols ---
     symbol_phrases = []
-    for ins in insights:
+    for symbol in percentuali_combine.keys():
+        ins = build_insight(symbol)
         phrase_template = random.choice(clause_templates[ins["theme"]])
         phrase = phrase_template.format(
             name=ins["name"],
             delta=abs(ins["delta"]),
             rsi=(int(ins["rsi"]) if ins["rsi"] is not None else "—")
         )
-        symbol_phrases.append(f"{ins['symbol']} - {phrase}")
-
+        symbol_phrases.append(f"{symbol} - {phrase}")
+    
     symbol_phrases_str = "\n".join(symbol_phrases)
 
     # Return both the overall brief and the per-asset sentences
