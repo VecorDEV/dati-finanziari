@@ -1,59 +1,39 @@
-name: Run Stock News Script
+name: Aggiorna dati
 
 on:
-  push:
-    paths:
-      - 'scripts/test.py'
-      - '.github/workflows/run-test-script.yml'
   workflow_dispatch:
+  schedule:
+    - cron: '30 23 * * *'  # 01:30 ora italiana
+    - cron: '30 6 * * *'   # 08:30 ora italiana
+    - cron: '30 16 * * *'  # 18:30 ora italiana
 
 jobs:
-  run-script:
+  build-and-run:
     runs-on: ubuntu-latest
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v2
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v4
         with:
           python-version: '3.10'
 
-      - name: Upgrade pip and install dependencies
+      - name: Install build dependencies
         run: |
-          python -m pip install --upgrade pip
-          pip install \
-            PyGithub \
-            feedparser \
-            newspaper3k \
-            readability-lxml \
-            requests \
-            beautifulsoup4 \
-            lxml \
-            html5lib \
-            nltk \
-            transformers \
-            torch \
-            pandas \
-            yfinance \
-            ta
+          sudo apt-get update
+          sudo apt-get install -y build-essential python3-dev
 
-      - name: Cache pip packages
-        uses: actions/cache@v3
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-
+      - name: Upgrade pip, setuptools e wheel
+        run: |
+          python -m pip install --upgrade pip setuptools wheel
 
-      - name: Run the updated script
+      - name: Install Python dependencies (no cache, pacchetti binari)
+        run: |
+          pip install torch transformers tiktoken blobfile
+
+      - name: Run prediction script
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python scripts/test.py
-
-      - name: Upload output artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: notizie-AAPL
-          path: notizie_output.txt
