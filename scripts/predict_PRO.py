@@ -16,6 +16,7 @@ from ta.volatility import BollingerBands
 from urllib.parse import quote_plus
 from collections import defaultdict
 from transformers import pipeline    #Per implementare l'IA
+from transformers import T5ForConditionalGeneration, T5Tokenizer
 
 
 # Carica il modello linguistico per l'inglese
@@ -2116,7 +2117,7 @@ def generate_fluid_market_summary_english(
     # ---------- select top scoring symbols ----------
     scores = {sym: calculate_asset_score(sym) for sym in percentuali_combine.keys()}
     ranked = sorted(scores.items(), key=lambda x: x[1], reverse=True)
-    selected = [s for s,_ in ranked[:4]]
+    selected = [s for s,_ in ranked[:3]]
     insights = [build_insight(s) for s in selected]
 
     if not insights:
@@ -2240,7 +2241,7 @@ brief_text, asset_sentences = generate_fluid_market_summary_english(
 
 
 
-#MODELLO DI IA PER RAFFINAMENTO FRASI
+#MODELLO 1 DI IA PER RAFFINAMENTO FRASI
 # Inizializza il pipeline di parafrasi (modello T5 ottimizzato per parafrasi)
 paraphraser = pipeline("text2text-generation", model="Vamsi/T5_Paraphrase_Paws")
 
@@ -2258,11 +2259,40 @@ def migliora_frase(frase: str) -> str:
     return frase_migliorata
 
 
+#MODELLO 2 DI IA PER GENERAZIONE TIPS
+model_name = "t5-small"
+tokenizer = T5Tokenizer.from_pretrained(model_name)
+model = T5ForConditionalGeneration.from_pretrained(model_name)
+
+def genera_mini_tip_from_summary(summary: str) -> str:
+    # Prompt per far capire al modello cosa vogliamo
+    input_text = (
+        f"From the following financial market summary, write one or two short tips or explanations "
+        f"about important terms or concepts mentioned, to help a non-expert reader understand better:\n"
+        f"{summary}"
+    )
+    
+    input_ids = tokenizer.encode(input_text, return_tensors="pt", truncation=True)
+    outputs = model.generate(
+        input_ids,
+        max_length=80,
+        num_beams=2,
+        early_stopping=True
+    )
+    tip = tokenizer.decode(outputs[0], skip_special_tokens=True)
+    return tip
+
+# Esempio d'uso
+summary_text = (
+    "Tesla's RSI has been fluctuating, while the VIX spiked indicating increased market volatility."
+)
+print()
 
 
 
 # Salva il brief in HTML
 brief_text_ai = migliora_frase(brief_text)
+mini_tip = genera_mini_tip_from_summary(brief_text)
 
 html_content = f"""
 <html>
@@ -2274,6 +2304,8 @@ html_content = f"""
     <ul>
       {"".join(f"<li>{line}</li>" for line in asset_sentences.splitlines())}
     </ul>
+    <h2>💡 Mini Tip</h2>
+    <p style='font-family: Arial; font-size: 14px; color: #555;'>{mini_tip}</p>
   </body>
 </html>
 """
