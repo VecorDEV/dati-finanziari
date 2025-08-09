@@ -44,6 +44,14 @@ def genera_mini_tip_from_summary(summary: str) -> str:
     tip = tokenizer.decode(outputs[0], skip_special_tokens=True)
     return tip
 
+brief_text = (
+    "A mixed day in the market with gains balanced by some losses. "
+    "Duolingo extended its upward momentum, climbing 23.9%.; "
+    "ADP extended its upward momentum, climbing 23.4%.; "
+    "Netflix extended its upward momentum, climbing 22.8%.; "
+    "McDonald's rose by 23.2%, leading the gains today. "
+    "The session closes with a balanced market tone and cautious positioning."
+)
 
 brief_text_ai = migliora_frase(brief_text)
 print("Frase migliorata:", brief_text_ai)
