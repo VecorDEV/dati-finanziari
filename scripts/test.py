@@ -1,52 +1,66 @@
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline
+import torch
 
-# === Parafrasatore per migliorare il summary mantenendo il contenuto ===
-model_name_paraphrase = "Vamsi/T5_Paraphrase_Paws"
+device = 0 if torch.cuda.is_available() else -1
+
+# === Parafrasatore in stile giornalistico ===
+model_name_paraphrase = "google/flan-t5-xxl"  # modello molto potente
 tokenizer_paraphrase = AutoTokenizer.from_pretrained(model_name_paraphrase)
-model_paraphrase = AutoModelForSeq2SeqLM.from_pretrained(model_name_paraphrase)
-paraphraser = pipeline("text2text-generation", model=model_paraphrase, tokenizer=tokenizer_paraphrase)
+model_paraphrase = AutoModelForSeq2SeqLM.from_pretrained(model_name_paraphrase, torch_dtype=torch.float32)  # CPU friendly
+
+paraphraser = pipeline(
+    "text2text-generation",
+    model=model_paraphrase,
+    tokenizer=tokenizer_paraphrase,
+    device=device
+)
 
 def migliora_frase(frase: str) -> str:
-    risultati = paraphraser(
-        frase,
-        max_new_tokens=200,        # aumenta un po' per evitare tagli
-        num_return_sequences=1,    # tieni solo 1 per coerenza
-        num_beams=8,                # beam search più alta per fedeltà
-        do_sample=False,            # disattiva sampling per evitare invenzioni
+    prompt = (
+        "Rewrite the following market update with a sharp, professional, and journalistic tone. "
+        "Keep it concise (1–2 sentences), highlight key price moves and overall market mood. "
+        "Avoid adding new facts.\n\n"
+        f"{frase}\n\nRewritten:"
+    )
+    results = paraphraser(
+        prompt,
+        max_new_tokens=80,
+        num_return_sequences=1,
+        num_beams=6,
+        do_sample=False,
         early_stopping=True,
         no_repeat_ngram_size=3
     )
-    return risultati[0]['generated_text']
+    return results[0]['generated_text'].strip()
 
-# === Modello per generare il mini tip didattico ===
-model_name_tip = "google/flan-t5-large"
+# === Modello per il mini tip didattico ===
+model_name_tip = "google/flan-t5-xxl"  # stesso modello per uniformità di stile
 tokenizer_tip = AutoTokenizer.from_pretrained(model_name_tip)
-model_tip = AutoModelForSeq2SeqLM.from_pretrained(model_name_tip)
+model_tip = AutoModelForSeq2SeqLM.from_pretrained(model_name_tip, torch_dtype=torch.float32)
 
 def genera_mini_tip_from_summary(summary: str) -> str:
     prompt = (
-        "You are a financial educator. Based on this market summary or your financial knowledge, "
-        "write one short, specific, and educational tip that explains a financial concept, indicator, "
-        "or market behavior. The tip should be relevant and useful for beginner investors. "
-        "Examples: explain what RSI means, how to read Bollinger Bands, why the VIX is called the fear index, "
-        "or when to buy based on VIX trends.\n\n"
-        f"Market summary: {summary}\nTip:"
+        "You are a financial educator. Do NOT summarize the text below. "
+        "Write a single, self-contained educational trading tip explaining one financial concept, "
+        "indicator, or market behavior (e.g., RSI, Bollinger Bands, the VIX, moving averages). "
+        "Make it clear, concise, and useful for beginner traders. Avoid specific numbers or facts "
+        "from the summary.\n\n"
+        f"Market summary: {summary}\n\nTip:"
     )
     input_ids = tokenizer_tip.encode(prompt, return_tensors="pt", truncation=True)
     outputs = model_tip.generate(
         input_ids,
-        max_new_tokens=120,
-        num_beams=6,
+        max_new_tokens=80,
+        num_beams=4,
         do_sample=True,
         temperature=0.7,
         top_p=0.9,
         no_repeat_ngram_size=2,
         early_stopping=True
     )
-    tip = tokenizer_tip.decode(outputs[0], skip_special_tokens=True)
-    return tip
+    return tokenizer_tip.decode(outputs[0], skip_special_tokens=True).strip()
 
-# === Esempio di input ===
+# === Esempio ===
 brief_text = (
     "A mixed day in the market with gains balanced by some losses. "
     "Duolingo extended its upward momentum, climbing 23.9%; "
@@ -57,7 +71,7 @@ brief_text = (
 )
 
 brief_text_ai = migliora_frase(brief_text)
-print("Frase migliorata:", brief_text_ai)
+print("Journalistic rewrite:", brief_text_ai)
 
 mini_tip = genera_mini_tip_from_summary(brief_text_ai)
-print("Mini tip generato:", mini_tip)
+print("Educational tip:", mini_tip)
