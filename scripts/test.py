@@ -1,3 +1,8 @@
+from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline
+from transformers import T5Tokenizer, T5ForConditionalGeneration
+
+
+
 #MODELLO 1 DI IA PER RAFFINAMENTO FRASI
 model_name_paraphrase = "ramsrigouthamg/t5_paraphraser"
 
@@ -41,4 +46,7 @@ def genera_mini_tip_from_summary(summary: str) -> str:
 
 
 brief_text_ai = migliora_frase(brief_text)
+print("Frase migliorata:", brief_text_ai)
+
 mini_tip = genera_mini_tip_from_summary(brief_text)
+print("Mini tip generato:", mini_tip)
