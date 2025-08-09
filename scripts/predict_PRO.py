@@ -15,7 +15,7 @@ from ta.trend import MACD, EMAIndicator, CCIIndicator
 from ta.volatility import BollingerBands
 from urllib.parse import quote_plus
 from collections import defaultdict
-from transformers import pipeline, T5ForConditionalGeneration, T5Tokenizer    #Per implementare l'IA
+from transformers import pipeline, AutoTokenizer, AutoModelForSeq2SeqLM, T5Tokenizer, T5ForConditionalGeneration    #Per implementare l'IA
 
 
 # Carica il modello linguistico per l'inglese
@@ -2242,23 +2242,22 @@ brief_text, asset_sentences = generate_fluid_market_summary_english(
 
 #MODELLO 1 DI IA PER RAFFINAMENTO FRASI
 # Inizializza il pipeline di parafrasi (modello T5 ottimizzato per parafrasi)
-paraphraser = pipeline("text2text-generation", model="Vamsi/T5_Paraphrase_Paws")
+model_name_paraphrase = "Vamsi/T5_Paraphrase_Paws"
+tokenizer_paraphrase = AutoTokenizer.from_pretrained(model_name_paraphrase, use_fast=False)
+model_paraphrase = AutoModelForSeq2SeqLM.from_pretrained(model_name_paraphrase)
+paraphraser = pipeline("text2text-generation", model=model_paraphrase, tokenizer=tokenizer_paraphrase)
 
 def migliora_frase(frase: str) -> str:
     """
     Accetta una frase in input e restituisce una versione migliorata sintatticamente
     e stilisticamente tramite parafrasi.
     """
-    # Applichiamo la parafrasi
     risultati = paraphraser(frase, max_length=100, num_return_sequences=1)
-    
-    # Estrarre il testo generato
     frase_migliorata = risultati[0]['generated_text']
-    
     return frase_migliorata
 
 
-#MODELLO 2 DI IA PER GENERAZIONE TIPS
+# MODELLO 2 DI IA PER GENERAZIONE TIPS
 model_name = "t5-small"
 tokenizer = T5Tokenizer.from_pretrained(model_name)
 model = T5ForConditionalGeneration.from_pretrained(model_name)
@@ -2281,15 +2280,8 @@ def genera_mini_tip_from_summary(summary: str) -> str:
     tip = tokenizer.decode(outputs[0], skip_special_tokens=True)
     return tip
 
-# Esempio d'uso
-summary_text = (
-    "Tesla's RSI has been fluctuating, while the VIX spiked indicating increased market volatility."
-)
-print()
 
 
-
-# Salva il brief in HTML
 brief_text_ai = migliora_frase(brief_text)
 mini_tip = genera_mini_tip_from_summary(brief_text)
 
