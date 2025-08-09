@@ -15,6 +15,7 @@ from ta.trend import MACD, EMAIndicator, CCIIndicator
 from ta.volatility import BollingerBands
 from urllib.parse import quote_plus
 from collections import defaultdict
+from transformers import pipeline    #Per implementare l'IA
 
 
 # Carica il modello linguistico per l'inglese
@@ -2236,13 +2237,39 @@ brief_text, asset_sentences = generate_fluid_market_summary_english(
     fundamental_data
 )
 
+
+
+
+#MODELLO DI IA PER RAFFINAMENTO FRASI
+# Inizializza il pipeline di parafrasi (modello T5 ottimizzato per parafrasi)
+paraphraser = pipeline("text2text-generation", model="Vamsi/T5_Paraphrase_Paws")
+
+def migliora_frase(frase: str) -> str:
+    """
+    Accetta una frase in input e restituisce una versione migliorata sintatticamente
+    e stilisticamente tramite parafrasi.
+    """
+    # Applichiamo la parafrasi
+    risultati = paraphraser(frase, max_length=100, num_return_sequences=1)
+    
+    # Estrarre il testo generato
+    frase_migliorata = risultati[0]['generated_text']
+    
+    return frase_migliorata
+
+
+
+
+
 # Salva il brief in HTML
+brief_text_ai = migliora_frase(brief_text)
+
 html_content = f"""
 <html>
   <head><title>Market Brief</title></head>
   <body>
     <h1>📊 Daily Market Summary</h1>
-    <p style='font-family: Arial; font-size: 16px;'>{brief_text}</p>
+    <p style='font-family: Arial; font-size: 16px;'>{brief_text_ai}</p>
     <h2>Per-Asset Insights</h2>
     <ul>
       {"".join(f"<li>{line}</li>" for line in asset_sentences.splitlines())}
