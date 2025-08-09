@@ -1,11 +1,10 @@
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline
 import torch
 
-device = -1  # Sempre CPU su GitHub Actions
+device = -1  # CPU
 
-model_name = "google/flan-t5-xl"
+model_name = "google/flan-t5-large"  # modello più leggero e compatibile con CPU
 
-# Carica modello in float32 (CPU friendly)
 model = AutoModelForSeq2SeqLM.from_pretrained(
     model_name,
     torch_dtype=torch.float32
@@ -17,7 +16,7 @@ paraphraser = pipeline(
     "text2text-generation",
     model=model,
     tokenizer=tokenizer,
-    device=device  # -1 = CPU
+    device=device
 )
 
 def migliora_frase(frase: str) -> str:
@@ -48,8 +47,6 @@ def genera_mini_tip_from_summary(summary: str) -> str:
         f"Market summary: {summary}\n\nTip:"
     )
     input_ids = tokenizer.encode(prompt, return_tensors="pt", truncation=True)
-
-    # Su CPU, non serve spostare input_ids su CUDA
 
     outputs = model.generate(
         input_ids,
