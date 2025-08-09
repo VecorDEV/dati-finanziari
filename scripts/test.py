@@ -4,9 +4,12 @@ import torch
 device = 0 if torch.cuda.is_available() else -1
 
 # === Parafrasatore in stile giornalistico ===
-model_name_paraphrase = "google/flan-t5-xxl"  # modello molto potente
+model_name_paraphrase = "google/flan-t5-xl"  # compromesso qualità/memoria
 tokenizer_paraphrase = AutoTokenizer.from_pretrained(model_name_paraphrase)
-model_paraphrase = AutoModelForSeq2SeqLM.from_pretrained(model_name_paraphrase, torch_dtype=torch.float32)  # CPU friendly
+model_paraphrase = AutoModelForSeq2SeqLM.from_pretrained(
+    model_name_paraphrase,
+    torch_dtype=torch.float32  # CPU friendly
+)
 
 paraphraser = pipeline(
     "text2text-generation",
@@ -34,9 +37,12 @@ def migliora_frase(frase: str) -> str:
     return results[0]['generated_text'].strip()
 
 # === Modello per il mini tip didattico ===
-model_name_tip = "google/flan-t5-xxl"  # stesso modello per uniformità di stile
+model_name_tip = "google/flan-t5-xl"  # stesso modello per coerenza di stile
 tokenizer_tip = AutoTokenizer.from_pretrained(model_name_tip)
-model_tip = AutoModelForSeq2SeqLM.from_pretrained(model_name_tip, torch_dtype=torch.float32)
+model_tip = AutoModelForSeq2SeqLM.from_pretrained(
+    model_name_tip,
+    torch_dtype=torch.float32
+)
 
 def genera_mini_tip_from_summary(summary: str) -> str:
     prompt = (
