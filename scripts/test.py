@@ -1,21 +1,23 @@
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline
 import torch
 
-device = 0 if torch.cuda.is_available() else -1
+device = -1  # Sempre CPU su GitHub Actions
 
-# === Parafrasatore in stile giornalistico ===
-model_name_paraphrase = "google/flan-t5-xl"  # compromesso qualità/memoria
-tokenizer_paraphrase = AutoTokenizer.from_pretrained(model_name_paraphrase)
-model_paraphrase = AutoModelForSeq2SeqLM.from_pretrained(
-    model_name_paraphrase,
-    torch_dtype=torch.float32  # CPU friendly
+model_name = "google/flan-t5-xl"
+
+# Carica modello in float32 (CPU friendly)
+model = AutoModelForSeq2SeqLM.from_pretrained(
+    model_name,
+    torch_dtype=torch.float32
 )
+
+tokenizer = AutoTokenizer.from_pretrained(model_name)
 
 paraphraser = pipeline(
     "text2text-generation",
-    model=model_paraphrase,
-    tokenizer=tokenizer_paraphrase,
-    device=device
+    model=model,
+    tokenizer=tokenizer,
+    device=device  # -1 = CPU
 )
 
 def migliora_frase(frase: str) -> str:
@@ -36,14 +38,6 @@ def migliora_frase(frase: str) -> str:
     )
     return results[0]['generated_text'].strip()
 
-# === Modello per il mini tip didattico ===
-model_name_tip = "google/flan-t5-xl"  # stesso modello per coerenza di stile
-tokenizer_tip = AutoTokenizer.from_pretrained(model_name_tip)
-model_tip = AutoModelForSeq2SeqLM.from_pretrained(
-    model_name_tip,
-    torch_dtype=torch.float32
-)
-
 def genera_mini_tip_from_summary(summary: str) -> str:
     prompt = (
         "You are a financial educator. Do NOT summarize the text below. "
@@ -53,8 +47,11 @@ def genera_mini_tip_from_summary(summary: str) -> str:
         "from the summary.\n\n"
         f"Market summary: {summary}\n\nTip:"
     )
-    input_ids = tokenizer_tip.encode(prompt, return_tensors="pt", truncation=True)
-    outputs = model_tip.generate(
+    input_ids = tokenizer.encode(prompt, return_tensors="pt", truncation=True)
+
+    # Su CPU, non serve spostare input_ids su CUDA
+
+    outputs = model.generate(
         input_ids,
         max_new_tokens=80,
         num_beams=4,
@@ -64,7 +61,7 @@ def genera_mini_tip_from_summary(summary: str) -> str:
         no_repeat_ngram_size=2,
         early_stopping=True
     )
-    return tokenizer_tip.decode(outputs[0], skip_special_tokens=True).strip()
+    return tokenizer.decode(outputs[0], skip_special_tokens=True).strip()
 
 # === Esempio ===
 brief_text = (
