@@ -41,7 +41,7 @@ jobs:
           # Analisi dati e ML
           pip install --no-cache-dir --upgrade pandas ta \
             beautifulsoup4 scikit-learn xgboost PyGithub \
-            torch transformers tiktoken
+            torch transformers tiktoken blobfile
 
           # spaCy aggiornato a una versione con wheel per Python 3.10
           pip install --no-cache-dir --prefer-binary spacy==3.7.2
