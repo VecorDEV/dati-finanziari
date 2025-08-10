@@ -16,7 +16,7 @@ jobs:
         with:
           python-version: '3.10'
 
-      # Cache Hugging Face models
+      # Cache Hugging Face models (incluso Falcon)
       - name: Cache Huggingface models
         uses: actions/cache@v3
         with:
@@ -40,14 +40,16 @@ jobs:
       - name: Install Python dependencies
         run: |
           python -m pip install "numpy<2"
-          python -m pip install protobuf==3.20.3 transformers==4.30.2 sentencepiece torch==2.0.1+cpu -f https://download.pytorch.org/whl/torch_stable.html
+          python -m pip install protobuf==3.20.3
+          python -m pip install torch==2.0.1+cpu -f https://download.pytorch.org/whl/torch_stable.html
+          python -m pip install transformers==4.33.2 sentencepiece
 
-      # Pre-scarica e cache il modello flan-t5-large
-      - name: Pre-download flan-t5-large
+      # Pre-scarica e cache il modello tiiuae/falcon-7b-instruct
+      - name: Pre-download falcon-7b-instruct
         run: |
-          python -c "from transformers import AutoTokenizer, AutoModelForSeq2SeqLM; \
-          AutoTokenizer.from_pretrained('google/flan-t5-large'); \
-          AutoModelForSeq2SeqLM.from_pretrained('google/flan-t5-large')"
+          python -c "from transformers import AutoTokenizer, AutoModelForCausalLM; \
+          AutoTokenizer.from_pretrained('tiiuae/falcon-7b-instruct'); \
+          AutoModelForCausalLM.from_pretrained('tiiuae/falcon-7b-instruct')"
 
       - name: Run prediction script
         env:
