@@ -22,9 +22,8 @@ def migliora_frase(frase: str) -> str:
         max_new_tokens=120,
         num_return_sequences=1,
         num_beams=5,
-        do_sample=False,
+        do_sample=False,          # no sampling, temperature ignored
         early_stopping=True,
-        temperature=0.4,
         no_repeat_ngram_size=3
     )
     text = results[0]['generated_text']
@@ -36,8 +35,8 @@ def genera_mini_tip_from_summary(summary: str) -> str:
         prompt,
         max_new_tokens=60,
         num_return_sequences=1,
-        do_sample=True,
-        temperature=0.8,
+        do_sample=True,           # sampling enabled
+        temperature=0.8,          # temperature effective
         top_p=0.9,
         no_repeat_ngram_size=3
     )
