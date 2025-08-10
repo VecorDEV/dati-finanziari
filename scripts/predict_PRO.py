@@ -2422,9 +2422,83 @@ def raffina_testo(testo):
     testo = testo[0].upper() + testo[1:] if testo else testo
 
     return testo
-    
+
+
+#Per generare i segnali
+def assign_signal_and_strength(
+    sentiment_for_symbols,
+    percentuali_combine,
+    indicator_data,
+    fundamental_data
+):
+    def normalize(val, min_val, max_val):
+        # scala val tra 0 e 1
+        return max(0, min(1, (val - min_val) / (max_val - min_val))) if max_val > min_val else 0.5
+
+    signals = {}
+
+    for symbol in percentuali_combine:
+        sentiment = sentiment_for_symbols.get(symbol, 0.0)
+        if isinstance(sentiment, dict):
+            sentiment = sentiment.get("sentiment", 0.0)
+
+        percent = percentuali_combine.get(symbol, 50)
+        rsi = indicator_data.get(symbol, {}).get("RSI (14)", 50)
+        momentum = percent - 50  # semplice momentum dal delta %
+
+        pe = fundamental_data.get(symbol, {}).get("P/E", None)
+        growth = fundamental_data.get(symbol, {}).get("RevenueGrowth", 0.0)
+
+        # Score componenti (0-1)
+        sentiment_score = normalize(sentiment, -1, 1)        # da -1 a 1 -> 0 a 1
+        momentum_score = normalize(momentum, -50, 50)        # -50% a +50%
+        rsi_score = 1 - abs(rsi - 50)/50                      # rsi 50 è neutro, 0 o 100 è estremo -> scala 0-1
+        growth_score = normalize(growth, 0, 0.3)              # supponiamo 30% crescita max sensata
+        pe_score = 0.5
+        if pe is not None and pe > 0:
+            pe_score = max(0, min(1, (30 - pe) / 30))         # pe basso meglio, max 30
+
+        # Pesi arbitrari per la somma
+        weights = {
+            "sentiment": 0.3,
+            "momentum": 0.3,
+            "rsi": 0.2,
+            "growth": 0.1,
+            "pe": 0.1
+        }
+
+        total_score = (
+            sentiment_score * weights["sentiment"] +
+            momentum_score * weights["momentum"] +
+            rsi_score * weights["rsi"] +
+            growth_score * weights["growth"] +
+            pe_score * weights["pe"]
+        )
+
+        # Definizione segnale
+        if total_score > 0.65:
+            signal = "BUY"
+        elif total_score < 0.4:
+            signal = "SELL"
+        else:
+            signal = "HOLD"
+
+        signals[symbol] = {"signal": signal, "strength": round(total_score, 3)}
+
+    return signals
+
+
+
+
 brief_refined = raffna_testo(brief_text)
 mini_tip = genera_mini_tip_from_summary(brief_text)
+
+signals = assign_signal_and_strength(sentiment_for_symbols, percentuali_combine, indicator_data, fundamental_data)
+max_strength = max(info['strength'] for info in signals.values())    # Trova il massimo punteggio
+top_symbols = [sym for sym, info in signals.items() if info['strength'] == max_strength]    # Filtra simboli con punteggio massimo
+top_symbol = sorted(top_symbols)[0]    # Ordina alfabeticamente e prendi il primo
+top_info = signals[top_symbol]
+top_signal_str = f"{top_info['signal']} signal on {top_symbol} - Accuracy {int(top_info['strength'] * 100)}%"
 
 html_content = f"""
 <html>
@@ -2438,6 +2512,9 @@ html_content = f"""
     </ul>
     <h2>💡 Mini Tip</h2>
     <p style='font-family: Arial; font-size: 14px; color: #555;'>{mini_tip}</p>
+    <hr>
+    <h2>🔥 Top Signal</h2>
+    <p style='font-family: Arial; font-size: 16px; font-weight: bold;'>{top_signal_str}</p>
   </body>
 </html>
 """
