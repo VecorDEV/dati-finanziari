@@ -16,7 +16,7 @@ jobs:
         with:
           python-version: '3.10'
 
-      # Cache Hugging Face models (modifica per flan-t5-large)
+      # Cache Hugging Face models (modificato per josty11/distil2)
       - name: Cache Huggingface models
         uses: actions/cache@v3
         with:
@@ -44,12 +44,12 @@ jobs:
           python -m pip install --no-cache-dir torch==2.0.1+cpu -f https://download.pytorch.org/whl/torch_stable.html
           python -m pip install --no-cache-dir transformers==4.33.2 sentencepiece
 
-      # Pre-download e cache del modello google/flan-t5-large
-      - name: Pre-download flan-t5-large model
+      # Pre-download e cache del modello josty11/distil2
+      - name: Pre-download josty11/distil2 model
         run: |
           python -c "from transformers import AutoTokenizer, AutoModelForSeq2SeqLM; \
-          AutoTokenizer.from_pretrained('google/flan-t5-large'); \
-          AutoModelForSeq2SeqLM.from_pretrained('google/flan-t5-large')"
+          AutoTokenizer.from_pretrained('josty11/distil2'); \
+          AutoModelForSeq2SeqLM.from_pretrained('josty11/distil2')"
 
       - name: Run prediction script
         env:
