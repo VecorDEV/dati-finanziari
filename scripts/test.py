@@ -1,7 +1,7 @@
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline
 import torch
 
-device = 0 if torch.cuda.is_available() else -1  # Usa GPU se disponibile
+device = 0 if torch.cuda.is_available() else -1
 
 model_name = "google/flan-t5-large"
 
@@ -18,18 +18,20 @@ paraphraser = pipeline(
 def migliora_frase(frase: str) -> str:
     prompt = (
         "Rewrite the following market update in a fluent, journalistic style, "
-        "connecting ideas naturally without simple lists or repetition. "
+        "using smooth transitions and varied sentence structures. "
+        "Avoid simple lists and any repetition of ideas or words. "
         "Keep all numbers and company names unchanged.\n\n"
         f"{frase}\n\nRewrite:"
     )
     results = paraphraser(
         prompt,
-        max_new_tokens=160,
+        max_new_tokens=180,
         num_return_sequences=1,
-        num_beams=6,
+        num_beams=8,
         do_sample=False,
         early_stopping=True,
-        no_repeat_ngram_size=3,
+        no_repeat_ngram_size=4,
+        length_penalty=1.2,  # favor longer but coherent outputs
     )
     return results[0]['generated_text'].split("Rewrite:")[-1].strip()
 
@@ -46,7 +48,7 @@ def genera_mini_tip_from_summary(summary: str) -> str:
         num_return_sequences=1,
         num_beams=4,
         do_sample=True,
-        temperature=0.6,
+        temperature=0.7,
         no_repeat_ngram_size=3,
         early_stopping=True
     )
