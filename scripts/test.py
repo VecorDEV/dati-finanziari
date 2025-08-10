@@ -21,19 +21,19 @@ paraphraser = pipeline(
 
 def migliora_frase(frase: str) -> str:
     prompt = (
-        "Rewrite the following market update keeping ALL original information intact. "
-        "Maintain every stock trend and data point, but improve the tone to be sharp, professional, and journalistic. "
-        "Make the sentences flow better and be concise (1–2 sentences). "
-        "Do NOT omit or add any facts.\n\n"
+        "Rewrite the following market update with a sharp, professional, and journalistic tone. "
+        "Do not omit any details or remove any stock names or figures. "
+        "The rewritten text must keep all data points and trends exactly, just improve tone and fluency. "
+        "Make the sentences concise but ensure all info is preserved.\n\n"
         f"{frase}\n\nRewritten:"
     )
     results = paraphraser(
         prompt,
-        max_new_tokens=120,
-        max_length=200,  # evita taglio anticipato
+        max_new_tokens=160,
         num_return_sequences=1,
         num_beams=6,
-        do_sample=False,
+        do_sample=True,
+        temperature=0.3,
         early_stopping=True,
         no_repeat_ngram_size=3
     )
@@ -44,7 +44,7 @@ def genera_mini_tip_from_summary(summary: str) -> str:
         "You are a financial educator. Based on the market summary below, "
         "write ONE clear, specific educational trading tip about a financial indicator, concept, or market behavior. "
         "Examples include how to use the RSI, Bollinger Bands, or VIX in trading decisions. "
-        "Do NOT refer to numbers, percentages, dates, or company names from the summary. "
+        "Do NOT refer to numbers, percentages, dates, or company names from the summary. Be creative and prcise."
         "Focus on practical, actionable advice suitable for beginner traders, written in plain English. "
         "Start the tip with 'Tip:'.\n\n"
         f"Market summary: {summary}\n\nTip:"
@@ -54,11 +54,10 @@ def genera_mini_tip_from_summary(summary: str) -> str:
 
     outputs = model.generate(
         input_ids,
-        max_new_tokens=70,
-        max_length=200,  # evita taglio anticipato
+        max_new_tokens=90,
         num_beams=5,
         do_sample=True,
-        temperature=0.6,  # più controllato per coerenza
+        temperature=0.5,
         top_p=0.9,
         no_repeat_ngram_size=3,
         early_stopping=True
