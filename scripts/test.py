@@ -3,7 +3,7 @@ import torch
 
 device = -1  # CPU
 
-model_name = "google/flan-t5-large"  # modello più leggero e compatibile con CPU
+model_name = "google/flan-t5-base"  # modello più leggero e compatibile con CPU
 
 model = AutoModelForSeq2SeqLM.from_pretrained(
     model_name,
