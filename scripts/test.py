@@ -1,4 +1,4 @@
-from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline
+from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 import torch
 
 device = -1  # CPU
@@ -12,13 +12,6 @@ model = AutoModelForSeq2SeqLM.from_pretrained(
 
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 
-paraphraser = pipeline(
-    "text2text-generation",
-    model=model,
-    tokenizer=tokenizer,
-    device=device
-)
-
 def migliora_frase(frase: str) -> str:
     prompt = (
         "Rewrite the following market update in a fluent, journalistic style, "
@@ -26,16 +19,19 @@ def migliora_frase(frase: str) -> str:
         "Keep all the information, numbers, and company names exactly as is, but make the text smooth, engaging, and professional.\n\n"
         f"{frase}\n\nRewritten:"
     )
-    results = paraphraser(
-        prompt,
-        max_new_tokens=160,
-        num_return_sequences=1,
-        num_beams=6,
-        do_sample=False,
+    input_ids = tokenizer(prompt, return_tensors="pt").input_ids
+
+    outputs = model.generate(
+        input_ids,
+        max_new_tokens=180,
+        do_sample=True,
+        top_p=0.9,
+        temperature=0.7,
+        num_beams=3,
+        no_repeat_ngram_size=3,
         early_stopping=True,
-        no_repeat_ngram_size=3
     )
-    return results[0]['generated_text'].strip()
+    return tokenizer.decode(outputs[0], skip_special_tokens=True).strip()
 
 def genera_mini_tip_from_summary(summary: str) -> str:
     prompt = (
