@@ -1,49 +1,58 @@
-from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
+from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline
 import torch
 
-device = -1  # CPU
+device = 0 if torch.cuda.is_available() else -1  # Usa GPU se disponibile
 
-model_name = "distilgpt2"
+model_name = "google/flan-t5-large"
 
 tokenizer = AutoTokenizer.from_pretrained(model_name)
-model = AutoModelForCausalLM.from_pretrained(model_name)
+model = AutoModelForSeq2SeqLM.from_pretrained(model_name, torch_dtype=torch.float32)
 
-generator = pipeline(
-    "text-generation",
+paraphraser = pipeline(
+    "text2text-generation",
     model=model,
     tokenizer=tokenizer,
     device=device
 )
 
 def migliora_frase(frase: str) -> str:
-    prompt = f"Rewrite the following market update in fluent journalistic style:\n\n{frase}\n\nRewrite:"
-    results = generator(
-        prompt,
-        max_new_tokens=120,
-        num_return_sequences=1,
-        num_beams=5,
-        do_sample=False,          # no sampling, temperature ignored
-        early_stopping=True,
-        no_repeat_ngram_size=3
+    prompt = (
+        "Rewrite the following market update in a fluent, journalistic style, "
+        "connecting ideas naturally without simple lists or repetition. "
+        "Keep all numbers and company names unchanged.\n\n"
+        f"{frase}\n\nRewrite:"
     )
-    text = results[0]['generated_text']
-    return text.split("Rewrite:")[-1].strip()
+    results = paraphraser(
+        prompt,
+        max_new_tokens=160,
+        num_return_sequences=1,
+        num_beams=6,
+        do_sample=False,
+        early_stopping=True,
+        no_repeat_ngram_size=3,
+    )
+    return results[0]['generated_text'].split("Rewrite:")[-1].strip()
 
 def genera_mini_tip_from_summary(summary: str) -> str:
-    prompt = f"Based on this market summary, write a concise educational trading tip (no stocks or numbers):\n\n{summary}\n\nTip:"
-    results = generator(
-        prompt,
-        max_new_tokens=60,
-        num_return_sequences=1,
-        do_sample=True,           # sampling enabled
-        temperature=0.8,          # temperature effective
-        top_p=0.9,
-        no_repeat_ngram_size=3
+    prompt = (
+        "You are a financial educator. Based on the market summary below, write ONE concise and practical educational trading tip. "
+        "Focus on well-known indicators like RSI, Bollinger Bands, VIX, moving averages or market behaviors. "
+        "Do NOT mention specific stocks, numbers, or dates.\n\n"
+        f"Market summary: {summary}\n\nTip:"
     )
-    text = results[0]['generated_text']
-    return text.split("Tip:")[-1].strip()
+    results = paraphraser(
+        prompt,
+        max_new_tokens=90,
+        num_return_sequences=1,
+        num_beams=4,
+        do_sample=True,
+        temperature=0.6,
+        no_repeat_ngram_size=3,
+        early_stopping=True
+    )
+    return results[0]['generated_text'].split("Tip:")[-1].strip()
 
-# Esempio
+# === Esempio ===
 brief_text = (
     "A mixed day in the market with gains balanced by some losses. "
     "Duolingo extended its upward momentum, climbing 23.9%; "
