@@ -2398,7 +2398,32 @@ def genera_mini_tip_from_summary(summary: str) -> str:
 
     return tip
 
+#Per raffinare un testo
+def raffina_testo(testo):
+    abbrev = {"Inc.", "Sr.", "Jr.", "Dr.", "Mr.", "Mrs.", "Ms."}
 
+    testo = testo.replace("...", "…")
+    testo = re.sub(r'([.!?,;:])(?!\.)\s*[.!?,;:]+', r'\1', testo)
+    testo = re.sub(r'\s+([.,;:!?…])', r'\1', testo)
+    testo = re.sub(r'([.,;:!?…])(?=\S)', r'\1 ', testo)
+
+    def maiusc(m):
+        p, l = m.group(1), m.group(2)
+        pos = m.start(1)
+        if any(testo.rfind(a, 0, pos + 1) == pos + 1 - len(a) for a in abbrev):
+            return p + l.lower()
+        return p + " " + l.upper()
+
+    testo = re.sub(r'([.!?])\s*(\w)', maiusc, testo)
+    testo = testo.strip()
+    if testo:
+        testo = testo[0].upper() + testo[1:].lower()
+    testo = re.sub(r'([.!?…]\s+)(\w)', lambda m: m.group(1) + m.group(2).upper(), testo)
+    testo = testo[0].upper() + testo[1:] if testo else testo
+
+    return testo
+    
+brief_refined = raffna_testo(brief_text)
 mini_tip = genera_mini_tip_from_summary(brief_text)
 
 html_content = f"""
@@ -2406,7 +2431,7 @@ html_content = f"""
   <head><title>Market Brief</title></head>
   <body>
     <h1>📊 Daily Market Summary</h1>
-    <p style='font-family: Arial; font-size: 16px;'>{brief_text}</p>
+    <p style='font-family: Arial; font-size: 16px;'>{brief_refined}</p>
     <h2>Per-Asset Insights</h2>
     <ul>
       {"".join(f"<li>{line}</li>" for line in asset_sentences.splitlines())}
