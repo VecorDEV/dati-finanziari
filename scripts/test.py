@@ -21,10 +21,9 @@ paraphraser = pipeline(
 
 def migliora_frase(frase: str) -> str:
     prompt = (
-        "Rewrite the following market update with a sharp, professional, and journalistic tone. "
-        "Do not omit any details or remove any stock names or figures. "
-        "The rewritten text must keep all data points and trends exactly, just improve tone and fluency. "
-        "Make the sentences concise but ensure all info is preserved.\n\n"
+        "Rewrite the following market update in a fluent, journalistic style, "
+        "connecting the ideas naturally and avoiding simple lists or repeated sentence structures. "
+        "Keep all the information, numbers, and company names exactly as is, but make the text smooth, engaging, and professional.\n\n"
         f"{frase}\n\nRewritten:"
     )
     results = paraphraser(
@@ -32,30 +31,25 @@ def migliora_frase(frase: str) -> str:
         max_new_tokens=160,
         num_return_sequences=1,
         num_beams=6,
-        do_sample=False,   # <- sampling disabilitato con beam search
+        do_sample=False,
         early_stopping=True,
-        no_repeat_ngram_size=3,
-        temperature=0.3  # non serve se do_sample=False, ma puoi lasciarlo
+        no_repeat_ngram_size=3
     )
     return results[0]['generated_text'].strip()
 
 def genera_mini_tip_from_summary(summary: str) -> str:
     prompt = (
-        "You are a financial educator. Based on the market summary below, "
-        "write ONE clear, specific educational trading tip about a financial indicator, concept, or market behavior. "
-        "Examples include how to use the RSI, Bollinger Bands, or VIX in trading decisions. "
-        "Do NOT refer to numbers, percentages, dates, or company names from the summary. Be creative and precise. "
-        "Focus on practical, actionable advice suitable for beginner traders, written in plain English. "
-        "Start the tip with 'Tip:'.\n\n"
+        "You are a financial educator. Based on the market summary below, write ONE concise, precise and practical educational trading tip. "
+        "Focus on well-known financial indicators or concepts like RSI, Bollinger Bands, VIX, moving averages, or market behaviors. "
+        "Explain briefly how or when to use the indicator or behavior in trading decisions. "
+        "Do NOT mention specific stocks, numbers or dates. Make sure the advice is actionable and useful for investors.\n\n"
         f"Market summary: {summary}\n\nTip:"
     )
-
     input_ids = tokenizer.encode(prompt, return_tensors="pt", truncation=True)
-
     outputs = model.generate(
         input_ids,
         max_new_tokens=90,
-        num_beams=1,    # <- nessun beam search con sampling attivo
+        num_beams=1,
         do_sample=True,
         temperature=0.5,
         top_p=0.9,
@@ -68,8 +62,8 @@ def genera_mini_tip_from_summary(summary: str) -> str:
 brief_text = (
     "A mixed day in the market with gains balanced by some losses. "
     "Duolingo extended its upward momentum, climbing 23.9%; "
-    "ADP extended its upward momentum, climbing 23.4%; "
-    "Netflix extended its upward momentum, climbing 22.8%; "
+    "ADP extended its downward momentum, jumping 23.4%; "
+    "Netflix extended its uptrend, climbing 22.8%; "
     "McDonald's rose by 23.2%, leading the gains today. "
     "The session closes with a balanced market tone and cautious positioning."
 )
