@@ -45,11 +45,11 @@ jobs:
           python -m pip install --no-cache-dir transformers==4.33.2 sentencepiece
 
       # Pre-download e cache del modello josty11/distil2
-      - name: Pre-download josty11/distil2 model
+      - name: Pre-download distilgpt2 model
         run: |
-          python -c "from transformers import AutoTokenizer, AutoModelForSeq2SeqLM; \
-          AutoTokenizer.from_pretrained('josty11/distil2'); \
-          AutoModelForSeq2SeqLM.from_pretrained('josty11/distil2')"
+          python -c "from transformers import AutoTokenizer, AutoModelForCausalLM; \
+          AutoTokenizer.from_pretrained('distilgpt2'); \
+          AutoModelForCausalLM.from_pretrained('distilgpt2')"
 
       - name: Run prediction script
         env:
