@@ -15,8 +15,8 @@ from ta.trend import MACD, EMAIndicator, CCIIndicator
 from ta.volatility import BollingerBands
 from urllib.parse import quote_plus
 from collections import defaultdict
-from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline
-from transformers import T5Tokenizer, T5ForConditionalGeneration
+#from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline
+#from transformers import T5Tokenizer, T5ForConditionalGeneration
 
 
 # Carica il modello linguistico per l'inglese
@@ -2254,49 +2254,151 @@ brief_text, asset_sentences = generate_fluid_market_summary_english(
 
 
 
-#MODELLO 1 DI IA PER RAFFINAMENTO FRASI
-model_name_paraphrase = "ramsrigouthamg/t5_paraphraser"
-
-tokenizer_paraphrase = AutoTokenizer.from_pretrained(model_name_paraphrase, use_fast=False)
-model_paraphrase = AutoModelForSeq2SeqLM.from_pretrained(model_name_paraphrase)
-
-paraphraser = pipeline("text2text-generation", model=model_paraphrase, tokenizer=tokenizer_paraphrase)
-
-def migliora_frase(frase: str) -> str:
-    """
-    Accetta una frase in input e restituisce una versione migliorata sintatticamente
-    e stilisticamente tramite parafrasi.
-    """
-    risultati = paraphraser(frase, max_length=100, num_return_sequences=1)
-    frase_migliorata = risultati[0]['generated_text']
-    return frase_migliorata
-
-
-# MODELLO 2 DI IA PER GENERAZIONE TIPS
-model_name = "t5-small"
-tokenizer = T5Tokenizer.from_pretrained(model_name)
-model = T5ForConditionalGeneration.from_pretrained(model_name)
-
 def genera_mini_tip_from_summary(summary: str) -> str:
-    # Prompt per far capire al modello cosa vogliamo
-    input_text = (
-        f"From the following financial market summary, write one or two short tips or explanations "
-        f"about important terms or concepts mentioned, to help a non-expert reader understand better:\n"
-        f"{summary}"
-    )
-    
-    input_ids = tokenizer.encode(input_text, return_tensors="pt", truncation=True)
-    outputs = model.generate(
-        input_ids,
-        max_length=80,
-        num_beams=2,
-        early_stopping=True
-    )
-    tip = tokenizer.decode(outputs[0], skip_special_tokens=True)
+    # Dizionario termini e frasi di spiegazione tecniche in inglese
+    tip_dict = {
+    "RSI": [
+        "The RSI (Relative Strength Index) signals overbought conditions when above 70 and oversold when below 30, indicating potential reversal points."
+    ],
+    "P/E": [
+        "A high P/E ratio may suggest a stock is overvalued, while a low P/E can indicate undervaluation or trouble ahead."
+    ],
+    "Volume": [
+        "Rising volume during a price increase confirms the strength of the trend, while volume spikes on declines may signal panic selling."
+    ],
+    "sentiment": [
+        "Positive market sentiment can drive prices up, but overly optimistic sentiment may precede corrections."
+    ],
+    "growth": [
+        "Consistent revenue growth often signals a healthy company with expanding market share."
+    ],
+    "dividend": [
+        "Stable or increasing dividends often indicate financial strength and can attract income-focused investors."
+    ],
+    "market cap": [
+        "Large-cap stocks tend to be more stable, while small-caps offer higher growth potential but with more risk."
+    ],
+    "volatility": [
+        "High volatility means larger price swings and higher risk, but also more trading opportunities."
+    ],
+    "earnings": [
+        "Earnings surprises—when results beat or miss estimates—often trigger significant stock price moves."
+    ],
+    "beta": [
+        "Beta above 1 means a stock is more volatile than the market; below 1 means less volatile."
+    ],
+    "liquidity": [
+        "High liquidity ensures you can buy or sell shares quickly without affecting the price much."
+    ],
+    "diversification": [
+        "Diversifying your portfolio reduces risk by spreading investments across uncorrelated assets."
+    ],
+    "yield": [
+        "A higher yield may seem attractive but can signal risk if unsustainably high."
+    ],
+    "capital gain": [
+        "Capital gains taxes apply when you sell an asset for a profit, so timing your sales can affect returns."
+    ],
+    "fundamentals": [
+        "Strong fundamentals like earnings growth, low debt, and good cash flow support long-term stock value."
+    ],
+    "VIX": [
+        "The VIX measures market volatility; a rising VIX often signals fear and may indicate a good time to buy defensive stocks.",
+        "When VIX spikes sharply, it can signal panic selling; contrarian investors may look for buying opportunities."
+    ],
+    "moving average": [
+        "A stock trading above its 50-day or 200-day moving average is generally in an uptrend.",
+        "Crossovers between short-term and long-term moving averages can signal trend changes."
+    ],
+    "support": [
+        "Support levels are price points where buying interest is strong enough to prevent further declines.",
+        "If a stock breaks below support, it may continue to fall until it finds a new support level."
+    ],
+    "resistance": [
+        "Resistance levels act as ceilings where selling pressure can prevent further price increases.",
+        "Breaking above resistance often signals strong bullish momentum."
+    ],
+    "MACD": [
+        "The MACD indicator helps spot trend reversals when its signal line crosses the MACD line.",
+        "A positive MACD crossover suggests upward momentum; a negative crossover signals potential decline."
+    ],
+    "bollinger bands": [
+        "Prices touching the upper Bollinger Band may be overbought; touching the lower band may indicate oversold conditions.",
+        "Bollinger Band squeezes often precede periods of increased volatility and price movement."
+    ],
+    "earnings per share (EPS)": [
+        "EPS shows how much profit a company makes per share, and growth in EPS is a positive sign."
+    ],
+    "free cash flow": [
+        "Positive free cash flow means a company generates more cash than it needs to maintain or expand operations."
+    ],
+
+    # --- Symbol-specific technical facts ---
+    "TSLA": [
+        "TSLA often reacts strongly to delivery reports and earnings; surprise beats can trigger sharp rallies.",
+        "Tesla stock tends to be highly sensitive to interest rate expectations and growth forecasts."
+    ],
+    "ETHUSD": [
+        "Ethereum’s price often reacts to changes in gas fees and network upgrades (hard forks).",
+        "ETH tends to rise when DeFi activity and NFT volumes increase."
+    ],
+    "GOLD": [
+        "Gold prices often rise during periods of high inflation or geopolitical uncertainty.",
+        "Gold tends to move inversely to the US dollar index (DXY)."
+    ],
+    "SWI20": [
+        "The Swiss Market Index (SMI/SWI20) is heavily weighted in healthcare and financials, making it defensive in downturns.",
+        "A strong Swiss franc can weigh on SWI20 companies with large export exposure."
+    ],
+    "BTCUSD": [
+        "Bitcoin often moves in tandem with broader risk-on assets but can decouple during crypto-specific events.",
+        "BTC price action is highly sensitive to regulatory announcements and ETF approvals."
+    ],
+    "OIL": [
+        "Oil prices are influenced by OPEC production decisions and inventory reports.",
+        "Crude oil tends to rise when the USD weakens or geopolitical tensions escalate."
+    ],
+    "NIKKEI225": [
+        "The Nikkei 225 often benefits from a weaker yen, which supports Japanese exporters.",
+        "Japan’s stock market can be influenced by Bank of Japan’s monetary policy announcements."
+    ],
+    "USDJPY": [
+        "USD/JPY tends to rise when US interest rates increase relative to Japanese rates.",
+        "The pair is highly sensitive to changes in US Treasury yields."
+    ],
+    "COCOA": [
+        "Cocoa prices are heavily affected by West African weather conditions and political stability.",
+        "Tight cocoa supply often drives significant price spikes."
+    ],
+    "PLATINUM": [
+        "Platinum prices often move with industrial demand, especially in the automotive sector for catalytic converters.",
+        "Supply disruptions in South Africa can cause sharp platinum rallies."
+    ],
+    "NATGAS": [
+        "Natural gas prices are highly seasonal, often spiking in winter due to heating demand.",
+        "Storage reports from the EIA can cause sudden volatility in NATGAS."
+    ]
+}
+
+    # Normalizza il testo, dividendo in parole
+    words = re.findall(r'\b\w+\b', summary.lower())
+
+    # Trova tutte le parole chiave presenti nel testo (case insensitive)
+    found_terms = [term for term in tip_dict if term.lower() in words]
+
+    if found_terms:
+        # Scegli una parola chiave a caso tra quelle trovate
+        selected_term = random.choice(found_terms)
+        # Scegli una frase a caso associata
+        tip = random.choice(tip_dict[selected_term])
+    else:
+        # Se nessun termine trovato, scegli una frase a caso da tutto il dizionario
+        all_phrases = [phrase for phrases in tip_dict.values() for phrase in phrases]
+        tip = random.choice(all_phrases)
+
     return tip
 
 
-brief_text_ai = migliora_frase(brief_text)
 mini_tip = genera_mini_tip_from_summary(brief_text)
 
 html_content = f"""
@@ -2304,7 +2406,7 @@ html_content = f"""
   <head><title>Market Brief</title></head>
   <body>
     <h1>📊 Daily Market Summary</h1>
-    <p style='font-family: Arial; font-size: 16px;'>{brief_text_ai}</p>
+    <p style='font-family: Arial; font-size: 16px;'>{brief_text}</p>
     <h2>Per-Asset Insights</h2>
     <ul>
       {"".join(f"<li>{line}</li>" for line in asset_sentences.splitlines())}
