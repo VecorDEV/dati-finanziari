@@ -16,14 +16,16 @@ jobs:
         with:
           python-version: '3.10'
 
+      # Cache Hugging Face models
       - name: Cache Huggingface models
         uses: actions/cache@v3
         with:
           path: ~/.cache/huggingface
-          key: ${{ runner.os }}-huggingface-${{ hashFiles('**/requirements.txt') }}
+          key: ${{ runner.os }}-hf-${{ hashFiles('**/requirements.txt') }}
           restore-keys: |
-            ${{ runner.os }}-huggingface-
+            ${{ runner.os }}-hf-
 
+      # Cache pip packages
       - name: Cache pip
         uses: actions/cache@v3
         with:
@@ -32,12 +34,19 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pip-
 
-      - name: Upgrade pip, setuptools e wheel
+      - name: Upgrade pip, setuptools, wheel
         run: python -m pip install --upgrade pip setuptools wheel
 
       - name: Install Python dependencies
         run: |
           pip install protobuf==3.20.3 transformers==4.30.2 sentencepiece torch==2.0.1+cpu -f https://download.pytorch.org/whl/torch_stable.html
+
+      # Pre-scarica e cache il modello flan-t5-base
+      - name: Pre-download flan-t5-base
+        run: |
+          python -c "from transformers import AutoTokenizer, AutoModelForSeq2SeqLM; \
+          AutoTokenizer.from_pretrained('google/flan-t5-base'); \
+          AutoModelForSeq2SeqLM.from_pretrained('google/flan-t5-base')"
 
       - name: Run prediction script
         env:
