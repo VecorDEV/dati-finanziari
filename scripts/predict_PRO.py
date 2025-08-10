@@ -2490,7 +2490,7 @@ def assign_signal_and_strength(
 
 
 
-brief_refined = raffna_testo(brief_text)
+brief_refined = raffina_testo(brief_text)
 mini_tip = genera_mini_tip_from_summary(brief_text)
 
 signals = assign_signal_and_strength(sentiment_for_symbols, percentuali_combine, indicator_data, fundamental_data)
