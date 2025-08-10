@@ -16,35 +16,28 @@ generator = pipeline(
 )
 
 def migliora_frase(frase: str) -> str:
-    prompt = (
-        "Rewrite this market update in a fluent, journalistic style:\n\n"
-        f"{frase}\n\nRewritten:"
-    )
+    prompt = f"Rewrite the following market update in fluent journalistic style:\n\n{frase}\n\nRewrite:"
     results = generator(
         prompt,
-        max_new_tokens=150,
+        max_new_tokens=120,
         num_return_sequences=1,
         num_beams=5,
-        do_sample=False,           # beam search senza sampling
+        do_sample=False,
         early_stopping=True,
+        temperature=0.4,
         no_repeat_ngram_size=3
     )
     text = results[0]['generated_text']
-    # Rimuovi il prompt iniziale dal testo generato
-    return text.split("Rewritten:")[-1].strip()
+    return text.split("Rewrite:")[-1].strip()
 
 def genera_mini_tip_from_summary(summary: str) -> str:
-    prompt = (
-        "You are a financial educator. Based on the market summary below, write ONE concise and practical trading tip "
-        "about a known indicator or market behavior, without mentioning specific stocks or numbers:\n\n"
-        f"Market summary: {summary}\n\nTip:"
-    )
+    prompt = f"Based on this market summary, write a concise educational trading tip (no stocks or numbers):\n\n{summary}\n\nTip:"
     results = generator(
         prompt,
-        max_new_tokens=90,
+        max_new_tokens=60,
         num_return_sequences=1,
-        do_sample=True,            # sampling per maggiore creatività
-        temperature=0.7,
+        do_sample=True,
+        temperature=0.8,
         top_p=0.9,
         no_repeat_ngram_size=3
     )
