@@ -39,23 +39,25 @@ def migliora_frase(frase: str) -> str:
 
 def genera_mini_tip_from_summary(summary: str) -> str:
     prompt = (
-        "You are a financial educator. Do NOT summarize the text below. "
-        "Write a single, self-contained educational trading tip explaining one financial concept, "
-        "indicator, or market behavior (e.g., RSI, Bollinger Bands, the VIX, moving averages). "
-        "Make it clear, concise, and useful for beginner traders. Avoid specific numbers or facts "
-        "from the summary.\n\n"
-        f"Market summary: {summary}\n\nTip:"
+        "You are a financial educator. Based on the general market sentiment below, or on something important in finance, "
+        "create ONE short, self-contained educational trading tip. "
+        "The tip must explain a financial concept, indicator, or market behavior (e.g., RSI, Bollinger Bands, the VIX, moving averages). "
+        "Do NOT include any numbers, percentages, or company names from the text. "
+        "Focus on timeless principles, not events. "
+        "Write in plain English, 1 sentence, starting with 'Tip:'.\n\n"
+        f"Market sentiment: {summary}\n\nTip:"
     )
+
     input_ids = tokenizer.encode(prompt, return_tensors="pt", truncation=True)
 
     outputs = model.generate(
         input_ids,
-        max_new_tokens=80,
+        max_new_tokens=50,
         num_beams=4,
         do_sample=True,
         temperature=0.7,
         top_p=0.9,
-        no_repeat_ngram_size=2,
+        no_repeat_ngram_size=3,
         early_stopping=True
     )
     return tokenizer.decode(outputs[0], skip_special_tokens=True).strip()
