@@ -1,59 +1,67 @@
-from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
+from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline
 import torch
 
-device = 0 if torch.cuda.is_available() else -1  # Usa GPU se disponibile
+device = -1  # CPU
 
-model_name = "facebook/bart-large-cnn"
+model_name = "google/flan-t5-large"
 
-model = AutoModelForSeq2SeqLM.from_pretrained(model_name).to(device if device >= 0 else "cpu")
+model = AutoModelForSeq2SeqLM.from_pretrained(
+    model_name,
+    torch_dtype=torch.float32
+)
+
 tokenizer = AutoTokenizer.from_pretrained(model_name)
+
+paraphraser = pipeline(
+    "text2text-generation",
+    model=model,
+    tokenizer=tokenizer,
+    device=device
+)
 
 def migliora_frase(frase: str) -> str:
     prompt = (
-        "Rewrite the following market update as a single fluid, engaging paragraph with a sharp journalistic style. "
-        "Do NOT just list facts or separate them with semicolons or short sentences. "
-        "Connect ideas smoothly with varied sentence structures and transitions. "
-        "Keep all company names, figures, and details exactly as in the original.\n\n"
-        "Example: 'Company A rose 10%, while Company B fell 5%, reflecting mixed market sentiment.'\n\n"
-        f"Original: {frase}\n\nRewritten:"
+        "Rewrite the following market update in a fluent, journalistic style, "
+        "connecting the ideas naturally and avoiding simple lists or repeated sentence structures. "
+        "Keep all the information, numbers, and company names exactly as is, but make the text smooth, engaging, and professional.\n\n"
+        f"{frase}\n\nRewritten:"
     )
-    input_ids = tokenizer.encode(prompt, return_tensors="pt", truncation=True, max_length=512)
-    outputs = model.generate(
-        input_ids.to(device if device >= 0 else "cpu"),
-        max_length=200,
-        num_beams=5,
+    results = paraphraser(
+        prompt,
+        max_new_tokens=160,
+        num_return_sequences=1,
+        num_beams=6,
+        do_sample=False,
         early_stopping=True,
-        no_repeat_ngram_size=3,
-        temperature=0.7,
-        do_sample=True
+        no_repeat_ngram_size=3
     )
-    return tokenizer.decode(outputs[0], skip_special_tokens=True).strip()
+    return results[0]['generated_text'].strip()
 
 def genera_mini_tip_from_summary(summary: str) -> str:
     prompt = (
-        "You are a financial educator. Based on the market summary below, write ONE concise, practical educational trading tip. "
+        "You are a financial educator. Based on the market summary below, write ONE concise, precise and practical educational trading tip. "
         "Focus on well-known financial indicators or concepts like RSI, Bollinger Bands, VIX, moving averages, or market behaviors. "
         "Explain briefly how or when to use the indicator or behavior in trading decisions. "
-        "Do NOT mention specific stocks, numbers or dates.\n\n"
-        "Example: 'Tip: Use RSI to spot overbought conditions when it exceeds 70, and oversold when below 30.'\n\n"
+        "Do NOT mention specific stocks, numbers or dates. Make sure the advice is actionable and useful for investors.\n\n"
+        "Examples of tips:\n"
+        "1. Tip: The Relative Strength Index (RSI) helps identify overbought or oversold conditions, signaling possible trend reversals.\n"
+        "2. Tip: Bollinger Bands measure volatility and can indicate when prices may revert after touching the bands.\n"
+        "3. Tip: The VIX index reflects market volatility; a rising VIX often signals increased risk and uncertainty.\n"
+        "4. Tip: Moving averages smooth out price fluctuations and help spot trend direction and key support or resistance levels.\n\n"
         f"Market summary: {summary}\n\nTip:"
     )
-    input_ids = tokenizer.encode(prompt, return_tensors="pt", truncation=True, max_length=512)
+    input_ids = tokenizer.encode(prompt, return_tensors="pt", truncation=True)
     outputs = model.generate(
-        input_ids.to(device if device >= 0 else "cpu"),
-        max_length=100,
-        num_beams=5,
-        early_stopping=True,
-        no_repeat_ngram_size=2,
+        input_ids,
+        max_new_tokens=90,
+        num_beams=1,
+        do_sample=True,
         temperature=0.5,
-        do_sample=False
+        top_p=0.9,
+        no_repeat_ngram_size=3,
+        early_stopping=True
     )
-    decoded = tokenizer.decode(outputs[0], skip_special_tokens=True).strip()
-    # Estraggo solo la parte a partire da "Tip:" se presente
-    tip_start = decoded.find("Tip:")
-    if tip_start != -1:
-        return decoded[tip_start:].strip()
-    return decoded
+    return tokenizer.decode(outputs[0], skip_special_tokens=True).strip()
 
 # === Esempio ===
 brief_text = (
