@@ -23,15 +23,16 @@ def migliora_frase(frase: str) -> str:
 
     outputs = model.generate(
         input_ids,
-        max_new_tokens=180,
-        do_sample=True,
-        top_p=0.9,
-        temperature=0.7,
-        num_beams=3,
+        max_length=input_ids.shape[1] + 180,  # input + output max tokens
+        do_sample=False,                      # no sampling per stabilità
+        num_beams=4,                         # beam search per qualità
         no_repeat_ngram_size=3,
         early_stopping=True,
+        bad_words_ids=[[tokenizer.unk_token_id]]  # evita token <unk>
     )
-    return tokenizer.decode(outputs[0], skip_special_tokens=True).strip()
+    # Prendo solo la parte generata (escludo il prompt)
+    generated_ids = outputs[0][input_ids.shape[1]:]
+    return tokenizer.decode(generated_ids, skip_special_tokens=True).strip()
 
 def genera_mini_tip_from_summary(summary: str) -> str:
     prompt = (
@@ -41,18 +42,19 @@ def genera_mini_tip_from_summary(summary: str) -> str:
         "Do NOT mention specific stocks, numbers or dates. Make sure the advice is actionable and useful for investors.\n\n"
         f"Market summary: {summary}\n\nTip:"
     )
-    input_ids = tokenizer.encode(prompt, return_tensors="pt", truncation=True)
+    input_ids = tokenizer(prompt, return_tensors="pt").input_ids
+
     outputs = model.generate(
         input_ids,
-        max_new_tokens=90,
-        num_beams=1,
-        do_sample=True,
-        temperature=0.5,
-        top_p=0.9,
+        max_length=input_ids.shape[1] + 90,
+        do_sample=False,
+        num_beams=2,
         no_repeat_ngram_size=3,
-        early_stopping=True
+        early_stopping=True,
+        bad_words_ids=[[tokenizer.unk_token_id]]
     )
-    return tokenizer.decode(outputs[0], skip_special_tokens=True).strip()
+    generated_ids = outputs[0][input_ids.shape[1]:]
+    return tokenizer.decode(generated_ids, skip_special_tokens=True).strip()
 
 # === Esempio ===
 brief_text = (
