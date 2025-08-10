@@ -3,7 +3,7 @@ import torch
 
 device = -1  # CPU
 
-model_name = "google/flan-t5-large"  # modello più potente, migliore qualità output
+model_name = "google/flan-t5-large"
 
 model = AutoModelForSeq2SeqLM.from_pretrained(
     model_name,
@@ -32,10 +32,10 @@ def migliora_frase(frase: str) -> str:
         max_new_tokens=160,
         num_return_sequences=1,
         num_beams=6,
-        do_sample=True,
-        temperature=0.3,
+        do_sample=False,   # <- sampling disabilitato con beam search
         early_stopping=True,
-        no_repeat_ngram_size=3
+        no_repeat_ngram_size=3,
+        temperature=0.3  # non serve se do_sample=False, ma puoi lasciarlo
     )
     return results[0]['generated_text'].strip()
 
@@ -44,7 +44,7 @@ def genera_mini_tip_from_summary(summary: str) -> str:
         "You are a financial educator. Based on the market summary below, "
         "write ONE clear, specific educational trading tip about a financial indicator, concept, or market behavior. "
         "Examples include how to use the RSI, Bollinger Bands, or VIX in trading decisions. "
-        "Do NOT refer to numbers, percentages, dates, or company names from the summary. Be creative and prcise."
+        "Do NOT refer to numbers, percentages, dates, or company names from the summary. Be creative and precise. "
         "Focus on practical, actionable advice suitable for beginner traders, written in plain English. "
         "Start the tip with 'Tip:'.\n\n"
         f"Market summary: {summary}\n\nTip:"
@@ -55,7 +55,7 @@ def genera_mini_tip_from_summary(summary: str) -> str:
     outputs = model.generate(
         input_ids,
         max_new_tokens=90,
-        num_beams=5,
+        num_beams=1,    # <- nessun beam search con sampling attivo
         do_sample=True,
         temperature=0.5,
         top_p=0.9,
