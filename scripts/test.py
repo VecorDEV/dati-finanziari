@@ -3,7 +3,7 @@ import torch
 
 device = -1  # CPU
 
-model_name = "google/flan-t5-base"  # modello più leggero e compatibile con CPU
+model_name = "google/flan-t5-large"  # modello più potente, migliore qualità output
 
 model = AutoModelForSeq2SeqLM.from_pretrained(
     model_name,
@@ -22,13 +22,14 @@ paraphraser = pipeline(
 def migliora_frase(frase: str) -> str:
     prompt = (
         "Rewrite the following market update with a sharp, professional, and journalistic tone. "
-        "Keep it concise (1–2 sentences), highlight key price moves and overall market mood. "
+        "Keep it concise, but do not remove information, highlight key price moves and overall market mood. "
         "Avoid adding new facts.\n\n"
         f"{frase}\n\nRewritten:"
     )
     results = paraphraser(
         prompt,
         max_new_tokens=80,
+        max_length=200,  # evita taglio a 20 token
         num_return_sequences=1,
         num_beams=6,
         do_sample=False,
@@ -39,10 +40,10 @@ def migliora_frase(frase: str) -> str:
 
 def genera_mini_tip_from_summary(summary: str) -> str:
     prompt = (
-        "You are a financial educator. Based on the general market sentiment below, or on something important in finance, "
-        "create ONE short, self-contained educational trading tip. "
+        "You are a financial educator. Based on the general market sentiment below, "
+        "write ONE short, self-contained educational trading tip. If nothin in the text below is important as advide, give your opinion on a general financial advice you think is important."
         "The tip must explain a financial concept, indicator, or market behavior (e.g., RSI, Bollinger Bands, the VIX, moving averages). "
-        "Do NOT include any numbers, percentages, or company names from the text. "
+        "Do NOT include numbers, percentages, or company names from the text. "
         "Focus on timeless principles, not events. "
         "Write in plain English, 1 sentence, starting with 'Tip:'.\n\n"
         f"Market sentiment: {summary}\n\nTip:"
@@ -53,9 +54,10 @@ def genera_mini_tip_from_summary(summary: str) -> str:
     outputs = model.generate(
         input_ids,
         max_new_tokens=50,
+        max_length=200,  # evita taglio anticipato
         num_beams=4,
         do_sample=True,
-        temperature=0.7,
+        temperature=0.8,  # più creativo
         top_p=0.9,
         no_repeat_ngram_size=3,
         early_stopping=True
