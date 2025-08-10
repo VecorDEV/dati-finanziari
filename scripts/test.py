@@ -3,7 +3,7 @@ import torch
 
 device = -1  # CPU
 
-model_name = "google/flan-t5-large"
+model_name = "josty11/distil2"
 
 model = AutoModelForSeq2SeqLM.from_pretrained(
     model_name,
