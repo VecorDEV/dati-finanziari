@@ -1987,16 +1987,16 @@ def generate_fluid_market_summary_english(
         growth_score = min(growth * 1000, 100)
         pe_score = max(0, 100 - min(pe, 100))
 
-        weights = {"sentiment":0.2,"percent":0.3,"rsi":0.1,"volume":0.1,"growth":0.2,"pe":0.1}
+        weights = {"sentiment": 0.2, "percent": 0.3, "rsi": 0.1, "volume": 0.1, "growth": 0.2, "pe": 0.1}
         score = (
-            sentiment_score*weights["sentiment"] +
-            percent_score*weights["percent"] +
-            rsi_score*weights["rsi"] +
-            volume_score*weights["volume"] +
-            growth_score*weights["growth"] +
-            pe_score*weights["pe"]
+            sentiment_score * weights["sentiment"] +
+            percent_score * weights["percent"] +
+            rsi_score * weights["rsi"] +
+            volume_score * weights["volume"] +
+            growth_score * weights["growth"] +
+            pe_score * weights["pe"]
         )
-        return round(score,2)
+        return round(score, 2)
 
     # ---------- build insight for each symbol ----------
     def build_insight(symbol):
@@ -2008,11 +2008,17 @@ def generate_fluid_market_summary_english(
         if isinstance(sentiment, dict):
             sentiment = sentiment.get("sentiment", 0)
         score = calculate_asset_score(symbol)
+
         theme = "neutral"
-        if percent > 65: theme = "gainer"
-        elif percent < 35: theme = "loser"
-        elif rsi is not None and rsi < 30: theme = "oversold"
-        elif rsi is not None and rsi > 70: theme = "overbought"
+        if percent > 65:
+            theme = "gainer"
+        elif percent < 35:
+            theme = "loser"
+        elif rsi is not None and rsi < 30:
+            theme = "oversold"
+        elif rsi is not None and rsi > 70:
+            theme = "overbought"
+
         return {
             "symbol": symbol,
             "name": name,
@@ -2024,24 +2030,27 @@ def generate_fluid_market_summary_english(
             "theme": theme
         }
 
-    # ---------- templates in English with lots of variability ----------
+    # ---------- templates in English with more variability ----------
     leads_positive = [
         "The market shows a broadly positive trend today, with few exceptions.",
         "A strong day for many stocks, led by clear gainers.",
-        "Investor optimism drives several top names higher.",
-        "Market momentum favors bullish sentiment across sectors."
+        "Investor optimism is driving several top names higher.",
+        "Market momentum favors bullish sentiment across sectors.",
+        "Today’s trading session reflects growing investor confidence."
     ]
     leads_mixed = [
         "A mixed day in the market with gains balanced by some losses.",
-        "Stocks show varied performance, reflecting a cautious mood.",
+        "Stocks display varied performance, reflecting a cautious mood.",
         "Market activity is uneven, with winners and losers scattered.",
-        "An indecisive session as investors weigh risks and opportunities."
+        "An indecisive session as investors weigh risks and opportunities.",
+        "Markets fluctuated as investors remain uncertain on direction."
     ]
     leads_negative = [
         "The market closes predominantly lower amid selling pressure.",
         "Widespread losses mark a cautious and risk-off trading day.",
-        "Investor sentiment turns negative with key names retreating.",
-        "Market sentiment leans bearish, pressured by profit-taking."
+        "Investor sentiment has turned negative with key names retreating.",
+        "Market sentiment leans bearish, pressured by profit-taking.",
+        "A challenging day for stocks as bears take control."
     ]
 
     clause_templates = {
@@ -2117,7 +2126,7 @@ def generate_fluid_market_summary_english(
     # ---------- select top scoring symbols ----------
     scores = {sym: calculate_asset_score(sym) for sym in percentuali_combine.keys()}
     ranked = sorted(scores.items(), key=lambda x: x[1], reverse=True)
-    selected = [s for s,_ in ranked[:3]]
+    selected = [s for s, _ in ranked[:3]]
     insights = [build_insight(s) for s in selected]
 
     if not insights:
@@ -2173,7 +2182,11 @@ def generate_fluid_market_summary_english(
 
         return main_phrase + support
 
-    priority = ["gainer", "loser", "oversold", "overbought", "neutral"]
+    # --- Modifica: mescola i primi 4 temi, neutral sempre alla fine ---
+    main_themes = ["gainer", "loser", "oversold", "overbought"]
+    random.shuffle(main_themes)
+    priority = main_themes + ["neutral"]
+
     for theme in priority:
         if theme in groups:
             fused = fuse_group(groups[theme])
@@ -2219,7 +2232,7 @@ def generate_fluid_market_summary_english(
             rsi=(int(ins["rsi"]) if ins["rsi"] is not None else "—")
         )
         symbol_phrases.append(f"{symbol} - {phrase}")
-    
+
     symbol_phrases_str = "\n".join(symbol_phrases)
 
     # Return both the overall brief and the per-asset sentences
