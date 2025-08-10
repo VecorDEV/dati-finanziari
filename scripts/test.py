@@ -1,38 +1,57 @@
-from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
+from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
 import torch
 
-device = -1  # CPU
+device = -1  # CPU, cambia a 0 per GPU se disponibile
 
-model_name = "google/flan-t5-large"
+model_name = "tiiuae/falcon-7b-instruct"
 
-model = AutoModelForSeq2SeqLM.from_pretrained(
+print("Caricamento modello e tokenizer...")
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForCausalLM.from_pretrained(
     model_name,
-    torch_dtype=torch.float32
+    torch_dtype=torch.float16,   # se 8bit serve bitsandbytes
+    low_cpu_mem_usage=True,
+    device_map="auto" if device != -1 else None,
 )
 
-tokenizer = AutoTokenizer.from_pretrained(model_name)
+def generate_text(prompt, max_new_tokens=150, num_beams=3, temperature=0.7):
+    input_ids = tokenizer(prompt, return_tensors="pt").input_ids.to(model.device)
+    outputs = model.generate(
+        input_ids,
+        max_length=input_ids.shape[1] + max_new_tokens,
+        do_sample=True,
+        num_beams=num_beams,
+        temperature=temperature,
+        no_repeat_ngram_size=3,
+        early_stopping=True,
+        bad_words_ids=[[tokenizer.unk_token_id]],
+    )
+    generated = outputs[0][input_ids.shape[1]:]
+    return tokenizer.decode(generated, skip_special_tokens=True).strip()
+
+def is_too_generic(text):
+    generic_phrases = [
+        "stocks go up", "stocks go down", "market continued", "investors reacted",
+        "the market is", "the session closes", "mixed day", "the market"
+    ]
+    text_lower = text.lower()
+    return any(phrase in text_lower for phrase in generic_phrases) or len(text) < 30
+
+def generate_with_retry(prompt_func, max_retries=5):
+    for _ in range(max_retries):
+        result = prompt_func()
+        if not is_too_generic(result):
+            return result
+    return result  # anche se generic, ritorna l'ultimo tentativo
 
 def migliora_frase(frase: str) -> str:
     prompt = (
         "Rewrite the following market update in a fluent, journalistic style, "
-        "connecting the ideas naturally and avoiding simple lists or repeated sentence structures. "
+        "connecting ideas naturally and avoiding simple lists or repeated sentences. "
         "Keep all the information, numbers, and company names exactly as is, but make the text smooth, engaging, and professional.\n\n"
         f"{frase}\n\nRewritten:"
     )
-    input_ids = tokenizer(prompt, return_tensors="pt").input_ids
-
-    outputs = model.generate(
-        input_ids,
-        max_length=input_ids.shape[1] + 180,  # input + output max tokens
-        do_sample=False,                      # no sampling per stabilità
-        num_beams=4,                         # beam search per qualità
-        no_repeat_ngram_size=3,
-        early_stopping=True,
-        bad_words_ids=[[tokenizer.unk_token_id]]  # evita token <unk>
-    )
-    # Prendo solo la parte generata (escludo il prompt)
-    generated_ids = outputs[0][input_ids.shape[1]:]
-    return tokenizer.decode(generated_ids, skip_special_tokens=True).strip()
+    return generate_text(prompt, max_new_tokens=180, num_beams=4, temperature=0.7)
 
 def genera_mini_tip_from_summary(summary: str) -> str:
     prompt = (
@@ -42,19 +61,13 @@ def genera_mini_tip_from_summary(summary: str) -> str:
         "Do NOT mention specific stocks, numbers or dates. Make sure the advice is actionable and useful for investors.\n\n"
         f"Market summary: {summary}\n\nTip:"
     )
-    input_ids = tokenizer(prompt, return_tensors="pt").input_ids
+    return generate_text(prompt, max_new_tokens=90, num_beams=2, temperature=0.6)
 
-    outputs = model.generate(
-        input_ids,
-        max_length=input_ids.shape[1] + 90,
-        do_sample=False,
-        num_beams=2,
-        no_repeat_ngram_size=3,
-        early_stopping=True,
-        bad_words_ids=[[tokenizer.unk_token_id]]
-    )
-    generated_ids = outputs[0][input_ids.shape[1]:]
-    return tokenizer.decode(generated_ids, skip_special_tokens=True).strip()
+def migliora_frase_retry(frase):
+    return generate_with_retry(lambda: migliora_frase(frase))
+
+def genera_mini_tip_retry(summary):
+    return generate_with_retry(lambda: genera_mini_tip_from_summary(summary))
 
 # === Esempio ===
 brief_text = (
@@ -66,8 +79,8 @@ brief_text = (
     "The session closes with a balanced market tone and cautious positioning."
 )
 
-brief_text_ai = migliora_frase(brief_text)
+brief_text_ai = migliora_frase_retry(brief_text)
 print("Journalistic rewrite:", brief_text_ai)
 
-mini_tip = genera_mini_tip_from_summary(brief_text_ai)
+mini_tip = genera_mini_tip_retry(brief_text_ai)
 print("Educational tip:", mini_tip)
