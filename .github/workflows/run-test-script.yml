@@ -16,7 +16,7 @@ jobs:
         with:
           python-version: '3.10'
 
-      # Cache Hugging Face models (incluso facebook/bart-large-cnn)
+      # Cache Hugging Face models (modifica per flan-t5-large)
       - name: Cache Huggingface models
         uses: actions/cache@v3
         with:
@@ -44,12 +44,12 @@ jobs:
           python -m pip install --no-cache-dir torch==2.0.1+cpu -f https://download.pytorch.org/whl/torch_stable.html
           python -m pip install --no-cache-dir transformers==4.33.2 sentencepiece
 
-      # Pre-scarica e cache il modello facebook/bart-large-cnn
-      - name: Pre-download bart-large-cnn
+      # Pre-download e cache del modello google/flan-t5-large
+      - name: Pre-download flan-t5-large model
         run: |
           python -c "from transformers import AutoTokenizer, AutoModelForSeq2SeqLM; \
-          AutoTokenizer.from_pretrained('facebook/bart-large-cnn'); \
-          AutoModelForSeq2SeqLM.from_pretrained('facebook/bart-large-cnn')"
+          AutoTokenizer.from_pretrained('google/flan-t5-large'); \
+          AutoModelForSeq2SeqLM.from_pretrained('google/flan-t5-large')"
 
       - name: Run prediction script
         env:
