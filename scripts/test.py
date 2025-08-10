@@ -1,19 +1,15 @@
-from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline
+from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
 import torch
 
 device = -1  # CPU
 
-model_name = "josty11/distil2"
-
-model = AutoModelForSeq2SeqLM.from_pretrained(
-    model_name,
-    torch_dtype=torch.float32
-)
+model_name = "distilgpt2"
 
 tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForCausalLM.from_pretrained(model_name)
 
-paraphraser = pipeline(
-    "text2text-generation",
+generator = pipeline(
+    "text-generation",
     model=model,
     tokenizer=tokenizer,
     device=device
@@ -22,16 +18,16 @@ paraphraser = pipeline(
 def migliora_frase(frase: str) -> str:
     prompt = (
         "Rewrite the following market update in a fluent, journalistic style, "
-        "connecting the ideas naturally and avoiding simple lists or repeated sentence structures. "
-        "Keep all the information, numbers, and company names exactly as is, but make the text smooth, engaging, and professional.\n\n"
+        "connecting ideas naturally without listing them. Keep all info intact.\n\n"
         f"{frase}\n\nRewritten:"
     )
-    results = paraphraser(
+    results = generator(
         prompt,
         max_new_tokens=160,
         num_return_sequences=1,
         num_beams=6,
-        do_sample=False,
+        do_sample=True,
+        temperature=0.7,
         early_stopping=True,
         no_repeat_ngram_size=3
     )
@@ -39,31 +35,23 @@ def migliora_frase(frase: str) -> str:
 
 def genera_mini_tip_from_summary(summary: str) -> str:
     prompt = (
-        "You are a financial educator. Based on the market summary below, write ONE concise, precise and practical educational trading tip. "
-        "Focus on well-known financial indicators or concepts like RSI, Bollinger Bands, VIX, moving averages, or market behaviors. "
-        "Explain briefly how or when to use the indicator or behavior in trading decisions. "
-        "Do NOT mention specific stocks, numbers or dates. Make sure the advice is actionable and useful for investors.\n\n"
-        "Examples of tips:\n"
-        "1. Tip: The Relative Strength Index (RSI) helps identify overbought or oversold conditions, signaling possible trend reversals.\n"
-        "2. Tip: Bollinger Bands measure volatility and can indicate when prices may revert after touching the bands.\n"
-        "3. Tip: The VIX index reflects market volatility; a rising VIX often signals increased risk and uncertainty.\n"
-        "4. Tip: Moving averages smooth out price fluctuations and help spot trend direction and key support or resistance levels.\n\n"
+        "You are a financial educator. Based on the market summary below, write ONE concise and practical trading tip "
+        "about a known indicator or market behavior, without referring to specific stocks or numbers.\n\n"
         f"Market summary: {summary}\n\nTip:"
     )
-    input_ids = tokenizer.encode(prompt, return_tensors="pt", truncation=True)
-    outputs = model.generate(
-        input_ids,
+    results = generator(
+        prompt,
         max_new_tokens=90,
-        num_beams=1,
+        num_return_sequences=1,
         do_sample=True,
         temperature=0.5,
         top_p=0.9,
         no_repeat_ngram_size=3,
         early_stopping=True
     )
-    return tokenizer.decode(outputs[0], skip_special_tokens=True).strip()
+    return results[0]['generated_text'].strip()
 
-# === Esempio ===
+# Esempio
 brief_text = (
     "A mixed day in the market with gains balanced by some losses. "
     "Duolingo extended its upward momentum, climbing 23.9%; "
