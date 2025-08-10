@@ -42,12 +42,12 @@ jobs:
           python -m pip install "numpy<2"
           python -m pip install protobuf==3.20.3 transformers==4.30.2 sentencepiece torch==2.0.1+cpu -f https://download.pytorch.org/whl/torch_stable.html
 
-      # Pre-scarica e cache il modello flan-t5-base
-      - name: Pre-download flan-t5-base
+      # Pre-scarica e cache il modello flan-t5-large
+      - name: Pre-download flan-t5-large
         run: |
           python -c "from transformers import AutoTokenizer, AutoModelForSeq2SeqLM; \
-          AutoTokenizer.from_pretrained('google/flan-t5-base'); \
-          AutoModelForSeq2SeqLM.from_pretrained('google/flan-t5-base')"
+          AutoTokenizer.from_pretrained('google/flan-t5-large'); \
+          AutoModelForSeq2SeqLM.from_pretrained('google/flan-t5-large')"
 
       - name: Run prediction script
         env:
