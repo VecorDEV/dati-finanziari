@@ -1970,6 +1970,8 @@ def generate_fluid_market_summary_english(
     indicator_data,
     fundamental_data
 ):
+    import random
+
     # ---------- helper: calculate score ----------
     def calculate_asset_score(symbol):
         sentiment = sentiment_for_symbols.get(symbol, 0.0)
@@ -2030,7 +2032,26 @@ def generate_fluid_market_summary_english(
             "theme": theme
         }
 
-    # ---------- templates in English with more variability ----------
+    # ---------- helper: build forecast phrase ----------
+    def build_forecast_phrase(ins):
+        if ins["rsi"] is not None and ins["rsi"] < 30:
+            if ins["sentiment"] >= 0:
+                return " It may be poised for a rebound."
+            else:
+                return " The decline could deepen unless sentiment improves."
+        elif ins["rsi"] is not None and ins["rsi"] > 70:
+            if ins["sentiment"] < 0:
+                return " A pullback is likely in the short term."
+            else:
+                return " Gains could continue, but overbought conditions warrant caution."
+        elif ins["delta"] > 0 and ins["sentiment"] > 0.1:
+            return " The upward momentum could extend."
+        elif ins["delta"] < 0 and ins["sentiment"] < -0.1:
+            return " Weakness may persist."
+        else:
+            return " The short-term outlook remains uncertain."
+
+    # ---------- templates ----------
     leads_positive = [
         "The market shows a broadly positive trend today, with few exceptions.",
         "A strong day for many stocks, led by clear gainers.",
@@ -2105,7 +2126,7 @@ def generate_fluid_market_summary_english(
         "It is also worth mentioning", "To conclude", "Furthermore", "Besides this"
     ]
 
-    # ---------- analyze overall market mood to select lead ----------
+    # ---------- analyze market mood ----------
     gainers_count = sum(1 for v in percentuali_combine.values() if v > 65)
     losers_count = sum(1 for v in percentuali_combine.values() if v < 35)
     total_symbols = len(percentuali_combine)
@@ -2115,7 +2136,6 @@ def generate_fluid_market_summary_english(
         for sym in percentuali_combine.keys()
     ) / max(total_symbols, 1)
 
-    # Determine the market lead phrase based on data
     if avg_sentiment > 0.15 and gainers_count > losers_count:
         lead_sentence = random.choice(leads_positive)
     elif avg_sentiment < -0.15 and losers_count > gainers_count:
@@ -2148,7 +2168,8 @@ def generate_fluid_market_summary_english(
             name=main["name"],
             delta=abs(main["delta"]),
             rsi=(int(main["rsi"]) if main["rsi"] is not None else "—")
-        )
+        ) + build_forecast_phrase(main)
+
         support = ""
         if len(clauselist) > 1:
             supports = []
@@ -2157,13 +2178,11 @@ def generate_fluid_market_summary_english(
                     name=s["name"],
                     delta=abs(s["delta"]),
                     rsi=(int(s["rsi"]) if s["rsi"] is not None else "—")
-                )
+                ) + build_forecast_phrase(s)
                 supports.append(ph)
 
             method = random.choice(["conjunction", "semicolon", "subordinate_clause"])
-
             if method == "conjunction":
-                support = ""
                 for i, ph in enumerate(supports):
                     conn = random.choice(intra_connectors)
                     if i == 0:
@@ -2182,7 +2201,7 @@ def generate_fluid_market_summary_english(
 
         return main_phrase + support
 
-    # --- Modifica: mescola i primi 4 temi, neutral sempre alla fine ---
+    # --- random order themes ---
     main_themes = ["gainer", "loser", "oversold", "overbought"]
     random.shuffle(main_themes)
     priority = main_themes + ["neutral"]
@@ -2221,7 +2240,7 @@ def generate_fluid_market_summary_english(
 
     paragraph_sentences.append(closing)
 
-    # --- GENERATE per-asset journalistic sentences for all symbols ---
+    # --- per-asset list ---
     symbol_phrases = []
     for symbol in percentuali_combine.keys():
         ins = build_insight(symbol)
@@ -2230,12 +2249,11 @@ def generate_fluid_market_summary_english(
             name=ins["name"],
             delta=abs(ins["delta"]),
             rsi=(int(ins["rsi"]) if ins["rsi"] is not None else "—")
-        )
+        ) + build_forecast_phrase(ins)
         symbol_phrases.append(f"{symbol} - {phrase}")
 
     symbol_phrases_str = "\n".join(symbol_phrases)
 
-    # Return both the overall brief and the per-asset sentences
     return " ".join(paragraph_sentences), symbol_phrases_str
 
 
@@ -2398,15 +2416,31 @@ def genera_mini_tip_from_summary(summary: str) -> str:
 
     return tip
 
+
 #Per raffinare un testo
 def raffina_testo(testo):
-    abbrev = {"Inc.", "Sr.", "Jr.", "Dr.", "Mr.", "Mrs.", "Ms."}
+    abbrev = {
+    "Inc.", "Sr.", "Jr.", "Dr.", "Mr.", "Mrs.", "Ms.",
+    "Ltd.", "Co.", "Corp.", "Mt.", "St.", "No.", "Fig.",
+    "Prof.", "Rev.", "Est.", "Etc.", "Ex.", "Gov.", "Sen.",
+    "Rep.", "Mgr.", "Dept.", "Univ.", "Assn.", "Ave.", "Jan.",
+    "Feb.", "Mar.", "Apr.", "Jun.", "Jul.", "Aug.", "Sep.",
+    "Oct.", "Nov.", "Dec."
+    }
 
+    # Uniforma puntini di sospensione
     testo = testo.replace("...", "…")
+
+    # Rimuove punteggiatura ripetuta
     testo = re.sub(r'([.!?,;:])(?!\.)\s*[.!?,;:]+', r'\1', testo)
+
+    # Rimuove spazi prima della punteggiatura
     testo = re.sub(r'\s+([.,;:!?…])', r'\1', testo)
+
+    # Garantisce spazio dopo punteggiatura
     testo = re.sub(r'([.,;:!?…])(?=\S)', r'\1 ', testo)
 
+    # Funzione per maiuscole dopo punteggiatura, escluse abbreviazioni
     def maiusc(m):
         p, l = m.group(1), m.group(2)
         pos = m.start(1)
@@ -2415,11 +2449,21 @@ def raffina_testo(testo):
         return p + " " + l.upper()
 
     testo = re.sub(r'([.!?])\s*(\w)', maiusc, testo)
+
     testo = testo.strip()
     if testo:
-        testo = testo[0].upper() + testo[1:].lower()
+        testo = testo[0].upper() + testo[1:]
+
+    # Maiuscola dopo punto/esclamativo/interrogativo/ellissi
     testo = re.sub(r'([.!?…]\s+)(\w)', lambda m: m.group(1) + m.group(2).upper(), testo)
-    testo = testo[0].upper() + testo[1:] if testo else testo
+
+    # Correggi ticker e nomi dal dizionario
+    for symbol, names in symbol_name_map.items():
+        # Ticker in maiuscolo
+        testo = re.sub(rf'\b{re.escape(symbol)}\b', symbol.upper(), testo, flags=re.IGNORECASE)
+        # Nomi corretti (case-insensitive)
+        for name in names:
+            testo = re.sub(rf'\b{re.escape(name)}\b', name, testo, flags=re.IGNORECASE)
 
     return testo
 
