@@ -2555,11 +2555,14 @@ def raffina_testo(testo):
     # Rimuove spazi prima della punteggiatura
     testo = re.sub(r'\s+([.,;:!?…])', r'\1', testo)
 
-    # Rimuove spazi tra numero e punto decimale (es: "27. 5" -> "27.5")
+    # 🔹 1. Rimuove spazi tra numero e punto decimale (27. 5 → 27.5)
     testo = re.sub(r'(\d)\.\s+(\d)', r'\1.\2', testo)
 
-    # Garantisce esattamente un solo spazio dopo la punteggiatura, tranne se è fine stringa o punteggiatura successiva
-    testo = re.sub(r'([.,;:!?…])([^\s\d])', r'\1 \2', testo)
+    # 🔹 2. Rimuove spazi tra numero e simboli che non vogliono spazio (%, €, °, ecc.)
+    testo = re.sub(r'(\d)\s*([%€°])', r'\1\2', testo)
+
+    # 🔹 3. Garantisce un solo spazio dopo punteggiatura, tranne se segue cifra o simbolo
+    testo = re.sub(r'([.,;:!?…])(?!\s|$|\d|[%€°])([^\s])', r'\1 \2', testo)
 
     # Elimina spazi doppi residui
     testo = re.sub(r'\s{2,}', ' ', testo)
@@ -2569,28 +2572,23 @@ def raffina_testo(testo):
         p = m.group(1)
         l = m.group(2)
         pos = m.start(1)
-        # Controlla se la posizione precedente è un'abbreviazione
         for a in abbrev:
             abbrev_pos = testo.rfind(a, 0, pos + 1)
             if abbrev_pos != -1 and abbrev_pos + len(a) == pos + 1:
-                # è un'abbreviazione, non mettere maiuscola
                 return p + l.lower()
-        # Altrimenti maiuscola senza aggiungere spazio extra
         return p + ' ' + l.upper()
 
     testo = re.sub(r'([.!?])\s*(\w)', maiusc, testo)
 
-    # Assicura che il testo inizi con lettera maiuscola (se testo non vuoto)
+    # Assicura che il testo inizi con lettera maiuscola
     testo = testo.strip()
     if testo:
         testo = testo[0].upper() + testo[1:]
 
-    # Correggi ticker e nomi dal dizionario se definito (aggiungi questo nel tuo codice)
+    # Correggi ticker e nomi se mappa presente
     if 'symbol_name_map' in globals():
         for symbol, names in symbol_name_map.items():
-            # Ticker in maiuscolo
             testo = re.sub(rf'\b{re.escape(symbol)}\b', symbol.upper(), testo, flags=re.IGNORECASE)
-            # Nomi corretti (case-insensitive)
             for name in names:
                 testo = re.sub(rf'\b{re.escape(name)}\b', name, testo, flags=re.IGNORECASE)
 
@@ -2669,6 +2667,8 @@ mini_tip = genera_mini_tip_from_summary(brief_text)
 signals = assign_signal_and_strength(sentiment_for_symbols, percentuali_combine, indicator_data, fundamental_data)
 # Raggruppa i segnali per tipo
 grouped = defaultdict(list)
+print("Grouped signals:", dict(grouped))
+
 for sym, info in signals.items():
     grouped[info['signal']].append((sym, info['strength']))
 # Per ciascun segnale prendi il simbolo con strength massima (se esiste)
