@@ -2645,7 +2645,6 @@ def assign_signal_and_strength(
             pe_score * weights["pe"]
         )
 
-        # Assegna segnale in base a soglie, indipendentemente da strength
         if total_score > 0.65:
             signal = "BUY"
         elif total_score < 0.4:
@@ -2653,8 +2652,11 @@ def assign_signal_and_strength(
         else:
             signal = "HOLD"
 
-        # Mantieni strength sempre uguale a total_score
-        signals[symbol] = {"signal": signal, "strength": round(total_score, 3)}
+        strength = round(total_score, 3)
+        signals[symbol] = {"signal": signal, "strength": strength}
+
+        # Qui stampi il log per ogni simbolo
+        print(f"Symbol: {symbol}, Signal: {signal}, Accuracy: {int(strength * 100)}%")
 
     return signals
 
