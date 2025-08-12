@@ -1970,7 +1970,6 @@ def generate_fluid_market_summary_english(
     indicator_data,
     fundamental_data
 ):
-    import random
 
     # ---------- helper: calculate score ----------
     def calculate_asset_score(symbol):
@@ -2036,42 +2035,112 @@ def generate_fluid_market_summary_english(
     def build_forecast_phrase(ins):
         if ins["rsi"] is not None and ins["rsi"] < 30:
             if ins["sentiment"] >= 0:
-                return " It may be poised for a rebound."
+                options = [
+                    " It may be poised for a rebound.",
+                    " Signs suggest a potential bounce back soon.",
+                    " Buyers could step in at these oversold levels.",
+                    " The stock might be undervalued and ready to recover.",
+                    " A turnaround might be on the horizon."
+                ]
+                return random.choice(options)
             else:
-                return " The decline could deepen unless sentiment improves."
+                options = [
+                    " The decline could deepen unless sentiment improves.",
+                    " Continued weakness is possible without a sentiment shift.",
+                    " Bears might maintain control in the near term.",
+                    " Downside risks remain elevated given current sentiment.",
+                    " Further drops cannot be ruled out if negativity persists."
+                ]
+                return random.choice(options)
+    
         elif ins["rsi"] is not None and ins["rsi"] > 70:
             if ins["sentiment"] < 0:
-                return " A pullback is likely in the short term."
+                options = [
+                    " A pullback is likely in the short term.",
+                    " Profit-taking may trigger a correction soon.",
+                    " Overbought conditions suggest a possible retracement.",
+                    " Selling pressure could emerge due to stretched valuations.",
+                    " A cooling-off period might follow after strong gains."
+                ]
+                return random.choice(options)
             else:
-                return " Gains could continue, but overbought conditions warrant caution."
+                options = [
+                    " Gains could continue, but overbought conditions warrant caution.",
+                    " Momentum remains strong despite elevated RSI.",
+                    " The rally may persist, though risk of reversal exists.",
+                    " Caution is advised as the stock approaches overbought levels.",
+                    " Further upside is possible but tempered by caution."
+                ]
+                return random.choice(options)
+    
         elif ins["delta"] > 0 and ins["sentiment"] > 0.1:
-            return " The upward momentum could extend."
+            options = [
+                " The upward momentum could extend.",
+                " Positive sentiment supports further gains.",
+                " Buyers seem confident, potentially pushing prices higher.",
+                " The stock may continue to climb in the near term.",
+                " Market optimism could fuel additional upside."
+            ]
+            return random.choice(options)
+    
         elif ins["delta"] < 0 and ins["sentiment"] < -0.1:
-            return " Weakness may persist."
+            options = [
+                " Weakness may persist.",
+                " Negative sentiment suggests more downside risk.",
+                " Selling pressure could continue to weigh on the stock.",
+                " Bears may remain in control for now.",
+                " The downtrend might extend further before stabilizing."
+            ]
+            return random.choice(options)
+    
         else:
-            return " The short-term outlook remains uncertain."
+            options = [
+                " The short-term outlook remains uncertain.",
+                " Market conditions appear mixed, calling for caution.",
+                " The stock may consolidate as investors await clearer signals.",
+                " Uncertainty prevails, making near-term direction unclear.",
+                " Traders may stay on the sidelines until momentum clarifies."
+            ]
+            return random.choice(options)
 
     # ---------- templates ----------
     leads_positive = [
-        "The market shows a broadly positive trend today, with few exceptions.",
-        "A strong day for many stocks, led by clear gainers.",
-        "Investor optimism is driving several top names higher.",
-        "Market momentum favors bullish sentiment across sectors.",
-        "Today’s trading session reflects growing investor confidence."
+    "The market shows a broadly positive trend today, with few exceptions.",
+    "A strong day for many stocks, led by clear gainers.",
+    "Investor optimism is driving several top names higher.",
+    "Market momentum favors bullish sentiment across sectors.",
+    "Today’s trading session reflects growing investor confidence.",
+    "Buying interest picked up notably, pushing key indices higher.",
+    "Broad-based strength lifts the market, signaling robust demand.",
+    "Positive earnings reports and economic data boosted investor morale.",
+    "Renewed risk appetite supports gains across multiple sectors.",
+    "Stocks rallied steadily as market participants embraced optimism."
     ]
+    
     leads_mixed = [
         "A mixed day in the market with gains balanced by some losses.",
         "Stocks display varied performance, reflecting a cautious mood.",
         "Market activity is uneven, with winners and losers scattered.",
         "An indecisive session as investors weigh risks and opportunities.",
-        "Markets fluctuated as investors remain uncertain on direction."
+        "Markets fluctuated as investors remain uncertain on direction.",
+        "The market struggled to find clear footing amid conflicting signals.",
+        "Mixed earnings results contributed to a patchy trading day.",
+        "Volatility marked the session, with investors balancing hope and caution.",
+        "Selective buying and profit-taking created a choppy market tone.",
+        "Investors grappled with divergent economic data and geopolitical concerns."
     ]
+    
     leads_negative = [
         "The market closes predominantly lower amid selling pressure.",
         "Widespread losses mark a cautious and risk-off trading day.",
         "Investor sentiment has turned negative with key names retreating.",
         "Market sentiment leans bearish, pressured by profit-taking.",
-        "A challenging day for stocks as bears take control."
+        "A challenging day for stocks as bears take control.",
+        "Selling accelerated as investors responded to disappointing news.",
+        "Broad declines reflected mounting concerns about economic growth.",
+        "Negative headlines weighed heavily on market confidence.",
+        "Stocks retreated sharply amid heightened volatility and risk aversion.",
+        "Investor jitters increased, driving a broad market sell-off."
     ]
 
     clause_templates = {
@@ -2081,7 +2150,11 @@ def generate_fluid_market_summary_english(
             "{name} extended its upward momentum, climbing {delta:.1f}%.",
             "Investors rewarded {name} with a {delta:.1f}% increase.",
             "{name} stood out with a solid gain of {delta:.1f}%.",
-            "The stock {name} surged by {delta:.1f}% during the session."
+            "The stock {name} surged by {delta:.1f}% during the session.",
+            "{name} saw notable buying interest, pushing it up {delta:.1f}%.",
+            "Strong demand lifted {name}, which gained {delta:.1f}%.",
+            "Momentum carried {name} higher by {delta:.1f}%.",
+            "{name} posted impressive gains, rising {delta:.1f}%."
         ],
         "loser": [
             "{name} fell by {delta:.1f}%, under selling pressure.",
@@ -2089,7 +2162,11 @@ def generate_fluid_market_summary_english(
             "Significant selling pushed {name} down {delta:.1f}%.",
             "{name} declined by {delta:.1f}%, among the worst performers.",
             "Bearish sentiment weighed on {name}, which dropped {delta:.1f}%.",
-            "{name} retreated by {delta:.1f}% amid market weakness."
+            "{name} retreated by {delta:.1f}% amid market weakness.",
+            "{name} gave back gains, slipping {delta:.1f}%.",
+            "Investors offloaded shares of {name}, causing a {delta:.1f}% decline.",
+            "{name} experienced downward pressure, falling {delta:.1f}%.",
+            "Profit-taking hit {name}, which dropped {delta:.1f}%."
         ],
         "oversold": [
             "{name} appears oversold (RSI {rsi}), indicating a potential bounce.",
@@ -2097,7 +2174,11 @@ def generate_fluid_market_summary_english(
             "{name} shows oversold signals (RSI {rsi}), possibly setting up a rebound.",
             "The RSI reading of {rsi} suggests {name} is oversold.",
             "{name} is in oversold territory (RSI {rsi}), potentially a buying opportunity.",
-            "Oversold conditions (RSI {rsi}) on {name} might lead to a recovery."
+            "Oversold conditions (RSI {rsi}) on {name} might lead to a recovery.",
+            "{name} trades at oversold levels (RSI {rsi}), hinting at a possible reversal.",
+            "Investors might see value in {name} given its oversold RSI of {rsi}.",
+            "{name}'s RSI of {rsi} points to oversold status and rebound potential.",
+            "Market indicators flag {name} as oversold (RSI {rsi}), suggesting caution."
         ],
         "overbought": [
             "{name} shows signs of being overbought (RSI {rsi}), caution advised.",
@@ -2105,7 +2186,11 @@ def generate_fluid_market_summary_english(
             "{name} is overbought (RSI {rsi}), signaling possible consolidation.",
             "High RSI levels ({rsi}) warn of overbought conditions on {name}.",
             "{name}'s RSI of {rsi} indicates potential overheating.",
-            "Profit-taking might follow given {name}’s overbought RSI at {rsi}."
+            "Profit-taking might follow given {name}’s overbought RSI at {rsi}.",
+            "{name} reached overbought territory (RSI {rsi}), signaling a potential pause.",
+            "Overbought RSI of {rsi} on {name} suggests investors should be cautious.",
+            "The elevated RSI ({rsi}) for {name} may trigger a short-term pullback.",
+            "RSI metrics indicate {name} is overbought (RSI {rsi}), possibly topping out."
         ],
         "neutral": [
             "{name} remained largely stable throughout the session.",
@@ -2113,7 +2198,11 @@ def generate_fluid_market_summary_english(
             "A consolidation day for {name}, with no significant changes.",
             "{name} closed the session relatively flat.",
             "The stock {name} experienced a calm trading day.",
-            "{name} did not register notable fluctuations."
+            "{name} did not register notable fluctuations.",
+            "{name} traded within a narrow range, showing market indecision.",
+            "Limited volatility marked {name}'s session, ending unchanged.",
+            "The price action for {name} was muted, lacking clear direction.",
+            "{name} held steady amid mixed market conditions."
         ]
     }
 
@@ -2216,20 +2305,37 @@ def generate_fluid_market_summary_english(
                 paragraph_sentences.append(fused)
 
     positive_closings = [
-        "Overall sentiment remains positive, suggesting investor confidence.",
-        "The mood is optimistic with encouraging signs across the board.",
-        "Investors appear upbeat despite some market uncertainties."
-    ]
-    neutral_closings = [
-        "The session closes with a balanced market tone and cautious positioning.",
-        "Overall, the market remains steady with no clear directional bias.",
-        "A quiet day with investors taking a wait-and-see approach."
-    ]
-    negative_closings = [
-        "The general tone is cautious, reflecting investor concerns.",
-        "Market sentiment leans toward uncertainty and risk aversion.",
-        "Bearish undertones prevail as traders remain on edge."
-    ]
+    "Overall sentiment remains positive, suggesting investor confidence.",
+    "The mood is optimistic with encouraging signs across the board.",
+    "Investors appear upbeat despite some market uncertainties.",
+    "Market momentum continues to build, fueling optimism among traders.",
+    "Positive catalysts seem to support sustained gains in key sectors.",
+    "Investor sentiment is buoyed by strong fundamentals and favorable trends.",
+    "Confidence is growing as economic indicators reinforce market strength.",
+    "A generally constructive atmosphere prevails, encouraging risk-taking."
+]
+
+neutral_closings = [
+    "The session closes with a balanced market tone and cautious positioning.",
+    "Overall, the market remains steady with no clear directional bias.",
+    "A quiet day with investors taking a wait-and-see approach.",
+    "Markets tread water as participants weigh mixed economic signals.",
+    "Investors are cautious, awaiting clearer signs before committing.",
+    "Trading volumes remain moderate amid uncertain outlooks.",
+    "The day ends without major shifts, reflecting a phase of consolidation.",
+    "Market participants remain tentative amid fluctuating data points."
+]
+
+negative_closings = [
+    "The general tone is cautious, reflecting investor concerns.",
+    "Market sentiment leans toward uncertainty and risk aversion.",
+    "Bearish undertones prevail as traders remain on edge.",
+    "Selling pressure persists, weighing on broader market confidence.",
+    "Volatility remains elevated as downside risks dominate sentiment.",
+    "Investor caution is evident amid mounting economic headwinds.",
+    "Negative momentum builds, challenging recent gains and optimism.",
+    "The market closes with widespread apprehension and defensive positioning."
+]
 
     if avg_sentiment > 0.2:
         closing = random.choice(positive_closings)
@@ -2240,16 +2346,28 @@ def generate_fluid_market_summary_english(
 
     paragraph_sentences.append(closing)
 
-    # --- per-asset list ---
+    # --- per-asset list with repetition control ---
     symbol_phrases = []
+    used_phrases = set()
     for symbol in percentuali_combine.keys():
         ins = build_insight(symbol)
-        phrase_template = random.choice(clause_templates[ins["theme"]])
-        phrase = phrase_template.format(
-            name=ins["name"],
-            delta=abs(ins["delta"]),
-            rsi=(int(ins["rsi"]) if ins["rsi"] is not None else "—")
-        ) + build_forecast_phrase(ins)
+        tries = 0
+        phrase = ""
+        while tries < 10:
+            phrase_template = random.choice(clause_templates[ins["theme"]])
+            candidate = phrase_template.format(
+                name=ins["name"],
+                delta=abs(ins["delta"]),
+                rsi=(int(ins["rsi"]) if ins["rsi"] is not None else "—")
+            ) + build_forecast_phrase(ins)
+            if candidate not in used_phrases:
+                phrase = candidate
+                used_phrases.add(candidate)
+                break
+            tries += 1
+        if not phrase:
+            # fallback in case all templates repeat, just use last candidate
+            phrase = candidate
         symbol_phrases.append(f"{symbol} - {phrase}")
 
     symbol_phrases_str = "\n".join(symbol_phrases)
@@ -2420,50 +2538,61 @@ def genera_mini_tip_from_summary(summary: str) -> str:
 #Per raffinare un testo
 def raffina_testo(testo):
     abbrev = {
-    "Inc.", "Sr.", "Jr.", "Dr.", "Mr.", "Mrs.", "Ms.",
-    "Ltd.", "Co.", "Corp.", "Mt.", "St.", "No.", "Fig.",
-    "Prof.", "Rev.", "Est.", "Etc.", "Ex.", "Gov.", "Sen.",
-    "Rep.", "Mgr.", "Dept.", "Univ.", "Assn.", "Ave.", "Jan.",
-    "Feb.", "Mar.", "Apr.", "Jun.", "Jul.", "Aug.", "Sep.",
-    "Oct.", "Nov.", "Dec."
+        "Inc.", "Sr.", "Jr.", "Dr.", "Mr.", "Mrs.", "Ms.",
+        "Ltd.", "Co.", "Corp.", "Mt.", "St.", "No.", "Fig.",
+        "Prof.", "Rev.", "Est.", "Etc.", "Ex.", "Gov.", "Sen.",
+        "Rep.", "Mgr.", "Dept.", "Univ.", "Assn.", "Ave.", "Jan.",
+        "Feb.", "Mar.", "Apr.", "Jun.", "Jul.", "Aug.", "Sep.",
+        "Oct.", "Nov.", "Dec."
     }
 
     # Uniforma puntini di sospensione
     testo = testo.replace("...", "…")
 
-    # Rimuove punteggiatura ripetuta
-    testo = re.sub(r'([.!?,;:])(?!\.)\s*[.!?,;:]+', r'\1', testo)
+    # Rimuove punteggiatura ripetuta (es: "!!", "??") lasciandone una sola
+    testo = re.sub(r'([.!?,;:]){2,}', r'\1', testo)
 
     # Rimuove spazi prima della punteggiatura
     testo = re.sub(r'\s+([.,;:!?…])', r'\1', testo)
 
-    # Garantisce spazio dopo punteggiatura
-    testo = re.sub(r'([.,;:!?…])(?=\S)', r'\1 ', testo)
+    # Rimuove spazi tra numero e punto decimale (es: "27. 5" -> "27.5")
+    testo = re.sub(r'(\d)\.\s+(\d)', r'\1.\2', testo)
 
-    # Funzione per maiuscole dopo punteggiatura, escluse abbreviazioni
+    # Garantisce esattamente un solo spazio dopo la punteggiatura, tranne se è fine stringa o punteggiatura successiva
+    testo = re.sub(r'([.,;:!?…])([^\s\d])', r'\1 \2', testo)
+
+    # Elimina spazi doppi residui
+    testo = re.sub(r'\s{2,}', ' ', testo)
+
+    # Funzione per maiuscole dopo punto, punto esclamativo, punto interrogativo (non dopo abbreviazioni)
     def maiusc(m):
-        p, l = m.group(1), m.group(2)
+        p = m.group(1)
+        l = m.group(2)
         pos = m.start(1)
-        if any(testo.rfind(a, 0, pos + 1) == pos + 1 - len(a) for a in abbrev):
-            return p + l.lower()
-        return p + " " + l.upper()
+        # Controlla se la posizione precedente è un'abbreviazione
+        for a in abbrev:
+            abbrev_pos = testo.rfind(a, 0, pos + 1)
+            if abbrev_pos != -1 and abbrev_pos + len(a) == pos + 1:
+                # è un'abbreviazione, non mettere maiuscola
+                return p + l.lower()
+        # Altrimenti maiuscola senza aggiungere spazio extra
+        return p + ' ' + l.upper()
 
     testo = re.sub(r'([.!?])\s*(\w)', maiusc, testo)
 
+    # Assicura che il testo inizi con lettera maiuscola (se testo non vuoto)
     testo = testo.strip()
     if testo:
         testo = testo[0].upper() + testo[1:]
 
-    # Maiuscola dopo punto/esclamativo/interrogativo/ellissi
-    testo = re.sub(r'([.!?…]\s+)(\w)', lambda m: m.group(1) + m.group(2).upper(), testo)
-
-    # Correggi ticker e nomi dal dizionario
-    for symbol, names in symbol_name_map.items():
-        # Ticker in maiuscolo
-        testo = re.sub(rf'\b{re.escape(symbol)}\b', symbol.upper(), testo, flags=re.IGNORECASE)
-        # Nomi corretti (case-insensitive)
-        for name in names:
-            testo = re.sub(rf'\b{re.escape(name)}\b', name, testo, flags=re.IGNORECASE)
+    # Correggi ticker e nomi dal dizionario se definito (aggiungi questo nel tuo codice)
+    if 'symbol_name_map' in globals():
+        for symbol, names in symbol_name_map.items():
+            # Ticker in maiuscolo
+            testo = re.sub(rf'\b{re.escape(symbol)}\b', symbol.upper(), testo, flags=re.IGNORECASE)
+            # Nomi corretti (case-insensitive)
+            for name in names:
+                testo = re.sub(rf'\b{re.escape(name)}\b', name, testo, flags=re.IGNORECASE)
 
     return testo
 
@@ -2476,7 +2605,6 @@ def assign_signal_and_strength(
     fundamental_data
 ):
     def normalize(val, min_val, max_val):
-        # scala val tra 0 e 1
         return max(0, min(1, (val - min_val) / (max_val - min_val))) if max_val > min_val else 0.5
 
     signals = {}
@@ -2488,21 +2616,19 @@ def assign_signal_and_strength(
 
         percent = percentuali_combine.get(symbol, 50)
         rsi = indicator_data.get(symbol, {}).get("RSI (14)", 50)
-        momentum = percent - 50  # semplice momentum dal delta %
+        momentum = percent - 50
 
         pe = fundamental_data.get(symbol, {}).get("P/E", None)
         growth = fundamental_data.get(symbol, {}).get("RevenueGrowth", 0.0)
 
-        # Score componenti (0-1)
-        sentiment_score = normalize(sentiment, -1, 1)        # da -1 a 1 -> 0 a 1
-        momentum_score = normalize(momentum, -50, 50)        # -50% a +50%
-        rsi_score = 1 - abs(rsi - 50)/50                      # rsi 50 è neutro, 0 o 100 è estremo -> scala 0-1
-        growth_score = normalize(growth, 0, 0.3)              # supponiamo 30% crescita max sensata
+        sentiment_score = normalize(sentiment, -1, 1)
+        momentum_score = normalize(momentum, -50, 50)
+        rsi_score = 1 - abs(rsi - 50)/50
+        growth_score = normalize(growth, 0, 0.3)
         pe_score = 0.5
         if pe is not None and pe > 0:
-            pe_score = max(0, min(1, (30 - pe) / 30))         # pe basso meglio, max 30
+            pe_score = max(0, min(1, (30 - pe) / 30))
 
-        # Pesi arbitrari per la somma
         weights = {
             "sentiment": 0.3,
             "momentum": 0.3,
@@ -2519,7 +2645,7 @@ def assign_signal_and_strength(
             pe_score * weights["pe"]
         )
 
-        # Definizione segnale
+        # Assegna segnale in base a soglie, indipendentemente da strength
         if total_score > 0.65:
             signal = "BUY"
         elif total_score < 0.4:
@@ -2527,6 +2653,7 @@ def assign_signal_and_strength(
         else:
             signal = "HOLD"
 
+        # Mantieni strength sempre uguale a total_score
         signals[symbol] = {"signal": signal, "strength": round(total_score, 3)}
 
     return signals
@@ -2538,11 +2665,23 @@ brief_refined = raffina_testo(brief_text)
 mini_tip = genera_mini_tip_from_summary(brief_text)
 
 signals = assign_signal_and_strength(sentiment_for_symbols, percentuali_combine, indicator_data, fundamental_data)
-max_strength = max(info['strength'] for info in signals.values())    # Trova il massimo punteggio
-top_symbols = [sym for sym, info in signals.items() if info['strength'] == max_strength]    # Filtra simboli con punteggio massimo
-top_symbol = sorted(top_symbols)[0]    # Ordina alfabeticamente e prendi il primo
-top_info = signals[top_symbol]
-top_signal_str = f"{top_info['signal']} signal on {top_symbol} - Accuracy {int(top_info['strength'] * 100)}%"
+# Raggruppa i segnali per tipo
+grouped = defaultdict(list)
+for sym, info in signals.items():
+    grouped[info['signal']].append((sym, info['strength']))
+# Per ciascun segnale prendi il simbolo con strength massima (se esiste)
+top_signals = {}
+for signal_type in ['BUY', 'HOLD', 'SELL']:
+    if grouped[signal_type]:
+        sym, strength = max(grouped[signal_type], key=lambda x: x[1])
+        top_signals[signal_type] = (sym, strength)
+# Costruisci la stringa con i 3 segnali uno sotto l'altro
+top_signal_str = ""
+for signal_type in ['BUY', 'HOLD', 'SELL']:
+    if signal_type in top_signals:
+        sym, strength = top_signals[signal_type]
+        top_signal_str += f"{signal_type} signal on {sym} - Accuracy {int(strength * 100)}%\n"
+top_signal_str = top_signal_str.strip()  # rimuove l'ultimo \n
 
 html_content = f"""
 <html>
