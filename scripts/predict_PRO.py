@@ -10,6 +10,7 @@ import yfinance as yf
 import ta
 import pandas as pd
 import random
+import unicodedata
 from ta.momentum import RSIIndicator, StochasticOscillator, WilliamsRIndicator
 from ta.trend import MACD, EMAIndicator, CCIIndicator
 from ta.volatility import BollingerBands
@@ -2546,6 +2547,12 @@ def raffina_testo(testo):
         "Oct.", "Nov.", "Dec."
     }
 
+    # Normalizza tutti gli spazi Unicode in spazi semplici (space U+0020)
+    def normalize_spaces(text):
+        return ''.join(' ' if unicodedata.category(c) == 'Zs' else c for c in text)
+
+    testo = normalize_spaces(testo)
+
     # Uniforma puntini di sospensione
     testo = testo.replace("...", "…")
 
@@ -2555,13 +2562,13 @@ def raffina_testo(testo):
     # Rimuove spazi prima della punteggiatura
     testo = re.sub(r'\s+([.,;:!?…])', r'\1', testo)
 
-    # 🔹 1. Rimuove spazi tra numero e punto decimale (27. 5 → 27.5)
-    testo = re.sub(r'(\d)\.\s+(\d)', r'\1.\2', testo)
+    # Rimuove spazi tra numero e punto decimale e simboli come %, €, ° (es: "21. 7 %" → "21.7%")
+    testo = re.sub(r'(\d)\.\s*(\d)\s*([%€°])', r'\1.\2\3', testo)
 
-    # 🔹 2. Rimuove spazi tra numero e simboli che non vogliono spazio (%, €, °, ecc.)
+    # Rimuove spazi tra numero e simboli che non vogliono spazio (es: "27 %" → "27%")
     testo = re.sub(r'(\d)\s*([%€°])', r'\1\2', testo)
 
-    # 🔹 3. Garantisce un solo spazio dopo punteggiatura, tranne se segue cifra o simbolo
+    # Garantisce un solo spazio dopo punteggiatura, tranne se segue cifra o simbolo
     testo = re.sub(r'([.,;:!?…])(?!\s|$|\d|[%€°])([^\s])', r'\1 \2', testo)
 
     # Elimina spazi doppi residui
@@ -2596,8 +2603,6 @@ def raffina_testo(testo):
 
 
 #Per generare i segnali
-import random
-
 def assign_signal_and_strength(
     sentiment_for_symbols,
     percentuali_combine,
