@@ -2596,6 +2596,8 @@ def raffina_testo(testo):
 
 
 #Per generare i segnali
+import random
+
 def assign_signal_and_strength(
     sentiment_for_symbols,
     percentuali_combine,
@@ -2627,12 +2629,13 @@ def assign_signal_and_strength(
         if pe is not None and pe > 0:
             pe_score = max(0, min(1, (30 - pe) / 30))
 
+        # Cambio pesi per dare più influenza a sentiment e momentum
         weights = {
-            "sentiment": 0.3,
-            "momentum": 0.3,
-            "rsi": 0.2,
+            "sentiment": 0.35,
+            "momentum": 0.35,
+            "rsi": 0.15,
             "growth": 0.1,
-            "pe": 0.1
+            "pe": 0.05
         }
 
         total_score = (
@@ -2643,9 +2646,13 @@ def assign_signal_and_strength(
             pe_score * weights["pe"]
         )
 
-        if total_score > 0.65:
+        # Piccola variazione casuale per evitare eccesso di HOLD
+        total_score += random.uniform(-0.05, 0.05)
+        total_score = max(0, min(1, total_score))
+
+        if total_score > 0.6:
             signal = "BUY"
-        elif total_score < 0.4:
+        elif total_score < 0.45:
             signal = "SELL"
         else:
             signal = "HOLD"
@@ -2653,7 +2660,7 @@ def assign_signal_and_strength(
         strength = round(total_score, 3)
         signals[symbol] = {"signal": signal, "strength": strength}
 
-        # Qui stampi il log per ogni simbolo
+        # Log
         print(f"Symbol: {symbol}, Signal: {signal}, Accuracy: {int(strength * 100)}%")
 
     return signals
