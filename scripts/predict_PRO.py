@@ -2313,29 +2313,29 @@ def generate_fluid_market_summary_english(
     "Investor sentiment is buoyed by strong fundamentals and favorable trends.",
     "Confidence is growing as economic indicators reinforce market strength.",
     "A generally constructive atmosphere prevails, encouraging risk-taking."
-]
+    ]
 
-neutral_closings = [
-    "The session closes with a balanced market tone and cautious positioning.",
-    "Overall, the market remains steady with no clear directional bias.",
-    "A quiet day with investors taking a wait-and-see approach.",
-    "Markets tread water as participants weigh mixed economic signals.",
-    "Investors are cautious, awaiting clearer signs before committing.",
-    "Trading volumes remain moderate amid uncertain outlooks.",
-    "The day ends without major shifts, reflecting a phase of consolidation.",
-    "Market participants remain tentative amid fluctuating data points."
-]
-
-negative_closings = [
-    "The general tone is cautious, reflecting investor concerns.",
-    "Market sentiment leans toward uncertainty and risk aversion.",
-    "Bearish undertones prevail as traders remain on edge.",
-    "Selling pressure persists, weighing on broader market confidence.",
-    "Volatility remains elevated as downside risks dominate sentiment.",
-    "Investor caution is evident amid mounting economic headwinds.",
-    "Negative momentum builds, challenging recent gains and optimism.",
-    "The market closes with widespread apprehension and defensive positioning."
-]
+    neutral_closings = [
+        "The session closes with a balanced market tone and cautious positioning.",
+        "Overall, the market remains steady with no clear directional bias.",
+        "A quiet day with investors taking a wait-and-see approach.",
+        "Markets tread water as participants weigh mixed economic signals.",
+        "Investors are cautious, awaiting clearer signs before committing.",
+        "Trading volumes remain moderate amid uncertain outlooks.",
+        "The day ends without major shifts, reflecting a phase of consolidation.",
+        "Market participants remain tentative amid fluctuating data points."
+    ]
+    
+    negative_closings = [
+        "The general tone is cautious, reflecting investor concerns.",
+        "Market sentiment leans toward uncertainty and risk aversion.",
+        "Bearish undertones prevail as traders remain on edge.",
+        "Selling pressure persists, weighing on broader market confidence.",
+        "Volatility remains elevated as downside risks dominate sentiment.",
+        "Investor caution is evident amid mounting economic headwinds.",
+        "Negative momentum builds, challenging recent gains and optimism.",
+        "The market closes with widespread apprehension and defensive positioning."
+    ]
 
     if avg_sentiment > 0.2:
         closing = random.choice(positive_closings)
