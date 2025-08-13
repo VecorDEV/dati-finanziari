@@ -2746,18 +2746,18 @@ def translate_text(text, target_lang):
 for lang_code, filename in LANGUAGES.items():
     html_content = f"""
     <html>
-      <head><title>{translate_text("Market Brief", lang_code)}</title></head>
+      <head><title>Market Brief</title></head>
       <body>
-        <h1>📊 {translate_text("Daily Market Summary", lang_code)}</h1>
+        <h1>📊 Daily Market Summary</h1>
         <p style='font-family: Arial; font-size: 16px;'>{translate_text(brief_refined, lang_code)}</p>
-        <h2>{translate_text("Per-Asset Insights", lang_code)}</h2>
+        <h2>Per-Asset Insights</h2>
         <ul>
           {"".join(f"<li>{translate_text(line, lang_code)}</li>" for line in asset_sentences.splitlines())}
         </ul>
-        <h2>💡 {translate_text("Mini Tip", lang_code)}</h2>
+        <h2>💡 Mini Tip</h2>
         <p style='font-family: Arial; font-size: 14px; color: #555;'>{translate_text(mini_tip, lang_code)}</p>
         <hr>
-        <h2>🔥 {translate_text("Top Signal", lang_code)}</h2>
+        <h2>🔥 Top Signal</h2>
         <p style='font-family: Arial; font-size: 16px; font-weight: bold;'>{translate_text(top_signal_str, lang_code)}</p>
       </body>
     </html>
@@ -2794,6 +2794,6 @@ html_content_en = f"""
 file_path = "results/daily_brief_en.html"
 try:
     contents = repo.get_contents(file_path)
-    repo.update_file(file_path, "Updated daily brief", html_content_en, contents.sha)
+    repo.update_file(file_path, "Updated daily_brief_en", html_content_en, contents.sha)
 except GithubException:
-    repo.create_file(file_path, "Created daily brief", html_content_en)
+    repo.create_file(file_path, "Created daily_brief_en", html_content_en)
