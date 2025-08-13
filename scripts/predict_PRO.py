@@ -2755,3 +2755,31 @@ for lang_code, filename in LANGUAGES.items():
         repo.update_file(file_path, f"Updated {filename}", html_content, contents.sha)
     except GithubException:
         repo.create_file(file_path, f"Created {filename}", html_content)
+
+
+# File inglese di default
+html_content_en = f"""
+<html>
+  <head><title>Market Brief</title></head>
+  <body>
+    <h1>📊 Daily Market Summary</h1>
+    <p style='font-family: Arial; font-size: 16px;'>{brief_refined}</p>
+    <h2>Per-Asset Insights</h2>
+    <ul>
+      {"".join(f"<li>{line}</li>" for line in asset_sentences.splitlines())}
+    </ul>
+    <h2>💡 Mini Tip</h2>
+    <p style='font-family: Arial; font-size: 14px; color: #555;'>{mini_tip}</p>
+    <hr>
+    <h2>🔥 Top Signal</h2>
+    <p style='font-family: Arial; font-size: 16px; font-weight: bold;'>{top_signal_str}</p>
+  </body>
+</html>
+"""
+
+file_path = "results/daily_brief_en.html"
+try:
+    contents = repo.get_contents(file_path)
+    repo.update_file(file_path, "Updated daily brief", html_content_en, contents.sha)
+except GithubException:
+    repo.create_file(file_path, "Created daily brief", html_content_en)
