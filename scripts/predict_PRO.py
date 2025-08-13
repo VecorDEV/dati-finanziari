@@ -2434,7 +2434,7 @@ def genera_mini_tip_from_summary(summary: str) -> str:
         "High volatility means larger price swings and higher risk, but also more trading opportunities."
     ],
     "earnings": [
-        "Earnings surprises—when results beat or miss estimates—often trigger significant stock price moves."
+    "When a company reports results above or below expectations, the stock price can change a lot. Traders often watch these events carefully before making decisions."
     ],
     "beta": [
         "Beta above 1 means a stock is more volatile than the market; below 1 means less volatile."
@@ -2618,7 +2618,7 @@ def raffina_testo(testo):
 
 
 #Per generare i segnali
-def assign_signal_and_strength(
+def assign_signal_and_confidence(
     sentiment_for_symbols,
     percentuali_combine,
     indicator_data,
@@ -2626,6 +2626,19 @@ def assign_signal_and_strength(
 ):
     def normalize(val, min_val, max_val):
         return max(0, min(1, (val - min_val) / (max_val - min_val))) if max_val > min_val else 0.5
+
+    def score_to_confidence(score, signal):
+        """
+        Trasforma il punteggio in una probabilità di correttezza del segnale.
+        Usando range logistica/lineare: punteggio più alto -> più confidenza.
+        """
+        if signal == "BUY":
+            return max(0, min(1, (score - 0.5) * 2))  # score>0.5 -> confidenza crescente
+        elif signal == "SELL":
+            return max(0, min(1, (0.5 - score) * 2))  # score<0.5 -> confidenza crescente
+        else:  # HOLD
+            return max(0, 1 - abs(score - 0.5)*4)  # score vicino 0.5 -> confidenza alta
+        
 
     signals = {}
 
@@ -2649,7 +2662,6 @@ def assign_signal_and_strength(
         if pe is not None and pe > 0:
             pe_score = max(0, min(1, (30 - pe) / 30))
 
-        # Cambio pesi per dare più influenza a sentiment e momentum
         weights = {
             "sentiment": 0.35,
             "momentum": 0.35,
@@ -2666,8 +2678,7 @@ def assign_signal_and_strength(
             pe_score * weights["pe"]
         )
 
-        # Piccola variazione casuale per evitare eccesso di HOLD
-        total_score += random.uniform(-0.05, 0.05)
+        # Niente rumore casuale
         total_score = max(0, min(1, total_score))
 
         if total_score > 0.6:
@@ -2677,11 +2688,10 @@ def assign_signal_and_strength(
         else:
             signal = "HOLD"
 
-        strength = round(total_score, 3)
-        signals[symbol] = {"signal": signal, "strength": strength}
+        confidence = round(score_to_confidence(total_score, signal), 3)
+        signals[symbol] = {"signal": signal, "confidence": confidence}
 
-        # Log
-        print(f"Symbol: {symbol}, Signal: {signal}, Accuracy: {int(strength * 100)}%")
+        print(f"Symbol: {symbol}, Signal: {signal}, Confidence: {int(confidence * 100)}%")
 
     return signals
 
