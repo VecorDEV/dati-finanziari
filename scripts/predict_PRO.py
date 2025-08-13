@@ -11,6 +11,7 @@ import ta
 import pandas as pd
 import random
 import unicodedata
+import argostranslate.package, argostranslate.translate
 from ta.momentum import RSIIndicator, StochasticOscillator, WilliamsRIndicator
 from ta.trend import MACD, EMAIndicator, CCIIndicator
 from ta.volatility import BollingerBands
@@ -34,10 +35,23 @@ news_path = "results/news.html"
 github = Github(GITHUB_TOKEN)
 repo = github.get_repo(REPO_NAME)
 
-'''
-        
-        
-        '''
+
+# 📌 Lingue da generare (codice lingua: suffisso file)
+LANGUAGES = {
+    "ar": "daily_brief_ar.html",
+    "de": "daily_brief_de.html",
+    "es": "daily_brief_es.html",
+    "fr": "daily_brief_fr.html",
+    "hi": "daily_brief_hi.html",
+    "it": "daily_brief_it.html",
+    "ko": "daily_brief_ko.html",
+    "nl": "daily_brief_nl.html",
+    "pt": "daily_brief_pt.html",
+    "ru": "daily_brief_ru.html",
+    "zh": "daily_brief_zh.html",
+    "zh-rCN": "daily_brief_zh-rCN.html",
+}
+
 
 # Lista dei simboli azionari da cercare
 symbol_list = ["AAPL", "MSFT", "GOOGL", "AMZN", "META", "TSLA", "V", "JPM", "JNJ", "WMT",
@@ -2697,28 +2711,47 @@ for signal_type in ['BUY', 'HOLD', 'SELL']:
         top_signal_str += f"{signal_type} signal on {sym} - Accuracy {int(strength * 100)}%\n"
 top_signal_str = top_signal_str.strip()  # rimuove l'ultimo \n
 
-html_content = f"""
-<html>
-  <head><title>Market Brief</title></head>
-  <body>
-    <h1>📊 Daily Market Summary</h1>
-    <p style='font-family: Arial; font-size: 16px;'>{brief_refined}</p>
-    <h2>Per-Asset Insights</h2>
-    <ul>
-      {"".join(f"<li>{line}</li>" for line in asset_sentences.splitlines())}
-    </ul>
-    <h2>💡 Mini Tip</h2>
-    <p style='font-family: Arial; font-size: 14px; color: #555;'>{mini_tip}</p>
-    <hr>
-    <h2>🔥 Top Signal</h2>
-    <p style='font-family: Arial; font-size: 16px; font-weight: bold;'>{top_signal_str}</p>
-  </body>
-</html>
-"""
 
-file_path = "results/daily_brief.html"
-try:
-    contents = repo.get_contents(file_path)
-    repo.update_file(file_path, "Updated daily brief", html_content, contents.sha)
-except GithubException:
-    repo.create_file(file_path, "Created daily brief", html_content)
+
+
+# 📌 Scarica pacchetti lingua se mancanti
+argostranslate.package.update_package_index()
+available_packages = argostranslate.package.get_available_packages()
+
+for lang_code in LANGUAGES.keys():
+    if not any(p.from_code == "en" and p.to_code == lang_code for p in argostranslate.package.get_installed_packages()):
+        pkg = next(p for p in available_packages if p.from_code == "en" and p.to_code == lang_code)
+        argostranslate.package.install_from_path(pkg.download())
+
+# 📌 Funzione per tradurre un testo
+def translate_text(text, target_lang):
+    return argostranslate.translate.translate(text, "en", target_lang)
+
+
+# 📌 Genera HTML per ogni lingua
+for lang_code, filename in LANGUAGES.items():
+    html_content = f"""
+    <html>
+      <head><title>{translate_text("Market Brief", lang_code)}</title></head>
+      <body>
+        <h1>📊 {translate_text("Daily Market Summary", lang_code)}</h1>
+        <p style='font-family: Arial; font-size: 16px;'>{translate_text(brief_refined, lang_code)}</p>
+        <h2>{translate_text("Per-Asset Insights", lang_code)}</h2>
+        <ul>
+          {"".join(f"<li>{translate_text(line, lang_code)}</li>" for line in asset_sentences.splitlines())}
+        </ul>
+        <h2>💡 {translate_text("Mini Tip", lang_code)}</h2>
+        <p style='font-family: Arial; font-size: 14px; color: #555;'>{translate_text(mini_tip, lang_code)}</p>
+        <hr>
+        <h2>🔥 {translate_text("Top Signal", lang_code)}</h2>
+        <p style='font-family: Arial; font-size: 16px; font-weight: bold;'>{translate_text(top_signal_str, lang_code)}</p>
+      </body>
+    </html>
+    """
+
+    file_path = f"results/{filename}"
+    try:
+        contents = repo.get_contents(file_path)
+        repo.update_file(file_path, f"Updated {filename}", html_content, contents.sha)
+    except GithubException:
+        repo.create_file(file_path, f"Created {filename}", html_content)
