@@ -11,7 +11,8 @@ import ta
 import pandas as pd
 import random
 import unicodedata
-import argostranslate.package, argostranslate.translate
+import argostranslate.package
+import argostranslate.translate
 from ta.momentum import RSIIndicator, StochasticOscillator, WilliamsRIndicator
 from ta.trend import MACD, EMAIndicator, CCIIndicator
 from ta.volatility import BollingerBands
@@ -2715,16 +2716,29 @@ top_signal_str = top_signal_str.strip()  # rimuove l'ultimo \n
 
 
 # 📌 Scarica pacchetti lingua se mancanti
+# Aggiorna l’indice dei pacchetti
 argostranslate.package.update_package_index()
 available_packages = argostranslate.package.get_available_packages()
 
-for lang_code in LANGUAGES.keys():
-    if not any(p.from_code == "en" and p.to_code == lang_code for p in argostranslate.package.get_installed_packages()):
-        pkg = next(p for p in available_packages if p.from_code == "en" and p.to_code == lang_code)
-        argostranslate.package.install_from_path(pkg.download())
+# Filtra LANGUAGES per le lingue supportate da Argos Translate
+supported_langs = {p.to_code for p in available_packages if p.from_code == "en"}
+LANGUAGES = {k: v for k, v in LANGUAGES.items() if k in supported_langs}
 
-# 📌 Funzione per tradurre un testo
+# Installa i pacchetti mancanti
+for lang_code in LANGUAGES.keys():
+    installed = argostranslate.package.get_installed_packages()
+    if not any(p.from_code == "en" and p.to_code == lang_code for p in installed):
+        pkg_list = [p for p in available_packages if p.from_code == "en" and p.to_code == lang_code]
+        if pkg_list:
+            pkg = pkg_list[0]
+            argostranslate.package.install_from_path(pkg.download())
+        else:
+            print(f"⚠️ Nessun pacchetto disponibile per en -> {lang_code}")
+
+# Funzione per tradurre un testo (solo lingue supportate)
 def translate_text(text, target_lang):
+    if target_lang not in supported_langs:
+        return text  # ritorna il testo originale se la lingua non è supportata
     return argostranslate.translate.translate(text, "en", target_lang)
 
 
