@@ -2707,7 +2707,7 @@ grouped = defaultdict(list)
 print("Grouped signals:", dict(grouped))
 
 for sym, info in signals.items():
-    grouped[info['signal']].append((sym, info['strength']))
+    grouped[info['signal']].append((sym, info['confidence']))
 # Per ciascun segnale prendi il simbolo con strength massima (se esiste)
 top_signals = {}
 for signal_type in ['BUY', 'HOLD', 'SELL']:
