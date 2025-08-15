@@ -2562,25 +2562,28 @@ def raffina_testo(testo):
         "Oct.", "Nov.", "Dec."
     }
 
-    # Normalizza tutti gli spazi Unicode in spazi semplici (space U+0020)
+    # Normalizza tutti gli spazi Unicode (anche NBSP, thin space) in spazi normali
     def normalize_spaces(text):
-        return ''.join(' ' if unicodedata.category(c) == 'Zs' else c for c in text)
+        return ''.join(' ' if unicodedata.category(c).startswith('Z') else c for c in text)
 
     testo = normalize_spaces(testo)
 
     # Uniforma puntini di sospensione
     testo = testo.replace("...", "…")
 
-    # Rimuove punteggiatura ripetuta (es: "!!", "??") lasciandone una sola
+    # Rimuove punteggiatura ripetuta
     testo = re.sub(r'([.!?,;:]){2,}', r'\1', testo)
 
     # Rimuove spazi prima della punteggiatura
     testo = re.sub(r'\s+([.,;:!?…])', r'\1', testo)
 
-    # Rimuove spazi tra numero e punto decimale e simboli come %, €, ° (es: "21. 7 %" → "21.7%")
-    testo = re.sub(r'(\d)\.\s*(\d)\s*([%€°])', r'\1.\2\3', testo)
+    # Rimuove spazi tra cifra, punto e cifra (es: "3. 7" → "3.7")
+    testo = re.sub(r'(\d)\.\s+(\d)', r'\1.\2', testo)
 
-    # Rimuove spazi tra numero e simboli che non vogliono spazio (es: "27 %" → "27%")
+    # Rimuove spazi tra numero decimale e simboli come %, €, °
+    testo = re.sub(r'(\d\.\d)\s*([%€°])', r'\1\2', testo)
+
+    # Rimuove spazi tra intero e simboli come %, €, °
     testo = re.sub(r'(\d)\s*([%€°])', r'\1\2', testo)
 
     # Garantisce un solo spazio dopo punteggiatura, tranne se segue cifra o simbolo
