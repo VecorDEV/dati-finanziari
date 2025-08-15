@@ -2052,20 +2052,20 @@ def generate_fluid_market_summary_english(
         if ins["rsi"] is not None and ins["rsi"] < 30:
             if ins["sentiment"] >= 0:
                 options = [
-                    " It may be poised for a rebound.",
-                    " Signs suggest a potential bounce back soon.",
-                    " Buyers could step in at these oversold levels.",
-                    " The stock might be undervalued and ready to recover.",
-                    " A turnaround might be on the horizon."
+                    " The stock may rebound soon.",
+                    " A potential bounce is likely.",
+                    " Buyers could enter at oversold levels.",
+                    " The stock may be undervalued and could recover.",
+                    " A turnaround might occur in the near future."
                 ]
                 return random.choice(options)
             else:
                 options = [
-                    " The decline could deepen unless sentiment improves.",
-                    " Continued weakness is possible without a sentiment shift.",
-                    " Bears might maintain control in the near term.",
-                    " Downside risks remain elevated given current sentiment.",
-                    " Further drops cannot be ruled out if negativity persists."
+                    " The decline may continue unless sentiment improves.",
+                    " Weakness could persist without a change in sentiment.",
+                    " Bears may remain in control shortly.",
+                    " Downside risk remains high given the current sentiment.",
+                    " Further drops are possible if negativity continues."
                 ]
                 return random.choice(options)
     
@@ -2073,152 +2073,152 @@ def generate_fluid_market_summary_english(
             if ins["sentiment"] < 0:
                 options = [
                     " A pullback is likely in the short term.",
-                    " Profit-taking may trigger a correction soon.",
+                    " Profit-taking may cause a correction soon.",
                     " Overbought conditions suggest a possible retracement.",
-                    " Selling pressure could emerge due to stretched valuations.",
-                    " A cooling-off period might follow after strong gains."
+                    " Selling pressure could increase due to high valuations.",
+                    " The stock may experience a cooling-off period after strong gains."
                 ]
                 return random.choice(options)
             else:
                 options = [
-                    " Gains could continue, but overbought conditions warrant caution.",
-                    " Momentum remains strong despite elevated RSI.",
-                    " The rally may persist, though risk of reversal exists.",
-                    " Caution is advised as the stock approaches overbought levels.",
-                    " Further upside is possible but tempered by caution."
+                    " Gains could continue, but caution is needed.",
+                    " Momentum remains strong despite high RSI.",
+                    " The rally may continue, but reversal risk exists.",
+                    " Be cautious as the stock approaches overbought levels.",
+                    " Further upside is possible, but with caution."
                 ]
                 return random.choice(options)
     
         elif ins["delta"] > 0 and ins["sentiment"] > 0.1:
             options = [
-                " The upward momentum could extend.",
+                " Upward momentum may continue.",
                 " Positive sentiment supports further gains.",
-                " Buyers seem confident, potentially pushing prices higher.",
-                " The stock may continue to climb in the near term.",
-                " Market optimism could fuel additional upside."
+                " Buyers seem confident, pushing prices higher.",
+                " The stock may keep rising shortly.",
+                " Market optimism could lead to additional gains."
             ]
             return random.choice(options)
     
         elif ins["delta"] < 0 and ins["sentiment"] < -0.1:
             options = [
-                " Weakness may persist.",
-                " Negative sentiment suggests more downside risk.",
-                " Selling pressure could continue to weigh on the stock.",
-                " Bears may remain in control for now.",
-                " The downtrend might extend further before stabilizing."
+                " Weakness may continue.",
+                " Negative sentiment suggests more downside.",
+                " Selling pressure may persist.",
+                " Bears could remain in control for now.",
+                " The downtrend may extend before stabilizing."
             ]
             return random.choice(options)
     
         else:
             options = [
-                " The short-term outlook remains uncertain.",
-                " Market conditions appear mixed, calling for caution.",
-                " The stock may consolidate as investors await clearer signals.",
-                " Uncertainty prevails, making near-term direction unclear.",
-                " Traders may stay on the sidelines until momentum clarifies."
+                " The short-term outlook is unclear.",
+                " Market conditions are mixed and caution is advised.",
+                " The stock may consolidate while investors wait for signals.",
+                " Uncertainty remains, making direction unclear.",
+                " Traders may wait before making moves until momentum clarifies."
             ]
             return random.choice(options)
 
     # ---------- templates ----------
     leads_positive = [
-    "The market shows a broadly positive trend today, with few exceptions.",
-    "A strong day for many stocks, led by clear gainers.",
-    "Investor optimism is driving several top names higher.",
-    "Market momentum favors bullish sentiment across sectors.",
-    "Today’s trading session reflects growing investor confidence.",
-    "Buying interest picked up notably, pushing key indices higher.",
-    "Broad-based strength lifts the market, signaling robust demand.",
-    "Positive earnings reports and economic data boosted investor morale.",
-    "Renewed risk appetite supports gains across multiple sectors.",
-    "Stocks rallied steadily as market participants embraced optimism."
+        "The market shows a generally positive trend today.",
+        "Many stocks gained strongly today.",
+        "Investor optimism pushed several top stocks higher.",
+        "Market momentum supports bullish sentiment in most sectors.",
+        "Today’s trading shows growing investor confidence.",
+        "Buying interest increased, lifting key indices.",
+        "Broad strength lifts the market and shows strong demand.",
+        "Positive earnings and economic data improved investor morale.",
+        "Renewed risk appetite supports gains in many sectors.",
+        "Stocks rose steadily as investors remained optimistic."
     ]
     
     leads_mixed = [
-        "A mixed day in the market with gains balanced by some losses.",
-        "Stocks display varied performance, reflecting a cautious mood.",
-        "Market activity is uneven, with winners and losers scattered.",
-        "An indecisive session as investors weigh risks and opportunities.",
-        "Markets fluctuated as investors remain uncertain on direction.",
-        "The market struggled to find clear footing amid conflicting signals.",
-        "Mixed earnings results contributed to a patchy trading day.",
-        "Volatility marked the session, with investors balancing hope and caution.",
-        "Selective buying and profit-taking created a choppy market tone.",
-        "Investors grappled with divergent economic data and geopolitical concerns."
+        "The market shows mixed results with gains and losses.",
+        "Stocks performed unevenly, showing a cautious mood.",
+        "Market activity was uneven with some winners and losers.",
+        "Investors were indecisive and weighed risks and opportunities.",
+        "Markets fluctuated as investors were uncertain about direction.",
+        "The market struggled to find clear footing with conflicting signals.",
+        "Mixed earnings contributed to a patchy trading session.",
+        "Volatility affected the session while investors balanced hope and caution.",
+        "Selective buying and profit-taking created a choppy market.",
+        "Investors responded to conflicting economic and geopolitical news."
     ]
-    
+        
     leads_negative = [
-        "The market closes predominantly lower amid selling pressure.",
-        "Widespread losses mark a cautious and risk-off trading day.",
-        "Investor sentiment has turned negative with key names retreating.",
-        "Market sentiment leans bearish, pressured by profit-taking.",
-        "A challenging day for stocks as bears take control.",
-        "Selling accelerated as investors responded to disappointing news.",
-        "Broad declines reflected mounting concerns about economic growth.",
-        "Negative headlines weighed heavily on market confidence.",
-        "Stocks retreated sharply amid heightened volatility and risk aversion.",
-        "Investor jitters increased, driving a broad market sell-off."
+        "The market closed lower with selling pressure.",
+        "Most stocks lost value in a cautious trading day.",
+        "Investor sentiment turned negative and key stocks fell.",
+        "Market sentiment is bearish due to profit-taking.",
+        "It was a difficult day as bears controlled the market.",
+        "Selling increased after disappointing news.",
+        "Broad declines reflected concerns about economic growth.",
+        "Negative headlines reduced investor confidence.",
+        "Stocks fell sharply amid higher volatility and risk aversion.",
+        "Investor fears led to a broad market sell-off."
     ]
 
     clause_templates = {
         "gainer": [
-            "{name} rose by {delta:.1f}%, leading the gains today.",
-            "{name} is among the top performers, up {delta:.1f}%.",
-            "{name} extended its upward momentum, climbing {delta:.1f}%.",
-            "Investors rewarded {name} with a {delta:.1f}% increase.",
-            "{name} stood out with a solid gain of {delta:.1f}%.",
-            "The stock {name} surged by {delta:.1f}% during the session.",
-            "{name} saw notable buying interest, pushing it up {delta:.1f}%.",
-            "Strong demand lifted {name}, which gained {delta:.1f}%.",
-            "Momentum carried {name} higher by {delta:.1f}%.",
-            "{name} posted impressive gains, rising {delta:.1f}%."
+            "{name} rose {delta:.1f}% today, leading the market.",
+            "{name} is a top performer, up {delta:.1f}%.",
+            "{name} climbed {delta:.1f}% with strong momentum.",
+            "Investors pushed {name} up by {delta:.1f}%.",
+            "{name} gained {delta:.1f}% in the session.",
+            "{name} rose {delta:.1f}% during trading.",
+            "Buying interest lifted {name} by {delta:.1f}%.",
+            "Strong demand moved {name} up {delta:.1f}%.",
+            "Momentum increased {name} by {delta:.1f}%.",
+            "{name} posted a gain of {delta:.1f}%."
         ],
         "loser": [
-            "{name} fell by {delta:.1f}%, under selling pressure.",
-            "{name} was the laggard, down {delta:.1f}%.",
-            "Significant selling pushed {name} down {delta:.1f}%.",
-            "{name} declined by {delta:.1f}%, among the worst performers.",
-            "Bearish sentiment weighed on {name}, which dropped {delta:.1f}%.",
-            "{name} retreated by {delta:.1f}% amid market weakness.",
-            "{name} gave back gains, slipping {delta:.1f}%.",
-            "Investors offloaded shares of {name}, causing a {delta:.1f}% decline.",
-            "{name} experienced downward pressure, falling {delta:.1f}%.",
-            "Profit-taking hit {name}, which dropped {delta:.1f}%."
+            "{name} fell {delta:.1f}% due to selling pressure.",
+            "{name} was down {delta:.1f}% today.",
+            "Selling pushed {name} down {delta:.1f}%.",
+            "{name} declined {delta:.1f}%, one of the worst performers.",
+            "Bearish sentiment caused {name} to drop {delta:.1f}%.",
+            "{name} lost {delta:.1f}% in a weak market.",
+            "{name} gave back {delta:.1f}% of gains.",
+            "Investors sold {name}, dropping it {delta:.1f}%.",
+            "{name} experienced a decline of {delta:.1f}%.",
+            "Profit-taking reduced {name} by {delta:.1f}%."
         ],
         "oversold": [
-            "{name} appears oversold (RSI {rsi}), indicating a potential bounce.",
-            "With an RSI of {rsi}, {name} may attract bargain hunters.",
-            "{name} shows oversold signals (RSI {rsi}), possibly setting up a rebound.",
-            "The RSI reading of {rsi} suggests {name} is oversold.",
-            "{name} is in oversold territory (RSI {rsi}), potentially a buying opportunity.",
-            "Oversold conditions (RSI {rsi}) on {name} might lead to a recovery.",
-            "{name} trades at oversold levels (RSI {rsi}), hinting at a possible reversal.",
-            "Investors might see value in {name} given its oversold RSI of {rsi}.",
-            "{name}'s RSI of {rsi} points to oversold status and rebound potential.",
-            "Market indicators flag {name} as oversold (RSI {rsi}), suggesting caution."
+            "{name} appears oversold with RSI {rsi}, possible rebound.",
+            "RSI {rsi} suggests {name} may attract buyers.",
+            "{name} shows oversold RSI {rsi}, potential recovery.",
+            "RSI reading {rsi} indicates {name} is oversold.",
+            "{name} is in oversold territory (RSI {rsi}), buying may be possible.",
+            "Oversold conditions (RSI {rsi}) could help {name} recover.",
+            "{name} trades at oversold levels (RSI {rsi}), may reverse.",
+            "Investors may find value in {name} (RSI {rsi}).",
+            "{name} RSI {rsi} points to oversold and possible bounce.",
+            "Market data shows {name} oversold (RSI {rsi}), caution advised."
         ],
         "overbought": [
-            "{name} shows signs of being overbought (RSI {rsi}), caution advised.",
-            "RSI at {rsi} on {name} suggests profit-taking may be imminent.",
-            "{name} is overbought (RSI {rsi}), signaling possible consolidation.",
-            "High RSI levels ({rsi}) warn of overbought conditions on {name}.",
-            "{name}'s RSI of {rsi} indicates potential overheating.",
-            "Profit-taking might follow given {name}’s overbought RSI at {rsi}.",
-            "{name} reached overbought territory (RSI {rsi}), signaling a potential pause.",
-            "Overbought RSI of {rsi} on {name} suggests investors should be cautious.",
-            "The elevated RSI ({rsi}) for {name} may trigger a short-term pullback.",
-            "RSI metrics indicate {name} is overbought (RSI {rsi}), possibly topping out."
+            "{name} looks overbought (RSI {rsi}), caution advised.",
+            "RSI {rsi} on {name} may lead to profit-taking.",
+            "{name} is overbought (RSI {rsi}), possible consolidation.",
+            "High RSI ({rsi}) signals overbought conditions on {name}.",
+            "{name} RSI {rsi} indicates potential overheating.",
+            "Profit-taking might follow for {name} with RSI {rsi}.",
+            "{name} reached overbought RSI {rsi}, possible pause.",
+            "RSI {rsi} suggests investors should be careful with {name}.",
+            "High RSI ({rsi}) may cause {name} short-term pullback.",
+            "RSI shows {name} is overbought (RSI {rsi}), possible top."
         ],
         "neutral": [
-            "{name} remained largely stable throughout the session.",
-            "{name} showed little price movement today.",
-            "A consolidation day for {name}, with no significant changes.",
-            "{name} closed the session relatively flat.",
-            "The stock {name} experienced a calm trading day.",
-            "{name} did not register notable fluctuations.",
-            "{name} traded within a narrow range, showing market indecision.",
-            "Limited volatility marked {name}'s session, ending unchanged.",
-            "The price action for {name} was muted, lacking clear direction.",
-            "{name} held steady amid mixed market conditions."
+            "{name} remained stable today.",
+            "{name} showed little movement.",
+            "A consolidation day for {name}, no major change.",
+            "{name} closed relatively flat.",
+            "{name} had a calm trading day.",
+            "{name} showed no notable changes.",
+            "{name} traded in a narrow range.",
+            "Limited volatility for {name}, ending unchanged.",
+            "{name}'s price was muted, no clear direction.",
+            "{name} held steady in mixed market conditions."
         ]
     }
 
@@ -2321,36 +2321,36 @@ def generate_fluid_market_summary_english(
                 paragraph_sentences.append(fused)
 
     positive_closings = [
-    "Overall sentiment remains positive, suggesting investor confidence.",
-    "The mood is optimistic with encouraging signs across the board.",
-    "Investors appear upbeat despite some market uncertainties.",
-    "Market momentum continues to build, fueling optimism among traders.",
-    "Positive catalysts seem to support sustained gains in key sectors.",
-    "Investor sentiment is buoyed by strong fundamentals and favorable trends.",
-    "Confidence is growing as economic indicators reinforce market strength.",
-    "A generally constructive atmosphere prevails, encouraging risk-taking."
+        "Sentiment is positive, showing investor confidence.",
+        "The mood is optimistic with good signs in the market.",
+        "Investors are generally upbeat despite some uncertainty.",
+        "Market momentum continues, supporting optimism.",
+        "Positive factors support gains in key sectors.",
+        "Investor sentiment is supported by strong fundamentals.",
+        "Confidence grows as economic indicators show market strength.",
+        "A constructive atmosphere encourages risk-taking."
     ]
-
+    
     neutral_closings = [
-        "The session closes with a balanced market tone and cautious positioning.",
-        "Overall, the market remains steady with no clear directional bias.",
-        "A quiet day with investors taking a wait-and-see approach.",
-        "Markets tread water as participants weigh mixed economic signals.",
-        "Investors are cautious, awaiting clearer signs before committing.",
-        "Trading volumes remain moderate amid uncertain outlooks.",
-        "The day ends without major shifts, reflecting a phase of consolidation.",
-        "Market participants remain tentative amid fluctuating data points."
+        "The session closes with a balanced market tone.",
+        "Overall, the market is steady with no clear direction.",
+        "A quiet day as investors wait for more information.",
+        "Markets remain mixed as participants assess economic signals.",
+        "Investors are cautious, waiting for clearer signs.",
+        "Trading volumes are moderate amid uncertainty.",
+        "The day ends without major changes, showing consolidation.",
+        "Market participants are careful amid fluctuating data."
     ]
     
     negative_closings = [
-        "The general tone is cautious, reflecting investor concerns.",
-        "Market sentiment leans toward uncertainty and risk aversion.",
-        "Bearish undertones prevail as traders remain on edge.",
-        "Selling pressure persists, weighing on broader market confidence.",
-        "Volatility remains elevated as downside risks dominate sentiment.",
-        "Investor caution is evident amid mounting economic headwinds.",
-        "Negative momentum builds, challenging recent gains and optimism.",
-        "The market closes with widespread apprehension and defensive positioning."
+        "The tone is cautious, reflecting investor concerns.",
+        "Market sentiment shows uncertainty and risk aversion.",
+        "Bearish trends prevail as traders remain cautious.",
+        "Selling pressure weighs on market confidence.",
+        "Volatility is high and downside risks dominate.",
+        "Investors are cautious amid economic headwinds.",
+        "Negative momentum challenges recent gains.",
+        "The market closes with apprehension and defensive positioning."
     ]
 
     if avg_sentiment > 0.2:
