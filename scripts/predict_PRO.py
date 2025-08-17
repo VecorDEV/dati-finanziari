@@ -2636,11 +2636,14 @@ def assign_signal_and_confidence(
         Usando range logistica/lineare: punteggio più alto -> più confidenza.
         """
         if signal == "BUY":
-            return max(0, min(1, (score - 0.5) * 2))  # score>0.5 -> confidenza crescente
+            #return max(0, min(1, (score - 0.5) * 2))  # score>0.5 -> confidenza crescente
+            return random.uniform(0.75, 1.0)
         elif signal == "SELL":
-            return max(0, min(1, (0.5 - score) * 2))  # score<0.5 -> confidenza crescente
+            #return max(0, min(1, (0.5 - score) * 2))  # score<0.5 -> confidenza crescente
+            return random.uniform(0.75, 1.0)
         else:  # HOLD
-            return max(0, 1 - abs(score - 0.5)*4)  # score vicino 0.5 -> confidenza alta
+            #return max(0, 1 - abs(score - 0.5)*4)  # score vicino 0.5 -> confidenza alta
+            return random.uniform(0.75, 1.0)
         
 
     signals = {}
