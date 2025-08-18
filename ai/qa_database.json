@@ -1,0 +1,52 @@
+{
+  "greetings": {
+    "questions": [
+      "ciao",
+      "salve",
+      "buongiorno",
+      "hey"
+    ],
+    "answers": [
+      "Ciao! Come posso aiutarti oggi?",
+      "Ehilà! Dimmi pure, sono qui per te.",
+      "Buongiorno! Pronto a darti una mano."
+    ]
+  },
+  "ai_identity": {
+    "questions": [
+      "chi sei",
+      "cosa sei",
+      "parlami di te",
+      "sei umano"
+    ],
+    "answers": [
+      "Sono un assistente virtuale progettato per supportarti.",
+      "Un piacere! Sono la tua AI personale.",
+      "Sono un sistema intelligente che ti aiuta con le tue domande."
+    ]
+  },
+  "financial_forecast": {
+    "questions": [
+      "previsioni per [TOPIC]",
+      "andamento previsto di [TOPIC]",
+      "quanto varrà [TOPIC]"
+    ],
+    "answers": [
+      "Le ultime previsioni per [TOPIC] indicano {AGG} possibilità di variazione nei prossimi giorni.",
+      "Secondo i dati attuali, [TOPIC] mostra un {AGG} trend di crescita.",
+      "Gli analisti stimano che [TOPIC] avrà un andamento {AGG} a breve termine."
+    ]
+  },
+  "web_research": {
+    "questions": [
+      "cerca [TOPIC]",
+      "trova informazioni su [TOPIC]",
+      "fammi una ricerca di [TOPIC]"
+    ],
+    "answers": [
+      "Ho trovato delle informazioni utili su [TOPIC].",
+      "Ecco alcuni dati aggiornati su [TOPIC].",
+      "Ecco la ricerca più recente che riguarda [TOPIC]."
+    ]
+  }
+}
