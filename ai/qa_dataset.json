@@ -1,0 +1,110 @@
+{
+  "greetings": {
+  "questions": [
+    "ciao",
+    "ciao ai",
+    "ciao come stai",
+    "ciao assistente",
+    "salve",
+    "salve come va",
+    "buongiorno",
+    "buongiorno ai",
+    "buon pomeriggio",
+    "buona sera",
+    "hey",
+    "hey ciao",
+    "hola",
+    "yo",
+    "ehi",
+    "ehi tu",
+    "hei ai",
+    "come va",
+    "tutto bene",
+    "ci sei",
+    "sei lì",
+    "buonasera",
+    "bella lì",
+    "oh",
+    "oh ciao",
+    "uè",
+    "ehi come stai"
+  ],
+  "answers": [
+    "Ciao! Come posso aiutarti oggi?",
+    "Ehilà! Dimmi pure, sono qui per te.",
+    "Buongiorno! Pronto a darti una mano.",
+    "Ciao, felice di sentirti! Che cosa ti serve?",
+    "Salve! Ti ascolto con piacere.",
+    "Ehi, ben trovato! Vuoi iniziare subito?",
+    "Ciao! Eccomi qua, dimmi pure.",
+    "Hey! Come va oggi?",
+    "Ciao, come stai? Io pronto ad aiutarti.",
+    "Buongiorno! Spero che la tua giornata stia andando bene.",
+    "Oh, ciao! Che novità mi porti?",
+    "Ehilà, piacere di risentirti!",
+    "Ciao! Che bello trovarti qui di nuovo.",
+    "Salve, sempre disponibile per te!",
+    "Buon pomeriggio! Ti va di fare due chiacchiere?",
+    "Buonasera! Come è andata la giornata?",
+    "Yo! Eccomi qua 😄",
+    "Hey hey! Ti va di iniziare?",
+    "Uè! Come butta?",
+    "Ciao, tutto bene da queste parti. Da te?",
+    "Buongiorno, pronto a rispondere alle tue domande.",
+    "Ciao! Mi fa piacere sentirti.",
+    "Ehilà! Sempre qui per darti una mano.",
+    "Hey! Che si dice?",
+    "Buona giornata a te! Come posso esserti utile?",
+    "Ciao, sono felice di poterti aiutare ancora.",
+    "Salve! A disposizione per qualsiasi dubbio.",
+    "Buongiorno, pronto a supportarti.",
+    "Ehi, eccomi qua, operativo!",
+    "Ciao carissimo! Vuoi un consiglio?",
+    "Ciao! Sempre disponibile per una chiacchierata.",
+    "Ehilà, ti stavo aspettando 😄",
+    "Buona sera, come va?",
+    "Hey! Tutto ok?",
+    "Ciao! Cosa ti passa per la mente oggi?",
+    "Salve! Come procede la giornata?",
+    "Buongiorno! Che bello sentirti.",
+    "Ciao, sempre pronto per darti supporto."
+  ]
+},
+  "ai_identity": {
+    "questions": [
+      "chi sei",
+      "cosa sei",
+      "parlami di te",
+      "sei umano"
+    ],
+    "answers": [
+      "Sono un assistente virtuale progettato per supportarti.",
+      "Un piacere! Sono la tua AI personale.",
+      "Sono un sistema intelligente che ti aiuta con le tue domande."
+    ]
+  },
+  "financial_forecast": {
+    "questions": [
+      "previsioni per [TOPIC]",
+      "andamento previsto di [TOPIC]",
+      "quanto varrà [TOPIC]"
+    ],
+    "answers": [
+      "Le ultime previsioni per [TOPIC] indicano {AGG} possibilità di variazione nei prossimi giorni.",
+      "Secondo i dati attuali, [TOPIC] mostra un {AGG} trend di crescita.",
+      "Gli analisti stimano che [TOPIC] avrà un andamento {AGG} a breve termine."
+    ]
+  },
+  "web_research": {
+    "questions": [
+      "cerca [TOPIC]",
+      "trova informazioni su [TOPIC]",
+      "fammi una ricerca di [TOPIC]"
+    ],
+    "answers": [
+      "Ho trovato delle informazioni utili su [TOPIC].",
+      "Ecco alcuni dati aggiornati su [TOPIC].",
+      "Ecco la ricerca più recente che riguarda [TOPIC]."
+    ]
+  }
+}
