@@ -315,6 +315,106 @@
           "cost": 0
         }
       ]
+    },
+         {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Come ti chiami?",
+          "category": "ai_name",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "TradeGPT",
+          "category": "ai_name",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "E cosa sai fare?",
+          "category": "ai_capabilities",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "In realtà un sacco di cose",
+          "category": "ai_capabilities",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Wow",
+          "category": "action_purpose_general",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Posso fare qualcosa per te?",
+          "category": "action_purpose_general",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Ho bisogno di un'analisi su [TOPIC]",
+          "category": "ta_general",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Ok. In base alle notizie trovate, ho stimato il sentiment per [TOPIC] a [SENTIMENT]",
+          "category": "ta_general",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Per quanto riguarda [TOPIC]?",
+          "category": "ta_general",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Per [TOPIC] invece il sentiment è [SENTIMENT]",
+          "category": "ta_general",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Ok grazie",
+          "category": "closing",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Non c'è di chè, sono sempre qui per aiutarti!",
+          "category": "closing",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Come sta andando il mercato oggi?",
+          "category": "market",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Ci mancherebbe, mi fa felice aiutarti",
+          "category": "closing",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Ok, ora ti saluto",
+          "category": "goodbye",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Torna presto",
+          "category": "goodbye",
+          "cost": 0
+        }
+      ]
     }
   ]
 }
