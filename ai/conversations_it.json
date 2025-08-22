@@ -393,18 +393,18 @@
         {
           "role": "user",
           "content": "Come sta andando il mercato oggi?",
-          "category": "market",
+          "category": "market_sentiment_today",
           "cost": 0
         },
         {
           "role": "assistant",
-          "content": "Ci mancherebbe, mi fa felice aiutarti",
-          "category": "closing",
+          "content": "Oggi mercato incerto",
+          "category": "market_sentiment_today",
           "cost": 0
         },
         {
           "role": "user",
-          "content": "Ok, ora ti saluto",
+          "content": "Ok",
           "category": "goodbye",
           "cost": 0
         },
