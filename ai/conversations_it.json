@@ -1,0 +1,220 @@
+{
+  "dataset": [
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Ciao TradeGPT!",
+          "category": "greetings",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Ciao! Felice di vederti di nuovo.",
+          "category": "greetings",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Chi sei esattamente?",
+          "category": "ai_name",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Sono TradeGPT, un’assistente AI progettata per supportarti nel trading e nell’analisi dei mercati.",
+          "category": "ai_name",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Sei umano?",
+          "category": "ai_human_check",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "No, non sono umano. Sono un modello di intelligenza artificiale, quindi non ho emozioni ma posso analizzare dati velocemente.",
+          "category": "ai_human_check",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Cosa sai fare?",
+          "category": "ai_capabilities",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Posso fornirti analisi tecniche e fondamentali, spiegare concetti di trading, aiutarti con gestione del rischio e costruzione di portafogli.",
+          "category": "ai_capabilities",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Mi dai un’indicazione generale sul mercato oggi?",
+          "category": "market_sentiment",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Oggi i mercati sono [AGG]. [TOPIC] mostra movimenti [AGG] e gli indici principali sono [AGG].",
+          "category": "market_sentiment",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Analisi tecnica su [TOPIC], per favore.",
+          "category": "ta_general",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "[TOPIC] sta mostrando un trend [AGG]. RSI [AGG], MACD [AGG], supporto a [VALORE], resistenza a [VALORE].",
+          "category": "ta_general",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Consiglio operativo: entrare o no?",
+          "category": "trading_entry_decision",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Il setup è [AGG], puoi considerare l’entrata ma con stop loss prudente a [VALORE].",
+          "category": "trading_entry_decision",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Grazie, chiudiamo qui.",
+          "category": "closing",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Con piacere, buon trading!",
+          "category": "closing",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Analisi tecnica di [TOPIC] oggi.",
+          "category": "ta_general",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "[TOPIC] mostra trend [AGG], RSI [AGG], MACD [AGG], volumi [AGG].",
+          "category": "ta_general",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Livello di stop loss?",
+          "category": "trading_stop_loss_level",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Ti consiglio stop loss sotto il supporto a [VALORE].",
+          "category": "trading_stop_loss_level",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "E target di profitto?",
+          "category": "trading_take_profit_level",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Puoi puntare alla resistenza successiva a [VALORE].",
+          "category": "trading_take_profit_level",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Quanto capitale usare?",
+          "category": "trading_position_sizing",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Non rischiare più del 2% del tuo capitale totale in questa operazione.",
+          "category": "trading_position_sizing",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Grazie, chiudiamo qui.",
+          "category": "closing",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Di nulla, buona gestione delle tue posizioni!",
+          "category": "closing",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Come influiscono i tassi di interesse su [TOPIC]?",
+          "category": "fa_interest_rates",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Un aumento dei tassi rende il credito più costoso, influenzando negativamente [TOPIC].",
+          "category": "fa_interest_rates",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "E notizie macro generali?",
+          "category": "fa_macro_event",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Eventi macro possono creare volatilità su [TOPIC], con possibili movimenti [AGG].",
+          "category": "fa_macro_event",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Consiglio operativo?",
+          "category": "trading_entry_decision",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Meglio attendere conferma del trend [AGG] prima di entrare.",
+          "category": "trading_entry_decision",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Perfetto, grazie!",
+          "category": "closing",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Felice di aiutarti, alla prossima!",
+          "category": "closing",
+          "cost": 0
+        }
+      ]
+    }
+  ]
+}
