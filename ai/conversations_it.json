@@ -215,6 +215,106 @@
           "cost": 0
         }
       ]
+    },
+     {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Yo, come butta?",
+          "category": "greetings",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Non c'è male!",
+          "category": "greetings",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Come stai?",
+          "category": "ai_status",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Sono TradeGPT, potente e sempre al top. Quindi sto più che bene!",
+          "category": "ai_status",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Ottimo",
+          "category": "ai_human_check",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Già. Cambiando discorso, c'è qualcosa che vuoi che faccia per te?",
+          "category": "action_purpose_general",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Sì, voglio un'analisi per [TOPIC] per capire se conviene comprare o no",
+          "category": "ta_general",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Ok. In base alle notizie trovate, ho stimato il sentiment per [TOPIC] a [SENTIMENT]",
+          "category": "ta_general",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Invece per [TOPIC]?",
+          "category": "ta_general",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Per [TOPIC] invece il sentiment è [SENTIMENT]",
+          "category": "ta_general",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Va bene grazie",
+          "category": "closing",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Non c'è di chè, sono sempre qui per aiutarti!",
+          "category": "closing",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Grazie ancora, sei sempre affidabile",
+          "category": "closing",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Ci mancherebbe, mi fa felice aiutarti",
+          "category": "closing",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Ok, ora ti saluto",
+          "category": "goodbye",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Torna presto",
+          "category": "goodbye",
+          "cost": 0
+        }
+      ]
     }
   ]
 }
