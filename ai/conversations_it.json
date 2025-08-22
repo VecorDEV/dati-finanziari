@@ -220,13 +220,13 @@
       "conversation": [
         {
           "role": "user",
-          "content": "Yo, come butta?",
+          "content": "Yo",
           "category": "greetings",
           "cost": 0
         },
         {
           "role": "assistant",
-          "content": "Non c'è male!",
+          "content": "Hey",
           "category": "greetings",
           "cost": 0
         },
@@ -245,7 +245,7 @@
         {
           "role": "user",
           "content": "Ottimo",
-          "category": "ai_human_check",
+          "category": "action_purpose_general",
           "cost": 0
         },
         {
