@@ -415,6 +415,94 @@
           "cost": 0
         }
       ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Qual è il tuo nome?",
+          "category": "ai_name",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Sono TradeGPT",
+          "category": "ai_name",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Su cosa mi puoi aiutare?",
+          "category": "ai_capabilities",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Posso esserti d'aiuto per molte cose",
+          "category": "ai_capabilities",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": Bene, allora analizziamo come sta procedendo [TOPIC]",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Oggi ha raggiunto un livello molto alto",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Bene, grazie",
+          "category": "closing",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Non c'è di che. Sono qui per aiutarti",
+          "category": "closing",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Invece riguardo [TOPIC] cosa mi sai dire?",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Anche [TOPIC] oggi è cresciuto",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Perfetto grazie",
+          "category": "closing",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Non c'è di chè, sono sempre qui per aiutarti!",
+          "category": "closing",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Ok",
+          "category": "goodbye",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Non esitare a tornare da me!",
+          "category": "goodbye",
+          "cost": 0
+        }
+      ]
     }
   ]
 }
