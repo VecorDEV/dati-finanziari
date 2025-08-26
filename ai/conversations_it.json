@@ -1051,6 +1051,254 @@
           "cost": 0
         }
       ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Ciao amico!",
+          "category": "greetings",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Ciao! Pronto a dare un’occhiata ai mercati?",
+          "category": "greetings",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Che nome hai?",
+          "category": "ai_name",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Sono TradeGPT, il tuo compagno per il trading.",
+          "category": "ai_name",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Che sai fare di preciso?",
+          "category": "ai_capabilities",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Posso analizzare grafici, leggere indicatori e darti supporto operativo.",
+          "category": "ai_capabilities",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Grande, grazie!",
+          "category": "closing",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Con piacere, resto a disposizione!",
+          "category": "closing",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Buongiorno GPT",
+          "category": "greetings",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Ciao, ben arrivato!",
+          "category": "greetings",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Come va oggi?",
+          "category": "ai_status",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Sto benissimo, pronto a macinare grafici e dati.",
+          "category": "ai_status",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Che sentiment c’è sul mercato?",
+          "category": "market_sentiment_today",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Oggi prevale un sentiment [AGG], con volatilità in aumento.",
+          "category": "market_sentiment_today",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Ok grazie, ci sentiamo dopo",
+          "category": "goodbye",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Alla prossima, buon trading!",
+          "category": "goodbye",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Analisi tecnica su [TOPIC], per favore",
+          "category": "ta_general",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "[TOPIC] sta mostrando un trend [AGG] con RSI a [VALORE] e volumi [AGG].",
+          "category": "ta_general",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Mi consigli di entrare ora?",
+          "category": "trading_entry_decision",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "L’entrata è interessante, ma meglio confermare la rottura della resistenza a [VALORE].",
+          "category": "trading_entry_decision",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "E lo stop loss dove lo metto?",
+          "category": "trading_stop_loss_level",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Uno stop loss sicuro può stare appena sotto [VALORE].",
+          "category": "trading_stop_loss_level",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Perfetto, grazie mille",
+          "category": "closing",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Di nulla, gestisci bene il rischio!",
+          "category": "closing",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Aggiornami su [TOPIC] oggi",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "[TOPIC] si muove in modo [AGG] con supporto in area [VALORE].",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "E i volumi come sono?",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "I volumi risultano [AGG], segnale importante per la direzione del trend.",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Grazie delle info",
+          "category": "closing",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Felice di aggiornarti, a presto!",
+          "category": "closing",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Che effetto avranno i tassi alti su [TOPIC]?",
+          "category": "fa_interest_rates",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Tassi alti frenano liquidità, quindi [TOPIC] tende a indebolirsi.",
+          "category": "fa_interest_rates",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "E se ci fosse una sorpresa macro?",
+          "category": "fa_macro_event",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Una sorpresa macro può ribaltare i mercati in poco tempo.",
+          "category": "fa_macro_event",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Meglio non entrare allora?",
+          "category": "trading_entry_decision",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Esatto, conviene attendere la reazione iniziale e valutare poi.",
+          "category": "trading_entry_decision",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Ok chiarissimo, grazie",
+          "category": "closing",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Sempre qui per te!",
+          "category": "closing",
+          "cost": 0
+        }
+      ]
     }
   ]
 }
