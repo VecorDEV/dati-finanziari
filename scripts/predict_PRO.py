@@ -64,7 +64,7 @@ symbol_list = ["AAPL", "MSFT", "GOOGL", "AMZN", "META", "TSLA", "V", "JPM", "JNJ
         "ITW", "FDX", "PNC", "SO", "APD", "ADI", "ICE", "ZTS", "TJX", "CL",
         "MMC", "EL", "GM", "CME", "EW", "AON", "D", "PSA", "AEP", "TROW", 
         "LNTH", "HE", "BTDR", "NAAS", "SCHL", "TGT", "SYK", "BKNG", "DUK", "USB",
-        "ARM", "BABA", "BIDU", "COIN", "PST.MI", "DDOG", "HTZ", "JD", "LCID", "LYFT", "NET", "PDD", #NEW
+        "ARM", "BABA", "BIDU", "COIN", "PST.MI", "UCG.MI", "DDOG", "HTZ", "JD", "LCID", "LYFT", "NET", "PDD", #NEW
         "PLTR", "RIVN", "ROKU", "SHOP", "SNOW", "SQ", "TWLO", "UBER", "ZI", "ZM", "DUOL",    #NEW
         
         "EURUSD", "USDJPY", "GBPUSD", "AUDUSD", "USDCAD", "USDCHF", "NZDUSD", "EURGBP", "EURJPY", "GBPJPY",
@@ -93,7 +93,7 @@ symbol_list_for_yfinance = [
     "ITW", "FDX", "PNC", "SO", "APD", "ADI", "ICE", "ZTS", "TJX", "CL",
     "MMC", "EL", "GM", "CME", "EW", "AON", "D", "PSA", "AEP", "TROW", 
     "LNTH", "HE", "BTDR", "NAAS", "SCHL", "TGT", "SYK", "BKNG", "DUK", "USB",
-    "ARM", "BABA", "BIDU", "COIN", "PST.MI", "DDOG", "HTZ", "JD", "LCID", "LYFT", "NET", "PDD",
+    "ARM", "BABA", "BIDU", "COIN", "PST.MI", "UCG.MI", "DDOG", "HTZ", "JD", "LCID", "LYFT", "NET", "PDD",
     "PLTR", "RIVN", "ROKU", "SHOP", "SNOW", "SQ", "TWLO", "UBER", "ZI", "ZM", "DUOL",
 
     # Forex (with =X)
@@ -223,6 +223,7 @@ symbol_name_map = {
     "SQ": ["Block", "Square", "Block Inc.", "Square Inc."],
     "COIN": ["Coinbase", "Coinbase Global", "Coinbase Global Inc."],
     "PST.MI": ["Poste Italiane", "Poste Italiane S.p.A."],
+    "UCG.MI": ["Unicredit", "UniCredit", "Unicredit S.p.A.", "UniCredit Bank"],
     "RIVN": ["Rivian", "Rivian Automotive", "Rivian Automotive Inc."],
     "LCID": ["Lucid", "Lucid Motors", "Lucid Group", "Lucid Group Inc."],
     "DDOG": ["Datadog", "Datadog Inc."],
