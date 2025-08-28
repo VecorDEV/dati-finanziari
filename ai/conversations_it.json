@@ -3387,6 +3387,70 @@
           "cost": 0
         }
       ]
+    },
+    {
+       "conversation": [
+    {
+      "role": "user",
+      "content": "Ciao, buongiorno!",
+      "category": "greetings",
+      "cost": 0
+    },
+    {
+      "role": "assistant",
+      "content": "Buongiorno a te! Come posso esserti utile?",
+      "category": "greetings",
+      "cost": 0
+    },
+    {
+      "role": "user",
+      "content": "Mi spieghi cosa sai fare?",
+      "category": "ai_capabilities",
+      "cost": 0
+    },
+    {
+      "role": "assistant",
+      "content": "Posso mostrarti informazioni sugli asset, darti il sentiment di mercato previsto e aggiornarti sulle performance giornaliere.",
+      "category": "ai_capabilities",
+      "cost": 0
+    },
+    {
+      "role": "user",
+      "content": "Allora dimmi il sentiment di [TOPIC].",
+      "category": "market_sentiment_today",
+      "cost": 0
+    },
+    {
+      "role": "assistant",
+      "content": "Il sentiment per [TOPIC] oggi è tendenzialmente positivo.",
+      "category": "market_sentiment_today",
+      "cost": 0
+    },
+    {
+      "role": "user",
+      "content": "Interessante. E come è andato [TOPIC] oggi in generale?",
+      "category": "actual_asset_info",
+      "cost": 0
+    },
+    {
+      "role": "assistant",
+      "content": "[TOPIC] ha chiuso la giornata in lieve rialzo, con un andamento stabile per gran parte della sessione.",
+      "category": "actual_asset_info",
+      "cost": 0
+    },
+    {
+      "role": "user",
+      "content": "Perfetto, grazie delle informazioni!",
+      "category": "closing",
+      "cost": 0
+    },
+    {
+      "role": "assistant",
+      "content": "È stato un piacere, a presto!",
+      "category": "goodbye",
+      "cost": 0
     }
+  ]
+}
   ]
 }
