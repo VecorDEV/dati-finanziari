@@ -3219,6 +3219,174 @@
           "cost": 0
         }
       ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Qual è il sentiment previsto per [TOPIC] oggi?",
+          "category": "market_sentiment_today",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Il sentiment per [TOPIC] oggi è positivo.",
+          "category": "market_sentiment_today",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Ciao!",
+          "category": "greetings",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Ciao a te!",
+          "category": "greetings",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Mi dici il sentiment di [TOPIC]?",
+          "category": "market_sentiment_today",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Il sentiment per [TOPIC] è neutro.",
+          "category": "market_sentiment_today",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Cosa puoi fare per me?",
+          "category": "ai_capabilities",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Posso fornirti informazioni sugli asset e mostrarti il sentiment previsto dall’app.",
+          "category": "ai_capabilities",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Allora dimmi il sentiment di [TOPIC].",
+          "category": "market_sentiment_today",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Il sentiment previsto per [TOPIC] è negativo.",
+          "category": "market_sentiment_today",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Vorrei sapere il sentiment sull’asset [TOPIC].",
+          "category": "market_sentiment_today",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Il sentiment di [TOPIC] oggi è stabile.",
+          "category": "market_sentiment_today",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Ok, grazie mille!",
+          "category": "closing",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "A presto!",
+          "category": "closing",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Buongiorno.",
+          "category": "greetings",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Buongiorno a te!",
+          "category": "greetings",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Come vedi il sentiment su [TOPIC]?",
+          "category": "market_sentiment_today",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Il sentiment per [TOPIC] oggi è leggermente positivo.",
+          "category": "market_sentiment_today",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Puoi spiegarmi cosa sai fare?",
+          "category": "ai_capabilities",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Posso darti info sugli asset e sul sentiment del mercato.",
+          "category": "ai_capabilities",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Perfetto, dimmi allora il sentiment di [TOPIC].",
+          "category": "market_sentiment_today",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Il sentiment su [TOPIC] è previsto neutro.",
+          "category": "market_sentiment_today",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Ottimo, grazie.",
+          "category": "closing",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Grazie a te, alla prossima!",
+          "category": "closing",
+          "cost": 0
+        }
+      ]
     }
   ]
 }
