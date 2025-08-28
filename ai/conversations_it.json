@@ -2643,6 +2643,582 @@
           "cost": 0
         }
       ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Ciao, come va?",
+          "category": "greetings",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Ciao! Tutto bene, e tu?",
+          "category": "greetings",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Mi dici come è andato oggi [TOPIC]?",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "[TOPIC] ha avuto una giornata positiva, con un andamento in crescita.",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "E il sentiment dell’app qual è?",
+          "category": "market_sentiment_today",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Il sentiment su [TOPIC] oggi è positivo, con aspettative favorevoli.",
+          "category": "market_sentiment_today",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Chi sei?",
+          "category": "ai_identity",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Sono TradeGPT, il tuo assistente AI per i mercati.",
+          "category": "ai_identity",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "E oggi [TOPIC] come è andato?",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "[TOPIC] oggi ha avuto un andamento stabile, senza grandi movimenti.",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "E invece il sentiment previsto?",
+          "category": "market_sentiment_today",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Il sentiment rimane neutro, non ci sono forti indicazioni di direzione.",
+          "category": "market_sentiment_today",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Vorrei sapere come è andato [TOPIC] oggi.",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "[TOPIC] ha chiuso la giornata con un lieve calo.",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "E per quanto riguarda il sentiment?",
+          "category": "market_sentiment_today",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Il sentiment dell’app è negativo, con prudenza tra gli investitori.",
+          "category": "market_sentiment_today",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Qual è il tuo nome?",
+          "category": "ai_name",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Mi chiamo TradeGPT.",
+          "category": "ai_name",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Come è andato [TOPIC] oggi?",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "[TOPIC] ha mostrato un andamento positivo durante la giornata.",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "E il sentiment odierno?",
+          "category": "market_sentiment_today",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Il sentiment previsto è positivo, con segnali incoraggianti.",
+          "category": "market_sentiment_today",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Perfetto, grazie!",
+          "category": "closing",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Grazie a te, a presto!",
+          "category": "closing",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Oggi [TOPIC] ha avuto una buona giornata?",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Sì, [TOPIC] ha avuto un andamento generalmente positivo.",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "E il sentiment previsto?",
+          "category": "market_sentiment_today",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Il sentiment è ottimista, con prospettive di breve termine favorevoli.",
+          "category": "market_sentiment_today",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Ci sono novità su [TOPIC] oggi?",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "[TOPIC] oggi ha registrato un leggero ribasso dopo le ultime notizie.",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "E che sentiment ha?",
+          "category": "market_sentiment_today",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Il sentiment dell’app è neutro, con scarsa direzionalità.",
+          "category": "market_sentiment_today",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Come è andato [TOPIC] durante la giornata?",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "[TOPIC] ha avuto una giornata altalenante, con movimenti contrastanti.",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "E invece [TOPIC]?",
+          "category": "ai_invece",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "[TOPIC] invece è rimasto sostanzialmente stabile.",
+          "category": "ai_invece",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Che sentiment prevede l’app?",
+          "category": "market_sentiment_today",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Il sentiment è moderatamente positivo.",
+          "category": "market_sentiment_today",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Vorrei un aggiornamento su [TOPIC] di oggi.",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "[TOPIC] ha mostrato un andamento stabile per gran parte della giornata.",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "E che cosa prevedi?",
+          "category": "market_sentiment_today",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Il sentiment dell’app è negativo, con aspettative di breve ribasso.",
+          "category": "market_sentiment_today",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Mi racconti come è andato [TOPIC] oggi?",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "[TOPIC] ha avuto una giornata positiva, con un trend in crescita.",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Secondo te come procederà?",
+          "category": "market_sentiment_today",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Il sentiment è positivo, con gli investitori fiduciosi.",
+          "category": "market_sentiment_today",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Perfetto, grazie mille.",
+          "category": "closing",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Grazie a te, a presto!",
+          "category": "goodbye",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Oggi [TOPIC] è andato bene?",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Sì, [TOPIC] ha avuto un andamento positivo nella giornata.",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "E che previsioni ha l’app su [TOPIC]?",
+          "category": "market_sentiment_today",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Il sentiment è neutro, con un equilibrio tra compratori e venditori.",
+          "category": "market_sentiment_today",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Com’è andato oggi [TOPIC]?",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "[TOPIC] ha chiuso la giornata in rialzo.",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "E invece il sentiment sull’asset?",
+          "category": "market_sentiment_today",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Il sentiment dell’app è positivo.",
+          "category": "market_sentiment_today",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Mi puoi dire come è andato oggi [TOPIC]?",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "[TOPIC] è rimasto stabile per tutta la giornata.",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Per quanto riguarda il sentiment previsto?",
+          "category": "market_sentiment_today",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Il sentiment oggi è neutro.",
+          "category": "market_sentiment_today",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Hai aggiornamenti su [TOPIC] di oggi?",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "[TOPIC] ha registrato un lieve calo.",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "E per quanto riguarda il sentiment generale?",
+          "category": "market_sentiment_today",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Il sentiment è negativo.",
+          "category": "market_sentiment_today",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Come è andato [TOPIC] nella giornata?",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "[TOPIC] ha mostrato un andamento positivo.",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "E invece sulle previsioni dell’app?",
+          "category": "market_sentiment_today",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Le previsioni indicano un sentiment favorevole.",
+          "category": "market_sentiment_today",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Vorrei sapere come è andato [TOPIC] oggi.",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "[TOPIC] ha avuto una giornata mista, con alti e bassi.",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "A proposito, qual è il sentiment di oggi?",
+          "category": "market_sentiment_today",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Il sentiment è neutro, senza segnali forti.",
+          "category": "market_sentiment_today",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Aggiornami su [TOPIC] di oggi.",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "[TOPIC] si è mantenuto in crescita costante.",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "E invece, che sentiment prevede l’app?",
+          "category": "market_sentiment_today",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Il sentiment è positivo, con aspettative incoraggianti.",
+          "category": "market_sentiment_today",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Mi dici come è andato oggi [TOPIC]?",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "[TOPIC] oggi ha chiuso in ribasso.",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Per quanto riguarda il sentiment?",
+          "category": "market_sentiment_today",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Il sentiment è negativo.",
+          "category": "market_sentiment_today",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Come è andato [TOPIC] oggi?",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "[TOPIC] ha avuto una giornata stabile.",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "E invece sul sentiment cosa mi puoi dire?",
+          "category": "market_sentiment_today",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Il sentiment è neutro, con scambi equilibrati.",
+          "category": "market_sentiment_today",
+          "cost": 0
+        }
+      ]
     }
   ]
 }
