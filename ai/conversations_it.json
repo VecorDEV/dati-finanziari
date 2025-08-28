@@ -2439,6 +2439,210 @@
           "cost": 0
         }
       ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Parlami di [TOPIC].",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "[TOPIC] mostra volumi sopra la media con andamento positivo.",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "E cosa mi dici di [TOPIC]?",
+          "category": "ai_invece",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "[TOPIC] invece ha performance più stabili e minore volatilità.",
+          "category": "ai_invece",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Hai qualche notizia recente su [TOPIC]?",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Sì, per [TOPIC] sono state pubblicate previsioni di crescita positiva.",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "E invece per quanto riguarda [TOPIC]?",
+          "category": "ai_invece",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Per [TOPIC] ci sono aggiornamenti meno rilevanti, il trend rimane stabile.",
+          "category": "ai_invece",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Vorrei sapere come va [TOPIC].",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "[TOPIC] è in lieve calo, con pressione sui prezzi.",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "E a proposito di [TOPIC]?",
+          "category": "ai_invece",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "[TOPIC] mostra invece segnali di ripresa dopo un periodo debole.",
+          "category": "ai_invece",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Puoi dirmi qualcosa su [TOPIC]?",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "[TOPIC] ha registrato un incremento nei volumi e un prezzo stabile.",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "E invece come sta andando [TOPIC]?",
+          "category": "ai_invece",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "[TOPIC] si muove lateralmente senza variazioni significative.",
+          "category": "ai_invece",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Dammi aggiornamenti su [TOPIC].",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "[TOPIC] ha avuto notizie positive che hanno rafforzato il sentiment del mercato.",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "E per [TOPIC] invece?",
+          "category": "ai_invece",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "[TOPIC] non ha avuto novità rilevanti, andamento neutro.",
+          "category": "ai_invece",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Vorrei sapere come va [TOPIC].",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "[TOPIC] ha mostrato un trend positivo nelle ultime sessioni, con aumento dei volumi.",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "E invece [TOPIC]?",
+          "category": "ai_invece",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "[TOPIC] si mantiene stabile, senza variazioni di rilievo.",
+          "category": "ai_invece",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "E per quanto riguarda [TOPIC]?",
+          "category": "ai_invece",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "[TOPIC] sta attraversando un periodo di volatilità legata a notizie recenti.",
+          "category": "ai_invece",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "Cosa devo sapere su [TOPIC]?",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "[TOPIC] ha annunciato novità che hanno generato un sentiment positivo sul mercato.",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "user",
+          "content": "E cosa mi dici di [TOPIC]?",
+          "category": "ai_invece",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "[TOPIC] invece rimane in attesa di sviluppi, con scambi ridotti e prezzo stabile.",
+          "category": "ai_invece",
+          "cost": 0
+        }
+      ]
     }
   ]
 }
