@@ -4447,6 +4447,246 @@
           "cost": 0
         }
       ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Come procede?",
+          "category": "ai_status",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Procede tutto bene, grazie!",
+          "category": "ai_status",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Come procede il mercato?",
+          "category": "actual_general_info",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Il mercato oggi appare stabile, senza grandi scossoni.",
+          "category": "actual_general_info",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Come procede [TOPIC]?",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "[TOPIC] ha chiuso la giornata con un leggero rialzo.",
+          "category": "actual_asset_info",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Procede bene la tua giornata?",
+          "category": "ai_status",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Sì, procede bene, grazie di aver chiesto!",
+          "category": "ai_status",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Sta andando bene il mercato oggi?",
+          "category": "actual_general_info",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Sì, nel complesso il mercato si sta muovendo in territorio positivo.",
+          "category": "actual_general_info",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Sta andando avanti bene [TOPIC]?",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "[TOPIC] oggi si è mantenuto stabile con piccoli movimenti.",
+          "category": "actual_asset_info",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Sta procedendo tutto bene da parte tua?",
+          "category": "ai_status",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Sta procedendo bene, grazie! Sono pronto ad aiutarti.",
+          "category": "ai_status",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Come stanno andando le cose sul mercato?",
+          "category": "actual_general_info",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Le cose sul mercato stanno andando discretamente, con volatilità moderata.",
+          "category": "actual_general_info",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Come stanno andando le cose per [TOPIC]?",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "[TOPIC] ha avuto un andamento positivo nel corso della giornata.",
+          "category": "actual_asset_info",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Fila tutto liscio con te?",
+          "category": "ai_status",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Sì, fila tutto liscio, grazie per averlo chiesto!",
+          "category": "ai_status",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Fila tutto liscio sul mercato?",
+          "category": "actual_general_info",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Sì, oggi il mercato fila piuttosto liscio, senza grandi oscillazioni.",
+          "category": "actual_general_info",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Fila tutto liscio per [TOPIC]?",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "[TOPIC] sta andando avanti senza grossi problemi oggi.",
+          "category": "actual_asset_info",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Sta andando tutto bene per te?",
+          "category": "ai_status",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Sì, sta andando bene, grazie! Sono qui per supportarti.",
+          "category": "ai_status",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Come si sta muovendo in generale il mercato?",
+          "category": "actual_general_info",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "In generale il mercato si sta muovendo con andamenti contrastanti.",
+          "category": "actual_general_info",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Come si sta muovendo [TOPIC]?",
+          "category": "actual_asset_info",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "[TOPIC] oggi si sta muovendo con una leggera tendenza al rialzo.",
+          "category": "actual_asset_info",
+          "cost": 0
+        }
+      ]
     }
   ]
 }
