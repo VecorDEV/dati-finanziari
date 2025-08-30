@@ -4687,6 +4687,326 @@
           "cost": 0
         }
       ]
+    },
+      {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Come procede [TOPIC] oggi?",
+          "category": "actual_asset_info",
+          "cost": 0.25
+        },
+        {
+          "role": "assistant",
+          "content": "[TOPIC] oggi ha mostrato un andamento positivo con scambi regolari.",
+          "category": "actual_asset_info",
+          "cost": 0.25
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Come sta andando il mercato in generale?",
+          "category": "actual_general_info",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Il mercato nel complesso sta andando bene, con un sentiment stabile.",
+          "category": "actual_general_info",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Sta andando bene [TOPIC] oggi?",
+          "category": "actual_asset_info",
+          "cost": 0.25
+        },
+        {
+          "role": "assistant",
+          "content": "[TOPIC] si mantiene stabile con leggere oscillazioni.",
+          "category": "actual_asset_info",
+          "cost": 0.25
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Si sta muovendo bene [TOPIC]?",
+          "category": "actual_asset_info",
+          "cost": 0.25
+        },
+        {
+          "role": "assistant",
+          "content": "[TOPIC] oggi si sta muovendo in territorio positivo.",
+          "category": "actual_asset_info",
+          "cost": 0.25
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Tutto fila liscio sul mercato?",
+          "category": "actual_general_info",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Sì, il mercato in generale fila liscio senza particolari turbolenze.",
+          "category": "actual_general_info",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Come stanno andando le cose per [TOPIC]?",
+          "category": "actual_asset_info",
+          "cost": 0.25
+        },
+        {
+          "role": "assistant",
+          "content": "[TOPIC] ha registrato una lieve crescita durante la giornata.",
+          "category": "actual_asset_info",
+          "cost": 0.25
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Sta andando bene il mercato oggi?",
+          "category": "actual_general_info",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Oggi il mercato mostra un andamento generalmente positivo.",
+          "category": "actual_general_info",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Come sta procedendo [TOPIC] in questa sessione?",
+          "category": "actual_asset_info",
+          "cost": 0.25
+        },
+        {
+          "role": "assistant",
+          "content": "[TOPIC] sta procedendo con buoni volumi e un trend al rialzo.",
+          "category": "actual_asset_info",
+          "cost": 0.25
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Sta andando tutto bene per il mercato?",
+          "category": "actual_general_info",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Nel complesso il mercato sta andando bene, senza grandi scossoni.",
+          "category": "actual_general_info",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "E [TOPIC], procede bene oggi?",
+          "category": "actual_asset_info",
+          "cost": 0.25
+        },
+        {
+          "role": "assistant",
+          "content": "[TOPIC] procede in lieve crescita rispetto a ieri.",
+          "category": "actual_asset_info",
+          "cost": 0.25
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Come si sta muovendo [TOPIC]?",
+          "category": "actual_asset_info",
+          "cost": 0.25
+        },
+        {
+          "role": "assistant",
+          "content": "[TOPIC] si sta muovendo con oscillazioni moderate.",
+          "category": "actual_asset_info",
+          "cost": 0.25
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Come procede il mercato oggi?",
+          "category": "actual_general_info",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Il mercato procede in modo regolare, con segnali misti nei vari settori.",
+          "category": "actual_general_info",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Sta andando bene [TOPIC] in questo periodo?",
+          "category": "actual_asset_info",
+          "cost": 0.25
+        },
+        {
+          "role": "assistant",
+          "content": "[TOPIC] sta andando bene e mantiene un trend solido.",
+          "category": "actual_asset_info",
+          "cost": 0.25
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Fila tutto liscio per il mercato finanziario?",
+          "category": "actual_general_info",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Sì, al momento fila tutto liscio, senza variazioni estreme.",
+          "category": "actual_general_info",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Come stanno andando le cose su [TOPIC]?",
+          "category": "actual_asset_info",
+          "cost": 0.25
+        },
+        {
+          "role": "assistant",
+          "content": "[TOPIC] ha avuto movimenti interessanti e un lieve rialzo.",
+          "category": "actual_asset_info",
+          "cost": 0.25
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Come si sta comportando il mercato oggi?",
+          "category": "actual_general_info",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Il mercato si sta comportando in modo stabile, con segnali positivi in alcuni comparti.",
+          "category": "actual_general_info",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Sta procedendo bene [TOPIC]?",
+          "category": "actual_asset_info",
+          "cost": 0.25
+        },
+        {
+          "role": "assistant",
+          "content": "[TOPIC] sta procedendo bene, sostenuto da buoni volumi.",
+          "category": "actual_asset_info",
+          "cost": 0.25
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Come vanno le cose nel mercato oggi?",
+          "category": "actual_general_info",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Le cose vanno bene: il mercato mostra una tendenza generalmente positiva.",
+          "category": "actual_general_info",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Si sta muovendo bene il mercato?",
+          "category": "actual_general_info",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Sì, il mercato si sta muovendo con una certa stabilità.",
+          "category": "actual_general_info",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Come sta andando [TOPIC] oggi?",
+          "category": "actual_asset_info",
+          "cost": 0.25
+        },
+        {
+          "role": "assistant",
+          "content": "[TOPIC] oggi ha avuto una performance stabile con lievi rialzi.",
+          "category": "actual_asset_info",
+          "cost": 0.25
+        }
+      ]
     }
   ]
 }
