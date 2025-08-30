@@ -4694,13 +4694,13 @@
           "role": "user",
           "content": "Come procede [TOPIC] oggi?",
           "category": "actual_asset_info",
-          "cost": 0.25
+          "cost": 1
         },
         {
           "role": "assistant",
           "content": "[TOPIC] oggi ha mostrato un andamento positivo con scambi regolari.",
           "category": "actual_asset_info",
-          "cost": 0.25
+          "cost": 1
         }
       ]
     },
@@ -4726,13 +4726,13 @@
           "role": "user",
           "content": "Sta andando bene [TOPIC] oggi?",
           "category": "actual_asset_info",
-          "cost": 0.25
+          "cost": 1
         },
         {
           "role": "assistant",
           "content": "[TOPIC] si mantiene stabile con leggere oscillazioni.",
           "category": "actual_asset_info",
-          "cost": 0.25
+          "cost": 1
         }
       ]
     },
@@ -4742,13 +4742,13 @@
           "role": "user",
           "content": "Si sta muovendo bene [TOPIC]?",
           "category": "actual_asset_info",
-          "cost": 0.25
+          "cost": 1
         },
         {
           "role": "assistant",
           "content": "[TOPIC] oggi si sta muovendo in territorio positivo.",
           "category": "actual_asset_info",
-          "cost": 0.25
+          "cost": 1
         }
       ]
     },
@@ -4774,13 +4774,13 @@
           "role": "user",
           "content": "Come stanno andando le cose per [TOPIC]?",
           "category": "actual_asset_info",
-          "cost": 0.25
+          "cost": 1
         },
         {
           "role": "assistant",
           "content": "[TOPIC] ha registrato una lieve crescita durante la giornata.",
           "category": "actual_asset_info",
-          "cost": 0.25
+          "cost": 1
         }
       ]
     },
@@ -4806,13 +4806,13 @@
           "role": "user",
           "content": "Come sta procedendo [TOPIC] in questa sessione?",
           "category": "actual_asset_info",
-          "cost": 0.25
+          "cost": 1
         },
         {
           "role": "assistant",
           "content": "[TOPIC] sta procedendo con buoni volumi e un trend al rialzo.",
           "category": "actual_asset_info",
-          "cost": 0.25
+          "cost": 1
         }
       ]
     },
@@ -4838,13 +4838,13 @@
           "role": "user",
           "content": "E [TOPIC], procede bene oggi?",
           "category": "actual_asset_info",
-          "cost": 0.25
+          "cost": 1
         },
         {
           "role": "assistant",
           "content": "[TOPIC] procede in lieve crescita rispetto a ieri.",
           "category": "actual_asset_info",
-          "cost": 0.25
+          "cost": 1
         }
       ]
     },
@@ -4854,13 +4854,13 @@
           "role": "user",
           "content": "Come si sta muovendo [TOPIC]?",
           "category": "actual_asset_info",
-          "cost": 0.25
+          "cost": 1
         },
         {
           "role": "assistant",
           "content": "[TOPIC] si sta muovendo con oscillazioni moderate.",
           "category": "actual_asset_info",
-          "cost": 0.25
+          "cost": 1
         }
       ]
     },
@@ -4886,13 +4886,13 @@
           "role": "user",
           "content": "Sta andando bene [TOPIC] in questo periodo?",
           "category": "actual_asset_info",
-          "cost": 0.25
+          "cost": 1
         },
         {
           "role": "assistant",
           "content": "[TOPIC] sta andando bene e mantiene un trend solido.",
           "category": "actual_asset_info",
-          "cost": 0.25
+          "cost": 1
         }
       ]
     },
@@ -4918,13 +4918,13 @@
           "role": "user",
           "content": "Come stanno andando le cose su [TOPIC]?",
           "category": "actual_asset_info",
-          "cost": 0.25
+          "cost": 1
         },
         {
           "role": "assistant",
           "content": "[TOPIC] ha avuto movimenti interessanti e un lieve rialzo.",
           "category": "actual_asset_info",
-          "cost": 0.25
+          "cost": 1
         }
       ]
     },
@@ -4950,13 +4950,13 @@
           "role": "user",
           "content": "Sta procedendo bene [TOPIC]?",
           "category": "actual_asset_info",
-          "cost": 0.25
+          "cost": 1
         },
         {
           "role": "assistant",
           "content": "[TOPIC] sta procedendo bene, sostenuto da buoni volumi.",
           "category": "actual_asset_info",
-          "cost": 0.25
+          "cost": 1
         }
       ]
     },
@@ -4998,13 +4998,13 @@
           "role": "user",
           "content": "Come sta andando [TOPIC] oggi?",
           "category": "actual_asset_info",
-          "cost": 0.25
+          "cost": 1
         },
         {
           "role": "assistant",
           "content": "[TOPIC] oggi ha avuto una performance stabile con lievi rialzi.",
           "category": "actual_asset_info",
-          "cost": 0.25
+          "cost": 1
         }
       ]
     },
@@ -5086,25 +5086,25 @@
           "role": "user",
           "content": "E [TOPIC], come sta andando?",
           "category": "actual_asset_info",
-          "cost": 0.25
+          "cost": 1
         },
         {
           "role": "assistant",
           "content": "[TOPIC] oggi mostra un buon andamento con una crescita costante.",
           "category": "actual_asset_info",
-          "cost": 0.25
+          "cost": 1
         },
         {
           "role": "user",
           "content": "Qual è il sentiment previsto per [TOPIC]?",
           "category": "market_sentiment_today",
-          "cost": 1
+          "cost": 4
         },
         {
           "role": "assistant",
           "content": "Il sentiment su [TOPIC] oggi è positivo, con prevalenza di ottimismo tra gli investitori.",
           "category": "market_sentiment_today",
-          "cost": 1
+          "cost": 4
         },
         {
           "role": "user",
