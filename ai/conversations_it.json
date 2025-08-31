@@ -5303,6 +5303,166 @@
           "cost": 0
         }
       ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Non è quello che ti avevo chiesto, volevo i dati di [TOPIC].",
+          "category": "ai_sorry",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Hai ragione, scusa. Oggi [TOPIC] ha avuto una flessione lieve.",
+          "category": "actual_asset_info",
+          "cost": 1
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Mi stavi dando info su un altro asset, non su [TOPIC].",
+          "category": "ai_sorry",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Scusami, hai ragione. [TOPIC] oggi mostra una tendenza positiva.",
+          "category": "actual_asset_info",
+          "cost": 1
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "No, io volevo il sentiment, non i dati finanziari.",
+          "category": "ai_sorry",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Hai ragione, scusa per l’errore. Il sentiment su [TOPIC] oggi è neutrale.",
+          "category": "market_sentiment_today",
+          "cost": 4
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Mi hai dato dati sbagliati, parlavo del mercato generale.",
+          "category": "ai_sorry",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Scusami, hai ragione. In generale oggi il mercato è stabile con leggera volatilità.",
+          "category": "actual_general_info",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Non è corretto, volevo sapere di [TOPIC] specificamente.",
+          "category": "ai_sorry",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Hai ragione, scusa. Oggi [TOPIC] ha mostrato oscillazioni limitate.",
+          "category": "actual_asset_info",
+          "cost": 1
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Hai sbagliato, non volevo il sentiment globale ma su [TOPIC].",
+          "category": "ai_sorry",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Scusami, hai ragione. Il sentiment per [TOPIC] oggi è leggermente positivo.",
+          "category": "market_sentiment_today",
+          "cost": 4
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Non parlarmi di altri asset, voglio sapere solo del mercato in generale.",
+          "category": "ai_sorry",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Hai ragione, scusa. Oggi il mercato procede in generale in modo stabile.",
+          "category": "actual_general_info",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Hai frainteso, ti chiedevo di [TOPIC].",
+          "category": "ai_sorry",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Scusami, hai ragione. [TOPIC] oggi ha visto un leggero rialzo.",
+          "category": "actual_asset_info",
+          "cost": 1
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "No, ti ho chiesto info generali sul mercato, non su un asset specifico.",
+          "category": "ai_sorry",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Hai ragione, scusa. Nel complesso oggi il mercato appare stabile con pochi movimenti significativi.",
+          "category": "actual_general_info",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Hai dato info sbagliate, volevo il sentiment su [TOPIC].",
+          "category": "ai_sorry",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Scusami, hai ragione. Il sentiment oggi su [TOPIC] è neutrale con leggera inclinazione positiva.",
+          "category": "market_sentiment_today",
+          "cost": 4
+        }
+      ]
     }
   ]
 }
