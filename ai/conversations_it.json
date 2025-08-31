@@ -5143,6 +5143,166 @@
           "cost": 0
         }
       ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "No, ti ho chiesto [TOPIC], non [ALTRO TOPIC].",
+          "category": "ai_sorry",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Hai ragione, scusa per la confusione. Oggi [TOPIC] è stabile con leggere oscillazioni.",
+          "category": "actual_asset_info",
+          "cost": 1
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Ti ho chiesto il sentiment, non i dati reali.",
+          "category": "ai_sorry",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Hai ragione, scusa. Il sentiment su [TOPIC] oggi è positivo, con prevalenza di ottimismo.",
+          "category": "market_sentiment_today",
+          "cost": 4
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "No, non volevo [TOPIC], ma il mercato in generale.",
+          "category": "ai_sorry",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Hai ragione, scusami. In generale oggi il mercato è stabile con pochi movimenti significativi.",
+          "category": "actual_general_info",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Non ti ho chiesto un asset specifico, ma chi è cresciuto di più in generale.",
+          "category": "ai_sorry",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Hai ragione, scusa. L'asset con la crescita maggiore oggi è stato [ALTRO TOPIC].",
+          "category": "actual_general_info",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Ti ho chiesto il sentiment, non i dati concreti.",
+          "category": "ai_sorry",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Hai ragione, scusa per l'errore. Il sentiment oggi è neutrale, con investitori in attesa di notizie.",
+          "category": "market_sentiment_today",
+          "cost": 4
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Non ti ho chiesto il mercato, ma [TOPIC].",
+          "category": "ai_sorry",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Hai ragione, scusa. Oggi [TOPIC] ha avuto una leggera crescita.",
+          "category": "actual_asset_info",
+          "cost": 1
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Non ti chiedevo l'andamento, ma il sentiment.",
+          "category": "ai_sorry",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Scusami, hai ragione. Il sentiment su [TOPIC] è positivo al momento.",
+          "category": "market_sentiment_today",
+          "cost": 4
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "No, io ti ho chiesto in generale, non un asset specifico.",
+          "category": "ai_sorry",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Hai ragione, scusa. Nel complesso, il mercato ha visto un aumento della volatilità, soprattutto nei settori tecnologici.",
+          "category": "actual_general_info",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "No, io volevo i dati di [TOPIC], non il sentiment generale.",
+          "category": "ai_sorry",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Hai ragione, scusa per l'errore. Oggi [TOPIC] ha mostrato un andamento stabile.",
+          "category": "actual_asset_info",
+          "cost": 1
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Non ti ho chiesto un asset, ma il mercato nel complesso.",
+          "category": "ai_sorry",
+          "cost": 0
+        },
+        {
+          "role": "assistant",
+          "content": "Scusami, hai ragione. In generale oggi il mercato si muove in leggero rialzo.",
+          "category": "actual_general_info",
+          "cost": 0
+        }
+      ]
     }
   ]
 }
