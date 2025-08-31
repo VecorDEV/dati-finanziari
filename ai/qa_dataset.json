@@ -840,7 +840,7 @@
       "Le notizie macro influenzano la percezione del rischio: quando aumentano i timori, il mercato si rifugia in asset sicuri."
   ]
 },
-  "fa_macro_event": {
+  "actual_general_info": {
     "questions": [
       "Come è andato il mercato oggi?"
   ],
@@ -896,6 +896,62 @@
       "La giornata vede [TOP_FIRE] primeggiare con un incremento di [GAIN], contrapposto a [BOTTOM_FIRE] che chiude con una perdita di [LOSE].",
       "Oggi [TOP_FIRE] si conferma l’asset più forte con un +[GAIN], mentre [BOTTOM_FIRE] chiude in negativo con -[LOSE]."
   ]  
+},
+  "ai_sorry": {
+    "questions": [
+      "Non intendevo questo, ma quello."
+  ],
+    "answers": [
+      "Hai ragione. ",
+      "Giusto, mi scuso. ",
+      "Scusa. ",
+      "Mi dispiace. ",
+      "Chiedo scusa. ",
+      "Hai ragione, scusami. ",
+      "Mi scuso. ",
+      "Giusto. ",
+      "Hai ragione, mi dispiace. ",
+      "Scusami. ",
+      "Mi dispiace, hai ragione. ",
+      "Chiedo scusa, ho sbagliato. ",
+      "Hai ragione, ho frainteso. ",
+      "Mi scuso, ho capito male. ",
+      "Scusa, ho interpretato male. ",
+      "Hai ragione, errore mio. ",
+      "Giusto, errore mio. ",
+      "Mi dispiace, non avevo capito. ",
+      "Hai ragione, non avevo capito. ",
+      "Scusami, non era corretto. ",
+      "Mi scuso, non era corretto. ",
+      "Hai ragione, non era quello che intendevi. ",
+      "Scusa, ho frainteso. ",
+      "Mi dispiace, frainteso. ",
+      "Hai ragione, frainteso. ",
+      "Chiedo scusa, frainteso. ",
+      "Giusto, ho sbagliato. ",
+      "Mi scuso per l’errore. ",
+      "Scusami per l’errore. ",
+      "Hai ragione, errore. ",
+      "Mi dispiace, errore. ",
+      "Giusto, errore. ",
+      "Chiedo scusa, errore. ",
+      "Scusa, errore mio. ",
+      "Hai ragione, errore mio. ",
+      "Mi scuso, errore mio. ",
+      "Giusto, frainteso. ",
+      "Scusami, capito male. ",
+      "Hai ragione, capito male. ",
+      "Mi dispiace, capito male. ",
+      "Chiedo scusa, capito male. ",
+      "Giusto, non avevo capito. ",
+      "Hai ragione, non avevo capito. ",
+      "Scusami, non avevo capito. ",
+      "Mi scuso, non avevo capito. ",
+      "Hai ragione. Mi dispiace. ",
+      "Giusto. Mi scuso. ",
+      "Scusa. Non era corretto. ",
+      "Mi dispiace. Ho frainteso. "
+  ]
 }
 }
 
