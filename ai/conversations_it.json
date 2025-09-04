@@ -5623,6 +5623,86 @@
           "cost": 4
         }
       ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Procede bene [TOPIC]?",
+          "category": "actual_asset_info",
+          "cost": 1
+        },
+        {
+          "role": "assistant",
+          "content": "Oggi [TOPIC] mostra un lieve rialzo, quindi sta procedendo bene.",
+          "category": "actual_asset_info",
+          "cost": 1
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Sta andando bene [TOPIC] oggi?",
+          "category": "actual_asset_info",
+          "cost": 1
+        },
+        {
+          "role": "assistant",
+          "content": "Sì, [TOPIC] oggi ha registrato un buon andamento.",
+          "category": "actual_asset_info",
+          "cost": 1
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "Fila tutto liscio con [TOPIC]?",
+          "category": "actual_asset_info",
+          "cost": 1
+        },
+        {
+          "role": "assistant",
+          "content": "Direi di sì, [TOPIC] sta mostrando stabilità nella giornata.",
+          "category": "actual_asset_info",
+          "cost": 1
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "[TOPIC] si sta comportando bene oggi?",
+          "category": "actual_asset_info",
+          "cost": 1
+        },
+        {
+          "role": "assistant",
+          "content": "Sì, l’andamento di [TOPIC] oggi è piuttosto positivo.",
+          "category": "actual_asset_info",
+          "cost": 1
+        }
+      ]
+    },
+    {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "[TOPIC] va bene oggi?",
+          "category": "actual_asset_info",
+          "cost": 1
+        },
+        {
+          "role": "assistant",
+          "content": "Esatto, [TOPIC] oggi sta reggendo bene senza particolari cali.",
+          "category": "actual_asset_info",
+          "cost": 1
+        }
+      ]
     }
   ]
 }
