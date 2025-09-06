@@ -66,6 +66,7 @@ symbol_list = ["AAPL", "MSFT", "GOOGL", "AMZN", "META", "TSLA", "V", "JPM", "JNJ
         "LNTH", "HE", "BTDR", "NAAS", "SCHL", "TGT", "SYK", "BKNG", "DUK", "USB",
         "ARM", "BABA", "BIDU", "COIN", "PST.MI", "UCG.MI", "DDOG", "HTZ", "JD", "LCID", "LYFT", "NET", "PDD", #NEW
         "PLTR", "RIVN", "ROKU", "SHOP", "SNOW", "SQ", "TWLO", "UBER", "ZI", "ZM", "DUOL",    #NEW
+        "PBR", "VALE", "AMX",
         
         "EURUSD", "USDJPY", "GBPUSD", "AUDUSD", "USDCAD", "USDCHF", "NZDUSD", "EURGBP", "EURJPY", "GBPJPY",
         "AUDJPY", "CADJPY", "CHFJPY", "EURAUD", "EURNZD", "EURCAD", "EURCHF", "GBPCHF", "AUDCAD",
@@ -95,6 +96,7 @@ symbol_list_for_yfinance = [
     "LNTH", "HE", "BTDR", "NAAS", "SCHL", "TGT", "SYK", "BKNG", "DUK", "USB",
     "ARM", "BABA", "BIDU", "COIN", "PST.MI", "UCG.MI", "DDOG", "HTZ", "JD", "LCID", "LYFT", "NET", "PDD",
     "PLTR", "RIVN", "ROKU", "SHOP", "SNOW", "SQ", "TWLO", "UBER", "ZI", "ZM", "DUOL",
+    "PBR", "VALE", "AMX",
 
     # Forex (with =X)
     "EURUSD=X", "USDJPY=X", "GBPUSD=X", "AUDUSD=X", "USDCAD=X", "USDCHF=X", "NZDUSD=X", "EURGBP=X",
@@ -236,6 +238,9 @@ symbol_name_map = {
     "JD": ["JD.com", "京东"],
     "ARM": ["Arm", "Arm Holdings", "Arm Holdings plc"],
     "DUOL": ["Duolingo", "Duolingo Inc.", "DUOL"],
+    "PBR": ["Petrobras", "Petróleo Brasileiro S.A.", "Petrobras S.A."],
+    "VALE": ["Vale", "Vale S.A.", "Vale SA"],
+    "AMX": ["America Movil", "América Móvil", "América Móvil S.A.B. de C.V."],
 
     # Forex
     "EURUSD": ["EUR/USD", "Euro Dollar", "Euro vs USD"],
