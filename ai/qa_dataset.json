@@ -1,18 +1,18 @@
 {
   "greetings": {
     "questions": [
-    "ciao",
-    "hey",
-    "ehi",
-    "yo",
-    "salve",
-    "ehilà",
-    "buongiorno",
-    "buona sera",
-    "buonasera",
-    "buon pomeriggio",
-    "uè",
-    "hey hey"
+      "ciao",
+      "hey",
+      "ehi",
+      "yo",
+      "salve",
+      "ehilà",
+      "buongiorno",
+      "buona sera",
+      "buonasera",
+      "buon pomeriggio",
+      "uè",
+      "hey hey"
     ]
     "answers": [
       "Ciao 😄",
@@ -58,7 +58,7 @@
       "Salve! Come procede la giornata?",
       "Buongiorno! Che bello sentirti ☀️",
       "Ciao, sempre pronto per darti supporto"
-  ],
+    ],
     "cost": 0
 },
   "ai_identity": {
@@ -105,7 +105,8 @@
       "Sono TradeGPT. Posso guidarti passo passo nelle tue operazioni finanziarie e aiutarti a interpretare i grafici 📈.",
       "TradeGPT. Non sono umano, ma il mio obiettivo è rendere più semplici concetti complessi di finanza e trading.",
       "Sono TradeGPT, pronto a supportarti in ogni fase del tuo percorso di investimento."
-    ]
+    ],
+    "cost": 0
   },
   "financial_forecast": {
   "questions": [
@@ -154,7 +155,8 @@
     "Secondo le proiezioni, [TOPIC] potrebbe avere un comportamento {AGG} ma costante.",
     "Previsioni attuali indicano un andamento {AGG} per [TOPIC], con variazioni minime.",
     "Gli indicatori suggeriscono che [TOPIC] avrà un andamento {AGG} nei prossimi giorni."
-  ]
+  ],
+    "cost": 1
 },
   "web_research": {
     "questions": [
@@ -192,7 +194,8 @@
       "Ecco un riepilogo di ciò che riguarda [TOPIC] 💾.",
       "Ho trovato alcuni dettagli {AGG} su [TOPIC] utili da conoscere.",
       "Le ultime ricerche indicano informazioni {AGG} su [TOPIC]."
-    ]
+    ],
+    "cost": 0
   },
   "ai_name": {
   "questions": ["chi sei?"],
@@ -223,7 +226,8 @@
     "Ciao! Io sono TradeGPT, la tua AI di fiducia per analisi tecnica, fondamentale e gestione del rischio, pronta a supportarti passo passo 🚀.",
     "Mi chiamo TradeGPT e posso guidarti attraverso grafici, indicatori e strategie operative per ottimizzare le tue operazioni di trading 💡.",
     "Io sono TradeGPT, il tuo assistente AI sempre pronto a fornire spiegazioni chiare, consigli e analisi dei mercati finanziari 🌟."
-  ]
+  ],
+    "cost": 0
 },
   "ai_status": {
   "questions": ["come stai?"],
@@ -253,7 +257,8 @@
     "Bene, grazie! Sempre pronto a monitorare le opportunità.",
     "Tutto bene, concentrato sulle strategie migliori! 💼",
     "Sto bene, pronto a fornirti consigli se vuoi."
-  ]
+  ],
+    "cost": 0
 },
   "ai_human_check": {
   "questions": ["sei umano?"],
@@ -283,7 +288,8 @@
     "Io sono TradeGPT, un’intelligenza artificiale in grado di fornirti analisi e spiegazioni chiare su ogni aspetto del trading.",
     "Non sono umano, ma posso offrirti assistenza precisa e veloce su strategie operative, trend e indicatori di mercato.",
     "Io sono un modello AI pronto a supportarti con dati aggiornati e spiegazioni dettagliate per migliorare le tue scelte di investimento."
-  ]
+  ],
+    "cost": 0
 },
   "ai_capabilities": {
   "questions": ["cosa sai fare?"],
@@ -308,7 +314,8 @@
     "Sono pronto a rispondere a domande sui mercati, aiutarti a capire pattern complessi e guidarti nell’interpretazione dei dati finanziari.",
     "Posso offrirti consigli e spiegazioni su criptovalute, azioni, ETF e altri strumenti, sempre basati sui dati disponibili e aggiornati 📈.",
     "Sono qui per fornirti supporto completo: analisi tecnica, fondamentale, gestione del rischio e strategie operative, tutto in un unico assistente virtuale."
-  ]
+  ],
+    "cost": 0
 },
   "market_sentiment_today": {
   "questions": ["che aria tira sui mercati?"],
@@ -353,7 +360,8 @@
     "Il mercato oggi mantiene un profilo [AGG_M], con oscillazioni di entità limitata.",
     "Oggi il mercato si mostra [AGG_M], privilegiando strategie difensive.",
     "L’umore generale è [AGG_M], ma con segnali divergenti tra diversi comparti."
-  ]
+  ],
+    "cost": 1
 },
   "ta_general": {
   "questions": ["analisi tecnica di [TOPIC]"],
@@ -386,7 +394,8 @@
     "L’osservazione di [TOPIC] evidenzia un trend [AGG_M], con movimenti negli indicatori principali e attenzione ai livelli chiave 📈.",
     "Il grafico di [TOPIC] segnala una fase [AGG_F], con trend [AGG_M] consolidato e possibili oscillazioni future 📊.",
     "Osservando [TOPIC], possiamo identificare pattern [AGG_M] e segnali che supportano l’analisi tecnica dei livelli di supporto a [SUPPORTO] e resistenza a [RESISTENZA]. 💡"
-  ]
+  ],
+    "cost": 2
 },
   "trading_entry_decision": {
   "questions": ["posso investire ora su [TOPIC]?"],
@@ -431,7 +440,8 @@
     "La price action di [TOPIC] appare [AGG_F]. Puoi considerare l’ingresso, ma solo in presenza di conferme tecniche 🔍.",
     "Oggi [TOPIC] evidenzia un setup [AGG_M]. Agisci con cautela e imposta target realistici a [TAKE_PROFIT].",
     "La fase tecnica di [TOPIC] è [AGG_F]. Entrare può avere senso, ma con stop loss stretto a [STOP_LOSS] e valutazione dei volumi."
-  ]
+  ],
+    "cost": 2
 },
   "trading_stop_loss_level": {
   "questions": ["dove dovrei mettere lo stop loss?"],
@@ -456,7 +466,8 @@
     "Lo stop loss consigliato per [TOPIC] è [STOP_LOSS], valutando trend, volatilità e livelli chiave di supporto.",
     "Suggerisco uno stop loss a [STOP_LOSS] per [TOPIC], così da proteggere la posizione senza compromettere le opportunità di mercato.",
     "Per [TOPIC], un buon stop loss è posizionato a [STOP_LOSS] 🔒, basato sui livelli di supporto e sull’analisi tecnica corrente."
-  ]
+  ],
+    "cost": 2
 },
   "trading_take_profit_level": {
   "questions": ["dove dovrei mettere il take profit?"],
@@ -481,7 +492,8 @@
     "Il take profit consigliato su [TOPIC] è [TAKE_PROFIT], valutando trend, volatilità e livelli chiave di resistenza.",
     "Suggerisco un take profit a [TAKE_PROFIT] su [TOPIC], così da ottimizzare il guadagno mantenendo il controllo sulla posizione.",
     "Per [TOPIC], un buon take profit è posizionato a [TAKE_PROFIT] 📊, basato sui livelli di resistenza e sull’analisi tecnica corrente."
-  ]
+  ],
+    "cost": 2
 },
   "ai_fallback": {
   "questions": ["non capisco la domanda"],
@@ -506,7 +518,8 @@
     "Mi dispiace, non riesco a comprendere la domanda. Puoi riprovare usando altre parole?",
     "Non sono sicuro di cosa intendi. Puoi darmi qualche dettaglio in più per aiutarmi a rispondere?",
     "Hmm… non ho capito bene la domanda 😅. Puoi riformularla in modo più chiaro?"
-  ]
+  ],
+    "cost": 0
 },
   "fundamental_analysis": {
   "questions": ["analisi fondamentale di [TOPIC]"],
@@ -551,7 +564,8 @@
     "Gli indicatori chiave di [TOPIC] evidenziano una situazione [AGG_F], che merita attenzione prima di intraprendere decisioni operative.",
     "Il contesto settoriale e i bilanci di [TOPIC] mostrano un outlook [AGG_M], che orienta la percezione degli operatori.",
     "Analizzando la posizione di mercato di [TOPIC], emerge un quadro [AGG_F], con aspetti da monitorare attentamente."
-  ]
+  ],
+    "cost": 1
 },
   "crypto_trading": {
   "questions": ["come va il mercato crypto?"],
@@ -614,7 +628,8 @@
     "Su [MAIN_CRYPTO], il quadro tecnico è [AGG_M], con indicazioni che possono guidare le strategie future.",
     "Il mercato crypto resta [AGG_M], con condizioni che offrono occasioni di ingresso selettivo.",
     "La performance generale di [MAIN_CRYPTO] appare [AGG_F], con oscillazioni coerenti con il sentiment attuale."
-  ]
+  ],
+    "cost": 1
 },
   "market_news": {
   "questions": ["ci sono novità sui mercati?"],
@@ -635,7 +650,6 @@
     "Gli aggiornamenti odierni indicano un trend [AGG_M], con [MAIN_TOPIC] che mostra movimenti coerenti con i dati pubblicati.",
     "Le news di oggi suggeriscono un mercato [AGG_M], con attenzione a [MAIN_TOPIC] e agli eventi più rilevanti del giorno.",
     "Gli ultimi annunci economici e aziendali creano una situazione [AGG_F], utile per prendere decisioni informate.",
-    
     "Oggi i mercati mostrano un segnale [AGG_M], con [MAIN_TOPIC] che risponde alle ultime variazioni economiche.",
     "Gli aggiornamenti finanziari evidenziano una giornata [AGG_F], con [MAIN_TOPIC] sotto osservazione per possibili oscillazioni.",
     "Le notizie odierne indicano un trend [AGG_M] su [MAIN_TOPIC], con attenzione agli sviluppi macro e microeconomici.",
@@ -666,7 +680,8 @@
     "Le ultime news indicano un mercato [AGG_M], con [MAIN_TOPIC] che reagisce agli sviluppi più rilevanti del giorno.",
     "Oggi il contesto finanziario appare [AGG_M], con [MAIN_TOPIC] che risponde a notizie economiche e aziendali.",
     "Le news di mercato suggeriscono un trend [AGG_M], con [MAIN_TOPIC] da seguire per fluttuazioni e opportunità."
-]
+  ],
+    "cost": 1
 },
   "closing": {
   "questions": ["grazie, chiudiamo qui"],
@@ -691,7 +706,8 @@
     "Grazie! Mantieni sempre il rischio sotto controllo.",
     "È stato un piacere! Ricorda di aggiornarti sulle news di mercato.",
     "Alla prossima! Continua a seguire segnali e analisi per operazioni migliori."
-  ]
+  ],
+    "cost": 0
 },
   "goodbye": {
   "questions": ["a presto!"],
@@ -717,7 +733,8 @@
     "Ci si vede!",
     "Arrivederci! 💼",
     "Alla prossima! Mantieni la calma."
-  ]
+  ],
+    "cost": 0
 },
   "action_purpose_general": {
   "questions": ["Ottimo"],
@@ -742,7 +759,8 @@
     "Parlando d'altro, posso esserti utile ora?",
     "Bene, posso fare qualcosa per te adesso?",
     "Cambiando discorso, posso fare qualcosa per te?"
-  ]
+  ],
+    "cost": 0
 },
   "actual_asset_info": {
   "questions": [
@@ -805,7 +823,8 @@
     "Aggiornamento: [TOPIC] è [TREND] di [VALORE] ✨",
     "Oggi [TOPIC] mostra [TREND] di [VALORE] 📊",
     "[TOPIC] è [TREND] di [VALORE] oggi, monitoraggio in corso 🔹"
-  ]
+  ],
+    "cost": 1
 },
   "fa_interest_rates": {
   "questions": [
@@ -843,7 +862,8 @@
     "Con tassi alti, il mercato diventa più selettivo e prudente, frenando [TOPIC]. Con tassi bassi, il contesto più aperto stimola fiducia e crescita per [TOPIC].",
     "Un aumento dei tassi rafforza la stabilità ma rallenta il dinamismo, limitando [TOPIC]. Una diminuzione dei tassi riduce la stabilità ma accelera [TOPIC].",
     "Se il livello dei tassi si alza, il credito si riduce e la crescita di [TOPIC] ne risente. Se si abbassa, il credito torna a fluire e [TOPIC] accelera."
-  ]
+  ],
+    "cost": 1
 },
   "fa_macro_event": {
   "questions": [
@@ -881,7 +901,8 @@
     "Se le notizie macro dipingono un quadro di rallentamento, il mercato tende a prezzare più cautela; se dipingono crescita, prevale l’ottimismo.",
     "I mercati sono sensibili soprattutto alle sorprese macro inattese: più grande è la sorpresa, più forte la reazione.",
     "Le notizie macro influenzano la percezione del rischio: quando aumentano i timori, il mercato si rifugia in asset sicuri."
-  ]
+  ],
+    "cost": 1
 },
   "actual_general_info": {
   "questions": [
@@ -938,7 +959,8 @@
     "Il rialzo di punta odierno è di [TOP_FIRE] (+[GAIN]), mentre [BOTTOM_FIRE] segna il decremento più significativo ([LOSE]).",
     "La giornata vede [TOP_FIRE] primeggiare con un incremento di [GAIN], contrapposto a [BOTTOM_FIRE] che chiude con una perdita di [LOSE].",
     "Oggi [TOP_FIRE] si conferma l’asset più forte con un +[GAIN], mentre [BOTTOM_FIRE] chiude in negativo con -[LOSE]."
-  ]  
+  ],
+    "cost": 1
 },
   "ai_sorry": {
   "questions": [
@@ -994,7 +1016,8 @@
     "Giusto. Mi scuso. ",
     "Scusa. Non era corretto. ",
     "Mi dispiace. Ho frainteso. "
-  ]
+  ],
+    "cost": 0
 }
 }
 
