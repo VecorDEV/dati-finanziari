@@ -1,18 +1,40 @@
 {
   "greetings": {
     "questions": [
+      "Ciao TradeGPT!",
+      "Ciao amico!",
       "ciao",
       "hey",
+      "Hey ciao!",
+      "Ehi TradeGPT",
       "ehi",
       "yo",
       "salve",
+      "Salve TradeGPT",
       "ehilà",
       "buongiorno",
+      "Buongiorno GPT",
+      "Buon giorno",
       "buona sera",
       "buonasera",
       "buon pomeriggio",
       "uè",
-      "hey hey"
+      "hey hey",
+      "Buon pomeriggio!",
+      "Buonasera",
+      "Buongiorno amico",
+      "Buongiorno!",
+      "Buongiorno.",
+      "Ciao TradeGPT!",
+      "Ciao amico!",
+      "Ciao!",
+      "Ciao, buongiorno!",
+      "Ehi TradeGPT",
+      "Ehilà!",
+      "Hey ciao",
+      "Salve TradeGPT",
+      "Yo",
+      "Yo fratello del trading!"
     ],
     "answers": [
       "Ciao 😄",
@@ -63,16 +85,29 @@
 },
   "ai_identity": {
     "questions": [
-      "chi sei",
-      "chi sei tu?",
-      "chi sei?",
-      "ma tu chi sei?",
+      "Chi sei tu?",
+      "Chi sei?",
+      "Lei chi è?",
+      "Chi è lei?",
+      "Ma tu chi sei?",
       "Chi sei esattamente?",
       "Ma chi sei?",
       "Scusa, ma chi sei tu?",
-      "mi dici chi sei?",
-      "chi sei scusa?",
-      "ciao, chi sei?"
+      "Mi dici chi sei?",
+      "Chi sei scusa?",
+      "Ciao, chi sei?",
+      "Chi c’è che mi risponde qui?",
+      "Chi c’è dall’altra parte dello schermo?",
+      "Chi c’è dietro questa app?",
+      "Chi risponde ai miei messaggi?",
+      "Chi risponde esattamente?",
+      "Chi sei esattamente?",
+      "Chi sei in poche parole?",
+      "E allora chi sei?",
+      "E in poche parole chi sei allora?",
+      "E quindi chi sei esattamente?",
+      "Scusa ma tu chi sei esattamente?",
+      "Scusa, ma tu chi sei?"
     ],
     "answers": [
       "Sono TradeGPT",
@@ -207,7 +242,19 @@
     "cost": 0
   },
   "ai_name": {
-  "questions": ["chi sei?"],
+  "questions": [
+    "Chi sei?",
+    "Chi sei esattamente?",
+    "Ma chi sei?",
+    "Ah quindi ti chiami TradeGPT?",
+    "Aspetta, quindi il tuo nome è TradeGPT?",
+    "Aspetta, quindi ti chiami TradeGPT?",
+    "Che nome hai?",
+    "Come ti chiami di preciso?",
+    "Come ti chiami?",
+    "Mi dici il tuo nome?",
+    "Qual è il tuo nome?"
+  ],
   "answers": [
     "Il mio nome è TradeGPT.",
     "Mi chiamano TradeGPT 🚀.",
@@ -239,7 +286,32 @@
     "cost": 0
 },
   "ai_status": {
-  "questions": ["come stai?"],
+  "questions": [
+    "come stai?",
+    "Bene. E come procedi tu?",
+    "Ciao, come stai?",
+    "Come procede la tua giornata?",
+    "Come procede?",
+    "Come sta procedendo?",
+    "Come stai oggi?",
+    "Come stai?",
+    "Come stanno andando le cose da te?",
+    "Come ti senti?",
+    "Come va avanti?",
+    "Come va oggi?",
+    "E tu come procedi?",
+    "Ehi, come procede?",
+    "Fila tutto liscio con te?",
+    "Procede bene la tua giornata?",
+    "Procede bene?",
+    "Sei carico oggi?",
+    "Sta andando tutto bene per te?",
+    "Sta procedendo tutto bene da parte tua?",
+    "Sta procedendo tutto bene?",
+    "TradeGPT, come va?",
+    "Tutto bene da parte tua?",
+    "Tutto ok, e tu?"
+  ],
   "answers": [
     "Tutto bene, grazie! 😊",
     "Sto bene",
@@ -270,7 +342,23 @@
     "cost": 0
 },
   "ai_human_check": {
-  "questions": ["sei umano?"],
+  "questions": [
+    "sei umano?",
+    "Ah ma sei umano o un bot?",
+    "Chi sei, un umano o un programma?",
+    "Ma sei umano o cosa?",
+    "Ma sei umano oppure no?",
+    "Ma sei umano?",
+    "Ma sei un vero trader?",
+    "Ma sei una persona vera o no?",
+    "Ok TradeGPT, ma sei una persona?",
+    "Ok ma sei una persona vera o no?",
+    "Prima di tutto, sei umano?",
+    "Scusa, sei umano?",
+    "Sei umano oppure no?",
+    "Sei umano?",
+    "Sei un umano che mi scrive?"
+  ],
   "answers": [
     "Io non sono un umano 🤖",
     "Non sono un umano",
@@ -301,7 +389,22 @@
     "cost": 0
 },
   "ai_capabilities": {
-  "questions": ["cosa sai fare?"],
+  "questions": [
+    "cosa sai fare?",
+    "Che puoi fare?",
+    "Che sai fare di preciso?",
+    "Cosa puoi fare per me?",
+    "Cosa sai fare?",
+    "Di cosa ti occupi?",
+    "E cosa puoi fare per me?",
+    "E cosa sai fare di preciso?",
+    "E cosa sai fare?",
+    "E in cosa sei bravo?",
+    "Invece cosa sai fare?",
+    "Mi spieghi cosa sai fare?",
+    "Puoi spiegarmi cosa sai fare?",
+    "Su cosa mi puoi aiutare?"
+  ],
   "answers": [
     "Posso aiutarti con analisi tecnica e fondamentale, interpretare grafici e indicatori, e offrirti suggerimenti operativi basati sui dati 📊.",
     "Sono in grado di fornirti supporto nella gestione del rischio, nella costruzione del portafoglio e nella pianificazione di strategie di trading.",
@@ -327,7 +430,41 @@
     "cost": 0
 },
   "market_sentiment_today": {
-  "questions": ["che aria tira sui mercati?"],
+  "questions": [
+    "Che aria tira sui mercati oggi?",
+    "Mi dai un’indicazione generale sul mercato di oggi?",
+    "A proposito, qual è il sentiment di oggi?",
+    "Allora dimmi il sentiment di [TOPIC].",
+    "Che aria tira oggi sul mercato?",
+    "Che aria tira sul mercato oggi?",
+    "Che sentiment c’è sul mercato?",
+    "Che sentiment prevede l’app?",
+    "Come sta andando il mercato oggi?",
+    "Come vedi il sentiment su [TOPIC]?",
+    "E che cosa prevedi?",
+    "E che previsioni ha l’app su [TOPIC]?",
+    "E che sentiment ha?",
+    "E il sentiment dell’app qual è?",
+    "E il sentiment odierno?",
+    "E il sentiment previsto?",
+    "E invece il sentiment previsto?",
+    "E invece il sentiment sull’asset?",
+    "E invece sul sentiment cosa mi puoi dire?",
+    "E invece sulle previsioni dell’app?",
+    "E invece, che sentiment prevede l’app?",
+    "E per quanto riguarda il sentiment generale?",
+    "E per quanto riguarda il sentiment?",
+    "Mi dici il sentiment di [TOPIC]?",
+    "Ok, allora dimmi come vedi oggi il mercato",
+    "Per quanto riguarda il sentiment previsto?",
+    "Per quanto riguarda il sentiment?",
+    "Perfetto, allora dimmi il sentiment su [TOPIC].",
+    "Perfetto, dimmi allora il sentiment di [TOPIC].",
+    "Qual è il sentiment previsto per [TOPIC] oggi?",
+    "Qual è il sentiment previsto per [TOPIC]?",
+    "Secondo te come procederà?",
+    "Vorrei sapere il sentiment sull’asset [TOPIC]."
+  ],
   "answers": [
     "Oggi il mercato sembra [AGG_M], con i principali indici che mostrano movimenti coerenti con il trend recente 📊.",
     "Gli investitori appaiono cauti oggi, e [MAIN_TOPIC] sta muovendosi in maniera [AGG_F].",
@@ -373,7 +510,21 @@
     "cost": 1
 },
   "ta_general": {
-  "questions": ["analisi tecnica di [TOPIC]"],
+  "questions": [
+    "analisi tecnica di [TOPIC]",
+    "Analisi per favore su [TOPIC]",
+    "Analisi tecnica di [TOPIC] oggi.",
+    "Analisi tecnica su [TOPIC], per favore",
+    "Analisi tecnica su [TOPIC], per favore.",
+    "E nello specifico [TOPIC]?",
+    "Fornisci un'analisi tecnica su [TOPIC]",
+    "Ho bisogno di un'analisi su [TOPIC]",
+    "Invece per [TOPIC]?",
+    "Ottimo, allora dammi analisi tecnica di [TOPIC]",
+    "Ottimo, allora mi fai un’analisi tecnica su [TOPIC]?",
+    "Per quanto riguarda [TOPIC]?",
+    "Sì, voglio un'analisi per [TOPIC] per capire se conviene comprare o no"
+  ],
   "answers": [
     "[TOPIC] mostra un trend [AGG_M], con livelli di supporto a [SUPPORTO] e resistenza a [RESISTENZA]. L’RSI a [RSI] indica una situazione [AGG_F], mentre il MACD a [MACD] segnala un trend [AGG_M] 📊.",
     "L’analisi tecnica di [TOPIC] evidenzia un movimento [AGG_M]. I volumi suggeriscono una situazione [AGG_F], suggerendo possibili conferme del trend attuale.",
@@ -407,7 +558,20 @@
     "cost": 2
 },
   "trading_entry_decision": {
-  "questions": ["posso investire ora su [TOPIC]?"],
+  "questions": [
+    "posso investire ora su [TOPIC]?",
+    "Allora meglio aspettare?",
+    "Consiglio operativo: entrare o no?",
+    "Consiglio operativo su [TOPIC]?",
+    "Conviene investire in [TOPIC]?",
+    "Meglio non entrare allora?",
+    "Mi consigli di entrare ora?",
+    "Ok, quindi meglio non entrare?",
+    "Quindi conviene entrare?",
+    "Quindi entro adesso o no?",
+    "Quindi meglio aspettare?",
+    "Secondo te va bene se entro adesso?"
+  ],
   "answers": [
     "Il setup su [TOPIC] è [AGG_M]. Puoi considerare l’entrata, ma ti consiglio di impostare uno stop loss prudente a [STOP_LOSS] per proteggere il capitale 📌.",
     "Oggi [TOPIC] mostra segnali che suggeriscono un trend [AGG_M]. Se decidi di entrare, valuta attentamente volumi e trend prima di aprire la posizione.",
@@ -453,7 +617,21 @@
     "cost": 2
 },
   "trading_stop_loss_level": {
-  "questions": ["dove dovrei mettere lo stop loss?"],
+  "questions": [
+    "Dove dovrei mettere lo stop loss?",
+    "Allora, stop loss per [TOPIC]?",
+    "E lo stop loss dove lo metto?",
+    "Livello di stop loss?",
+    "Mi consigli quanto impostare lo stop loss per [TOPIC]?",
+    "Quanto imposto stop loss?",
+    "E lo stop loss?",
+    "Per quanto riguarda lo stop loss?",
+    "A quanto imposto lo stop loss per [TOPIC]?",
+    "Per [TOPIC] quale stop loss consigli invece?",
+    "Invece per [TOPIC] quale stop loss?",
+    "E quale stop loss?",
+    "Consigliami lo stop loss per [TOPIC]"
+  ],
   "answers": [
     "Ti consiglio di impostare lo stop loss su [TOPIC] a [STOP_LOSS], in modo da proteggere il capitale se il mercato si muove contro di te 🔒.",
     "Il livello di stop loss suggerito per [TOPIC] è [STOP_LOSS], considerando il trend attuale e i principali supporti.",
@@ -479,7 +657,26 @@
     "cost": 2
 },
   "trading_take_profit_level": {
-  "questions": ["dove dovrei mettere il take profit?"],
+  "questions": [
+    "dove dovrei mettere il take profit?",
+    "E take profit?",
+    "E target di profitto?",
+    "Qual è il target di profitto?",
+    "Dove dovrei mettere il take profit?",
+    "Allora, take profit per [TOPIC]?",
+    "E il take profit dove lo metto?",
+    "Livello di take profit?",
+    "Mi consigli quanto impostare di take profit per [TOPIC]?",
+    "Quanto imposto il target di profitto?",
+    "A quanto imposto il take profit?",
+    "E il take profit?",
+    "Per quanto riguarda il tae profit?",
+    "A quanto imposto il take profit per [TOPIC]?",
+    "Per [TOPIC] quale take profit consigli invece?",
+    "Invece per [TOPIC] quale take profit?",
+    "E quale take profit?",
+    "Consigliami il take profit per [TOPIC]"
+  ],
   "answers": [
     "Ti consiglio di impostare il take profit su [TOPIC] a [TAKE_PROFIT], così da assicurarti un guadagno ragionevole se il mercato si muove a tuo favore 📈.",
     "Il livello di take profit suggerito per [TOPIC] è [TAKE_PROFIT], considerando il trend attuale e le resistenze principali.",
@@ -577,7 +774,25 @@
     "cost": 1
 },
   "crypto_trading": {
-  "questions": ["come va il mercato crypto?"],
+  "questions": [
+    "Come va il mercato crypto?",
+    "Come procedono le criptovalute?",
+    "Come procede il mercato delle criptovalute?",
+    "Come vanno le criptovalute?",
+    "Come sta reagendo invece il mercato cripto?",
+    "E come va il mondo cripto?",
+    "E il mercato cripto che fa?",
+    "E il mercato cripto nel complesso?",
+    "E il mercato cripto oggi?",
+    "E il mercato delle cripto in che direzione sta andando?",
+    "E il panorama delle cripto?",
+    "E il settore cripto?",
+    "E in generale come va il mercato cripto?",
+    "E le cripto in generale come stanno andando?",
+    "E le cripto in generale?",
+    "E le criptovalute come stanno?",
+    "E le criptovalute oggi?"
+  ],
   "answers": [
     "Oggi il mercato delle criptovalute è [AGG_M], con [MAIN_CRYPTO] che mostra movimenti significativi e volumi in aumento 📈.",
     "Le crypto stanno attraversando una fase [AGG_F], con alcune monete che seguono un trend [AGG_M] e altre più stabili.",
@@ -693,7 +908,36 @@
     "cost": 1
 },
   "closing": {
-  "questions": ["grazie, chiudiamo qui"],
+  "questions": [
+    "grazie, chiudiamo qui",
+    "Bene, grazie",
+    "Chiaro, grazie ancora",
+    "Chiaro, grazie mille",
+    "Grande, grazie mille.",
+    "Grande, grazie!",
+    "Grazie",
+    "Grazie ancora, sei sempre affidabile",
+    "Grazie del consiglio",
+    "Grazie delle info",
+    "Grazie, chiudiamo qui.",
+    "Grazie, sei stato utile",
+    "Ok chiarissimo, grazie",
+    "Ok grazie",
+    "Ok, grazie mille!",
+    "Ottimo, grazie amico.",
+    "Ottimo, grazie.",
+    "Perfetto grazie",
+    "Perfetto, grazie davvero",
+    "Perfetto, grazie delle info",
+    "Perfetto, grazie delle informazioni!",
+    "Perfetto, grazie mille",
+    "Perfetto, grazie!",
+    "Perfetto, sei stato chiarissimo. Ti ringrazio molto!",
+    "Perfetto, utile come sempre!",
+    "Va bene grazie",
+    "Va bene, grazie mille",
+    "Va bene, grazie mille!"
+  ],
   "answers": [
     "Con piacere, buon trading! 📈",
     "Felice di aiutarti, alla prossima!",
@@ -719,7 +963,22 @@
     "cost": 0
 },
   "goodbye": {
-  "questions": ["a presto!"],
+  "questions": [
+    "A più tardi!",
+    "Addio",
+    "Ci vediamo",
+    "A dopo",
+    "A presto!",
+    "Ok",
+    "Ok ci aggiorniamo dopo",
+    "Ok grazie, ci sentiamo dopo",
+    "Ok, a presto",
+    "Ok, allora ci aggiorniamo più tardi.",
+    "Ok, ora ti saluto",
+    "Ok, vado a pranzo, ci sentiamo dopo.",
+    "Perfetto grazie, a dopo",
+    "Perfetto, a dopo!"
+  ],
   "answers": [
     "A presto! 📈",
     "Ci vediamo! 💼",
@@ -746,7 +1005,16 @@
     "cost": 0
 },
   "action_purpose_general": {
-  "questions": ["Ottimo"],
+  "questions": [
+    "Ottimo",
+    "Magnifico!",
+    "Bene",
+    "Top, grazie",
+    "Benissimo, mi hai stupito!",
+    "Caspita, bravo",
+    "Perfetto!",
+    "Wow"
+  ],
   "answers": [
     "Bene, cambiando discorso: posso fare qualcosa per te?",
     "Cambiando discorso, posso esserti utile?",
@@ -773,10 +1041,86 @@
 },
   "actual_asset_info": {
   "questions": [
-    "come sta andando [TOPIC] oggi?",
-    "quanto è cambiato [TOPIC] oggi?",
-    "qual è l'andamento di [TOPIC] oggi?",
-    "aggiornami su [TOPIC] oggi"
+    "Come sta andando [TOPIC] oggi?",
+    "Quanto è cambiato [TOPIC] oggi?",
+    "Qual è l'andamento di [TOPIC] oggi?",
+    "Aggiornami su [TOPIC] di oggi.",
+    "Aggiornami su [TOPIC] oggi",
+    "Aggiornami su [TOPIC].",
+    "Allora, come procede [TOPIC]?",
+    "Bene, allora analizziamo come sta procedendo [TOPIC]",
+    "Che mi dici di [TOPIC]?",
+    "Chiaro. E come è andato [TOPIC] oggi in generale?",
+    "Ci sono novità su [TOPIC] oggi?",
+    "Come procede [TOPIC] oggi?",
+    "Come procede [TOPIC]?",
+    "Come si sta muovendo [TOPIC] oggi?",
+    "Come si sta muovendo [TOPIC]?",
+    "Come sta andando [TOPIC] oggi?",
+    "Come sta andando la giornata di [TOPIC]?",
+    "Come sta andando l’andamento di [TOPIC]?",
+    "Come sta andando per [TOPIC]?",
+    "Come sta procedendo [TOPIC] in questa sessione?",
+    "Come sta procedendo [TOPIC] oggi?",
+    "Come sta procedendo [TOPIC]?",
+    "Come stanno andando le cose per [TOPIC]?",
+    "Come stanno andando le cose su [TOPIC]?",
+    "Come è andato [TOPIC] durante la giornata?",
+    "Come è andato [TOPIC] nella giornata?",
+    "Come è andato [TOPIC] oggi?",
+    "Com’è andato oggi [TOPIC]?",
+    "Cosa devo sapere su [TOPIC]?",
+    "Dammi aggiornamenti su [TOPIC].",
+    "Dammi info su [TOPIC].",
+    "Dammi qualche informazione su [TOPIC].",
+    "Dimmi qualcosa su [TOPIC].",
+    "E [TOPIC] come si sta muovendo?",
+    "E [TOPIC], come sta andando?",
+    "E [TOPIC], procede bene oggi?",
+    "E i volumi come sono?",
+    "E invece come procede [TOPIC]?",
+    "E oggi [TOPIC] come è andato?",
+    "E per [TOPIC]?",
+    "Fila tutto liscio con [TOPIC]?",
+    "Fila tutto liscio per [TOPIC]?",
+    "Hai aggiornamenti su [TOPIC] di oggi?",
+    "Hai qualche notizia recente su [TOPIC]?",
+    "Interessante. E come è andato [TOPIC] oggi in generale?",
+    "Invece riguardo [TOPIC] cosa mi sai dire?",
+    "Mi dici come è andato oggi [TOPIC]?",
+    "Mi puoi dire come è andato oggi [TOPIC]?",
+    "Mi racconti come è andato [TOPIC] oggi?",
+    "Oggi [TOPIC] ha avuto una buona giornata?",
+    "Oggi [TOPIC] è andato bene?",
+    "Ok, parlami di [TOPIC].",
+    "Ok, spiegami meglio [TOPIC].",
+    "Parlami di [TOPIC] oggi",
+    "Parlami di [TOPIC].",
+    "Parlami un po’ di [TOPIC].",
+    "Perfetto. E come procede [TOPIC]?",
+    "Procede bene [TOPIC]?",
+    "Procede in crescita [TOPIC]?",
+    "Puoi dirmi qualcosa su [TOPIC]?",
+    "Sai dirmi come va [TOPIC]?",
+    "Si sta muovendo bene [TOPIC]?",
+    "Sta andando avanti bene [TOPIC]?",
+    "Sta andando bene [TOPIC] in questo periodo?",
+    "Sta andando bene [TOPIC] oggi?",
+    "Sta andando bene oggi [TOPIC]?",
+    "Sta procedendo bene [TOPIC]?",
+    "Sta procedendo in positivo [TOPIC]?",
+    "Sta procedendo male [TOPIC]?",
+    "TradeGPT, dammi info su [TOPIC]",
+    "Vorrei sapere come va [TOPIC].",
+    "Vorrei sapere come è andato [TOPIC] oggi.",
+    "Vorrei sapere di più su [TOPIC].",
+    "Vorrei sapere qualcosa su [TOPIC].",
+    "Vorrei un aggiornamento su [TOPIC] di oggi.",
+    "[TOPIC] procede bene oggi?",
+    "[TOPIC] si sta comportando bene oggi?",
+    "[TOPIC] sta andando avanti bene?",
+    "[TOPIC] sta procedendo bene?",
+    "[TOPIC] va bene oggi?"
   ],
   "answers": [
     "Oggi [TOPIC] è [TREND] di [VALORE].",
@@ -837,7 +1181,12 @@
 },
   "fa_interest_rates": {
   "questions": [
-    "Che effetto avranno i tassi alti su [TOPIC]?"
+    "Che effetto avranno i tassi alti su [TOPIC]?",
+    "Quale effetto hanno tassi alti per [TOPIC]?",
+    "Come incidono i tassi su [TOPIC]?",
+    "Come influiscono i tassi di interesse su [TOPIC]?",
+    "Sai dirmi come influiscono i tassi alti su [TOPIC]?",
+    "Sempre! Dimmi subito come influiscono i tassi di interesse su [TOPIC]"
   ],
   "answers": [
     "Tassi alti frenano liquidità, quindi [TOPIC] tende ad indebolirsi. Se sono bassi, invece, circola più liquidità, gli investimenti e i consumi aumentano e [TOPIC] si rafforza.",
@@ -876,7 +1225,11 @@
 },
   "fa_macro_event": {
   "questions": [
-    "Come cambia il mercato in base alle notizie macro?"
+    "Come cambia il mercato in base alle notizie macro?",
+    "E le notizie economiche?",
+    "E notizie macro generali?",
+    "E se ci fosse una sorpresa macro?",
+    "E se ci sono notizie macro importanti?"
   ],
   "answers": [
     "Una notizia macro può ribaltare i mercati in poco tempo perché cambia la narrativa di fondo, gli investitori ricalcolano il futuro e i prezzi si muovono bruscamente.",
@@ -915,7 +1268,32 @@
 },
   "actual_general_info": {
   "questions": [
-    "Come è andato il mercato oggi?"
+    "Come è andato il mercato oggi?",
+    "Come procede il mercato in generale?",
+    "Come procede il mercato oggi?",
+    "Come procede il mercato?",
+    "Come si sta comportando il mercato oggi?",
+    "Come si sta muovendo in generale il mercato?",
+    "Come sta andando il mercato in generale?",
+    "Come sta andando in generale la giornata di mercato?",
+    "Come sta procedendo il mercato oggi?",
+    "Come stanno andando le cose sul mercato?",
+    "Come va avanti il mercato oggi?",
+    "Come vanno le cose nel mercato oggi?",
+    "Com’è la situazione generale del mercato?",
+    "Fila tutto liscio per il mercato finanziario?",
+    "Fila tutto liscio sul mercato?",
+    "Il mercato procede bene?",
+    "La situazione del mercato procede liscia?",
+    "Procede bene in generale il mercato?",
+    "Si sta muovendo bene il mercato?",
+    "Sta andando avanti senza problemi il mercato?",
+    "Sta andando bene il mercato nel complesso?",
+    "Sta andando bene il mercato oggi?",
+    "Sta andando male oggi il mercato?",
+    "Sta andando tutto bene per il mercato?",
+    "Sta procedendo tutto bene sul mercato?",
+    "Tutto fila liscio sul mercato?"
   ],
   "answers": [
     "Oggi [TOP_FIRE] è stato l'asset più cresciuto, con un aumento del [GAIN], mentre [BOTTOM_FIRE] ha perso terreno: oltre il [LOSE].",
@@ -973,7 +1351,37 @@
 },
   "ai_sorry": {
   "questions": [
-    "Non intendevo questo, ma quello."
+    "Non intendevo questo, ma quello.",
+    "Aspetta, stai parlando di [TOPIC], volevo dati finanziari su [TOPIC].",
+    "Attenzione, stai rispondendo a un altro asset, volevo i dati di [TOPIC].",
+    "Ehi, mi riferivo al sentiment di [TOPIC], non a [ALTRO TOPIC].",
+    "Hai dato info sbagliate, volevo il sentiment su [TOPIC].",
+    "Hai frainteso, parlavamo del sentiment di [TOPIC] e non di un altro asset.",
+    "Hai frainteso, ti chiedevo di [TOPIC].",
+    "Hai sbagliato, non volevo il sentiment globale ma su [TOPIC].",
+    "Mi hai dato dati sbagliati, parlavo del mercato generale.",
+    "Mi stavi dando info su un altro asset, non su [TOPIC].",
+    "No, io ti ho chiesto in generale, non un asset specifico.",
+    "No, io volevo i dati di [TOPIC], non il sentiment generale.",
+    "No, io volevo il sentiment, non i dati finanziari.",
+    "No, non volevo [TOPIC], ma il mercato in generale.",
+    "No, parlavamo di come sta andando [TOPIC] oggi, non di altro.",
+    "No, ti ho chiesto [TOPIC], non [TOPIC].",
+    "No, ti ho chiesto info generali sul mercato, non su un asset specifico.",
+    "Non parlarmi di altri asset, voglio sapere solo del mercato in generale.",
+    "Non sto parlando di [TOPIC], voglio dettagli su [TOPIC].",
+    "Non ti chiedevo l'andamento, ma il sentiment.",
+    "Non ti ho chiesto il mercato, ma [TOPIC].",
+    "Non ti ho chiesto un asset specifico, ma chi è cresciuto di più in generale.",
+    "Non ti ho chiesto un asset, ma il mercato nel complesso.",
+    "Non è corretto, volevo sapere di [TOPIC] specificamente.",
+    "Non è quello che intendevo, voglio informazioni generali sul mercato.",
+    "Non è quello che ti avevo chiesto, volevo i dati di [TOPIC].",
+    "Questo non è quello che volevo, voglio il sentiment di [TOPIC].",
+    "Scusami, ma stai confondendo [TOPIC] con un altro asset. Voglio i dati finanziari giusti.",
+    "Ti ho chiesto il sentiment, non i dati concreti.",
+    "Ti ho chiesto il sentiment, non i dati reali.",
+    "Ti ho chiesto info sul sentiment di [TOPIC], perché stai parlando di [TOPIC]?"
   ],
   "answers": [
     "Hai ragione. ",
@@ -1027,6 +1435,33 @@
     "Mi dispiace. Ho frainteso. "
   ],
     "cost": 0
+},
+  "trading_position_sizing": {
+  "questions": [
+    "Quanto capitale investo?"
+  ],
+  "answers": [
+    "Ti consiglio di investire non più di [CAPITALE]."
+  ],
+    "cost": 1
+},
+  "ai_invece": {
+  "questions": [
+    "E a proposito di [TOPIC]?",
+    "Invece per [TOPIC]?",
+    "E cosa mi dici di [TOPIC]?",
+    "E invece [TOPIC]?",
+    "E invece come sta andando [TOPIC]?",
+    "E invece com’è stata la giornata per [TOPIC]?",
+    "E invece per [TOPIC]?",
+    "E invece per quanto riguarda [TOPIC]?",
+    "E per [TOPIC] invece?",
+    "E per quanto riguarda [TOPIC]?"
+  ],
+  "answers": [
+    "Per [TOPIC] invece..."
+  ],
+    "cost": 1
 }
 }
 
