@@ -1936,7 +1936,7 @@
     "Oggi che giorno è?",
     "Che giorno della settimana è oggi?",
     "Sai che giorno è oggi?",
-    "A che giorno siamo scusa?",
+    "A che giorno siamo?",
     "Che data è oggi sul calendario?",
     "Mi ricordi che giorno è oggi?",
     "Che giorno preciso è oggi?",
@@ -1959,10 +1959,36 @@
     "Oggi sul calendario risulta il [TODAY] 📊.",
     "Ecco la data di oggi: [TODAY] 🌍.",
     "Da quel che mi risulta, oggi è il [TODAY] 👍.",
-    "L’aggiornamento dice che oggi è il [TODAY] 📰.",
+    "Il mio calendario dice che oggi è il [TODAY] 📰.",
     "Siamo al [TODAY] 🌟.",
     "La data precisa di oggi è il [TODAY] .",
     "La giornata odierna è il [TODAY] .",
+  ],
+    "cost": 1
+},
+      "yesterday": {
+  "questions": [
+    "Che giorno era ieri?",
+    "Sai dirmi che giorno era ieri?",
+    "Quale giorno era ieri?",
+    "Che data era ieri?",
+    "Mi dici la data di ieri?",
+    "Ieri che giorno era?",
+    "Secondo il calendario, che giorno era ieri?",
+    "Sai qual era la data di ieri?",
+    "Puoi dirmi che giorno è stato ieri?",
+    "Vorrei sapere che giorno era ieri",
+    "Quanti ne avevamo ieri?"
+  ],
+  "answers": [
+    "Ieri era il [YESTERDAY] 📅.",
+    "Il giorno di ieri corrisponde al [YESTERDAY].",
+    "La data di ieri era il [YESTERDAY].",
+    "Ieri, secondo il mio calendario, era il [YESTERDAY] 📆.",
+    "La giornata di ieri risale al [YESTERDAY] 🗓️.",
+    "Il giorno precedente a oggi è stato il [YESTERDAY] 🔙.",
+    "Il calendario segna che ieri era il [YESTERDAY].",
+    "La data registrata ieri è stata il [YESTERDAY]."
   ],
     "cost": 1
 }
