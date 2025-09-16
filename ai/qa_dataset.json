@@ -976,7 +976,8 @@
     "Su cosa investo?",
     "Su cosa investire?",
     "Su cosa metto?",
-    "Su cosa punto?"
+    "Su cosa punto?",
+    "Quali asset si stanno muovendo di più?"
   ],
   "answers": [
     "Secondo gli ultimi calcoli, l’asset più favorito è [TOP_GAINER], con probabilità di crescita pari a [SENTIMENT_TOP_GAINER] 📊.",
@@ -1001,21 +1002,21 @@
     "In questo momento, [TOP_GAINER] risulta il più probabile a salire, con [SENTIMENT_TOP_GAINER] di chance 😉.",
     "Secondo gli ultimi calcoli, l’asset più probabile a crescere è [TOP_GAINER], con probabilità stimata di [SENTIMENT_TOP_GAINER] 📊.",
     "Dalle analisi emerge che [TOP_GAINER] e [TOP_GAINER_2] hanno le probabilità più alte di crescita, rispettivamente [SENTIMENT_TOP_GAINER] e [SENTIMENT_TOP_GAINER_2].",
-    "Al momento i dati segnalano [TOP_GAINER], [TOP_GAINER_2] e [TOP_GAINER_3] come gli asset più favoriti, con [TOP_GAINER] al primo posto con [SENTIMENT_TOP_GAINER].",
+    "Al momento i dati segnalano [TOP_GAINER], [TOP_GAINER_2] e [TOP_GAINER_3] come gli asset più favoriti, con [TOP_GAINER] al primo posto con [SENTIMENT_TOP_GAINER]. 🔥",
     "Secondo i modelli probabilistici, [TOP_GAINER] è l’asset più promettente con [SENTIMENT_TOP_GAINER], seguito da [TOP_GAINER_2] che ha anche buone chance di crescita ([SENTIMENT_TOP_GAINER_2]).",
     "Le stime indicano che [TOP_GAINER], [TOP_GAINER_2] e [TOP_GAINER_3] sono i più favoriti, con [TOP_GAINER] che mostra la probabilità più alta di crescita ([SENTIMENT_TOP_GAINER]).",
     "Dall’analisi probabilistica emerge [TOP_GAINER] come primo asset favorito ([SENTIMENT_TOP_GAINER]), seguito da [TOP_GAINER_2] con [SENTIMENT_TOP_GAINER_2] e [TOP_GAINER_3] con [SENTIMENT_TOP_GAINER_3].",
     "Al momento i dati evidenziano [TOP_GAINER] come l’asset più probabile a crescere, con una probabilità stimata di [SENTIMENT_TOP_GAINER], mentre anche [TOP_GAINER_2] ha chance rilevanti ([SENTIMENT_TOP_GAINER_2]).",
-    "Secondo gli ultimi calcoli, gli asset più promettenti sono [TOP_GAINER], [TOP_GAINER_2] e [TOP_GAINER_3], con [TOP_GAINER] che guida con [SENTIMENT_TOP_GAINER].",
+    "Secondo gli ultimi calcoli, gli asset più promettenti sono [TOP_GAINER], [TOP_GAINER_2] e [TOP_GAINER_3], con [TOP_GAINER] che guida con [SENTIMENT_TOP_GAINER]. 🔝",
     "Le probabilità maggiori sono per [TOP_GAINER], con [SENTIMENT_TOP_GAINER]%, ma anche [TOP_GAINER_2] e [TOP_GAINER_3] mostrano buone possibilità di crescita.",
-    "L’analisi mette in evidenza [TOP_GAINER], [TOP_GAINER_2], [TOP_GAINER_3] e [TOP_GAINER_4] come i più favoriti, con [TOP_GAINER] in testa al [SENTIMENT_TOP_GAINER].",
+    "L’analisi mette in evidenza [TOP_GAINER], [TOP_GAINER_2], [TOP_GAINER_3] e [TOP_GAINER_4] come i più favoriti, con [TOP_GAINER] in testa al [SENTIMENT_TOP_GAINER]. 🔥",
     "I dati mostrano che [TOP_GAINER] e [TOP_GAINER_2] sono i principali candidati, con probabilità rispettive di [SENTIMENT_TOP_GAINER] e [SENTIMENT_TOP_GAINER_2].",
     "Gli asset più promettenti risultano [TOP_GAINER], [TOP_GAINER_2], [TOP_GAINER_3], [TOP_GAINER_4] e [TOP_GAINER_5], con [TOP_GAINER] che guida con [SENTIMENT_TOP_GAINER_1] e [TOP_GAINER_2] a seguire con [SENTIMENT_TOP_GAINER_2].",
     "Secondo i calcoli probabilistici, il più favorito è [TOP_GAINER] con [SENTIMENT_TOP_GAINER], seguito da [TOP_GAINER_2] e [TOP_GAINER_3] che hanno comunque buone chance.",
     "Attualmente i dati segnalano che [TOP_GAINER] è il più probabile a crescere ([SENTIMENT_TOP_GAINER]), mentre [TOP_GAINER_2] e [TOP_GAINER_3] restano altre opzioni interessanti.",
     "Le previsioni indicano che i più favoriti sono [TOP_GAINER], [TOP_GAINER_2] e [TOP_GAINER_3], con [TOP_GAINER] stimato a [SENTIMENT_TOP_GAINER].",
     "In questo momento, [TOP_GAINER] è l’asset con la probabilità più alta di crescita ([SENTIMENT_TOP_GAINER]), ma anche [TOP_GAINER_2] e [TOP_GAINER_3] mostrano potenziale.",
-    "Dall’analisi emergono cinque asset principali in questo momento: [TOP_GAINER], [TOP_GAINER_2], [TOP_GAINER_3], [TOP_GAINER_4] e [TOP_GAINER_5].",
+    "Dall’analisi emergono cinque asset principali in questo momento: [TOP_GAINER], [TOP_GAINER_2], [TOP_GAINER_3], [TOP_GAINER_4] e [TOP_GAINER_5]. 🔥",
     "I dati probabilistici segnalano [TOP_GAINER] al primo posto, seguito da [TOP_GAINER_2] e [TOP_GAINER_3] con chance inferiori ma comunque promettenti.",
     "Secondo i calcoli aggiornati, [TOP_GAINER] è favorito con [SENTIMENT_TOP_GAINER_1], mentre [TOP_GAINER_2] ha probabilità comunque interessanti.",
     "Le probabilità attuali segnalano [TOP_GAINER] e [TOP_GAINER_2] come gli asset con le chance più alte di crescere."
@@ -1989,6 +1990,48 @@
     "Il giorno precedente a oggi è stato il [YESTERDAY] 🔙.",
     "Il calendario segna che ieri era il [YESTERDAY].",
     "La data registrata ieri è stata il [YESTERDAY]."
+  ],
+    "cost": 1
+},
+        "main_movers": {
+  "questions": [
+    "Quali sono i main movers oggi?",
+    "Mi dici i probabili movers di oggi?",
+    "Chi si muoverà di più sul mercato oggi?",
+    "Mostrami i top gainers del giorno",
+    "Chi sono i top gainers del giorno?",
+    "[TOPIC] è un top gainer?",
+    "È un top gainer?",
+    "Chi saranno i leader di mercato oggi?",
+    "Mi fai vedere i principali top gainer?",
+    "Elencami i probabili top performer della giornata",
+    "Quali sono i top gainer di oggi?",
+    "Chi guiderà il mercato oggi?",
+    "È un top gainer quello che mi hai appena detto?",
+    "Questo asset è tra i principali top gainer?",
+    "Tra i top gainers c’è anche [ASSET]?",
+    "Puoi indicarmi i top gainer di oggi?",
+    "Mi dai la lista dei top gainers principali?",
+    "Chi saranno i principali attori sul mercato oggi?",
+    "Mostrami chi farà di più probabilmente oggi",
+    "Ci sono asset che spiccheranno oggi sul mercato?",
+    "Mi interessano i top gainers del giorno",
+    "Probabili top performers di oggi"
+  ],
+  "answers": [
+    "Ecco i top gainers di oggi:\n[TOP_GAINER] con [SENTIMENT_TOP_GAINER]\n[TOP_GAINER_2] con [SENTIMENT_TOP_GAINER_2]\n[TOP_GAINER_3] con [SENTIMENT_TOP_GAINER_3]\n[TOP_GAINER_4] con [SENTIMENT_TOP_GAINER_4]\n[TOP_GAINER_5] con [SENTIMENT_TOP_GAINER_5]",
+    
+    "I principali top gainers di oggi sono:\n[TOP_GAINER] ([SENTIMENT_TOP_GAINER])\n[TOP_GAINER_2] ([SENTIMENT_TOP_GAINER_2])\n[TOP_GAINER_3] ([SENTIMENT_TOP_GAINER_3])\n[TOP_GAINER_4] ([SENTIMENT_TOP_GAINER_4])\n[TOP_GAINER_5] ([SENTIMENT_TOP_GAINER_5])",
+    
+    "Ecco la lista dei probabili top performer:\n1. [TOP_GAINER] – probabilità di crescita [SENTIMENT_TOP_GAINER]\n2. [TOP_GAINER_2] – [SENTIMENT_TOP_GAINER_2]\n3. [TOP_GAINER_3] – [SENTIMENT_TOP_GAINER_3]\n4. [TOP_GAINER_4] – [SENTIMENT_TOP_GAINER_4]\n5. [TOP_GAINER_5] – [SENTIMENT_TOP_GAINER_5]",
+    
+    "I più probabili top performer:\n[TOP_GAINER]: [SENTIMENT_TOP_GAINER]\n[TOP_GAINER_2]: [SENTIMENT_TOP_GAINER_2]\n[TOP_GAINER_3]: [SENTIMENT_TOP_GAINER_3]\n[TOP_GAINER_4]: [SENTIMENT_TOP_GAINER_4]\n[TOP_GAINER_5]: [SENTIMENT_TOP_GAINER_5]",
+    
+    "Oggi i leader di mercato più probabili sono:\n[TOP_GAINER] ([SENTIMENT_TOP_GAINER])\n[TOP_GAINER_2] ([SENTIMENT_TOP_GAINER_2])\n[TOP_GAINER_3] ([SENTIMENT_TOP_GAINER_3])\n[TOP_GAINER_4] ([SENTIMENT_TOP_GAINER_4])\n[TOP_GAINER_5] ([SENTIMENT_TOP_GAINER_5])",
+    
+    "Lista dei principali top gainers di oggi:\n[TOP_GAINER] – [SENTIMENT_TOP_GAINER]\n[TOP_GAINER_2] – [SENTIMENT_TOP_GAINER_2]\n[TOP_GAINER_3] – [SENTIMENT_TOP_GAINER_3]\n[TOP_GAINER_4] – [SENTIMENT_TOP_GAINER_4]\n[TOP_GAINER_5] – [SENTIMENT_TOP_GAINER_5]",
+    
+    "Ecco gli asset che probabilmente si muoveranno di più:\n[TOP_GAINER] con probabilità [SENTIMENT_TOP_GAINER]\n[TOP_GAINER_2] con [SENTIMENT_TOP_GAINER_2]\n[TOP_GAINER_3] con [SENTIMENT_TOP_GAINER_3]\n[TOP_GAINER_4] con [SENTIMENT_TOP_GAINER_4]\n[TOP_GAINER_5] con [SENTIMENT_TOP_GAINER_5]"
   ],
     "cost": 1
 }
