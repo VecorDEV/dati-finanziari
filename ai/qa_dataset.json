@@ -1913,6 +1913,7 @@
   "questions": [
     "E a proposito di [TOPIC]?",
     "Invece per [TOPIC]?",
+    "Invece riguardo a [TOPIC]?",
     "E cosa mi dici di [TOPIC]?",
     "E invece [TOPIC]?",
     "E invece come sta andando [TOPIC]?",
@@ -1927,7 +1928,7 @@
   ],
     "cost": 1
 },
-    "today": {
+  "today": {
   "questions": [
     "Che giorno è oggi?",
     "Che data è oggi?",
@@ -1967,7 +1968,7 @@
   ],
     "cost": 1
 },
-      "yesterday": {
+  "yesterday": {
   "questions": [
     "Che giorno era ieri?",
     "Sai dirmi che giorno era ieri?",
@@ -1993,11 +1994,15 @@
   ],
     "cost": 1
 },
-      "top_gainers": {
+  "top_gainers": {
   "questions": [
     "Quali sono i main movers oggi?",
     "Mi dici i probabili movers di oggi?",
     "Chi si muoverà di più sul mercato oggi?",
+    "Chi crescerà di più prossimamente?",
+    "Chi aumenterà di più nei prossimi giorni?",
+    "Quali asset aumenteranno di più?",
+    "Quali asset ci sono tra i top gainers?",
     "Mostrami i top gainers del giorno",
     "Chi sono i top gainers del giorno?",
     "[TOPIC] è un top gainer?",
@@ -2019,15 +2024,55 @@
     "Probabili top performers di oggi"
   ],
   "answers": [
-    "Ecco i top gainers di oggi:\n\n[TOP_GAINER] con [SENTIMENT_TOP_GAINER]\n\n[TOP_GAINER_2] con [SENTIMENT_TOP_GAINER_2]\n\n[TOP_GAINER_3] con [SENTIMENT_TOP_GAINER_3]\n\n[TOP_GAINER_4] con [SENTIMENT_TOP_GAINER_4]\n\n[TOP_GAINER_5] con [SENTIMENT_TOP_GAINER_5]",
-    "I principali top gainers di oggi sono:\n\n[TOP_GAINER] ([SENTIMENT_TOP_GAINER])\n\n[TOP_GAINER_2] ([SENTIMENT_TOP_GAINER_2])\n\n[TOP_GAINER_3] ([SENTIMENT_TOP_GAINER_3])\n\n[TOP_GAINER_4] ([SENTIMENT_TOP_GAINER_4])\n\n[TOP_GAINER_5] ([SENTIMENT_TOP_GAINER_5])",
-    "Ecco la lista dei probabili top performer:\n\n1. [TOP_GAINER] – probabilità di crescita [SENTIMENT_TOP_GAINER]\n\n2. [TOP_GAINER_2] – [SENTIMENT_TOP_GAINER_2]\n\n3. [TOP_GAINER_3] – [SENTIMENT_TOP_GAINER_3]\n\n4. [TOP_GAINER_4] – [SENTIMENT_TOP_GAINER_4]\n\n5. [TOP_GAINER_5] – [SENTIMENT_TOP_GAINER_5]",
-    "I più probabili top performer:\n\n[TOP_GAINER]: [SENTIMENT_TOP_GAINER]\n\n[TOP_GAINER_2]: [SENTIMENT_TOP_GAINER_2]\n\n[TOP_GAINER_3]: [SENTIMENT_TOP_GAINER_3]\n\n[TOP_GAINER_4]: [SENTIMENT_TOP_GAINER_4]\n\n[TOP_GAINER_5]: [SENTIMENT_TOP_GAINER_5]",
-    "Oggi i leader di mercato più probabili sono:\n\n[TOP_GAINER] ([SENTIMENT_TOP_GAINER])\n\n[TOP_GAINER_2] ([SENTIMENT_TOP_GAINER_2])\n\n[TOP_GAINER_3] ([SENTIMENT_TOP_GAINER_3])\n\n[TOP_GAINER_4] ([SENTIMENT_TOP_GAINER_4])\n\n[TOP_GAINER_5] ([SENTIMENT_TOP_GAINER_5])",
-    "Lista dei principali top gainers di oggi:\n\n[TOP_GAINER] – [SENTIMENT_TOP_GAINER]\n\n[TOP_GAINER_2] – [SENTIMENT_TOP_GAINER_2]\n\n[TOP_GAINER_3] – [SENTIMENT_TOP_GAINER_3]\n\n[TOP_GAINER_4] – [SENTIMENT_TOP_GAINER_4]\n\n[TOP_GAINER_5] – [SENTIMENT_TOP_GAINER_5]",
-    "Ecco gli asset che probabilmente si muoveranno di più:\n\n[TOP_GAINER] con probabilità [SENTIMENT_TOP_GAINER]\n\n[TOP_GAINER_2] con [SENTIMENT_TOP_GAINER_2]\n\n[TOP_GAINER_3] con [SENTIMENT_TOP_GAINER_3]\n\n[TOP_GAINER_4] con [SENTIMENT_TOP_GAINER_4]\n\n[TOP_GAINER_5] con [SENTIMENT_TOP_GAINER_5]"
+    "Ecco i top gainers stimati per oggi:\n\n• [TOP_GAINER] con [SENTIMENT_TOP_GAINER]\n\n• [TOP_GAINER_2] con [SENTIMENT_TOP_GAINER_2]\n\n• [TOP_GAINER_3] con [SENTIMENT_TOP_GAINER_3]\n\n• [TOP_GAINER_4] con [SENTIMENT_TOP_GAINER_4]\n\n• [TOP_GAINER_5] con [SENTIMENT_TOP_GAINER_5]",
+    "I principali top gainers stimati oggi sono:\n\n• [TOP_GAINER] ([SENTIMENT_TOP_GAINER])\n\n• [TOP_GAINER_2] ([SENTIMENT_TOP_GAINER_2])\n\n• [TOP_GAINER_3] ([SENTIMENT_TOP_GAINER_3])\n\n• [TOP_GAINER_4] ([SENTIMENT_TOP_GAINER_4])\n\n• [TOP_GAINER_5] ([SENTIMENT_TOP_GAINER_5])",
+    "Ecco la lista dei probabili top performer:\n\n• [TOP_GAINER] – stima di crescita [SENTIMENT_TOP_GAINER]\n\n• [TOP_GAINER_2] – [SENTIMENT_TOP_GAINER_2]\n\n• [TOP_GAINER_3] – [SENTIMENT_TOP_GAINER_3]\n\n• [TOP_GAINER_4] – [SENTIMENT_TOP_GAINER_4]\n\n• [TOP_GAINER_5] – [SENTIMENT_TOP_GAINER_5]",
+    "I più probabili top performer stimati:\n\n• [TOP_GAINER]: [SENTIMENT_TOP_GAINER]\n\n• [TOP_GAINER_2]: [SENTIMENT_TOP_GAINER_2]\n\n• [TOP_GAINER_3]: [SENTIMENT_TOP_GAINER_3]\n\n• [TOP_GAINER_4]: [SENTIMENT_TOP_GAINER_4]\n\n• [TOP_GAINER_5]: [SENTIMENT_TOP_GAINER_5]",
+    "Oggi i leader di mercato più probabili sono stimati così:\n\n• [TOP_GAINER] ([SENTIMENT_TOP_GAINER])\n\n• [TOP_GAINER_2] ([SENTIMENT_TOP_GAINER_2])\n\n• [TOP_GAINER_3] ([SENTIMENT_TOP_GAINER_3])\n\n• [TOP_GAINER_4] ([SENTIMENT_TOP_GAINER_4])\n\n• [TOP_GAINER_5] ([SENTIMENT_TOP_GAINER_5])",
+    "Lista dei principali top gainers stimati per oggi:\n\n• [TOP_GAINER] – [SENTIMENT_TOP_GAINER]\n\n• [TOP_GAINER_2] – [SENTIMENT_TOP_GAINER_2]\n\n• [TOP_GAINER_3] – [SENTIMENT_TOP_GAINER_3]\n\n• [TOP_GAINER_4] – [SENTIMENT_TOP_GAINER_4]\n\n• [TOP_GAINER_5] – [SENTIMENT_TOP_GAINER_5]",
+    "Ecco gli asset che probabilmente si muoveranno di più secondo le stime:\n\n• [TOP_GAINER] con probabilità [SENTIMENT_TOP_GAINER]\n\n• [TOP_GAINER_2] con [SENTIMENT_TOP_GAINER_2]\n\n• [TOP_GAINER_3] con [SENTIMENT_TOP_GAINER_3]\n\n• [TOP_GAINER_4] con [SENTIMENT_TOP_GAINER_4]\n\n• [TOP_GAINER_5] con [SENTIMENT_TOP_GAINER_5]"
   ],
-    "cost": 1
+  "cost": 0
+},
+  "top_losers": {
+  "questions": [
+    "Quali sono i principali perdenti oggi?",
+    "Mi dici i probabili losers di oggi?",
+    "Chi perderà di più sul mercato oggi?",
+    "Chi scenderà di più prossimamente?",
+    "Chi diminuirà di più nei prossimi giorni?",
+    "Quali asset diminuiranno di più?",
+    "Quali asset ci sono tra i top losers?",
+    "Mostrami i top losers del giorno",
+    "Chi sono i top losers del giorno?",
+    "[TOPIC] è un top loser?",
+    "È un top loser?",
+    "Chi saranno i peggiori performer oggi?",
+    "Mi fai vedere i principali top loser?",
+    "Elencami i probabili peggiori della giornata",
+    "Quali sono i top losers di oggi?",
+    "Chi guiderà le perdite oggi?",
+    "È un top loser quello che mi hai appena detto?",
+    "Questo asset è tra i principali top loser?",
+    "Tra i top losers c’è anche [ASSET]?",
+    "Puoi indicarmi i top loser di oggi?",
+    "Mi dai la lista dei top losers principali?",
+    "Chi saranno i principali asset in calo oggi?",
+    "Mostrami chi perderà di più probabilmente oggi",
+    "Ci sono asset che caleranno di più oggi sul mercato?",
+    "Mi interessano i top losers del giorno",
+    "Probabili peggiori performer di oggi"
+  ],
+  "answers": [
+    "Ecco i top losers stimati per oggi:\n\n• [TOP_LOSER] con [SENTIMENT_TOP_LOSER]\n\n• [TOP_LOSER_2] con [SENTIMENT_TOP_LOSER_2]\n\n• [TOP_LOSER_3] con [SENTIMENT_TOP_LOSER_3]\n\n• [TOP_LOSER_4] con [SENTIMENT_TOP_LOSER_4]\n\n• [TOP_LOSER_5] con [SENTIMENT_TOP_LOSER_5]",
+    "I principali top losers stimati oggi sono:\n\n• [TOP_LOSER] ([SENTIMENT_TOP_LOSER])\n\n• [TOP_LOSER_2] ([SENTIMENT_TOP_LOSER_2])\n\n• [TOP_LOSER_3] ([SENTIMENT_TOP_LOSER_3])\n\n• [TOP_LOSER_4] ([SENTIMENT_TOP_LOSER_4])\n\n• [TOP_LOSER_5] ([SENTIMENT_TOP_LOSER_5])",
+    "Ecco la lista dei probabili peggiori performer:\n\n• [TOP_LOSER] – stima di calo [SENTIMENT_TOP_LOSER]\n\n• [TOP_LOSER_2] – [SENTIMENT_TOP_LOSER_2]\n\n• [TOP_LOSER_3] – [SENTIMENT_TOP_LOSER_3]\n\n• [TOP_LOSER_4] – [SENTIMENT_TOP_LOSER_4]\n\n• [TOP_LOSER_5] – [SENTIMENT_TOP_LOSER_5]",
+    "I più probabili peggiori performer stimati:\n\n• [TOP_LOSER]: [SENTIMENT_TOP_LOSER]\n\n• [TOP_LOSER_2]: [SENTIMENT_TOP_LOSER_2]\n\n• [TOP_LOSER_3]: [SENTIMENT_TOP_LOSER_3]\n\n• [TOP_LOSER_4]: [SENTIMENT_TOP_LOSER_4]\n\n• [TOP_LOSER_5]: [SENTIMENT_TOP_LOSER_5]",
+    "Oggi i probabili asset in calo sono stimati così:\n\n• [TOP_LOSER] ([SENTIMENT_TOP_LOSER])\n\n• [TOP_LOSER_2] ([SENTIMENT_TOP_LOSER_2])\n\n• [TOP_LOSER_3] ([SENTIMENT_TOP_LOSER_3])\n\n• [TOP_LOSER_4] ([SENTIMENT_TOP_LOSER_4])\n\n• [TOP_LOSER_5] ([SENTIMENT_TOP_LOSER_5])",
+    "Lista dei principali top losers stimati per oggi:\n\n• [TOP_LOSER] – [SENTIMENT_TOP_LOSER]\n\n• [TOP_LOSER_2] – [SENTIMENT_TOP_LOSER_2]\n\n• [TOP_LOSER_3] – [SENTIMENT_TOP_LOSER_3]\n\n• [TOP_LOSER_4] – [SENTIMENT_TOP_LOSER_4]\n\n• [TOP_LOSER_5] – [SENTIMENT_TOP_LOSER_5]",
+    "Ecco gli asset che probabilmente perderanno di più secondo le stime:\n\n• [TOP_LOSER] con probabilità [SENTIMENT_TOP_LOSER]\n\n• [TOP_LOSER_2] con [SENTIMENT_TOP_LOSER_2]\n\n• [TOP_LOSER_3] con [SENTIMENT_TOP_LOSER_3]\n\n• [TOP_LOSER_4] con [SENTIMENT_TOP_LOSER_4]\n\n• [TOP_LOSER_5] con [SENTIMENT_TOP_LOSER_5]"
+  ],
+  "cost": 0
 }
 }
 
