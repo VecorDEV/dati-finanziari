@@ -1109,7 +1109,7 @@
     "cost": 2
 },
   "ai_fallback": {
-  "questions": ["non capisco la domanda"],
+  "questions": [""],
   "answers": [
     "Mi dispiace, non sono sicuro di aver capito. 😅 Puoi riformulare la domanda in modo più chiaro?",
     "Non riesco a interpretare bene la tua richiesta. Prova a spiegarmela con altre parole.",
@@ -1781,7 +1781,7 @@
 },
   "ai_sorry": {
   "questions": [
-    "Non intendevo questo, ma quello.",
+    "Non intendevo questo",
     "Aspetta, stai parlando di [TOPIC], volevo dati finanziari su [TOPIC].",
     "Attenzione, stai rispondendo a un altro asset, volevo i dati di [TOPIC].",
     "Ehi, mi riferivo al sentiment di [TOPIC], non a [ALTRO TOPIC].",
