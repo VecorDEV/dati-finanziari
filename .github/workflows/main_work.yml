@@ -47,8 +47,10 @@ jobs:
           # spaCy aggiornato a una versione compatibile con Python 3.10
           pip install --no-cache-dir --prefer-binary spacy==3.7.2
 
-          # Modello linguistico spaCy con versione specifica corretta
-          python -m spacy download en_core_web_sm --version 3.7.1
+      - name: Download spaCy model
+        run: |
+          # VERSIONE SPECIFICA: usa il trattino "-" e non "=="
+          python -m spacy download en_core_web_sm-3.7.1
 
       - name: Debug versions
         run: |
