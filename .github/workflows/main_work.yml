@@ -47,8 +47,8 @@ jobs:
           # spaCy aggiornato a una versione con wheel per Python 3.10
           pip install --no-cache-dir --prefer-binary spacy==3.7.2
 
-          # Modello linguistico
-          python -m spacy download en_core_web_sm
+          # Modello linguistico con versione specifica per evitare 404
+          python -m spacy download en_core_web_sm==3.7.1
 
       - name: Debug versions
         run: |
