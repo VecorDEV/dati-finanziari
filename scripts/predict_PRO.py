@@ -1599,9 +1599,7 @@ def get_sentiment_for_all_symbols(symbol_list):
     percentuali_combine = {}
     all_news_entries = []
     crescita_settimanale = {}
-    indicator_data = {}
-    fundamental_data = {}
-    dati_storici_all = {}  # <-- Salvataggio dati storici
+    dati_storici_all = {}   # 🔹 nuovo: raccolta dati storici di tutti gli asset
 
     for symbol, adjusted_symbol in zip(symbol_list, symbol_list_for_yfinance):
         news_data = get_stock_news(symbol)  # Ottieni le notizie divise per periodo
@@ -1617,16 +1615,17 @@ def get_sentiment_for_all_symbols(symbol_list):
             "7_days": sentiment_7_days
         }
 
-        tabella_indicatori = None  # Inizializza la variabile tabella_indicatori
+        tabella_indicatori = None  
+        dati_storici_html = None   # 🔹 fix: inizializzo così non dà errore se fallisce il try
+        tabella_fondamentali = None
+        percentuale = None
+
         try:
             ticker = str(adjusted_symbol).strip().upper()
             data = yf.download(ticker, period="3mo", auto_adjust=False, progress=False)
 
             if data.empty:
                 raise ValueError(f"Nessun dato disponibile per {symbol} ({adjusted_symbol})")
-
-            # Salva i dati storici nell'output
-            dati_storici_all[symbol] = data.copy()
 
             if isinstance(data.columns, pd.MultiIndex):
                 try:
@@ -1635,17 +1634,31 @@ def get_sentiment_for_all_symbols(symbol_list):
                     raise ValueError(f"Ticker {ticker} non trovato nel MultiIndex: {data.columns}")
 
             close = data['Close']
-            high = data['High']
-            low = data['Low']
+            high  = data['High']
+            low   = data['Low']
+
+            try:
+                ultimo_close = float(close.iloc[-1])
+                print(f"DEBUG: {symbol} ({adjusted_symbol}) → Ultimo Close: {ultimo_close}")
+            except Exception as e:
+                print(f"DEBUG ERROR: impossibile ricavare close per {symbol} → {e}")
+
+            # 🔹 salvo i dati storici completi in memoria
+            dati_storici_all[symbol] = data.copy()
 
             # Crescita settimanale
             from datetime import timedelta
-            latest_date = close.index[-1]
-            date_7_days_ago = latest_date - timedelta(days=7)
-            close_week_ago = close[close.index <= date_7_days_ago].iloc[-1]
-            close_now = close.loc[latest_date]
-            growth_weekly = ((close_now - close_week_ago) / close_week_ago) * 100
-            crescita_settimanale[symbol] = round(growth_weekly, 2)
+            try:
+                latest_date = close.index[-1]
+                date_7_days_ago = latest_date - timedelta(days=7)
+                close_week_ago = close[close.index <= date_7_days_ago].iloc[-1]
+                close_now = close.loc[latest_date]
+                growth_weekly = ((close_now - close_week_ago) / close_week_ago) * 100
+                crescita_settimanale[symbol] = round(growth_weekly, 2)
+                print(f"DEBUG crescita {symbol}: oggi={close_now}, 7gg fa={close_week_ago}, crescita={growth_weekly:.2f}%")
+            except Exception as e:
+                print(f"Errore nel calcolo crescita settimanale per {symbol}: {e}")
+                crescita_settimanale[symbol] = None
 
             # Indicatori tecnici
             rsi = RSIIndicator(close).rsi().iloc[-1]
@@ -1658,6 +1671,7 @@ def get_sentiment_for_all_symbols(symbol_list):
             ema_10 = EMAIndicator(close, window=10).ema_indicator().iloc[-1]
             cci = CCIIndicator(high, low, close).cci().iloc[-1]
             will_r = WilliamsRIndicator(high, low, close).williams_r().iloc[-1]
+
             bb = BollingerBands(close)
             bb_upper = bb.bollinger_hband().iloc[-1]
             bb_lower = bb.bollinger_lband().iloc[-1]
@@ -1679,17 +1693,20 @@ def get_sentiment_for_all_symbols(symbol_list):
 
             tabella_indicatori = pd.DataFrame(indicators.items(), columns=["Indicatore", "Valore"]).to_html(index=False, border=0)
             percentuale = calcola_punteggio(indicators, close.iloc[-1], bb_upper, bb_lower)
-            percentuali_tecniche[symbol] = percentuale
-            indicator_data[symbol] = indicators
 
-            # Dati fondamentali
             ticker_obj = yf.Ticker(adjusted_symbol)
-            info = ticker_obj.info or {}
+            try:
+                info = ticker_obj.info or {}
+            except Exception as e:
+                print(f"Errore nel recupero dati fondamentali per {symbol}: {e}")
+                info = {}
+
             def safe_value(key):
                 value = info.get(key)
                 if isinstance(value, (int, float)):
                     return round(value, 4)
                 return "N/A"
+
             fondamentali = {
                 "Trailing P/E": safe_value("trailingPE"),
                 "Forward P/E": safe_value("forwardPE"),
@@ -1699,15 +1716,80 @@ def get_sentiment_for_all_symbols(symbol_list):
                 "Debt to Equity": safe_value("debtToEquity"),
                 "Dividend Yield": safe_value("dividendYield")
             }
+
+            tabella_fondamentali = pd.DataFrame(
+                fondamentali.items(), columns=["Fundamentale", "Valore"]
+            ).to_html(index=False, border=0)
+
+            percentuali_tecniche[symbol] = percentuale
+
+            # Tabella ultimi 90 giorni
+            dati_storici = data.tail(90).copy()
+            dati_storici['Date'] = dati_storici.index.strftime('%Y-%m-%d')
+            dati_storici_html = dati_storici[['Date', 'Close', 'High', 'Low', 'Open', 'Volume']].to_html(index=False, border=1)
+
+            indicator_data[symbol] = indicators
             fundamental_data[symbol] = fondamentali
-            tabella_fondamentali = pd.DataFrame(fondamentali.items(), columns=["Fundamentale", "Valore"]).to_html(index=False, border=0)
 
         except Exception as e:
             print(f"Errore durante l'analisi di {symbol}: {e}")
 
-        # (Resto codice HTML e salvataggio repo rimane uguale...)
+        # HTML identico a prima
+        file_path = f"results/{symbol.upper()}_RESULT.html"
+        html_content = [
+            f"<html><head><title>Previsione per {symbol}</title></head><body>",
+            f"<h1>Previsione per: ({symbol})</h1>",
+            "<table border='1'><tr><th>Probability</th></tr>",
+            f"<tr><td>{sentiment_90_days * 100}</td></tr>",
+            "</table>",
+            "<table border='1'><tr><th>Probability30</th></tr>",
+            f"<tr><td>{sentiment_30_days * 100}</td></tr>",
+            "</table>",
+            "<table border='1'><tr><th>Probability7</th></tr>",
+            f"<tr><td>{sentiment_7_days * 100}</td></tr>",
+            "</table>",
+            "<hr>",
+            "<h2>Indicatori Tecnici</h2>",
+        ]
 
-    # Media ponderata sentiment + tecnica
+        if percentuale is not None:
+            html_content.append(f"<p><strong>Probabilità calcolata sugli indicatori tecnici:</strong> {percentuale}%</p>")
+        else:
+            html_content.append("<p><strong>Impossibile calcolare la probabilità sugli indicatori tecnici.</strong></p>")
+
+        if tabella_indicatori:
+            html_content.append(tabella_indicatori)
+        else:
+            html_content.append("<p>No technical indicators available.</p>")
+
+        html_content.append("<h2>Dati Fondamentali</h2>")
+        if tabella_fondamentali:
+            html_content.append(tabella_fondamentali)
+        else:
+            html_content.append("<p>Nessun dato fondamentale disponibile.</p>")
+
+        if dati_storici_html:
+            html_content += [
+                "<h2>Dati Storici (ultimi 90 giorni)</h2>",
+                dati_storici_html,
+                "</body></html>"
+            ]
+        else:
+            html_content.append("<p>No historical data available.</p>")
+
+        html_content.append("</body></html>")
+
+        try:
+            contents = repo.get_contents(file_path)
+            repo.update_file(contents.path, f"Updated probability for {symbol}", "\n".join(html_content), contents.sha)
+        except GithubException:
+            repo.create_file(file_path, f"Created probability for {symbol}", "\n".join(html_content))
+
+        for title, news_date, link in news_data["last_90_days"]:
+            title_sentiment = calculate_sentiment([(title, news_date)])
+            all_news_entries.append((symbol, title, title_sentiment, link))
+
+    # Media ponderata (uguale)
     w7, w30, w90 = 0.5, 0.3, 0.2
     for symbol in sentiment_results:
         if symbol in percentuali_tecniche:
@@ -1716,11 +1798,12 @@ def get_sentiment_for_all_symbols(symbol_list):
             sentiment_90 = sentiment_results[symbol]["90_days"] * 100
             sentiment_combinato = (w7 * sentiment_7) + (w30 * sentiment_30) + (w90 * sentiment_90)
             tecnica = percentuali_tecniche[symbol]
-            percentuali_combine[symbol] = (sentiment_combinato * 0.6) + (tecnica * 0.4)
+            combinata = (sentiment_combinato * 0.6) + (tecnica * 0.4)
+            percentuali_combine[symbol] = combinata
 
-    # RETURN: aggiunti i dati storici
-    return sentiment_results, percentuali_combine, all_news_entries, indicator_data, fundamental_data, crescita_settimanale, dati_storici_all
-    
+    # 🔹 aggiunto dati_storici_all al return
+    return (sentiment_results, percentuali_combine, all_news_entries, 
+            indicator_data, fundamental_data, crescita_settimanale, dati_storici_all)
     
 
 
