@@ -1610,8 +1610,8 @@ def get_sentiment_for_all_symbols(symbol_list, symbol_list_for_yfinance, repo):
     for symbol, adjusted_symbol in zip(symbol_list, symbol_list_for_yfinance):
         try:
             data = yf.download(str(adjusted_symbol).strip().upper(), period="3mo", auto_adjust=False, progress=False)
-            if data.empty:
-                print(f"[DOWNLOAD] ATTENZIONE: nessun dato per {symbol} ({adjusted_symbol})")
+            if data.empty or len(data) < 2:  # serve almeno 2 chiusure per pct_change
+                print(f"[DOWNLOAD] ATTENZIONE: dati insufficienti per {symbol} ({adjusted_symbol})")
                 continue
             dati_storici_all[symbol] = data
             print(f"[DOWNLOAD] Dati scaricati per {symbol}")
@@ -1622,23 +1622,27 @@ def get_sentiment_for_all_symbols(symbol_list, symbol_list_for_yfinance, repo):
     # 2) CALCOLO CORRELAZIONI MASSIME
     # ───────────────────────────────
     print("[CORREL] Calcolo correlazioni massime tra gli asset...")
-    returns = pd.DataFrame({s: dati_storici_all[s]['Close'].pct_change() for s in dati_storici_all}).dropna()
-    lagged_results = {}
-    for asset1 in returns.columns:
-        best_corr = 0
-        best_lag = 0
-        best_asset = None
-        for asset2 in returns.columns:
-            if asset1 == asset2:
-                continue
-            for lag in range(6):  # lag 0..5 giorni
-                corr = returns[asset1].corr(returns[asset2].shift(lag))
-                if abs(corr) > abs(best_corr):
-                    best_corr = corr
-                    best_lag = lag
-                    best_asset = asset2
-        lagged_results[asset1] = {"asset": best_asset, "corr": best_corr, "lag": best_lag}
-    print("[CORREL] Correlazioni calcolate.")
+    if dati_storici_all:
+        returns = pd.DataFrame({s: dati_storici_all[s]['Close'].pct_change() for s in dati_storici_all}).dropna()
+        lagged_results = {}
+        for asset1 in returns.columns:
+            best_corr = 0
+            best_lag = 0
+            best_asset = None
+            for asset2 in returns.columns:
+                if asset1 == asset2:
+                    continue
+                for lag in range(6):
+                    corr = returns[asset1].corr(returns[asset2].shift(lag))
+                    if abs(corr) > abs(best_corr):
+                        best_corr = corr
+                        best_lag = lag
+                        best_asset = asset2
+            lagged_results[asset1] = {"asset": best_asset, "corr": best_corr, "lag": best_lag}
+        print("[CORREL] Correlazioni calcolate.")
+    else:
+        lagged_results = {}
+        print("[CORREL] Nessun dato sufficiente per calcolare correlazioni.")
 
     # ───────────────────────────────
     # 3) CICLO ASSET PER ASSET
@@ -1736,7 +1740,7 @@ def get_sentiment_for_all_symbols(symbol_list, symbol_list_for_yfinance, repo):
             dati_storici_html['Date'] = dati_storici_html.index.strftime('%Y-%m-%d')
             dati_storici_html = dati_storici_html[['Date','Close','High','Low','Open','Volume']].to_html(index=False, border=1)
 
-            # --- GENERA FILE HTML (struttura identica al tuo originale) ---
+            # --- GENERA FILE HTML ---
             file_path = f"results/{symbol.upper()}_RESULT.html"
             html_content = [
                 f"<html><head><title>Previsione per {symbol}</title></head><body>",
@@ -1757,10 +1761,7 @@ def get_sentiment_for_all_symbols(symbol_list, symbol_list_for_yfinance, repo):
                 html_content.append(f"<p><strong>Probabilità calcolata sugli indicatori tecnici:</strong> {percentuale}%</p>")
             else:
                 html_content.append("<p><strong>Impossibile calcolare la probabilità sugli indicatori tecnici.</strong></p>")
-            if tabella_indicatori:
-                html_content.append(tabella_indicatori)
-            else:
-                html_content.append("<p>No technical indicators available.</p>")
+            html_content.append(tabella_indicatori)
 
             # --- SEZIONE CORRELAZIONI ---
             asset_corr = lagged_results.get(symbol)
@@ -1772,10 +1773,7 @@ def get_sentiment_for_all_symbols(symbol_list, symbol_list_for_yfinance, repo):
 
             # --- DATI FONDAMENTALI ---
             html_content.append("<h2>Dati Fondamentali</h2>")
-            if tabella_fondamentali:
-                html_content.append(tabella_fondamentali)
-            else:
-                html_content.append("<p>Nessun dato fondamentale disponibile.</p>")
+            html_content.append(tabella_fondamentali)
 
             # --- DATI STORICI ---
             html_content += [
