@@ -1603,11 +1603,24 @@ def get_sentiment_for_all_symbols(symbol_list, symbol_list_for_yfinance, repo):
     fundamental_data = {}
     dati_storici_all = {}
 
-    # --- 1) Recupero dati e calcoli per ciascun asset ---
+    # --- 1) DOWNLOAD BATCH DI TUTTI I DATI YFINANCE ---
+    try:
+        data_all = yf.download(
+            symbol_list_for_yfinance,
+            period="3mo",
+            group_by='ticker',
+            auto_adjust=False,
+            progress=False
+        )
+    except Exception as e:
+        print(f"Errore nel download batch: {e}")
+        return
+
+    # --- 2) CALCOLI PER OGNI ASSET ---
     for symbol, adjusted_symbol in zip(symbol_list, symbol_list_for_yfinance):
         try:
             # --- NEWS E SENTIMENT ---
-            news_data = get_stock_news(symbol)  # La tua funzione
+            news_data = get_stock_news(symbol)
             sentiment_90_days = calculate_sentiment(news_data["last_90_days"])
             sentiment_30_days = calculate_sentiment(news_data["last_30_days"])
             sentiment_7_days = calculate_sentiment(news_data["last_7_days"])
@@ -1617,14 +1630,10 @@ def get_sentiment_for_all_symbols(symbol_list, symbol_list_for_yfinance, repo):
                 "7_days": sentiment_7_days
             }
 
-            # --- DATI STORICI YFINANCE ---
-            ticker = str(adjusted_symbol).strip().upper()
-            data = yf.download(ticker, period="3mo", auto_adjust=False, progress=False)
-            if data.empty:
-                raise ValueError(f"Nessun dato disponibile per {symbol} ({adjusted_symbol})")
+            # --- DATI STORICI ---
+            data = data_all[symbol]
             if isinstance(data.columns, pd.MultiIndex):
-                data = data.xs(ticker, axis=1, level=1)
-            
+                data = data.xs(symbol, axis=1, level=1)
             close = data['Close']
             high = data['High']
             low = data['Low']
@@ -1641,7 +1650,6 @@ def get_sentiment_for_all_symbols(symbol_list, symbol_list_for_yfinance, repo):
             close_now = close.loc[latest_date]
             growth_weekly = ((close_now - close_week_ago) / close_week_ago) * 100
             crescita_settimanale[symbol] = round(growth_weekly, 2)
-            print(f"DEBUG crescita {symbol}: oggi={close_now}, 7gg fa={close_week_ago}, crescita={growth_weekly:.2f}%")
 
             # --- INDICATORI TECNICI ---
             rsi = RSIIndicator(close).rsi().iloc[-1]
@@ -1698,7 +1706,7 @@ def get_sentiment_for_all_symbols(symbol_list, symbol_list_for_yfinance, repo):
             fundamental_data[symbol] = fondamentali
             tabella_fondamentali = pd.DataFrame(fondamentali.items(), columns=["Fundamentale", "Valore"]).to_html(index=False, border=0)
 
-            # --- DATI STORICI HTML COMPLETI ---
+            # --- DATI STORICI HTML ---
             dati_storici_html = dati_storici_all[symbol][['Open','High','Low','Close','Volume']].copy()
             dati_storici_html['Date'] = dati_storici_html.index.strftime('%Y-%m-%d')
             dati_storici_html = dati_storici_html[['Date','Open','High','Low','Close','Volume']].to_html(index=False, border=1)
@@ -1712,46 +1720,33 @@ def get_sentiment_for_all_symbols(symbol_list, symbol_list_for_yfinance, repo):
             print(f"Errore durante l'analisi di {symbol}: {e}")
             continue
 
-    # --- 2) CALCOLO CORRELAZIONI MASSIME CON LAG ---
+    # --- 3) CALCOLO CORRELAZIONI MASSIME CON LAG (VERSIONE VELOCE) ---
     def find_max_lagged_correlation(all_close, max_lag=5):
-        # 1. Calcola i rendimenti
         returns = pd.DataFrame({sym: all_close[sym]['Close'] for sym in all_close}).pct_change().dropna()
-    
-        # 2. Prepara struttura per salvare i risultati
         lagged_results = {}
-    
-        # 3. Loop su ciascun asset (outer loop) - solo 1 dimensione
         for asset1 in returns.columns:
             best_corr = 0
             best_lag = 0
             best_asset = None
-    
-            # 4. Loop sugli altri asset (vectorizzato)
             for asset2 in returns.columns:
                 if asset1 == asset2:
                     continue
-    
-                # Crea tutte le versioni laggate in un colpo solo
-                shifted_matrix = pd.concat([returns[asset2].shift(lag) for lag in range(max_lag + 1)], axis=1)
-                shifted_matrix.columns = range(max_lag + 1)
-    
-                # Calcola correlazioni con asset1 per tutti i lag contemporaneamente
+                # Lag vectorizzato
+                shifted_matrix = pd.concat([returns[asset2].shift(lag) for lag in range(max_lag+1)], axis=1)
+                shifted_matrix.columns = range(max_lag+1)
                 corrs = shifted_matrix.apply(lambda x: returns[asset1].corr(x))
-    
-                # Trova il lag con correlazione massima assoluta
                 lag_idx = corrs.abs().idxmax()
                 corr_val = corrs[lag_idx]
-    
                 if abs(corr_val) > abs(best_corr):
                     best_corr = corr_val
                     best_lag = lag_idx
                     best_asset = asset2
-    
             lagged_results[asset1] = {"asset": best_asset, "corr": best_corr, "lag": best_lag}
-    
         return lagged_results
 
-    # --- 3) COMBINA SENTIMENT + TECNICA ---
+    lagged_results = find_max_lagged_correlation(dati_storici_all, max_lag=5)
+
+    # --- 4) COMBINA SENTIMENT + TECNICA ---
     w7, w30, w90 = 0.5, 0.3, 0.2
     for symbol in sentiment_results:
         sentiment_7 = sentiment_results[symbol]["7_days"] * 100
@@ -1761,16 +1756,14 @@ def get_sentiment_for_all_symbols(symbol_list, symbol_list_for_yfinance, repo):
         tecnica = percentuali_tecniche.get(symbol, 0)
         percentuali_combine[symbol] = (sentiment_combinato * 0.6) + (tecnica * 0.4)
 
-    # --- 4) GENERA FILE HTML PER OGNI ASSET ---
+    # --- 5) GENERA FILE HTML PER OGNI ASSET ---
     for symbol in symbol_list:
         html_content = []
 
-        # Titolo
         html_content.append(f"<h1>Previsione per: {symbol}</h1>")
 
         # Sentiment
-        html_content.append("<h2>Sentiment</h2>")
-        html_content.append("<ul>")
+        html_content.append("<h2>Sentiment</h2><ul>")
         html_content.append(f"<li>7 giorni: {sentiment_results[symbol]['7_days']*100:.2f}%</li>")
         html_content.append(f"<li>30 giorni: {sentiment_results[symbol]['30_days']*100:.2f}%</li>")
         html_content.append(f"<li>90 giorni: {sentiment_results[symbol]['90_days']*100:.2f}%</li>")
@@ -1797,14 +1790,13 @@ def get_sentiment_for_all_symbols(symbol_list, symbol_list_for_yfinance, repo):
                 f"{asset_corr['corr']:.2f} (lag {asset_corr['lag']} giorni)</p>"
             )
 
-        # Dati storici completi
+        # Dati storici
         html_content.append("<h2>Dati Storici (ultimi 90 giorni)</h2>")
-        html_content.append(dati_storici_html)
+        html_content.append(dati_storici_all[symbol][['Open','High','Low','Close','Volume']].to_html(index=False, border=1))
 
         # Salva o aggiorna su repo
         file_path = f"results/{symbol.upper()}_RESULT.html"
         html_str = "<html><body>" + "\n".join(html_content) + "</body></html>"
-
         try:
             contents = repo.get_contents(file_path)
             repo.update_file(contents.path, f"Aggiornamento dati per {symbol}", html_str, contents.sha)
@@ -1812,8 +1804,6 @@ def get_sentiment_for_all_symbols(symbol_list, symbol_list_for_yfinance, repo):
             repo.create_file(file_path, f"Creazione file per {symbol}", html_str)
 
     return sentiment_results, percentuali_combine, all_news_entries, indicator_data, fundamental_data, crescita_settimanale, lagged_results
-
-
 
 
 
