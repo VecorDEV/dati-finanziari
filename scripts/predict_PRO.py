@@ -1714,26 +1714,42 @@ def get_sentiment_for_all_symbols(symbol_list, symbol_list_for_yfinance, repo):
 
     # --- 2) CALCOLO CORRELAZIONI MASSIME CON LAG ---
     def find_max_lagged_correlation(all_close, max_lag=5):
+        # 1. Calcola i rendimenti
         returns = pd.DataFrame({sym: all_close[sym]['Close'] for sym in all_close}).pct_change().dropna()
+    
+        # 2. Prepara struttura per salvare i risultati
         lagged_results = {}
+    
+        # 3. Loop su ciascun asset (outer loop) - solo 1 dimensione
         for asset1 in returns.columns:
             best_corr = 0
             best_lag = 0
             best_asset = None
+    
+            # 4. Loop sugli altri asset (vectorizzato)
             for asset2 in returns.columns:
                 if asset1 == asset2:
                     continue
-                for lag in range(0, max_lag + 1):
-                    shifted = returns[asset2].shift(lag)
-                    corr = returns[asset1].corr(shifted)
-                    if pd.notna(corr) and abs(corr) > abs(best_corr):
-                        best_corr = corr
-                        best_lag = lag
-                        best_asset = asset2
+    
+                # Crea tutte le versioni laggate in un colpo solo
+                shifted_matrix = pd.concat([returns[asset2].shift(lag) for lag in range(max_lag + 1)], axis=1)
+                shifted_matrix.columns = range(max_lag + 1)
+    
+                # Calcola correlazioni con asset1 per tutti i lag contemporaneamente
+                corrs = shifted_matrix.apply(lambda x: returns[asset1].corr(x))
+    
+                # Trova il lag con correlazione massima assoluta
+                lag_idx = corrs.abs().idxmax()
+                corr_val = corrs[lag_idx]
+    
+                if abs(corr_val) > abs(best_corr):
+                    best_corr = corr_val
+                    best_lag = lag_idx
+                    best_asset = asset2
+    
             lagged_results[asset1] = {"asset": best_asset, "corr": best_corr, "lag": best_lag}
+    
         return lagged_results
-
-    lagged_results = find_max_lagged_correlation(dati_storici_all, max_lag=5)
 
     # --- 3) COMBINA SENTIMENT + TECNICA ---
     w7, w30, w90 = 0.5, 0.3, 0.2
