@@ -1622,7 +1622,7 @@ def get_sentiment_for_all_symbols(symbol_list):
 
         try:
             ticker = str(adjusted_symbol).strip().upper()
-            data = yf.download(ticker, period="3mo", auto_adjust=False, progress=False)
+            data = yf.download(ticker, period="6mo", auto_adjust=False, progress=False)
 
             if data.empty:
                 raise ValueError(f"Nessun dato disponibile per {symbol} ({adjusted_symbol})")
@@ -2780,14 +2780,15 @@ except GithubException:
 
 
 
-def calcola_correlazioni(dati_storici_all, max_lag=5):
+def calcola_correlazioni(dati_storici_all, max_lag=5, min_valid_points=10):
     """
     Calcola per ogni asset la correlazione massima con gli altri asset
-    considerando lag da 0 fino a max_lag giorni.
+    considerando lag da 1 fino a max_lag giorni.
     
     Args:
         dati_storici_all (dict): dizionario {symbol: DataFrame storico}
         max_lag (int): massimo numero di giorni di lag da considerare
+        min_valid_points (int): numero minimo di punti validi per calcolare la correlazione
 
     Returns:
         dict: {asset: {"asset": asset_correlato, "corr": valore_corr, "lag": lag_ottimale}}
@@ -2809,8 +2810,15 @@ def calcola_correlazioni(dati_storici_all, max_lag=5):
             if asset1 == asset2:
                 continue
 
-            for lag in range(max_lag + 1):  # lag 0..max_lag
-                corr = returns[asset1].corr(returns[asset2].shift(lag))
+            for lag in range(1, max_lag + 1):  # iniziamo da 1 per evitare correlazioni banali
+                shifted = returns[asset2].shift(lag)
+                valid_idx = returns[asset1].index.intersection(shifted.dropna().index)
+
+                if len(valid_idx) < min_valid_points:
+                    continue  # salta lag con pochi dati
+
+                corr = returns.loc[valid_idx, asset1].corr(shifted.loc[valid_idx])
+
                 if abs(corr) > abs(best_corr):
                     best_corr = corr
                     best_lag = lag
