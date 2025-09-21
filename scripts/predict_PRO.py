@@ -1849,7 +1849,7 @@ def get_sentiment_for_all_symbols(symbol_list):
 
 
 # Calcolare il sentiment medio per ogni simbolo
-sentiment_for_symbols, percentuali_combine, all_news_entries, indicator_data, fundamental_data, crescita_settimanale = get_sentiment_for_all_symbols(symbol_list, symbol_list_for_yfinance, repo)
+sentiment_for_symbols, percentuali_combine, all_news_entries, indicator_data, fundamental_data, crescita_settimanale = get_sentiment_for_all_symbols(symbol_list)
 
 #PER CREARE LA CLASSIFICA NORMALE-------------------------------------------------------------------------
 # Ordinare i simboli in base al sentiment medio (decrescente)
