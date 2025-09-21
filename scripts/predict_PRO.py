@@ -1808,7 +1808,7 @@ def get_sentiment_for_all_symbols(symbol_list):
 
 
 # Calcolare il sentiment medio per ogni simbolo
-sentiment_for_symbols, percentuali_combine, all_news_entries, indicator_data, fundamental_data, crescita_settimanale, dati storici_all = get_sentiment_for_all_symbols(symbol_list)
+sentiment_for_symbols, percentuali_combine, all_news_entries, indicator_data, fundamental_data, crescita_settimanale, dati_storici_all = get_sentiment_for_all_symbols(symbol_list)
 
 #PER CREARE LA CLASSIFICA NORMALE-------------------------------------------------------------------------
 # Ordinare i simboli in base al sentiment medio (decrescente)
