@@ -18,7 +18,7 @@ from ta.trend import MACD, EMAIndicator, CCIIndicator
 from ta.volatility import BollingerBands
 from urllib.parse import quote_plus
 from collections import defaultdict
-from scipy.stats import binom_test
+from scipy.stats import binomtest
 #from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline
 #from transformers import T5Tokenizer, T5ForConditionalGeneration
 
@@ -2820,7 +2820,7 @@ def calcola_correlazioni_rolling(dati_storici_all, max_lag=6, min_valid_points=2
                 mean_perc = rolling_perc.mean()
                 concordi = (aligned.iloc[:,0] == aligned.iloc[:,1]).sum()
                 tot = len(aligned)
-                p_val = binom_test(concordi, tot, 0.5, alternative='greater')
+                p_val = binomtest(concordi, tot, 0.5, alternative='greater')
 
                 if mean_perc > best_percent and p_val < signif_level:
                     best_percent = mean_perc
