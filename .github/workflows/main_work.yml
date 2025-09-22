@@ -32,15 +32,14 @@ jobs:
 
       - name: Install Python dependencies (no cache, pacchetti binari)
         run: |
-          # Installa numpy per primo, così tutte le librerie native si allineano
-          pip install --no-cache-dir --upgrade numpy
+          # Librerie base e scientifiche
+          pip install --no-cache-dir --upgrade numpy pandas scipy
 
           # Librerie di rete e finanza
-          pip install --no-cache-dir --upgrade yfinance==0.2.63 \
-            requests urllib3 feedparser
+          pip install --no-cache-dir --upgrade yfinance==0.2.63 requests urllib3 feedparser
 
-          # Analisi dati e ML
-          pip install --no-cache-dir --upgrade pandas ta \
+          # Analisi dati, ML e NLP
+          pip install --no-cache-dir --upgrade ta \
             beautifulsoup4 scikit-learn xgboost PyGithub \
             torch transformers tiktoken blobfile argostranslate
 
@@ -49,19 +48,19 @@ jobs:
 
       - name: Download spaCy model
         run: |
-          # VERSIONE SPECIFICA: usa il trattino "-" e non "=="
           python -m spacy download en_core_web_sm-3.7.1
 
       - name: Debug versions
         run: |
           python - <<'EOF'
-          import yfinance, requests, urllib3, numpy, pandas, spacy
-          print("yfinance  =", yfinance.__version__)
+          import yfinance, requests, urllib3, numpy, pandas, spacy, scipy
+          print("yfinance =", yfinance.__version__)
           print("requests =", requests.__version__)
-          print("urllib3  =", urllib3.__version__)
-          print("numpy     =", numpy.__version__)
-          print("pandas    =", pandas.__version__)
-          print("spacy     =", spacy.__version__)
+          print("urllib3 =", urllib3.__version__)
+          print("numpy =", numpy.__version__)
+          print("pandas =", pandas.__version__)
+          print("scipy =", scipy.__version__)
+          print("spacy =", spacy.__version__)
           EOF
 
       - name: Run prediction script
