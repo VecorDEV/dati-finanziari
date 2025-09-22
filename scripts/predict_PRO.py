@@ -2783,7 +2783,7 @@ except GithubException:
 
 
 
-def calcola_correlazioni_rolling(dati_storici_all, max_lag=6, min_valid_points=20, signif_level=0.05, window=60):
+def calcola_correlazioni(dati_storici_all, max_lag=6, min_valid_points=20, signif_level=0.05, window=60):
     directions = {}
     for sym, df in dati_storici_all.items():
         if "Close" not in df.columns:
