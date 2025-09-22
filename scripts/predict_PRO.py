@@ -2780,54 +2780,67 @@ except GithubException:
 
 
 
-def calcola_correlazioni(dati_storici_all, max_lag=5, min_valid_points=10):
+def calcola_correlazioni(dati_storici_all, max_lag=6, min_valid_points=10):
     """
-    Calcola per ogni asset la correlazione massima con gli altri asset
-    considerando lag da 1 fino a max_lag giorni.
+    Calcola per ogni asset (asset1) con quale altro asset (asset2) ha la maggiore concordanza direzionale.
+    Interpretazione: "se asset2 si muove, asset1 tende a seguirlo dopo X giorni".
     
     Args:
-        dati_storici_all (dict): dizionario {symbol: DataFrame storico}
+        dati_storici_all (dict): {symbol: DataFrame storico con 'Close'}
         max_lag (int): massimo numero di giorni di lag da considerare
-        min_valid_points (int): numero minimo di punti validi per calcolare la correlazione
+        min_valid_points (int): numero minimo di punti validi per accettare il risultato
 
     Returns:
-        dict: {asset: {"asset": asset_correlato, "corr": valore_corr, "lag": lag_ottimale}}
+        dict: {asset1: {"asset": asset2, "percent": valore_percentuale, "lag": lag_ottimale, "days": n_osservazioni}}
     """
     import pandas as pd
 
-    # Calcola i ritorni percentuali giornalieri
-    returns = pd.DataFrame({s: dati_storici_all[s]['Close'].pct_change() 
-                            for s in dati_storici_all}).dropna()
+    # Trasforma i dati in serie di direzioni (+1 / -1)
+    directions = {}
+    for sym, df in dati_storici_all.items():
+        if "Close" not in df.columns:
+            continue
+        diff = df["Close"].diff().dropna()
+        directions[sym] = diff.apply(lambda x: 1 if x > 0 else -1)
 
     lagged_results = {}
 
-    for asset1 in returns.columns:
-        best_corr = 0
+    for asset1 in directions:
+        best_percent = -1
         best_lag = 0
         best_asset = None
+        best_days = 0
 
-        for asset2 in returns.columns:
+        serie1 = directions[asset1]
+
+        for asset2 in directions:
             if asset1 == asset2:
                 continue
 
-            for lag in range(1, max_lag + 1):  # iniziamo da 1 per evitare correlazioni banali
-                shifted = returns[asset2].shift(lag)
-                valid_idx = returns[asset1].index.intersection(shifted.dropna().index)
+            serie2 = directions[asset2]
 
-                if len(valid_idx) < min_valid_points:
-                    continue  # salta lag con pochi dati
+            for lag in range(1, max_lag + 1):
+                # 🔹 invertito: shiftiamo asset1
+                aligned = pd.concat([serie1.shift(lag), serie2], axis=1, join="inner").dropna()
 
-                corr = returns.loc[valid_idx, asset1].corr(shifted.loc[valid_idx])
+                if len(aligned) < min_valid_points:
+                    continue
 
-                if abs(corr) > abs(best_corr):
-                    best_corr = corr
+                concordi = (aligned.iloc[:,0] == aligned.iloc[:,1]).sum()
+                tot = len(aligned)
+                perc = concordi / tot * 100
+
+                if perc > best_percent:
+                    best_percent = perc
                     best_lag = lag
                     best_asset = asset2
+                    best_days = tot
 
         lagged_results[asset1] = {
             "asset": best_asset,
-            "corr": best_corr,
-            "lag": best_lag
+            "percent": round(best_percent, 2) if best_asset else None,
+            "lag": best_lag if best_asset else None,
+            "days": best_days if best_asset else 0
         }
 
     return lagged_results
@@ -2835,26 +2848,29 @@ def calcola_correlazioni(dati_storici_all, max_lag=5, min_valid_points=10):
 
 def salva_correlazioni_html(correlazioni, repo, file_path="results/correlations.html"):
     """
-    Crea un file HTML con la tabella delle correlazioni trovate per ogni asset.
+    Crea un file HTML con la tabella delle correlazioni direzionali trovate per ogni asset.
     
     Args:
-        correlazioni (dict): {asset: {"asset": correlato, "corr": valore, "lag": lag}}
+        correlazioni (dict): {asset: {"asset": correlato, "percent": valore, "lag": lag, "days": n_osservazioni}}
         repo: oggetto repo di GitHub
         file_path (str): percorso del file HTML su GitHub
     """
     # Intestazione HTML
     html_corr = [
-        "<html><head><title>Correlazioni tra Asset</title></head><body>",
-        "<h1>Correlazioni Massime tra Asset</h1>",
-        "<table border='1'><tr><th>Simbolo</th><th>Asset Correlato</th><th>Correlazione</th><th>Lag (giorni)</th></tr>"
+        "<html><head><title>Correlazioni Direzionali tra Asset</title></head><body>",
+        "<h1>Correlazioni Direzionali (se asset2 si muove, asset1 lo segue)</h1>",
+        "<table border='1'><tr><th>Asset</th><th>Segue</th><th>Percentuale (%)</th><th>Lag (giorni)</th><th># Giorni</th></tr>"
     ]
 
     # Aggiungi righe alla tabella
     for symbol, info in correlazioni.items():
         correlato = info["asset"] if info["asset"] else "N/A"
-        corr_val = f"{info['corr']:.2f}" if info["asset"] else "N/A"
+        percent_val = f"{info['percent']:.2f}" if info["asset"] else "N/A"
         lag_val = info["lag"] if info["asset"] else "N/A"
-        html_corr.append(f"<tr><td>{symbol}</td><td>{correlato}</td><td>{corr_val}</td><td>{lag_val}</td></tr>")
+        days_val = info["days"] if info["asset"] else "N/A"
+        html_corr.append(
+            f"<tr><td>{symbol}</td><td>{correlato}</td><td>{percent_val}</td><td>{lag_val}</td><td>{days_val}</td></tr>"
+        )
 
     # Chiudi HTML
     html_corr.append("</table></body></html>")
