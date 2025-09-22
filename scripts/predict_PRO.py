@@ -18,6 +18,7 @@ from ta.trend import MACD, EMAIndicator, CCIIndicator
 from ta.volatility import BollingerBands
 from urllib.parse import quote_plus
 from collections import defaultdict
+from scipy.stats import binom_test
 #from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline
 #from transformers import T5Tokenizer, T5ForConditionalGeneration
 
@@ -1622,7 +1623,7 @@ def get_sentiment_for_all_symbols(symbol_list):
 
         try:
             ticker = str(adjusted_symbol).strip().upper()
-            data = yf.download(ticker, period="6mo", auto_adjust=False, progress=False)
+            data = yf.download(ticker, period="3y", auto_adjust=True, progress=False)
 
             if data.empty:
                 raise ValueError(f"Nessun dato disponibile per {symbol} ({adjusted_symbol})")
@@ -2780,30 +2781,18 @@ except GithubException:
 
 
 
-def calcola_correlazioni(dati_storici_all, max_lag=6, min_valid_points=10):
-    """
-    Calcola per ogni asset (asset1) con quale altro asset (asset2) ha la maggiore concordanza direzionale.
-    Interpretazione: "se asset2 si muove, asset1 tende a seguirlo dopo X giorni".
-    
-    Args:
-        dati_storici_all (dict): {symbol: DataFrame storico con 'Close'}
-        max_lag (int): massimo numero di giorni di lag da considerare
-        min_valid_points (int): numero minimo di punti validi per accettare il risultato
 
-    Returns:
-        dict: {asset1: {"asset": asset2, "percent": valore_percentuale, "lag": lag_ottimale, "days": n_osservazioni}}
-    """
-    import pandas as pd
 
-    # Trasforma i dati in serie di direzioni (+1 / -1)
+def calcola_correlazioni_rolling(dati_storici_all, max_lag=6, min_valid_points=20, signif_level=0.05, window=60):
     directions = {}
     for sym, df in dati_storici_all.items():
         if "Close" not in df.columns:
             continue
-        diff = df["Close"].diff().dropna()
+        diff = np.log(df["Close"]).diff().dropna()
+        diff = diff / diff.std()  # normalizzazione per volatilità
         directions[sym] = diff.apply(lambda x: 1 if x > 0 else -1)
 
-    lagged_results = {}
+    results = {}
 
     for asset1 in directions:
         best_percent = -1
@@ -2816,34 +2805,37 @@ def calcola_correlazioni(dati_storici_all, max_lag=6, min_valid_points=10):
         for asset2 in directions:
             if asset1 == asset2:
                 continue
-
             serie2 = directions[asset2]
 
             for lag in range(1, max_lag + 1):
-                # 🔹 invertito: shiftiamo asset1
-                aligned = pd.concat([serie1.shift(lag), serie2], axis=1, join="inner").dropna()
-
+                aligned = pd.concat([serie1.shift(-lag), serie2], axis=1, join="inner").dropna()
                 if len(aligned) < min_valid_points:
                     continue
 
+                # rolling percent concordance
+                rolling_perc = aligned.iloc[:,0].rolling(window).apply(
+                    lambda x: (x == aligned.iloc[:,1].iloc[x.index]).mean() * 100
+                ).dropna()
+
+                mean_perc = rolling_perc.mean()
                 concordi = (aligned.iloc[:,0] == aligned.iloc[:,1]).sum()
                 tot = len(aligned)
-                perc = concordi / tot * 100
+                p_val = binom_test(concordi, tot, 0.5, alternative='greater')
 
-                if perc > best_percent:
-                    best_percent = perc
+                if mean_perc > best_percent and p_val < signif_level:
+                    best_percent = mean_perc
                     best_lag = lag
                     best_asset = asset2
                     best_days = tot
 
-        lagged_results[asset1] = {
+        results[asset1] = {
             "asset": best_asset,
             "percent": round(best_percent, 2) if best_asset else None,
             "lag": best_lag if best_asset else None,
             "days": best_days if best_asset else 0
         }
 
-    return lagged_results
+    return results
 
 
 def salva_correlazioni_html(correlazioni, repo, file_path="results/correlations.html"):
