@@ -2795,35 +2795,34 @@ def calcola_correlazioni(dati_storici_all, max_lag=6, min_valid_points=20, signi
 
     results = {}
 
-    for asset1 in directions:
+    for asset1, serie1 in directions.items():
         best_percent = -1
         best_lag = 0
         best_asset = None
         best_days = 0
 
-        serie1 = directions[asset1]
-
-        for asset2 in directions:
+        for asset2, serie2 in directions.items():
             if asset1 == asset2:
                 continue
-            serie2 = directions[asset2]
 
             for lag in range(1, max_lag + 1):
                 aligned = pd.concat([serie1.shift(-lag), serie2], axis=1, join="inner").dropna()
                 if len(aligned) < min_valid_points:
                     continue
 
-                # rolling percent concordance
-                rolling_perc = aligned.iloc[:,0].rolling(window).apply(
-                    lambda x: (x == aligned.iloc[:,1].iloc[x.index]).mean() * 100
-                ).dropna()
+                # concordanza (1 se uguali, 0 se diversi)
+                concordance = (aligned.iloc[:,0] == aligned.iloc[:,1]).astype(int)
 
+                # percentuale media di concordanza sulla finestra mobile
+                rolling_perc = concordance.rolling(window).mean() * 100
                 mean_perc = rolling_perc.mean()
-                concordi = (aligned.iloc[:,0] == aligned.iloc[:,1]).sum()
+
+                # test statistico
+                concordi = concordance.sum()
                 tot = len(aligned)
                 p_val = binomtest(concordi, tot, 0.5, alternative='greater')
 
-                if mean_perc > best_percent and p_val < signif_level:
+                if mean_perc > best_percent and p_val.pvalue < signif_level:
                     best_percent = mean_perc
                     best_lag = lag
                     best_asset = asset2
