@@ -2789,6 +2789,7 @@ def calcola_correlazioni(dati_storici_all, max_lag=6, min_valid_points=20,
                          alpha=0.5, min_corr=0.3, min_percent=55):
     """
     Calcola correlazioni tra asset (Pearson, Spearman e concordanza direzionale).
+    Restituisce sempre il best partner, ma con un flag di validità.
 
     Parameters
     ----------
@@ -2803,25 +2804,24 @@ def calcola_correlazioni(dati_storici_all, max_lag=6, min_valid_points=20,
     window : int
         Finestra per la media mobile della concordanza
     alpha : float
-        Peso da assegnare alla percentuale di concordanza nello score composito.
-        (1-alpha) viene diviso su Pearson e Spearman.
+        Peso della % direzionale nello score composito
     min_corr : float
-        Soglia minima di correlazione (Pearson o Spearman) per accettare la coppia
+        Soglia minima per considerare "forte" la correlazione
     min_percent : float
-        Soglia minima di concordanza percentuale per accettare la coppia
+        Soglia minima per considerare "forte" la concordanza
 
     Returns
     -------
     dict
-        {asset: {"asset": migliore partner,
-                 "percent": % di concordanza direzionale,
+        {asset: {"asset": best partner,
+                 "percent": % di concordanza,
                  "pearson": correlazione lineare,
                  "spearman": correlazione monotona,
                  "score": score composito,
                  "lag": lag migliore,
-                 "days": numero di osservazioni}}
+                 "days": numero di osservazioni,
+                 "valid": True/False se supera le soglie}}
     """
-    # Rendimenti normalizzati
     returns = {}
     for sym, df in dati_storici_all.items():
         if "Close" not in df.columns:
@@ -2840,6 +2840,7 @@ def calcola_correlazioni(dati_storici_all, max_lag=6, min_valid_points=20,
         best_percent = None
         best_pearson = None
         best_spearman = None
+        best_valid = False
 
         for asset2, serie2 in returns.items():
             if asset1 == asset2:
@@ -2851,32 +2852,28 @@ def calcola_correlazioni(dati_storici_all, max_lag=6, min_valid_points=20,
                 if len(aligned) < min_valid_points:
                     continue
 
-                # Concordanza direzionale
+                # concordanza
                 signs1 = np.sign(aligned.iloc[:, 0])
                 signs2 = np.sign(aligned.iloc[:, 1])
                 concordance = (signs1 == signs2).astype(int)
                 mean_perc = concordance.rolling(window).mean().mean() * 100
 
-                # Correlazioni
+                # correlazioni
                 pearson = aligned.iloc[:, 0].corr(aligned.iloc[:, 1])
                 spearman, _ = spearmanr(aligned.iloc[:, 0], aligned.iloc[:, 1])
 
-                # Test binomiale
+                # test binomiale
                 concordi = concordance.sum()
                 tot = len(aligned)
                 p_val = binomtest(concordi, tot, 0.5, alternative='greater').pvalue
 
-                # Score composito (peso concordanza, Pearson e Spearman)
+                # score composito
                 score = (alpha * (mean_perc / 100) +
                          (1 - alpha) / 2 * pearson +
                          (1 - alpha) / 2 * spearman)
 
-                # Applica filtro di significatività
-                if (mean_perc >= min_percent and
-                    (pearson >= min_corr or spearman >= min_corr) and
-                    p_val < signif_level and
-                    score > best_score):
-
+                # aggiorna best sempre
+                if score > best_score:
                     best_score = score
                     best_asset = asset2
                     best_lag = lag
@@ -2884,6 +2881,9 @@ def calcola_correlazioni(dati_storici_all, max_lag=6, min_valid_points=20,
                     best_percent = mean_perc
                     best_pearson = pearson
                     best_spearman = spearman
+                    best_valid = (mean_perc >= min_percent and
+                                  (pearson >= min_corr or spearman >= min_corr) and
+                                  p_val < signif_level)
 
         results[asset1] = {
             "asset": best_asset,
@@ -2892,7 +2892,8 @@ def calcola_correlazioni(dati_storici_all, max_lag=6, min_valid_points=20,
             "spearman": round(best_spearman, 2) if best_asset else None,
             "score": round(best_score, 3) if best_asset else None,
             "lag": best_lag if best_asset else None,
-            "days": best_days if best_asset else 0
+            "days": best_days if best_asset else 0,
+            "valid": best_valid
         }
 
     return results
@@ -2911,11 +2912,11 @@ def salva_correlazioni_html(correlazioni, repo, file_path="results/correlations.
                                       "spearman": valore,
                                       "score": valore,
                                       "lag": lag,
-                                      "days": n_osservazioni}}
+                                      "days": n_osservazioni,
+                                      "valid": True/False}}
         repo: oggetto repo di GitHub
         file_path (str): percorso del file HTML su GitHub
     """
-    # Intestazione HTML
     html_corr = [
         "<html><head><title>Correlazioni tra Asset</title></head><body>",
         "<h1>Correlazioni (se asset2 si muove, asset1 lo segue)</h1>",
@@ -2928,10 +2929,10 @@ def salva_correlazioni_html(correlazioni, repo, file_path="results/correlations.
         "<th>Score composito</th>"
         "<th>Lag (giorni)</th>"
         "<th># Giorni</th>"
+        "<th>Validità</th>"
         "</tr>"
     ]
 
-    # Aggiungi righe alla tabella
     for symbol, info in correlazioni.items():
         if info["asset"]:
             correlato = info["asset"]
@@ -2941,8 +2942,9 @@ def salva_correlazioni_html(correlazioni, repo, file_path="results/correlations.
             score_val = f"{info['score']:.3f}" if info['score'] is not None else "N/A"
             lag_val = info["lag"]
             days_val = info["days"]
+            valid_val = "✅" if info.get("valid") else "❌"
         else:
-            correlato, percent_val, pearson_val, spearman_val, score_val, lag_val, days_val = ["N/A"] * 7
+            correlato, percent_val, pearson_val, spearman_val, score_val, lag_val, days_val, valid_val = ["N/A"] * 8
 
         html_corr.append(
             f"<tr>"
@@ -2953,13 +2955,12 @@ def salva_correlazioni_html(correlazioni, repo, file_path="results/correlations.
             f"<td>{score_val}</td>"
             f"<td>{lag_val}</td>"
             f"<td>{days_val}</td>"
+            f"<td>{valid_val}</td>"
             f"</tr>"
         )
 
-    # Chiudi HTML
     html_corr.append("</table></body></html>")
 
-    # Salva su GitHub
     try:
         contents = repo.get_contents(file_path)
         repo.update_file(contents.path, "Updated correlations", "\n".join(html_corr), contents.sha)
