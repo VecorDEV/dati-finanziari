@@ -2908,6 +2908,7 @@ def salva_correlazioni_html(correlazioni, repo, file_path="results/correlations.
         correlazioni (dict): {asset: {"asset": correlato,
                                       "percent": valore,
                                       "pearson": valore,
+                                      "spearman": valore,
                                       "score": valore,
                                       "lag": lag,
                                       "days": n_osservazioni}}
@@ -2919,8 +2920,15 @@ def salva_correlazioni_html(correlazioni, repo, file_path="results/correlations.
         "<html><head><title>Correlazioni tra Asset</title></head><body>",
         "<h1>Correlazioni (se asset2 si muove, asset1 lo segue)</h1>",
         "<table border='1'>",
-        "<tr><th>Asset</th><th>Segue</th><th>Percentuale direzionale (%)</th>"
-        "<th>Correlazione Pearson</th><th>Score composito</th><th>Lag (giorni)</th><th># Giorni</th></tr>"
+        "<tr>"
+        "<th>Asset</th><th>Segue</th>"
+        "<th>Percentuale direzionale (%)</th>"
+        "<th>Pearson</th>"
+        "<th>Spearman</th>"
+        "<th>Score composito</th>"
+        "<th>Lag (giorni)</th>"
+        "<th># Giorni</th>"
+        "</tr>"
     ]
 
     # Aggiungi righe alla tabella
@@ -2929,16 +2937,23 @@ def salva_correlazioni_html(correlazioni, repo, file_path="results/correlations.
             correlato = info["asset"]
             percent_val = f"{info['percent']:.2f}" if info['percent'] is not None else "N/A"
             pearson_val = f"{info['pearson']:.2f}" if info['pearson'] is not None else "N/A"
+            spearman_val = f"{info['spearman']:.2f}" if info['spearman'] is not None else "N/A"
             score_val = f"{info['score']:.3f}" if info['score'] is not None else "N/A"
             lag_val = info["lag"]
             days_val = info["days"]
         else:
-            correlato, percent_val, pearson_val, score_val, lag_val, days_val = ["N/A"] * 6
+            correlato, percent_val, pearson_val, spearman_val, score_val, lag_val, days_val = ["N/A"] * 7
 
         html_corr.append(
-            f"<tr><td>{symbol}</td><td>{correlato}</td>"
-            f"<td>{percent_val}</td><td>{pearson_val}</td><td>{score_val}</td>"
-            f"<td>{lag_val}</td><td>{days_val}</td></tr>"
+            f"<tr>"
+            f"<td>{symbol}</td><td>{correlato}</td>"
+            f"<td>{percent_val}</td>"
+            f"<td>{pearson_val}</td>"
+            f"<td>{spearman_val}</td>"
+            f"<td>{score_val}</td>"
+            f"<td>{lag_val}</td>"
+            f"<td>{days_val}</td>"
+            f"</tr>"
         )
 
     # Chiudi HTML
