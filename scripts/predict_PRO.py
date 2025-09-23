@@ -19,7 +19,7 @@ from ta.trend import MACD, EMAIndicator, CCIIndicator
 from ta.volatility import BollingerBands
 from urllib.parse import quote_plus
 from collections import defaultdict
-from scipy.stats import binomtest
+from scipy.stats import binomtest, spearmanr
 #from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline
 #from transformers import T5Tokenizer, T5ForConditionalGeneration
 
@@ -2785,10 +2785,11 @@ except GithubException:
 
 
 def calcola_correlazioni(dati_storici_all, max_lag=6, min_valid_points=20,
-                         signif_level=0.05, window=60, alpha=0.5):
+                         signif_level=0.05, window=60,
+                         alpha=0.5, min_corr=0.3, min_percent=55):
     """
-    Calcola correlazioni direzionali e di Pearson tra asset.
-    
+    Calcola correlazioni tra asset (Pearson, Spearman e concordanza direzionale).
+
     Parameters
     ----------
     dati_storici_all : dict
@@ -2803,38 +2804,44 @@ def calcola_correlazioni(dati_storici_all, max_lag=6, min_valid_points=20,
         Finestra per la media mobile della concordanza
     alpha : float
         Peso da assegnare alla percentuale di concordanza nello score composito.
-        (1-alpha) sarà il peso della correlazione di Pearson.
-    
+        (1-alpha) viene diviso su Pearson e Spearman.
+    min_corr : float
+        Soglia minima di correlazione (Pearson o Spearman) per accettare la coppia
+    min_percent : float
+        Soglia minima di concordanza percentuale per accettare la coppia
+
     Returns
     -------
     dict
         {asset: {"asset": migliore partner,
-                 "percent": percentuale di concordanza,
+                 "percent": % di concordanza direzionale,
                  "pearson": correlazione lineare,
+                 "spearman": correlazione monotona,
                  "score": score composito,
                  "lag": lag migliore,
                  "days": numero di osservazioni}}
     """
-    # Prepara le serie direzionali (+1 / -1)
-    directions = {}
+    # Rendimenti normalizzati
+    returns = {}
     for sym, df in dati_storici_all.items():
         if "Close" not in df.columns:
             continue
         diff = np.log(df["Close"]).diff().dropna()
-        diff = diff / diff.std()  # normalizzazione per volatilità
-        directions[sym] = diff.apply(lambda x: 1 if x > 0 else -1)
+        diff = diff / diff.std()
+        returns[sym] = diff
 
     results = {}
 
-    for asset1, serie1 in directions.items():
+    for asset1, serie1 in returns.items():
         best_score = -1
         best_asset = None
         best_lag = 0
         best_days = 0
         best_percent = None
-        best_corr = None
+        best_pearson = None
+        best_spearman = None
 
-        for asset2, serie2 in directions.items():
+        for asset2, serie2 in returns.items():
             if asset1 == asset2:
                 continue
 
@@ -2844,34 +2851,45 @@ def calcola_correlazioni(dati_storici_all, max_lag=6, min_valid_points=20,
                 if len(aligned) < min_valid_points:
                     continue
 
-                # concordanza direzionale
-                concordance = (aligned.iloc[:, 0] == aligned.iloc[:, 1]).astype(int)
-                rolling_perc = concordance.rolling(window).mean() * 100
-                mean_perc = rolling_perc.mean()
+                # Concordanza direzionale
+                signs1 = np.sign(aligned.iloc[:, 0])
+                signs2 = np.sign(aligned.iloc[:, 1])
+                concordance = (signs1 == signs2).astype(int)
+                mean_perc = concordance.rolling(window).mean().mean() * 100
 
-                # correlazione di Pearson
-                corr = aligned.iloc[:, 0].corr(aligned.iloc[:, 1])
+                # Correlazioni
+                pearson = aligned.iloc[:, 0].corr(aligned.iloc[:, 1])
+                spearman, _ = spearmanr(aligned.iloc[:, 0], aligned.iloc[:, 1])
 
-                # test binomiale
+                # Test binomiale
                 concordi = concordance.sum()
                 tot = len(aligned)
                 p_val = binomtest(concordi, tot, 0.5, alternative='greater').pvalue
 
-                # score composito (normalizzo percent a [0,1])
-                score = alpha * (mean_perc / 100) + (1 - alpha) * corr
+                # Score composito (peso concordanza, Pearson e Spearman)
+                score = (alpha * (mean_perc / 100) +
+                         (1 - alpha) / 2 * pearson +
+                         (1 - alpha) / 2 * spearman)
 
-                if score > best_score and p_val < signif_level:
+                # Applica filtro di significatività
+                if (mean_perc >= min_percent and
+                    (pearson >= min_corr or spearman >= min_corr) and
+                    p_val < signif_level and
+                    score > best_score):
+
                     best_score = score
                     best_asset = asset2
                     best_lag = lag
                     best_days = tot
                     best_percent = mean_perc
-                    best_corr = corr
+                    best_pearson = pearson
+                    best_spearman = spearman
 
         results[asset1] = {
             "asset": best_asset,
             "percent": round(best_percent, 2) if best_asset else None,
-            "pearson": round(best_corr, 2) if best_asset else None,
+            "pearson": round(best_pearson, 2) if best_asset else None,
+            "spearman": round(best_spearman, 2) if best_asset else None,
             "score": round(best_score, 3) if best_asset else None,
             "lag": best_lag if best_asset else None,
             "days": best_days if best_asset else 0
