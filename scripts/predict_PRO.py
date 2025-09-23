@@ -9,6 +9,7 @@ import spacy
 import yfinance as yf
 import ta
 import pandas as pd
+import numpy as np
 import random
 import unicodedata
 import argostranslate.package
