@@ -2784,7 +2784,38 @@ except GithubException:
 
 
 
-def calcola_correlazioni(dati_storici_all, max_lag=6, min_valid_points=20, signif_level=0.05, window=60):
+def calcola_correlazioni(dati_storici_all, max_lag=6, min_valid_points=20,
+                         signif_level=0.05, window=60, alpha=0.5):
+    """
+    Calcola correlazioni direzionali e di Pearson tra asset.
+    
+    Parameters
+    ----------
+    dati_storici_all : dict
+        Dizionario {ticker: DataFrame con colonna 'Close'}
+    max_lag : int
+        Numero massimo di giorni di ritardo da testare
+    min_valid_points : int
+        Numero minimo di dati validi richiesti per considerare la coppia
+    signif_level : float
+        Livello di significatività statistica per il test binomiale
+    window : int
+        Finestra per la media mobile della concordanza
+    alpha : float
+        Peso da assegnare alla percentuale di concordanza nello score composito.
+        (1-alpha) sarà il peso della correlazione di Pearson.
+    
+    Returns
+    -------
+    dict
+        {asset: {"asset": migliore partner,
+                 "percent": percentuale di concordanza,
+                 "pearson": correlazione lineare,
+                 "score": score composito,
+                 "lag": lag migliore,
+                 "days": numero di osservazioni}}
+    """
+    # Prepara le serie direzionali (+1 / -1)
     directions = {}
     for sym, df in dati_storici_all.items():
         if "Close" not in df.columns:
@@ -2796,41 +2827,52 @@ def calcola_correlazioni(dati_storici_all, max_lag=6, min_valid_points=20, signi
     results = {}
 
     for asset1, serie1 in directions.items():
-        best_percent = -1
-        best_lag = 0
+        best_score = -1
         best_asset = None
+        best_lag = 0
         best_days = 0
+        best_percent = None
+        best_corr = None
 
         for asset2, serie2 in directions.items():
             if asset1 == asset2:
                 continue
 
             for lag in range(1, max_lag + 1):
-                aligned = pd.concat([serie1.shift(-lag), serie2], axis=1, join="inner").dropna()
+                aligned = pd.concat([serie1.shift(-lag), serie2],
+                                    axis=1, join="inner").dropna()
                 if len(aligned) < min_valid_points:
                     continue
 
-                # concordanza (1 se uguali, 0 se diversi)
-                concordance = (aligned.iloc[:,0] == aligned.iloc[:,1]).astype(int)
-
-                # percentuale media di concordanza sulla finestra mobile
+                # concordanza direzionale
+                concordance = (aligned.iloc[:, 0] == aligned.iloc[:, 1]).astype(int)
                 rolling_perc = concordance.rolling(window).mean() * 100
                 mean_perc = rolling_perc.mean()
 
-                # test statistico
+                # correlazione di Pearson
+                corr = aligned.iloc[:, 0].corr(aligned.iloc[:, 1])
+
+                # test binomiale
                 concordi = concordance.sum()
                 tot = len(aligned)
-                p_val = binomtest(concordi, tot, 0.5, alternative='greater')
+                p_val = binomtest(concordi, tot, 0.5, alternative='greater').pvalue
 
-                if mean_perc > best_percent and p_val.pvalue < signif_level:
-                    best_percent = mean_perc
-                    best_lag = lag
+                # score composito (normalizzo percent a [0,1])
+                score = alpha * (mean_perc / 100) + (1 - alpha) * corr
+
+                if score > best_score and p_val < signif_level:
+                    best_score = score
                     best_asset = asset2
+                    best_lag = lag
                     best_days = tot
+                    best_percent = mean_perc
+                    best_corr = corr
 
         results[asset1] = {
             "asset": best_asset,
             "percent": round(best_percent, 2) if best_asset else None,
+            "pearson": round(best_corr, 2) if best_asset else None,
+            "score": round(best_score, 3) if best_asset else None,
             "lag": best_lag if best_asset else None,
             "days": best_days if best_asset else 0
         }
@@ -2838,30 +2880,47 @@ def calcola_correlazioni(dati_storici_all, max_lag=6, min_valid_points=20, signi
     return results
 
 
+
+
 def salva_correlazioni_html(correlazioni, repo, file_path="results/correlations.html"):
     """
-    Crea un file HTML con la tabella delle correlazioni direzionali trovate per ogni asset.
-    
+    Crea un file HTML con la tabella delle correlazioni trovate per ogni asset.
+
     Args:
-        correlazioni (dict): {asset: {"asset": correlato, "percent": valore, "lag": lag, "days": n_osservazioni}}
+        correlazioni (dict): {asset: {"asset": correlato,
+                                      "percent": valore,
+                                      "pearson": valore,
+                                      "score": valore,
+                                      "lag": lag,
+                                      "days": n_osservazioni}}
         repo: oggetto repo di GitHub
         file_path (str): percorso del file HTML su GitHub
     """
     # Intestazione HTML
     html_corr = [
-        "<html><head><title>Correlazioni Direzionali tra Asset</title></head><body>",
-        "<h1>Correlazioni Direzionali (se asset2 si muove, asset1 lo segue)</h1>",
-        "<table border='1'><tr><th>Asset</th><th>Segue</th><th>Percentuale (%)</th><th>Lag (giorni)</th><th># Giorni</th></tr>"
+        "<html><head><title>Correlazioni tra Asset</title></head><body>",
+        "<h1>Correlazioni (se asset2 si muove, asset1 lo segue)</h1>",
+        "<table border='1'>",
+        "<tr><th>Asset</th><th>Segue</th><th>Percentuale direzionale (%)</th>"
+        "<th>Correlazione Pearson</th><th>Score composito</th><th>Lag (giorni)</th><th># Giorni</th></tr>"
     ]
 
     # Aggiungi righe alla tabella
     for symbol, info in correlazioni.items():
-        correlato = info["asset"] if info["asset"] else "N/A"
-        percent_val = f"{info['percent']:.2f}" if info["asset"] else "N/A"
-        lag_val = info["lag"] if info["asset"] else "N/A"
-        days_val = info["days"] if info["asset"] else "N/A"
+        if info["asset"]:
+            correlato = info["asset"]
+            percent_val = f"{info['percent']:.2f}" if info['percent'] is not None else "N/A"
+            pearson_val = f"{info['pearson']:.2f}" if info['pearson'] is not None else "N/A"
+            score_val = f"{info['score']:.3f}" if info['score'] is not None else "N/A"
+            lag_val = info["lag"]
+            days_val = info["days"]
+        else:
+            correlato, percent_val, pearson_val, score_val, lag_val, days_val = ["N/A"] * 6
+
         html_corr.append(
-            f"<tr><td>{symbol}</td><td>{correlato}</td><td>{percent_val}</td><td>{lag_val}</td><td>{days_val}</td></tr>"
+            f"<tr><td>{symbol}</td><td>{correlato}</td>"
+            f"<td>{percent_val}</td><td>{pearson_val}</td><td>{score_val}</td>"
+            f"<td>{lag_val}</td><td>{days_val}</td></tr>"
         )
 
     # Chiudi HTML
