@@ -2646,15 +2646,15 @@
     ],
     "answers": [
       "I valori attuali dello stocastico per [TOPIC] sono:\n\nK = [STOCH_K], D = [STOCH_D]\n\nLa condizione tipica è [STOCH_STATE]. Significato per l'asset: [STOCH_SIGNIFICATO].",
-      "Ecco lo stocastico di [TOPIC]:\n\nK = [STOCH_K], D = [STOCH_D]\n\nSecondo i valori, la condizione è [STOCH_STATE] e indica che [STOCH_SIGNIFICATO].",
-      "Attuali valori dello stocastico per [TOPIC]:\n\nK = [STOCH_K], D = [STOCH_D]\n\nInterpretazione: condizione tipica [STOCH_STATE], significato per l'asset [STOCH_SIGNIFICATO].",
-      "Lo stocastico di [TOPIC] è attualmente:\n\nK = [STOCH_K], D = [STOCH_D]\n\nValutazione: [STOCH_STATE], suggerisce che [STOCH_SIGNIFICATO].",
-      "Ecco i valori stocastici per [TOPIC]:\n\nK = [STOCH_K], D = [STOCH_D]\n\nAnalisi: condizione [STOCH_STATE] con significato per l'asset [STOCH_SIGNIFICATO].",
+      "Ecco lo stocastico di [TOPIC]:\n\nK = [STOCH_K], D = [STOCH_D]\n\nSecondo i valori, la condizione è [STOCH_STATE] e indica [STOCH_SIGNIFICATO].",
+      "Attuali valori dello stocastico per [TOPIC]:\n\nK = [STOCH_K], D = [STOCH_D]\n\nInterpretazione: condizione tipica [STOCH_STATE], significato per l'asset di [STOCH_SIGNIFICATO].",
+      "Lo stocastico di [TOPIC] è attualmente:\n\nK = [STOCH_K], D = [STOCH_D]\n\nValutazione: [STOCH_STATE], suggerisce [STOCH_SIGNIFICATO].",
+      "Ecco i valori stocastici per [TOPIC]:\n\nK = [STOCH_K], D = [STOCH_D]\n\nAnalisi: condizione [STOCH_STATE] con significato per l'asset di [STOCH_SIGNIFICATO].",
       "Gli ultimi valori dello stocastico per [TOPIC] sono:\n\nK = [STOCH_K], D = [STOCH_D]\n\nLa situazione indica [STOCH_STATE], quindi [STOCH_SIGNIFICATO].",
-      "Per [TOPIC], lo stocastico mostra:\n\nK = [STOCH_K], D = [STOCH_D]\n\nSecondo l'analisi, condizione [STOCH_STATE], suggerisce [STOCH_SIGNIFICATO].",
+      "Per [TOPIC], lo stocastico mostra:\n\nK = [STOCH_K], D = [STOCH_D]\n\nSecondo l'analisi, condizione tipica [STOCH_STATE], suggerisce [STOCH_SIGNIFICATO].",
       "Valori correnti dello stocastico di [TOPIC]:\n\nK = [STOCH_K], D = [STOCH_D]\n\nCondizione tipica: [STOCH_STATE]. Implicazioni per l'asset: [STOCH_SIGNIFICATO].",
-      "Attenzione ai valori dello stocastico di [TOPIC]:\n\nK = [STOCH_K], D = [STOCH_D]\n\nSituazione: [STOCH_STATE], il significato per l'asset è [STOCH_SIGNIFICATO].",
-      "I dati stocastici recenti per [TOPIC]:\n\nK = [STOCH_K], D = [STOCH_D]\n\nAnalisi: condizione [STOCH_STATE], interpretazione per l'asset [STOCH_SIGNIFICATO]."
+      "Attenzione ai valori dello stocastico di [TOPIC]:\n\nK = [STOCH_K], D = [STOCH_D]\n\nSituazione: [STOCH_STATE], il significato per l'asset è di [STOCH_SIGNIFICATO].",
+      "I dati stocastici recenti per [TOPIC]:\n\nK = [STOCH_K], D = [STOCH_D]\n\nAnalisi: significa che è [STOCH_STATE], quindi per l'asset indica [STOCH_SIGNIFICATO]."
     ],
     "cost": 1
 },
@@ -2683,6 +2683,60 @@
       "Questa informazione tecnica è disponibile esclusivamente per gli utenti premium o ultra.",
       "Mi spiace, l'accesso allo stocastico di [TOPIC] è limitato agli abbonati dei piani premium o ultra 😅. Puoi fare l'upgrade per goderti tutti i vantaggi!",
       "L'indicatore stocastico di [TOPIC] può essere visualizzato solo con un abbonamento premium o ultra. Non perdere l'opportunità di sfruttare tutte le funzionalità!"
+    ],
+    "cost": 1
+},
+    "ema_premium": {
+    "questions": [
+      "Qual è il valore dell'EMA 10 di [TOPIC]?",
+      "Puoi dirmi l'EMA10 di [TOPIC]?",
+      "Mostrami l'EMA a 10 giorni di [TOPIC].",
+      "Vorrei conoscere il valore EMA10 per [TOPIC].",
+      "Che valore ha l'EMA10 di [TOPIC] oggi?",
+      "Indicami l'EMA a 10 giorni di [TOPIC].",
+      "Qual è l'EMA 10 attuale di [TOPIC]?",
+      "L'EMA10 di [TOPIC], per favore.",
+      "Mi dai l'EMA a 10 giorni di [TOPIC]?",
+      "Controlla il valore EMA10 di [TOPIC]."
+    ],
+    "answers": [
+      "L'EMA a 10 giorni di [TOPIC] è attualmente [EMA_VALUE].\n\nIl prezzo si trova [UP/DOWN] rispetto all’EMA10, indicando un trend [EMA_TREND] per l’asset.",
+      "Il valore EMA10 di [TOPIC] è [EMA_VALUE].\n\nIl prezzo è [UP/DOWN] rispetto all'EMA10, suggerendo un trend [EMA_TREND].",
+      "Attualmente, l'EMA 10 di [TOPIC] si attesta a [EMA_VALUE].\n\nOsservando la posizione del prezzo rispetto all'EMA10, il trend appare [EMA_TREND].",
+      "L'indicatore EMA10 per [TOPIC] è [EMA_VALUE].\n\nIl prezzo dell'asset è [UP/DOWN] rispetto all'EMA10, il che indica un trend [EMA_TREND].",
+      "EMA a 10 giorni di [TOPIC]: [EMA_VALUE].\n\nLa posizione del prezzo [UP/DOWN] rispetto all'EMA10 mostra un trend [EMA_TREND].",
+      "Il valore corrente dell'EMA10 di [TOPIC] è [EMA_VALUE].\n\nQuesto implica che il prezzo è [UP/DOWN] rispetto all’EMA10, indicando un trend [EMA_TREND].",
+      "L'EMA10 di [TOPIC] risulta essere [EMA_VALUE].\n\nCon il prezzo [UP/DOWN] rispetto all'EMA10, il trend dell'asset è [EMA_TREND].",
+      "Per [TOPIC], l'EMA a 10 giorni è [EMA_VALUE].\n\nLa condizione del prezzo [UP/DOWN] rispetto all’EMA10 indica un trend [EMA_TREND].",
+      "Il valore EMA 10 attuale di [TOPIC] è [EMA_VALUE].\n\nOsservando il prezzo [UP/DOWN] rispetto all'EMA10, possiamo dire che il trend è [EMA_TREND].",
+      "L'indicatore EMA10 di [TOPIC] oggi è [EMA_VALUE].\n\nIl prezzo si trova [UP/DOWN] rispetto all’EMA10, suggerendo un trend [EMA_TREND]."
+    ],
+    "cost": 1
+},
+    "ema": {
+    "questions": [
+      "Qual è il valore dell'EMA 10 di [TOPIC]?",
+      "Puoi dirmi l'EMA10 di [TOPIC]?",
+      "Mostrami l'EMA a 10 giorni di [TOPIC].",
+      "Vorrei conoscere il valore EMA10 per [TOPIC].",
+      "Che valore ha l'EMA10 di [TOPIC] oggi?",
+      "Indicami l'EMA a 10 giorni di [TOPIC].",
+      "Qual è l'EMA 10 attuale di [TOPIC]?",
+      "L'EMA10 di [TOPIC], per favore.",
+      "Mi dai l'EMA a 10 giorni di [TOPIC]?",
+      "Controlla il valore EMA10 di [TOPIC]."
+    ],
+    "answers": [
+      "Per visualizzare l'EMA10 di [TOPIC] è necessario avere un abbonamento premium o ultra. Fai l'upgrade per ottenere tutti i vantaggi! 😄",
+      "Mi dispiace, questo dato tecnico è disponibile solo per gli utenti premium o ultra. Se vuoi, fai l'upgrade per usufruire di tutti i vantaggi! 📈",
+      "L'accesso all'EMA10 di [TOPIC] richiede un abbonamento. Considera l'upgrade ai piani premium o ultra per consultarlo. 😄",
+      "Per consultare l'indicatore EMA10 di [TOPIC] devi essere abbonato a uno dei nostri piani premium o ultra.",
+      "Purtroppo sembra che tu abbia il piano standard gratuito 😅. L'EMA10 di [TOPIC] è una funzione riservata agli utenti con abbonamento premium o ultra.",
+      "Ops, sembra che tu non sia abbonato 🤔… fai l’upgrade ai piani premium o ultra per usufruire di tutti i vantaggi che un investitore come te merita!",
+      "Per ottenere il valore EMA10 di [TOPIC] è necessario avere un abbonamento attivo, premium o ultra 😅.",
+      "Questa informazione tecnica è disponibile esclusivamente per gli utenti premium o ultra.",
+      "Mi spiace, l'accesso all'EMA10 di [TOPIC] è limitato agli abbonati dei piani premium o ultra 😅. Puoi fare l'upgrade per goderti tutti i vantaggi!",
+      "L'indicatore EMA10 di [TOPIC] può essere visualizzato solo con un abbonamento premium o ultra. Non perdere l'opportunità di sfruttare tutte le funzionalità! 💎"
     ],
     "cost": 1
 }
