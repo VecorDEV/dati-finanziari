@@ -2528,16 +2528,16 @@
       "Relative Strength Index (RSI) per [TOPIC]"
     ],
     "answers": [
-      "L'RSI attuale di [TOPIC] è [RSI].",
-      "Secondo i dati più recenti, [TOPIC] ha un RSI di [RSI].",
-      "Il valore RSI di [TOPIC] risulta essere [RSI].",
-      "Attenzione: l'RSI di [TOPIC] è attualmente [RSI].",
-      "Al momento, l'indicatore RSI di [TOPIC] è [RSI].",
-      "Gli ultimi calcoli mostrano un RSI di [TOPIC] pari a [RSI].",
-      "L'indicatore RSI di [TOPIC] è [RSI], secondo i dati aggiornati.",
-      "Per [TOPIC], l'RSI attuale è [RSI].",
-      "Il valore recente di RSI per [TOPIC] è [RSI].",
-      "Analisi tecnica: l'RSI di [TOPIC] si trova a [RSI]."
+      "L'RSI attuale di [TOPIC] è [RSI].\n\nLo stato è [STATE], il che significa [SIGNIFICATO].",
+      "Secondo i dati più recenti, [TOPIC] ha un RSI di [RSI].\n\nQuesto indica uno stato [STATE] e suggerisce [SIGNIFICATO].",
+      "Il valore RSI di [TOPIC] risulta essere [RSI].\n\nLo stato è considerato [STATE], quindi [SIGNIFICATO].",
+      "Attenzione: l'RSI di [TOPIC] è attualmente [RSI].\n\nIn questa condizione di [STATE], l'asset [SIGNIFICATO].",
+      "Al momento, l'indicatore RSI di [TOPIC] è [RSI].\n\nIl trend appare [STATE], suggerendo [SIGNIFICATO].",
+      "Gli ultimi calcoli mostrano un RSI di [TOPIC] pari a [RSI].\n\nLo stato è [STATE], con significato [SIGNIFICATO].",
+      "L'indicatore RSI di [TOPIC] è [RSI], secondo i dati aggiornati.\n\nLa condizione è [STATE], il che implica [SIGNIFICATO].",
+      "Per [TOPIC], l'RSI attuale è [RSI].\n\nSi tratta di uno stato [STATE], che indica [SIGNIFICATO].",
+      "Il valore recente di RSI per [TOPIC] è [RSI].\n\nLo stato è [STATE], suggerendo [SIGNIFICATO].",
+      "Analisi tecnica: l'RSI di [TOPIC] si trova a [RSI].\n\nLo stato rilevato è [STATE], e ciò significa [SIGNIFICATO]."
     ],
     "cost": 1
 },
@@ -2590,16 +2590,16 @@
       "Moving Average Convergence Divergence per [TOPIC]"
     ],
     "answers": [
-      "Il MACD di [TOPIC] attualmente è [MACD_VALUE], suggerendo un trend [MACD_TREND].",
-      "Secondo i dati aggiornati, il MACD di [TOPIC] è [MACD_VALUE] e indica un movimento [MACD_TREND].",
-      "Gli esperti stimano che il MACD di [TOPIC] pari a [MACD_VALUE] segnala un trend [MACD_TREND].",
-      "Valore attuale MACD di [TOPIC]: [MACD_VALUE]. Il trend suggerito è [MACD_TREND].",
-      "MACD di [TOPIC]: [MACD_VALUE] – indicazione attuale: [MACD_TREND].",
-      "Il valore MACD per [TOPIC] è [MACD_VALUE], con un trend complessivo [MACD_TREND].",
-      "Osservando il MACD di [TOPIC], il valore è [MACD_VALUE] e segnala un andamento [MACD_TREND].",
-      "Il MACD aggiornato di [TOPIC] è [MACD_VALUE]. Analisi del trend: [MACD_TREND].",
-      "Secondo le ultime rilevazioni, [TOPIC] ha un MACD pari a [MACD_VALUE] e un trend [MACD_TREND].",
-      "Il MACD attuale di [TOPIC] è [MACD_VALUE] e suggerisce un comportamento [MACD_TREND] del mercato."
+      "Il MACD di [TOPIC] attualmente è [MACD_VALUE], suggerendo un trend [TA_TREND].",
+      "Secondo i dati aggiornati, il MACD di [TOPIC] è [MACD_VALUE] e indica un movimento [TA_TREND].",
+      "Gli esperti stimano che il MACD di [TOPIC] pari a [MACD_VALUE] segnala un trend [TA_TREND].",
+      "Valore attuale MACD di [TOPIC]: [MACD_VALUE]. Il trend suggerito è [TA_TREND].",
+      "MACD di [TOPIC]: [MACD_VALUE] – indicazione attuale: [TA_TREND].",
+      "Il valore MACD per [TOPIC] è [MACD_VALUE], con un trend complessivo [TA_TREND].",
+      "Osservando il MACD di [TOPIC], il valore è [MACD_VALUE] e segnala un andamento [TA_TREND].",
+      "Il MACD aggiornato di [TOPIC] è [MACD_VALUE]. Analisi del trend: [TA_TREND].",
+      "Secondo le ultime rilevazioni, [TOPIC] ha un MACD pari a [MACD_VALUE] e un trend [TA_TREND].",
+      "Il MACD attuale di [TOPIC] è [MACD_VALUE] e suggerisce un comportamento [TA_TREND] del mercato."
     ],
     "cost": 1
 },
@@ -2649,16 +2649,16 @@
       "K e D per [TOPIC]"
     ],
     "answers": [
-      "I valori attuali dello stocastico per [TOPIC] sono:\n\nK = [STOCH_K], D = [STOCH_D]\n\nLa condizione tipica è di [STOCH_STATE]. Significato per l'asset: [STOCH_SIGNIFICATO].",
-      "Ecco lo stocastico di [TOPIC]:\n\nK = [STOCH_K], D = [STOCH_D]\n\nSecondo i valori, la condizione è di [STOCH_STATE] e indica [STOCH_SIGNIFICATO].",
-      "Attuali valori dello stocastico per [TOPIC]:\n\nK = [STOCH_K], D = [STOCH_D]\n\nInterpretazione: condizione tipica di [STOCH_STATE], significato per l'asset di [STOCH_SIGNIFICATO].",
-      "Lo stocastico di [TOPIC] è attualmente:\n\nK = [STOCH_K], D = [STOCH_D]\n\nValutazione: [STOCH_STATE], suggerisce [STOCH_SIGNIFICATO].",
-      "Ecco i valori stocastici per [TOPIC]:\n\nK = [STOCH_K], D = [STOCH_D]\n\nAnalisi: condizione di [STOCH_STATE] con significato per l'asset di [STOCH_SIGNIFICATO].",
-      "Gli ultimi valori dello stocastico per [TOPIC] sono:\n\nK = [STOCH_K], D = [STOCH_D]\n\nLa situazione indica [STOCH_STATE], quindi [STOCH_SIGNIFICATO].",
-      "Per [TOPIC], lo stocastico mostra:\n\nK = [STOCH_K], D = [STOCH_D]\n\nSecondo l'analisi, significa che è [STOCH_STATE] e suggerisce [STOCH_SIGNIFICATO].",
-      "Valori correnti dello stocastico di [TOPIC]:\n\nK = [STOCH_K], D = [STOCH_D]\n\nCondizione tipica: [STOCH_STATE]. Implicazioni per l'asset: [STOCH_SIGNIFICATO].",
-      "Attenzione ai valori dello stocastico di [TOPIC]:\n\nK = [STOCH_K], D = [STOCH_D]\n\nSituazione: [STOCH_STATE], il significato per l'asset è di [STOCH_SIGNIFICATO].",
-      "I dati stocastici recenti per [TOPIC]:\n\nK = [STOCH_K], D = [STOCH_D]\n\nAnalisi: significa che è [STOCH_STATE], quindi per l'asset indica [STOCH_SIGNIFICATO]."
+      "I valori attuali dello stocastico per [TOPIC] sono:\n\nK = [STOCH_K], D = [STOCH_D]\n\nLa condizione tipica è di [STATE]. Significato per l'asset: [SIGNIFICATO].",
+      "Ecco lo stocastico di [TOPIC]:\n\nK = [STOCH_K], D = [STOCH_D]\n\nSecondo i valori, la condizione è di [STATE] e indica [STOCH_SIGNIFICATO].",
+      "Attuali valori dello stocastico per [TOPIC]:\n\nK = [STOCH_K], D = [STOCH_D]\n\nInterpretazione: condizione tipica di [STATE], significato per l'asset di [SIGNIFICATO].",
+      "Lo stocastico di [TOPIC] è attualmente:\n\nK = [STOCH_K], D = [STOCH_D]\n\nValutazione: [STATE], suggerisce [STOCH_SIGNIFICATO].",
+      "Ecco i valori stocastici per [TOPIC]:\n\nK = [STOCH_K], D = [STOCH_D]\n\nAnalisi: condizione di [STATE] con significato per l'asset di [SIGNIFICATO].",
+      "Gli ultimi valori dello stocastico per [TOPIC] sono:\n\nK = [STOCH_K], D = [STOCH_D]\n\nLa situazione indica [STATE], quindi [SIGNIFICATO].",
+      "Per [TOPIC], lo stocastico mostra:\n\nK = [STOCH_K], D = [STOCH_D]\n\nSecondo l'analisi, significa che è [STATE] e suggerisce [SIGNIFICATO].",
+      "Valori correnti dello stocastico di [TOPIC]:\n\nK = [STOCH_K], D = [STOCH_D]\n\nCondizione tipica: STATE]. Implicazioni per l'asset: [SIGNIFICATO].",
+      "Attenzione ai valori dello stocastico di [TOPIC]:\n\nK = [STOCH_K], D = [STOCH_D]\n\nSituazione: [STATE], il significato per l'asset è di [SIGNIFICATO].",
+      "I dati stocastici recenti per [TOPIC]:\n\nK = [STOCH_K], D = [STOCH_D]\n\nAnalisi: significa che è [STATE], quindi per l'asset indica [SIGNIFICATO]."
     ],
     "cost": 1
 },
@@ -2705,16 +2705,16 @@
       "Exponential moving average di [TOPIC]"
     ],
     "answers": [
-      "L'EMA a 10 giorni di [TOPIC] è attualmente [EMA_VALUE].\n\nIl prezzo si trova [UP/DOWN] rispetto all’EMA10, indicando un trend [EMA_TREND] per l’asset.",
-      "Il valore EMA10 di [TOPIC] è [EMA_VALUE].\n\nIl prezzo è [UP/DOWN] rispetto all'EMA10, suggerendo un trend [EMA_TREND].",
-      "Attualmente, l'EMA 10 di [TOPIC] si attesta a [EMA_VALUE].\n\nOsservando la posizione del prezzo rispetto all'EMA10, il trend appare [EMA_TREND].",
-      "L'indicatore EMA10 per [TOPIC] è [EMA_VALUE].\n\nIl prezzo dell'asset è [UP/DOWN] rispetto all'EMA10, il che indica un trend [EMA_TREND].",
-      "EMA a 10 giorni di [TOPIC]: [EMA_VALUE].\n\nLa posizione del prezzo [UP/DOWN] rispetto all'EMA10 mostra un trend [EMA_TREND].",
-      "Il valore corrente dell'EMA10 di [TOPIC] è [EMA_VALUE].\n\nQuesto implica che il prezzo è [UP/DOWN] rispetto all’EMA10, indicando un trend [EMA_TREND].",
-      "L'EMA10 di [TOPIC] risulta essere [EMA_VALUE].\n\nCon il prezzo [UP/DOWN] rispetto all'EMA10, il trend dell'asset è [EMA_TREND].",
-      "Per [TOPIC], l'EMA a 10 giorni è [EMA_VALUE].\n\nLa condizione del prezzo [UP/DOWN] rispetto all’EMA10 indica un trend [EMA_TREND].",
-      "Il valore EMA 10 attuale di [TOPIC] è [EMA_VALUE].\n\nOsservando il prezzo [UP/DOWN] rispetto all'EMA10, possiamo dire che il trend è [EMA_TREND].",
-      "L'indicatore EMA10 di [TOPIC] oggi è [EMA_VALUE].\n\nIl prezzo si trova [UP/DOWN] rispetto all’EMA10, suggerendo un trend [EMA_TREND]."
+      "L'EMA a 10 giorni di [TOPIC] è attualmente [EMA_VALUE].\n\nIl prezzo si trova [UP/DOWN] rispetto all’EMA10, indicando un trend [TA_TREND] per l’asset.",
+      "Il valore EMA10 di [TOPIC] è [EMA_VALUE].\n\nIl prezzo è [UP/DOWN] rispetto all'EMA10, suggerendo un trend [TA_TREND].",
+      "Attualmente, l'EMA 10 di [TOPIC] si attesta a [EMA_VALUE].\n\nOsservando la posizione del prezzo rispetto all'EMA10, il trend appare [TA_TREND].",
+      "L'indicatore EMA10 per [TOPIC] è [EMA_VALUE].\n\nIl prezzo dell'asset è [UP/DOWN] rispetto all'EMA10, il che indica un trend [TA_TREND].",
+      "EMA a 10 giorni di [TOPIC]: [EMA_VALUE].\n\nLa posizione del prezzo [UP/DOWN] rispetto all'EMA10 mostra un trend [TA_TREND].",
+      "Il valore corrente dell'EMA10 di [TOPIC] è [EMA_VALUE].\n\nQuesto implica che il prezzo è [UP/DOWN] rispetto all’EMA10, indicando un trend [TA_TREND].",
+      "L'EMA10 di [TOPIC] risulta essere [EMA_VALUE].\n\nCon il prezzo [UP/DOWN] rispetto all'EMA10, il trend dell'asset è [TA_TREND].",
+      "Per [TOPIC], l'EMA a 10 giorni è [EMA_VALUE].\n\nLa condizione del prezzo [UP/DOWN] rispetto all’EMA10 indica un trend [TA_TREND].",
+      "Il valore EMA 10 attuale di [TOPIC] è [EMA_VALUE].\n\nOsservando il prezzo [UP/DOWN] rispetto all'EMA10, possiamo dire che il trend è [TA_TREND].",
+      "L'indicatore EMA10 di [TOPIC] oggi è [EMA_VALUE].\n\nIl prezzo si trova [UP/DOWN] rispetto all’EMA10, suggerendo un trend [TA_TREND]."
     ],
     "cost": 1
 },
@@ -2760,18 +2760,18 @@
       "Vorrei conoscere il CCI per [TOPIC]"
     ],
     "answers": [
-      "Il CCI di [TOPIC] è attualmente [CCI_VALUE].\n\nQuesto indica una condizione tipica di [CCI_STATE] e significa [CCI_SIGNIFICATO] per l'asset.",
-      "Secondo i dati attuali, [TOPIC] mostra un CCI [CCI_VALUE].\n\nIn pratica, si tratta di uno stato [CCI_STATE] che implica [CCI_SIGNIFICATO].",
-      "[TOPIC] ha un CCI pari a [CCI_VALUE].\n\nQuesto corrisponde a una condizione di [CCI_STATE] e suggerisce [CCI_SIGNIFICATO].",
-      "Attualmente, il CCI di [TOPIC] risulta [CCI_VALUE].\n\nSi tratta di uno stato [CCI_STATE], con significato per l'asset: [CCI_SIGNIFICATO].",
-      "Il Commodity Channel Index di [TOPIC] indica [CCI_VALUE].\n\nQuesto indica che l'asset è in una condizione di [CCI_STATE] e [CCI_SIGNIFICATO].",
-      "[TOPIC] presenta un CCI [CCI_VALUE].\n\nLa condizione di [CCI_STATE] significa che [CCI_SIGNIFICATO].",
-      "Secondo le ultime rilevazioni, [TOPIC] è [CCI_VALUE] sul CCI.\n\nSi tratta di uno stato [CCI_STATE] e il suo significato è [CCI_SIGNIFICATO].",
-      "Il CCI corrente di [TOPIC] è [CCI_VALUE].\n\nQuesta situazione di [CCI_STATE] implica [CCI_SIGNIFICATO] per l'asset.",
-      "Attenzione: [TOPIC] ha un CCI [CCI_VALUE].\n\nIn termini pratici, uno stato [CCI_STATE] comporta [CCI_SIGNIFICATO].",
-      "[TOPIC] risulta [CCI_VALUE] secondo il CCI.\n\nQuesto è uno stato [CCI_STATE] e suggerisce [CCI_SIGNIFICATO].",
-      "Il Commodity Channel Index mostra che [TOPIC] è [CCI_VALUE].\n\nLa condizione di [CCI_STATE] si traduce in [CCI_SIGNIFICATO].",
-      "Ultima analisi: il CCI di [TOPIC] indica [CCI_VALUE].\n\nSi tratta di uno stato [CCI_STATE], che rappresenta [CCI_SIGNIFICATO]."
+      "Il CCI di [TOPIC] è attualmente [CCI_VALUE].\n\nQuesto indica una condizione tipica di [STATE] e significa [SIGNIFICATO].",
+      "Secondo i dati attuali, [TOPIC] mostra un CCI [CCI_VALUE].\n\nIn pratica, si tratta di uno stato [STATE] che implica [SIGNIFICATO].",
+      "[TOPIC] ha un CCI pari a [CCI_VALUE].\n\nQuesto corrisponde a una condizione di [STATE] e suggerisce [SIGNIFICATO].",
+      "Attualmente, il CCI di [TOPIC] risulta [CCI_VALUE].\n\nSi tratta di uno stato [STATE], con significato per l'asset: [SIGNIFICATO].",
+      "Il Commodity Channel Index di [TOPIC] indica [CCI_VALUE].\n\nQuesto indica che l'asset è in una condizione di [STATE] e indica [SIGNIFICATO].",
+      "[TOPIC] presenta un CCI [CCI_VALUE].\n\nLa condizione di [STATE] significa che [SIGNIFICATO].",
+      "Secondo le ultime rilevazioni, [TOPIC] è [CCI_VALUE] sul CCI.\n\nSi tratta di uno stato [STATE] e implica [SIGNIFICATO].",
+      "Il CCI corrente di [TOPIC] è [CCI_VALUE].\n\nQuesta situazione di [STATE] implica [SIGNIFICATO].",
+      "Attenzione: [TOPIC] ha un CCI [CCI_VALUE].\n\nIn termini pratici, uno stato [STATE] comporta [SIGNIFICATO].",
+      "[TOPIC] risulta [CCI_VALUE] secondo il CCI.\n\nQuesto è uno stato [STATE] e suggerisce [SIGNIFICATO].",
+      "Il Commodity Channel Index mostra che [TOPIC] è [CCI_VALUE].\n\nLa condizione di [STATE] si traduce in [SIGNIFICATO].",
+      "Ultima analisi: il CCI di [TOPIC] indica [CCI_VALUE].\n\nSi tratta di uno stato [STATE], che rappresenta [SIGNIFICATO]."
     ],
     "cost": 1
 },
@@ -2818,16 +2818,16 @@
       "Qual è il valore attuale del Williams %R di [TOPIC]?"
     ],
     "answers": [
-      "Il valore di Williams %R per [TOPIC] è [WILLIAMS_VALUE].\n\nLa condizione risulta [WILLIAMS_STATE], il che significa [WILLIAMS_SIGNIFICATO].",
-      "Williams %R di [TOPIC]: [WILLIAMS_VALUE].\n\nStato attuale: [WILLIAMS_STATE]. Significato per l'asset: [WILLIAMS_SIGNIFICATO].",
-      "Per [TOPIC], il Williams %R è pari a [WILLIAMS_VALUE].\n\nSituazione tecnica: [WILLIAMS_STATE], indicando [WILLIAMS_SIGNIFICATO].",
-      "Attenzione: il Williams %R di [TOPIC] è [WILLIAMS_VALUE].\n\nCondizione: [WILLIAMS_STATE]. Interpretazione: [WILLIAMS_SIGNIFICATO].",
-      "Ecco il Williams %R di [TOPIC]: [WILLIAMS_VALUE].\n\nLo stato attuale è [WILLIAMS_STATE], che significa [WILLIAMS_SIGNIFICATO].",
-      "Il valore attuale di Williams %R per [TOPIC] è [WILLIAMS_VALUE].\n\nIndicatore [WILLIAMS_STATE]: [WILLIAMS_SIGNIFICATO].",
-      "Per [TOPIC], Williams %R = [WILLIAMS_VALUE].\n\nCondizione tecnica: [WILLIAMS_STATE]. Significato: [WILLIAMS_SIGNIFICATO].",
-      "Il Williams %R di [TOPIC] risulta [WILLIAMS_VALUE].\n\nSituazione: [WILLIAMS_STATE], il che indica [WILLIAMS_SIGNIFICATO].",
-      "Valore Williams %R per [TOPIC]: [WILLIAMS_VALUE].\n\nLo stato tecnico è [WILLIAMS_STATE], e questo significa [WILLIAMS_SIGNIFICATO].",
-      "Aggiornamento: Williams %R di [TOPIC] = [WILLIAMS_VALUE].\n\nCondizione attuale: [WILLIAMS_STATE], interpretazione: [WILLIAMS_SIGNIFICATO]."
+      "Il valore di Williams %R per [TOPIC] è [WILLIAMS_VALUE].\n\nLa condizione risulta [STATE], il che significa [SIGNIFICATO].",
+      "Williams %R di [TOPIC]: [WILLIAMS_VALUE].\n\nStato attuale: [STATE]. Significato per l'asset: [SIGNIFICATO].",
+      "Per [TOPIC], il Williams %R è pari a [WILLIAMS_VALUE].\n\nSituazione tecnica: [STATE], indicando [SIGNIFICATO].",
+      "Attenzione: il Williams %R di [TOPIC] è [WILLIAMS_VALUE].\n\nCondizione: [STATE]. Interpretazione: [SIGNIFICATO].",
+      "Ecco il Williams %R di [TOPIC]: [WILLIAMS_VALUE].\n\nLo stato attuale è [STATE], che significa [SIGNIFICATO].",
+      "Il valore attuale di Williams %R per [TOPIC] è [WILLIAMS_VALUE].\n\nIndicatore [STATE]: [SIGNIFICATO].",
+      "Per [TOPIC], Williams %R = [WILLIAMS_VALUE].\n\nCondizione tecnica: [STATE]. Significato: [SIGNIFICATO].",
+      "Il Williams %R di [TOPIC] risulta [WILLIAMS_VALUE].\n\nSituazione: [STATE], il che indica [SIGNIFICATO].",
+      "Valore Williams %R per [TOPIC]: [WILLIAMS_VALUE].\n\nLo stato tecnico è [STATE], e questo significa [SIGNIFICATO].",
+      "Aggiornamento: Williams %R di [TOPIC] = [WILLIAMS_VALUE].\n\nCondizione attuale: [STATE], interpretazione: [SIGNIFICATO]."
     ],
     "cost": 1
 },
@@ -2875,16 +2875,16 @@
       "Bande Bollinger per [TOPIC]"
     ],
     "answers": [
-      "Bande di Bollinger per [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilità: [BB_VOLATILITY]\n- La banda è [UP/DOWN]\n\nLa condizione risulta [BB_STATE], il che significa [BB_SIGNIFICATO].",
-      "Ecco le informazioni sulle bande di Bollinger di [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilità: [BB_VOLATILITY]\n- La banda è [UP/DOWN]\n\nAttualmente lo stato è [BB_STATE], che indica [BB_SIGNIFICATO].",
-      "Analisi Bollinger per [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilità: [BB_VOLATILITY]\n- La banda è [UP/DOWN]\n\nLa condizione è di [BB_STATE], significando [BB_SIGNIFICATO].",
-      "Le bande di Bollinger di [TOPIC] mostrano:\n\n- %B: [BB_VALUE]\n- Volatilità: [BB_VOLATILITY]\n- La banda è [UP/DOWN]\n\nSituazione attuale: [BB_STATE], il che rappresenta [BB_SIGNIFICATO].",
-      "Per [TOPIC], le bande di Bollinger sono:\n\n- %B: [BB_VALUE]\n- Volatilità: [BB_VOLATILITY]\n- La banda è [UP/DOWN]\n\nCondizione: [BB_STATE], indicando [BB_SIGNIFICATO].",
-      "Ecco lo stato delle bande di Bollinger su [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilità: [BB_VOLATILITY]\n- La banda è [UP/DOWN]\n\nAttualmente risulta [BB_STATE], con significato [BB_SIGNIFICATO].",
-      "Situazione Bollinger per [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilità: [BB_VOLATILITY]\n- La banda è [UP/DOWN]\n\nLo stato è [BB_STATE], che vuol dire [BB_SIGNIFICATO].",
-      "Bande di Bollinger aggiornate per [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilità: [BB_VOLATILITY]\n- La banda è [UP/DOWN]\n\nCondizione corrente: [BB_STATE], che implica [BB_SIGNIFICATO].",
-      "Analisi tecnica Bollinger per [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilità: [BB_VOLATILITY]\n- La banda è [UP/DOWN]\n\nL'asset risulta [BB_STATE], significando [BB_SIGNIFICATO].",
-      "Ecco i dati delle bande di Bollinger di [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilità: [BB_VOLATILITY]\n- La banda è [UP/DOWN]\n\nSituazione: [BB_STATE], che indica [BB_SIGNIFICATO]."
+      "Bande di Bollinger per [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilità: [BB_VOLATILITY]\n- La banda è [UP/DOWN]\n\nLa condizione risulta [STATE], il che significa [SIGNIFICATO].",
+      "Ecco le informazioni sulle bande di Bollinger di [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilità: [BB_VOLATILITY]\n- La banda è [UP/DOWN]\n\nAttualmente lo stato è [STATE], che indica [SIGNIFICATO].",
+      "Analisi Bollinger per [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilità: [BB_VOLATILITY]\n- La banda è [UP/DOWN]\n\nLa condizione è di [STATE], significando [SIGNIFICATO].",
+      "Le bande di Bollinger di [TOPIC] mostrano:\n\n- %B: [BB_VALUE]\n- Volatilità: [BB_VOLATILITY]\n- La banda è [UP/DOWN]\n\nSituazione attuale: [STATE], il che rappresenta [SIGNIFICATO].",
+      "Per [TOPIC], le bande di Bollinger sono:\n\n- %B: [BB_VALUE]\n- Volatilità: [BB_VOLATILITY]\n- La banda è [UP/DOWN]\n\nCondizione: [STATE], indicando [SIGNIFICATO].",
+      "Ecco lo stato delle bande di Bollinger su [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilità: [BB_VOLATILITY]\n- La banda è [UP/DOWN]\n\nAttualmente risulta [STATE], con significato [SIGNIFICATO].",
+      "Situazione Bollinger per [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilità: [BB_VOLATILITY]\n- La banda è [UP/DOWN]\n\nLo stato è [STATE], che vuol dire [SIGNIFICATO].",
+      "Bande di Bollinger aggiornate per [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilità: [BB_VOLATILITY]\n- La banda è [UP/DOWN]\n\nCondizione corrente: [STATE], che implica [SIGNIFICATO].",
+      "Analisi tecnica Bollinger per [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilità: [BB_VOLATILITY]\n- La banda è [UP/DOWN]\n\nL'asset risulta [STATE], significando [SIGNIFICATO].",
+      "Ecco i dati delle bande di Bollinger di [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilità: [BB_VOLATILITY]\n- La banda è [UP/DOWN]\n\nSituazione: [STATE], che indica [SIGNIFICATO]."
     ],
     "cost": 1
 },
