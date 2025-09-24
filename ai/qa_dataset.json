@@ -2570,6 +2570,120 @@
       "Mi spiace, l'accesso all'RSI di [TOPIC] è limitato agli abbonati dei piani premium o ultra 😅. Puoi fare l'upgrade per goderti tutti i vantaggi! ",
       "L'indicatore RSI di [TOPIC] può essere visualizzato solo con un abbonamento premium o ultra. Non perdere l'opportunità di sfruttare tutte le funzionalità!"
     ],
+   "cost": 1
+},
+    "macd_premium": {
+    "questions": [
+      "Dammi il MACD di [TOPIC]",
+      "Qual è il MACD di [TOPIC]?",
+      "Puoi mostrarmi il MACD di [TOPIC]?",
+      "Vorrei sapere il MACD di [TOPIC]",
+      "MACD per [TOPIC] per favore",
+      "MACD di [TOPIC]",
+      "Aggiornami sul MACD di [TOPIC]",
+      "Mostrami il valore MACD di [TOPIC]",
+      "Analizza il MACD di [TOPIC]",
+      "MACD attuale di [TOPIC]",
+      "MACD aggiornato di [TOPIC]"
+    ],
+    "answers": [
+      "Il MACD di [TOPIC] attualmente è [MACD_VALUE], suggerendo un trend [MACD_TREND].",
+      "Secondo i dati aggiornati, il MACD di [TOPIC] è [MACD_VALUE] e indica un movimento [MACD_TREND].",
+      "Gli esperti stimano che il MACD di [TOPIC] pari a [MACD_VALUE] segnala un trend [MACD_TREND].",
+      "Valore attuale MACD di [TOPIC]: [MACD_VALUE]. Il trend suggerito è [MACD_TREND].",
+      "MACD di [TOPIC]: [MACD_VALUE] – indicazione attuale: [MACD_TREND].",
+      "Il valore MACD per [TOPIC] è [MACD_VALUE], con un trend complessivo [MACD_TREND].",
+      "Osservando il MACD di [TOPIC], il valore è [MACD_VALUE] e segnala un andamento [MACD_TREND].",
+      "Il MACD aggiornato di [TOPIC] è [MACD_VALUE]. Analisi del trend: [MACD_TREND].",
+      "Secondo le ultime rilevazioni, [TOPIC] ha un MACD pari a [MACD_VALUE] e un trend [MACD_TREND].",
+      "Il MACD attuale di [TOPIC] è [MACD_VALUE] e suggerisce un comportamento [MACD_TREND] del mercato."
+    ],
+    "cost": 1
+},
+    "macd": {
+    "questions": [
+      "Dammi il MACD di [TOPIC]",
+      "Qual è il MACD di [TOPIC]?",
+      "Puoi mostrarmi il MACD di [TOPIC]?",
+      "Vorrei sapere il MACD di [TOPIC]",
+      "MACD per [TOPIC] per favore",
+      "MACD di [TOPIC]",
+      "Aggiornami sul MACD di [TOPIC]",
+      "Mostrami il valore MACD di [TOPIC]",
+      "Analizza il MACD di [TOPIC]",
+      "MACD attuale di [TOPIC]",
+      "MACD aggiornato di [TOPIC]"
+    ],
+    "answers": [
+      "Per visualizzare il MACD di [TOPIC] è necessario avere un abbonamento premium o ultra. Fai l'upgrade per ottenere tutti i vantaggi! 😄",
+      "Mi dispiace, questo dato tecnico è disponibile solo per gli utenti premium o ultra. Se vuoi puoi fare l'upgrade per usufruire di tutti i vantaggi premium o ultra! 📈",
+      "L'accesso al MACD di [TOPIC] richiede un abbonamento. Considera l'upgrade ai piani premium o ultra per consultarlo. 😄",
+      "Per consultare l'indicatore MACD di [TOPIC] devi essere abbonato a uno dei nostri piani premium o ultra.",
+      "Purtroppo sembra che tu abbia il piano standard gratuito 😅. Il MACD di [TOPIC] è una funzione riservata agli utenti con abbonamento premium o ultra.",
+      "Ops, sembra che tu non sia abbonato 🤔… fai l’upgrade ai piani premium o ultra per usufruire di tutti i vantaggi che un investitore come te merita!",
+      "Per ottenere il valore MACD di [TOPIC] è necessario avere un abbonamento attivo, premium o ultra 😅.",
+      "Questa informazione tecnica è disponibile esclusivamente per gli utenti premium o ultra 💎.",
+      "Mi spiace, l'accesso al MACD di [TOPIC] è limitato agli abbonati dei piani premium o ultra 😅. Puoi fare l'upgrade per goderti tutti i vantaggi!",
+      "L'indicatore MACD di [TOPIC] può essere visualizzato solo con un abbonamento premium o ultra. Non perdere l'opportunità di sfruttare tutte le funzionalità!"
+    ],
+    "cost": 1
+},
+    "stochastic_premium": {
+    "questions": [
+      "Mostrami l'oscillatore stocastico di [TOPIC]",
+      "Qual è lo stocastico di [TOPIC]?",
+      "Puoi dirmi i valori dello stocastico per [TOPIC]?",
+      "Ho bisogno dell'oscillatore stocastico di [TOPIC]",
+      "Dammi lo stocastico attuale di [TOPIC]",
+      "Quali sono i valori K e D dello stocastico di [TOPIC]?",
+      "Visualizza lo stocastico di [TOPIC] negli ultimi giorni",
+      "Indicami i valori attuali dell'oscillatore stocastico di [TOPIC]",
+      "Mostrami K e D dello stocastico per [TOPIC]",
+      "Vorrei sapere la condizione stocastica di [TOPIC]",
+      "Puoi fornirmi lo stocastico completo di [TOPIC]?",
+      "Dammi l'analisi stocastica di [TOPIC]",
+      "K e D per [TOPIC]"
+    ],
+    "answers": [
+      "I valori attuali dello stocastico per [TOPIC] sono:\n\nK = [STOCH_K], D = [STOCH_D]\n\nLa condizione tipica è [STOCH_STATE]. Significato per l'asset: [STOCH_SIGNIFICATO].",
+      "Ecco lo stocastico di [TOPIC]:\n\nK = [STOCH_K], D = [STOCH_D]\n\nSecondo i valori, la condizione è [STOCH_STATE] e indica che [STOCH_SIGNIFICATO].",
+      "Attuali valori dello stocastico per [TOPIC]:\n\nK = [STOCH_K], D = [STOCH_D]\n\nInterpretazione: condizione tipica [STOCH_STATE], significato per l'asset [STOCH_SIGNIFICATO].",
+      "Lo stocastico di [TOPIC] è attualmente:\n\nK = [STOCH_K], D = [STOCH_D]\n\nValutazione: [STOCH_STATE], suggerisce che [STOCH_SIGNIFICATO].",
+      "Ecco i valori stocastici per [TOPIC]:\n\nK = [STOCH_K], D = [STOCH_D]\n\nAnalisi: condizione [STOCH_STATE] con significato per l'asset [STOCH_SIGNIFICATO].",
+      "Gli ultimi valori dello stocastico per [TOPIC] sono:\n\nK = [STOCH_K], D = [STOCH_D]\n\nLa situazione indica [STOCH_STATE], quindi [STOCH_SIGNIFICATO].",
+      "Per [TOPIC], lo stocastico mostra:\n\nK = [STOCH_K], D = [STOCH_D]\n\nSecondo l'analisi, condizione [STOCH_STATE], suggerisce [STOCH_SIGNIFICATO].",
+      "Valori correnti dello stocastico di [TOPIC]:\n\nK = [STOCH_K], D = [STOCH_D]\n\nCondizione tipica: [STOCH_STATE]. Implicazioni per l'asset: [STOCH_SIGNIFICATO].",
+      "Attenzione ai valori dello stocastico di [TOPIC]:\n\nK = [STOCH_K], D = [STOCH_D]\n\nSituazione: [STOCH_STATE], il significato per l'asset è [STOCH_SIGNIFICATO].",
+      "I dati stocastici recenti per [TOPIC]:\n\nK = [STOCH_K], D = [STOCH_D]\n\nAnalisi: condizione [STOCH_STATE], interpretazione per l'asset [STOCH_SIGNIFICATO]."
+    ],
+    "cost": 1
+},
+    "stochastic": {
+    "questions": [
+      "Qual è lo stocastico di [TOPIC]?",
+      "Puoi mostrarmi l'oscillatore stocastico di [TOPIC]?",
+      "Vorrei vedere i valori dello stocastico per [TOPIC]",
+      "Mi dai i valori K e D di [TOPIC]?",
+      "Mostrami lo stocastico di [TOPIC] per favore",
+      "Come sta lo stocastico di [TOPIC]?",
+      "Quali sono K e D per [TOPIC]?",
+      "K e D per [TOPIC]",
+      "Indicatore stocastico di [TOPIC]",
+      "Mostrami l'oscillatore stocastico di [TOPIC]",
+      "Ho bisogno dei valori stocastici per [TOPIC]"
+    ],
+    "answers": [
+      "Per visualizzare l'oscillatore stocastico di [TOPIC] è necessario un abbonamento premium o ultra. Fai l'upgrade per ottenere tutti i vantaggi! 😄",
+      "Mi dispiace, questo dato tecnico è disponibile solo per gli utenti premium o ultra. Se vuoi puoi fare l'upgrade per usufruire di tutti i vantaggi premium o ultra! 📈",
+      "L'accesso allo stocastico di [TOPIC] richiede un abbonamento. Considera l'upgrade ai piani premium o ultra per consultarlo. 😄",
+      "Per consultare l'indicatore stocastico di [TOPIC] devi essere abbonato a uno dei nostri piani premium o ultra.",
+      "Purtroppo sembra che tu abbia il piano standard gratuito 😅. Lo stocastico di [TOPIC] è una funzione riservata agli utenti con abbonamento premium o ultra.",
+      "Ops, sembra che tu non sia abbonato 🤔… fai l’upgrade ai piani premium o ultra per usufruire di tutti i vantaggi che un investitore come te merita! 💎",
+      "Per ottenere i valori dello stocastico di [TOPIC] è necessario avere un abbonamento attivo, premium o ultra 😅.",
+      "Questa informazione tecnica è disponibile esclusivamente per gli utenti premium o ultra.",
+      "Mi spiace, l'accesso allo stocastico di [TOPIC] è limitato agli abbonati dei piani premium o ultra 😅. Puoi fare l'upgrade per goderti tutti i vantaggi!",
+      "L'indicatore stocastico di [TOPIC] può essere visualizzato solo con un abbonamento premium o ultra. Non perdere l'opportunità di sfruttare tutte le funzionalità!"
+    ],
     "cost": 1
 }
 }
