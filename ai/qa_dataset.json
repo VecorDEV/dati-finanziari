@@ -2527,7 +2527,7 @@
       "Mi mostri il valore rsi di [TOPIC]?",
       "Come è l'RSI di [TOPIC] oggi?",
       "Mostrami il dato tecnico RSI di [TOPIC]",
-      "Relative Strength Index (RSI) per [TOPIC]"
+      "Relative Strength Index per [TOPIC]"
     ],
     "answers": [
       "L'RSI attuale di [TOPIC] è [RSI].\n\nLo stato è [STATE], il che significa [SIGNIFICATO].",
@@ -2560,7 +2560,7 @@
       "Mi mostri il valore rsi di [TOPIC]?",
       "Come è l'RSI di [TOPIC] oggi?",
       "Mostrami il dato tecnico RSI di [TOPIC]",
-      "Relative Strength Index (RSI) per [TOPIC]"
+      "Relative Strength Index per [TOPIC]"
     ],
     "answers": [
       "Per visualizzare l'RSI di [TOPIC] è necessario avere un abbonamento premium o ultra. Fai l'upgrade per ottenere tutti i vantaggi! 😄",
@@ -2902,7 +2902,8 @@
       "Vorrei conoscere la banda di Bollinger attuale di [TOPIC]",
       "Mostrami la volatilità e le bande di Bollinger per [TOPIC]",
       "Puoi fornirmi lo stato delle bande di Bollinger su [TOPIC]?",
-      "Bande di Bollinger per [TOPIC]"
+      "Bande di Bollinger per [TOPIC]",
+      "Bollinger di [TOPIC]"
     ],
     "answers": [
       "Per visualizzare le bande di Bollinger di [TOPIC] è necessario un abbonamento premium o ultra. Fai l'upgrade per ottenere tutti i dettagli! 💎",
@@ -2919,5 +2920,202 @@
       "Ops! I dettagli delle bande di Bollinger sono riservati agli utenti premium o ultra. Effettua l'upgrade per consultarle."
     ],
     "cost": 1
+},
+    "rsi_info": {
+    "questions": [
+      "Cos'è l'RSI?",
+      "Sai dirmi cosa significa RSI?",
+      "A cosa serve l'indicatore RSI?",
+      "Che cos'è l'RSI in analisi tecnica?",
+      "Puoi spiegarmi l'RSI?",
+      "Cosa vuol dire RSI?",
+      "Mi spieghi cosa rappresenta l'RSI?",
+      "Vorrei sapere cos'è l'RSI",
+      "Che funzione ha l'RSI?",
+      "RSI cosa significa?",
+      "Cos'è il relative strength index?",
+      "Mi spieghi il relative strength index?"
+    ],
+    "answers": [
+      "L'RSI, o Relative Strength Index, è un indicatore tecnico che misura la forza e la velocità dei movimenti di prezzo. Viene calcolato confrontando la media dei rialzi con la media dei ribassi su un determinato periodo (di solito 14 giorni). Serve a capire se un asset è in ipercomprato o ipervenduto.",
+      "Il Relative Strength Index (RSI) è un oscillatore che aiuta a individuare condizioni estreme del mercato. Si calcola rapportando i guadagni medi alle perdite medie su un certo periodo di tempo. Valori alti indicano potenziale ipercomprato, valori bassi possibili situazioni di ipervenduto.",
+      "L'RSI è un indicatore molto usato per valutare la forza del trend. Si ottiene misurando la proporzione tra i movimenti positivi e negativi di un asset negli ultimi giorni. Questo consente di identificare zone dove il prezzo potrebbe invertire.",
+      "Il Relative Strength Index è uno strumento che misura la pressione degli acquisti e delle vendite. Si calcola facendo un rapporto tra rialzi e ribassi medi in un periodo stabilito. Quando il valore supera 70 si parla di ipercomprato, sotto 30 invece di ipervenduto.",
+      "L'RSI è un oscillatore che va da 0 a 100 e serve per capire se un asset è sopravvalutato o sottovalutato. Il suo calcolo confronta l'intensità dei rialzi con quella dei ribassi. È utile per individuare possibili inversioni di trend.",
+      "RSI significa Relative Strength Index e misura la forza relativa di un asset. Per calcolarlo si confrontano i guadagni medi con le perdite medie in un certo intervallo. Valori estremi indicano probabili squilibri tra domanda e offerta.",
+      "L'RSI è un indicatore che analizza la dinamica dei prezzi. Si calcola confrontando i movimenti positivi con quelli negativi in un periodo predefinito. Così segnala quando un titolo potrebbe essere in eccesso di acquisti o vendite.",
+      "L'indice RSI è un oscillatore molto diffuso in analisi tecnica. Si calcola a partire dalla media dei movimenti rialzisti e ribassisti. Permette di capire se il mercato è troppo orientato al rialzo o al ribasso e quindi vicino a un possibile ritracciamento.",
+      "Il Relative Strength Index è uno strumento di analisi tecnica che misura la forza del trend. È basato sul rapporto tra guadagni e perdite medi registrati in un arco di tempo. Aiuta gli investitori a riconoscere zone di ipercomprato o ipervenduto.",
+      "L'RSI è un indicatore che offre informazioni preziose sullo stato di un asset. Viene calcolato dal confronto tra i movimenti al rialzo e al ribasso, tradotti in un valore compreso tra 0 e 100. Questo valore segnala le aree dove il prezzo potrebbe invertire la rotta."
+    ],
+    "cost": 0
+},
+    "macd_info": {
+    "questions": [
+      "Cos'è il MACD?",
+      "Puoi spiegarmi cos'è il MACD?",
+      "Vorrei sapere a cosa serve il MACD",
+      "Sai dirmi cosa indica il MACD?",
+      "Spiegami il MACD in analisi tecnica",
+      "Cosa rappresenta l’indicatore MACD?",
+      "Per cosa viene utilizzato il MACD?",
+      "Puoi darmi una spiegazione semplice del MACD?",
+      "Come funziona il MACD?",
+      "Vorrei capire meglio l’indicatore MACD",
+      "Cos'è il moving average convergence divergence?"
+    ],
+    "answers": [
+      "Il MACD (Moving Average Convergence Divergence) è un indicatore di analisi tecnica che serve a misurare la forza e la direzione del trend. \n\nSi calcola come differenza tra due medie mobili esponenziali (una veloce e una lenta) e include una linea di segnale.\nQuando il MACD è positivo indica prevalenza dei rialzi, quando è negativo prevalenza dei ribassi. L’incrocio con la linea di segnale fornisce possibili segnali di inversione.",
+      "Il MACD è utilizzato per individuare i cambi di momentum e le inversioni di trend. \n\nViene calcolato partendo da due medie mobili esponenziali (di solito a 12 e 26 periodi) e confrontato con una linea di segnale (EMA a 9 periodi).\nSe il MACD è sopra lo zero indica tendenza rialzista, se è sotto indica tendenza ribassista. Gli incroci con la linea di segnale segnalano potenziali punti di ingresso o uscita.",
+      "Il MACD è un oscillatore che aiuta a comprendere se un asset è in fase di accelerazione o rallentamento del trend. \n\nSi calcola sottraendo una media mobile esponenziale lenta da una veloce e aggiungendo una linea di segnale per il confronto.\nValori positivi suggeriscono pressione rialzista, negativi pressione ribassista, mentre i cambi di direzione segnalano possibili inversioni.",
+      "Il MACD è uno strumento che misura la forza del trend e individua possibili inversioni. \n\nIl calcolo si basa sulla differenza tra EMA di 12 e 26 periodi, con una EMA a 9 periodi che funge da linea di segnale.\nQuando il MACD incrocia verso l’alto la linea di segnale è un potenziale segnale d’acquisto, viceversa un segnale di vendita.",
+      "Il MACD, acronimo di Moving Average Convergence Divergence, è un indicatore che aiuta a valutare la direzione e l’intensità del trend. \n\nDeriva dal confronto tra due medie mobili esponenziali e da una linea di segnale che ne semplifica la lettura\nSe il valore del MACD è positivo indica un trend rialzista, se è negativo un trend ribassista, con gli incroci che evidenziano possibili cambi di scenario.",
+      "Il MACD è usato per identificare momenti di forza o debolezza nei mercati. \n\nIl suo calcolo prevede la sottrazione tra due medie mobili esponenziali (veloce e lenta) e il confronto con una media mobile più breve detta linea di segnale.\nValori sopra lo zero e incroci positivi segnalano una fase di crescita, valori sotto lo zero e incroci negativi segnalano una fase di ribasso.",
+      "Il MACD è uno degli indicatori tecnici più diffusi perché combina trend e momentum. \n\nSi ottiene calcolando la differenza tra due EMA (generalmente 12 e 26 periodi) e una linea di segnale a 9 periodi.\nSe il MACD è superiore alla linea di segnale il trend appare rialzista, se è inferiore appare ribassista.",
+      "Il Moving Average Convergence Divergence permette di capire se il mercato sta guadagnando o perdendo forza. \n\nSi calcola prendendo due medie mobili esponenziali di lunghezze diverse e confrontandole con una media mobile più breve detta segnale.\nQuando il MACD è positivo suggerisce prevalenza di acquisti, quando è negativo prevalenza di vendite, mentre i crossover segnalano potenziali opportunità.",
+      "Il MACD è un indicatore che aiuta a rilevare trend e inversioni in modo semplice. \n\nSi basa sulla differenza tra una media mobile veloce e una lenta, più una linea di segnale che rende più chiara la lettura.\nSe il MACD passa da negativo a positivo può indicare l’inizio di un trend rialzista, il contrario può segnalare un ribasso.",
+      "Il Moving Average Convergence Divergence viene usato per analizzare la dinamica dei prezzi e identificare segnali operativi. \n\nÈ calcolato partendo da due medie mobili esponenziali a diversa velocità e confrontato con una linea di segnale.\nUn MACD sopra lo zero indica una fase di forza rialzista, sotto lo zero indica debolezza ribassista, mentre i crossover aiutano a individuare i cambi di trend."
+    ],
+    "cost": 0
+},
+    "stochastic_info": {
+    "questions": [
+      "Cos'è l'oscillatore stocastico?",
+      "Sai spiegarmi cosa indica lo stocastico?",
+      "A cosa serve l'oscillatore stocastico?",
+      "Vorrei capire meglio l'indicatore stocastico",
+      "Spiegami come funziona lo stocastico",
+      "Perché si usa l'oscillatore stocastico?",
+      "Come si legge l'oscillatore stocastico?",
+      "Che cosa rappresenta lo stocastico?",
+      "Cos'è lo stocastico?",
+      "Cos'è lo stocastico nell’analisi tecnica?",
+      "Mi puoi chiarire a cosa serve lo stocastico?"
+    ],
+    "answers": [
+      "L'oscillatore stocastico è un indicatore tecnico usato per capire se un asset è in fase di ipercomprato o ipervenduto. \n\nSi calcola confrontando il prezzo di chiusura più recente con il range dei prezzi (massimi e minimi) di un determinato periodo. \n\nValori sopra 80 indicano tipicamente ipercomprato, sotto 20 ipervenduto, mentre valori intermedi sono considerati neutrali.",
+      "Lo stocastico serve a misurare la posizione del prezzo attuale rispetto al range di prezzi recenti, evidenziando eccessi di mercato. \n\nIl calcolo confronta il prezzo di chiusura corrente con il massimo e il minimo degli ultimi periodi (spesso 14). \n\nQuando supera 80 l’asset è considerato in ipercomprato, quando scende sotto 20 in ipervenduto.",
+      "L'oscillatore stocastico è un oscillatore di momentum che indica la velocità del movimento dei prezzi. \n\nViene calcolato rapportando la chiusura corrente con il range dei prezzi in un certo arco temporale. \n\nUn valore alto (sopra 80) segnala condizioni di ipercomprato, un valore basso (sotto 20) segnala ipervenduto.",
+      "Lo stocastico è uno strumento di analisi tecnica che aiuta a individuare momenti di eccesso nei mercati. \n\nLa formula confronta la chiusura del prezzo attuale con l’intervallo dei massimi e minimi passati. \n\nIn pratica, valori estremi (alti o bassi) possono segnalare possibili inversioni di trend.",
+      "L'oscillatore stocastico è usato per valutare se un titolo è stato comprato o venduto eccessivamente. \n\nSi basa sul confronto tra il prezzo di chiusura corrente e l’intervallo dei prezzi recenti. \n\nSe si trova sopra 80 è in ipercomprato, sotto 20 in ipervenduto, mentre valori centrali indicano equilibrio.",
+      "Lo stocastico è uno degli indicatori più diffusi per capire se un mercato è vicino a un punto di inversione. \n\nIl calcolo considera il prezzo di chiusura in relazione ai massimi e minimi recenti. \n\nValori oltre 80 spesso anticipano possibili ribassi, valori sotto 20 possibili rialzi.",
+      "L'oscillatore stocastico segnala condizioni di eccesso di acquisto o vendita. \n\nSi calcola confrontando il prezzo di chiusura attuale con il range di prezzi di un periodo (solitamente 14 giorni). \n\nQuando lo stocastico è alto si tende a pensare che il titolo sia ipercomprato, quando è basso che sia ipervenduto.",
+      "Lo stocastico è un indicatore tecnico che serve a capire il momentum di mercato. \n\nSi ottiene confrontando dove si trova la chiusura rispetto al massimo e al minimo degli ultimi periodi. \n\nValori oltre 80 suggeriscono eccesso di acquisti, sotto 20 eccesso di vendite.",
+      "L'oscillatore stocastico mostra quanto il prezzo attuale è vicino al massimo o al minimo del periodo considerato. \n\nLa formula prende come riferimento la chiusura corrente e la rapporta al range dei prezzi. \n\nCon valori alti l’asset è spesso in ipercomprato, con valori bassi in ipervenduto.",
+      "Lo stocastico è utile per misurare il momentum e gli eccessi del mercato. \n\nSi calcola analizzando la chiusura dei prezzi rispetto al loro intervallo in un periodo prefissato. \n\nGeneralmente oltre 80 si parla di ipercomprato, sotto 20 di ipervenduto."
+    ],
+    "cost": 0
+},
+    "ema_info": {
+    "questions": [
+      "Cos'è l'EMA a 10 periodi?",
+      "Sai spiegarmi cosa significa EMA(10)?",
+      "Che cosa indica l'EMA?",
+      "Vorrei capire meglio l'indicatore EMA 10",
+      "Puoi spiegarmi come funziona l'EMA a 10 giorni?",
+      "Perché si usa l'EMA?",
+      "Come si interpreta l'EMA (10)?",
+      "Cos'è la media mobile esponenziale a 10 periodi?",
+      "A cosa serve l'EMA10?",
+      "Che significato ha l'EMA (10) nell’analisi tecnica?",
+      "Cos'è la media mobile esponenziale?",
+      "A cosa serve la media mobile esponenziale?"
+    ],
+    "answers": [
+      "L'EMA (10), cioè la media mobile esponenziale a 10 periodi, è un indicatore tecnico che serve a seguire l'andamento del prezzo in un orizzonte molto breve. \n\nSi calcola facendo una media dei prezzi degli ultimi 10 periodi, ma dando più peso ai valori più recenti. \n\nSe il prezzo si trova sopra l'EMA, il trend è considerato rialzista, mentre sotto l'EMA viene visto come ribassista.",
+      "La media mobile esponenziale a 10 periodi (EMA 10) è una media dei prezzi che privilegia le ultime chiusure, rendendola molto reattiva ai movimenti recenti. \n\nIl calcolo attribuisce un peso maggiore alle quotazioni più vicine nel tempo. \n\nDi solito, se il prezzo resta sopra l'EMA 10 è segnale di forza, mentre sotto indica debolezza.",
+      "L'EMA (10) è una delle medie mobili più veloci, utile per cogliere i trend di breve termine. \n\nSi ottiene calcolando la media dei prezzi degli ultimi 10 periodi, applicando un coefficiente che valorizza di più i dati recenti. \n\nQuando il prezzo è stabilmente sopra la linea EMA 10, l'asset viene interpretato come in fase positiva; sotto, come negativa.",
+      "L'indicatore EMA a 10 periodi rappresenta una media dei prezzi recenti con enfasi sugli ultimi valori. \n\nIl calcolo è esponenziale, quindi reagisce rapidamente ai cambiamenti di mercato. \n\nIn analisi tecnica si usa per identificare trend immediati e segnali di inversione precoce.",
+      "L'EMA (10) è una media mobile esponenziale che fotografa il trend molto breve. \n\nSi calcola con una formula che pesa di più i prezzi recenti rispetto a quelli più vecchi. \n\nQuando il prezzo si trova sopra l'EMA 10, indica forza rialzista, quando sta sotto debolezza ribassista.",
+      "La media mobile esponenziale a 10 periodi serve per seguire le variazioni di breve periodo. \n\nA differenza di una media semplice, l’EMA attribuisce più importanza ai dati più vicini nel tempo. \n\nUn prezzo superiore all’EMA 10 è spesso segnale positivo, inferiore invece è considerato negativo.",
+      "EMA (10) significa media mobile esponenziale a 10 periodi, ed è tra gli indicatori più veloci per seguire i movimenti di mercato. \n\nIl calcolo combina i prezzi passati, ma con maggior peso a quelli più recenti. \n\nDi norma, prezzi sopra l’EMA segnalano un trend rialzista, prezzi sotto un trend ribassista.",
+      "La media mobile esponenziale a 10 periodi (EMA 10) viene usata per capire il trend di breve termine. \n\nLa formula valorizza le ultime chiusure, rendendo l’indicatore molto sensibile. \n\nUn valore superiore all’EMA indica forza, mentre inferiore segnala debolezza.",
+      "EMA (10) è un indicatore tecnico che misura la media dei prezzi degli ultimi 10 periodi dando più peso ai dati recenti. \n\nQuesto rende la curva più reattiva rispetto a una media mobile semplice. \n\nSi interpreta confrontando la posizione del prezzo con l’EMA: sopra trend positivo, sotto trend negativo.",
+      "La media mobile esponenziale a 10 periodi è usata dagli analisti per seguire i movimenti rapidi del mercato. \n\nSi calcola attribuendo un peso decrescente ai prezzi più vecchi e maggiore a quelli recenti. \n\nPrezzi sopra l’EMA 10 segnalano una fase di forza, prezzi sotto una fase di debolezza."
+    ],
+    "cost": 0
+},
+    "cci_info": {
+    "questions": [
+      "Cos'è il CCI?",
+      "Sai spiegarmi a cosa serve il Commodity Channel Index?",
+      "Che cosa indica l'indicatore CCI?",
+      "Vorrei capire meglio il CCI",
+      "Puoi spiegarmi come funziona il CCI?",
+      "Perché si usa il Commodity Channel Index?",
+      "Come si interpreta il CCI?",
+      "Cos'è l'indicatore Commodity Channel Index?",
+      "A cosa serve il CCI nell’analisi tecnica?",
+      "Che significato ha il CCI per un asset?"
+    ],
+    "answers": [
+      "Il CCI, o Commodity Channel Index, è un indicatore tecnico che misura quanto il prezzo di un asset si discosta dalla sua media statistica. \n\nSi calcola confrontando il prezzo tipico con la sua media mobile e rapportando la differenza alla deviazione media. \n\nValori alti indicano una condizione di ipercomprato, valori bassi una condizione di ipervenduto, mentre valori vicini allo zero segnalano equilibrio.",
+      "Il Commodity Channel Index (CCI) serve a identificare le fasi di ipercomprato e ipervenduto di un asset. \n\nIl calcolo prende il prezzo tipico (media di massimo, minimo e chiusura), lo confronta con la media mobile e lo normalizza con la deviazione media. \n\nIn genere, valori superiori a +100 indicano forza eccessiva (ipercomprato), inferiori a -100 debolezza (ipervenduto).",
+      "Il CCI è un oscillatore che mostra quanto i prezzi si discostano dalla loro media mobile. \n\nSi basa sul prezzo tipico e sulla differenza rispetto alla media, aggiustata con la deviazione. \n\nUn CCI molto alto suggerisce un trend rialzista troppo esteso, uno molto basso un trend ribassista esagerato.",
+      "Il Commodity Channel Index viene usato per individuare potenziali inversioni di trend. \n\nIl calcolo confronta il prezzo tipico dell’asset con la sua media e la deviazione. \n\nValori sopra +100 suggeriscono eccessi rialzisti, sotto -100 eccessi ribassisti.",
+      "Il CCI misura la distanza tra il prezzo di un asset e la sua media mobile. \n\nL’algoritmo utilizza il prezzo tipico e la deviazione media per ottenere un valore oscillante. \n\nValori positivi elevati indicano forza eccessiva, valori negativi elevati segnalano debolezza.",
+      "Il Commodity Channel Index è un oscillatore che aiuta a capire quando un asset è ipercomprato o ipervenduto. \n\nSi ottiene calcolando la differenza tra il prezzo tipico e la media mobile, divisa per la deviazione. \n\nDi solito, valori oltre +100 sono letti come ipercomprato, sotto -100 come ipervenduto.",
+      "Il CCI (Commodity Channel Index) è utile per misurare la velocità e la direzione del trend. \n\nIl calcolo parte dal prezzo tipico e lo confronta con la media, aggiustando il risultato in base alla deviazione. \n\nValori molto alti indicano possibili eccessi di crescita, valori molto bassi eccessi di ribasso.",
+      "Il CCI è stato sviluppato per il mercato delle materie prime, ma oggi viene usato su tutti gli asset. \n\nFunziona confrontando il prezzo tipico con la media mobile e rapportando la differenza alla deviazione. \n\nValori positivi estremi mostrano ipercomprato, negativi estremi ipervenduto.",
+      "Il Commodity Channel Index mostra quanto il prezzo attuale si allontana dalla media. \n\nIl calcolo combina prezzo tipico, media mobile e deviazione. \n\nValori alti segnalano eccessi rialzisti, valori bassi eccessi ribassisti, vicini a zero equilibrio.",
+      "Il CCI è un oscillatore tecnico che oscilla sopra e sotto lo zero. \n\nSi calcola con la differenza tra prezzo tipico e media mobile, divisa per la deviazione media. \n\nSopra +100 è ipercomprato, sotto -100 ipervenduto, tra -100 e +100 è neutrale."
+    ],
+    "cost": 0
+},
+    "williams_info": {
+    "questions": [
+      "Cos'è il Williams?",
+      "Cos'è il williams %r?",
+      "Sai spiegarmi l'indicatore Williams?",
+      "Che cosa indica il Williams %R?",
+      "Vorrei capire meglio l'indicatore Williams %R",
+      "Puoi spiegarmi come funziona il Williams %R?",
+      "A cosa serve il Williams %R?",
+      "Come si interpreta il Williams %R?",
+      "Cos'è l'indicatore %R di Williams?",
+      "Che significato ha il Williams %R per un asset?",
+      "Mi spieghi cos'è il Williams %R?"
+    ],
+    "answers": [
+      "Il Williams %R è un oscillatore tecnico che misura i livelli di ipercomprato e ipervenduto. \n\nSi calcola confrontando il prezzo di chiusura attuale con il range massimo-minimo di un determinato periodo, di solito 14 giorni. \n\nValori vicini a -20 indicano ipercomprato, valori vicino a -80 ipervenduto.",
+      "Il Williams %R serve a individuare i momenti in cui un asset potrebbe aver raggiunto livelli eccessivi di crescita o di ribasso. \n\nIl calcolo si basa sul rapporto tra il prezzo di chiusura e l’intervallo massimo-minimo del periodo scelto. \n\nGeneralmente, valori oltre -20 segnalano forza eccessiva, sotto -80 debolezza.",
+      "Il Williams %R è un oscillatore che indica quanto il prezzo attuale si trova vicino ai massimi o ai minimi recenti. \n\nPer il calcolo si usa il prezzo di chiusura rispetto al massimo e minimo degli ultimi 14 periodi. \n\nSopra -20 segnala ipercomprato, sotto -80 ipervenduto.",
+      "L’indicatore Williams %R mostra la posizione del prezzo di chiusura rispetto al range degli ultimi giorni. \n\nSi ottiene confrontando chiusura, massimo e minimo del periodo. \n\nValori molto alti (verso -20) indicano che l’asset è in ipercomprato, molto bassi (verso -80) che è in ipervenduto.",
+      "Il Williams %R è stato ideato per identificare zone di eccesso nei movimenti di mercato. \n\nIl calcolo rapporta il prezzo di chiusura con i massimi e minimi recenti. \n\nSe il risultato è vicino a -20 si considera ipercomprato, vicino a -80 ipervenduto.",
+      "Il Williams %R appartiene alla famiglia degli oscillatori e oscilla tra 0 e -100. \n\nSi calcola con una formula che lega il prezzo di chiusura al massimo e minimo del periodo. \n\nValori tra 0 e -20 segnalano ipercomprato, tra -80 e -100 ipervenduto.",
+      "Il Williams %R è utile per valutare la forza del trend. \n\nSi ottiene confrontando il prezzo di chiusura con i livelli estremi di massimo e minimo. \n\nVicino a -20 segnala possibile correzione ribassista, vicino a -80 possibile inversione rialzista.",
+      "Il Williams %R mostra quanto il prezzo è vicino ai massimi o ai minimi degli ultimi periodi. \n\nIl calcolo è basato su chiusura, massimo e minimo. \n\nValori prossimi a -20 indicano ipercomprato, prossimi a -80 ipervenduto.",
+      "Il Williams %R è un indicatore sviluppato da Larry Williams per anticipare possibili inversioni. \n\nSi calcola rapportando la chiusura con il range massimo-minimo recente. \n\nSopra -20 segnala eccesso rialzista, sotto -80 eccesso ribassista.",
+      "Il Williams %R è simile allo stocastico, ma scalato tra 0 e -100. \n\nIl prezzo di chiusura viene confrontato con massimo e minimo degli ultimi periodi. \n\nValori alti (verso -20) indicano ipercomprato, valori bassi (verso -80) ipervenduto."
+    ],
+    "cost": 0
+},
+    "bollinger_info": {
+    "questions": [
+      "Cos'è l'indicatore delle Bande di Bollinger?",
+      "Mi spieghi le Bande di Bollinger?",
+      "Che cosa indicano le Bande di Bollinger?",
+      "Vorrei capire come funzionano le Bande di Bollinger",
+      "A cosa servono le Bande di Bollinger?",
+      "Come si interpretano le Bande di Bollinger?",
+      "Puoi spiegarmi le Bande di Bollinger?",
+      "Che significato hanno le Bande di Bollinger per un asset?",
+      "Mi puoi dire cos'è l'indicatore Bollinger?",
+      "A cosa serve l'indicatore delle Bande di Bollinger?",
+      "Cos'è il bollinger?"
+    ],
+    "answers": [
+      "Le Bande di Bollinger sono un indicatore tecnico che misura la volatilità di un asset. \n\nSi calcolano usando una media mobile (tipicamente 20 periodi) e due deviazioni standard per tracciare le bande superiore e inferiore. \n\nSe il prezzo si avvicina alla banda superiore, può indicare ipercomprato, se alla banda inferiore, ipervenduto.",
+      "Le Bande di Bollinger aiutano a identificare periodi di alta o bassa volatilità e possibili inversioni di prezzo. \n\nSi basano su una media mobile e su due deviazioni standard per creare le bande. \n\nPrezzi vicino alla banda superiore possono suggerire eccesso rialzista, vicino alla banda inferiore eccesso ribassista.",
+      "L’indicatore delle Bande di Bollinger consiste in una media mobile centrale con due bande ai lati che rappresentano la volatilità. \n\nSi calcola la media mobile e si aggiungono/sottraggono due deviazioni standard. \n\nQuando il prezzo tocca la banda superiore può essere in ipercomprato, quando tocca quella inferiore in ipervenduto.",
+      "Le Bande di Bollinger mostrano le fluttuazioni del prezzo rispetto alla media recente. \n\nLa media mobile centrale e le deviazioni standard creano le bande superiore e inferiore. \n\nPrezzi vicino alla banda superiore indicano forza eccessiva, vicino a quella inferiore debolezza.",
+      "Questo indicatore aiuta a valutare la volatilità di un asset. \n\nSi calcolano una media mobile e due deviazioni standard per tracciare le bande. \n\nToccando la banda superiore il prezzo può risultare ipercomprato, toccando la banda inferiore ipervenduto.",
+      "Le Bande di Bollinger sono utili per individuare momenti in cui un asset potrebbe invertire il trend. \n\nSi basano sulla media mobile e sulla deviazione standard del prezzo. \n\nVicino alla banda superiore segnale di ipercomprato, vicino alla inferiore di ipervenduto.",
+      "L’indicatore mostra se un asset sta vivendo volatilità alta o bassa. \n\nSi ottiene calcolando una media mobile e aggiungendo/sottraendo due deviazioni standard. \n\nPrezzi molto alti rispetto alla banda superiore indicano ipercomprato, molto bassi rispetto a quella inferiore ipervenduto.",
+      "Le Bande di Bollinger permettono di capire i limiti superiori e inferiori del prezzo in un certo periodo. \n\nSi calcola la media mobile e si applicano due deviazioni standard per le bande. \n\nVicino alla banda superiore si può interpretare come ipercomprato, vicino a quella inferiore come ipervenduto.",
+      "L’indicatore Bollinger misura il range di oscillazione di un asset rispetto alla media mobile. \n\nSi calcola la media mobile e si tracciano le bande aggiungendo e sottraendo le deviazioni standard. \n\nPrezzi in prossimità della banda superiore indicano potenziale ipercomprato, quelli vicino alla banda inferiore ipervenduto.",
+      "Le Bande di Bollinger sono un oscillatore di volatilità. \n\nLa media mobile centrale e le bande superiore/inferiore, calcolate con deviazioni standard, delimitano il prezzo. \n\nToccando la banda superiore il mercato è ipercomprato, toccando quella inferiore è ipervenduto."
+    ],
+    "cost": 0
 }
 }
