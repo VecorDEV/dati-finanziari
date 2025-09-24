@@ -2507,5 +2507,69 @@
       "Questo è il grafico a 90 giorni che mostra l’andamento di [TOPIC]:"
     ],
       "cost": 1
+},
+    "rsi_premium": {
+    "questions": [
+      "Mostrami l'RSI di [TOPIC]",
+      "Mi dai l'RSI di [TOPIC]?",
+      "Vorrei vedere l'indicatore RSI per [TOPIC]",
+      "RSI di [TOPIC]",
+      "RSI di [TOPIC] per favore",
+      "Puoi mostrarmi il valore RSI di [TOPIC]?",
+      "Fammi vedere l'RSI di [TOPIC]",
+      "Aggiornami sull'RSI di [TOPIC]",
+      "Qual è l'rsi attuale di [TOPIC]?",
+      "Indicatore RSI di [TOPIC]?",
+      "Vorrei controllare l'RSI di [TOPIC]",
+      "RSI aggiornato di [TOPIC]",
+      "Mi mostri il valore rsi di [TOPIC]?",
+      "Come è l'RSI di [TOPIC] oggi?",
+      "Mostrami il dato tecnico RSI di [TOPIC]"
+    ],
+    "answers": [
+      "L'RSI attuale di [TOPIC] è [RSI].",
+      "Secondo i dati più recenti, [TOPIC] ha un RSI di [RSI].",
+      "Il valore RSI di [TOPIC] risulta essere [RSI].",
+      "Attenzione: l'RSI di [TOPIC] è attualmente [RSI].",
+      "Al momento, l'indicatore RSI di [TOPIC] è [RSI].",
+      "Gli ultimi calcoli mostrano un RSI di [TOPIC] pari a [RSI].",
+      "L'indicatore RSI di [TOPIC] è [RSI], secondo i dati aggiornati.",
+      "Per [TOPIC], l'RSI attuale è [RSI].",
+      "Il valore recente di RSI per [TOPIC] è [RSI].",
+      "Analisi tecnica: l'RSI di [TOPIC] si trova a [RSI]."
+    ],
+    "cost": 1
+},
+     "rsi": {
+    "questions": [
+      "Mostrami l'RSI di [TOPIC]",
+      "Mi dai l'RSI di [TOPIC]?",
+      "Vorrei vedere l'indicatore RSI per [TOPIC]",
+      "RSI di [TOPIC]",
+      "RSI di [TOPIC] per favore",
+      "Puoi mostrarmi il valore RSI di [TOPIC]?",
+      "Fammi vedere l'RSI di [TOPIC]",
+      "Aggiornami sull'RSI di [TOPIC]",
+      "Qual è l'rsi attuale di [TOPIC]?",
+      "Indicatore RSI di [TOPIC]?",
+      "Vorrei controllare l'RSI di [TOPIC]",
+      "RSI aggiornato di [TOPIC]",
+      "Mi mostri il valore rsi di [TOPIC]?",
+      "Come è l'RSI di [TOPIC] oggi?",
+      "Mostrami il dato tecnico RSI di [TOPIC]"
+    ],
+    "answers": [
+      "Per visualizzare l'RSI di [TOPIC] è necessario avere un abbonamento premium o ultra. Fai l'upgrade per ottenere tutti i vantaggi! 😄",
+      "Mi dispiace, questo dato tecnico è disponibile solo per gli utenti premium o ultra. Se vuoi puoi fare l'upgrade per usufruire di tutti i vantaggi premium o ultra! 📈",
+      "L'accesso all'RSI di [TOPIC] richiede un abbonamento. Considera l'upgrade ai piani premium o ultra per consultarlo. 😄",
+      "Per consultare l'indicatore RSI di [TOPIC] devi essere abbonato a uno dei nostri piani premium o ultra.",
+      "Purtroppo sembra che tu abbia il piano standard gratuito 😅. L'RSI di [TOPIC] è una funzione riservata agli utenti con abbonamento premium o ultra.",
+      "Ops, sembra che tu non sia abbonato… fai l’upgrade ai piani premium o ultra per usufruire di tutti i vantaggi che un investitore come te merita!",
+      "Per ottenere il valore RSI di [TOPIC] è necessario avere un abbonamento attivo, premium o ultra 😅.",
+      "Questa informazione tecnica è disponibile esclusivamente per gli utenti premium o ultra.",
+      "Mi spiace, l'accesso all'RSI di [TOPIC] è limitato agli abbonati dei piani premium o ultra 😅. Puoi fare l'upgrade per goderti tutti i vantaggi! ",
+      "L'indicatore RSI di [TOPIC] può essere visualizzato solo con un abbonamento premium o ultra. Non perdere l'opportunità di sfruttare tutte le funzionalità!"
+    ],
+    "cost": 1
 }
 }
