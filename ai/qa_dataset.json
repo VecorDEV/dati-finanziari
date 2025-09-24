@@ -2524,7 +2524,8 @@
       "RSI aggiornato di [TOPIC]",
       "Mi mostri il valore rsi di [TOPIC]?",
       "Come è l'RSI di [TOPIC] oggi?",
-      "Mostrami il dato tecnico RSI di [TOPIC]"
+      "Mostrami il dato tecnico RSI di [TOPIC]",
+      "Relative Strength Index (RSI) per [TOPIC]"
     ],
     "answers": [
       "L'RSI attuale di [TOPIC] è [RSI].",
@@ -2556,7 +2557,8 @@
       "RSI aggiornato di [TOPIC]",
       "Mi mostri il valore rsi di [TOPIC]?",
       "Come è l'RSI di [TOPIC] oggi?",
-      "Mostrami il dato tecnico RSI di [TOPIC]"
+      "Mostrami il dato tecnico RSI di [TOPIC]",
+      "Relative Strength Index (RSI) per [TOPIC]"
     ],
     "answers": [
       "Per visualizzare l'RSI di [TOPIC] è necessario avere un abbonamento premium o ultra. Fai l'upgrade per ottenere tutti i vantaggi! 😄",
@@ -2584,7 +2586,8 @@
       "Mostrami il valore MACD di [TOPIC]",
       "Analizza il MACD di [TOPIC]",
       "MACD attuale di [TOPIC]",
-      "MACD aggiornato di [TOPIC]"
+      "MACD aggiornato di [TOPIC]",
+      "Moving Average Convergence Divergence per [TOPIC]"
     ],
     "answers": [
       "Il MACD di [TOPIC] attualmente è [MACD_VALUE], suggerendo un trend [MACD_TREND].",
@@ -2612,7 +2615,8 @@
       "Mostrami il valore MACD di [TOPIC]",
       "Analizza il MACD di [TOPIC]",
       "MACD attuale di [TOPIC]",
-      "MACD aggiornato di [TOPIC]"
+      "MACD aggiornato di [TOPIC]",
+      "Moving Average Convergence Divergence per [TOPIC]"
     ],
     "answers": [
       "Per visualizzare il MACD di [TOPIC] è necessario avere un abbonamento premium o ultra. Fai l'upgrade per ottenere tutti i vantaggi! 😄",
@@ -2645,13 +2649,13 @@
       "K e D per [TOPIC]"
     ],
     "answers": [
-      "I valori attuali dello stocastico per [TOPIC] sono:\n\nK = [STOCH_K], D = [STOCH_D]\n\nLa condizione tipica è [STOCH_STATE]. Significato per l'asset: [STOCH_SIGNIFICATO].",
-      "Ecco lo stocastico di [TOPIC]:\n\nK = [STOCH_K], D = [STOCH_D]\n\nSecondo i valori, la condizione è [STOCH_STATE] e indica [STOCH_SIGNIFICATO].",
-      "Attuali valori dello stocastico per [TOPIC]:\n\nK = [STOCH_K], D = [STOCH_D]\n\nInterpretazione: condizione tipica [STOCH_STATE], significato per l'asset di [STOCH_SIGNIFICATO].",
+      "I valori attuali dello stocastico per [TOPIC] sono:\n\nK = [STOCH_K], D = [STOCH_D]\n\nLa condizione tipica è di [STOCH_STATE]. Significato per l'asset: [STOCH_SIGNIFICATO].",
+      "Ecco lo stocastico di [TOPIC]:\n\nK = [STOCH_K], D = [STOCH_D]\n\nSecondo i valori, la condizione è di [STOCH_STATE] e indica [STOCH_SIGNIFICATO].",
+      "Attuali valori dello stocastico per [TOPIC]:\n\nK = [STOCH_K], D = [STOCH_D]\n\nInterpretazione: condizione tipica di [STOCH_STATE], significato per l'asset di [STOCH_SIGNIFICATO].",
       "Lo stocastico di [TOPIC] è attualmente:\n\nK = [STOCH_K], D = [STOCH_D]\n\nValutazione: [STOCH_STATE], suggerisce [STOCH_SIGNIFICATO].",
-      "Ecco i valori stocastici per [TOPIC]:\n\nK = [STOCH_K], D = [STOCH_D]\n\nAnalisi: condizione [STOCH_STATE] con significato per l'asset di [STOCH_SIGNIFICATO].",
+      "Ecco i valori stocastici per [TOPIC]:\n\nK = [STOCH_K], D = [STOCH_D]\n\nAnalisi: condizione di [STOCH_STATE] con significato per l'asset di [STOCH_SIGNIFICATO].",
       "Gli ultimi valori dello stocastico per [TOPIC] sono:\n\nK = [STOCH_K], D = [STOCH_D]\n\nLa situazione indica [STOCH_STATE], quindi [STOCH_SIGNIFICATO].",
-      "Per [TOPIC], lo stocastico mostra:\n\nK = [STOCH_K], D = [STOCH_D]\n\nSecondo l'analisi, condizione tipica [STOCH_STATE], suggerisce [STOCH_SIGNIFICATO].",
+      "Per [TOPIC], lo stocastico mostra:\n\nK = [STOCH_K], D = [STOCH_D]\n\nSecondo l'analisi, significa che è [STOCH_STATE] e suggerisce [STOCH_SIGNIFICATO].",
       "Valori correnti dello stocastico di [TOPIC]:\n\nK = [STOCH_K], D = [STOCH_D]\n\nCondizione tipica: [STOCH_STATE]. Implicazioni per l'asset: [STOCH_SIGNIFICATO].",
       "Attenzione ai valori dello stocastico di [TOPIC]:\n\nK = [STOCH_K], D = [STOCH_D]\n\nSituazione: [STOCH_STATE], il significato per l'asset è di [STOCH_SIGNIFICATO].",
       "I dati stocastici recenti per [TOPIC]:\n\nK = [STOCH_K], D = [STOCH_D]\n\nAnalisi: significa che è [STOCH_STATE], quindi per l'asset indica [STOCH_SIGNIFICATO]."
@@ -2697,7 +2701,8 @@
       "Qual è l'EMA 10 attuale di [TOPIC]?",
       "L'EMA10 di [TOPIC], per favore.",
       "Mi dai l'EMA a 10 giorni di [TOPIC]?",
-      "Controlla il valore EMA10 di [TOPIC]."
+      "Controlla il valore EMA10 di [TOPIC].",
+      "Exponential moving average di [TOPIC]"
     ],
     "answers": [
       "L'EMA a 10 giorni di [TOPIC] è attualmente [EMA_VALUE].\n\nIl prezzo si trova [UP/DOWN] rispetto all’EMA10, indicando un trend [EMA_TREND] per l’asset.",
@@ -2717,14 +2722,15 @@
     "questions": [
       "Qual è il valore dell'EMA 10 di [TOPIC]?",
       "Puoi dirmi l'EMA10 di [TOPIC]?",
-      "Mostrami l'EMA a 10 giorni di [TOPIC].",
-      "Vorrei conoscere il valore EMA10 per [TOPIC].",
+      "Mostrami l'EMA a 10 giorni di [TOPIC]",
+      "Vorrei conoscere il valore EMA10 per [TOPIC]",
       "Che valore ha l'EMA10 di [TOPIC] oggi?",
-      "Indicami l'EMA a 10 giorni di [TOPIC].",
+      "Indicami l'EMA a 10 giorni di [TOPIC]",
       "Qual è l'EMA 10 attuale di [TOPIC]?",
-      "L'EMA10 di [TOPIC], per favore.",
+      "L'EMA10 di [TOPIC], per favore",
       "Mi dai l'EMA a 10 giorni di [TOPIC]?",
-      "Controlla il valore EMA10 di [TOPIC]."
+      "Controlla il valore EMA10 di [TOPIC]",
+      "Exponential moving average di [TOPIC]"
     ],
     "answers": [
       "Per visualizzare l'EMA10 di [TOPIC] è necessario avere un abbonamento premium o ultra. Fai l'upgrade per ottenere tutti i vantaggi! 😄",
@@ -2737,6 +2743,64 @@
       "Questa informazione tecnica è disponibile esclusivamente per gli utenti premium o ultra.",
       "Mi spiace, l'accesso all'EMA10 di [TOPIC] è limitato agli abbonati dei piani premium o ultra 😅. Puoi fare l'upgrade per goderti tutti i vantaggi!",
       "L'indicatore EMA10 di [TOPIC] può essere visualizzato solo con un abbonamento premium o ultra. Non perdere l'opportunità di sfruttare tutte le funzionalità! 💎"
+    ],
+    "cost": 1
+},
+    "cci_premium": {
+    "questions": [
+      "Puoi mostrarmi il CCI di [TOPIC]?",
+      "Qual è il valore del Commodity Channel Index per [TOPIC]?",
+      "Vorrei sapere il CCI attuale di [TOPIC]",
+      "Mostrami il CCI per [TOPIC]",
+      "Mi dai l'indicatore CCI di [TOPIC]?",
+      "Che CCI ha [TOPIC] oggi?",
+      "Posso vedere il CCI di [TOPIC]?",
+      "Qual è il CCI corrente di [TOPIC]?",
+      "Indicami lo stato CCI di [TOPIC]",
+      "Vorrei conoscere il CCI per [TOPIC]"
+    ],
+    "answers": [
+      "Il CCI di [TOPIC] è attualmente [CCI_VALUE].\n\nQuesto indica una condizione tipica di [CCI_STATE] e significa [CCI_SIGNIFICATO] per l'asset.",
+      "Secondo i dati attuali, [TOPIC] mostra un CCI [CCI_VALUE].\n\nIn pratica, si tratta di uno stato [CCI_STATE] che implica [CCI_SIGNIFICATO].",
+      "[TOPIC] ha un CCI pari a [CCI_VALUE].\n\nQuesto corrisponde a una condizione di [CCI_STATE] e suggerisce [CCI_SIGNIFICATO].",
+      "Attualmente, il CCI di [TOPIC] risulta [CCI_VALUE].\n\nSi tratta di uno stato [CCI_STATE], con significato per l'asset: [CCI_SIGNIFICATO].",
+      "Il Commodity Channel Index di [TOPIC] indica [CCI_VALUE].\n\nQuesto indica che l'asset è in una condizione di [CCI_STATE] e [CCI_SIGNIFICATO].",
+      "[TOPIC] presenta un CCI [CCI_VALUE].\n\nLa condizione di [CCI_STATE] significa che [CCI_SIGNIFICATO].",
+      "Secondo le ultime rilevazioni, [TOPIC] è [CCI_VALUE] sul CCI.\n\nSi tratta di uno stato [CCI_STATE] e il suo significato è [CCI_SIGNIFICATO].",
+      "Il CCI corrente di [TOPIC] è [CCI_VALUE].\n\nQuesta situazione di [CCI_STATE] implica [CCI_SIGNIFICATO] per l'asset.",
+      "Attenzione: [TOPIC] ha un CCI [CCI_VALUE].\n\nIn termini pratici, uno stato [CCI_STATE] comporta [CCI_SIGNIFICATO].",
+      "[TOPIC] risulta [CCI_VALUE] secondo il CCI.\n\nQuesto è uno stato [CCI_STATE] e suggerisce [CCI_SIGNIFICATO].",
+      "Il Commodity Channel Index mostra che [TOPIC] è [CCI_VALUE].\n\nLa condizione di [CCI_STATE] si traduce in [CCI_SIGNIFICATO].",
+      "Ultima analisi: il CCI di [TOPIC] indica [CCI_VALUE].\n\nSi tratta di uno stato [CCI_STATE], che rappresenta [CCI_SIGNIFICATO]."
+    ],
+    "cost": 1
+},
+    "cci": {
+    "questions": [
+      "Vorrei vedere il CCI di [TOPIC]",
+      "Puoi mostrarmi il Commodity Channel Index di [TOPIC]?",
+      "Mi dai il valore del CCI di [TOPIC]?",
+      "Che valore ha il Commodity Channel Index di [TOPIC]?",
+      "Come sta il CCI per [TOPIC]?",
+      "Mostrami il CCI di [TOPIC]",
+      "Vorrei controllare il Commodity Channel Index di [TOPIC]",
+      "Sai dirmi il CCI di [TOPIC]?",
+      "Mi interessa il CCI di [TOPIC]",
+      "Indicami il Commodity Channel Index di [TOPIC]"
+    ],
+    "answers": [
+      "Per visualizzare il CCI di [TOPIC] è necessario avere un abbonamento premium o ultra. Fai l'upgrade per ottenere tutti i vantaggi! 😄",
+      "Mi dispiace, questo dato tecnico è disponibile solo per gli utenti premium o ultra. Se vuoi puoi fare l'upgrade per usufruire di tutti i vantaggi premium o ultra! 📈",
+      "L'accesso al CCI di [TOPIC] richiede un abbonamento. Considera l'upgrade ai piani premium o ultra per consultarlo. 😄",
+      "Per consultare il Commodity Channel Index di [TOPIC] devi essere abbonato a uno dei nostri piani premium o ultra. 💎",
+      "Purtroppo sembra che tu abbia il piano standard gratuito 😅. Il CCI di [TOPIC] è una funzione riservata agli utenti con abbonamento premium o ultra.",
+      "Ops, sembra che tu non sia abbonato 🤔… fai l’upgrade ai piani premium o ultra per usufruire di tutti i vantaggi che un investitore come te merita!",
+      "Per ottenere il valore del CCI di [TOPIC] è necessario avere un abbonamento attivo, premium o ultra 😅.",
+      "Questa informazione tecnica è disponibile esclusivamente per gli utenti premium o ultra.",
+      "Mi spiace, l'accesso al CCI di [TOPIC] è limitato agli abbonati dei piani premium o ultra 😅. Puoi fare l'upgrade per goderti tutti i vantaggi! ",
+      "Il Commodity Channel Index di [TOPIC] può essere visualizzato solo con un abbonamento premium o ultra. Non perdere l'opportunità di sfruttare tutte le funzionalità!",
+      "Per vedere il CCI di [TOPIC] occorre un abbonamento premium o ultra. Approfitta dei vantaggi dei nostri piani!",
+      "Non hai accesso al CCI di [TOPIC] 😅. Fai l’upgrade ai piani premium o ultra per ottenere informazioni complete!"
     ],
     "cost": 1
 }
