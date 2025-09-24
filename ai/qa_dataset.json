@@ -2803,5 +2803,119 @@
       "Non hai accesso al CCI di [TOPIC] 😅. Fai l’upgrade ai piani premium o ultra per ottenere informazioni complete!"
     ],
     "cost": 1
+},
+    "williams_premium": {
+    "questions": [
+      "Mostrami il Williams di [TOPIC]",
+      "Qual è il valore del Williams per [TOPIC]?",
+      "Puoi fornirmi l'indicatore Williams %R di [TOPIC]?",
+      "Vorrei sapere il Williams di [TOPIC]",
+      "Indicami il valore del Williams %R per [TOPIC]",
+      "Mi dai il Williams %R aggiornato di [TOPIC]?",
+      "Che valore ha il Williams di [TOPIC] oggi?",
+      "Dammi il Williams corrente per [TOPIC]",
+      "Mostrami il livello Williams di [TOPIC]",
+      "Qual è il valore attuale del Williams %R di [TOPIC]?"
+    ],
+    "answers": [
+      "Il valore di Williams %R per [TOPIC] è [WILLIAMS_VALUE].\n\nLa condizione risulta [WILLIAMS_STATE], il che significa [WILLIAMS_SIGNIFICATO].",
+      "Williams %R di [TOPIC]: [WILLIAMS_VALUE].\n\nStato attuale: [WILLIAMS_STATE]. Significato per l'asset: [WILLIAMS_SIGNIFICATO].",
+      "Per [TOPIC], il Williams %R è pari a [WILLIAMS_VALUE].\n\nSituazione tecnica: [WILLIAMS_STATE], indicando [WILLIAMS_SIGNIFICATO].",
+      "Attenzione: il Williams %R di [TOPIC] è [WILLIAMS_VALUE].\n\nCondizione: [WILLIAMS_STATE]. Interpretazione: [WILLIAMS_SIGNIFICATO].",
+      "Ecco il Williams %R di [TOPIC]: [WILLIAMS_VALUE].\n\nLo stato attuale è [WILLIAMS_STATE], che significa [WILLIAMS_SIGNIFICATO].",
+      "Il valore attuale di Williams %R per [TOPIC] è [WILLIAMS_VALUE].\n\nIndicatore [WILLIAMS_STATE]: [WILLIAMS_SIGNIFICATO].",
+      "Per [TOPIC], Williams %R = [WILLIAMS_VALUE].\n\nCondizione tecnica: [WILLIAMS_STATE]. Significato: [WILLIAMS_SIGNIFICATO].",
+      "Il Williams %R di [TOPIC] risulta [WILLIAMS_VALUE].\n\nSituazione: [WILLIAMS_STATE], il che indica [WILLIAMS_SIGNIFICATO].",
+      "Valore Williams %R per [TOPIC]: [WILLIAMS_VALUE].\n\nLo stato tecnico è [WILLIAMS_STATE], e questo significa [WILLIAMS_SIGNIFICATO].",
+      "Aggiornamento: Williams %R di [TOPIC] = [WILLIAMS_VALUE].\n\nCondizione attuale: [WILLIAMS_STATE], interpretazione: [WILLIAMS_SIGNIFICATO]."
+    ],
+    "cost": 1
+},
+    "williams": {
+    "questions": [
+      "Mostrami il Williams di [TOPIC]",
+      "Qual è il valore del Williams per [TOPIC]?",
+      "Puoi fornirmi l'indicatore Williams %R di [TOPIC]?",
+      "Vorrei sapere il Williams %R di [TOPIC]",
+      "Indicami il valore del Williams per [TOPIC]",
+      "Mi dai il Williams %R aggiornato di [TOPIC]",
+      "Che valore ha il Williams %R di [TOPIC] oggi?",
+      "Dammi il Williams corrente per [TOPIC]",
+      "Mostrami il livello Williams di [TOPIC]",
+      "Qual è il valore attuale del Williams di [TOPIC]?"
+    ],
+    "answers": [
+      "Per visualizzare il Williams %R di [TOPIC] è necessario avere un abbonamento premium o ultra. Fai l'upgrade per ottenere tutti i vantaggi! 😄",
+      "Mi dispiace, questo dato tecnico è disponibile solo per gli utenti premium o ultra. Se vuoi puoi fare l'upgrade per usufruire di tutti i vantaggi! 📈",
+      "L'accesso al Williams %R di [TOPIC] richiede un abbonamento. Considera l'upgrade ai piani premium o ultra per consultarlo. 😄",
+      "Per consultare l'indicatore Williams %R di [TOPIC] devi essere abbonato a uno dei nostri piani premium o ultra.",
+      "Purtroppo sembra che tu abbia il piano standard gratuito 😅. Il Williams %R di [TOPIC] è una funzione riservata agli utenti con abbonamento premium o ultra.",
+      "Ops, sembra che tu non sia abbonato 🤔… fai l’upgrade ai piani premium o ultra per usufruire di tutti i vantaggi che un investitore come te merita!",
+      "Per ottenere il valore Williams %R di [TOPIC] è necessario avere un abbonamento attivo, premium o ultra 😅.",
+      "Questa informazione tecnica è disponibile esclusivamente per gli utenti premium o ultra.",
+      "Mi spiace, l'accesso al Williams %R di [TOPIC] è limitato agli abbonati dei piani premium o ultra 😅. Puoi fare l'upgrade per goderti tutti i vantaggi!",
+      "L'indicatore Williams %R di [TOPIC] può essere visualizzato solo con un abbonamento premium o ultra. Non perdere l'opportunità di sfruttare tutte le funzionalità!",
+      "Vuoi vedere il Williams %R di [TOPIC]? È riservato agli abbonati premium o ultra. Fai l’upgrade per avere accesso!",
+      "Per consultare il Williams %R di [TOPIC], occorre un abbonamento premium o ultra. Approfitta dei vantaggi dell’upgrade!"
+    ],
+    "cost": 1
+},
+    "bollinger_premium": {
+    "questions": [
+      "Mostrami le bande di Bollinger per [TOPIC]",
+      "Qual è la situazione delle bande di Bollinger su [TOPIC]?",
+      "Puoi dirmi lo stato delle bande di Bollinger per [TOPIC]?",
+      "Voglio vedere le bande di Bollinger di [TOPIC]",
+      "Come sono le bande di Bollinger su [TOPIC] in questo momento?",
+      "Aggiornami sul Bollinger Band di [TOPIC]",
+      "Indicami %B e la posizione della banda di Bollinger per [TOPIC]",
+      "Vorrei conoscere la banda di Bollinger attuale di [TOPIC]",
+      "Mostrami la volatilità e le bande di Bollinger per [TOPIC]",
+      "Puoi fornirmi lo stato delle bande di Bollinger su [TOPIC]?",
+      "Bande Bollinger per [TOPIC]"
+    ],
+    "answers": [
+      "Bande di Bollinger per [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilità: [BB_VOLATILITY]\n- La banda è [UP/DOWN]\n\nLa condizione risulta [BB_STATE], il che significa [BB_SIGNIFICATO].",
+      "Ecco le informazioni sulle bande di Bollinger di [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilità: [BB_VOLATILITY]\n- La banda è [UP/DOWN]\n\nAttualmente lo stato è [BB_STATE], che indica [BB_SIGNIFICATO].",
+      "Analisi Bollinger per [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilità: [BB_VOLATILITY]\n- La banda è [UP/DOWN]\n\nLa condizione è di [BB_STATE], significando [BB_SIGNIFICATO].",
+      "Le bande di Bollinger di [TOPIC] mostrano:\n\n- %B: [BB_VALUE]\n- Volatilità: [BB_VOLATILITY]\n- La banda è [UP/DOWN]\n\nSituazione attuale: [BB_STATE], il che rappresenta [BB_SIGNIFICATO].",
+      "Per [TOPIC], le bande di Bollinger sono:\n\n- %B: [BB_VALUE]\n- Volatilità: [BB_VOLATILITY]\n- La banda è [UP/DOWN]\n\nCondizione: [BB_STATE], indicando [BB_SIGNIFICATO].",
+      "Ecco lo stato delle bande di Bollinger su [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilità: [BB_VOLATILITY]\n- La banda è [UP/DOWN]\n\nAttualmente risulta [BB_STATE], con significato [BB_SIGNIFICATO].",
+      "Situazione Bollinger per [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilità: [BB_VOLATILITY]\n- La banda è [UP/DOWN]\n\nLo stato è [BB_STATE], che vuol dire [BB_SIGNIFICATO].",
+      "Bande di Bollinger aggiornate per [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilità: [BB_VOLATILITY]\n- La banda è [UP/DOWN]\n\nCondizione corrente: [BB_STATE], che implica [BB_SIGNIFICATO].",
+      "Analisi tecnica Bollinger per [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilità: [BB_VOLATILITY]\n- La banda è [UP/DOWN]\n\nL'asset risulta [BB_STATE], significando [BB_SIGNIFICATO].",
+      "Ecco i dati delle bande di Bollinger di [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilità: [BB_VOLATILITY]\n- La banda è [UP/DOWN]\n\nSituazione: [BB_STATE], che indica [BB_SIGNIFICATO]."
+    ],
+    "cost": 1
+},
+    "bollinger": {
+    "questions": [
+      "Mostrami le bande di Bollinger per [TOPIC]",
+      "Qual è la situazione delle bande di Bollinger su [TOPIC]?",
+      "Puoi dirmi lo stato delle bande di Bollinger per [TOPIC]?",
+      "Voglio vedere le bande di Bollinger di [TOPIC]",
+      "Come sono le bande di Bollinger su [TOPIC] in questo momento?",
+      "Aggiornami sul Bollinger Band di [TOPIC]",
+      "Indicami %B e la posizione della banda di Bollinger per [TOPIC]",
+      "Vorrei conoscere la banda di Bollinger attuale di [TOPIC]",
+      "Mostrami la volatilità e le bande di Bollinger per [TOPIC]",
+      "Puoi fornirmi lo stato delle bande di Bollinger su [TOPIC]?",
+      "Bande di Bollinger per [TOPIC]"
+    ],
+    "answers": [
+      "Per visualizzare le bande di Bollinger di [TOPIC] è necessario un abbonamento premium o ultra. Fai l'upgrade per ottenere tutti i dettagli! 💎",
+      "Mi dispiace, i dati completi delle bande di Bollinger sono disponibili solo per gli utenti premium o ultra. Considera l'upgrade! 📈",
+      "L'accesso alle bande di Bollinger di [TOPIC] richiede un abbonamento attivo, premium o ultra 💎.",
+      "Ops, sembra che tu non sia abbonato 🤔… fai l’upgrade ai piani premium o ultra per vedere le bande di Bollinger e tutti i vantaggi da investitore!",
+      "Purtroppo il tuo piano attuale non include le bande di Bollinger 😅. Passa a premium o ultra per avere tutte le informazioni.",
+      "Per consultare le bande di Bollinger di [TOPIC] devi essere abbonato a uno dei nostri piani premium o ultra.",
+      "Questa funzione è riservata agli utenti premium o ultra. Effettua l’upgrade per consultare le bande di Bollinger di [TOPIC].",
+      "Mi spiace, l'accesso alle bande di Bollinger è limitato ai piani premium o ultra 😅. Fai l'upgrade per ottenere tutti i dati!",
+      "Le bande di Bollinger di [TOPIC] sono disponibili solo con un abbonamento premium o ultra. Non perdere l'opportunità di vedere tutto!",
+      "Per ottenere le informazioni complete sulle bande di Bollinger di [TOPIC], occorre avere un abbonamento attivo premium o ultra 😄.",
+      "Non hai accesso ai dati Bollinger per [TOPIC] con il piano attuale. Passa a premium o ultra per sfruttare tutte le funzionalità!",
+      "Ops! I dettagli delle bande di Bollinger sono riservati agli utenti premium o ultra. Effettua l'upgrade per consultarle."
+    ],
+    "cost": 1
 }
 }
