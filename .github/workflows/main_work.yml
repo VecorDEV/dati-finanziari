@@ -33,7 +33,7 @@ jobs:
       - name: Install Python dependencies (no cache, pacchetti binari)
         run: |
           # Librerie base e scientifiche
-          pip install --no-cache-dir --upgrade numpy pandas scipy
+          pip install --no-cache-dir --upgrade numpy pandas scipy statsmodels
 
           # Librerie di rete e finanza
           pip install --no-cache-dir --upgrade yfinance==0.2.63 requests urllib3 feedparser
@@ -53,13 +53,14 @@ jobs:
       - name: Debug versions
         run: |
           python - <<'EOF'
-          import yfinance, requests, urllib3, numpy, pandas, spacy, scipy
+          import yfinance, requests, urllib3, numpy, pandas, spacy, scipy, statsmodels
           print("yfinance =", yfinance.__version__)
           print("requests =", requests.__version__)
           print("urllib3 =", urllib3.__version__)
           print("numpy =", numpy.__version__)
           print("pandas =", pandas.__version__)
           print("scipy =", scipy.__version__)
+          print("statsmodels =", statsmodels.__version__)
           print("spacy =", spacy.__version__)
           EOF
 
