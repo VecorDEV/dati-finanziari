@@ -2787,29 +2787,30 @@ except GithubException:
 
 
 
-def calcola_correlazioni(dati_storici_all,
-                                max_lag=6,
-                                min_valid_points=60,
-                                signif_level=0.05,
-                                window=60,
-                                alpha=0.5,
-                                min_corr=0.35,
-                                min_percent=60,
-                                threshold_std=0.1,
-                                top_k=3,
-                                control_market_index=None,
-                                fdr_alpha=0.05):
+def calcola_correlazioni_robusta(dati_storici_all,
+                                 max_lag=6,
+                                 min_valid_points=60,
+                                 signif_level=0.05,
+                                 window=60,
+                                 alpha=0.5,
+                                 min_corr=0.3,
+                                 min_percent=50,
+                                 threshold_std=0.05,
+                                 top_k=3,
+                                 control_market_index=None,
+                                 fdr_alpha=0.05):
     """
-    Versione robusta che:
-    - filtra micro-movimenti con threshold_std (frazioni della rolling std),
-    - usa p-value per Pearson/Spearman e applica FDR su tutti i test pair×lag,
-    - verifica consistenza su rolling windows (fraction_of_windows_above_threshold),
-    - opzionalmente rimuove effetto mercato usando regressione su 'control_market_index' (DataFrame con 'Close').
-
-    Ritorna dizionario con i top_k partner per asset, con metriche e flag di validità.
+    Versione migliorata per catturare correlazioni realistiche anche tra titoli fortemente correlati.
+    Restituisce top_k partner per asset con metriche e flag di validità.
     """
+    import numpy as np
+    import pandas as pd
+    import statsmodels.api as sm
+    from statsmodels.regression.linear_model import OLS
+    from scipy.stats import spearmanr, pearsonr, binomtest
+    from statsmodels.stats.multitest import multipletests
 
-    # 1) calcola returns e opzionale residuali (controllo mercato)
+    # 1) Calcolo returns
     returns = {}
     for sym, df in dati_storici_all.items():
         if "Close" not in df.columns:
@@ -2817,28 +2818,25 @@ def calcola_correlazioni(dati_storici_all,
         r = np.log(df["Close"]).diff().dropna()
         returns[sym] = r
 
-    # se richiesto, costruisci serie di mercato e rimuovi effetto mercato (beta)
+    # 2) Effetto mercato
     market_ret = None
     if control_market_index is not None:
         market_ret = np.log(control_market_index["Close"]).diff().dropna()
 
-    # 2) pre-allocazione per p-value collection (per FDR)
-    pvals_records = []  # list of (asset1, asset2, lag, pearson_p, spearman_p, idx)
+    intermediate = {}
+    pvals_records = []
     tests_meta = []
-
-    # store intermediate results to evaluate FDR after computing all tests
-    intermediate = {}  # intermediate[(a1,a2,lag)] = dict(metrics...)
-
     assets = list(returns.keys())
+
     for i, asset1 in enumerate(assets):
         serie1 = returns[asset1]
-        # optionally regress out market
         if market_ret is not None:
             joined = pd.concat([serie1, market_ret], axis=1, join="inner").dropna()
             if len(joined) >= min_valid_points:
                 X = sm.add_constant(joined.iloc[:,1])
                 res = OLS(joined.iloc[:,0], X).fit()
                 serie1 = joined.iloc[:,0] - res.predict(X)
+
         for asset2 in assets:
             if asset1 == asset2:
                 continue
@@ -2850,27 +2848,24 @@ def calcola_correlazioni(dati_storici_all,
                     res2 = OLS(joined2.iloc[:,0], X2).fit()
                     serie2 = joined2.iloc[:,0] - res2.predict(X2)
 
-            for lag in range(1, max_lag + 1):
+            for lag in range(0, max_lag + 1):  # include lag=0
                 aligned = pd.concat([serie1.shift(-lag), serie2], axis=1, join="inner").dropna()
                 if len(aligned) < min_valid_points:
                     continue
-
                 x = aligned.iloc[:,0]
                 y = aligned.iloc[:,1]
 
-                # thresholded direction: ignora micro-movements
-                # threshold computed as threshold_std * rolling_std of target serie
-                thr = threshold_std * x.rolling(window=min(20, len(x))).std().median()
+                # threshold micro-movements
+                thr = threshold_std * x.rolling(window=min(20,len(x))).std().median()
                 signs_x = np.where(np.abs(x) >= thr, np.sign(x), 0)
                 signs_y = np.where(np.abs(y) >= thr, np.sign(y), 0)
-                # concordance: consider only points where at least one is non-zero (significant move)
                 valid_idx = (signs_x != 0) | (signs_y != 0)
                 if valid_idx.sum() < min_valid_points:
                     continue
                 concordant = (signs_x[valid_idx] == signs_y[valid_idx]).astype(int)
                 percent_concordance = 100 * concordant.mean()
 
-                # pearson and spearman + p-values
+                # Pearson e Spearman
                 try:
                     pearson_r, pearson_p = pearsonr(x, y)
                 except Exception:
@@ -2881,19 +2876,19 @@ def calcola_correlazioni(dati_storici_all,
                 except Exception:
                     spearman_r, spearman_p = np.nan, 1.0
 
-                # rolling-consistency: fraction of rolling windows where abs(pearson)>min_corr
+                # rolling consistency
                 series_corr = x.rolling(window=window, min_periods=int(window/2)).corr(y)
                 fraction_windows = np.nanmean(np.abs(series_corr) >= min_corr) * 100
 
-                # binomial test on direction (only where both non-zero or at least one)
+                # binomial test
                 concordi = int(concordant.sum())
                 tot = int(valid_idx.sum())
                 p_binom = binomtest(concordi, tot, 0.5, alternative='greater').pvalue
 
-                # composite score (you can tune)
+                # composite score
                 score = (alpha * (percent_concordance / 100) +
-                         (1 - alpha) / 2 * (0 if np.isnan(pearson_r) else pearson_r) +
-                         (1 - alpha) / 2 * (0 if np.isnan(spearman_r) else spearman_r))
+                         (1-alpha)/2 * (0 if np.isnan(pearson_r) else pearson_r) +
+                         (1-alpha)/2 * (0 if np.isnan(spearman_r) else spearman_r))
 
                 key = (asset1, asset2, lag)
                 intermediate[key] = {
@@ -2911,42 +2906,38 @@ def calcola_correlazioni(dati_storici_all,
                     "fraction_windows": fraction_windows
                 }
 
-                # collect p-values for FDR (we'll include pearson_p and spearman_p)
                 tests_meta.append(key)
-                pvals_records.append(pearson_p)   # primary pvalues list: use pearson as primary
-                # optionally you can append spearman_p as well as separate tests
+                pvals_records.append(pearson_p)
 
-    # 3) FDR correction on pearson p-values
+    # FDR correction
     if pvals_records:
         rej, pvals_corrected, _, _ = multipletests(pvals_records, alpha=fdr_alpha, method='fdr_bh')
     else:
         rej, pvals_corrected = [], []
 
-    # assign corrected pvalue back to intermediate and produce final ranking for each asset1
     for idx, key in enumerate(tests_meta):
-        corrected = pvals_corrected[idx]
-        intermediate[key]["pearson_p_fdr"] = corrected
+        intermediate[key]["pearson_p_fdr"] = pvals_corrected[idx]
         intermediate[key]["pearson_significant_fdr"] = bool(rej[idx])
 
-    # 4) build results per asset1: keep top_k by score but apply conservative validity rules
+    # costruisci risultati top_k
     results = {}
     for asset1 in assets:
         candidates = []
         for key, met in intermediate.items():
             if key[0] != asset1:
                 continue
-            # validity rules (tweak as you like)
+            # regole di validità conservative
             valid = (met["days"] >= min_valid_points and
                      (abs(met["pearson"]) >= min_corr or abs(met["spearman"]) >= min_corr) and
                      met["percent"] >= min_percent and
-                     met["fraction_windows"] >= 50 and  # consistency: >=50% of windows
+                     met["fraction_windows"] >= 50 and
                      met.get("pearson_significant_fdr", False) and
                      met["p_binom"] < signif_level)
             entry = dict(met)
             entry["valid"] = bool(valid)
             candidates.append(entry)
 
-        # sort by score descending
+        # ordina per score
         candidates = sorted(candidates, key=lambda x: x["score"] if x["score"] is not None else -999, reverse=True)
         results[asset1] = candidates[:top_k]
 
