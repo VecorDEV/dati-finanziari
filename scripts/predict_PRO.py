@@ -2787,7 +2787,7 @@ except GithubException:
 
 
 
-def calcola_correlazioni_robusta(dati_storici_all,
+def calcola_correlazioni(dati_storici_all,
                                  max_lag=6,
                                  min_valid_points=60,
                                  signif_level=0.05,
@@ -2949,59 +2949,48 @@ def calcola_correlazioni_robusta(dati_storici_all,
 def salva_correlazioni_html(correlazioni, repo, file_path="results/correlations.html"):
     """
     Crea un file HTML con la tabella delle correlazioni trovate per ogni asset.
-    Supporta sia il formato "singolo partner" sia quello "lista di partner".
-    
-    Args:
-        correlazioni (dict): 
-            - vecchio formato: {asset: {...}}
-            - nuovo formato: {asset: [ {...}, {...}, ... ]}
-        repo: oggetto repo di GitHub
-        file_path (str): percorso del file HTML su GitHub
+    Supporta il formato "lista di top_k partner" restituito da calcola_correlazioni_robusta.
     """
     html_corr = [
         "<html><head><title>Correlazioni tra Asset</title></head><body>",
-        "<h1>Correlazioni (se asset2 si muove, asset1 lo segue)</h1>",
+        "<h1>Correlazioni tra Asset (Top-k partner)</h1>",
         "<table border='1' style='border-collapse: collapse; text-align: center;'>",
         "<tr>"
         "<th>Asset</th><th>Segue</th>"
-        "<th>Pearson</th>"
-        "<th>Spearman</th>"
-        "<th>Percentuale direzionale (%)</th>"
-        "<th>Score composito</th>"
-        "<th>Lag (giorni)</th>"
-        "<th># Giorni</th>"
-        "<th>Validità</th>"
+        "<th>Pearson</th><th>Spearman</th>"
+        "<th>Percentuale direzionale (%)</th><th>Score composito</th>"
+        "<th>Lag (giorni)</th><th># Giorni</th><th>Validità</th>"
         "</tr>"
     ]
 
     for symbol, entries in correlazioni.items():
-        # compatibilità: se non è lista, trasformo in lista
         if isinstance(entries, dict):
-            entries = [entries]
+            entries = [entries]  # compatibilità
 
         for info in entries:
-            if info.get("asset2") or info.get("asset"):
-                correlato = info.get("asset2") or info.get("asset")
-                percent_val = f"{info.get('percent', 'N/A'):.2f}" if isinstance(info.get("percent"), (int, float)) else "N/A"
-                pearson_val = f"{info.get('pearson', 'N/A'):.2f}" if isinstance(info.get("pearson"), (int, float)) else "N/A"
-                spearman_val = f"{info.get('spearman', 'N/A'):.2f}" if isinstance(info.get("spearman"), (int, float)) else "N/A"
-                score_val = f"{info.get('score', 'N/A'):.3f}" if isinstance(info.get("score"), (int, float)) else "N/A"
-                lag_val = info.get("lag", "N/A")
-                days_val = info.get("days", "N/A")
-                valid_val = "✅" if info.get("valid") else "❌"
+            correlato = info.get("asset2") or info.get("asset", "N/A")
+            percent_val = f"{info.get('percent', 'N/A'):.2f}" if isinstance(info.get("percent"), (int, float)) else "N/A"
+            pearson_val = f"{info.get('pearson', 'N/A'):.2f}" if isinstance(info.get("pearson"), (int, float)) else "N/A"
+            spearman_val = f"{info.get('spearman', 'N/A'):.2f}" if isinstance(info.get("spearman"), (int, float)) else "N/A"
+            score_val = f"{info.get('score', 'N/A'):.3f}" if isinstance(info.get("score"), (int, float)) else "N/A"
+            lag_val = info.get("lag", "N/A")
+            days_val = info.get("days", "N/A")
+
+            # color coding basato sul punteggio composito
+            score = info.get("score", 0)
+            if score >= 0.6:
+                valid_val = "🟢"
+            elif score >= 0.4:
+                valid_val = "🟡"
             else:
-                correlato, percent_val, pearson_val, spearman_val, score_val, lag_val, days_val, valid_val = ["N/A"] * 8
+                valid_val = "🔴"
 
             html_corr.append(
                 f"<tr>"
                 f"<td>{symbol}</td><td>{correlato}</td>"
-                f"<td>{pearson_val}</td>"
-                f"<td>{spearman_val}</td>"
-                f"<td>{percent_val}</td>"
-                f"<td>{score_val}</td>"
-                f"<td>{lag_val}</td>"
-                f"<td>{days_val}</td>"
-                f"<td>{valid_val}</td>"
+                f"<td>{pearson_val}</td><td>{spearman_val}</td>"
+                f"<td>{percent_val}</td><td>{score_val}</td>"
+                f"<td>{lag_val}</td><td>{days_val}</td><td>{valid_val}</td>"
                 f"</tr>"
             )
 
