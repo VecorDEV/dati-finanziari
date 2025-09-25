@@ -1277,7 +1277,9 @@
     "Su cosa punto?",
     "Quali asset si stanno muovendo di più?",
     "Non so su cosa investire",
-    "Consigli su cosa investire?"
+    "Consigli su cosa investire?",
+    "Non so dove investire",
+    "Non so su che asset investire oggi"
   ],
   "answers": [
     "Secondo gli ultimi calcoli, l’asset più favorito è [TOP_GAINER], con probabilità di crescita pari a [FORECAST_TOP_GAINER] 📊.",
@@ -1918,10 +1920,11 @@
   "fa_macro_event": {
   "questions": [
     "Come cambia il mercato in base alle notizie macro?",
-    "E le notizie economiche?",
-    "E notizie macro generali?",
+    "E le notizie macro economiche?",
+    "E le notizie macro generali?",
     "E se ci fosse una sorpresa macro?",
-    "E se ci sono notizie macro importanti?"
+    "E se ci sono notizie macro importanti?",
+    "Cosa succede al mercato in relazione con le notizie macro?"
   ],
   "answers": [
     "Una notizia macro può ribaltare i mercati in poco tempo perché cambia la narrativa di fondo, gli investitori ricalcolano il futuro e i prezzi si muovono bruscamente.",
@@ -2149,7 +2152,7 @@
     "Voglio investire ora, quanto posso mettere?",
     "Mi dai un’idea di quanto puntare?",
     "Quanto posso investire senza problemi?",
-    "Dove e quanto conviene mettere?",
+    "Quanto conviene mettere su [TOPIC]?",
     "Quanto capitale conviene usare?",
     "Rischio e metto questa cifra?",
     "Cosa faccio? Rischio mettendo così tanto?",
@@ -2183,7 +2186,10 @@
     "E invece per [TOPIC]?",
     "E invece per quanto riguarda [TOPIC]?",
     "E per [TOPIC] invece?",
-    "E per quanto riguarda [TOPIC]?"
+    "E per quanto riguarda [TOPIC]?",
+    "Per quanto rigurada [TOPIC] invece?",
+    "E su [TOPIC] cosa mi dici?",
+    "E riguardo a [TOPIC]?"
   ],
   "answers": [
     "Per [TOPIC] invece..."
@@ -2214,7 +2220,8 @@
     "Che giorno è oggi esattamente?",
     "Oggi che giorno della settimana è?",
     "A che punto del mese siamo?",
-    "Dimmi che giorno è oggi"
+    "Dimmi che giorno è oggi",
+    "Quanti ne abbiamo oggi?"
   ],
   "answers": [
     "Oggi è il [TODAY] 📅.",
@@ -2620,11 +2627,11 @@
       "Attuali valori dello stocastico per [TOPIC]:\n\nK = [STOCH_K], D = [STOCH_D]\n\nInterpretazione: condizione tipica di [STATE], significato per l'asset di [SIGNIFICATO].",
       "Lo stocastico di [TOPIC] è attualmente:\n\nK = [STOCH_K], D = [STOCH_D]\n\nValutazione: [STATE], suggerisce [STOCH_SIGNIFICATO].",
       "Ecco i valori stocastici per [TOPIC]:\n\nK = [STOCH_K], D = [STOCH_D]\n\nAnalisi: condizione di [STATE] con significato per l'asset di [SIGNIFICATO].",
-      "Gli ultimi valori dello stocastico per [TOPIC] sono:\n\nK = [STOCH_K], D = [STOCH_D]\n\nLa situazione indica [STATE], quindi [SIGNIFICATO].",
-      "Per [TOPIC], lo stocastico mostra:\n\nK = [STOCH_K], D = [STOCH_D]\n\nSecondo l'analisi, significa che è [STATE] e suggerisce [SIGNIFICATO].",
-      "Valori correnti dello stocastico di [TOPIC]:\n\nK = [STOCH_K], D = [STOCH_D]\n\nCondizione tipica: STATE]. Implicazioni per l'asset: [SIGNIFICATO].",
-      "Attenzione ai valori dello stocastico di [TOPIC]:\n\nK = [STOCH_K], D = [STOCH_D]\n\nSituazione: [STATE], il significato per l'asset è di [SIGNIFICATO].",
-      "I dati stocastici recenti per [TOPIC]:\n\nK = [STOCH_K], D = [STOCH_D]\n\nAnalisi: significa che è [STATE], quindi per l'asset indica [SIGNIFICATO]."
+      "Gli ultimi valori dello stocastico per [TOPIC] sono:\n\nK = [STOCH_K]\nD = [STOCH_D]\n\nLa situazione indica [STATE], quindi [SIGNIFICATO].",
+      "Per [TOPIC], lo stocastico mostra:\n\nK = [STOCH_K]\nD = [STOCH_D]\n\nSecondo l'analisi, significa che è [STATE] e suggerisce [SIGNIFICATO].",
+      "Valori correnti dello stocastico di [TOPIC]:\n\nK = [STOCH_K]\nD = [STOCH_D]\n\nCondizione tipica: STATE]. Implicazioni per l'asset: [SIGNIFICATO].",
+      "Attenzione ai valori dello stocastico di [TOPIC]:\n\nK = [STOCH_K]\nD = [STOCH_D]\n\nSituazione: [STATE], il significato per l'asset è di [SIGNIFICATO].",
+      "I dati stocastici recenti per [TOPIC]:\n\nK = [STOCH_K]\nD = [STOCH_D]\n\nAnalisi: significa che è [STATE], quindi per l'asset indica [SIGNIFICATO]."
     ],
     "cost": 1
 },
@@ -2727,17 +2734,17 @@
     ],
     "answers": [
       "Il CCI di [TOPIC] è attualmente [CCI_VALUE].\n\nQuesto indica una condizione tipica di [STATE] e significa [SIGNIFICATO].",
-      "Secondo i dati attuali, [TOPIC] mostra un CCI [CCI_VALUE].\n\nIn pratica, si tratta di uno stato [STATE] che implica [SIGNIFICATO].",
+      "Secondo i dati attuali, [TOPIC] mostra un CCI a [CCI_VALUE].\n\nIn pratica, si tratta di uno stato [STATE] che implica [SIGNIFICATO].",
       "[TOPIC] ha un CCI pari a [CCI_VALUE].\n\nQuesto corrisponde a una condizione di [STATE] e suggerisce [SIGNIFICATO].",
       "Attualmente, il CCI di [TOPIC] risulta [CCI_VALUE].\n\nSi tratta di uno stato [STATE], con significato per l'asset: [SIGNIFICATO].",
       "Il Commodity Channel Index di [TOPIC] indica [CCI_VALUE].\n\nQuesto indica che l'asset è in una condizione di [STATE] e indica [SIGNIFICATO].",
-      "[TOPIC] presenta un CCI [CCI_VALUE].\n\nLa condizione di [STATE] significa che [SIGNIFICATO].",
-      "Secondo le ultime rilevazioni, [TOPIC] è [CCI_VALUE] sul CCI.\n\nSi tratta di uno stato [STATE] e implica [SIGNIFICATO].",
+      "[TOPIC] presenta un CCI di [CCI_VALUE].\n\nLa condizione di [STATE] significa che [SIGNIFICATO].",
+      "Secondo le ultime rilevazioni il CCI di [TOPIC] è [CCI_VALUE].\n\nSi tratta di uno stato [STATE] e implica [SIGNIFICATO].",
       "Il CCI corrente di [TOPIC] è [CCI_VALUE].\n\nQuesta situazione di [STATE] implica [SIGNIFICATO].",
-      "Attenzione: [TOPIC] ha un CCI [CCI_VALUE].\n\nIn termini pratici, uno stato [STATE] comporta [SIGNIFICATO].",
-      "[TOPIC] risulta [CCI_VALUE] secondo il CCI.\n\nQuesto è uno stato [STATE] e suggerisce [SIGNIFICATO].",
-      "Il Commodity Channel Index mostra che [TOPIC] è [CCI_VALUE].\n\nLa condizione di [STATE] si traduce in [SIGNIFICATO].",
-      "Ultima analisi: il CCI di [TOPIC] indica [CCI_VALUE].\n\nSi tratta di uno stato [STATE], che rappresenta [SIGNIFICATO]."
+      "Analisi del Commodity Channel Index: [TOPIC] ha un CCI di [CCI_VALUE].\n\nIn termini pratici, uno stato [STATE] comporta [SIGNIFICATO].",
+      "Il CCI di [TOPIC] risulta [CCI_VALUE].\n\nQuesto è uno stato [STATE] e suggerisce [SIGNIFICATO].",
+      "Il Commodity Channel Index di [TOPIC] è [CCI_VALUE].\n\nLa condizione di [STATE] si traduce in [SIGNIFICATO].",
+      "Ultima analisi: il CCI di [TOPIC] segna [CCI_VALUE].\n\nSi tratta di uno stato [STATE], che rappresenta [SIGNIFICATO]."
     ],
     "cost": 1
 },
@@ -2787,13 +2794,13 @@
       "Il valore di Williams %R per [TOPIC] è [WILLIAMS_VALUE].\n\nLa condizione risulta [STATE], il che significa [SIGNIFICATO].",
       "Williams %R di [TOPIC]: [WILLIAMS_VALUE].\n\nStato attuale: [STATE]. Significato per l'asset: [SIGNIFICATO].",
       "Per [TOPIC], il Williams %R è pari a [WILLIAMS_VALUE].\n\nSituazione tecnica: [STATE], indicando [SIGNIFICATO].",
-      "Attenzione: il Williams %R di [TOPIC] è [WILLIAMS_VALUE].\n\nCondizione: [STATE]. Interpretazione: [SIGNIFICATO].",
+      "Valore: il Williams %R di [TOPIC] è [WILLIAMS_VALUE].\n\nCondizione: [STATE].\n\nInterpretazione: [SIGNIFICATO].",
       "Ecco il Williams %R di [TOPIC]: [WILLIAMS_VALUE].\n\nLo stato attuale è [STATE], che significa [SIGNIFICATO].",
       "Il valore attuale di Williams %R per [TOPIC] è [WILLIAMS_VALUE].\n\nIndicatore [STATE]: [SIGNIFICATO].",
       "Per [TOPIC], Williams %R = [WILLIAMS_VALUE].\n\nCondizione tecnica: [STATE]. Significato: [SIGNIFICATO].",
       "Il Williams %R di [TOPIC] risulta [WILLIAMS_VALUE].\n\nSituazione: [STATE], il che indica [SIGNIFICATO].",
       "Valore Williams %R per [TOPIC]: [WILLIAMS_VALUE].\n\nLo stato tecnico è [STATE], e questo significa [SIGNIFICATO].",
-      "Aggiornamento: Williams %R di [TOPIC] = [WILLIAMS_VALUE].\n\nCondizione attuale: [STATE], interpretazione: [SIGNIFICATO]."
+      "Aggiornamento: Williams %R di [TOPIC] = [WILLIAMS_VALUE].\n\nCondizione attuale: [STATE], il che significa [SIGNIFICATO]."
     ],
     "cost": 1
 },
