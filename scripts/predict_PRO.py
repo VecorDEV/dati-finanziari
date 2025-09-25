@@ -19,7 +19,10 @@ from ta.trend import MACD, EMAIndicator, CCIIndicator
 from ta.volatility import BollingerBands
 from urllib.parse import quote_plus
 from collections import defaultdict
-from scipy.stats import binomtest, spearmanr
+from scipy.stats import spearmanr, pearsonr, binomtest
+from statsmodels.stats.multitest import multipletests
+from statsmodels.regression.linear_model import OLS
+import statsmodels.api as sm
 #from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline
 #from transformers import T5Tokenizer, T5ForConditionalGeneration
 
@@ -2784,117 +2787,168 @@ except GithubException:
 
 
 
-def calcola_correlazioni(dati_storici_all, max_lag=6, min_valid_points=20,
-                         signif_level=0.05, window=60,
-                         alpha=0.5, min_corr=0.3, min_percent=55):
+def calcola_correlazioni(dati_storici_all,
+                                max_lag=6,
+                                min_valid_points=60,
+                                signif_level=0.05,
+                                window=60,
+                                alpha=0.5,
+                                min_corr=0.35,
+                                min_percent=60,
+                                threshold_std=0.1,
+                                top_k=3,
+                                control_market_index=None,
+                                fdr_alpha=0.05):
     """
-    Calcola correlazioni tra asset (Pearson, Spearman e concordanza direzionale).
-    Restituisce sempre il best partner, ma con un flag di validità.
+    Versione robusta che:
+    - filtra micro-movimenti con threshold_std (frazioni della rolling std),
+    - usa p-value per Pearson/Spearman e applica FDR su tutti i test pair×lag,
+    - verifica consistenza su rolling windows (fraction_of_windows_above_threshold),
+    - opzionalmente rimuove effetto mercato usando regressione su 'control_market_index' (DataFrame con 'Close').
 
-    Parameters
-    ----------
-    dati_storici_all : dict
-        Dizionario {ticker: DataFrame con colonna 'Close'}
-    max_lag : int
-        Numero massimo di giorni di ritardo da testare
-    min_valid_points : int
-        Numero minimo di dati validi richiesti per considerare la coppia
-    signif_level : float
-        Livello di significatività statistica per il test binomiale
-    window : int
-        Finestra per la media mobile della concordanza
-    alpha : float
-        Peso della % direzionale nello score composito
-    min_corr : float
-        Soglia minima per considerare "forte" la correlazione
-    min_percent : float
-        Soglia minima per considerare "forte" la concordanza
-
-    Returns
-    -------
-    dict
-        {asset: {"asset": best partner,
-                 "percent": % di concordanza,
-                 "pearson": correlazione lineare,
-                 "spearman": correlazione monotona,
-                 "score": score composito,
-                 "lag": lag migliore,
-                 "days": numero di osservazioni,
-                 "valid": True/False se supera le soglie}}
+    Ritorna dizionario con i top_k partner per asset, con metriche e flag di validità.
     """
+
+    # 1) calcola returns e opzionale residuali (controllo mercato)
     returns = {}
     for sym, df in dati_storici_all.items():
         if "Close" not in df.columns:
             continue
-        diff = np.log(df["Close"]).diff().dropna()
-        diff = diff / diff.std()
-        returns[sym] = diff
+        r = np.log(df["Close"]).diff().dropna()
+        returns[sym] = r
 
-    results = {}
+    # se richiesto, costruisci serie di mercato e rimuovi effetto mercato (beta)
+    market_ret = None
+    if control_market_index is not None:
+        market_ret = np.log(control_market_index["Close"]).diff().dropna()
 
-    for asset1, serie1 in returns.items():
-        best_score = -1
-        best_asset = None
-        best_lag = 0
-        best_days = 0
-        best_percent = None
-        best_pearson = None
-        best_spearman = None
-        best_valid = False
+    # 2) pre-allocazione per p-value collection (per FDR)
+    pvals_records = []  # list of (asset1, asset2, lag, pearson_p, spearman_p, idx)
+    tests_meta = []
 
-        for asset2, serie2 in returns.items():
+    # store intermediate results to evaluate FDR after computing all tests
+    intermediate = {}  # intermediate[(a1,a2,lag)] = dict(metrics...)
+
+    assets = list(returns.keys())
+    for i, asset1 in enumerate(assets):
+        serie1 = returns[asset1]
+        # optionally regress out market
+        if market_ret is not None:
+            joined = pd.concat([serie1, market_ret], axis=1, join="inner").dropna()
+            if len(joined) >= min_valid_points:
+                X = sm.add_constant(joined.iloc[:,1])
+                res = OLS(joined.iloc[:,0], X).fit()
+                serie1 = joined.iloc[:,0] - res.predict(X)
+        for asset2 in assets:
             if asset1 == asset2:
                 continue
+            serie2 = returns[asset2]
+            if market_ret is not None:
+                joined2 = pd.concat([serie2, market_ret], axis=1, join="inner").dropna()
+                if len(joined2) >= min_valid_points:
+                    X2 = sm.add_constant(joined2.iloc[:,1])
+                    res2 = OLS(joined2.iloc[:,0], X2).fit()
+                    serie2 = joined2.iloc[:,0] - res2.predict(X2)
 
             for lag in range(1, max_lag + 1):
-                aligned = pd.concat([serie1.shift(-lag), serie2],
-                                    axis=1, join="inner").dropna()
+                aligned = pd.concat([serie1.shift(-lag), serie2], axis=1, join="inner").dropna()
                 if len(aligned) < min_valid_points:
                     continue
 
-                # concordanza
-                signs1 = np.sign(aligned.iloc[:, 0])
-                signs2 = np.sign(aligned.iloc[:, 1])
-                concordance = (signs1 == signs2).astype(int)
-                mean_perc = concordance.rolling(window).mean().mean() * 100
+                x = aligned.iloc[:,0]
+                y = aligned.iloc[:,1]
 
-                # correlazioni
-                pearson = aligned.iloc[:, 0].corr(aligned.iloc[:, 1])
-                spearman, _ = spearmanr(aligned.iloc[:, 0], aligned.iloc[:, 1])
+                # thresholded direction: ignora micro-movements
+                # threshold computed as threshold_std * rolling_std of target serie
+                thr = threshold_std * x.rolling(window=min(20, len(x))).std().median()
+                signs_x = np.where(np.abs(x) >= thr, np.sign(x), 0)
+                signs_y = np.where(np.abs(y) >= thr, np.sign(y), 0)
+                # concordance: consider only points where at least one is non-zero (significant move)
+                valid_idx = (signs_x != 0) | (signs_y != 0)
+                if valid_idx.sum() < min_valid_points:
+                    continue
+                concordant = (signs_x[valid_idx] == signs_y[valid_idx]).astype(int)
+                percent_concordance = 100 * concordant.mean()
 
-                # test binomiale
-                concordi = concordance.sum()
-                tot = len(aligned)
-                p_val = binomtest(concordi, tot, 0.5, alternative='greater').pvalue
+                # pearson and spearman + p-values
+                try:
+                    pearson_r, pearson_p = pearsonr(x, y)
+                except Exception:
+                    pearson_r, pearson_p = np.nan, 1.0
+                try:
+                    spearman_r, spearman_p = spearmanr(x, y)
+                    spearman_r = float(spearman_r)
+                except Exception:
+                    spearman_r, spearman_p = np.nan, 1.0
 
-                # score composito
-                score = (alpha * (mean_perc / 100) +
-                         (1 - alpha) / 2 * pearson +
-                         (1 - alpha) / 2 * spearman)
+                # rolling-consistency: fraction of rolling windows where abs(pearson)>min_corr
+                series_corr = x.rolling(window=window, min_periods=int(window/2)).corr(y)
+                fraction_windows = np.nanmean(np.abs(series_corr) >= min_corr) * 100
 
-                # aggiorna best sempre
-                if score > best_score:
-                    best_score = score
-                    best_asset = asset2
-                    best_lag = lag
-                    best_days = tot
-                    best_percent = mean_perc
-                    best_pearson = pearson
-                    best_spearman = spearman
-                    best_valid = (mean_perc >= min_percent and
-                                  (pearson >= min_corr or spearman >= min_corr) and
-                                  p_val < signif_level)
+                # binomial test on direction (only where both non-zero or at least one)
+                concordi = int(concordant.sum())
+                tot = int(valid_idx.sum())
+                p_binom = binomtest(concordi, tot, 0.5, alternative='greater').pvalue
 
-        results[asset1] = {
-            "asset": best_asset,
-            "percent": round(best_percent, 2) if best_asset else None,
-            "pearson": round(best_pearson, 2) if best_asset else None,
-            "spearman": round(best_spearman, 2) if best_asset else None,
-            "score": round(best_score, 3) if best_asset else None,
-            "lag": best_lag if best_asset else None,
-            "days": best_days if best_asset else 0,
-            "valid": best_valid
-        }
+                # composite score (you can tune)
+                score = (alpha * (percent_concordance / 100) +
+                         (1 - alpha) / 2 * (0 if np.isnan(pearson_r) else pearson_r) +
+                         (1 - alpha) / 2 * (0 if np.isnan(spearman_r) else spearman_r))
+
+                key = (asset1, asset2, lag)
+                intermediate[key] = {
+                    "asset1": asset1,
+                    "asset2": asset2,
+                    "lag": lag,
+                    "days": len(aligned),
+                    "percent": percent_concordance,
+                    "pearson": pearson_r,
+                    "pearson_p": pearson_p,
+                    "spearman": spearman_r,
+                    "spearman_p": spearman_p,
+                    "p_binom": p_binom,
+                    "score": score,
+                    "fraction_windows": fraction_windows
+                }
+
+                # collect p-values for FDR (we'll include pearson_p and spearman_p)
+                tests_meta.append(key)
+                pvals_records.append(pearson_p)   # primary pvalues list: use pearson as primary
+                # optionally you can append spearman_p as well as separate tests
+
+    # 3) FDR correction on pearson p-values
+    if pvals_records:
+        rej, pvals_corrected, _, _ = multipletests(pvals_records, alpha=fdr_alpha, method='fdr_bh')
+    else:
+        rej, pvals_corrected = [], []
+
+    # assign corrected pvalue back to intermediate and produce final ranking for each asset1
+    for idx, key in enumerate(tests_meta):
+        corrected = pvals_corrected[idx]
+        intermediate[key]["pearson_p_fdr"] = corrected
+        intermediate[key]["pearson_significant_fdr"] = bool(rej[idx])
+
+    # 4) build results per asset1: keep top_k by score but apply conservative validity rules
+    results = {}
+    for asset1 in assets:
+        candidates = []
+        for key, met in intermediate.items():
+            if key[0] != asset1:
+                continue
+            # validity rules (tweak as you like)
+            valid = (met["days"] >= min_valid_points and
+                     (abs(met["pearson"]) >= min_corr or abs(met["spearman"]) >= min_corr) and
+                     met["percent"] >= min_percent and
+                     met["fraction_windows"] >= 50 and  # consistency: >=50% of windows
+                     met.get("pearson_significant_fdr", False) and
+                     met["p_binom"] < signif_level)
+            entry = dict(met)
+            entry["valid"] = bool(valid)
+            candidates.append(entry)
+
+        # sort by score descending
+        candidates = sorted(candidates, key=lambda x: x["score"] if x["score"] is not None else -999, reverse=True)
+        results[asset1] = candidates[:top_k]
 
     return results
 
@@ -2904,28 +2958,24 @@ def calcola_correlazioni(dati_storici_all, max_lag=6, min_valid_points=20,
 def salva_correlazioni_html(correlazioni, repo, file_path="results/correlations.html"):
     """
     Crea un file HTML con la tabella delle correlazioni trovate per ogni asset.
-
+    Supporta sia il formato "singolo partner" sia quello "lista di partner".
+    
     Args:
-        correlazioni (dict): {asset: {"asset": correlato,
-                                      "percent": valore,
-                                      "pearson": valore,
-                                      "spearman": valore,
-                                      "score": valore,
-                                      "lag": lag,
-                                      "days": n_osservazioni,
-                                      "valid": True/False}}
+        correlazioni (dict): 
+            - vecchio formato: {asset: {...}}
+            - nuovo formato: {asset: [ {...}, {...}, ... ]}
         repo: oggetto repo di GitHub
         file_path (str): percorso del file HTML su GitHub
     """
     html_corr = [
         "<html><head><title>Correlazioni tra Asset</title></head><body>",
         "<h1>Correlazioni (se asset2 si muove, asset1 lo segue)</h1>",
-        "<table border='1'>",
+        "<table border='1' style='border-collapse: collapse; text-align: center;'>",
         "<tr>"
         "<th>Asset</th><th>Segue</th>"
-        "<th>Percentuale direzionale (%)</th>"
         "<th>Pearson</th>"
         "<th>Spearman</th>"
+        "<th>Percentuale direzionale (%)</th>"
         "<th>Score composito</th>"
         "<th>Lag (giorni)</th>"
         "<th># Giorni</th>"
@@ -2933,31 +2983,36 @@ def salva_correlazioni_html(correlazioni, repo, file_path="results/correlations.
         "</tr>"
     ]
 
-    for symbol, info in correlazioni.items():
-        if info["asset"]:
-            correlato = info["asset"]
-            percent_val = f"{info['percent']:.2f}" if info['percent'] is not None else "N/A"
-            pearson_val = f"{info['pearson']:.2f}" if info['pearson'] is not None else "N/A"
-            spearman_val = f"{info['spearman']:.2f}" if info['spearman'] is not None else "N/A"
-            score_val = f"{info['score']:.3f}" if info['score'] is not None else "N/A"
-            lag_val = info["lag"]
-            days_val = info["days"]
-            valid_val = "✅" if info.get("valid") else "❌"
-        else:
-            correlato, percent_val, pearson_val, spearman_val, score_val, lag_val, days_val, valid_val = ["N/A"] * 8
+    for symbol, entries in correlazioni.items():
+        # compatibilità: se non è lista, trasformo in lista
+        if isinstance(entries, dict):
+            entries = [entries]
 
-        html_corr.append(
-            f"<tr>"
-            f"<td>{symbol}</td><td>{correlato}</td>"
-            f"<td>{percent_val}</td>"
-            f"<td>{pearson_val}</td>"
-            f"<td>{spearman_val}</td>"
-            f"<td>{score_val}</td>"
-            f"<td>{lag_val}</td>"
-            f"<td>{days_val}</td>"
-            f"<td>{valid_val}</td>"
-            f"</tr>"
-        )
+        for info in entries:
+            if info.get("asset2") or info.get("asset"):
+                correlato = info.get("asset2") or info.get("asset")
+                percent_val = f"{info.get('percent', 'N/A'):.2f}" if isinstance(info.get("percent"), (int, float)) else "N/A"
+                pearson_val = f"{info.get('pearson', 'N/A'):.2f}" if isinstance(info.get("pearson"), (int, float)) else "N/A"
+                spearman_val = f"{info.get('spearman', 'N/A'):.2f}" if isinstance(info.get("spearman"), (int, float)) else "N/A"
+                score_val = f"{info.get('score', 'N/A'):.3f}" if isinstance(info.get("score"), (int, float)) else "N/A"
+                lag_val = info.get("lag", "N/A")
+                days_val = info.get("days", "N/A")
+                valid_val = "✅" if info.get("valid") else "❌"
+            else:
+                correlato, percent_val, pearson_val, spearman_val, score_val, lag_val, days_val, valid_val = ["N/A"] * 8
+
+            html_corr.append(
+                f"<tr>"
+                f"<td>{symbol}</td><td>{correlato}</td>"
+                f"<td>{pearson_val}</td>"
+                f"<td>{spearman_val}</td>"
+                f"<td>{percent_val}</td>"
+                f"<td>{score_val}</td>"
+                f"<td>{lag_val}</td>"
+                f"<td>{days_val}</td>"
+                f"<td>{valid_val}</td>"
+                f"</tr>"
+            )
 
     html_corr.append("</table></body></html>")
 
