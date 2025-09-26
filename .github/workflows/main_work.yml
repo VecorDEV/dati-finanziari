@@ -36,7 +36,7 @@ jobs:
           pip install --no-cache-dir --upgrade numpy pandas scipy statsmodels
 
           # Librerie di rete e finanza
-          pip install --no-cache-dir --upgrade yfinance==0.2.63 requests urllib3 feedparser
+          pip install --no-cache-dir --upgrade yfinance==0.2.63 requests urllib3 feedparser lxml
 
           # Analisi dati, ML e NLP
           pip install --no-cache-dir --upgrade ta \
