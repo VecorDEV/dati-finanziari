@@ -3390,5 +3390,171 @@
       "Il Price to Earnings ratio (P/E) misura quante volte il prezzo di un'azione copre il suo utile per azione. È uno dei principali indicatori fondamentali utilizzati per confrontare aziende o settori e capire la valutazione relativa sul mercato."
     ],
     "cost": 0
+},
+    "trailing_pe": {
+    "questions": [
+      "Qual è il trailing P/E di [TOPIC]?",
+      "Mi dici il valore del trailing P/E di [TOPIC]?",
+      "Che P/E trailing ha [TOPIC]?",
+      "Puoi dirmi il trailing P/E di [TOPIC]?",
+      "Qual è il rapporto prezzo/utili trailing di [TOPIC]?",
+      "Mi dai il trailing price to earnings di [TOPIC]?",
+      "A quanto ammonta il trailing P/E di [TOPIC]?",
+      "Mostrami il trailing P/E per [TOPIC]",
+      "Vorrei sapere il P/E trailing attuale di [TOPIC]",
+      "Dimmi il trailing P/E corrente di [TOPIC]",
+      "Dimmi il trailing PE di [TOPIC]"
+    ],
+    "answers": [
+      "Il trailing P/E di [TOPIC] attualmente è [TRAILING_PE_VALUE].",
+      "Per [TOPIC], il rapporto prezzo/utili trailing risulta essere [TRAILING_PE_VALUE].",
+      "Il valore corrente del trailing P/E di [TOPIC] è [TRAILING_PE_VALUE].",
+      "Secondo i dati più recenti, [TOPIC] ha un trailing P/E pari a [TRAILING_PE_VALUE].",
+      "Al momento, il trailing P/E di [TOPIC] è [TRAILING_PE_VALUE].",
+      "Gli ultimi dati indicano che [TOPIC] ha un P/E trailing di [TRAILING_PE_VALUE].",
+      "Il rapporto prezzo/utili trailing per [TOPIC] è [TRAILING_PE_VALUE].",
+      "Il trailing P/E registrato oggi per [TOPIC] è [TRAILING_PE_VALUE]."
+    ],
+    "cost": 0
+},
+    "forward_pe": {
+    "questions": [
+      "Qual è il forward P/E di [TOPIC]?",
+      "Mi dici il valore del forward P/E di [TOPIC]?",
+      "Che P/E previsto ha [TOPIC]?",
+      "Puoi dirmi il forward P/E di [TOPIC]?",
+      "Qual è il rapporto prezzo/utili previsto di [TOPIC]?",
+      "Mi dai il forward price to earnings di [TOPIC]?",
+      "A quanto ammonta il forward P/E di [TOPIC]?",
+      "Mostrami il forward P/E per [TOPIC]",
+      "Vorrei sapere il P/E previsto attuale di [TOPIC]",
+      "Dimmi il forward P/E stimato di [TOPIC]",
+      "Dimmi il forward PE di [TOPIC]",
+      "Dammi il forward P/E di [TOPIC]",
+      "Dammi il forward di [TOPIC]"
+    ],
+    "answers": [
+      "Il forward P/E di [TOPIC] attualmente è [FORWARD_PE_VALUE].",
+      "Per [TOPIC], il rapporto prezzo/utili previsto risulta essere [FORWARD_PE_VALUE].",
+      "Il valore corrente del forward P/E di [TOPIC] è [FORWARD_PE_VALUE].",
+      "Secondo i dati più recenti, [TOPIC] ha un forward P/E pari a [FORWARD_PE_VALUE].",
+      "Al momento, il forward P/E di [TOPIC] è [FORWARD_PE_VALUE].",
+      "Gli ultimi dati indicano che [TOPIC] ha un P/E previsto di [FORWARD_PE_VALUE].",
+      "Il rapporto prezzo/utili forward per [TOPIC] è [FORWARD_PE_VALUE].",
+      "Il forward P/E stimato oggi per [TOPIC] è [FORWARD_PE_VALUE]."
+    ],
+    "cost": 0
+},
+    "eps_growth": {
+    "questions": [
+      "Qual è la crescita EPS di [TOPIC]?",
+      "Mi dici il valore dell'EPS growth di [TOPIC]?",
+      "Che crescita degli utili ha [TOPIC]?",
+      "Puoi indicarmi l'EPS growth di [TOPIC]?",
+      "Qual è la variazione dell'EPS anno su anno di [TOPIC]?",
+      "Mi dai l'EPS growth (YoY) di [TOPIC]?",
+      "A quanto ammonta la crescita dell'EPS di [TOPIC]?",
+      "Mostrami l'EPS growth per [TOPIC]",
+      "Vorrei sapere di quanto è cresciuto l'EPS di [TOPIC]",
+      "Dimmi la variazione EPS anno su anno di [TOPIC]",
+      "EPS di [TOPIC]",
+      "Dammi l'EPS di [TOPIC]"
+    ],
+    "answers": [
+      "La crescita EPS di [TOPIC] negli ultimi 12 mesi è [EPS_GROWTH_VALUE].",
+      "Per [TOPIC], l'EPS growth (YoY) risulta essere [EPS_GROWTH_VALUE].",
+      "Il valore attuale della crescita degli utili per azione di [TOPIC] è [EPS_GROWTH_VALUE].",
+      "Secondo i dati più recenti, [TOPIC] ha un EPS growth pari a [EPS_GROWTH_VALUE].",
+      "Al momento, l'EPS growth di [TOPIC] è [EPS_GROWTH_VALUE].",
+      "Gli ultimi dati indicano che [TOPIC] ha registrato una variazione EPS di [EPS_GROWTH_VALUE].",
+      "La crescita degli utili per azione per [TOPIC] è attualmente [EPS_GROWTH_VALUE].",
+      "Il valore EPS growth stimato oggi per [TOPIC] è [EPS_GROWTH_VALUE]."
+    ],
+    "cost": 0
+},
+    "revenue_growth": {
+    "questions": [
+      "Qual è la crescita dei ricavi di [TOPIC]?",
+      "Mi dici il valore del revenue growth di [TOPIC]?",
+      "Che crescita ha registrato [TOPIC] nei ricavi?",
+      "Puoi indicarmi il revenue growth di [TOPIC]?",
+      "Qual è la variazione dei ricavi anno su anno di [TOPIC]?",
+      "Mi dai il revenue growth (YoY) di [TOPIC]?",
+      "A quanto ammonta la crescita dei ricavi di [TOPIC]?",
+      "Mostrami il revenue growth per [TOPIC]",
+      "Vorrei sapere di quanto sono cresciuti i ricavi di [TOPIC]",
+      "Dimmi la variazione dei ricavi anno su anno di [TOPIC]",
+      "Dammi la variazione dei ricavi di [TOPIC]",
+      "Dammi il revenue growth di [TOPIC]"
+    ],
+    "answers": [
+      "La crescita dei ricavi di [TOPIC] negli ultimi 12 mesi è [REVENUE_GROWTH_VALUE].",
+      "Per [TOPIC], il revenue growth (YoY) risulta essere [REVENUE_GROWTH_VALUE].",
+      "Il valore attuale della variazione dei ricavi di [TOPIC] è [REVENUE_GROWTH_VALUE].",
+      "Secondo i dati più recenti, [TOPIC] ha un revenue growth pari a [REVENUE_GROWTH_VALUE].",
+      "Al momento, il revenue growth di [TOPIC] è [REVENUE_GROWTH_VALUE].",
+      "Gli ultimi dati indicano che [TOPIC] ha registrato una variazione dei ricavi di [REVENUE_GROWTH_VALUE].",
+      "La crescita dei ricavi per [TOPIC] è attualmente [REVENUE_GROWTH_VALUE].",
+      "Il valore revenue growth stimato oggi per [TOPIC] è [REVENUE_GROWTH_VALUE]."
+    ],
+    "cost": 0
+},
+    "profit_margins": {
+    "questions": [
+      "Qual è il margine di profitto di [TOPIC]?",
+      "Mi dici il valore del profit margins di [TOPIC]?",
+      "Che margine di profitto ha registrato [TOPIC]?",
+      "Puoi indicarmi il profit margin di [TOPIC]?",
+      "Qual è la percentuale di profitto di [TOPIC]?",
+      "Mi dai il profit margins (margine di guadagno) di [TOPIC]?",
+      "A quanto ammonta il margine di profitto di [TOPIC]?",
+      "Mostrami il profit margins per [TOPIC]",
+      "Vorrei sapere qual è il margine di profitto di [TOPIC]",
+      "Dimmi la percentuale di profitto di [TOPIC]",
+      "Dammi il margine di profitto di [TOPIC]",
+      "Dimmi il profitto di [TOPIC]",
+      "Dammi il profit margins di [TOPIC]"
+    ],
+    "answers": [
+      "Il margine di profitto di [TOPIC] è attualmente [PROFIT_MARGINS_VALUE].",
+      "Per [TOPIC], il profit margins risulta essere [PROFIT_MARGINS_VALUE].",
+      "Il valore attuale del margine di profitto di [TOPIC] è [PROFIT_MARGINS_VALUE].",
+      "Secondo i dati più recenti, [TOPIC] ha un profit margins pari a [PROFIT_MARGINS_VALUE].",
+      "Al momento, il margine di profitto di [TOPIC] è [PROFIT_MARGINS_VALUE].",
+      "Gli ultimi dati indicano che [TOPIC] ha registrato un margine di profitto di [PROFIT_MARGINS_VALUE].",
+      "Il profit margins per [TOPIC] è attualmente [PROFIT_MARGINS_VALUE].",
+      "Il valore stimato oggi del margine di profitto di [TOPIC] è [PROFIT_MARGINS_VALUE]."
+    ],
+    "cost": 0
+},
+    "debt_to_equity": {
+    "questions": [
+      "Qual è il rapporto debt to equity di [TOPIC]?",
+      "Mi dici il valore del debt/equity ratio di [TOPIC]?",
+      "Che rapporto tra debito e capitale ha [TOPIC]?",
+      "Puoi indicarmi il debt to equity di [TOPIC]?",
+      "Qual è il valore del debito rispetto al patrimonio di [TOPIC]?",
+      "Mi dai il debt to equity (rapporto debito/capitale) di [TOPIC]?",
+      "A quanto ammonta il debt/equity di [TOPIC]?",
+      "Quanto vale il debt equity di [TOPIC]?",
+      "Debt equity di [TOPIC]",
+      "Debt to equity di [TOPIC]",
+      "Debt/equity di [TOPIC]",
+      "Mostrami il rapporto debt to equity per [TOPIC]",
+      "Vorrei sapere qual è il rapporto debito/patrimonio di [TOPIC]",
+      "Dimmi il debt to equity di [TOPIC]",
+      "Dammi il debt to equity di [TOPIC]"
+    ],
+    "answers": [
+      "Il rapporto debt to equity di [TOPIC] è attualmente [DEBT_TO_EQUITY_VALUE].",
+      "Per [TOPIC], il debt/equity ratio risulta essere [DEBT_TO_EQUITY_VALUE].",
+      "Il valore attuale del rapporto debito/capitale di [TOPIC] è [DEBT_TO_EQUITY_VALUE].",
+      "Secondo i dati più recenti, [TOPIC] ha un debt to equity pari a [DEBT_TO_EQUITY_VALUE].",
+      "Al momento, il rapporto debt to equity di [TOPIC] è [DEBT_TO_EQUITY_VALUE].",
+      "Gli ultimi dati indicano che [TOPIC] ha registrato un debt/equity di [DEBT_TO_EQUITY_VALUE].",
+      "Il debt to equity per [TOPIC] è attualmente [DEBT_TO_EQUITY_VALUE].",
+      "Il valore stimato oggi del rapporto debito/capitale di [TOPIC] è [DEBT_TO_EQUITY_VALUE]."
+    ],
+    "cost": 0
 }
 }
