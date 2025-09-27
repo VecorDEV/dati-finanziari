@@ -2819,20 +2819,21 @@ except GithubException:
 
 
 def calcola_correlazioni(dati_storici_all,
-                                 max_lag=6,
-                                 min_valid_points=60,
-                                 signif_level=0.05,
-                                 window=60,
-                                 alpha=0.5,
-                                 min_corr=0.3,
-                                 min_percent=50,
-                                 threshold_std=0.05,
-                                 top_k=3,
-                                 control_market_index=None,
-                                 fdr_alpha=0.05):
+                         max_lag=6,
+                         min_valid_points=60,
+                         signif_level=0.05,
+                         window=60,
+                         alpha=0.5,
+                         min_corr=0.3,
+                         min_percent=50,
+                         threshold_std=0.05,
+                         top_k=5,
+                         control_market_index=None,
+                         fdr_alpha=0.05):
     """
-    Versione migliorata per catturare correlazioni realistiche anche tra titoli fortemente correlati.
-    Restituisce top_k partner per asset con metriche e flag di validità.
+    Versione migliorata:
+    - Considera correlazioni sia positive che negative (concordi e discordi).
+    - Restituisce fino a top_k partner per asset con metriche, flag di validità e tipo relazione.
     """
     import numpy as np
     import pandas as pd
@@ -2957,15 +2958,21 @@ def calcola_correlazioni(dati_storici_all,
         for key, met in intermediate.items():
             if key[0] != asset1:
                 continue
-            # regole di validità conservative
+            # nuova logica: accetta sia concordanza che discordanza
+            concord_ok = met["percent"] >= min_percent
+            discord_ok = (100 - met["percent"]) >= min_percent
+            relation_type = "concorde" if concord_ok else ("discorde" if discord_ok else "debole")
+
             valid = (met["days"] >= min_valid_points and
                      (abs(met["pearson"]) >= min_corr or abs(met["spearman"]) >= min_corr) and
-                     met["percent"] >= min_percent and
+                     (concord_ok or discord_ok) and
                      met["fraction_windows"] >= 50 and
                      met.get("pearson_significant_fdr", False) and
                      met["p_binom"] < signif_level)
+
             entry = dict(met)
             entry["valid"] = bool(valid)
+            entry["relation_type"] = relation_type
             candidates.append(entry)
 
         # ordina per score
@@ -2980,7 +2987,7 @@ def calcola_correlazioni(dati_storici_all,
 def salva_correlazioni_html(correlazioni, repo, file_path="results/correlations.html"):
     """
     Crea un file HTML con la tabella delle correlazioni trovate per ogni asset.
-    Supporta il formato "lista di top_k partner" restituito da calcola_correlazioni_robusta.
+    Supporta il formato "lista di top_k partner" restituito da calcola_correlazioni.
     """
     html_corr = [
         "<html><head><title>Correlazioni tra Asset</title></head><body>",
@@ -2990,7 +2997,8 @@ def salva_correlazioni_html(correlazioni, repo, file_path="results/correlations.
         "<th>Asset</th><th>Segue</th>"
         "<th>Pearson</th><th>Spearman</th>"
         "<th>Percentuale direzionale (%)</th><th>Score composito</th>"
-        "<th>Lag (giorni)</th><th># Giorni</th><th>Validità</th>"
+        "<th>Lag (giorni)</th><th># Giorni</th>"
+        "<th>Tipo relazione</th><th>Validità</th>"
         "</tr>"
     ]
 
@@ -3006,6 +3014,7 @@ def salva_correlazioni_html(correlazioni, repo, file_path="results/correlations.
             score_val = f"{info.get('score', 'N/A'):.3f}" if isinstance(info.get("score"), (int, float)) else "N/A"
             lag_val = info.get("lag", "N/A")
             days_val = info.get("days", "N/A")
+            relation_type = info.get("relation_type", "N/A")
 
             # color coding basato sul punteggio composito
             score = info.get("score", 0)
@@ -3016,12 +3025,21 @@ def salva_correlazioni_html(correlazioni, repo, file_path="results/correlations.
             else:
                 valid_val = "🔴"
 
+            # icona extra per il tipo di relazione
+            if relation_type == "concorde":
+                relation_icon = "⬆️⬆️ (positiva)"
+            elif relation_type == "discorde":
+                relation_icon = "⬆️⬇️ (negativa)"
+            else:
+                relation_icon = "⚪ debole"
+
             html_corr.append(
                 f"<tr>"
                 f"<td>{symbol}</td><td>{correlato}</td>"
                 f"<td>{pearson_val}</td><td>{spearman_val}</td>"
                 f"<td>{percent_val}</td><td>{score_val}</td>"
-                f"<td>{lag_val}</td><td>{days_val}</td><td>{valid_val}</td>"
+                f"<td>{lag_val}</td><td>{days_val}</td>"
+                f"<td>{relation_icon}</td><td>{valid_val}</td>"
                 f"</tr>"
             )
 
