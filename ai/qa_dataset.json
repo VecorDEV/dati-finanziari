@@ -3966,5 +3966,29 @@
       "La volatilità è un indicatore di rischio che mostra quanto i prezzi di un asset oscillano nel tempo. Non indica la direzione del movimento, ma quanto i valori possono variare, rendendo il mercato più o meno imprevedibile.\n\nPer gli investitori, conoscere la volatilità è essenziale per bilanciare portafogli, selezionare strumenti finanziari coerenti con il proprio profilo di rischio e anticipare possibili periodi di turbolenza o stabilità nei mercati."
     ],
     "cost": 0
+},
+    "pearson_spearman": {
+    "questions": [
+      "Cosa significa la correlazione di Pearson?",
+      "Cosa vuol dire la correlazione di Spearman?",
+      "Spiegami la differenza tra Pearson e Spearman",
+      "A cosa servono Pearson e Spearman?",
+      "Come si usano Pearson e Spearman in finanza?",
+      "Puoi spiegarmi cosa sono Pearson e Spearman?",
+      "Che differenza c’è tra correlazione Pearson e Spearman?",
+      "Come interpretare i coefficienti di Pearson e Spearman?",
+      "Cosa indicano Pearson e Spearman?",
+      "In cosa consiste la correlazione di Pearson e quella di Spearman?",
+      "Che differenza c'è tra Pearson e Spearman?",
+      "Pearson e Spearman"
+    ],
+    "answers": [
+      "La correlazione di Pearson e quella di Spearman sono due strumenti statistici per misurare il legame tra variabili, molto utilizzati anche in finanza.\n\nLa correlazione di **Pearson** misura la forza e la direzione del legame **lineare** tra due variabili 📈. Se due asset hanno un coefficiente vicino a +1, significa che tendono a crescere o scendere insieme in modo proporzionale; se è vicino a -1, si muovono in direzioni opposte; se è vicino a 0, non c’è relazione lineare significativa.\n\nLa correlazione di **Spearman**, invece, non guarda ai valori assoluti ma ai **ranghi**. È più utile quando il legame non è lineare o quando ci sono outlier. Spearman ti dice se due asset tendono comunque a muoversi nella stessa direzione (positiva) o in direzioni opposte (negativa), anche senza proporzionalità perfetta.",
+      "Pearson e Spearman sono due modi diversi per valutare la correlazione tra asset.\n\nCon **Pearson**, analizziamo la relazione lineare: quanto un asset tende a muoversi proporzionalmente all’altro. È il metodo più usato in modelli di portafoglio classici, perché entra nei calcoli della varianza-covarianza.\n\nCon **Spearman**, invece, guardiamo alla monotonicità: se uno sale, anche l’altro tende a salire (o a scendere) indipendentemente dalla forza proporzionale del legame. Spearman è più robusto in presenza di dati anomali e mercati turbolenti.",
+      "La correlazione di Pearson misura la relazione lineare tra due variabili, mentre quella di Spearman misura la coerenza dell’**ordine** dei valori.\n\nIn finanza questo significa che Pearson è più utile per analisi precise di portafoglio e modelli quantitativi, ma può essere fuorviato da outlier forti. Spearman invece fornisce una visione più stabile del legame generale tra due asset, ed è adatto per capire se si muovono ‘insieme’ anche senza proporzionalità.",
+      "Pearson e Spearman sono entrambi indicatori di correlazione, ma hanno applicazioni diverse.\n\n- **Pearson**: cattura relazioni lineari, ideale per statistiche tradizionali e analisi quantitativa.\n- **Spearman**: cattura relazioni monotone, anche non lineari, ed è più robusto con dati rumorosi o irregolari.\n\nIn finanza, usarli entrambi ti permette di capire se due asset sono legati solo in modo proporzionale (Pearson) oppure anche in termini di direzione generale (Spearman).",
+      "Pearson misura **quanto due asset sono proporzionalmente legati** nei loro movimenti, mentre Spearman misura **quanto due asset si muovono nella stessa direzione**, indipendentemente dalla proporzionalità.\n\nUn buon approccio per gli investitori è calcolare entrambi: se i due valori sono simili, significa che il legame è solido e lineare; se divergono molto, significa che la relazione è più complessa e non perfettamente proporzionale."
+    ],
+    "cost": 0
 }
 }
