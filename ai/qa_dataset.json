@@ -4221,5 +4221,36 @@
       "La schermata notizie dell'app ti permette di avere sempre sott'occhio le ultime informazioni, filtrate e ordinate in modo chiaro.\n\nCliccando su una notizia puoi aprire il testo completo sul web o analizzarla subito. Inoltre, puoi incollare testi di notizie esterne nella barra di ricerca della schermata di analisi notizie: il nostro algoritmo valuta il sentiment dei titoli, permettendoti di ottenere rapidamente un'interpretazione accurata delle notizie."
     ],
     "cost": 0
+},
+  {
+  "asset_news": {
+    "questions": [
+      "Quali sono le ultime notizie su [TOPIC]?",
+      "Mi dai le news più recenti di [TOPIC]?",
+      "Quali sono le notizie più importanti di [TOPIC]?",
+      "Mostrami le ultime notizie riguardanti [TOPIC]",
+      "Che novità ci sono su [TOPIC]?",
+      "Ci sono notizie aggiornate di [TOPIC]?",
+      "Voglio vedere le ultime news su [TOPIC]",
+      "Indicami le notizie più recenti per [TOPIC]",
+      "Dammi le ultime informazioni su [TOPIC]",
+      "Dammi le ultime notizie su [TOPIC]",
+      "Cosa si dice di recente su [TOPIC]?",
+      "Cosa c'è da sapere su [TOPIC]?",
+      "Mostrami le news più recenti di [TOPIC]",
+      "Ultime notizie su [TOPIC]",
+      "Ultime news riguardo a [TOPIC]",
+      "News su [TOPIC]",
+      "Notizie su [TOPIC]"
+    ],
+    "answers": [
+      "Ecco le ultime notizie di [TOPIC]:",
+      "Qui trovi le news più recenti su [TOPIC]:",
+      "Ultimi aggiornamenti per [TOPIC]:",
+      "Di seguito le notizie più recenti su [TOPIC]:",
+      "Le ultime informazioni riguardanti [TOPIC] sono le seguenti:",
+      "Ecco cosa ho trovato su [TOPIC]:"
+    ],
+    "cost": 0
 }
 }
