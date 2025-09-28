@@ -4163,5 +4163,63 @@
     "Ecco i vari piani di TradeGPT e cosa offrono:\n\n• **Piano gratuito:**\n  - Accesso alle notizie di mercato 📢\n  - Calcolo del sentiment degli asset 📊\n  - Dati fondamentali delle aziende 📈\n  - Grafici con dati storici dei prezzi 📉\n\n• **Piano Premium:**\n  - Tutte le funzionalità del piano gratuito ✅\n  - Esperienza senza pubblicità 🚫📢\n  - Ampia gamma di indicatori tecnici per analisi avanzate 📊\n  - Consigli degli esperti 💡\n  - Limiti più ampi per l'AI, con analisi più dettagliate 🤖\n\n• **Piano Ultra:**\n  - Tutte le funzionalità del piano Premium ✅\n  - Dati sulle vendite degli insider 🏢\n  - Potente calcolo delle correlazioni tra asset 🔗\n  - Accesso illimitato alla versione più potente dell'AI 🚀\n  - Esperienza completa senza limiti, per tracciare con precisione il futuro dei tuoi asset 🌟\n\nUn'analisi di mercato di un esperto può costare fino a 100€ all'ora, mentre con TradeGPT ottieni potenti strumenti di analisi a partire da soli 8€ a settimana per il nostro piano più potente (Ultra)! 😉 😱"
   ],
   "cost": 0
+},
+  "navigazione_schermata_principale": {
+  "questions": [
+    "Cosa significano le percentuali nella schermata principale?",
+    "Spiegami le percentuali che vedo sui vari asset",
+    "Perché alcuni asset hanno una percentuale alta o bassa?",
+    "Cosa indicano le percentuali dei top gainers e top losers?",
+    "Mi dici a cosa servono i numeri sulla schermata principale?",
+    "Come vengono calcolate le percentuali sugli asset?",
+    "Cosa vogliono dire le percentuali nella home?",
+    "Perché alcuni asset sono evidenziati con percentuali diverse?",
+    "Spiegami il significato dei valori percentuali degli asset",
+    "Cosa rappresentano i numeri nella schermata principale?",
+    "Come funziona la schermata principale?",
+    "Cosa vedo nella schermata principale?",
+    "Mi spieghi cosa si vede nella schermata principale?",
+    "Cosa vedo quando apro la schermata principale?",
+    "Quali informazioni trovo nella home dell'app?",
+    "Mi spieghi cosa viene mostrato nella schermata principale?",
+    "Cosa contiene la schermata principale?",
+    "Quali dati posso vedere subito aprendo l'app?",
+    "Come è organizzata la home della app?",
+    "Cosa mostra la pagina principale dell'app?",
+    "Quali pannelli trovo nella schermata iniziale?",
+    "Mi puoi spiegare quali elementi ci sono nella home?",
+    "Cosa viene evidenziato appena apro l'app?",
+    "Spiegami la schermata home",
+    "Spiegami la schermata principale",
+    "Spiegami la schermata iniziale dell'app",
+    "Spiegami la prima pagina dell'app",
+    "Dimmi come funziona la schermata principale",
+    "Come funziona la schermata home?"
+  ],
+  "answers": [
+    "Appena entri nella schermata principale, ti trovi di fronte a un pannello che mostra tre categorie principali:\n\n• **Top Gainers:** asset con maggior probabilità di crescita 📈\n• **Top Losers:** asset con minor probabilità di crescita 📉\n• **Top Fire:** asset che sono cresciuti o decresciuti di più nell'ultima settimana 🔥\n\nLe probabilità sono calcolate da un algoritmo basato sul sentiment degli asset, analizzando le notizie degli ultimi 90 giorni. Ti consiglio di approfondire ogni asset facendo un'analisi dettagliata per capire meglio il contesto e le opportunità.\n\nIn aggiunta, nella schermata principale puoi vedere anche altri pannelli utili, come quelli dedicati agli **asset preferiti**, così da tenerli sempre sott’occhio, e le **notizie principali** relative ai mercati, per avere rapidamente un’idea degli eventi più importanti che potrebbero influenzare i tuoi investimenti.",
+    "Nella schermata principale le percentuali indicano la probabilità di crescita o decrescita degli asset. In particolare:\n\n- I **Top Gainers** rappresentano gli asset con maggiori chance di crescita 📈\n- I **Top Losers** evidenziano quelli con minori possibilità di crescita 📉\n- I **Top Fire** mostrano gli asset che hanno registrato le variazioni più significative nell'ultima settimana 🔥\n\nQueste percentuali sono calcolate tramite un algoritmo che si basa esclusivamente sul sentiment generato dalle notizie degli ultimi 90 giorni. Ti suggerisco di fare un'analisi dettagliata per ogni asset se vuoi avere un quadro completo delle opportunità.\n\nIn più, nella schermata principale puoi consultare i tuoi **asset preferiti** e alcune **notizie chiave**, così da monitorare immediatamente gli asset che segui e restare aggiornato sugli eventi più importanti del mercato."
+  ],
+  "cost": 0
+},
+  {
+  "navigazione_notizie": {
+    "questions": [
+      "Come posso vedere le notizie sull'app?",
+      "Dove trovo le ultime notizie?",
+      "Come posso approfondire le notizie?",
+      "Mi dici come leggere le notizie nell'app?",
+      "Come faccio ad analizzare le notizie?",
+      "Posso vedere le notizie direttamente sull'app?",
+      "Come funziona la schermata notizie?",
+      "Come posso filtrare e leggere le news più recenti?",
+      "Dove posso trovare le notizie e i loro dettagli?",
+      "Come posso incollare una notizia esterna per analizzarla?"
+    ],
+    "answers": [
+      "Nell'app c'è una schermata dedicata alle notizie, dove tutte le news sono già filtrate e ordinate in modo da mostrarti per prime quelle più recenti.\n\nPuoi fare click su una notizia per aprirne il testo direttamente sul web e leggerla, oppure analizzarla subito. È possibile anche incollare il testo di una notizia esterna sulla barra di ricerca nella schermata di analisi notizie per ottenere un sentiment accurato, basato principalmente sul titolo, che riassume le informazioni più rilevanti.",
+      "La schermata notizie dell'app ti permette di avere sempre sott'occhio le ultime informazioni, filtrate e ordinate in modo chiaro.\n\nCliccando su una notizia puoi aprire il testo completo sul web o analizzarla subito. Inoltre, puoi incollare testi di notizie esterne nella barra di ricerca della schermata di analisi notizie: il nostro algoritmo valuta il sentiment dei titoli, permettendoti di ottenere rapidamente un'interpretazione accurata delle notizie."
+    ],
+    "cost": 0
 }
 }
