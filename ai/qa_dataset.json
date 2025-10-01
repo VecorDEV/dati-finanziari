@@ -182,7 +182,8 @@
       "TradeGPT. Non sono umano, ma il mio obiettivo è rendere più semplici concetti complessi di finanza e trading.",
       "Sono TradeGPT, pronto a supportarti in ogni fase del tuo percorso di investimento."
     ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["chi sei", "chi"]
   },
   "financial_forecast": {
   "questions": [
@@ -198,6 +199,7 @@
     "Quali sono le prospettive di [TOPIC]?",
     "Cosa si prevede per [TOPIC]?",
     "Qual è l’outlook di [TOPIC]?",
+    "Quali sono le previsioni attese per [TOPIC]?",
     "Che cosa si prevede su [TOPIC]?",
     "Come si prospetta [TOPIC]?",
     "Che aria tira per [TOPIC]?",
@@ -233,7 +235,8 @@
     "Analisi outlook [TOPIC]",
     "Previsioni veloci [TOPIC]",
     "Previsioni rapide di [TOPIC]",
-    "Dammi indicazioni veloci sul futuro di [TOPIC]"
+    "Dammi indicazioni veloci sul futuro di [TOPIC]",
+    "Dimmi il trend futuro di [TOPIC]"
   ],
   "answers": [
     "Le ultime previsioni per [TOPIC] evidenziano diverse possibilità nei prossimi giorni 📈.\nAlcuni dettagli meritano attenzione e potrebbero essere rilevanti per le decisioni future.\n\nL’analisi completa è pronta e può essere visualizzata con un click sul bottone qui sotto.",
@@ -321,7 +324,8 @@
     "Previsioni attuali indicano una situazione chiara su [TOPIC].\nL’analisi è pronta e può essere visualizzata con un click.",
     "Gli indicatori suggeriscono che [TOPIC] presenta informazioni osservabili nei prossimi giorni.\nL’analisi completa è stata preparata e può essere aperta."
   ],
-    "cost": 1
+    "cost": 1,
+    "keywords": ["previsioni", "forecast", "outlook", "sentiment", "trend"]
 },
   "financial_forecast_premium": {
   "questions": [
@@ -367,7 +371,8 @@
     "Analisi outlook [TOPIC]",
     "Previsioni veloci [TOPIC]",
     "Previsioni rapide di [TOPIC]",
-    "Dammi indicazioni veloci sul futuro di [TOPIC]"
+    "Dammi indicazioni veloci sul futuro di [TOPIC]",
+    "Dammi il trend futuro di [TOPIC]"
   ],
   "answers": [
     "Le previsioni attuali indicano che [TOPIC] tenderà ad avere un andamento [FORECAST_TREND] nei prossimi periodi.\n\nLa probabilità di successo complessiva stimata è del [FORECAST_VALUE]. 📊",
@@ -410,7 +415,8 @@
     "Secondo i dati più solidi, [TOPIC] avrà un andamento [FORECAST_TREND].\n\nIl livello di probabilità associato è del [FORECAST_VALUE].",
     "📊 Le proiezioni indicano che [TOPIC] si orienterà verso un andamento [FORECAST_TREND].\n\nLa probabilità complessiva stimata è del [FORECAST_VALUE]."
   ],
-    "cost": 1
+    "cost": 1,
+    "keywords": ["previsioni", "forecast", "outlook", "trend"]
 },
   "sentiment": {
   "questions": [
