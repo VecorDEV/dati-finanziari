@@ -1301,7 +1301,7 @@
     "cost": 2,
     "keywords": ["conviene", "entrare", "ora", "adesso", "aspettare"]
 },
-    "where_invest": {
+  "where_invest": {
   "questions": [
     "Dove conviene mettere?",
     "Su cosa conviene mettere?",
@@ -1881,7 +1881,11 @@
     "[TOPIC] si sta comportando bene oggi?",
     "[TOPIC] sta andando avanti bene?",
     "[TOPIC] sta procedendo bene?",
-    "[TOPIC] va bene oggi?"
+    "[TOPIC] va bene oggi?",
+    "Cosa mi dici di [TOPIC]?",
+    "Cosa mi dici su [TOPIC]?",
+    "Cosa mi sai dire di [TOPIC]?",
+    "Cosa mi puoi dire riguardo a [TOPIC]?"
   ],
   "answers": [
     "Ultimo aggiornamento ([DATE]): [TOPIC] è [TREND] di [VALORE].",
@@ -4387,7 +4391,16 @@
       "Ultime notizie su [TOPIC]",
       "Ultime news riguardo a [TOPIC]",
       "News su [TOPIC]",
-      "Notizie su [TOPIC]"
+      "Notizie su [TOPIC]",
+      "Hai notizie interessanti riguardo a [TOPIC]",
+      "Notizie interessanti su [TOPIC]?",
+      "News interessanti su [TOPIC]?",
+      "Novità su [TOPIC]?",
+      "Novità interessanti su [TOPIC]?",
+      "Nuove informazioni su [TOPIC]?",
+      "Nuove info su [TOPIC]?",
+      "Hai qualche info nuova su [TOPIC]?",
+      "Hai informazioni nuove su [TOPIC]?"
     ],
     "answers": [
       "Ecco le ultime notizie di [TOPIC]:",
@@ -4430,5 +4443,25 @@
     ],
     "cost": 0,
     "keywords": ["segnale di", "investire su", "investire in", "segnale per", "segnale attuale per", "segnale attuale di", "segnale"]
+  },
+    "languages": {
+    "questions": [
+      "Quali lingue parli?",
+      "In quali lingue puoi rispondere?",
+      "Che lingue conosci?",
+      "Parli altre lingue oltre all'italiano?",
+      "Dimmi in quali lingue puoi comunicare",
+      "Vorrei sapere quali lingue supporti",
+      "Quali idiomi sei in grado di usare?",
+      "Puoi dirmi tutte le lingue che parli?"
+    ],
+    "answers": [
+      "Parlo diverse lingue: inglese, tedesco, spagnolo, italiano, francese, hindi, arabo, coreano, portoghese, olandese, russo e cinese semplificato.\n\nGli sviluppatori di TradeGPT stanno lavorando per aggiungere nuove lingue, così da ampliare sempre di più le possibilità di utilizzo.",
+      "Sono in grado di comunicare in molte lingue, tra cui: inglese, tedesco, spagnolo, italiano, francese, hindi, arabo, coreano, portoghese, olandese, russo e cinese semplificato.\n\nIl team di TradeGPT è costantemente al lavoro per introdurre altre lingue in futuro.",
+      "Ecco le lingue che parlo: inglese, tedesco, spagnolo, italiano, francese, hindi, arabo, coreano, portoghese, olandese, russo e cinese semplificato.\n\nGli sviluppatori stanno già lavorando sul supporto ad ulteriori lingue per rendere TradeGPT sempre più accessibile.",
+      "Posso rispondere in più lingue: inglese, tedesco, spagnolo, italiano, francese, hindi, arabo, coreano, portoghese, olandese, russo e cinese semplificato.\n\nNuove lingue verranno aggiunte progressivamente grazie al lavoro degli sviluppatori di TradeGPT.",
+      "Le lingue che conosco sono: inglese, tedesco, spagnolo, italiano, francese, hindi, arabo, coreano, portoghese, olandese, russo e cinese semplificato.\n\nIl team di sviluppo sta lavorando per integrare sempre più lingue, così da raggiungere ancora più investitori nel mondo."
+    ],
+    "cost": 0
   }
 }
