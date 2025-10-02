@@ -466,7 +466,8 @@
     "Prospettiva a 90 giorni per il sentiment di [TOPIC]",
     "Mostrami la previsione sentiment novanta giorni per [TOPIC]",
     "Qual è il sentiment di [TOPIC] nel lungo termine?",
-    "Sentiment di [TOPIC] nel lungo termine"
+    "Sentiment di [TOPIC] nel lungo termine",
+    "Sentiment trimestrale di [TOPIC]"
   ],
   "answers": [
     "Secondo gli ultimi dati disponibili, il sentiment su [TOPIC] risulta [SENTIMENT_90].",
@@ -500,7 +501,8 @@
     "📉 Secondo le stime attuali, il sentiment di [TOPIC] è [SENTIMENT_90].",
     "La situazione aggiornata mostra un sentiment [SENTIMENT_90] per [TOPIC]."
   ],
-    "cost": 1
+    "cost": 1,
+    "keywords": ["sentiment", "90 giorni", "novanta giorni", "tre mesi", "3 mesi", "lungo termine", "sentiment trimestrale"]
 },
   "sentiment_30": {
   "questions": [
@@ -559,7 +561,8 @@
     "Il quadro generale dei prossimi 30 giorni mostra per [TOPIC] un sentiment [SENTIMENT_30].",
     "Dai calcoli emerge che il sentiment di [TOPIC] entro 30 giorni risulta [SENTIMENT_30]."
   ],
-    "cost": 1
+    "cost": 1,
+    "keywords": ["sentiment", "30 giorni", "trenta giorni", "prossimo mese", "sentiment mensile", "lungo termine"]
 },
   "sentiment_7": {
   "questions": [
@@ -584,7 +587,8 @@
     "Come sarà l’andamento sentimentale di [TOPIC] a sette giorni?",
     "Che sentiment emerge per [TOPIC] su base settimanale?",
     "Qual è il sentiment di [TOPIC] nel breve termine?",
-    "Sentiment di [TOPIC] nel breve termine"
+    "Sentiment di [TOPIC] nel breve termine",
+    "Sentiment settimanale di [TOPIC]"
   ],
   "answers": [
     "Secondo gli ultimi dati, il sentiment di [TOPIC] nei prossimi 7 giorni è [SENTIMENT_7].",
@@ -618,17 +622,18 @@
     "Il sentiment previsto nei prossimi 7 giorni per [TOPIC] è [SENTIMENT_7].",
     "Secondo i dati attuali, il sentiment settimanale di [TOPIC] è [SENTIMENT_7]."
   ],
-    "cost": 1
+    "cost": 1,
+    "keywords": ["sentiment", "7 giorni", "sette giorni", "sentiment settimanale", "breve termine"]
 },
   "brief_term_forecast": {
   "questions": [
     "Previsioni a breve per [TOPIC]",
     "Che aspettative ci sono a breve su [TOPIC]?",
-    "Sentiment di breve termine per [TOPIC]",
+    "Trend nel breve termine per [TOPIC]",
     "Come andrà [TOPIC] nei prossimi giorni?",
     "Prospettive a breve per [TOPIC]?",
     "Come vedi [TOPIC] a breve?",
-    "Dammi il sentiment di breve di [TOPIC]",
+    "Dammi l'andamento a breve di [TOPIC]",
     "Analisi breve termine [TOPIC]",
     "Previsioni breve termine per [TOPIC]",
     "Aggiornami sul breve periodo di [TOPIC]",
@@ -640,7 +645,7 @@
     "Come procede [TOPIC] a breve termine?",
     "Andamento previsto nei prossimi sette giorni di [TOPIC]",
     "Prospettive settimanali per [TOPIC]",
-    "Sentiment a pochi giorni su [TOPIC]",
+    "Indicazioni a pochi giorni su [TOPIC]",
     "Quali sono le previsioni nell'immediato futuro di [TOPIC]?",
     "Breve termine [TOPIC]",
     "Outlook breve di [TOPIC]",
@@ -649,21 +654,22 @@
     "Movimento futuro a breve di [TOPIC]",
     "Proiezioni a breve per [TOPIC]",
     "Proiezione sette giorni per [TOPIC]",
-    "Sentiment sette giorni per [TOPIC]",
-    "Qual è il sentiment impostato a sette giorni per [TOPIC]?",
+    "Andamento sette giorni per [TOPIC]",
+    "Qual è il trend impostato a sette giorni per [TOPIC]?",
     "Come si muoverà [TOPIC] nei prossimi giorni?",
-    "Sentiment dei prossimi giorni di [TOPIC]",
+    "Analisi dei prossimi giorni di [TOPIC]",
     "Andamento breve di [TOPIC]",
     "Forecast breve per [TOPIC]",
     "Breve outlook su [TOPIC]",
-    "Analisi sentiment breve termine di [TOPIC]",
+    "Analisi breve termine di [TOPIC]",
     "Come si prospetta [TOPIC] a breve?",
     "Come si prospetta [TOPIC] a sette giorni?",
-    "Sentiment breve termine [TOPIC]",
+    "Analisi breve termine [TOPIC]",
     "Breve termine prospettiva [TOPIC]",
-    "Che succede nei prossimi sette giorni su [TOPIC]?",
+    "Che succede nei prossimi sette giorni a [TOPIC]?",
+    "Cosa succederà nei prossimi 7 giorni a [TOPIC]?",
     "Indicazioni a breve per [TOPIC]",
-    "Imposta il sentiment a sette giorni per [TOPIC]",
+    "Imposta l'analisi a sette giorni per [TOPIC]",
     "Tendenza breve termine [TOPIC]",
     "Proiezione nell'immediato per [TOPIC]",
     "Come potrebbe muoversi [TOPIC] a breve?"
@@ -712,7 +718,8 @@
     "Previsioni attuali indicano un andamento [TREND_AGG_M] per [TOPIC] nel breve termine, con variazioni minime.\n\nPer maggiori dettagli, consulta l’analisi completa.",
     "I dati suggeriscono che [TOPIC] avrà un andamento [TREND_AGG_M] nei prossimi giorni.\n\nPer ulteriori informazioni, apri l’analisi completa."
   ],
-    "cost": 1
+    "cost": 1,
+    "keywords": ["previsioni", "aspettative", "a breve", "breve termine", "breve periodo", "andamento", "sette giorni", "7 giorni", "nell'immediato", "prossimi giorni"]
 },
   "long_term_forecast": {
   "questions": [
@@ -809,7 +816,8 @@
     "Previsioni attuali indicano un andamento [TREND_AGG_M] per [TOPIC] nel futuro, con una variazione [TREND_AGG_F] minima.\n\nPer maggiori dettagli, consulta l’analisi completa.",
     "Gli indicatori suggeriscono che [TOPIC] avrà un andamento [TREND_AGG_M] nel lungo termine.\n\nPer ulteriori informazioni, apri l’analisi completa." 
   ],
-    "cost": 1
+    "cost": 1,
+    "keywords": ["previsioni", "aspettative", "proiezioni", "lungo periodo", "lungo termine", "lungo corso", "andamento", "mesi", "prossimo mese", "anni"]
 },
   "ai_name": {
   "questions": [
@@ -853,7 +861,8 @@
     "Mi chiamo TradeGPT e posso guidarti attraverso grafici, indicatori e strategie operative per ottimizzare le tue operazioni di trading 💡.",
     "Io sono TradeGPT, il tuo assistente AI sempre pronto a fornire spiegazioni chiare, consigli e analisi dei mercati finanziari 🌟."
   ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["chi sei", "tuo nome", "come ti chiami", "nome", "ti chiami"]
 },
   "ai_status": {
   "questions": [
@@ -908,7 +917,8 @@
     "Tutto bene, concentrato sulle strategie migliori! 💼",
     "Sto bene, pronto a fornirti consigli se vuoi."
   ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["come stai", "come procedi", "tutto bene"]
 },
   "ai_human_check": {
   "questions": [
@@ -955,7 +965,8 @@
     "Non sono umano, ma posso offrirti assistenza precisa e veloce su strategie operative, trend e indicatori di mercato.",
     "Sono un modello AI pronto a supportarti con dati aggiornati e spiegazioni dettagliate per migliorare le tue scelte di investimento."
   ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["sei umano", "umano", "persona vera", "persona"]
 },
     "ai_robot_check": {
   "questions": [
@@ -1014,7 +1025,8 @@
     "Sono un’AI: uno strumento innovativo, sicuro e usato da investitori di tutto il mondo per affrontare i mercati.",
     "Sono un potente modello di intelligenza artificiale che analizza migliaia di dati al secondo per aiutare gli investitori."
   ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["robot", "chi sei", "intelligenza artificiale"]
 },
   "ai_capabilities": {
   "questions": [
@@ -1060,7 +1072,8 @@
     "Posso offrirti consigli e spiegazioni su criptovalute, azioni, ETF e altri strumenti, sempre basati sui dati disponibili e aggiornati 📈.",
     "Sono qui per fornirti supporto completo: analisi tecnica, fondamentale, gestione del rischio e strategie operative, tutto in un unico assistente virtuale."
   ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["cosa sai fare", "sei bravo", "aiutare", "cosa puoi fare"]
 },
   "market_sentiment_today": {
   "questions": [
@@ -1176,7 +1189,8 @@
     "Oggi il sentiment è [AGG_M].\n\n[TOP_GAINER] favorito ([SENTIMENT_TOP_GAINER]), [TOP_LOSER] sfavorito ([SENTIMENT_TOP_LOSER]).",
     "Clima odierno: [AGG_M].\n\n[TOP_GAINER] probabilità massima ([SENTIMENT_TOP_GAINER]), [TOP_LOSER] minima ([SENTIMENT_TOP_LOSER])."
   ],
-    "cost": 1
+    "cost": 1,
+    "keywords": ["mercato", "mercati", "sentiment", "oggi", "giornata"]
 },
   "ta_general": {
   "questions": [
@@ -1224,7 +1238,8 @@
     "Il grafico di [TOPIC] segnala una fase [AGG_F], con trend [AGG_M] consolidato e possibili oscillazioni future 📊.",
     "Osservando [TOPIC], possiamo identificare pattern [AGG_M] e segnali che supportano l’analisi tecnica dei livelli di supporto a [SUPPORTO] e resistenza a [RESISTENZA]. 💡"
   ],
-    "cost": 2
+    "cost": 2,
+    "keywords": ["tecnica", "nello specifico", "analisi"]
 },
   "trading_entry_decision": {
   "questions": [
@@ -1283,7 +1298,8 @@
     "Oggi [TOPIC] evidenzia un setup [AGG_M]. Agisci con cautela e imposta target realistici a [TAKE_PROFIT].",
     "La fase tecnica di [TOPIC] è [AGG_F]. Entrare può avere senso, ma con stop loss stretto a [STOP_LOSS] e valutazione dei volumi."
   ],
-    "cost": 2
+    "cost": 2,
+    "keywords": ["conviene", "entrare", "ora", "adesso", "aspettare"]
 },
     "where_invest": {
   "questions": [
@@ -1366,7 +1382,8 @@
     "Secondo i calcoli aggiornati, [TOP_GAINER] è favorito con [FORECAST_TOP_GAINER], mentre [TOP_GAINER_2] ha probabilità comunque interessanti.",
     "Le probabilità attuali segnalano [TOP_GAINER] e [TOP_GAINER_2] come gli asset con le chance più alte di crescere."
   ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["dove", "conviene", "mettere", "puntare", "investire", "su cosa"]
 },
   "trading_stop_loss_level": {
   "questions": [
@@ -1406,7 +1423,8 @@
     "Suggerisco uno stop loss a [STOP_LOSS] per [TOPIC], così da proteggere la posizione senza compromettere le opportunità di mercato.",
     "Per [TOPIC], un buon stop loss è posizionato a [STOP_LOSS] 🔒, basato sui livelli di supporto e sull’analisi tecnica corrente."
   ],
-    "cost": 2
+    "cost": 2,
+    "keywords": ["stop loss"]
 },
   "trading_take_profit_level": {
   "questions": [
@@ -1415,14 +1433,14 @@
     "E target di profitto?",
     "Qual è il target di profitto?",
     "Dove dovrei mettere il take profit?",
-    "Allora, take profit per [TOPIC]?",
+    "Take profit per [TOPIC]?",
     "E il take profit dove lo metto?",
     "Livello di take profit?",
     "Mi consigli quanto impostare di take profit per [TOPIC]?",
     "Quanto imposto il target di profitto?",
     "A quanto imposto il take profit?",
     "E il take profit?",
-    "Per quanto riguarda il tae profit?",
+    "Per quanto riguarda il take profit?",
     "A quanto imposto il take profit per [TOPIC]?",
     "Per [TOPIC] quale take profit consigli invece?",
     "Invece per [TOPIC] quale take profit?",
@@ -1451,7 +1469,8 @@
     "Suggerisco un take profit a [TAKE_PROFIT] su [TOPIC], così da ottimizzare il guadagno mantenendo il controllo sulla posizione.",
     "Per [TOPIC], un buon take profit è posizionato a [TAKE_PROFIT] 📊, basato sui livelli di resistenza e sull’analisi tecnica corrente."
   ],
-    "cost": 2
+    "cost": 2,
+    "keywords": ["take profit", "target", "profitto"]
 },
   "ai_fallback": {
   "questions": [""],
@@ -1523,7 +1542,8 @@
     "Il contesto settoriale e i bilanci di [TOPIC] mostrano un outlook [TREND_AGG_M], che orienta la percezione degli operatori.",
     "Analizzando la posizione di mercato di [TOPIC] emerge un quadro [TREND_AGG_M], con aspetti da monitorare attentamente."
   ],
-    "cost": 1
+    "cost": 1,
+    "keywords": ["analisi fondamentale", "fondamentali"]
 },
   "crypto_trading": {
   "questions": [
@@ -1567,7 +1587,8 @@
     "Oggi il trend complessivo delle crypto è [TREND_AGG_M].\n\nIl mercato segue da vicino i movimenti di [MAIN_CRYPTO], che secondo il forecast di giornata mostra [FORECAST_MAIN_CRYPTO].",
     "Le crypto attraversano una fase [TREND_AGG_F].\n\nTra gli asset più importanti, [MAIN_CRYPTO] si distingue grazie a un forecast che oggi è di [FORECAST_MAIN_CRYPTO] 🚀."
   ],
-    "cost": 1
+    "cost": 1,
+    "keywords": ["mercato", "crypto", "cripto", "criptovalute"]
 },
   "market_news": {
   "questions": ["ci sono novità sui mercati?"],
@@ -1618,11 +1639,12 @@
     "Oggi il contesto finanziario appare potenzialmente dinamico, con [MAIN_TOPIC] che risponde a notizie economiche e aziendali.",
     "Le news di mercato suggeriscono un trend interessante, con [MAIN_TOPIC] da seguire per fluttuazioni e opportunità. 📊"
   ],
-    "cost": 1
+    "cost": 1,
+    "keywords": ["novità", "notizie", "notizia", "mercati", "mercato"]
 },
   "closing": {
   "questions": [
-    "grazie, chiudiamo qui",
+    "Grazie, chiudiamo qui",
     "Bene, grazie",
     "Chiaro, grazie ancora",
     "Chiaro, grazie mille",
@@ -1656,24 +1678,25 @@
     "Felice di aiutarti, alla prossima!",
     "Di nulla, buona gestione delle tue posizioni 💼",
     "È stato un piacere assisterti, buon proseguimento!",
-    "Grazie a te! Buona giornata e buoni trade!",
+    "Felice di esserti stato d'aiuto. Buona giornata e buon trading!",
     "Alla prossima! Ricorda di seguire sempre la tua strategia.",
     "Felice di esserti stato utile, buona continuazione!",
     "Grazie per aver chiacchierato con me, a presto! 😊",
     "Con piacere! Mantieni il controllo del rischio e buon trading.",
     "È stato un piacere supportarti oggi, ci sentiamo presto!",
-    "Grazie! Buona fortuna con le tue operazioni e gestisci bene il capitale 💡",
+    "Buona fortuna con le tue operazioni e gestisci bene il capitale 💡",
     "Alla prossima! Continua a monitorare il mercato attentamente.",
-    "Di nulla, buona giornata e trading consapevole!",
+    "Felice di averti aiutato, buona giornata e trading consapevole!",
     "Felice di aiutarti! Ricorda: disciplina e strategia prima di tutto.",
-    "Grazie, buona chiusura delle posizioni oggi!",
-    "A presto! Continua a seguire il piano di trading con attenzione.",
+    "Buona chiusura delle posizioni oggi!",
+    "È bello esserti stato utile! Continua a seguire il piano di trading con attenzione.",
     "Felice di assisterti! Buona gestione del portafoglio 📊",
-    "Grazie! Mantieni sempre il rischio sotto controllo.",
+    "Felice di esserti stato utile! Mantieni sempre il rischio sotto controllo.",
     "È stato un piacere! Ricorda di aggiornarti sulle news di mercato.",
-    "Alla prossima! Continua a seguire segnali e analisi per operazioni migliori."
+    "Felice di averti potuto aiutare 😊! Continua a seguire segnali e analisi per operazioni migliori."
   ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["grazie"]
 },
   "goodbye": {
   "questions": [
@@ -1715,7 +1738,8 @@
     "Arrivederci! 💼",
     "Alla prossima! Mantieni la calma."
   ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["a presto", "alla prossima", "arrivederci", "a dopo", "a più tardi"]
 },
   "action_purpose_general": {
   "questions": [
@@ -1773,7 +1797,8 @@
     "Bene, posso fare qualcosa per te adesso?",
     "Cambiando discorso, posso fare qualcosa per te?"
   ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["ottimo", "perfetto", "bene"]
 },
   "actual_asset_info": {
   "questions": [
@@ -1913,7 +1938,8 @@
     "Oggi [TOPIC] mostra [TREND] di [VALORE] 📊\n\nUltimo dato disponibile: [DATE]",
     "[TOPIC] è [TREND] di [VALORE] oggi 🔹\n\nUltimo dato disponibile: [DATE]"
   ],
-    "cost": 1
+    "cost": 1,
+    "keywords": ["oggi", "come sta", "andando", "procedendo"]
 },
   "fa_interest_rates": {
   "questions": [
@@ -1957,7 +1983,8 @@
     "Un aumento dei tassi rafforza la stabilità ma rallenta il dinamismo, limitando [TOPIC]. Una diminuzione dei tassi riduce la stabilità ma accelera [TOPIC].",
     "Se il livello dei tassi si alza, il credito si riduce e la crescita di [TOPIC] ne risente. Se si abbassa, il credito torna a fluire e [TOPIC] accelera."
   ],
-    "cost": 1
+    "cost": 1,
+    "keywords": ["tassi", "tassi alti", "tassi di interesse"]
 },
   "fa_macro_event": {
   "questions": [
@@ -2001,7 +2028,8 @@
     "I mercati sono sensibili soprattutto alle sorprese macro inattese: più grande è la sorpresa, più forte la reazione.",
     "Le notizie macro influenzano la percezione del rischio: quando aumentano i timori, il mercato si rifugia in asset sicuri."
   ],
-    "cost": 1
+    "cost": 1,
+    "keywords": ["notizie macro", "macro"]
 },
   "actual_general_info": {
   "questions": [
@@ -2084,7 +2112,8 @@
     "La giornata vede [TOP_FIRE] primeggiare con un incremento di [GAIN], contrapposto a [BOTTOM_FIRE] che chiude con una perdita di [LOSE].",
     "Oggi [TOP_FIRE] si conferma l’asset più forte con un +[GAIN], mentre [BOTTOM_FIRE] chiude in negativo con -[LOSE]."
   ],
-    "cost": 1
+    "cost": 1,
+    "keywords": ["mercato", "mercati", "andando", "oggi", "come", "procedendo"]
 },
   "ai_sorry": {
   "questions": [
@@ -2171,7 +2200,8 @@
     "Scusa. Non era corretto. ",
     "Mi dispiace. Ho frainteso. "
   ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["volevo", "no", "intendevo", "avevo chiesto"]
 },
   "trading_position_sizing": {
   "questions": [
@@ -2214,7 +2244,8 @@
   "Non posso dare indicazioni sull’importo. Considera i tuoi obiettivi e investi con cautela 🍀.",
   "Non sta a me dirti quanto investire 😅. Ti raccomando soltanto di farlo sempre con giudizio."
   ],
-    "cost": 1
+    "cost": 1,
+    "keywords": ["quanto", "soldi", "capitale", "somma", "cifra"]
 },
   "ai_invece": {
   "questions": [
@@ -2236,7 +2267,8 @@
   "answers": [
     "Per [TOPIC] invece..."
   ],
-    "cost": 1
+    "cost": 1,
+    "keywords": ["invece", "per quanto riguarda", "a proposito di"]
 },
   "today": {
   "questions": [
@@ -2277,7 +2309,8 @@
     "La data precisa di oggi è il [TODAY] .",
     "La giornata odierna è il [TODAY] ."
   ],
-    "cost": 1
+    "cost": 1,
+    "keywords": ["oggi"]
 },
   "yesterday": {
   "questions": [
@@ -2303,11 +2336,12 @@
     "Il calendario segna che ieri era il [YESTERDAY].",
     "La data registrata ieri è stata il [YESTERDAY]."
   ],
-    "cost": 1
+    "cost": 1,
+    "keywords": ["ieri"]
 },
   "top_gainers": {
   "questions": [
-    "Quali sono i main movers oggi?",
+    "Quali saranno i main movers oggi?",
     "Mi dici i probabili movers di oggi?",
     "Chi si muoverà di più sul mercato oggi?",
     "Chi crescerà di più prossimamente?",
@@ -2345,7 +2379,8 @@
     "Lista dei principali top gainers stimati per oggi:\n\n• [TOP_GAINER] – [FORECAST_TOP_GAINER]\n\n• [TOP_GAINER_2] – [FORECAST_TOP_GAINER_2]\n\n• [TOP_GAINER_3] – [FORECAST_TOP_GAINER_3]\n\n• [TOP_GAINER_4] – [FORECAST_TOP_GAINER_4]\n\n• [TOP_GAINER_5] – [FORECAST_TOP_GAINER_5]",
     "Ecco gli asset che probabilmente si muoveranno di più secondo le stime:\n\n• [TOP_GAINER] con probabilità [FORECAST_TOP_GAINER]\n\n• [TOP_GAINER_2] con [FORECAST_TOP_GAINER_2]\n\n• [TOP_GAINER_3] con [FORECAST_TOP_GAINER_3]\n\n• [TOP_GAINER_4] con [FORECAST_TOP_GAINER_4]\n\n• [TOP_GAINER_5] con [FORECAST_TOP_GAINER_5]"
   ],
-  "cost": 0
+  "cost": 0,
+  "keywords": ["main movers", "top movers", "leader", "top gainers", "top performers", "di più", "aumenterà", "salirà", "crescerà"]
 },
   "top_losers": {
   "questions": [
@@ -2391,7 +2426,8 @@
     "Lista dei principali top losers stimati per oggi:\n\n• [TOP_LOSER] – [FORECAST_TOP_LOSER]\n\n• [TOP_LOSER_2] – [FORECAST_TOP_LOSER_2]\n\n• [TOP_LOSER_3] – [FORECAST_TOP_LOSER_3]\n\n• [TOP_LOSER_4] – [FORECAST_TOP_LOSER_4]\n\n• [TOP_LOSER_5] – [FORECAST_TOP_LOSER_5]",
     "Ecco gli asset che probabilmente perderanno di più secondo le stime:\n\n• [TOP_LOSER] con probabilità [FORECAST_TOP_LOSER]\n\n• [TOP_LOSER_2] con [FORECAST_TOP_LOSER_2]\n\n• [TOP_LOSER_3] con [FORECAST_TOP_LOSER_3]\n\n• [TOP_LOSER_4] con [FORECAST_TOP_LOSER_4]\n\n• [TOP_LOSER_5] con [FORECAST_TOP_LOSER_5]"
   ],
-  "cost": 0
+  "cost": 0,
+  "keywords": ["perdenti", "top losers", "losers", "di più", "di meno", "peggiori", "perderà", "diminuirà"]
 },
     "top_fire": {
   "questions": [
