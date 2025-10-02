@@ -4339,13 +4339,16 @@
     "Spiegami la schermata iniziale dell'app",
     "Spiegami la prima pagina dell'app",
     "Dimmi come funziona la schermata principale",
-    "Come funziona la schermata home?"
+    "Come funziona la schermata home?",
+    "Cosa mostra la home page?",
+    "Cosa mostra la pagina principale?"
   ],
   "answers": [
     "Appena entri nella schermata principale, ti trovi di fronte a un pannello che mostra tre categorie principali:\n\n• **Top Gainers:** asset con maggior probabilità di crescita 📈\n• **Top Losers:** asset con minor probabilità di crescita 📉\n• **Top Fire:** asset che sono cresciuti o decresciuti di più nell'ultima settimana 🔥\n\nLe probabilità sono calcolate da un algoritmo basato sul sentiment degli asset, analizzando le notizie degli ultimi 90 giorni. Ti consiglio di approfondire ogni asset facendo un'analisi dettagliata per capire meglio il contesto e le opportunità.\n\nIn aggiunta, nella schermata principale puoi vedere anche altri pannelli utili, come quelli dedicati agli **asset preferiti**, così da tenerli sempre sott’occhio, e le **notizie principali** relative ai mercati, per avere rapidamente un’idea degli eventi più importanti che potrebbero influenzare i tuoi investimenti.",
     "Nella schermata principale le percentuali indicano la probabilità di crescita o decrescita degli asset. In particolare:\n\n- I **Top Gainers** rappresentano gli asset con maggiori chance di crescita 📈\n- I **Top Losers** evidenziano quelli con minori possibilità di crescita 📉\n- I **Top Fire** mostrano gli asset che hanno registrato le variazioni più significative nell'ultima settimana 🔥\n\nQueste percentuali sono calcolate tramite un algoritmo che si basa esclusivamente sul sentiment generato dalle notizie degli ultimi 90 giorni. Ti suggerisco di fare un'analisi dettagliata per ogni asset se vuoi avere un quadro completo delle opportunità.\n\nIn più, nella schermata principale puoi consultare i tuoi **asset preferiti** e alcune **notizie chiave**, così da monitorare immediatamente gli asset che segui e restare aggiornato sugli eventi più importanti del mercato."
   ],
-  "cost": 0
+  "cost": 0,
+  "keywords": ["schermata home", "schermata iniziale", "schermata principale", "pagina principale", "pagina iniziale", "home dell'app", "home page"]
 },
   "navigazione_notizie": {
     "questions": [
@@ -4394,7 +4397,8 @@
       "Le ultime informazioni riguardanti [TOPIC] sono le seguenti:",
       "Ecco cosa ho trovato su [TOPIC]:"
     ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["notizie di", "notizie su", "news di", "news su", "notizie riguardo a", "news riguardo a"]
 },
     "segnale": {
     "questions": [
@@ -4424,6 +4428,7 @@
       "Attualmente il segnale di [TOPIC] indica [SEGNALE].",
       "Le analisi tecniche mostrano che il segnale di [TOPIC] è [SEGNALE]."
     ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["segnale di", "investire su", "investire in", "segnale per", "segnale attuale per", "segnale attuale di", "segnale"]
   }
 }
