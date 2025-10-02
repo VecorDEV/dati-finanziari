@@ -354,9 +354,8 @@ def generate_query_variants(symbol):
 MAX_ARTICLES_PER_SYMBOL = 500  # Limite massimo per asset
 
 def get_stock_news(symbol):
-    """Recupera titoli, date e link delle notizie per un determinato simbolo, includendo varianti di nome."""
+    """Recupera titoli, date, link, fonte e immagine delle notizie per un simbolo."""
     query_variants = generate_query_variants(symbol)
-
     base_url = "https://news.google.com/rss/search?q={}&hl=en-US&gl=US&ceid=US:en"
 
     now = datetime.utcnow()
@@ -373,7 +372,7 @@ def get_stock_news(symbol):
 
     for raw_query in query_variants:
         if total_articles >= MAX_ARTICLES_PER_SYMBOL:
-            break  # Fermati se superato il limite
+            break
 
         query = quote_plus(raw_query)
         url = base_url.format(query)
@@ -386,20 +385,30 @@ def get_stock_news(symbol):
             try:
                 title = entry.title.strip()
                 link = entry.link.strip()
+                source = entry.source.title if hasattr(entry, 'source') else "Unknown"
+                
+                # Cerca l'immagine
+                if hasattr(entry, 'media_content'):
+                    image = entry.media_content[0]['url']
+                elif hasattr(entry, 'media_thumbnail'):
+                    image = entry.media_thumbnail[0]['url']
+                else:
+                    image = None
 
-                # Evita titoli duplicati
                 if title.lower() in seen_titles:
                     continue
                 seen_titles.add(title.lower())
 
                 news_date = datetime.strptime(entry.published, "%a, %d %b %Y %H:%M:%S %Z")
 
+                news_item = (title, news_date, link, source, image)
+
                 if news_date >= days_90:
-                    news_90_days.append((title, news_date, link))
+                    news_90_days.append(news_item)
                 if news_date >= days_30:
-                    news_30_days.append((title, news_date, link))
+                    news_30_days.append(news_item)
                 if news_date >= days_7:
-                    news_7_days.append((title, news_date, link))
+                    news_7_days.append(news_item)
 
                 total_articles += 1
 
@@ -1908,12 +1917,12 @@ print("Classifica PRO aggiornata con successo!")
 # Creazione del file news.html con solo 5 notizie positive e 5 negative per simbolo
 html_news = ["<html><head><title>Notizie e Sentiment</title></head><body>",
              "<h1>Notizie Finanziarie con Sentiment</h1>",
-             "<table border='1'><tr><th>Simbolo</th><th>Notizia</th><th>Sentiment</th><th>Link</th></tr>"]
+             "<table border='1'><tr><th>Simbolo</th><th>Notizia</th><th>Fonte</th><th>Immagine</th><th>Sentiment</th><th>Link</th></tr>"]
 
 # Raggruppa le notizie per simbolo
 news_by_symbol = defaultdict(list)
-for symbol, title, sentiment, url in all_news_entries:
-    news_by_symbol[symbol].append((title, sentiment, url))
+for symbol, title, sentiment, url, source, image in all_news_entries:
+    news_by_symbol[symbol].append((title, sentiment, url, source, image))
 
 # Per ogni simbolo, prendi le 5 notizie col sentiment più basso e le 5 col più alto
 for symbol, entries in news_by_symbol.items():
@@ -1923,17 +1932,19 @@ for symbol, entries in news_by_symbol.items():
     # Prendi le 5 peggiori e le 5 migliori
     selected_entries = sorted_entries[:5] + sorted_entries[-5:]
 
-    # Rimuove eventuali duplicati (se ci sono meno di 10 notizie)
+    # Rimuove eventuali duplicati
     selected_entries = list(dict.fromkeys(selected_entries))
 
-    for title, sentiment, url in selected_entries:
+    for title, sentiment, url, source, image in selected_entries:
+        img_html = f"<img src='{image}' width='100'>" if image else "N/A"
         html_news.append(
-            f"<tr><td>{symbol}</td><td>{title}</td><td>{sentiment:.2f}</td>"
-            f"<td><a href='{url}' target='_blank'>Leggi</a></td></tr>"
+            f"<tr><td>{symbol}</td><td>{title}</td><td>{source}</td><td>{img_html}</td>"
+            f"<td>{sentiment:.2f}</td><td><a href='{url}' target='_blank'>Leggi</a></td></tr>"
         )
 
 html_news.append("</table></body></html>")
 
+# Salvataggio su GitHub
 try:
     contents = repo.get_contents(news_path)
     repo.update_file(contents.path, "Updated news sentiment", "\n".join(html_news), contents.sha)
