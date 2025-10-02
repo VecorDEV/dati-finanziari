@@ -2380,7 +2380,7 @@
     "Ecco gli asset che probabilmente si muoveranno di più secondo le stime:\n\n• [TOP_GAINER] con probabilità [FORECAST_TOP_GAINER]\n\n• [TOP_GAINER_2] con [FORECAST_TOP_GAINER_2]\n\n• [TOP_GAINER_3] con [FORECAST_TOP_GAINER_3]\n\n• [TOP_GAINER_4] con [FORECAST_TOP_GAINER_4]\n\n• [TOP_GAINER_5] con [FORECAST_TOP_GAINER_5]"
   ],
   "cost": 0,
-  "keywords": ["main movers", "top movers", "leader", "top gainers", "top performers", "di più", "aumenterà", "salirà", "crescerà"]
+  "keywords": ["main movers", "top movers", "leader", "top gainers", "di più", "aumenterà", "salirà", "crescerà"]
 },
   "top_losers": {
   "questions": [
@@ -2461,7 +2461,8 @@
     "Questi sono i top fire settimanali 🔥\n\n[TOP_FIRE] ha segnato [TOP_FIRE_CHANGE_1]\n\n[TOP_FIRE_2] ha chiuso con [TOP_FIRE_CHANGE_2]\n\n[TOP_FIRE_3] con una crescita di [TOP_FIRE_CHANGE_3]",
     "La classifica dei migliori della settimana è la seguente:\n\n[TOP_FIRE] – [TOP_FIRE_CHANGE_1]\n\n[TOP_FIRE_2] – [TOP_FIRE_CHANGE_2]\n\n[TOP_FIRE_3] – [TOP_FIRE_CHANGE_3]"
   ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["top performers", "settimana", "top fire", "di più", "più alta"]
 },
     "ai_oppure": {
     "questions": [
@@ -2480,7 +2481,8 @@
       "Oppure cosa?",
       "Che intendi?"
     ],
-      "cost": 0
+      "cost": 0,
+      "keywords": ["oppure"]
 },
     "ai_mannaggia": {
     "questions": [
@@ -2543,7 +2545,10 @@
       "Puoi mostrarmi il grafico aggiornato di [TOPIC]?",
       "Mi dai il grafico di [TOPIC]?",
       "Mi disegni il grafico di [TOPIC]?",
-      "Il grafico di [TOPIC]? Me lo disegni?"
+      "Il grafico di [TOPIC]? Me lo disegni?",
+      "Disegnami l'andamento di [TOPIC]",
+      "Traccia l'andamento di [TOPIC]",
+      "Tracciami il grafico di [TOPIC]"
     ],
     "answers": [
       "Ecco il grafico riferito agli ultimi 3 mesi per [TOPIC]:",
@@ -2557,7 +2562,8 @@
       "Ecco i dati di [TOPIC] rappresentati nel grafico a 3 mesi:",
       "Questo è il grafico a 90 giorni che mostra l’andamento di [TOPIC]:"
     ],
-      "cost": 1
+      "cost": 1,
+      "keywords": ["grafico", "disegna", "disegni", "disegnami", "andamento", "traccia", "tracciami", "tracci"]
 },
     "rsi_premium": {
     "questions": [
@@ -2590,7 +2596,8 @@
       "Il valore recente di RSI per [TOPIC] è [RSI].\n\nLo stato è [STATE], suggerendo [SIGNIFICATO].",
       "Analisi tecnica: l'RSI di [TOPIC] si trova a [RSI].\n\nLo stato rilevato è [STATE], e ciò significa [SIGNIFICATO]."
     ],
-    "cost": 1
+    "cost": 1,
+    "keywords": ["rsi di", "rsi per", "relative strength index di", "relative strength index per", "attuale", "aggiornato"]
 },
      "rsi": {
     "questions": [
@@ -2623,7 +2630,8 @@
       "Mi spiace, l'accesso all'RSI di [TOPIC] è limitato agli abbonati dei piani premium o ultra 😅. Puoi fare l'upgrade per goderti tutti i vantaggi! ",
       "L'indicatore RSI di [TOPIC] può essere visualizzato solo con un abbonamento premium o ultra. Non perdere l'opportunità di sfruttare tutte le funzionalità!"
     ],
-   "cost": 1
+   "cost": 1,
+   "keywords": ["rsi di", "rsi per", "relative strength index di", "relative strength index per", "attuale", "aggiornato"]
 },
     "macd_premium": {
     "questions": [
@@ -2652,7 +2660,8 @@
       "Secondo le ultime rilevazioni, [TOPIC] ha un MACD pari a [MACD_VALUE] e un trend [TA_TREND].",
       "Il MACD attuale di [TOPIC] è [MACD_VALUE] e suggerisce un comportamento [TA_TREND] del mercato."
     ],
-    "cost": 1
+    "cost": 1,
+    "keywords": ["macd di", "macd per", "moving average convergence divergence di", "moving average convergence divergence per", "attuale", "aggiornato"]
 },
     "macd": {
     "questions": [
@@ -2681,7 +2690,8 @@
       "Mi spiace, l'accesso al MACD di [TOPIC] è limitato agli abbonati dei piani premium o ultra 😅. Puoi fare l'upgrade per goderti tutti i vantaggi!",
       "L'indicatore MACD di [TOPIC] può essere visualizzato solo con un abbonamento premium o ultra. Non perdere l'opportunità di sfruttare tutte le funzionalità!"
     ],
-    "cost": 1
+    "cost": 1,
+    "keywords": ["macd di", "macd per", "moving average convergence divergence di", "moving average convergence divergence per", "attuale", "aggiornato"]
 },
     "stochastic_premium": {
     "questions": [
@@ -2711,7 +2721,8 @@
       "Attenzione ai valori dello stocastico di [TOPIC]:\n\nK = [STOCH_K]\nD = [STOCH_D]\n\nSituazione: [STATE], il significato per l'asset è di [SIGNIFICATO].",
       "I dati stocastici recenti per [TOPIC]:\n\nK = [STOCH_K]\nD = [STOCH_D]\n\nAnalisi: significa che è [STATE], quindi per l'asset indica [SIGNIFICATO]."
     ],
-    "cost": 1
+    "cost": 1,
+    "keywords": ["stocastico di", "stocastico per", "k e d di", "k e d per"]
 },
     "stochastic": {
     "questions": [
@@ -2739,7 +2750,8 @@
       "Mi spiace, l'accesso allo stocastico di [TOPIC] è limitato agli abbonati dei piani premium o ultra 😅. Puoi fare l'upgrade per goderti tutti i vantaggi!",
       "L'indicatore stocastico di [TOPIC] può essere visualizzato solo con un abbonamento premium o ultra. Non perdere l'opportunità di sfruttare tutte le funzionalità!"
     ],
-    "cost": 1
+    "cost": 1,
+    "keywords": ["stocastico di", "stocastico per", "k e d di", "k e d per"]
 },
     "ema_premium": {
     "questions": [
@@ -2767,7 +2779,8 @@
       "Il valore EMA 10 attuale di [TOPIC] è [EMA_VALUE].\n\nOsservando il prezzo [UP/DOWN] rispetto all'EMA10, possiamo dire che il trend è [TA_TREND].",
       "L'indicatore EMA10 di [TOPIC] oggi è [EMA_VALUE].\n\nIl prezzo si trova [UP/DOWN] rispetto all’EMA10, suggerendo un trend [TA_TREND]."
     ],
-    "cost": 1
+    "cost": 1,
+    "keywords": ["ema di", "ema per", "ema10 di", "ema10 per", "ema 10 di", "ema 10 per", "ema a 10 giorni di", "ema a dieci giorni di"]
 },
     "ema": {
     "questions": [
@@ -2795,7 +2808,8 @@
       "Mi spiace, l'accesso all'EMA10 di [TOPIC] è limitato agli abbonati dei piani premium o ultra 😅. Puoi fare l'upgrade per goderti tutti i vantaggi!",
       "L'indicatore EMA10 di [TOPIC] può essere visualizzato solo con un abbonamento premium o ultra. Non perdere l'opportunità di sfruttare tutte le funzionalità! 💎"
     ],
-    "cost": 1
+    "cost": 1,
+    "keywords": ["ema di", "ema per", "ema10 di", "ema10 per", "ema 10 di", "ema 10 per", "ema a 10 giorni di", "ema a dieci giorni di", "exponential moving average di", "exponential moving average per"]
 },
     "cci_premium": {
     "questions": [
@@ -2824,7 +2838,8 @@
       "Il Commodity Channel Index di [TOPIC] è [CCI_VALUE].\n\nLa condizione di [STATE] si traduce in [SIGNIFICATO].",
       "Ultima analisi: il CCI di [TOPIC] segna [CCI_VALUE].\n\nSi tratta di uno stato [STATE], che rappresenta [SIGNIFICATO]."
     ],
-    "cost": 1
+    "cost": 1,
+    "keywords": ["cci di", "cci per", "commodity channel index di", "commodity channel index per", "attuale", "corrente", "aggiornato"]
 },
     "cci": {
     "questions": [
@@ -2853,7 +2868,8 @@
       "Per vedere il CCI di [TOPIC] occorre un abbonamento premium o ultra. Approfitta dei vantaggi dei nostri piani!",
       "Non hai accesso al CCI di [TOPIC] 😅. Fai l’upgrade ai piani premium o ultra per ottenere informazioni complete!"
     ],
-    "cost": 1
+    "cost": 1,
+    "keywords": ["cci di", "cci per", "commodity channel index di", "commodity channel index per", "attuale", "corrente", "aggiornato"]
 },
     "williams_premium": {
     "questions": [
@@ -2880,7 +2896,8 @@
       "Valore Williams %R per [TOPIC]: [WILLIAMS_VALUE].\n\nLo stato tecnico è [STATE], e questo significa [SIGNIFICATO].",
       "Aggiornamento: Williams %R di [TOPIC] = [WILLIAMS_VALUE].\n\nCondizione attuale: [STATE], il che significa [SIGNIFICATO]."
     ],
-    "cost": 1
+    "cost": 1,
+    "keywords": ["williams di", "williams per", "williams %r di", "williams %r per", "attuale", "corrente", "aggiornato"]
 },
     "williams": {
     "questions": [
@@ -2909,7 +2926,8 @@
       "Vuoi vedere il Williams %R di [TOPIC]? È riservato agli abbonati premium o ultra. Fai l’upgrade per avere accesso!",
       "Per consultare il Williams %R di [TOPIC], occorre un abbonamento premium o ultra. Approfitta dei vantaggi dell’upgrade!"
     ],
-    "cost": 1
+    "cost": 1,
+    "keywords": ["williams di", "williams per", "williams %r di", "williams %r per", "attuale", "corrente", "aggiornato"]
 },
     "bollinger_premium": {
     "questions": [
@@ -2937,7 +2955,8 @@
       "Analisi tecnica Bollinger per [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilità: [BB_VOLATILITY]\n- La banda è [UP/DOWN]\n\nL'asset risulta [STATE], significando [SIGNIFICATO].",
       "Ecco i dati delle bande di Bollinger di [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilità: [BB_VOLATILITY]\n- La banda è [UP/DOWN]\n\nSituazione: [STATE], che indica [SIGNIFICATO]."
     ],
-    "cost": 1
+    "cost": 1,
+    "keywords": ["bollinger di", "bollinger per", "bollinger su", "attuale", "corrente", "aggiornato"]
 },
     "bollinger": {
     "questions": [
@@ -2968,7 +2987,8 @@
       "Non hai accesso ai dati Bollinger per [TOPIC] con il piano attuale. Passa a premium o ultra per sfruttare tutte le funzionalità!",
       "Ops! I dettagli delle bande di Bollinger sono riservati agli utenti premium o ultra. Effettua l'upgrade per consultarle."
     ],
-    "cost": 1
+    "cost": 1,
+    "keywords": ["bollinger di", "bollinger per", "bollinger su", "attuale", "corrente", "aggiornato"]
 },
     "rsi_info": {
     "questions": [
@@ -2997,7 +3017,8 @@
       "Il Relative Strength Index è uno strumento di analisi tecnica che misura la forza del trend. È basato sul rapporto tra guadagni e perdite medi registrati in un arco di tempo. Aiuta gli investitori a riconoscere zone di ipercomprato o ipervenduto.",
       "L'RSI è un indicatore che offre informazioni preziose sullo stato di un asset. Viene calcolato dal confronto tra i movimenti al rialzo e al ribasso, tradotti in un valore compreso tra 0 e 100. Questo valore segnala le aree dove il prezzo potrebbe invertire la rotta."
     ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["rsi", "relative strength index", "spieghi", "spiega", "spiegami", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica"]
 },
     "macd_info": {
     "questions": [
@@ -3025,7 +3046,8 @@
       "Il MACD è un indicatore che aiuta a rilevare trend e inversioni in modo semplice. \n\nSi basa sulla differenza tra una media mobile veloce e una lenta, più una linea di segnale che rende più chiara la lettura.\nSe il MACD passa da negativo a positivo può indicare l’inizio di un trend rialzista, il contrario può segnalare un ribasso.",
       "Il Moving Average Convergence Divergence viene usato per analizzare la dinamica dei prezzi e identificare segnali operativi. \n\nÈ calcolato partendo da due medie mobili esponenziali a diversa velocità e confrontato con una linea di segnale.\nUn MACD sopra lo zero indica una fase di forza rialzista, sotto lo zero indica debolezza ribassista, mentre i crossover aiutano a individuare i cambi di trend."
     ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["macd", "moving average convergence divergence", "spieghi", "spiega", "spiegami", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica"]
 },
     "stochastic_info": {
     "questions": [
@@ -3053,7 +3075,8 @@
       "L'oscillatore stocastico mostra quanto il prezzo attuale è vicino al massimo o al minimo del periodo considerato. \n\nLa formula prende come riferimento la chiusura corrente e la rapporta al range dei prezzi. \n\nCon valori alti l’asset è spesso in ipercomprato, con valori bassi in ipervenduto.",
       "Lo stocastico è utile per misurare il momentum e gli eccessi del mercato. \n\nSi calcola analizzando la chiusura dei prezzi rispetto al loro intervallo in un periodo prefissato. \n\nGeneralmente oltre 80 si parla di ipercomprato, sotto 20 di ipervenduto."
     ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["stocastico", "oscillatore", "spieghi", "spiega", "spiegami", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica"]
 },
     "ema_info": {
     "questions": [
@@ -3082,7 +3105,8 @@
       "EMA (10) è un indicatore tecnico che misura la media dei prezzi degli ultimi 10 periodi dando più peso ai dati recenti. \n\nQuesto rende la curva più reattiva rispetto a una media mobile semplice. \n\nSi interpreta confrontando la posizione del prezzo con l’EMA: sopra trend positivo, sotto trend negativo.",
       "La media mobile esponenziale a 10 periodi è usata dagli analisti per seguire i movimenti rapidi del mercato. \n\nSi calcola attribuendo un peso decrescente ai prezzi più vecchi e maggiore a quelli recenti. \n\nPrezzi sopra l’EMA 10 segnalano una fase di forza, prezzi sotto una fase di debolezza."
     ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["ema", "ema10", "ema 10", "exponential", "media mobile", "spieghi", "spiega", "spiegami", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica"]
 },
     "cci_info": {
     "questions": [
@@ -3109,7 +3133,8 @@
       "Il Commodity Channel Index mostra quanto il prezzo attuale si allontana dalla media. \n\nIl calcolo combina prezzo tipico, media mobile e deviazione. \n\nValori alti segnalano eccessi rialzisti, valori bassi eccessi ribassisti, vicini a zero equilibrio.",
       "Il CCI è un oscillatore tecnico che oscilla sopra e sotto lo zero. \n\nSi calcola con la differenza tra prezzo tipico e media mobile, divisa per la deviazione media. \n\nSopra +100 è ipercomprato, sotto -100 ipervenduto, tra -100 e +100 è neutrale."
     ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["cci", "commodity channel index", "spieghi", "spiega", "spiegami", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica"]
 },
     "williams_info": {
     "questions": [
@@ -3137,7 +3162,8 @@
       "Il Williams %R è un indicatore sviluppato da Larry Williams per anticipare possibili inversioni. \n\nSi calcola rapportando la chiusura con il range massimo-minimo recente. \n\nSopra -20 segnala eccesso rialzista, sotto -80 eccesso ribassista.",
       "Il Williams %R è simile allo stocastico, ma scalato tra 0 e -100. \n\nIl prezzo di chiusura viene confrontato con massimo e minimo degli ultimi periodi. \n\nValori alti (verso -20) indicano ipercomprato, valori bassi (verso -80) ipervenduto."
     ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["williams", "spieghi", "spiega", "spiegami", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica"]
 },
     "bollinger_info": {
     "questions": [
@@ -3165,7 +3191,8 @@
       "L’indicatore Bollinger misura il range di oscillazione di un asset rispetto alla media mobile. \n\nSi calcola la media mobile e si tracciano le bande aggiungendo e sottraendo le deviazioni standard. \n\nPrezzi in prossimità della banda superiore indicano potenziale ipercomprato, quelli vicino alla banda inferiore ipervenduto.",
       "Le Bande di Bollinger sono un oscillatore di volatilità. \n\nLa media mobile centrale e le bande superiore/inferiore, calcolate con deviazioni standard, delimitano il prezzo. \n\nToccando la banda superiore il mercato è ipercomprato, toccando quella inferiore è ipervenduto."
     ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["bollinger", "spieghi", "spiega", "spiegami", "cosa sono", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica"]
 },
     "fundamentals_info": {
     "questions": [
@@ -3224,7 +3251,8 @@
       "Con i fondamentali chiave si osservano aspetti come utili, ricavi, margini e indebitamento, fondamentali per prendere decisioni di investimento.  \n\nGli indicatori che trovi su questa app sono: *Trailing P/E*, *Forward P/E*, *EPS Growth (YoY)*, *Revenue Growth (YoY)*, *Profit Margins* e *Debt to Equity*.",
       "I fondamentali chiave sono parametri che consentono di capire in maniera rapida e sintetica la forza finanziaria di un'azienda.  \n\nTra quelli disponibili qui ci sono: *Trailing P/E*, *Forward P/E*, *EPS Growth (YoY)*, *Revenue Growth (YoY)*, *Profit Margins* e *Debt to Equity*."
     ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["fondamentali", "fundamentals", "spieghi", "spiega", "spiegami", "cos'è", "cosa sono", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica"]
 },
     "key_fundamentals": {
     "questions": [
@@ -3249,7 +3277,8 @@
       "Ti ho generato l’analisi di [TOPIC], dove puoi consultare tutti i key fundamental più rilevanti:",
       "Qui puoi visualizzare direttamente i fondamentali principali di [TOPIC] grazie al bottone dedicato:"
     ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["fondamentali di", "fondamentali chiave di", "fundamentals di", "fondamentali principali di"]
   },
     "trailing_pe_info": {
     "questions": [
@@ -3278,7 +3307,8 @@
       "Con trailing P/E si misura il livello di valutazione di un titolo sulla base dei suoi utili passati.  \n\nÈ uno degli indicatori più usati per confrontare aziende dello stesso settore.",
       "Il trailing P/E indica il numero di volte che il prezzo dell’azione supera gli utili per azione già registrati.  \n\nUn valore basso può indicare che il titolo è conveniente, mentre uno alto può significare aspettative elevate da parte del mercato."
     ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["trailing pe", "trailing p/e", "storico", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica"]
 },
     "forward_pe_info": {
     "questions": [
@@ -3306,7 +3336,8 @@
       "Con forward P/E si misura quante volte il prezzo di un’azione supera gli utili attesi per il prossimo anno.  \n\nServe a valutare quanto il mercato crede nella crescita futura dell’azienda.",
       "Il forward P/E indica la valutazione di un titolo rispetto agli utili previsti.  \n\nUn valore basso può segnalare sottovalutazione, uno alto aspettative elevate o possibili sopravvalutazioni."
     ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["forward pe", "forward p/e", "previsto", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "funzione", "funziona", "serve", "vuol dire", significa", "rappresenta", "indica"]
 },
     "eps_growth_info": {
     "questions": [
@@ -3345,7 +3376,8 @@
       "L'EPS growth è un indicatore della crescita annuale degli utili per azione.\n\nAttraverso questa app puoi visualizzare questi dati per valutare la performance e la solidità finanziaria di un asset.",
       "EPS growth (YoY) ti permette di capire la variazione degli utili per azione in un anno.\n\nSono in grado di fornirti questi valori per aiutarti nelle decisioni di investimento."
     ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["eps", "eps growth", "crescita dell'utile", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica"]
 },
     "revenue_growth_info": {
     "questions": [
@@ -3384,7 +3416,8 @@
       "La revenue growth è un indicatore della crescita annuale dei ricavi.\n\nAttraverso questa app puoi visualizzare questi dati per valutare la performance e la solidità finanziaria di un asset.",
       "Revenue growth (YoY) ti permette di capire la variazione dei ricavi in un anno.\n\nSono in grado di fornirti questi valori per aiutarti nelle decisioni di investimento."
     ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["revenue", "revenue growth", "crescita dei ricavi", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica"]
 },
     "profit_margins_info": {
     "questions": [
@@ -3418,7 +3451,8 @@
       "Il profit margin indica la redditività netta di un'azienda calcolata sui ricavi totali.\n\nSu questa app puoi ottenere questo dato per capire quanto un asset sia efficiente nel generare guadagni.",
       "I profit margins misurano quanto dei ricavi di un'azienda diventa profitto netto.\n\nQuesta app ti offre questi dati per confrontare periodi o aziende differenti."
     ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["profit margin", "profit margins", "margini di utile", "margine di utile", "margine di profitto", "margini di profitto", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica"]
 },
     "debt_to_equity_info": {
     "questions": [
@@ -3449,7 +3483,8 @@
       "Il debt to equity misura quanto debito ha un'azienda rispetto al capitale proprio.\n\nSu questa app puoi ottenere questo dato per capire quanto un asset sia finanziariamente stabile.",
       "Il debt to equity è un indicatore della leva finanziaria di un'azienda e della sua capacità di gestire il debito.\n\nQuesta app ti offre questi dati per confrontare periodi o aziende differenti."
     ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["debt to equity", "debito", "capitale", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica"]
 },
     "yoy_info": {
     "questions": [
@@ -3469,7 +3504,8 @@
       "YoY sta per 'Year over Year', ovvero il confronto dei dati attuali con quelli dello stesso periodo dell'anno precedente. Questa misura è spesso usata per indicatori fondamentali come EPS growth (crescita dell'utile per azione) e revenue growth (crescita dei ricavi).",
       "L'acronimo YoY indica la crescita o variazione di un indicatore confrontando l'anno corrente con quello precedente. In ambito finanziario, viene comunemente applicato a dati fondamentali come EPS growth e revenue growth per monitorare le performance aziendali."
     ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["yoy", "YoY", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica"]
 },
     "pe_info": {
     "questions": [
@@ -3492,7 +3528,8 @@
       "Il P/E, o Price to Earnings, è il rapporto tra il prezzo di mercato di un'azione e l'utile per azione (EPS). Questo indicatore è utilizzato per valutare se un'azione è sopravvalutata o sottovalutata rispetto agli utili generati.",
       "Il Price to Earnings ratio (P/E) misura quante volte il prezzo di un'azione copre il suo utile per azione. È uno dei principali indicatori fondamentali utilizzati per confrontare aziende o settori e capire la valutazione relativa sul mercato."
     ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["pe", "p/e", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica"]
 },
     "trailing_pe": {
     "questions": [
@@ -3501,7 +3538,8 @@
       "Che P/E trailing ha [TOPIC]?",
       "Puoi dirmi il trailing P/E di [TOPIC]?",
       "Qual è il rapporto prezzo/utili trailing di [TOPIC]?",
-      "Mi dai il trailing price to earnings di [TOPIC]?",
+      "Qual è il rapporto prezzo/utili storico di [TOPIC]?",
+      "Mi dai il trailing price to earnings storico di [TOPIC]?",
       "A quanto ammonta il trailing P/E di [TOPIC]?",
       "Mostrami il trailing P/E per [TOPIC]",
       "Vorrei sapere il P/E trailing attuale di [TOPIC]",
@@ -3518,20 +3556,21 @@
       "Il rapporto prezzo/utili trailing per [TOPIC] è [TRAILING_PE_VALUE].",
       "Il trailing P/E registrato oggi per [TOPIC] è [TRAILING_PE_VALUE]."
     ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["trailing pe di", "trailing p/e di", "storico", "attuale", "corrente", "aggiornato"]
 },
     "forward_pe": {
     "questions": [
       "Qual è il forward P/E di [TOPIC]?",
       "Mi dici il valore del forward P/E di [TOPIC]?",
-      "Che P/E previsto ha [TOPIC]?",
+      "Che forward P/E ha [TOPIC]?",
       "Puoi dirmi il forward P/E di [TOPIC]?",
       "Qual è il rapporto prezzo/utili previsto di [TOPIC]?",
       "Mi dai il forward price to earnings di [TOPIC]?",
       "A quanto ammonta il forward P/E di [TOPIC]?",
       "Mostrami il forward P/E per [TOPIC]",
-      "Vorrei sapere il P/E previsto attuale di [TOPIC]",
-      "Dimmi il forward P/E stimato di [TOPIC]",
+      "Vorrei sapere il forward P/E attuale di [TOPIC]",
+      "Dimmi il forward P/E di [TOPIC]",
       "Dimmi il forward PE di [TOPIC]",
       "Dammi il forward P/E di [TOPIC]",
       "Dammi il forward di [TOPIC]"
@@ -3546,7 +3585,8 @@
       "Il rapporto prezzo/utili forward per [TOPIC] è [FORWARD_PE_VALUE].",
       "Il forward P/E stimato oggi per [TOPIC] è [FORWARD_PE_VALUE]."
     ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["forward pe di", "forward p/e di", "previsto", "attuale", "corrente", "aggiornato"]
 },
     "eps_growth": {
     "questions": [
@@ -3573,7 +3613,8 @@
       "La crescita degli utili per azione per [TOPIC] è attualmente [EPS_GROWTH_VALUE].",
       "Il valore EPS growth stimato oggi per [TOPIC] è [EPS_GROWTH_VALUE]."
     ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["eps di", "eps per", "eps growth di", "eps growth per", "eps yoy di", "eps growth yoy di", "eps anno su anno di", "attuale", "corrente", "aggiornato"]
 },
     "revenue_growth": {
     "questions": [
@@ -3600,7 +3641,8 @@
       "La crescita dei ricavi per [TOPIC] è attualmente [REVENUE_GROWTH_VALUE].",
       "Il valore revenue growth stimato oggi per [TOPIC] è [REVENUE_GROWTH_VALUE]."
     ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["revenue di", "revenue per", "revenue growth di", "ricavi di", "ricavi yoy di", "ricavi anno su anno di", "revenue growth per", "attuale", "corrente", "aggiornato"]
 },
     "profit_margins": {
     "questions": [
@@ -3609,7 +3651,7 @@
       "Che margine di profitto ha registrato [TOPIC]?",
       "Puoi indicarmi il profit margin di [TOPIC]?",
       "Qual è la percentuale di profitto di [TOPIC]?",
-      "Mi dai il profit margins (margine di guadagno) di [TOPIC]?",
+      "Mi dai il profit margins di [TOPIC]?",
       "A quanto ammonta il margine di profitto di [TOPIC]?",
       "Mostrami il profit margins per [TOPIC]",
       "Vorrei sapere qual è il margine di profitto di [TOPIC]",
@@ -3628,7 +3670,8 @@
       "Il profit margins per [TOPIC] è attualmente [PROFIT_MARGINS_VALUE].",
       "Il valore stimato oggi del margine di profitto di [TOPIC] è [PROFIT_MARGINS_VALUE]."
     ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["profit margins di", "profit margins per", "profitto di", "profitto per", "registrato", "attuale", "corrente", "aggiornato"]
 },
     "debt_to_equity": {
     "questions": [
@@ -3658,7 +3701,8 @@
       "Il debt to equity per [TOPIC] è attualmente [DEBT_TO_EQUITY_VALUE].",
       "Il valore stimato oggi del rapporto debito/capitale di [TOPIC] è [DEBT_TO_EQUITY_VALUE]."
     ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["debt to equity di", "debt to equity per", "debt/equity di", "debt/equity per", "debito/patrimonio di", "equity di", "attuale", "corrente", "aggiornato"]
 },
   "inflation_deflation": {
   "questions": [
@@ -3684,7 +3728,8 @@
     "Un'inflazione controllata è fisiologica per l'economia, ma se diventa elevata porta volatilità e rende i mercati più difficili da prevedere. Alcuni asset come immobili e commodity possono proteggere dal rischio.\n\nLa deflazione, invece, è considerata più pericolosa: segnala stagnazione economica, riduce i profitti delle aziende e spinge i mercati verso ribassi generalizzati.",
     "Sia inflazione che deflazione hanno conseguenze dirette sul sentiment degli investitori.\n\nL'inflazione eccessiva riduce il valore reale dei rendimenti, spingendo gli operatori verso investimenti alternativi. La deflazione segnala debolezza economica, aumenta i fallimenti aziendali e spinge gli investitori verso asset rifugio.\n\nIn entrambi i casi, la diversificazione diventa uno strumento fondamentale per limitare i rischi."
   ],
-  "cost": 0
+  "cost": 0,
+  "keywords": ["inflazione", "deflazione", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "cosa sono", "funziona", "vuol dire", "significa", "rappresenta", "indica"]
 },
     "politiche_monetarie": {
     "questions": [
@@ -3708,7 +3753,8 @@
       "Quando la banca centrale adotta una politica monetaria espansiva, rende più conveniente investire e prendere prestiti. I mercati azionari di solito ne beneficiano e aumenta la propensione al rischio degli investitori.\n\nAl contrario, una politica restrittiva riduce la liquidità disponibile, penalizza i mercati azionari e premia quelli obbligazionari a breve termine. Per gli investitori, questo contesto richiede maggiore prudenza e diversificazione.",
       "Le decisioni di politica monetaria sono cruciali per i mercati.\n\nEspansiva significa più credito, più crescita e maggior appetito per il rischio: le borse salgono e le valute tendono a indebolirsi. Restrittiva significa meno credito, consumi in calo e pressione sugli utili: le borse soffrono, ma la valuta si rafforza e le obbligazioni a tasso fisso diventano più interessanti.\n\nCapire in quale fase di politica monetaria ci si trova è fondamentale per prendere decisioni di investimento consapevoli."
     ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["politiche monetarie", "politica monetarie", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "cosa sono", "funziona", "funzionano", "vuol dire", "significa", "intende"]
 },
     "politiche_fiscali": {
     "questions": [
@@ -3728,7 +3774,8 @@
       "L'effetto delle politiche fiscali sui mercati dipende anche dal contesto.\n\nIn fase di recessione, una politica fiscale espansiva tende ad avere effetti molto positivi sui mercati, perché sostiene domanda e occupazione.\n\nIn fase di forte crescita con inflazione elevata, invece, una politica restrittiva può essere necessaria: in questo caso, gli investitori spesso rivedono al ribasso le prospettive di crescita e si orientano verso asset più sicuri.",
       "Le politiche fiscali funzionano in combinazione con quelle monetarie.\n\nAd esempio, una politica fiscale espansiva insieme a una politica monetaria espansiva (tassi bassi) può generare forti spinte ai mercati azionari.\n\nViceversa, una politica fiscale restrittiva combinata con politiche monetarie restrittive (tassi alti) tende a raffreddare fortemente l'economia e a rendere più difficile per gli asset rischiosi crescere di valore."
     ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["politiche fiscali", "politica fiscale", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "cosa sono", "funziona", "funzionano", "vuol dire", "significa", "intende"]
 },
     "cicli_economici": {
     "questions": [
@@ -3751,7 +3798,8 @@
       "I cicli economici influenzano il sentiment degli investitori.\n\nQuando l'economia è in crescita, prevale l'ottimismo e aumenta la propensione al rischio. Quando invece l'economia entra in recessione, il sentiment diventa negativo e gli investitori cercano sicurezza. Capire in che fase ci si trova è un elemento chiave dell'analisi macroeconomica.",
       "La stagnazione è una fase di crescita molto bassa o nulla, spesso accompagnata da alta disoccupazione e bassa fiducia dei consumatori.\n\nIn questo contesto, i mercati finanziari possono restare laterali o volatili, e gli investitori tendono a ridurre l'esposizione ad asset rischiosi, privilegiando quelli più stabili."
     ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["cicli economici", "ciclo economico", "fasi economiche", "fasi di", "fase di espansione", "stagnazione", "recessione", "regressione", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "cosa sono", "funziona", "funzionano", "vuol dire", "significa", "intende"]
 },
     "mercato_lavoro": {
     "questions": [
@@ -3774,7 +3822,8 @@
       "Un calo della disoccupazione è in genere positivo perché sostiene la crescita dei consumi e delle imprese.\n\nTuttavia, se troppo basso, può generare pressioni inflazionistiche e spingere le banche centrali ad alzare i tassi, con effetti misti sui mercati.",
       "Il legame tra occupazione e consumi è diretto: più persone lavorano, più reddito disponibile c’è, e quindi più domanda di beni e servizi.\n\nPer gli investitori, un mercato del lavoro forte è spesso un segnale di fiducia nell’economia e nei mercati azionari."
     ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["disoccupazione", "occupazione", "mercato", "lavoro", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "cosa sono", "funziona", "funzionano", "vuol dire", "significa", "intende", "relazione", "rapporto"]
 },
     "pil_crescita": {
     "questions": [
@@ -3784,7 +3833,6 @@
       "Perché il PIL è importante per gli investitori?",
       "Che effetto ha un aumento del PIL sui mercati?",
       "Come influisce un calo del PIL sull'economia?",
-      "Cosa vuol dire recessione?",
       "Qual è il legame tra PIL e mercati finanziari?",
       "In che modo la crescita economica influenza le aziende?",
       "Come interpretare i dati sul PIL?"
@@ -3798,7 +3846,8 @@
       "Il legame tra PIL e mercati è stretto: quando l'economia cresce, le aziende generano più utili e gli indici azionari tendono a salire.\n\nAl contrario, una crescita debole riduce le prospettive di guadagno e aumenta il rischio di vendite.",
       "I dati sul PIL aiutano gli investitori a capire in che fase del ciclo economico ci si trova.\n\nUn PIL in crescita rafforza le aspettative di utili, mentre un rallentamento spinge ad adottare strategie più difensive."
     ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["pil", "prodotto interno lordo", "crescita economica", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "cosa sono", "funziona", "funzionano", "vuol dire", "significa", "rapporto", "relazione"]
 },
     "guerre_mercati": {
     "questions": [
@@ -3820,7 +3869,8 @@
       "Gli eventi bellici e le tensioni internazionali aumentano l'incertezza economica, con effetti immediati sui mercati finanziari globali.\n\nInvestitori e trader reagiscono spesso spostando capitali verso asset sicuri, mentre i mercati azionari e valutari dei paesi coinvolti subiscono volatilità. Le fluttuazioni di materie prime come petrolio, gas e metalli preziosi possono amplificare l'impatto. Una buona gestione del rischio e l'attenzione alle news geopolitiche sono essenziali per navigare in questi contesti.",
       "Le guerre e i conflitti generano instabilità nei mercati, influenzando prezzi, volumi e percezione del rischio.\n\nGli investitori tendono a privilegiare asset sicuri, mentre mercati azionari e valute dei paesi coinvolti possono subire forti oscillazioni. I settori più colpiti includono energia, trasporti e materie prime. Monitorare costantemente gli sviluppi e avere una strategia di diversificazione aiuta a limitare l'impatto negativo sul portafoglio."
     ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["guerra", "guerre", "conflitti", "tensioni", "tensione"]
 },
     "sanzioni_economiche": {
     "questions": [
@@ -3837,7 +3887,8 @@
       "Quando uno Stato impone sanzioni economiche, si creano vincoli che influenzano il commercio internazionale e il flusso di capitali.\n\nGli investitori reagiscono anticipando possibili perdite o instabilità, preferendo asset rifugio e riducendo l'esposizione ai mercati più rischiosi. Le fluttuazioni possono essere particolarmente marcate nei settori che dipendono da scambi internazionali o forniture strategiche.",
       "Le sanzioni economiche hanno effetti immediati e indiretti sui mercati finanziari, aumentando la percezione di rischio e la volatilità.\n\nLe aziende esposte ai paesi sanzionati possono vedere ridursi il loro fatturato e subire pressioni sui margini. Gli investitori, di conseguenza, tendono a spostare il capitale verso asset più sicuri e a rivedere le strategie di portafoglio, seguendo da vicino gli sviluppi politici e commerciali."
     ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["sanzioni", "sanzione"]
 },
     "elezioni_mercato": {
     "questions": [
@@ -3857,7 +3908,8 @@
       "Durante le elezioni, l'incertezza politica e le possibili variazioni nelle politiche economiche generano oscillazioni nei mercati finanziari.\n\nGli investitori tendono a valutare l'impatto delle elezioni su settori specifici e sulla crescita generale dell'economia. Una preparazione adeguata prevede analisi dei risultati attesi, scenario planning e strategie difensive per ridurre l'esposizione al rischio.",
       "Le elezioni possono avere effetti diretti e indiretti sul mercato, influenzando le aspettative di crescita, inflazione e regolamentazioni.\n\nInvestitori istituzionali e privati monitorano attentamente i candidati e le loro politiche, adattando i portafogli per proteggersi dalle fluttuazioni o per cogliere opportunità derivanti da nuovi orientamenti politici."
     ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["elezioni", "elezione"]
 },
     "tassi_cambio": {
     "questions": [
@@ -3877,7 +3929,8 @@
       "I movimenti dei tassi di cambio possono avere effetti macroeconomici significativi, alterando inflazione, competitività e flussi commerciali.\n\nQuesti fattori si riflettono sulle strategie degli investitori, che devono bilanciare rischio e rendimento considerando sia l’andamento della valuta nazionale sia quello delle valute estere correlate agli asset in portafoglio.",
       "Le variazioni valutarie influenzano anche i mercati dei capitali e i settori esposti al commercio internazionale.\n\nUn attento monitoraggio dei tassi di cambio consente agli investitori di adattare le proprie posizioni, ridurre rischi e cogliere opportunità derivanti da trend valutari favorevoli."
     ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["tassi di cambio", "cambi", "valute", "valuta"]
 },
     "asset_price_drivers": {
     "questions": [
@@ -3897,7 +3950,8 @@
       "Prezzi e valutazioni degli asset sono il risultato dell’interazione tra informazioni economiche, politiche, sociali e tecnologiche.\n\nIndicatori chiave come crescita dei ricavi, utili, debito e margini, insieme alle aspettative di mercato e al sentiment degli investitori, determinano come e quanto un asset cambia valore. Comprendere questi elementi permette di prendere decisioni di investimento più informate.",
       "Il prezzo di un asset non dipende solo dai dati storici ma anche dalle aspettative future degli investitori.\n\nProiezioni di crescita, anticipazioni sugli utili, politiche monetarie e cambi valutari sono alcuni dei fattori che muovono i mercati. Anche eventi imprevisti o shock esterni possono generare oscillazioni significative, rendendo il mercato dinamico e complesso."
     ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["prezzi", "prezzo", "azione", "azioni", "mercato"]
 },
     "obbligazioni_info": {
     "questions": [
@@ -3917,7 +3971,8 @@
       "Acquistando un’obbligazione, l’investitore diventa creditore dell’emittente, ricevendo interessi periodici fino alla scadenza del titolo.\n\nIl prezzo delle obbligazioni può oscillare in base ai tassi di interesse, all’inflazione e alla solvibilità dell’emittente. Conoscere questi meccanismi consente di pianificare investimenti mirati e di comprendere il ruolo delle obbligazioni in un portafoglio bilanciato.",
       "Le obbligazioni servono a finanziare l’emittente e offrono all’investitore un ritorno regolare sotto forma di interessi.\n\nFunzionano come un prestito: l’investitore riceve cedole periodiche e il rimborso del capitale a scadenza. Sono strumenti utili per diversificare, ridurre la volatilità del portafoglio e comprendere l’impatto dei tassi di interesse sul valore dei titoli a reddito fisso."
     ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["obbligazioni", "obbligazione", "titoli obbligazionari", "titolo obbligazionario"]
 },
     "azioni_obbligazioni": {
     "questions": [
@@ -3936,7 +3991,8 @@
       "La differenza principale è che le azioni rappresentano partecipazione al capitale di un’impresa, mentre le obbligazioni rappresentano un prestito all’azienda o allo stato.\n\nGli azionisti condividono profitti e rischi dell’azienda, mentre i detentori di obbligazioni ricevono interessi fissi e hanno priorità nel rimborso in caso di fallimento. Questo rende le obbligazioni strumenti più sicuri ma con minori possibilità di guadagno rispetto alle azioni.",
       "Le azioni e le obbligazioni sono due strumenti finanziari distinti: le prime danno proprietà e partecipazione agli utili, le seconde garantiscono un reddito fisso e il rimborso del capitale.\n\nGli investitori usano le azioni per crescite di valore e dividendi variabili, mentre le obbligazioni servono a stabilizzare il portafoglio e ottenere flussi di reddito prevedibili, bilanciando il rischio complessivo."
     ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["azioni e obbligazioni", "azione e obbligazione", "obbligazione e azione", "obbligazioni e azioni", "azionari", "azionario", "obbligazionari", "obbligazionario"]
 },
     "etf_info": {
     "questions": [
@@ -3947,14 +4003,16 @@
       "ETF, che cosa indica questo termine?",
       "Puoi spiegarmi come funzionano gli ETF?",
       "A cosa servono gli ETF?",
-      "ETF, come si usano per investire?"
+      "ETF, come si usano per investire?",
+      "In cosa consistono gli ETF?"
     ],
     "answers": [
       "Gli ETF, o Exchange Traded Funds, sono fondi di investimento quotati in borsa che replicano l’andamento di un indice, un settore o un paniere di asset.\n\nPermettono agli investitori di diversificare il portafoglio acquistando un unico strumento che contiene molteplici titoli. Gli ETF possono includere azioni, obbligazioni, materie prime o altri strumenti finanziari, offrendo liquidità e flessibilità simile a quella di un’azione.",
       "Un ETF è un fondo che segue un indice di mercato o un insieme di asset, e le sue quote sono negoziabili in borsa come un’azione.\n\nQuesti strumenti permettono di ottenere esposizione a mercati specifici, settori o strategie, con costi generalmente inferiori ai fondi tradizionali. Gli ETF offrono inoltre trasparenza e possibilità di acquisto e vendita durante l’orario di negoziazione, rendendoli uno strumento versatile per diversi tipi di investitori.",
       "Gli ETF combinano i vantaggi di un fondo comune e la negoziabilità di un’azione: replicano un indice o un paniere di titoli e possono essere comprati e venduti in borsa.\n\nSono utili per diversificare rapidamente il portafoglio, ridurre i rischi specifici di singoli titoli e accedere a mercati altrimenti difficili da raggiungere, il tutto con costi contenuti e alta trasparenza."
     ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["etf", "cosa sono", "cos'è", "funziona", "funzionano", "spiega", "spiegami", "spiegare", "spiegarmi", "servono", "consistono"]
 },
     "fondi_info": {
     "questions": [
@@ -3972,7 +4030,8 @@
       "Un fondo comune di investimento consente a più investitori di unire i propri capitali per accedere a un portafoglio gestito professionalmente.\n\nQuesto permette di ridurre i rischi legati a singoli titoli e di beneficiare della competenza di gestori esperti. I fondi possono avere obiettivi diversi, come crescita del capitale, generazione di reddito o protezione del capitale, e possono investire in vari tipi di strumenti finanziari.",
       "I fondi comuni funzionano raccogliendo denaro da diversi investitori e impiegandolo in un portafoglio di asset scelto dal gestore del fondo.\n\nQuesto approccio offre vantaggi come diversificazione, gestione professionale e accesso a mercati complessi. Le quote del fondo rappresentano la frazione del patrimonio totale posseduta da ciascun investitore, e il valore delle quote varia in base all’andamento degli investimenti del fondo."
     ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["fondi", "fondo", "fondi comuni", "fondo comune", "cosa sono", "cos'è", "funziona", "funzionano", "spiega", "spiegami", "spiegare", "spiegarmi", "servono", "consistono"]
 },
     "commodities_info": {
     "questions": [
@@ -3983,7 +4042,9 @@
       "Qual è il significato di materie prime nei mercati finanziari?",
       "Come funzionano le materie prime?",
       "Perché gli investitori comprano commodities?",
-      "Che ruolo hanno le materie prime nell'economia?"
+      "Che ruolo hanno le materie prime nell'economia?",
+      "Cos'è una materia prima?",
+      "Puoi spiegarmi cosa sono le materie prime?"
     ],
     "answers": [
       "Le materie prime, o commodities, sono beni fisici di base scambiati sui mercati finanziari. Comprendono metalli preziosi come oro e argento, risorse energetiche come petrolio e gas, e prodotti agricoli come grano e caffè.\n\nGli investitori le utilizzano sia come strumento di investimento sia come copertura contro l’inflazione. Il loro prezzo può essere influenzato da fattori economici, geopolitici e climatici.",
@@ -3992,7 +4053,8 @@
       "Le commodities sono risorse naturali o beni di base che vengono comprati e venduti sui mercati finanziari internazionali. Sono fondamentali per il funzionamento dell’economia globale.\n\nGli investitori le utilizzano per diversificare il portafoglio, mentre le aziende le impiegano per la produzione. I prezzi sono sensibili a eventi geopolitici, condizioni climatiche e cambiamenti nella domanda globale.",
       "Le materie prime, note anche come commodities, includono metalli, energia e prodotti agricoli. Sono beni tangibili scambiati sui mercati finanziari e influenzano direttamente l’economia globale.\n\nInvestitori e aziende le utilizzano come strumenti di copertura, investimento o approvvigionamento, e il loro prezzo è soggetto a fluttuazioni legate a fattori economici, politici e ambientali."
     ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["materie prime", "materia prima", "commodities", "cosa sono", "funzionano", "spiega", "spiegami", "spiegare", "spiegarmi", "servono"]
 },
     "crypto_info": {
     "questions": [
@@ -4003,7 +4065,10 @@
       "Qual è il significato di criptovalute?",
       "Come funzionano le criptovalute?",
       "Perché gli investitori comprano crypto?",
-      "Che ruolo hanno le criptovalute nell’economia?"
+      "Che ruolo hanno le criptovalute nell’economia?",
+      "Come funziona una crypto?",
+      "Cos'è una criptovaluta?",
+      "Cos'è una crypto?"
     ],
     "answers": [
       "Le criptovalute sono monete digitali basate su tecnologia blockchain, che permette transazioni sicure e decentralizzate. Bitcoin, Ethereum e altre altcoin sono esempi di crypto.\n\nGli investitori le utilizzano sia come strumento di diversificazione del portafoglio sia come asset speculativo, considerando la loro volatilità e le potenzialità di rendimento.",
@@ -4012,7 +4077,8 @@
       "Le crypto sono monete digitali basate su protocolli crittografici e decentralizzati, che permettono transazioni sicure senza intermediari tradizionali.\n\nGli investitori le utilizzano per diversificare il portafoglio, come copertura dall’inflazione, o per operazioni speculative, monitorando costantemente volatilità e trend di mercato.",
       "Le criptovalute sono valute digitali che sfruttano la tecnologia blockchain per garantire trasferimenti sicuri e verificabili.\n\nIl loro utilizzo va oltre l’investimento: possono servire per pagamenti, smart contract o applicazioni decentralizzate. La volatilità elevata le rende interessanti sia per trader sia per investitori a lungo termine."
     ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["cripto", "crypto", "criptovalute", "cosa sono", "cos'è", "funziona", "funzionano", "spiega", "spiegami", "spiegare", "spiegarmi", "servono"]
 },
     "supporto_resistenza_info": {
     "questions": [
@@ -4031,7 +4097,8 @@
       "I livelli di supporto indicano dove i prezzi possono trovare sostegno e non scendere ulteriormente, mentre i livelli di resistenza segnalano dove i prezzi potrebbero fermarsi o invertire il trend.\n\nUtilizzare correttamente questi concetti permette di interpretare i grafici con maggiore precisione, identificare breakout, rimbalzi e confermare la forza di un trend, diventando uno strumento essenziale per trader e investitori.",
       "Supporto e resistenza sono aree chiave dei grafici di prezzo. Il supporto indica la zona in cui la pressione di acquisto può fermare la discesa dei prezzi, mentre la resistenza rappresenta il punto in cui la pressione di vendita può bloccare i rialzi.\n\nQuesti livelli aiutano a prevedere possibili inversioni, breakout e conferme di trend, offrendo strumenti pratici per la gestione del rischio e la pianificazione delle operazioni sul mercato."
     ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["livelli", "supporto", "resistenza", "cosa sono", "funzionano", "spiega", "spiegami", "spiegare", "spiegarmi", "servono"]
 },
     "volumi_info": {
     "questions": [
@@ -4050,7 +4117,8 @@
       "In finanza, i volumi indicano quante azioni, criptovalute o altri asset sono stati scambiati in un certo periodo. Essi aiutano a valutare la liquidità e la pressione di compravendita nel mercato.\n\nOsservando i volumi insieme ai grafici dei prezzi, si può distinguere tra movimenti sostenuti e movimenti fragili, identificare possibili inversioni e confermare trend esistenti, migliorando la precisione delle strategie operative.",
       "I volumi di mercato sono la misura della quantità di scambi effettuati su un asset in un determinato intervallo di tempo. Rappresentano un indicatore della partecipazione degli investitori e dell’interesse generale per quell’asset.\n\nL’interpretazione dei volumi permette di confermare la forza di un trend, anticipare inversioni o breakout e capire la solidità dei movimenti di prezzo, diventando uno strumento fondamentale per analisi tecniche efficaci."
     ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["volumi", "volume", "scambio", "trading", "mercato", "cosa sono", "cos'è", "spiega", "spiegami", "spiegare", "spiegarmi", "servono"]
 },
     "volatility_info": {
     "questions": [
@@ -4059,7 +4127,8 @@
       "Che cos'è la volatilità di un asset?",
       "A cosa serve conoscere la volatilità?",
       "Mi dici cosa indica la volatilità?",
-      "Perché la volatilità è importante per gli investitori?"
+      "Perché la volatilità è importante per gli investitori?",
+      "Cosa significa che un asset è volatile?"
     ],
     "answers": [
       "La volatilità rappresenta la misura della variazione dei prezzi di un asset in un determinato periodo di tempo. In altre parole, indica quanto i prezzi possono salire o scendere rapidamente, riflettendo l’incertezza o il rischio percepito dal mercato.\n\nPer gli investitori, la volatilità è fondamentale per valutare il rischio associato a un investimento. Movimenti di prezzo elevati possono offrire opportunità di profitto, ma aumentano anche il rischio di perdite. Analizzando la volatilità insieme ad altri indicatori, è possibile pianificare strategie più informate e gestire meglio il portafoglio.",
@@ -4068,7 +4137,8 @@
       "Misurare la volatilità significa osservare la dispersione dei prezzi rispetto alla media in un certo intervallo di tempo. Maggiore è la dispersione, maggiore è la volatilità e, quindi, il rischio potenziale.\n\nLa volatilità è utile per valutare la sicurezza degli investimenti, determinare premi di rischio, pianificare strategie di copertura e comprendere meglio il comportamento dei mercati in scenari incerti.",
       "La volatilità è un indicatore di rischio che mostra quanto i prezzi di un asset oscillano nel tempo. Non indica la direzione del movimento, ma quanto i valori possono variare, rendendo il mercato più o meno imprevedibile.\n\nPer gli investitori, conoscere la volatilità è essenziale per bilanciare portafogli, selezionare strumenti finanziari coerenti con il proprio profilo di rischio e anticipare possibili periodi di turbolenza o stabilità nei mercati."
     ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["volatilità", "volatile"]
 },
     "pearson_spearman": {
     "questions": [
@@ -4092,7 +4162,8 @@
       "Pearson e Spearman sono entrambi indicatori di correlazione, ma hanno applicazioni diverse.\n\n- **Pearson**: cattura relazioni lineari, ideale per statistiche tradizionali e analisi quantitativa.\n- **Spearman**: cattura relazioni monotone, anche non lineari, ed è più robusto con dati rumorosi o irregolari.\n\nIn finanza, usarli entrambi ti permette di capire se due asset sono legati solo in modo proporzionale (Pearson) oppure anche in termini di direzione generale (Spearman).",
       "Pearson misura **quanto due asset sono proporzionalmente legati** nei loro movimenti, mentre Spearman misura **quanto due asset si muovono nella stessa direzione**, indipendentemente dalla proporzionalità.\n\nUn buon approccio per gli investitori è calcolare entrambi: se i due valori sono simili, significa che il legame è solido e lineare; se divergono molto, significa che la relazione è più complessa e non perfettamente proporzionale."
     ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["pearson", "spearman", "cosa sono", "cos'è", "funzionano", "spiega", "spiegami", "spiegare", "spiegarmi", "servono", "serve"]
 },
   "navigazione_asset": {
   "questions": [
@@ -4117,7 +4188,8 @@
     "La lista degli asset è visibile nella schermata dedicata: lì trovi tutto il dettaglio.\n\nPuoi inoltre valutare rapidamente l’andamento di ogni asset, stimare i movimenti futuri e aggiungere quelli più importanti alla lista dei preferiti per averli sempre a portata di mano. 😉",
     "Puoi scoprire quali asset vengono seguiti entrando nella sezione apposita dell’app 📈.\n\nDa lì è possibile controllare l’andamento di ogni asset, stimarne il potenziale futuro e aggiungere alla lista dei preferiti quelli più rilevanti per averli sempre sott’occhio. 😉"
   ],
-  "cost": 0
+  "cost": 0,
+  "keywords": ["lista", "elenco", "asset disponibili"]
 },
   "navigazione_abbonamenti": {
   "questions": [
@@ -4146,7 +4218,8 @@
     "Fai click sul logo in alto a destra nella home per scoprire il tuo piano attuale e le informazioni sull’abbonamento.\n\nPuoi passare a Premium per ottenere strumenti aggiuntivi per l’analisi finanziaria, oppure a Ultra per un’esperienza completa: più dati, più opportunità e strumenti avanzati per tracciare il futuro di ogni asset. 💎",
     "Per vedere il tuo abbonamento, vai nella home e clicca sul logo in alto a destra. Troverai il piano corrente e tutti i dettagli.\n\nIl piano Premium è ideale per chi desidera approfondire i dati finanziari degli asset, mentre il piano Ultra è perfetto per chi vuole il massimo controllo e accesso completo a tutte le funzionalità dell’app. 🚀"
   ],
-  "cost": 0
+  "cost": 0,
+  "keywords": ["il mio abbonamento", "il mio piano", "quale piano ho", "upgrade"]
 },
   "navigazione_analisi": {
   "questions": [
@@ -4173,7 +4246,8 @@
     "Per vedere subito l’analisi di un asset, puoi chiedere a me direttamente 💬 o utilizzare la schermata di ricerca: digita il nome dell’asset e premi invio, il risultato arriverà in un attimo.\n\nPuoi anche fare click sull’asset e selezionare ‘Analisi’ 🖱️, così accederai alla pagina completa con grafici, trend e dati essenziali per monitorare l’asset.",
     "Richiedere l’analisi di un asset è facile: chiedimela direttamente 🤖 oppure usa la schermata dedicata dove inserisci il nome dell’asset e premi invio per ottenere subito il risultato.\n\nUn’altra opzione è selezionare l’asset e cliccare su ‘Analisi’ 📈, così accederai direttamente alla pagina completa con tutti i dati aggiornati, grafici e informazioni per pianificare le tue strategie."
   ],
-  "cost": 0
+  "cost": 0,
+  "keywords": ["analisi di un asset", "analizzare un asset"]
 },
   "navigazione_disdetta_abbonamento": {
   "questions": [
@@ -4198,7 +4272,8 @@
   "answers": [
     "Per cancellare il tuo abbonamento apri Google Play Store sul tuo dispositivo, vai al tuo profilo e seleziona Pagamenti & Abbonamenti > Abbonamenti. Da lì puoi gestire o cancellare i tuoi abbonamenti, incluso quello per TradeGPT.\n\nMi spiace molto se non hai trovato utile l'abbonamento 😔. Ti invito a lasciare un feedback all’e-mail di supporto per aiutare il team dell'app a migliorare l’esperienza utente... Spero tanto di rivederti presto con tutte le funzionalità che TradeGPT ha da offrirti! 🚀 🙌."
   ],
-  "cost": 0
+  "cost": 0,
+  "keywords": ["abbonamento", "cancellare", "cancello", "si cancella", "annullare", "annullo", "si annulla", "disdire", "disdico", "si disdice", "togliere", "tolgo", "si toglie", "interrompere", "interrompo", "si interrompe", "terminare", "termino", "si termina", "rimuovere", "rimuovo", "si rimuove", "chiudere", "chiudo", "si chiude"]
 },
   "navigazione_piani": {
   "questions": [
@@ -4232,6 +4307,7 @@
     "Ecco i vari piani di TradeGPT e cosa offrono:\n\n• **Piano gratuito:**\n  - Accesso alle notizie di mercato 📢\n  - Calcolo del sentiment degli asset 📊\n  - Dati fondamentali delle aziende 📈\n  - Grafici con dati storici dei prezzi 📉\n\n• **Piano Premium:**\n  - Tutte le funzionalità del piano gratuito ✅\n  - Esperienza senza pubblicità 🚫📢\n  - Ampia gamma di indicatori tecnici per analisi avanzate 📊\n  - Consigli degli esperti 💡\n  - Limiti più ampi per l'AI, con analisi più dettagliate 🤖\n\n• **Piano Ultra:**\n  - Tutte le funzionalità del piano Premium ✅\n  - Dati sulle vendite degli insider 🏢\n  - Potente calcolo delle correlazioni tra asset 🔗\n  - Accesso illimitato alla versione più potente dell'AI 🚀\n  - Esperienza completa senza limiti, per tracciare con precisione il futuro dei tuoi asset 🌟\n\nUn'analisi di mercato di un esperto può costare fino a 100€ all'ora, mentre con TradeGPT ottieni potenti strumenti di analisi a partire da soli 8€ a settimana per il nostro piano più potente (Ultra)! 😉 😱"
   ],
   "cost": 0
+  "keywords": ["piani disponibili", "quali piani", "quali abbonamenti", "piani dell'app", "piani di tradegpt", "che piani", "tipi di abbonamento", "tipi di piano", "piano ultra", "piano premium", "piano standard", "piano gratuito", "piano free"]
 },
   "navigazione_schermata_principale": {
   "questions": [
