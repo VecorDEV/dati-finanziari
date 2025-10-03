@@ -1831,9 +1831,9 @@ def get_sentiment_for_all_symbols(symbol_list):
         except GithubException:
             repo.create_file(file_path, f"Created probability for {symbol}", "\n".join(html_content))
 
-        for title, news_date, link in news_data["last_90_days"]:
+        for title, news_date, link, source, image in news_data["last_90_days"]:
             title_sentiment = calculate_sentiment([(title, news_date)])
-            all_news_entries.append((symbol, title, title_sentiment, link))
+            all_news_entries.append((symbol, title, title_sentiment, link, source, image))
 
     # Media ponderata (uguale)
     w7, w30, w90 = 0.5, 0.3, 0.2
