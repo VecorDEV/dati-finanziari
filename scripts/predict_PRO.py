@@ -1508,21 +1508,19 @@ def lemmatize_words(words):
 
 
 #Calcola il sentiment basato sulle notizie del singolo asset
-def calculate_sentiment(news, decay_factor=0.03):    #Prima era 0.06
+def calculate_sentiment(news, decay_factor=0.03):  # Prima era 0.06
     """Calcola il sentiment medio ponderato di una lista di titoli di notizie."""
     total_sentiment = 0
     total_weight = 0
     now = datetime.utcnow()
 
     for news_item in news:
-        # Gestisci sia tuple a 2 che 3 elementi
-        if len(news_item) == 3:
-            title, date, _ = news_item
-        elif len(news_item) == 2:
-            title, date = news_item
+        # Estrai almeno titolo e data (ignora gli altri campi)
+        if len(news_item) >= 2:
+            title = news_item[0]
+            date = news_item[1]
         else:
-            # Se la struttura non è quella attesa, salta
-            continue
+            continue  # Struttura non valida
 
         days_old = (now - date).days  # Calcola l'età della notizia in giorni
         weight = math.exp(-decay_factor * days_old)  # Applica il decadimento esponenziale
