@@ -2713,14 +2713,14 @@
     ],
     "answers": [
       "I valori attuali dello stocastico per [TOPIC] sono:\n\nK = [STOCH_K], D = [STOCH_D]\n\nLa condizione tipica è di [STATE]. Significato per l'asset: [SIGNIFICATO].",
-      "Ecco lo stocastico di [TOPIC]:\n\nK = [STOCH_K], D = [STOCH_D]\n\nSecondo i valori, la condizione è di [STATE] e indica [STOCH_SIGNIFICATO].",
-      "Attuali valori dello stocastico per [TOPIC]:\n\nK = [STOCH_K], D = [STOCH_D]\n\nInterpretazione: condizione tipica di [STATE], significato per l'asset di [SIGNIFICATO].",
-      "Lo stocastico di [TOPIC] è attualmente:\n\nK = [STOCH_K], D = [STOCH_D]\n\nValutazione: [STATE], suggerisce [STOCH_SIGNIFICATO].",
+      "Ecco lo stocastico di [TOPIC]:\n\nK = [STOCH_K], D = [STOCH_D]\n\nSecondo i valori, la condizione è di [STATE] e indica [SIGNIFICATO].",
+      "Attuali valori dello stocastico per [TOPIC]:\n\nK = [STOCH_K], D = [STOCH_D]\n\nInterpretazione: condizione tipica di [STATE], che per l'asset significa [SIGNIFICATO].",
+      "Lo stocastico di [TOPIC] è attualmente:\n\nK = [STOCH_K], D = [STOCH_D]\n\nValutazione: [STATE], suggerisce [SIGNIFICATO].",
       "Ecco i valori stocastici per [TOPIC]:\n\nK = [STOCH_K], D = [STOCH_D]\n\nAnalisi: condizione di [STATE] con significato per l'asset di [SIGNIFICATO].",
       "Gli ultimi valori dello stocastico per [TOPIC] sono:\n\nK = [STOCH_K]\nD = [STOCH_D]\n\nLa situazione indica [STATE], quindi [SIGNIFICATO].",
       "Per [TOPIC], lo stocastico mostra:\n\nK = [STOCH_K]\nD = [STOCH_D]\n\nSecondo l'analisi, significa che è [STATE] e suggerisce [SIGNIFICATO].",
-      "Valori correnti dello stocastico di [TOPIC]:\n\nK = [STOCH_K]\nD = [STOCH_D]\n\nCondizione tipica: STATE]. Implicazioni per l'asset: [SIGNIFICATO].",
-      "Attenzione ai valori dello stocastico di [TOPIC]:\n\nK = [STOCH_K]\nD = [STOCH_D]\n\nSituazione: [STATE], il significato per l'asset è di [SIGNIFICATO].",
+      "Valori correnti dello stocastico di [TOPIC]:\n\nK = [STOCH_K]\nD = [STOCH_D]\n\nCondizione tipica: [STATE]. Implicazioni per l'asset: [SIGNIFICATO].",
+      "Attenzione ai valori dello stocastico di [TOPIC]:\n\nK = [STOCH_K]\nD = [STOCH_D]\n\nSituazione: [STATE], che per l'asset implica [SIGNIFICATO].",
       "I dati stocastici recenti per [TOPIC]:\n\nK = [STOCH_K]\nD = [STOCH_D]\n\nAnalisi: significa che è [STATE], quindi per l'asset indica [SIGNIFICATO]."
     ],
     "cost": 1,
@@ -2832,12 +2832,12 @@
       "[TOPIC] ha un CCI pari a [CCI_VALUE].\n\nQuesto corrisponde a una condizione di [STATE] e suggerisce [SIGNIFICATO].",
       "Attualmente, il CCI di [TOPIC] risulta [CCI_VALUE].\n\nSi tratta di uno stato [STATE], con significato per l'asset: [SIGNIFICATO].",
       "Il Commodity Channel Index di [TOPIC] indica [CCI_VALUE].\n\nQuesto indica che l'asset è in una condizione di [STATE] e indica [SIGNIFICATO].",
-      "[TOPIC] presenta un CCI di [CCI_VALUE].\n\nLa condizione di [STATE] significa che [SIGNIFICATO].",
-      "Secondo le ultime rilevazioni il CCI di [TOPIC] è [CCI_VALUE].\n\nSi tratta di uno stato [STATE] e implica [SIGNIFICATO].",
-      "Il CCI corrente di [TOPIC] è [CCI_VALUE].\n\nQuesta situazione di [STATE] implica [SIGNIFICATO].",
+      "[TOPIC] presenta un CCI di [CCI_VALUE].\n\nLa condizione di [STATE] significa [SIGNIFICATO].",
+      "Secondo le ultime rilevazioni il CCI di [TOPIC] è [CCI_VALUE].\n\nSi tratta di uno stato [STATE], che implica [SIGNIFICATO].",
+      "Il CCI corrente di [TOPIC] è [CCI_VALUE].\n\nQuesta situazione di [STATE] fa pensare a [SIGNIFICATO].",
       "Analisi del Commodity Channel Index: [TOPIC] ha un CCI di [CCI_VALUE].\n\nIn termini pratici, uno stato [STATE] comporta [SIGNIFICATO].",
-      "Il CCI di [TOPIC] risulta [CCI_VALUE].\n\nQuesto è uno stato [STATE] e suggerisce [SIGNIFICATO].",
-      "Il Commodity Channel Index di [TOPIC] è [CCI_VALUE].\n\nLa condizione di [STATE] si traduce in [SIGNIFICATO].",
+      "Il CCI di [TOPIC] risulta [CCI_VALUE].\n\nQuesto è uno stato [STATE] che normalmente suggerisce [SIGNIFICATO].",
+      "Il Commodity Channel Index di [TOPIC] è [CCI_VALUE].\n\nLa condizione di [STATE] si traduce di norma in [SIGNIFICATO].",
       "Ultima analisi: il CCI di [TOPIC] segna [CCI_VALUE].\n\nSi tratta di uno stato [STATE], che rappresenta [SIGNIFICATO]."
     ],
     "cost": 1,
@@ -2895,7 +2895,7 @@
       "Il valore attuale di Williams %R per [TOPIC] è [WILLIAMS_VALUE].\n\nIndicatore [STATE]: [SIGNIFICATO].",
       "Per [TOPIC], Williams %R = [WILLIAMS_VALUE].\n\nCondizione tecnica: [STATE]. Significato: [SIGNIFICATO].",
       "Il Williams %R di [TOPIC] risulta [WILLIAMS_VALUE].\n\nSituazione: [STATE], il che indica [SIGNIFICATO].",
-      "Valore Williams %R per [TOPIC]: [WILLIAMS_VALUE].\n\nLo stato tecnico è [STATE], e questo significa [SIGNIFICATO].",
+      "Valore Williams %R per [TOPIC]: [WILLIAMS_VALUE].\n\nLo stato tecnico è [STATE], e questo fa pensare a [SIGNIFICATO].",
       "Aggiornamento: Williams %R di [TOPIC] = [WILLIAMS_VALUE].\n\nCondizione attuale: [STATE], il che significa [SIGNIFICATO]."
     ],
     "cost": 1,
@@ -2947,14 +2947,14 @@
     ],
     "answers": [
       "Bande di Bollinger per [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilità: [BB_VOLATILITY]\n- La banda è [UP/DOWN]\n\nLa condizione risulta [STATE], il che significa [SIGNIFICATO].",
-      "Ecco le informazioni sulle bande di Bollinger di [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilità: [BB_VOLATILITY]\n- La banda è [UP/DOWN]\n\nAttualmente lo stato è [STATE], che indica [SIGNIFICATO].",
-      "Analisi Bollinger per [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilità: [BB_VOLATILITY]\n- La banda è [UP/DOWN]\n\nLa condizione è di [STATE], significando [SIGNIFICATO].",
-      "Le bande di Bollinger di [TOPIC] mostrano:\n\n- %B: [BB_VALUE]\n- Volatilità: [BB_VOLATILITY]\n- La banda è [UP/DOWN]\n\nSituazione attuale: [STATE], il che rappresenta [SIGNIFICATO].",
+      "Ecco le informazioni sulle bande di Bollinger di [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilità: [BB_VOLATILITY]\n- La banda è [UP/DOWN]\n\nAttualmente lo stato è [STATE], che di solito indica [SIGNIFICATO].",
+      "Analisi Bollinger per [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilità: [BB_VOLATILITY]\n- La banda è [UP/DOWN]\n\nLa condizione è di [STATE], implicando [SIGNIFICATO].",
+      "Le bande di Bollinger di [TOPIC] mostrano:\n\n- %B: [BB_VALUE]\n- Volatilità: [BB_VOLATILITY]\n- La banda è [UP/DOWN]\n\nSituazione attuale: [STATE], il che fa pensare a [SIGNIFICATO].",
       "Per [TOPIC], le bande di Bollinger sono:\n\n- %B: [BB_VALUE]\n- Volatilità: [BB_VOLATILITY]\n- La banda è [UP/DOWN]\n\nCondizione: [STATE], indicando [SIGNIFICATO].",
-      "Ecco lo stato delle bande di Bollinger su [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilità: [BB_VOLATILITY]\n- La banda è [UP/DOWN]\n\nAttualmente risulta [STATE], con significato [SIGNIFICATO].",
+      "Ecco lo stato delle bande di Bollinger su [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilità: [BB_VOLATILITY]\n- La banda è [UP/DOWN]\n\nAttualmente risulta [STATE], indicando [SIGNIFICATO].",
       "Situazione Bollinger per [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilità: [BB_VOLATILITY]\n- La banda è [UP/DOWN]\n\nLo stato è [STATE], che vuol dire [SIGNIFICATO].",
       "Bande di Bollinger aggiornate per [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilità: [BB_VOLATILITY]\n- La banda è [UP/DOWN]\n\nCondizione corrente: [STATE], che implica [SIGNIFICATO].",
-      "Analisi tecnica Bollinger per [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilità: [BB_VOLATILITY]\n- La banda è [UP/DOWN]\n\nL'asset risulta [STATE], significando [SIGNIFICATO].",
+      "Analisi tecnica Bollinger per [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilità: [BB_VOLATILITY]\n- La banda è [UP/DOWN]\n\nL'asset risulta [STATE], che solitamente si traduce in [SIGNIFICATO].",
       "Ecco i dati delle bande di Bollinger di [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilità: [BB_VOLATILITY]\n- La banda è [UP/DOWN]\n\nSituazione: [STATE], che indica [SIGNIFICATO]."
     ],
     "cost": 1,
@@ -3005,7 +3005,8 @@
       "Che funzione ha l'RSI?",
       "RSI cosa significa?",
       "Cos'è il relative strength index?",
-      "Mi spieghi il relative strength index?"
+      "Mi spieghi il relative strength index?",
+      "Dimmi cos'è l'RSI di un asset"
     ],
     "answers": [
       "L'RSI, o Relative Strength Index, è un indicatore tecnico che misura la forza e la velocità dei movimenti di prezzo. Viene calcolato confrontando la media dei rialzi con la media dei ribassi su un determinato periodo (di solito 14 giorni). Serve a capire se un asset è in ipercomprato o ipervenduto.",
@@ -3034,7 +3035,8 @@
       "Puoi darmi una spiegazione semplice del MACD?",
       "Come funziona il MACD?",
       "Vorrei capire meglio l’indicatore MACD",
-      "Cos'è il moving average convergence divergence?"
+      "Cos'è il moving average convergence divergence?",
+      "Dimmi cos'è il MACD di un asset"
     ],
     "answers": [
       "Il MACD (Moving Average Convergence Divergence) è un indicatore di analisi tecnica che serve a misurare la forza e la direzione del trend. \n\nSi calcola come differenza tra due medie mobili esponenziali (una veloce e una lenta) e include una linea di segnale.\nQuando il MACD è positivo indica prevalenza dei rialzi, quando è negativo prevalenza dei ribassi. L’incrocio con la linea di segnale fornisce possibili segnali di inversione.",
@@ -3063,7 +3065,8 @@
       "Che cosa rappresenta lo stocastico?",
       "Cos'è lo stocastico?",
       "Cos'è lo stocastico nell’analisi tecnica?",
-      "Mi puoi chiarire a cosa serve lo stocastico?"
+      "Mi puoi chiarire a cosa serve lo stocastico?",
+      "Dimmi cos'è l'oscillatore stocastico di un asset"
     ],
     "answers": [
       "L'oscillatore stocastico è un indicatore tecnico usato per capire se un asset è in fase di ipercomprato o ipervenduto. \n\nSi calcola confrontando il prezzo di chiusura più recente con il range dei prezzi (massimi e minimi) di un determinato periodo. \n\nValori sopra 80 indicano tipicamente ipercomprato, sotto 20 ipervenduto, mentre valori intermedi sono considerati neutrali.",
@@ -3093,7 +3096,8 @@
       "A cosa serve l'EMA10?",
       "Che significato ha l'EMA (10) nell’analisi tecnica?",
       "Cos'è la media mobile esponenziale?",
-      "A cosa serve la media mobile esponenziale?"
+      "A cosa serve la media mobile esponenziale?",
+      "Dimmi cos'è l'EMA di un asset"
     ],
     "answers": [
       "L'EMA (10), cioè la media mobile esponenziale a 10 periodi, è un indicatore tecnico che serve a seguire l'andamento del prezzo in un orizzonte molto breve. \n\nSi calcola facendo una media dei prezzi degli ultimi 10 periodi, ma dando più peso ai valori più recenti. \n\nSe il prezzo si trova sopra l'EMA, il trend è considerato rialzista, mentre sotto l'EMA viene visto come ribassista.",
@@ -3121,7 +3125,8 @@
       "Come si interpreta il CCI?",
       "Cos'è l'indicatore Commodity Channel Index?",
       "A cosa serve il CCI nell’analisi tecnica?",
-      "Che significato ha il CCI per un asset?"
+      "Che significato ha il CCI per un asset?",
+      "Dimmi cos'è il CCI di un asset"
     ],
     "answers": [
       "Il CCI, o Commodity Channel Index, è un indicatore tecnico che misura quanto il prezzo di un asset si discosta dalla sua media statistica. \n\nSi calcola confrontando il prezzo tipico con la sua media mobile e rapportando la differenza alla deviazione media. \n\nValori alti indicano una condizione di ipercomprato, valori bassi una condizione di ipervenduto, mentre valori vicini allo zero segnalano equilibrio.",
@@ -3150,7 +3155,9 @@
       "Come si interpreta il Williams %R?",
       "Cos'è l'indicatore %R di Williams?",
       "Che significato ha il Williams %R per un asset?",
-      "Mi spieghi cos'è il Williams %R?"
+      "Mi spieghi cos'è il Williams %R?",
+      "Dimmi cos'è il williams di un asset",
+      "Dimmi cos'è il williams %R di un asset"
     ],
     "answers": [
       "Il Williams %R è un oscillatore tecnico che misura i livelli di ipercomprato e ipervenduto. \n\nSi calcola confrontando il prezzo di chiusura attuale con il range massimo-minimo di un determinato periodo, di solito 14 giorni. \n\nValori vicini a -20 indicano ipercomprato, valori vicino a -80 ipervenduto.",
@@ -3179,7 +3186,11 @@
       "Che significato hanno le Bande di Bollinger per un asset?",
       "Mi puoi dire cos'è l'indicatore Bollinger?",
       "A cosa serve l'indicatore delle Bande di Bollinger?",
-      "Cos'è il bollinger?"
+      "Cos'è il Bollinger?",
+      "Dimmi cos'è il Bollinger di un asset",
+      "Dimmi cosa sono le Bande di Bollinger di un asset",
+      "Cosa sono le Bande di Bollinger?",
+      "Che cosa indicano le Bande di Bollinger?"
     ],
     "answers": [
       "Le Bande di Bollinger sono un indicatore tecnico che misura la volatilità di un asset. \n\nSi calcolano usando una media mobile (tipicamente 20 periodi) e due deviazioni standard per tracciare le bande superiore e inferiore. \n\nSe il prezzo si avvicina alla banda superiore, può indicare ipercomprato, se alla banda inferiore, ipervenduto.",
@@ -3209,6 +3220,7 @@
       "Vorrei capire i fondamentali che posso trovare qui",
       "Che tipo di analisi fondamentali posso avere?",
       "Cosa sono i fondamentali di un'azienda?",
+      "Cosa sono i key fundamentals di un'azienda?",
       "Sai spiegarmi cosa significa analizzare i fondamentali?",
       "Che cosa si intende per key fundamentals?",
       "Cosa sono i key fundamental di un titolo?",
@@ -3229,7 +3241,10 @@
       "Su quali fundamentals posso avere informazioni?",
       "Quali parametri fondamentali vengono analizzati?",
       "Che indicatori fondamentali mi mostra la tua applicazione?",
-      "Quali key fundamentals mi puoi dare?"
+      "Quali key fundamentals mi puoi dare?",
+      "Cosa sono i fondamentali di un asset?",
+      "Cosa sono i key fundamentals di un asset?",
+      "Cosa sono i fondamentali chiave di un asset?"
     ],
     "answers": [
       "I fondamentali chiave sono indicatori economici e finanziari che aiutano a valutare la salute e le prospettive di crescita di un'azienda. Servono agli investitori per capire se un titolo è sopravvalutato o sottovalutato.  \n\nSu questa app puoi consultare indicatori come: *Trailing P/E*, *Forward P/E*, *EPS Growth (YoY)*, *Revenue Growth (YoY)*, *Profit Margins* e *Debt to Equity*.",
@@ -3254,7 +3269,7 @@
       "I fondamentali chiave sono parametri che consentono di capire in maniera rapida e sintetica la forza finanziaria di un'azienda.  \n\nTra quelli disponibili qui ci sono: *Trailing P/E*, *Forward P/E*, *EPS Growth (YoY)*, *Revenue Growth (YoY)*, *Profit Margins* e *Debt to Equity*."
     ],
     "cost": 0,
-    "keywords": ["fondamentali", "fundamentals", "spieghi", "spiega", "spiegami", "cos'è", "cosa sono", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica"]
+    "keywords": ["fondamentali", "fundamentals", "spieghi", "spiega", "spiegami", "cos'è", "cosa sono", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica", "intende"]
 },
     "key_fundamentals": {
     "questions": [
@@ -3295,7 +3310,8 @@
       "Mi puoi spiegare cos'è il rapporto prezzo/utili trailing?",
       "Che informazioni dà il trailing P/E?",
       "Cos'è il trailing P/E?",
-      "Cos'è il rapporto prezzo/utili storico?"
+      "Cos'è il rapporto prezzo/utili storico?",
+      "Cosa si intende con trailing P/E?"
     ],
     "answers": [
       "Il Trailing P/E (Price to Earnings) è un indicatore che mette in rapporto il prezzo attuale di un'azione con gli utili per azione (EPS) realizzati negli ultimi 12 mesi.  \n\nServe a capire quanto gli investitori stanno pagando per ogni unità di utile generata dall'azienda in passato. Un valore alto può indicare sopravvalutazione, mentre uno basso sottovalutazione.",
@@ -3310,7 +3326,7 @@
       "Il trailing P/E indica il numero di volte che il prezzo dell’azione supera gli utili per azione già registrati.  \n\nUn valore basso può indicare che il titolo è conveniente, mentre uno alto può significare aspettative elevate da parte del mercato."
     ],
     "cost": 0,
-    "keywords": ["trailing pe", "trailing p/e", "storico", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica"]
+    "keywords": ["trailing pe", "trailing p/e", "storico", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica", "intende"]
 },
     "forward_pe_info": {
     "questions": [
@@ -3324,7 +3340,8 @@
       "Come funziona il forward P/E?",
       "Mi puoi spiegare cos'è il rapporto prezzo/utili forward?",
       "Che informazioni dà il forward P/E?",
-      "Cos'è il rapporto prezzo/utili previsto?"
+      "Cos'è il rapporto prezzo/utili previsto?",
+      "Cosa si intende con forward P/E?"
     ],
     "answers": [
       "Il Forward P/E (Price to Earnings) è il rapporto tra il prezzo attuale di un’azione e gli utili per azione previsti per i prossimi 12 mesi.  \n\nA differenza del trailing P/E, che si basa sui dati passati, il forward P/E guarda alle stime future degli analisti.",
@@ -3339,7 +3356,7 @@
       "Il forward P/E indica la valutazione di un titolo rispetto agli utili previsti.  \n\nUn valore basso può segnalare sottovalutazione, uno alto aspettative elevate o possibili sopravvalutazioni."
     ],
     "cost": 0,
-    "keywords": ["forward pe", "forward p/e", "previsto", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "funzione", "funziona", "serve", "vuol dire", significa", "rappresenta", "indica"]
+    "keywords": ["forward pe", "forward p/e", "previsto", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica", "intende"]
 },
     "eps_growth_info": {
     "questions": [
@@ -3354,7 +3371,8 @@
       "Mi puoi spiegare il concetto di EPS growth?",
       "Qual è il significato di EPS growth?",
       "Cos'è EPS growth (YoY)?",
-      "Cos'è la crescita dell'utile per azione?"
+      "Cos'è la crescita dell'utile per azione?",
+      "Cosa si intende per crescita dell'utile?"
     ],
     "answers": [
       "L'EPS growth (YoY) indica la variazione percentuale degli utili per azione di una società rispetto all'anno precedente.\n\nSu questa app sono in grado di offrirti questo dato per valutare la crescita degli utili di un'azienda e confrontarla con i periodi precedenti.",
@@ -3379,7 +3397,7 @@
       "EPS growth (YoY) ti permette di capire la variazione degli utili per azione in un anno.\n\nSono in grado di fornirti questi valori per aiutarti nelle decisioni di investimento."
     ],
     "cost": 0,
-    "keywords": ["eps", "eps growth", "crescita dell'utile", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica"]
+    "keywords": ["eps", "eps growth", "crescita dell'utile", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica", "intende"]
 },
     "revenue_growth_info": {
     "questions": [
@@ -3394,7 +3412,8 @@
       "Mi puoi spiegare il concetto di revenue growth?",
       "Qual è il significato di revenue growth?",
       "Cos'è revenue growth (YoY)?",
-      "Cos'è la crescita dei ricavi?"
+      "Cos'è la crescita dei ricavi?",
+      "Cosa si intende per revenue growth?"
     ],
     "answers": [
       "La revenue growth (YoY) indica la variazione percentuale del fatturato di un'azienda rispetto all'anno precedente.\n\nSu questa app sono in grado di offrirti questo dato per valutare quanto un'azienda stia aumentando i propri ricavi nel tempo.",
@@ -3419,7 +3438,7 @@
       "Revenue growth (YoY) ti permette di capire la variazione dei ricavi in un anno.\n\nSono in grado di fornirti questi valori per aiutarti nelle decisioni di investimento."
     ],
     "cost": 0,
-    "keywords": ["revenue", "revenue growth", "crescita dei ricavi", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica"]
+    "keywords": ["revenue", "revenue growth", "crescita dei ricavi", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica", "intende"]
 },
     "profit_margins_info": {
     "questions": [
@@ -3437,7 +3456,8 @@
       "Cosa sono i margini di profitto?",
       "Mi spieghi cosa sono i margini di profitto?",
       "Cos'è il margine di profitto?",
-      "Cosa sono i margini di utile?"
+      "Cosa sono i margini di utile?",
+      "Cosa si intende per margini di utile?"
     ],
     "answers": [
       "I profit margins indicano la percentuale di ricavi che un'azienda trattiene come profitto dopo aver coperto i costi di produzione e operativi.\n\nSu questa app sono in grado di offrirti questo dato per valutare la redditività di un'azienda.",
@@ -3454,7 +3474,7 @@
       "I profit margins misurano quanto dei ricavi di un'azienda diventa profitto netto.\n\nQuesta app ti offre questi dati per confrontare periodi o aziende differenti."
     ],
     "cost": 0,
-    "keywords": ["profit margin", "profit margins", "margini di utile", "margine di utile", "margine di profitto", "margini di profitto", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica"]
+    "keywords": ["profit margin", "profit margins", "margini di utile", "margine di utile", "margine di profitto", "margini di profitto", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica", "intende"]
 },
     "debt_to_equity_info": {
     "questions": [
@@ -3469,7 +3489,9 @@
       "Mi puoi spiegare il concetto di debt to equity?",
       "Qual è il significato del debt to equity?",
       "Cosa indica il rapporto debito/capitale?",
-      "Cos'è il rapporto debito/capitale?"
+      "Cos'è il rapporto debito/capitale?",
+      "Cosa si intende per rapporto debito capitale?",
+      "Cosa si intende per debt to equity?"
     ],
     "answers": [
       "Il debt to equity indica il rapporto tra il debito totale di un'azienda e il capitale proprio, mostrando quanto l'azienda è finanziata tramite debito rispetto ai fondi propri.\n\nSu questa app sono in grado di offrirti questo dato per valutare la solidità finanziaria di un'azienda.",
@@ -3486,7 +3508,7 @@
       "Il debt to equity è un indicatore della leva finanziaria di un'azienda e della sua capacità di gestire il debito.\n\nQuesta app ti offre questi dati per confrontare periodi o aziende differenti."
     ],
     "cost": 0,
-    "keywords": ["debt to equity", "debito", "capitale", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica"]
+    "keywords": ["debt to equity", "debito", "capitale", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica", "intende"]
 },
     "yoy_info": {
     "questions": [
@@ -3500,14 +3522,15 @@
       "Cosa indica l'espressione anno su anno?",
       "Qual è il significato di YoY?",
       "Mi spieghi cosa vuol dire YoY?",
-      "Mi spieghi cosa significa YoY?"
+      "Mi spieghi cosa significa YoY?",
+      "Cosa si intende per YoY?"
     ],
     "answers": [
       "YoY sta per 'Year over Year', ovvero il confronto dei dati attuali con quelli dello stesso periodo dell'anno precedente. Questa misura è spesso usata per indicatori fondamentali come EPS growth (crescita dell'utile per azione) e revenue growth (crescita dei ricavi).",
       "L'acronimo YoY indica la crescita o variazione di un indicatore confrontando l'anno corrente con quello precedente. In ambito finanziario, viene comunemente applicato a dati fondamentali come EPS growth e revenue growth per monitorare le performance aziendali."
     ],
     "cost": 0,
-    "keywords": ["yoy", "YoY", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica"]
+    "keywords": ["yoy", "YoY", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica", "intende"]
 },
     "pe_info": {
     "questions": [
@@ -3531,7 +3554,7 @@
       "Il Price to Earnings ratio (P/E) misura quante volte il prezzo di un'azione copre il suo utile per azione. È uno dei principali indicatori fondamentali utilizzati per confrontare aziende o settori e capire la valutazione relativa sul mercato."
     ],
     "cost": 0,
-    "keywords": ["pe", "p/e", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica"]
+    "keywords": ["pe", "p/e", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica", "intende"]
 },
     "trailing_pe": {
     "questions": [
