@@ -4540,5 +4540,51 @@
       "Le lingue che conosco sono: inglese, tedesco, spagnolo, italiano, francese, hindi, arabo, coreano, portoghese, olandese, russo e cinese semplificato.\n\nIl team di sviluppo sta lavorando per integrare sempre più lingue, così da raggiungere ancora più investitori nel mondo."
     ],
     "cost": 0
+  },
+  "correlazioni_asset": {
+    "questions": [
+      "Mostrami le correlazioni di [TOPIC]",
+      "Voglio vedere le correlazioni di [TOPIC] con altri asset",
+      "Quali correlazioni ha [TOPIC] con gli altri asset?",
+      "Fammi vedere le correlazioni di [TOPIC]",
+      "Analizza le correlazioni di [TOPIC]",
+      "Mostrami il coefficiente di Pearson e di Spearman di [TOPIC]",
+      "Quali sono i valori di Pearson e Spearman per [TOPIC]?",
+      "Voglio conoscere i dati di correlazione di [TOPIC]",
+      "Dammi i coefficienti di correlazione di [TOPIC]",
+      "Mostrami l’analisi delle correlazioni di [TOPIC]",
+      "Qual è la correlazione di [TOPIC] con il mercato?",
+      "Che correlazioni ha [TOPIC]?",
+      "Mi mostri i dati Pearson e Spearman di [TOPIC]?",
+      "Puoi dirmi la correlazione di [TOPIC] con altri asset?",
+      "Analizza per me i coefficienti di correlazione di [TOPIC]",
+      "[TOPIC] ha qualche correlazione con [TOPIC_2]?",
+      "Dimmi se [TOPIC] ha correlazioni con altri asset",
+      "Correlazioni tra [TOPIC] e [TOPIC_2]",
+      "Dimmi le correlazioni trovate per [TOPIC]",
+      "Spearman di [TOPIC]",
+      "Pearson di [TOPIC]",
+      "Dammi il dato Spearman di [TOPIC]",
+      "Dammi il dato Pearson di [TOPIC]",
+      "Mi puoi dare Pearson di [TOPIC]?",
+      "Mi puoi dare Spearman di [TOPIC]?",
+      "Mi daresti il Pearson di [TOPIC]?",
+      "Mi daresti lo Spearman di [TOPIC]?",
+      "Pearson e Spearman di [TOPIC]",
+      "Spearman e Pearson di [TOPIC]",
+      "Correlazioni per [TOPIC]",
+      "Cerca correlazioni per [TOPIC]",
+      "Cercami delle correlazioni tra [TOPIC] e altri asset",
+      "Correlazioni tra [TOPIC] e qualcos'altro?",
+      "Analizza le correlazioni riguardo a [TOPIC]"
+    ],
+    "answers": [
+      "Ecco le correlazioni di [TOPIC] con gli altri asset. Puoi visualizzare tutti i dati, compresi il coefficiente di **Pearson** e quello di **Spearman**, direttamente nell’analisi che ho preparato per te 📊.",
+      "Ho analizzato per te [TOPIC]: puoi vedere i dati completi sulle correlazioni, inclusi i coefficienti di Pearson e Spearman, direttamente nella pagina di analisi che ti ho preparato 🔍.",
+      "Ti ho preparato l’analisi di [TOPIC], dove puoi consultare i valori di correlazione calcolati dal mio algoritmo, come i coefficienti di Pearson e Spearman 📈. Basta un click e avrai i dati che ti servono 👍.",
+      "Puoi visualizzare tutte le correlazioni di [TOPIC] con altri asset — inclusi i coefficienti di Pearson e Spearman — direttamente nell’analisi dell’asset che ti ho creato 😇 📊.",
+      "Le correlazioni di [TOPIC], insieme ai coefficienti di Pearson e di Spearman calcolati dal mio algoritmo, sono disponibili nella sezione di analisi dedicata. Ti ho già preparato tutto, basta un click 👍."
+    ],
+    "cost": 1
   }
 }
