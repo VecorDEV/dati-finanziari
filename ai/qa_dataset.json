@@ -236,7 +236,11 @@
     "Previsioni veloci [TOPIC]",
     "Previsioni rapide di [TOPIC]",
     "Dammi indicazioni veloci sul futuro di [TOPIC]",
-    "Dimmi il trend futuro di [TOPIC]"
+    "Dimmi il trend futuro di [TOPIC]",
+    "Dammi il sentiment di [TOPIC]",
+    "Dimmi il sentiment per [TOPIC]",
+    "Qual è il sentiment di [TOPIC]?",
+    "Sentiment calcolato per [TOPIC]"
   ],
   "answers": [
     "Le ultime previsioni per [TOPIC] evidenziano diverse possibilità nei prossimi giorni 📈.\nAlcuni dettagli meritano attenzione e potrebbero essere rilevanti per le decisioni future.\n\nL’analisi completa è pronta e può essere visualizzata con un click sul bottone qui sotto.",
@@ -325,7 +329,8 @@
     "Gli indicatori suggeriscono che [TOPIC] presenta informazioni osservabili nei prossimi giorni.\nL’analisi completa è stata preparata e può essere aperta."
   ],
     "cost": 1,
-    "keywords": ["previsioni", "forecast", "outlook", "sentiment", "trend"]
+    "keywords": ["previsioni", "forecast", "outlook", "sentiment", "trend"],
+    "tag": "free"
 },
   "financial_forecast_premium": {
   "questions": [
@@ -416,7 +421,8 @@
     "📊 Le proiezioni indicano che [TOPIC] si orienterà verso un andamento [FORECAST_TREND].\n\nLa probabilità complessiva stimata è del [FORECAST_VALUE]."
   ],
     "cost": 1,
-    "keywords": ["previsioni", "forecast", "outlook", "trend"]
+    "keywords": ["previsioni", "forecast", "outlook", "trend"],
+    "tag": "premium"
 },
   "sentiment": {
   "questions": [
@@ -502,7 +508,8 @@
     "La situazione aggiornata mostra un sentiment [SENTIMENT_90] per [TOPIC]."
   ],
     "cost": 1,
-    "keywords": ["sentiment", "90 giorni", "novanta giorni", "tre mesi", "3 mesi", "lungo termine", "sentiment trimestrale"]
+    "keywords": ["sentiment", "90 giorni", "novanta giorni", "tre mesi", "3 mesi", "lungo termine", "sentiment trimestrale"],
+    "tag": "premium"
 },
   "sentiment_30": {
   "questions": [
@@ -562,7 +569,8 @@
     "Dai calcoli emerge che il sentiment di [TOPIC] entro 30 giorni risulta [SENTIMENT_30]."
   ],
     "cost": 1,
-    "keywords": ["sentiment", "30 giorni", "trenta giorni", "prossimo mese", "sentiment mensile", "lungo termine"]
+    "keywords": ["sentiment", "30 giorni", "trenta giorni", "prossimo mese", "sentiment mensile", "lungo termine"],
+    "tag": "premium"
 },
   "sentiment_7": {
   "questions": [
@@ -623,7 +631,8 @@
     "Secondo i dati attuali, il sentiment settimanale di [TOPIC] è [SENTIMENT_7]."
   ],
     "cost": 1,
-    "keywords": ["sentiment", "7 giorni", "sette giorni", "sentiment settimanale", "breve termine"]
+    "keywords": ["sentiment", "7 giorni", "sette giorni", "sentiment settimanale", "breve termine"],
+    "tag": "premium"
 },
   "brief_term_forecast": {
   "questions": [
@@ -719,7 +728,8 @@
     "I dati suggeriscono che [TOPIC] avrà un andamento [TREND_AGG_M] nei prossimi giorni.\n\nPer ulteriori informazioni, apri l’analisi completa."
   ],
     "cost": 1,
-    "keywords": ["previsioni", "aspettative", "a breve", "breve termine", "breve periodo", "andamento", "sette giorni", "7 giorni", "nell'immediato", "prossimi giorni"]
+    "keywords": ["previsioni", "aspettative", "a breve", "breve termine", "breve periodo", "andamento", "sette giorni", "7 giorni", "nell'immediato", "prossimi giorni"],
+    "tag": "free"
 },
   "long_term_forecast": {
   "questions": [
@@ -817,7 +827,8 @@
     "Gli indicatori suggeriscono che [TOPIC] avrà un andamento [TREND_AGG_M] nel lungo termine.\n\nPer ulteriori informazioni, apri l’analisi completa." 
   ],
     "cost": 1,
-    "keywords": ["previsioni", "aspettative", "proiezioni", "lungo periodo", "lungo termine", "lungo corso", "andamento", "mesi", "prossimo mese", "anni"]
+    "keywords": ["previsioni", "aspettative", "proiezioni", "lungo periodo", "lungo termine", "lungo corso", "andamento", "mesi", "prossimo mese", "anni"],
+    "tag": "free"
 },
   "ai_name": {
   "questions": [
@@ -1190,7 +1201,8 @@
     "Clima odierno: [AGG_M].\n\n[TOP_GAINER] probabilità massima ([SENTIMENT_TOP_GAINER]), [TOP_LOSER] minima ([SENTIMENT_TOP_LOSER])."
   ],
     "cost": 1,
-    "keywords": ["mercato", "mercati", "sentiment", "oggi", "giornata"]
+    "keywords": ["mercato", "mercati", "sentiment", "oggi", "giornata"],
+    "tag": "free"
 },
   "ta_general": {
   "questions": [
@@ -1238,7 +1250,8 @@
     "Osservando [TOPIC], possiamo identificare pattern [AGG_M] e segnali che supportano l’analisi tecnica dei livelli di supporto a [SUPPORTO] e resistenza a [RESISTENZA]. 💡"
   ],
     "cost": 2,
-    "keywords": ["tecnica", "nello specifico", "analisi"]
+    "keywords": ["tecnica", "nello specifico", "analisi"],
+    "tag": "premium"
 },
   "trading_entry_decision": {
   "questions": [
@@ -1298,7 +1311,8 @@
     "La fase tecnica di [TOPIC] è [AGG_F]. Entrare può avere senso, ma con stop loss stretto a [STOP_LOSS] e valutazione dei volumi."
   ],
     "cost": 2,
-    "keywords": ["conviene", "entrare", "ora", "adesso", "aspettare"]
+    "keywords": ["conviene", "entrare", "ora", "adesso", "aspettare"],
+    "tag": "premium"
 },
   "where_invest": {
   "questions": [
@@ -1382,7 +1396,8 @@
     "Le probabilità attuali segnalano [TOP_GAINER] e [TOP_GAINER_2] come gli asset con le chance più alte di crescere."
   ],
     "cost": 0,
-    "keywords": ["dove", "conviene", "mettere", "puntare", "investire", "su cosa"]
+    "keywords": ["dove", "conviene", "mettere", "puntare", "investire", "su cosa"],
+    "tag": "free"
 },
   "trading_stop_loss_level": {
   "questions": [
@@ -1423,7 +1438,8 @@
     "Per [TOPIC], un buon stop loss è posizionato a [STOP_LOSS] 🔒, basato sui livelli di supporto e sull’analisi tecnica corrente."
   ],
     "cost": 2,
-    "keywords": ["stop loss"]
+    "keywords": ["stop loss"],
+    "tag": "premium"
 },
   "trading_take_profit_level": {
   "questions": [
@@ -1469,7 +1485,8 @@
     "Per [TOPIC], un buon take profit è posizionato a [TAKE_PROFIT] 📊, basato sui livelli di resistenza e sull’analisi tecnica corrente."
   ],
     "cost": 2,
-    "keywords": ["take profit", "target", "profitto"]
+    "keywords": ["take profit", "target", "profitto"],
+    "tag": "premium"
 },
   "ai_fallback": {
   "questions": [""],
@@ -1542,7 +1559,8 @@
     "Analizzando la posizione di mercato di [TOPIC] emerge un quadro [TREND_AGG_M], con aspetti da monitorare attentamente."
   ],
     "cost": 1,
-    "keywords": ["analisi fondamentale", "fondamentali"]
+    "keywords": ["analisi fondamentale", "fondamentali"],
+    "tag": "free"
 },
   "crypto_trading": {
   "questions": [
@@ -1587,7 +1605,8 @@
     "Le crypto attraversano una fase [TREND_AGG_F].\n\nTra gli asset più importanti, [MAIN_CRYPTO] si distingue grazie a un forecast che oggi è di [FORECAST_MAIN_CRYPTO] 🚀."
   ],
     "cost": 1,
-    "keywords": ["mercato", "crypto", "cripto", "criptovalute"]
+    "keywords": ["mercato", "crypto", "cripto", "criptovalute"],
+    "tag": "free"
 },
   "market_news": {
   "questions": ["ci sono novità sui mercati?"],
@@ -1639,7 +1658,8 @@
     "Le news di mercato suggeriscono un trend interessante, con [MAIN_TOPIC] da seguire per fluttuazioni e opportunità. 📊"
   ],
     "cost": 1,
-    "keywords": ["novità", "notizie", "notizia", "mercati", "mercato"]
+    "keywords": ["novità", "notizie", "notizia", "mercati", "mercato"],
+    "tag": "free"
 },
   "closing": {
   "questions": [
@@ -1942,7 +1962,8 @@
     "[TOPIC] è [TREND] di [VALORE] oggi 🔹\n\nUltimo dato disponibile: [DATE]"
   ],
     "cost": 1,
-    "keywords": ["oggi", "come sta", "andando", "procedendo"]
+    "keywords": ["oggi", "come sta", "andando", "procedendo"],
+    "tag": "free"
 },
   "fa_interest_rates": {
   "questions": [
@@ -2116,7 +2137,8 @@
     "Oggi [TOP_FIRE] si conferma l’asset più forte con un +[GAIN], mentre [BOTTOM_FIRE] chiude in negativo con -[LOSE]."
   ],
     "cost": 1,
-    "keywords": ["mercato", "mercati", "andando", "oggi", "come", "procedendo"]
+    "keywords": ["mercato", "mercati", "andando", "oggi", "come", "procedendo"],
+    "tag": "free"
 },
   "ai_sorry": {
   "questions": [
@@ -2177,15 +2199,16 @@
     "Hai ragione, non era quello che intendevi. ",
     "Scusa, ho frainteso. ",
     "Mi dispiace, frainteso. ",
-    "Hai ragione, frainteso. ",
-    "Chiedo scusa, frainteso. ",
+    "Hai ragione, ho frainteso. ",
+    "Chiedo scusa, ho frainteso. ",
     "Giusto, ho sbagliato. ",
     "Mi scuso per l’errore. ",
     "Scusami per l’errore. ",
     "Hai ragione, errore. ",
     "Mi dispiace, errore. ",
-    "Giusto, errore. ",
-    "Chiedo scusa, errore. ",
+    "Giusto, errore mio. ",
+    "Ops... errore mio 😅. ",
+    "Chiedo scusa, errore mio. ",
     "Scusa, errore mio. ",
     "Hai ragione, errore mio. ",
     "Mi scuso, errore mio. ",
@@ -2421,7 +2444,8 @@
     "Ecco gli asset che probabilmente si muoveranno di più secondo le stime:\n\n• [TOP_GAINER] con probabilità [FORECAST_TOP_GAINER]\n\n• [TOP_GAINER_2] con [FORECAST_TOP_GAINER_2]\n\n• [TOP_GAINER_3] con [FORECAST_TOP_GAINER_3]\n\n• [TOP_GAINER_4] con [FORECAST_TOP_GAINER_4]\n\n• [TOP_GAINER_5] con [FORECAST_TOP_GAINER_5]"
   ],
   "cost": 0,
-  "keywords": ["main movers", "top movers", "leader", "top gainers", "di più", "aumenterà", "salirà", "crescerà"]
+  "keywords": ["main movers", "top movers", "leader", "top gainers", "di più", "aumenterà", "salirà", "crescerà"],
+  "tag": "free"
 },
   "top_losers": {
   "questions": [
@@ -2468,7 +2492,8 @@
     "Ecco gli asset che probabilmente perderanno di più secondo le stime:\n\n• [TOP_LOSER] con probabilità [FORECAST_TOP_LOSER]\n\n• [TOP_LOSER_2] con [FORECAST_TOP_LOSER_2]\n\n• [TOP_LOSER_3] con [FORECAST_TOP_LOSER_3]\n\n• [TOP_LOSER_4] con [FORECAST_TOP_LOSER_4]\n\n• [TOP_LOSER_5] con [FORECAST_TOP_LOSER_5]"
   ],
   "cost": 0,
-  "keywords": ["perdenti", "top losers", "losers", "di più", "di meno", "peggiori", "perderà", "diminuirà"]
+  "keywords": ["perdenti", "top losers", "losers", "di più", "di meno", "peggiori", "perderà", "diminuirà"],
+  "tag": "free"
 },
     "top_fire": {
   "questions": [
@@ -2503,7 +2528,8 @@
     "La classifica dei migliori della settimana è la seguente:\n\n[TOP_FIRE] – [TOP_FIRE_CHANGE_1]\n\n[TOP_FIRE_2] – [TOP_FIRE_CHANGE_2]\n\n[TOP_FIRE_3] – [TOP_FIRE_CHANGE_3]"
   ],
     "cost": 0,
-    "keywords": ["top performers", "settimana", "top fire", "di più", "più alta"]
+    "keywords": ["top performers", "settimana", "top fire", "di più", "più alta"],
+    "tag": "free"
 },
     "ai_oppure": {
     "questions": [
@@ -2600,7 +2626,8 @@
       "Questo è il grafico a 90 giorni che mostra l’andamento di [TOPIC]:"
     ],
       "cost": 1,
-      "keywords": ["grafico", "disegna", "disegni", "disegnami", "andamento", "traccia", "tracciami", "tracci"]
+      "keywords": ["grafico", "disegna", "disegni", "disegnami", "andamento", "traccia", "tracciami", "tracci"],
+      "tag": "free"
 },
     "rsi_premium": {
     "questions": [
@@ -2634,7 +2661,8 @@
       "Analisi tecnica: l'RSI di [TOPIC] si trova a [RSI].\n\nLo stato rilevato è [STATE], e ciò significa [SIGNIFICATO]."
     ],
     "cost": 1,
-    "keywords": ["rsi di", "rsi per", "relative strength index di", "relative strength index per", "attuale", "aggiornato"]
+    "keywords": ["rsi di", "rsi per", "relative strength index di", "relative strength index per", "attuale", "aggiornato"],
+    "tag": "premium"
 },
      "rsi": {
     "questions": [
@@ -2668,7 +2696,8 @@
       "L'indicatore RSI di [TOPIC] può essere visualizzato solo con un abbonamento premium o ultra. Non perdere l'opportunità di sfruttare tutte le funzionalità!"
     ],
    "cost": 1,
-   "keywords": ["rsi di", "rsi per", "relative strength index di", "relative strength index per", "attuale", "aggiornato"]
+   "keywords": ["rsi di", "rsi per", "relative strength index di", "relative strength index per", "attuale", "aggiornato"],
+   "tag": "free"
 },
     "macd_premium": {
     "questions": [
@@ -2698,7 +2727,8 @@
       "Il MACD attuale di [TOPIC] è [MACD_VALUE] e suggerisce un comportamento [TA_TREND] del mercato."
     ],
     "cost": 1,
-    "keywords": ["macd di", "macd per", "moving average convergence divergence di", "moving average convergence divergence per", "attuale", "aggiornato"]
+    "keywords": ["macd di", "macd per", "moving average convergence divergence di", "moving average convergence divergence per", "attuale", "aggiornato"],
+    "tag": "premium"
 },
     "macd": {
     "questions": [
@@ -2728,7 +2758,8 @@
       "L'indicatore MACD di [TOPIC] può essere visualizzato solo con un abbonamento premium o ultra. Non perdere l'opportunità di sfruttare tutte le funzionalità!"
     ],
     "cost": 1,
-    "keywords": ["macd di", "macd per", "moving average convergence divergence di", "moving average convergence divergence per", "attuale", "aggiornato"]
+    "keywords": ["macd di", "macd per", "moving average convergence divergence di", "moving average convergence divergence per", "attuale", "aggiornato"],
+    "tag": "free"
 },
     "stochastic_premium": {
     "questions": [
@@ -2759,7 +2790,8 @@
       "I dati stocastici recenti per [TOPIC]:\n\nK = [STOCH_K]\nD = [STOCH_D]\n\nAnalisi: significa che è [STATE], quindi per l'asset indica [SIGNIFICATO]."
     ],
     "cost": 1,
-    "keywords": ["stocastico di", "stocastico per", "k e d di", "k e d per"]
+    "keywords": ["stocastico di", "stocastico per", "k e d di", "k e d per"],
+    "tag": "premium"
 },
     "stochastic": {
     "questions": [
@@ -2788,7 +2820,8 @@
       "L'indicatore stocastico di [TOPIC] può essere visualizzato solo con un abbonamento premium o ultra. Non perdere l'opportunità di sfruttare tutte le funzionalità!"
     ],
     "cost": 1,
-    "keywords": ["stocastico di", "stocastico per", "k e d di", "k e d per"]
+    "keywords": ["stocastico di", "stocastico per", "k e d di", "k e d per"],
+    "tag": "free"
 },
     "ema_premium": {
     "questions": [
@@ -2817,7 +2850,8 @@
       "L'indicatore EMA10 di [TOPIC] oggi è [EMA_VALUE].\n\nIl prezzo si trova [UP/DOWN] rispetto all’EMA10, suggerendo un trend [TA_TREND]."
     ],
     "cost": 1,
-    "keywords": ["ema di", "ema per", "ema10 di", "ema10 per", "ema 10 di", "ema 10 per", "ema a 10 giorni di", "ema a dieci giorni di", "exponential moving average di", "exponential moving average per"]
+    "keywords": ["ema di", "ema per", "ema10 di", "ema10 per", "ema 10 di", "ema 10 per", "ema a 10 giorni di", "ema a dieci giorni di", "exponential moving average di", "exponential moving average per"],
+    "tag": "premium"
 },
     "ema": {
     "questions": [
@@ -2846,7 +2880,8 @@
       "L'indicatore EMA10 di [TOPIC] può essere visualizzato solo con un abbonamento premium o ultra. Non perdere l'opportunità di sfruttare tutte le funzionalità! 💎"
     ],
     "cost": 1,
-    "keywords": ["ema di", "ema per", "ema10 di", "ema10 per", "ema 10 di", "ema 10 per", "ema a 10 giorni di", "ema a dieci giorni di", "exponential moving average di", "exponential moving average per"]
+    "keywords": ["ema di", "ema per", "ema10 di", "ema10 per", "ema 10 di", "ema 10 per", "ema a 10 giorni di", "ema a dieci giorni di", "exponential moving average di", "exponential moving average per"],
+    "tag": "free"
 },
     "cci_premium": {
     "questions": [
@@ -2876,7 +2911,8 @@
       "Ultima analisi: il CCI di [TOPIC] segna [CCI_VALUE].\n\nSi tratta di uno stato [STATE], che rappresenta [SIGNIFICATO]."
     ],
     "cost": 1,
-    "keywords": ["cci di", "cci per", "commodity channel index di", "commodity channel index per", "attuale", "corrente", "aggiornato"]
+    "keywords": ["cci di", "cci per", "commodity channel index di", "commodity channel index per", "attuale", "corrente", "aggiornato"],
+    "tag": "premium"
 },
     "cci": {
     "questions": [
@@ -2906,7 +2942,8 @@
       "Non hai accesso al CCI di [TOPIC] 😅. Fai l’upgrade ai piani premium o ultra per ottenere informazioni complete!"
     ],
     "cost": 1,
-    "keywords": ["cci di", "cci per", "commodity channel index di", "commodity channel index per", "attuale", "corrente", "aggiornato"]
+    "keywords": ["cci di", "cci per", "commodity channel index di", "commodity channel index per", "attuale", "corrente", "aggiornato"],
+    "tag": "free"
 },
     "williams_premium": {
     "questions": [
@@ -2934,7 +2971,8 @@
       "Aggiornamento: Williams %R di [TOPIC] = [WILLIAMS_VALUE].\n\nCondizione attuale: [STATE], il che significa [SIGNIFICATO]."
     ],
     "cost": 1,
-    "keywords": ["williams di", "williams per", "williams %r di", "williams %r per", "attuale", "corrente", "aggiornato"]
+    "keywords": ["williams di", "williams per", "williams %r di", "williams %r per", "attuale", "corrente", "aggiornato"],
+    "tag": "premium"
 },
     "williams": {
     "questions": [
@@ -2964,7 +3002,8 @@
       "Per consultare il Williams %R di [TOPIC], occorre un abbonamento premium o ultra. Approfitta dei vantaggi dell’upgrade!"
     ],
     "cost": 1,
-    "keywords": ["williams di", "williams per", "williams %r di", "williams %r per", "attuale", "corrente", "aggiornato"]
+    "keywords": ["williams di", "williams per", "williams %r di", "williams %r per", "attuale", "corrente", "aggiornato"],
+    "tag": "free"
 },
     "bollinger_premium": {
     "questions": [
@@ -2993,7 +3032,8 @@
       "Ecco i dati delle bande di Bollinger di [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilità: [BB_VOLATILITY]\n- La banda è [UP/DOWN]\n\nSituazione: [STATE], che indica [SIGNIFICATO]."
     ],
     "cost": 1,
-    "keywords": ["bollinger di", "bollinger per", "bollinger su", "attuale", "corrente", "aggiornato"]
+    "keywords": ["bollinger di", "bollinger per", "bollinger su", "attuale", "corrente", "aggiornato"],
+    "tag": "premium"
 },
     "bollinger": {
     "questions": [
@@ -3025,7 +3065,8 @@
       "Ops! I dettagli delle bande di Bollinger sono riservati agli utenti premium o ultra. Effettua l'upgrade per consultarle."
     ],
     "cost": 1,
-    "keywords": ["bollinger di", "bollinger per", "bollinger su", "attuale", "corrente", "aggiornato"]
+    "keywords": ["bollinger di", "bollinger per", "bollinger su", "attuale", "corrente", "aggiornato"],
+    "tag": "free"
 },
     "rsi_info": {
     "questions": [
@@ -3330,7 +3371,8 @@
       "Qui puoi visualizzare direttamente i fondamentali principali di [TOPIC] grazie al bottone dedicato:"
     ],
     "cost": 0,
-    "keywords": ["fondamentali di", "fondamentali chiave di", "fundamentals di", "fondamentali principali di"]
+    "keywords": ["fondamentali di", "fondamentali chiave di", "fundamentals di", "fondamentali principali di"],
+    "tag": "free"
   },
     "trailing_pe_info": {
     "questions": [
@@ -3617,7 +3659,8 @@
       "Il trailing P/E registrato oggi per [TOPIC] è [TRAILING_PE_VALUE]."
     ],
     "cost": 0,
-    "keywords": ["trailing pe di", "trailing p/e di", "storico", "attuale", "corrente", "aggiornato"]
+    "keywords": ["trailing pe di", "trailing p/e di", "storico", "attuale", "corrente", "aggiornato"],
+    "tag": "free"
 },
     "forward_pe": {
     "questions": [
@@ -3646,7 +3689,8 @@
       "Il forward P/E stimato oggi per [TOPIC] è [FORWARD_PE_VALUE]."
     ],
     "cost": 0,
-    "keywords": ["forward pe di", "forward p/e di", "previsto", "attuale", "corrente", "aggiornato"]
+    "keywords": ["forward pe di", "forward p/e di", "previsto", "attuale", "corrente", "aggiornato"],
+    "tag": "free"
 },
     "eps_growth": {
     "questions": [
@@ -3674,7 +3718,8 @@
       "Il valore EPS growth stimato oggi per [TOPIC] è [EPS_GROWTH_VALUE]."
     ],
     "cost": 0,
-    "keywords": ["eps di", "eps per", "eps growth di", "eps growth per", "eps yoy di", "eps growth yoy di", "eps anno su anno di", "attuale", "corrente", "aggiornato"]
+    "keywords": ["eps di", "eps per", "eps growth di", "eps growth per", "eps yoy di", "eps growth yoy di", "eps anno su anno di", "attuale", "corrente", "aggiornato"],
+    "tag": "free"
 },
     "revenue_growth": {
     "questions": [
@@ -3702,7 +3747,8 @@
       "Il valore revenue growth stimato oggi per [TOPIC] è [REVENUE_GROWTH_VALUE]."
     ],
     "cost": 0,
-    "keywords": ["revenue di", "revenue per", "revenue growth di", "ricavi di", "ricavi yoy di", "ricavi anno su anno di", "revenue growth per", "attuale", "corrente", "aggiornato"]
+    "keywords": ["revenue di", "revenue per", "revenue growth di", "ricavi di", "ricavi yoy di", "ricavi anno su anno di", "revenue growth per", "attuale", "corrente", "aggiornato"],
+    "tag": "free"
 },
     "profit_margins": {
     "questions": [
@@ -3731,7 +3777,8 @@
       "Il valore stimato oggi del margine di profitto di [TOPIC] è [PROFIT_MARGINS_VALUE]."
     ],
     "cost": 0,
-    "keywords": ["profit margins di", "profit margins per", "profitto di", "profitto per", "registrato", "attuale", "corrente", "aggiornato"]
+    "keywords": ["profit margins di", "profit margins per", "profitto di", "profitto per", "registrato", "attuale", "corrente", "aggiornato"],
+    "tag": "free"
 },
     "debt_to_equity": {
     "questions": [
@@ -3762,7 +3809,8 @@
       "Il valore stimato oggi del rapporto debito/capitale di [TOPIC] è [DEBT_TO_EQUITY_VALUE]."
     ],
     "cost": 0,
-    "keywords": ["debt to equity di", "debt to equity per", "debt/equity di", "debt/equity per", "debito/patrimonio di", "equity di", "attuale", "corrente", "aggiornato"]
+    "keywords": ["debt to equity di", "debt to equity per", "debt/equity di", "debt/equity per", "debito/patrimonio di", "equity di", "attuale", "corrente", "aggiornato"],
+    "tag": "free"
 },
   "inflation_deflation": {
   "questions": [
@@ -4523,7 +4571,8 @@
       "Ecco cosa ho trovato su [TOPIC]:"
     ],
     "cost": 0,
-    "keywords": ["notizie di", "notizie su", "notizie per", "news di", "news su", "news per", "notizie riguardo", "news riguardo", "novità su", "novità per", "novità riguardo"]
+    "keywords": ["notizie di", "notizie su", "notizie per", "news di", "news su", "news per", "notizie riguardo", "news riguardo", "novità su", "novità per", "novità riguardo"],
+    "tag": "free"
 },
     "segnale": {
     "questions": [
@@ -4554,7 +4603,8 @@
       "Le analisi tecniche mostrano che il segnale di [TOPIC] è [SEGNALE]."
     ],
     "cost": 0,
-    "keywords": ["segnale di", "investire su", "investire in", "segnale per", "segnale attuale per", "segnale attuale di", "segnale"]
+    "keywords": ["segnale di", "investire su", "investire in", "segnale per", "segnale attuale per", "segnale attuale di", "segnale"],
+    "tag": "premium"
   },
     "languages": {
     "questions": [
@@ -4623,7 +4673,8 @@
       "Le correlazioni di [TOPIC], insieme ai coefficienti di Pearson e di Spearman calcolati dal mio algoritmo, sono disponibili nella sezione di analisi dedicata. Ti ho già preparato tutto, basta un click 👍."
     ],
     "cost": 1,
-    "keywords": ["correlazioni", "spearman di", "pearson di", "carca", "analizza", "dammi", "dimmi", "correlazioni di", "correlazioni per", "correlazioni riguardo", "correlazioni tra", "pearson e spearman di", "spearman e pearson di"]
+    "keywords": ["correlazioni", "spearman di", "pearson di", "carca", "analizza", "dammi", "dimmi", "correlazioni di", "correlazioni per", "correlazioni riguardo", "correlazioni tra", "pearson e spearman di", "spearman e pearson di"],
+    "tag": "ultra"
   },
   "broker_etoro": {
     "questions": [
@@ -4672,5 +4723,59 @@
     ],
     "cost": 0,
     "keywords": ["etoro", "broker", "piattaforma di trading", "piattaforma per il trading", "app di trading", "app per il trading"]
+  },
+    "informative_sells": {
+    "questions": [
+      "Mostrami le informative sells di [TOPIC]",
+      "Qual è il valore delle informative sells di [TOPIC]?",
+      "Quanto ammontano le informative sells di [TOPIC]?",
+      "Fammi vedere le informative sells di [TOPIC]",
+      "Ci sono state informative sells recenti per [TOPIC]?",
+      "Quante informative sells ci sono state per [TOPIC]?",
+      "Qual è il dato attuale delle informative sells per [TOPIC]?",
+      "Mi mostri le informative sells aggiornate di [TOPIC]?",
+      "Vorrei sapere le informative sells per [TOPIC]",
+      "Quali sono le informative sells più recenti di [TOPIC]?",
+      "Puoi dirmi il livello delle informative sells di [TOPIC]?",
+      "Mi indichi i dati sulle informative sells di [TOPIC]?",
+      "Hai i dati delle vendite insider di [TOPIC]?",
+      "Quanto hanno venduto gli insider di [TOPIC]?",
+      "Mi fai vedere i dati delle vendite degli insider per [TOPIC]?",
+      "Che livello di informative sells ha [TOPIC] in questo momento?",
+      "C’è stato un aumento delle informative sells su [TOPIC]?",
+      "Puoi dirmi quante informative sells ci sono per [TOPIC]?",
+      "Dammi i dati sulle vendite insider relative a [TOPIC]",
+      "Indicami i valori delle informative sells di [TOPIC]",
+      "Mostrami le vendite interne di [TOPIC]",
+      "Vorrei sapere quanto hanno venduto gli insider di [TOPIC]",
+      "Mostrami il numero di informative sells per [TOPIC]",
+      "Mi dici le vendite degli insider di [TOPIC]?",
+      "Hai i dati aggiornati delle informative sells su [TOPIC]?",
+      "Ci sono movimenti insider recenti per [TOPIC]?",
+      "Mostrami i movimenti di vendita degli insider su [TOPIC]",
+      "Hai informazioni sugli insider di [TOPIC]?",
+      "Quante azioni hanno venduto gli insider di [TOPIC]?",
+      "Che vendite insider ci sono state su [TOPIC] ultimamente?",
+      "Mostra le ultime informative sells relative a [TOPIC]",
+      "Puoi mostrarmi il livello delle vendite insider di [TOPIC]?",
+      "Mi interessano le informative sells di [TOPIC], puoi mostrarmele?",
+      "Vorrei i dati sulle vendite degli insider di [TOPIC]",
+      "Hai informazioni sulle vendite interne per [TOPIC]?",
+      "Puoi dirmi se ci sono state informative sells per [TOPIC]?",
+      "Quanto è alto il livello delle informative sells di [TOPIC]?",
+      "Mi mostri il valore delle vendite insider per [TOPIC]?",
+      "Vorrei sapere se gli insider stanno vendendo [TOPIC]",
+      "Fammi vedere quante informative sells ha avuto [TOPIC]"
+    ],
+    "answers": [
+      "Le informative sells attuali di [TOPIC] sono pari a [INFORMATIVE_SELLS_VALUE], mentre il valore massimo storico registrato è di [INFORMATIVE_SELLS_STORIC]. 📈",
+      "Attualmente le informative sells di [TOPIC] ammontano a [INFORMATIVE_SELLS_VALUE], con un picco storico massimo di [INFORMATIVE_SELLS_STORIC]. 📊",
+      "Per [TOPIC], il valore corrente delle informative sells è di [INFORMATIVE_SELLS_VALUE]. Il massimo storico mai registrato è invece di [INFORMATIVE_SELLS_STORIC]. 🔝",
+      "Le vendite insider (informative sells) di [TOPIC] risultano a [INFORMATIVE_SELLS_VALUE] al momento, rispetto a un massimo storico di [INFORMATIVE_SELLS_STORIC]. 🔥",
+      "Il dato aggiornato delle informative sells per [TOPIC] è [INFORMATIVE_SELLS_VALUE]. Storicamente, il valore più alto raggiunto è stato [INFORMATIVE_SELLS_STORIC]. 🚀"
+    ],
+    "cost": 0,
+    "keywords": ["informative sells", "vendite insider", "vendite degli insider", "vendite interne", "insider", "movimenti insider", "movimenti di vendita"],
+    "tag": "ultra"
   }
 }
