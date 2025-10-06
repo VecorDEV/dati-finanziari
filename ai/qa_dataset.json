@@ -4966,5 +4966,76 @@
   ],
   "cost": 0,
   "keywords": ["quale", "strategia", "strategie", "strategia di trading", "strategie di trading", "strategia di investimento", "strategie di investimento", "al caso mio", "al mio caso", "migliore per me", "adatta a me", "adatta per me"]
+},
+  "medie_mobili_info": {
+  "questions": [
+    "Cosa sono le medie mobili?",
+    "Mi spieghi cosa significa media mobile?",
+    "Che cosa indica una media mobile?",
+    "A cosa servono le medie mobili nel trading?",
+    "Puoi spiegarmi le medie mobili?",
+    "Come funzionano le medie mobili?",
+    "Che ruolo hanno le medie mobili nell’analisi tecnica?",
+    "Cos’è la media mobile semplice?",
+    "Cos’è la media mobile esponenziale?",
+    "Come si usano le medie mobili nei grafici?",
+    "Cosa indica la media mobile a 50 o 200 giorni?",
+    "Perché i trader usano le medie mobili?",
+    "Come posso interpretare le medie mobili?",
+    "Che differenza c’è tra media mobile semplice e esponenziale?",
+    "Mi spieghi le diverse tipologie di medie mobili?"
+  ],
+  "answers": [
+    "Le **medie mobili** sono indicatori tecnici che servono per analizzare l’andamento di un prezzo nel tempo 📈. Calcolano la media dei prezzi di un asset su un determinato periodo (ad esempio 20, 50 o 200 giorni), aggiornandosi continuamente.\n\nSono usate per **individuare trend**: se il prezzo è sopra la media mobile, il trend è considerato rialzista; se è sotto, ribassista. Esistono due principali tipi:\n- **Media Mobile Semplice (SMA)**: fa la media aritmetica dei prezzi.\n- **Media Mobile Esponenziale (EMA)**: dà più peso ai prezzi recenti, reagendo più velocemente ai cambiamenti del mercato.",
+    "Una **media mobile** è uno strumento di analisi tecnica che aiuta a capire la direzione generale del mercato, eliminando le fluttuazioni di breve periodo 🔍.\n\nSi calcola prendendo la media dei prezzi passati su un determinato numero di periodi e aggiornandola costantemente. In questo modo si ottiene una linea più ‘pulita’ che evidenzia il trend.\n\nTipi più usati:\n- **SMA (Simple Moving Average)**: media uniforme dei prezzi.\n- **EMA (Exponential Moving Average)**: più sensibile ai movimenti recenti, utile per i trader attivi.",
+    "Le medie mobili rappresentano la **tendenza media dei prezzi** in un dato intervallo di tempo. Sono usate per filtrare il rumore del mercato e capire se un asset sta crescendo o calando nel lungo periodo 📊.\n\nLe più comuni sono:\n- **SMA (media mobile semplice)** → utile per analisi di lungo periodo.\n- **EMA (media mobile esponenziale)** → più reattiva, adatta a chi fa trading di breve periodo.\n\nQuando la linea dei prezzi attraversa la media mobile dall’alto o dal basso, può segnalare possibili cambiamenti di trend.",
+    "Le **medie mobili** sono linee dinamiche sui grafici che aiutano a identificare i trend di mercato nel tempo ⏱️.\n\nFunzionano come un indicatore di ‘tendenza generale’: se il prezzo si mantiene sopra la media mobile, il trend è considerato positivo; se resta sotto, negativo. Si usano anche per trovare punti di ingresso o uscita dalle operazioni.\n\nLe principali varianti sono:\n- **SMA (Simple Moving Average)** – più stabile, ma meno reattiva.\n- **EMA (Exponential Moving Average)** – più sensibile alle variazioni recenti.",
+    "Le medie mobili sono strumenti fondamentali dell’analisi tecnica che servono per **smussare i movimenti di prezzo** e individuare direzioni di mercato 🎯.\n\nVengono calcolate come media dei prezzi in un certo periodo e cambiano man mano che arrivano nuovi dati. Per questo sono ‘mobili’.\n\n- **Media Mobile Semplice (SMA)**: assegna lo stesso peso a ogni prezzo del periodo.\n- **Media Mobile Esponenziale (EMA)**: attribuisce più importanza ai dati più recenti.\n\n💡 Quando due medie mobili di diversa durata si incrociano (ad esempio la 50 e la 200 giorni), possono generare segnali di acquisto o vendita, chiamati ‘golden cross’ e ‘death cross’."
+  ],
+  "cost": 0,
+  "keywords": ["media mobile", "medie mobili", "cos'è", "cosa sono", "spiega", "spiegami", "spieghi", "spiegarmi"]
+},
+  "fibonacci_info": {
+  "questions": [
+    "Cos'è il Fibonacci nel trading?",
+    "Cosa significa Fibonacci in finanza?",
+    "A cosa servono i ritracciamenti di Fibonacci?",
+    "Mi spieghi come funziona Fibonacci nel trading?",
+    "Come si usa Fibonacci nell’analisi tecnica?",
+    "Puoi spiegarmi i livelli di Fibonacci?",
+    "Cosa sono i livelli di Fibonacci?",
+    "Che ruolo ha Fibonacci nel mercato azionario?",
+    "Cosa indicano i ritracciamenti di Fibonacci?",
+    "Come si leggono i livelli di Fibonacci?",
+    "Cosa c'entra Fibonacci in finanza?",
+    "Cosa c'entra Fibonacci nel trading?",
+    "Per cosa si usa Fibonacci nel trading?",
+    "Come interpretare i ritracciamenti di Fibonacci?",
+    "Mi puoi dire cosa rappresentano i livelli di Fibonacci?",
+    "A cosa servono i livelli di Fibonacci nei grafici?",
+    "Cosa vuol dire Fibonacci nel contesto dei mercati finanziari?",
+    "Cosa vuol dire quando si parla di ritracciamenti Fibonacci?",
+    "Come applico Fibonacci a un grafico di borsa?",
+    "In che modo si calcolano i livelli di Fibonacci?",
+    "Puoi dirmi come funzionano i livelli di Fibonacci nel trading?",
+    "Cosa rappresentano i valori 38.2 e 61.8 di Fibonacci?",
+    "Che relazione c’è tra Fibonacci e i trend di mercato?",
+    "Come si individuano i ritracciamenti Fibonacci su un grafico?",
+    "Come si tracciano le linee di Fibonacci?",
+    "A cosa servono i ritracciamenti e le estensioni di Fibonacci?",
+    "Mi spieghi cos’è l’indicatore Fibonacci?",
+    "Cosa sono i livelli di Fibonacci nel grafico di un asset?",
+    "Spiegami Fibonacci",
+    "Mi puoi spiegare Fibonacci?"
+  ],
+  "answers": [
+    "In finanza, Fibonacci si riferisce ai **ritracciamenti di Fibonacci**, uno strumento dell’analisi tecnica basato sulla famosa sequenza matematica di Leonardo Fibonacci. I livelli più comuni sono 23.6%, 38.2%, 50%, 61.8% e 78.6%, e vengono utilizzati per identificare **punti di potenziale inversione** nel prezzo di un asset.\n\nQuando un prezzo sale o scende, questi livelli aiutano i trader a capire dove potrebbe fermarsi o invertire la tendenza, fungendo da possibili **zone di supporto o resistenza**.\n\n👉 Al momento TradeGPT non è ancora in grado di rilevare o calcolare automaticamente i livelli di Fibonacci, ma il team di sviluppo sta lavorando per introdurre questa e molte altre funzionalità avanzate nelle prossime versioni.",
+    "Nel trading, Fibonacci è un metodo per individuare **livelli chiave di prezzo** in cui il mercato potrebbe reagire. Si basa sulla sequenza di Fibonacci e sui rapporti derivati (come 0.382 e 0.618). I trader tracciano questi livelli tra un massimo e un minimo per prevedere dove il prezzo potrebbe **rimbalzare o correggere** prima di riprendere il trend principale.\n\n👉 Al momento TradeGPT non calcola ancora i ritracciamenti di Fibonacci, ma gli sviluppatori stanno lavorando per aggiungere il supporto a questo strumento tecnico nel futuro, così da rendere l’analisi sempre più completa.",
+    "I **ritracciamenti di Fibonacci** sono linee orizzontali tracciate sul grafico per indicare aree dove il prezzo di un asset potrebbe trovare **supporto o resistenza**. Si basano sulle proporzioni matematiche di Fibonacci, come 38.2% o 61.8%. Questi livelli non garantiscono inversioni, ma aiutano i trader a pianificare punti d’ingresso o d’uscita strategici.\n\n👉 Attualmente TradeGPT non mostra ancora i livelli di Fibonacci, ma questa funzione è prevista nei futuri aggiornamenti per offrire analisi tecniche ancora più avanzate.",
+    "Nel mondo del trading, Fibonacci serve a identificare **zone potenziali di ritracciamento** del prezzo. L’idea è che dopo un forte movimento (in salita o in discesa), il mercato tende spesso a 'rimbalzare' su certi livelli proporzionali, derivati dalla sequenza di Fibonacci. Per questo, molti analisti li usano per definire target o stop loss più precisi.\n\n👉 TradeGPT non calcola ancora i livelli di Fibonacci, ma il team sta lavorando per introdurre strumenti tecnici di questo tipo, in modo da aiutare gli utenti a fare analisi sempre più professionali.",
+    "Fibonacci è un indicatore tecnico che sfrutta proporzioni matematiche ricorrenti in natura, applicate ai mercati finanziari. I livelli di Fibonacci (come 38.2%, 50% e 61.8%) vengono utilizzati per **prevedere potenziali aree di inversione del trend**, aiutando i trader a capire dove il prezzo potrebbe fermarsi o riprendere la direzione principale.\n\n👉 Al momento TradeGPT non include ancora i ritracciamenti di Fibonacci nelle sue analisi, ma gli sviluppatori stanno lavorando per ampliare le funzionalità grafiche e introdurre strumenti come questo nei prossimi aggiornamenti."
+  ],
+  "cost": 0,
+  "keywords": ["fibonacci"]
 }
 }
