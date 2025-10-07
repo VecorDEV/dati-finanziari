@@ -2139,9 +2139,16 @@
   "ai_sorry": {
   "questions": [
     "Non intendevo questo",
+    "Non volevo questo",
+    "Ti ho chiesto un'altra cosa",
+    "Però ti ho chiesto un'altra cosa",
+    "Però non mi hai risposto",
+    "Non mi hai risposto",
+    "Non hai risposto alla mia domanda",
+    "Però non hai risposto alla mia domanda",
     "Aspetta, stai parlando di [TOPIC], volevo dati finanziari su [TOPIC].",
     "Attenzione, stai rispondendo a un altro asset, volevo i dati di [TOPIC].",
-    "Ehi, mi riferivo al sentiment di [TOPIC], non a [ALTRO TOPIC].",
+    "Mi riferivo al sentiment di [TOPIC], non a [ALTRO TOPIC].",
     "Hai dato info sbagliate, volevo il sentiment su [TOPIC].",
     "Hai frainteso, parlavamo del sentiment di [TOPIC] e non di un altro asset.",
     "Hai frainteso, ti chiedevo di [TOPIC].",
@@ -2223,7 +2230,7 @@
     "Mi dispiace. Ho frainteso. "
   ],
     "cost": 0,
-    "keywords": ["volevo", "no", "intendevo", "avevo chiesto"]
+    "keywords": ["volevo", "no", "non", "intendevo", "avevo chiesto", "ho chiesto", "hai risposto"]
 },
   "trading_position_sizing": {
   "questions": [
