@@ -830,7 +830,7 @@
     "Gli indicatori suggeriscono che [TOPIC] avrà un andamento [TREND_AGG_M] nel lungo termine.\n\nPer ulteriori informazioni, apri l’analisi completa." 
   ],
     "cost": 1,
-    "keywords": ["previsioni", "aspettative", "proiezioni", "lungo periodo", "lungo termine", "lungo corso", "andamento", "mesi", "prossimo mese", "anni"],
+    "keywords": ["previsioni", "aspettative", "proiezioni", "lungo periodo", "lungo termine", "lungo corso", "andamento", "prossimi", "mesi", "prossimo mese", "anni"],
     "tag": "free"
 },
   "ai_name": {
@@ -5548,6 +5548,47 @@
   ],
   "cost": 0,
   "keywords": ["variazione", "aumentato", "diminuito", "comportato", "salito", "sceso", "ultimo periodo", "ultimi tempi", "andamento", "ultimi", "ultime", "ultima settimana", "giorni", "settimane", "mesi", "cresciuto", "variato", "quanto"],
+  "tag": "free"
+},
+  "asset_analysis_open": {
+  "questions": [
+    "Portami all’analisi di [TOPIC]",
+    "Preparami l'analisi per [TOPIC]",
+    "Prepara l'analisi di [TOPIC]",
+    "Puoi preparare l'analisi su [TOPIC]?",
+    "Preparami il link dell’analisi di [TOPIC]",
+    "Dammi il bottone per l'analisi di [TOPIC]",
+    "Fammi aprire l’analisi di [TOPIC]",
+    "Fammi accedere all’analisi di [TOPIC]",
+    "Apri l’analisi di [TOPIC]",
+    "Mostrami il pannello per l’analisi di [TOPIC]",
+    "Fammi vedere dove aprire l’analisi di [TOPIC]",
+    "Mi porti alla pagina dell’analisi di [TOPIC]?",
+    "Mi puoi portare all'analisi di [TOPIC]?",
+    "Voglio il pannello per aprire l’analisi di [TOPIC]",
+    "Mostrami il pulsante per l’analisi di [TOPIC]",
+    "Apri la scheda dell’analisi di [TOPIC]",
+    "Portami alla pagina di analisi di [TOPIC]",
+    "Portami sulla pagina di analisi di [TOPIC]",
+    "Portami direttamente all’analisi completa di [TOPIC]",
+    "Preparami il pannello per accedere all’analisi di [TOPIC]",
+    "Fammi accedere subito all’analisi di [TOPIC]",
+    "Voglio aprire l’analisi di [TOPIC]",
+    "Voglio entrare nell’analisi di [TOPIC]",
+    "Fammi vedere il pulsante per visualizzare l’analisi di [TOPIC]",
+    "Mostrami il tasto per aprire l’analisi di [TOPIC]",
+    "Portami alla sezione analisi di [TOPIC]",
+    "Apri direttamente l’analisi di [TOPIC]"
+  ],
+  "answers": [
+    "Ecco l’analisi di [TOPIC] pronta per essere visualizzata 📊. Ti basta cliccare sul pannello qui sotto per aprirla e vedere tutti i dati fondamentali, tecnici e il sentiment aggiornato.",
+    "Ho preparato per te l’analisi completa di [TOPIC] 📈. Premi sul pannello per accedere subito alla sezione con tutti i dati e grafici dettagliati.",
+    "Analisi di [TOPIC] pronta ✅. Basta un click sul pannello qui sotto per visualizzarla e approfondire ogni aspetto dell’asset, dal sentiment ai principali indicatori.",
+    "Ecco la tua analisi di [TOPIC] 💡. Cliccando sul pannello potrai accedere direttamente ai dati completi, con grafici, correlazioni e key fundamentals.",
+    "Ho generato l’analisi di [TOPIC] 📊. Premi sul pannello per esplorarla e scoprire tutti gli indicatori chiave e le previsioni di andamento."
+  ],
+  "cost": 0,
+  "keywords": ["analisi", "portami", "preparami", "prepara", "prepararmi", "bottone", "link", "aprire", "accedere", "apri", "pannello", "pagina", "portami", "portare", "pulsante", "scheda", "tasto", "sezione"],
   "tag": "free"
 }
 }
