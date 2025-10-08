@@ -1209,18 +1209,32 @@
 },
   "ta_general": {
   "questions": [
-    "analisi tecnica di [TOPIC]",
-    "Analisi per favore su [TOPIC]",
+    "Analisi tecnica di [TOPIC]",
+    "Analisi tecnica su [TOPIC]",
+    "Analisi tecnica per [TOPIC]",
     "Analisi tecnica di [TOPIC] oggi.",
     "Analisi tecnica su [TOPIC], per favore",
-    "Analisi tecnica su [TOPIC], per favore.",
-    "E nello specifico [TOPIC]?",
+    "Analisi tecnica su [TOPIC], per cortesia.",
+    "Nello specifico [TOPIC]?",
+    "Voglio sapere nello specifico di [TOPIC]",
+    "[TOPIC] nello specifico",
+    "Analisi specifica di [TOPIC]",
+    "Analisi specifica su [TOPIC]",
     "Fornisci un'analisi tecnica su [TOPIC]",
-    "Ho bisogno di un'analisi su [TOPIC]",
-    "Ottimo, allora dammi analisi tecnica di [TOPIC]",
-    "Ottimo, allora mi fai un’analisi tecnica su [TOPIC]?",
-    "Per quanto riguarda [TOPIC]?",
-    "Sì, voglio un'analisi per [TOPIC] per capire se conviene comprare o no"
+    "Forniscimi un'analisi tecnica su [TOPIC]",
+    "Forniscimi dati tecnici su [TOPIC]",
+    "Ho bisogno di un'analisi tecnica su [TOPIC]",
+    "Ho bisogno di dati tecnici su [TOPIC]",
+    "Dammi dati tecnici su [TOPIC]",
+    "Dammi dati tecnici di [TOPIC]",
+    "Dammi l'analisi tecnica di [TOPIC]",
+    "Mi fai un’analisi tecnica su [TOPIC]?",
+    "Voglio un'analisi tecnica per [TOPIC] per capire se conviene comprare o no",
+    "Analisi con dati tecnici per [TOPIC]",
+    "Analisi professionale per [TOPIC]",
+    "Informazioni tecniche su [TOPIC]",
+    "Informazioni tecniche per [TOPIC]",
+    "Info tecniche per [TOPIC]"
   ],
   "answers": [
     "[TOPIC] mostra un trend [AGG_M], con livelli di supporto a [SUPPORTO] e resistenza a [RESISTENZA]. L’RSI a [RSI] indica una situazione [AGG_F], mentre il MACD a [MACD] segnala un trend [AGG_M] 📊.",
@@ -1253,7 +1267,7 @@
     "Osservando [TOPIC], possiamo identificare pattern [AGG_M] e segnali che supportano l’analisi tecnica dei livelli di supporto a [SUPPORTO] e resistenza a [RESISTENZA]. 💡"
   ],
     "cost": 2,
-    "keywords": ["tecnica", "nello specifico", "analisi"],
+    "keywords": ["tecnica", "tecnico", "tecnici", "tecniche", "nello specifico", "specifica", "specifici", "specifiche", "analisi", "dati tecnici", "informazioni tecniche"],
     "tag": "premium"
 },
   "trading_entry_decision": {
