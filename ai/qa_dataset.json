@@ -2470,7 +2470,7 @@
     "Ecco gli asset che probabilmente si muoveranno di più secondo le stime:\n\n• [TOP_GAINER] con probabilità [FORECAST_TOP_GAINER]\n\n• [TOP_GAINER_2] con [FORECAST_TOP_GAINER_2]\n\n• [TOP_GAINER_3] con [FORECAST_TOP_GAINER_3]\n\n• [TOP_GAINER_4] con [FORECAST_TOP_GAINER_4]\n\n• [TOP_GAINER_5] con [FORECAST_TOP_GAINER_5]"
   ],
   "cost": 0,
-  "keywords": ["main movers", "top movers", "leader", "top gainers", "di più", "aumenterà", "salirà", "crescerà"],
+  "keywords": ["main movers", "main mover", "top movers", "top mover", "leader", "leaders", "top gainers", "top gainer", "di più", "aumenterà", "aumenteranno", "salirà", "saliranno", "crescerà", "cresceranno"],
   "tag": "free"
 },
   "top_losers": {
@@ -2518,7 +2518,7 @@
     "Ecco gli asset che probabilmente perderanno di più secondo le stime:\n\n• [TOP_LOSER] con probabilità [FORECAST_TOP_LOSER]\n\n• [TOP_LOSER_2] con [FORECAST_TOP_LOSER_2]\n\n• [TOP_LOSER_3] con [FORECAST_TOP_LOSER_3]\n\n• [TOP_LOSER_4] con [FORECAST_TOP_LOSER_4]\n\n• [TOP_LOSER_5] con [FORECAST_TOP_LOSER_5]"
   ],
   "cost": 0,
-  "keywords": ["perdenti", "top losers", "losers", "di più", "di meno", "peggiori", "perderà", "diminuirà"],
+  "keywords": ["perdenti", "top losers", "losers", "loser", "di più", "di meno", "peggiori", "perderà", "perderanno", "diminuirà", "diminuiranno", "scenderà", "scenderanno"],
   "tag": "free"
 },
     "top_fire": {
@@ -2554,7 +2554,7 @@
     "La classifica dei migliori della settimana è la seguente:\n\n[TOP_FIRE] – [TOP_FIRE_CHANGE_1]\n\n[TOP_FIRE_2] – [TOP_FIRE_CHANGE_2]\n\n[TOP_FIRE_3] – [TOP_FIRE_CHANGE_3]"
   ],
     "cost": 0,
-    "keywords": ["top performers", "settimana", "top fire", "di più", "più alta"],
+    "keywords": ["top performers", "top performer", "settimana", "top fire", "top fires", "di più", "più alta"],
     "tag": "free"
 },
     "ai_oppure": {
@@ -2570,7 +2570,7 @@
     "answers": [
       "Oppure cosa? 🧐",
       "Cosa intendi?",
-      "Non capisco cosa intendi",
+      "Non capisco, cosa intendi? 🤔",
       "Oppure cosa?",
       "Che intendi?"
     ],
@@ -2652,7 +2652,7 @@
       "Questo è il grafico a 90 giorni che mostra l’andamento di [TOPIC]:"
     ],
       "cost": 1,
-      "keywords": ["grafico", "disegna", "disegni", "disegnami", "andamento", "traccia", "tracciami", "tracci"],
+      "keywords": ["grafico", "disegna", "disegni", "disegnami", "disegnare", "disegnamo", "andamento", "traccia", "tracciami", "tracci", "tracciare", "tracciamo"],
       "tag": "free"
 },
     "rsi_premium": {
