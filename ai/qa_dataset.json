@@ -1088,7 +1088,7 @@
     "Sono qui per fornirti supporto completo: analisi tecnica, fondamentale, gestione del rischio e strategie operative, tutto in un unico posto."
   ],
     "cost": 0,
-    "keywords": ["sai fare", "sei bravo", "aiutare", "cosa puoi fare"]
+    "keywords": ["sai fare", "sei bravo", "aiutare", "essere d'aiuto", "essermi d'aiuto", "puoi fare", "sei capace"]
 },
   "market_sentiment_today": {
   "questions": [
@@ -1687,7 +1687,7 @@
     "Le news di mercato suggeriscono un trend interessante, con [MAIN_TOPIC] da seguire per fluttuazioni e opportunità. 📊"
   ],
     "cost": 1,
-    "keywords": ["novità", "notizie", "notizia", "mercati", "mercato"],
+    "keywords": ["novità", "notizie", "notizia", "news", "mercati", "mercato"],
     "tag": "free"
 },
   "closing": {
@@ -1861,27 +1861,38 @@
     "Come sta andando [TOPIC] oggi?",
     "Quanto è cambiato [TOPIC] oggi?",
     "Qual è l'andamento di [TOPIC] oggi?",
-    "Aggiornami su [TOPIC] di oggi.",
+    "Aggiornamenti su [TOPIC] di oggi?.",
     "Aggiornami su [TOPIC] oggi",
     "Aggiornami su [TOPIC].",
-    "Allora, come procede [TOPIC]?",
-    "Bene, allora analizziamo come sta procedendo [TOPIC]",
+    "Come procede [TOPIC]?",
+    "Analizziamo come sta procedendo [TOPIC]",
     "Che mi dici di [TOPIC]?",
-    "Chiaro. E come è andato [TOPIC] oggi in generale?",
+    "Cosa mi puoi dire riguardo a [TOPIC]?",
+    "Come è andato [TOPIC] oggi in generale?",
     "Ci sono novità su [TOPIC] oggi?",
     "Come procede [TOPIC] oggi?",
     "Come procede [TOPIC]?",
+    "Oggi [TOPIC] è salito?",
+    "Oggi [TOPIC] è sceso?",
+    "Oggi [TOPIC] sta salendo?",
+    "Oggi [TOPIC] sta scendendo?",
+    "[TOPIC] sta salendo oggi?",
+    "[TOPIC] sta salendo?",
+    "[TOPIC] sta scendendo oggi?",
+    "[TOPIC] sta scendendo?",
     "Come si sta muovendo [TOPIC] oggi?",
     "Come si sta muovendo [TOPIC]?",
     "Come sta andando [TOPIC] oggi?",
-    "Come sta andando la giornata di [TOPIC]?",
+    "Come sta andando la giornata per [TOPIC]?",
     "Come sta andando l’andamento di [TOPIC]?",
+    "Com'è l'andamento di [TOPIC]?",
     "Come sta andando per [TOPIC]?",
-    "Come sta procedendo [TOPIC] in questa sessione?",
+    "Come sta andando a [TOPIC]?",
+    "Come sta procedendo [TOPIC] in questa giornata?",
     "Come sta procedendo [TOPIC] oggi?",
     "Come sta procedendo [TOPIC]?",
     "Come stanno andando le cose per [TOPIC]?",
-    "Come stanno andando le cose su [TOPIC]?",
+    "Come stanno andando le cose a [TOPIC]?",
     "Come è andato [TOPIC] durante la giornata?",
     "Come è andato [TOPIC] nella giornata?",
     "Come è andato [TOPIC] oggi?",
@@ -1891,46 +1902,48 @@
     "Dammi info su [TOPIC].",
     "Dammi qualche informazione su [TOPIC].",
     "Dimmi qualcosa su [TOPIC].",
-    "E [TOPIC] come si sta muovendo?",
-    "E [TOPIC], come sta andando?",
-    "E [TOPIC], procede bene oggi?",
-    "E i volumi come sono?",
-    "E invece come procede [TOPIC]?",
-    "E oggi [TOPIC] come è andato?",
-    "E per [TOPIC]?",
+    "[TOPIC] come si sta muovendo?",
+    "[TOPIC], come sta andando?",
+    "[TOPIC], procede bene oggi?",
+    "Oggi [TOPIC] come è andato?",
     "Fila tutto liscio con [TOPIC]?",
     "Fila tutto liscio per [TOPIC]?",
     "Hai aggiornamenti su [TOPIC] di oggi?",
     "Hai qualche notizia recente su [TOPIC]?",
-    "Interessante. E come è andato [TOPIC] oggi in generale?",
-    "Invece riguardo [TOPIC] cosa mi sai dire?",
+    "Mi dici come è andato [TOPIC] oggi in generale?",
+    "Riguardo [TOPIC] cosa mi sai dire?",
     "Mi dici come è andato oggi [TOPIC]?",
     "Mi puoi dire come è andato oggi [TOPIC]?",
     "Mi racconti come è andato [TOPIC] oggi?",
     "Oggi [TOPIC] ha avuto una buona giornata?",
     "Oggi [TOPIC] è andato bene?",
-    "Ok, parlami di [TOPIC].",
-    "Ok, spiegami meglio [TOPIC].",
+    "Parlami di [TOPIC]",
+    "Parliamo di [TOPIC]",
+    "Spiegami la situazione attuale di [TOPIC]",
     "Parlami di [TOPIC] oggi",
-    "Parlami di [TOPIC].",
-    "Parlami un po’ di [TOPIC].",
-    "Perfetto. E come procede [TOPIC]?",
+    "Parlami un po’ di [TOPIC]",
     "Procede bene [TOPIC]?",
     "Procede in crescita [TOPIC]?",
     "Puoi dirmi qualcosa su [TOPIC]?",
     "Sai dirmi come va [TOPIC]?",
     "Si sta muovendo bene [TOPIC]?",
     "Sta andando avanti bene [TOPIC]?",
-    "Sta andando bene [TOPIC] in questo periodo?",
+    "Sta andando bene [TOPIC] in giornata odierna?",
     "Sta andando bene [TOPIC] oggi?",
     "Sta andando bene oggi [TOPIC]?",
     "Sta procedendo bene [TOPIC]?",
     "Sta procedendo in positivo [TOPIC]?",
+    "Sta procedendo in negativo [TOPIC]?",
     "Sta procedendo male [TOPIC]?",
+    "Sta andando male [TOPIC]?",
+    "Si sta muovendo bene [TOPIC]?",
+    "[TOPIC] si sta muovendo bene?",
+    "[TOPIC] si muove bene oggi?",
     "TradeGPT, dammi info su [TOPIC]",
+    "TradeGPT, informami su [TOPIC]",
+    "TradeGPT, informami su come sta andando [TOPIC]",
     "Vorrei sapere come va [TOPIC].",
     "Vorrei sapere come è andato [TOPIC] oggi.",
-    "Vorrei sapere di più su [TOPIC].",
     "Vorrei sapere qualcosa su [TOPIC].",
     "Vorrei un aggiornamento su [TOPIC] di oggi.",
     "[TOPIC] procede bene oggi?",
@@ -1942,7 +1955,9 @@
     "Cosa mi dici su [TOPIC]?",
     "Cosa mi sai dire di [TOPIC]?",
     "Cosa mi puoi dire riguardo a [TOPIC]?",
-    "Voglio sapere tutto su [TOPIC]"
+    "Voglio sapere tutto su [TOPIC]",
+    "Dimmi tutto riguardo a [TOPIC]",
+    "Dimmi tutto su [TOPIC]"
   ],
   "answers": [
     "Ultimo aggiornamento ([DATE]): [TOPIC] è [TREND] di [VALORE].",
@@ -2000,7 +2015,7 @@
     "[TOPIC] è [TREND] di [VALORE] oggi 🔹\n\nUltimo dato disponibile: [DATE]"
   ],
     "cost": 1,
-    "keywords": ["oggi", "come sta", "andando", "procedendo"],
+    "keywords": ["oggi", "come sta", "andando", "procedendo", "muovendo"],
     "tag": "free"
 },
   "fa_interest_rates": {
@@ -2286,7 +2301,50 @@
     "Cosa faccio? Rischio mettendo così tanto?",
     "Indicami quanto capitale usare",
     "Quanto potrei mettere per questo asset?",
-    "Va bene se investo questa somma?"
+    "Va bene se investo questa somma?",
+    "Va bene se investo 1000€?",
+    "Va bene se investo 100$?",
+    "Va bene iniziare con 300€ su [TOPIC]?",
+    "Pensi sia rischioso mettere 5000€ su [TOPIC]?",
+    "È rischioso investire cinque mila euro su [TOPIC]?",
+    "Investo 2000$ su [TOPIC]?",
+    "Investo duemila dollari su [TOPIC]?",
+    "Va bene se investo 100€?",
+    "Va bene se investo cento euro su [TOPIC]?",
+    "Posso investire 200$ su [TOPIC]?",
+    "È prudente mettere duecento dollari su [TOPIC]?",
+    "Conviene iniziare con 500£ su [TOPIC]?",
+    "Pensi sia rischioso investire cinquecento sterline su [TOPIC]?",
+    "Posso puntare 1000€ su [TOPIC]?",
+    "Va bene se metto mille euro su [TOPIC]?",
+    "Investo 1500$ su [TOPIC]?",
+    "È rischioso investire millecinquecento dollari su [TOPIC]?",
+    "Conviene 2000€ su [TOPIC]?",
+    "Va bene se metto duemila euro su [TOPIC]?",
+    "Posso investire 3000$ su [TOPIC]?",
+    "È rischioso tre mila dollari su [TOPIC]?",
+    "Posso iniziare con 5000€ su [TOPIC]?",
+    "Va bene se investo cinquemila euro su [TOPIC]?",
+    "Conviene 10000$ su [TOPIC]?",
+    "È prudente mettere diecimila dollari su [TOPIC]?",
+    "Posso investire 15000€ su [TOPIC]?",
+    "Va bene se metto quindicimila euro su [TOPIC]?",
+    "Va bene se investo 1000¥ su [TOPIC]?",
+    "Posso mettere mille yen su [TOPIC]?",
+    "Conviene investire 500₣ su [TOPIC]?",
+    "È prudente mettere cinquecento franchi svizzeri su [TOPIC]?",
+    "Posso iniziare con 2000A$ su [TOPIC]?",
+    "Va bene se metto duemila dollari australiani su [TOPIC]?",
+    "Conviene 3000C$ su [TOPIC]?",
+    "È rischioso investire tremila dollari canadesi su [TOPIC]?",
+    "Va bene se investo 1500€ su [TOPIC]?",
+    "Posso mettere millecinquecento euro su [TOPIC]?",
+    "È prudente investire 2500£ su [TOPIC]?",
+    "Posso mettere duemilacinquecento sterline su [TOPIC]?",
+    "Conviene iniziare con 800$ su [TOPIC]?",
+    "Va bene se metto ottocento dollari su [TOPIC]?",
+    "È rischioso investire 1200NZ$ su [TOPIC]?",
+    "Posso mettere mille duecento dollari neozelandesi su [TOPIC]?"
   ],
   "answers": [
     "In generale, cifre più alte possono avere senso quando l’asset mostra un **trend stabile e segnali tecnici positivi**, mentre in fasi di **volatilità o incertezza** è preferibile ridurre l’esposizione e mantenere una parte di liquidità pronta. Ricorda che la gestione del capitale serve a proteggerti tanto quanto a farti crescere.  \n\nTuttavia, non posso stabilire io l’importo preciso. La decisione dipende dal tuo profilo di rischio, dai tuoi obiettivi e dal capitale complessivo disponibile 💡.",
@@ -2297,7 +2355,7 @@
     "Le cifre più alte possono essere sensate in presenza di **trend confermati e segnali tecnici coerenti**, ma anche in questi casi è importante diversificare e non concentrare tutto su un singolo asset. Se invece il mercato è incerto o il sentiment è negativo, è meglio limitarsi a una posizione ridotta.  \n\nTuttavia, non posso determinare io quanto dovresti investire 😅. Ti consiglio di usare prudenza e di pianificare bene la tua strategia di gestione del rischio."
   ],
     "cost": 0,
-    "keywords": ["quanto", "soldi", "capitale", "somma", "cifra"]
+    "keywords": ["quanto", "quanti", "soldi", "capitale", "somma", "cifra", "rischioso", "posso mettere", "se metto", "€", "euro", "$", "dollari", "£", "sterline", "franchi", "¥", "yen"]
 },
   "ai_invece": {
   "questions": [
@@ -2687,7 +2745,7 @@
       "Analisi tecnica: l'RSI di [TOPIC] si trova a [RSI].\n\nLo stato rilevato è [STATE], e ciò significa [SIGNIFICATO]."
     ],
     "cost": 1,
-    "keywords": ["rsi di", "rsi per", "relative strength index di", "relative strength index per", "attuale", "aggiornato"],
+    "keywords": ["rsi", "relative strength index", "attuale", "aggiornato"],
     "tag": "premium"
 },
      "rsi": {
@@ -2722,7 +2780,7 @@
       "L'indicatore RSI di [TOPIC] può essere visualizzato solo con un abbonamento premium o ultra. Non perdere l'opportunità di sfruttare tutte le funzionalità!"
     ],
    "cost": 1,
-   "keywords": ["rsi di", "rsi per", "relative strength index di", "relative strength index per", "attuale", "aggiornato"],
+   "keywords": ["rsi", "relative strength index", "attuale", "aggiornato"],
    "tag": "free"
 },
     "macd_premium": {
@@ -2753,7 +2811,7 @@
       "Il MACD attuale di [TOPIC] è [MACD_VALUE] e suggerisce un comportamento [TA_TREND] del mercato."
     ],
     "cost": 1,
-    "keywords": ["macd di", "macd per", "moving average convergence divergence di", "moving average convergence divergence per", "attuale", "aggiornato"],
+    "keywords": ["macd", "moving average convergence divergence", "attuale", "aggiornato"],
     "tag": "premium"
 },
     "macd": {
@@ -2784,7 +2842,7 @@
       "L'indicatore MACD di [TOPIC] può essere visualizzato solo con un abbonamento premium o ultra. Non perdere l'opportunità di sfruttare tutte le funzionalità!"
     ],
     "cost": 1,
-    "keywords": ["macd di", "macd per", "moving average convergence divergence di", "moving average convergence divergence per", "attuale", "aggiornato"],
+    "keywords": ["macd", "moving average convergence divergence", "attuale", "aggiornato"],
     "tag": "free"
 },
     "stochastic_premium": {
@@ -2816,7 +2874,7 @@
       "I dati stocastici recenti per [TOPIC]:\n\nK = [STOCH_K]\nD = [STOCH_D]\n\nAnalisi: significa che è [STATE], quindi per l'asset indica [SIGNIFICATO]."
     ],
     "cost": 1,
-    "keywords": ["stocastico di", "stocastico per", "k e d di", "k e d per"],
+    "keywords": ["stocastico", "k e d"],
     "tag": "premium"
 },
     "stochastic": {
@@ -2846,7 +2904,7 @@
       "L'indicatore stocastico di [TOPIC] può essere visualizzato solo con un abbonamento premium o ultra. Non perdere l'opportunità di sfruttare tutte le funzionalità!"
     ],
     "cost": 1,
-    "keywords": ["stocastico di", "stocastico per", "k e d di", "k e d per"],
+    "keywords": ["stocastico", "k e d"],
     "tag": "free"
 },
     "ema_premium": {
@@ -2876,7 +2934,7 @@
       "L'indicatore EMA10 di [TOPIC] oggi è [EMA_VALUE].\n\nIl prezzo si trova [UP/DOWN] rispetto all’EMA10, suggerendo un trend [TA_TREND]."
     ],
     "cost": 1,
-    "keywords": ["ema di", "ema per", "ema10 di", "ema10 per", "ema 10 di", "ema 10 per", "ema a 10 giorni di", "ema a dieci giorni di", "exponential moving average di", "exponential moving average per"],
+    "keywords": ["ema", "ema10", "ema 10", "ema a 10 giorni", "exponential moving average"],
     "tag": "premium"
 },
     "ema": {
@@ -2906,7 +2964,7 @@
       "L'indicatore EMA10 di [TOPIC] può essere visualizzato solo con un abbonamento premium o ultra. Non perdere l'opportunità di sfruttare tutte le funzionalità! 💎"
     ],
     "cost": 1,
-    "keywords": ["ema di", "ema per", "ema10 di", "ema10 per", "ema 10 di", "ema 10 per", "ema a 10 giorni di", "ema a dieci giorni di", "exponential moving average di", "exponential moving average per"],
+    "keywords": ["ema", "ema10", "ema 10 ", "ema a dieci giorni", "exponential moving average"],
     "tag": "free"
 },
     "cci_premium": {
@@ -2937,7 +2995,7 @@
       "Ultima analisi: il CCI di [TOPIC] segna [CCI_VALUE].\n\nSi tratta di uno stato [STATE], che rappresenta [SIGNIFICATO]."
     ],
     "cost": 1,
-    "keywords": ["cci di", "cci per", "commodity channel index di", "commodity channel index per", "attuale", "corrente", "aggiornato"],
+    "keywords": ["cci", "commodity channel index", "attuale", "corrente", "aggiornato"],
     "tag": "premium"
 },
     "cci": {
@@ -2968,7 +3026,7 @@
       "Non hai accesso al CCI di [TOPIC] 😅. Fai l’upgrade ai piani premium o ultra per ottenere informazioni complete!"
     ],
     "cost": 1,
-    "keywords": ["cci di", "cci per", "commodity channel index di", "commodity channel index per", "attuale", "corrente", "aggiornato"],
+    "keywords": ["cci", "commodity channel index", "attuale", "corrente", "aggiornato"],
     "tag": "free"
 },
     "williams_premium": {
@@ -2997,7 +3055,7 @@
       "Aggiornamento: Williams %R di [TOPIC] = [WILLIAMS_VALUE].\n\nCondizione attuale: [STATE], il che significa [SIGNIFICATO]."
     ],
     "cost": 1,
-    "keywords": ["williams di", "williams per", "williams %r di", "williams %r per", "attuale", "corrente", "aggiornato"],
+    "keywords": ["williams", "williams %r", "attuale", "corrente", "aggiornato"],
     "tag": "premium"
 },
     "williams": {
@@ -3028,7 +3086,7 @@
       "Per consultare il Williams %R di [TOPIC], occorre un abbonamento premium o ultra. Approfitta dei vantaggi dell’upgrade!"
     ],
     "cost": 1,
-    "keywords": ["williams di", "williams per", "williams %r di", "williams %r per", "attuale", "corrente", "aggiornato"],
+    "keywords": ["williams", "williams %r", "attuale", "corrente", "aggiornato"],
     "tag": "free"
 },
     "bollinger_premium": {
@@ -3058,7 +3116,7 @@
       "Ecco i dati delle bande di Bollinger di [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilità: [BB_VOLATILITY]\n- La banda è [UP/DOWN]\n\nSituazione: [STATE], che indica [SIGNIFICATO]."
     ],
     "cost": 1,
-    "keywords": ["bollinger di", "bollinger per", "bollinger su", "attuale", "corrente", "aggiornato"],
+    "keywords": ["bollinger", "attuale", "corrente", "aggiornato"],
     "tag": "premium"
 },
     "bollinger": {
@@ -3091,7 +3149,7 @@
       "Ops! I dettagli delle bande di Bollinger sono riservati agli utenti premium o ultra. Effettua l'upgrade per consultarle."
     ],
     "cost": 1,
-    "keywords": ["bollinger di", "bollinger per", "bollinger su", "attuale", "corrente", "aggiornato"],
+    "keywords": ["bollinger", "attuale", "corrente", "aggiornato"],
     "tag": "free"
 },
     "rsi_info": {
@@ -3397,7 +3455,7 @@
       "Qui puoi visualizzare direttamente i fondamentali principali di [TOPIC] grazie al bottone dedicato:"
     ],
     "cost": 0,
-    "keywords": ["fondamentali di", "fondamentali chiave di", "fundamentals di", "fondamentali principali di"],
+    "keywords": ["fondamentali", "fondamentali chiave", "fundamentals"],
     "tag": "free"
   },
     "trailing_pe_info": {
@@ -3685,7 +3743,7 @@
       "Il trailing P/E registrato oggi per [TOPIC] è [TRAILING_PE_VALUE]."
     ],
     "cost": 0,
-    "keywords": ["trailing pe di", "trailing p/e di", "storico", "attuale", "corrente", "aggiornato"],
+    "keywords": ["trailing pe", "trailing p/e", "storico", "attuale", "corrente", "aggiornato"],
     "tag": "free"
 },
     "forward_pe": {
@@ -3715,7 +3773,7 @@
       "Il forward P/E stimato oggi per [TOPIC] è [FORWARD_PE_VALUE]."
     ],
     "cost": 0,
-    "keywords": ["forward pe di", "forward p/e di", "previsto", "attuale", "corrente", "aggiornato"],
+    "keywords": ["forward pe", "forward p/e", "previsto", "attuale", "corrente", "aggiornato"],
     "tag": "free"
 },
     "eps_growth": {
@@ -3744,7 +3802,7 @@
       "Il valore EPS growth stimato oggi per [TOPIC] è [EPS_GROWTH_VALUE]."
     ],
     "cost": 0,
-    "keywords": ["eps di", "eps per", "eps growth di", "eps growth per", "eps yoy di", "eps growth yoy di", "eps anno su anno di", "attuale", "corrente", "aggiornato"],
+    "keywords": ["eps", "eps growth", "attuale", "corrente", "aggiornato"],
     "tag": "free"
 },
     "revenue_growth": {
@@ -3773,7 +3831,7 @@
       "Il valore revenue growth stimato oggi per [TOPIC] è [REVENUE_GROWTH_VALUE]."
     ],
     "cost": 0,
-    "keywords": ["revenue di", "revenue per", "revenue growth di", "ricavi di", "ricavi yoy di", "ricavi anno su anno di", "revenue growth per", "attuale", "corrente", "aggiornato"],
+    "keywords": ["revenue", "revenue growth", "ricavi", "attuale", "corrente", "aggiornato", "aggiornati"],
     "tag": "free"
 },
     "profit_margins": {
@@ -3803,7 +3861,7 @@
       "Il valore stimato oggi del margine di profitto di [TOPIC] è [PROFIT_MARGINS_VALUE]."
     ],
     "cost": 0,
-    "keywords": ["profit margins di", "profit margins per", "profitto di", "profitto per", "registrato", "attuale", "corrente", "aggiornato"],
+    "keywords": ["profit margins", "profitto", "registrato", "attuale", "corrente", "aggiornato"],
     "tag": "free"
 },
     "debt_to_equity": {
@@ -3835,7 +3893,7 @@
       "Il valore stimato oggi del rapporto debito/capitale di [TOPIC] è [DEBT_TO_EQUITY_VALUE]."
     ],
     "cost": 0,
-    "keywords": ["debt to equity di", "debt to equity per", "debt/equity di", "debt/equity per", "debito/patrimonio di", "equity di", "attuale", "corrente", "aggiornato"],
+    "keywords": ["debt to equity", "debt/equity", "debito/patrimonio", "equity di", "attuale", "corrente", "aggiornato"],
     "tag": "free"
 },
   "inflation_deflation": {
@@ -4085,7 +4143,7 @@
       "Il prezzo di un asset non dipende solo dai dati storici ma anche dalle aspettative future degli investitori.\n\nProiezioni di crescita, anticipazioni sugli utili, politiche monetarie e cambi valutari sono alcuni dei fattori che muovono i mercati. Anche eventi imprevisti o shock esterni possono generare oscillazioni significative, rendendo il mercato dinamico e complesso."
     ],
     "cost": 0,
-    "keywords": ["prezzi", "prezzo", "azione", "azioni", "mercato"]
+    "keywords": ["cosa muove", "fa muovere", "influenza", "influenzano", "influenzati", "influenzato", "prezzi", "fattori", "prezzo", "mercato"]
 },
     "obbligazioni_info": {
     "questions": [
@@ -4138,7 +4196,12 @@
       "Puoi spiegarmi come funzionano gli ETF?",
       "A cosa servono gli ETF?",
       "ETF, come si usano per investire?",
-      "In cosa consistono gli ETF?"
+      "In cosa consistono gli ETF?",
+      "Come funzionano gli Exchange Traded Funds?",
+      "Cosa sono gli Exchange Traded Funds?",
+      "Spiegami gli Exchange Traded Funds",
+      "Cosa vuol dire fondi indicizzati?",
+      "Cosa significa fondo indicizzato?"
     ],
     "answers": [
       "Gli ETF, o Exchange Traded Funds, sono fondi di investimento quotati in borsa che replicano l’andamento di un indice, un settore o un paniere di asset.\n\nPermettono agli investitori di diversificare il portafoglio acquistando un unico strumento che contiene molteplici titoli. Gli ETF possono includere azioni, obbligazioni, materie prime o altri strumenti finanziari, offrendo liquidità e flessibilità simile a quella di un’azione.",
@@ -4146,7 +4209,7 @@
       "Gli ETF combinano i vantaggi di un fondo comune e la negoziabilità di un’azione: replicano un indice o un paniere di titoli e possono essere comprati e venduti in borsa.\n\nSono utili per diversificare rapidamente il portafoglio, ridurre i rischi specifici di singoli titoli e accedere a mercati altrimenti difficili da raggiungere, il tutto con costi contenuti e alta trasparenza."
     ],
     "cost": 0,
-    "keywords": ["etf", "cosa sono", "cos'è", "funziona", "funzionano", "spiega", "spiegami", "spiegare", "spiegarmi", "servono", "consistono"]
+    "keywords": ["etf", "exchange traded funds", "exchange traded fund", "fondo indicizzato", "fondi indicizzati", "cosa sono", "cos'è", "funziona", "funzionano", "spiega", "spiegami", "spiegare", "spiegarmi", "servono", "consistono"]
 },
     "fondi_info": {
     "questions": [
@@ -4232,7 +4295,7 @@
       "Supporto e resistenza sono aree chiave dei grafici di prezzo. Il supporto indica la zona in cui la pressione di acquisto può fermare la discesa dei prezzi, mentre la resistenza rappresenta il punto in cui la pressione di vendita può bloccare i rialzi.\n\nQuesti livelli aiutano a prevedere possibili inversioni, breakout e conferme di trend, offrendo strumenti pratici per la gestione del rischio e la pianificazione delle operazioni sul mercato."
     ],
     "cost": 0,
-    "keywords": ["livelli", "supporto", "resistenza", "cosa sono", "funzionano", "spiega", "spiegami", "spiegare", "spiegarmi", "servono"]
+    "keywords": ["livelli", "livello", "supporto", "resistenza", "cosa sono", "funzionano", "spiega", "spiegami", "spiegare", "spiegarmi", "servono"]
 },
     "volumi_info": {
     "questions": [
@@ -4389,7 +4452,7 @@
     "Richiedere l’analisi di un asset è facile: chiedimela direttamente 🤖 oppure usa la schermata dedicata dove inserisci il nome dell’asset e premi invio per ottenere subito il risultato.\n\nUn’altra opzione è selezionare l’asset e cliccare su ‘Analisi’ 📈, così accederai direttamente alla pagina completa con tutti i dati aggiornati, grafici e informazioni per pianificare le tue strategie."
   ],
   "cost": 0,
-  "keywords": ["analisi di un asset", "analizzare un asset"]
+  "keywords": ["analisi di un asset", "analizzare un asset", "analizzo un asset", "si analizza un asset"]
 },
   "navigazione_disdetta_abbonamento": {
   "questions": [
@@ -4509,7 +4572,8 @@
       "Nell'app c'è una schermata dedicata alle notizie, dove tutte le news sono già filtrate e ordinate in modo da mostrarti per prime quelle più recenti.\n\nPuoi fare click su una notizia per aprirne il testo direttamente sul web e leggerla, oppure analizzarla subito. È possibile anche incollare il testo di una notizia esterna sulla barra di ricerca nella schermata di analisi notizie per ottenere un sentiment accurato, basato principalmente sul titolo, che riassume le informazioni più rilevanti.",
       "La schermata notizie dell'app ti permette di avere sempre sott'occhio le ultime informazioni, filtrate e ordinate in modo chiaro.\n\nCliccando su una notizia puoi aprire il testo completo sul web o analizzarla subito. Inoltre, puoi incollare testi di notizie esterne nella barra di ricerca della schermata di analisi notizie: il nostro algoritmo valuta il sentiment dei titoli, permettendoti di ottenere rapidamente un'interpretazione accurata delle notizie."
     ],
-    "cost": 0
+    "cost": 0,
+    "keywords": ["schermata notizie", "schermata delle notizie", "schermata news", "schermata delle news", "pagina notizie", "pagina delle notizie"]
 },
   "asset_news": {
     "questions": [
@@ -4605,7 +4669,7 @@
       "Ecco cosa ho trovato su [TOPIC]:"
     ],
     "cost": 0,
-    "keywords": ["notizia", "notizie", "news", "notizie di", "notizie su", "notizie per", "news di", "news su", "news per", "notizie riguardo", "news riguardo", "novità su", "novità per", "novità riguardo"],
+    "keywords": ["notizia", "notizie", "news", "notizie riguardo", "news riguardo", "novità"],
     "tag": "free"
 },
     "segnale": {
@@ -4637,7 +4701,7 @@
       "Le analisi tecniche mostrano che il segnale di [TOPIC] è [SEGNALE]."
     ],
     "cost": 0,
-    "keywords": ["segnale di", "investire su", "investire in", "segnale per", "segnale attuale per", "segnale attuale di", "segnale"],
+    "keywords": ["segnale", "investire su", "investire in"],
     "tag": "premium"
   },
     "languages": {
@@ -4809,7 +4873,7 @@
       "Il dato aggiornato delle informative sells per [TOPIC] è [INFORMATIVE_SELLS_VALUE]. Storicamente, il valore più alto raggiunto è stato [INFORMATIVE_SELLS_STORIC]. 🚀"
     ],
     "cost": 0,
-    "keywords": ["informative sells di", "informative sells su", "informative sells per", "vendite insider di", "vendite insider su", "vendite insider per", "vendite degli insider di", "vendite degli insider su", "vendite degli insider per", "vendite interne di", "vendite interne su", "vendite interne per", "insider", "movimenti insider", "movimenti di vendita"],
+    "keywords": ["informative sells", "vendite insider", "vendite degli insider", "vendite interne", "insider", "movimenti insider", "movimenti di vendita"],
     "tag": "ultra"
   },
   "informative_sells_info": {
@@ -5079,7 +5143,7 @@
     "L’analisi volumetrica è una componente chiave dell’analisi tecnica che aiuta a comprendere **l’interesse reale degli investitori** in un determinato asset. I volumi rappresentano l’energia del mercato: più alti sono, maggiore è la partecipazione. Un buon uso dell’analisi volumetrica permette di anticipare rotture di supporti e resistenze, o confermare un trend in corso.\n\n😓 Attualmente TradeGPT non può ancora rilevare e analizzare i volumi in modo diretto, ma il team di sviluppo sta lavorando per introdurre presto questa funzionalità 📈."
   ],
   "cost": 0,
-  "keywords": ["analisi volumetrica", "analisi dei volumi", "studiare i volumi", "studio dei volumi", "volumi", "volume profile"]
+  "keywords": ["analisi volumetrica", "volumi", "volume", "analisi dei volumi", "studiare i volumi", "studio dei volumi", "volumi", "volume profile"]
 },
   "gestione_rischio_info": {
   "questions": [
