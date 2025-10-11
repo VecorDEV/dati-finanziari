@@ -328,7 +328,7 @@
     "Previsioni attuali indicano una situazione chiara su [TOPIC].\nL’analisi è pronta e può essere visualizzata con un click.",
     "Gli indicatori suggeriscono che [TOPIC] presenta informazioni osservabili nei prossimi giorni.\nL’analisi completa è stata preparata e può essere aperta."
   ],
-    "cost": 1,
+    "cost": 0,
     "keywords": ["previsioni", "forecast", "outlook", "sentiment", "trend"],
     "tag": "free"
 },
@@ -420,7 +420,7 @@
     "Secondo i dati più solidi, [TOPIC] avrà un andamento [FORECAST_TREND].\n\nIl livello di probabilità associato è del [FORECAST_VALUE].",
     "📊 Le proiezioni indicano che [TOPIC] si orienterà verso un andamento [FORECAST_TREND].\n\nLa probabilità complessiva stimata è del [FORECAST_VALUE]."
   ],
-    "cost": 1,
+    "cost": 2,
     "keywords": ["previsioni", "forecast", "outlook", "trend"],
     "tag": "premium"
 },
@@ -511,7 +511,7 @@
     "📉 Secondo le stime attuali, il sentiment di [TOPIC] è [SENTIMENT_90].",
     "La situazione aggiornata mostra un sentiment [SENTIMENT_90] per [TOPIC]."
   ],
-    "cost": 1,
+    "cost": 2,
     "keywords": ["sentiment", "90 giorni", "novanta giorni", "tre mesi", "3 mesi", "lungo termine", "sentiment trimestrale", "novanta"],
     "tag": "premium"
 },
@@ -572,7 +572,7 @@
     "Il quadro generale dei prossimi 30 giorni mostra per [TOPIC] un sentiment [SENTIMENT_30].",
     "Dai calcoli emerge che il sentiment di [TOPIC] entro 30 giorni risulta [SENTIMENT_30]."
   ],
-    "cost": 1,
+    "cost": 2,
     "keywords": ["sentiment", "30 giorni", "trenta giorni", "prossimo mese", "sentiment mensile", "lungo termine", "trenta"],
     "tag": "premium"
 },
@@ -634,7 +634,7 @@
     "Il sentiment previsto nei prossimi 7 giorni per [TOPIC] è [SENTIMENT_7].",
     "Secondo i dati attuali, il sentiment settimanale di [TOPIC] è [SENTIMENT_7]."
   ],
-    "cost": 1,
+    "cost": 2,
     "keywords": ["sentiment", "7 giorni", "sette giorni", "sentiment settimanale", "breve termine", "sette"],
     "tag": "premium"
 },
@@ -1271,7 +1271,7 @@
     "Il grafico di [TOPIC] segnala una fase [AGG_F], con trend [AGG_M] consolidato e possibili oscillazioni future 📊.",
     "Osservando [TOPIC], possiamo identificare pattern [AGG_M] e segnali che supportano l’analisi tecnica dei livelli di supporto a [SUPPORTO] e resistenza a [RESISTENZA]. 💡"
   ],
-    "cost": 2,
+    "cost": 4,
     "keywords": ["tecnica", "tecnico", "tecnici", "tecniche", "nello specifico", "specifica", "specifici", "specifiche", "analisi", "dati tecnici", "informazioni tecniche"],
     "tag": "premium"
 },
@@ -1338,7 +1338,7 @@
     "Oggi [TOPIC] evidenzia un setup [AGG_M]. Agisci con cautela e imposta target realistici a [TAKE_PROFIT].",
     "La fase tecnica di [TOPIC] è [AGG_F]. Entrare può avere senso, ma con stop loss stretto a [STOP_LOSS] e valutazione dei volumi."
   ],
-    "cost": 2,
+    "cost": 4,
     "keywords": ["conviene", "entrare", "ora", "adesso", "aspettare"],
     "tag": "premium"
 },
@@ -1423,7 +1423,7 @@
     "Secondo i calcoli aggiornati, [TOP_GAINER] è favorito con [FORECAST_TOP_GAINER], mentre [TOP_GAINER_2] ha probabilità comunque interessanti.",
     "Le probabilità attuali segnalano [TOP_GAINER] e [TOP_GAINER_2] come gli asset con le chance più alte di crescere."
   ],
-    "cost": 0,
+    "cost": 1,
     "keywords": ["dove", "conviene", "mettere", "puntare", "investire", "su cosa"],
     "tag": "free"
 },
@@ -1468,7 +1468,7 @@
     "Suggerisco uno stop loss a [STOP_LOSS] per [TOPIC], così da proteggere la posizione senza compromettere le opportunità di mercato.",
     "Per [TOPIC], un buon stop loss è posizionato a [STOP_LOSS] 🔒, basato sui livelli di supporto e sull’analisi tecnica corrente."
   ],
-    "cost": 2,
+    "cost": 3,
     "keywords": ["stop loss"],
     "tag": "premium"
 },
@@ -1517,7 +1517,7 @@
     "Suggerisco un take profit a [TAKE_PROFIT] su [TOPIC], così da ottimizzare il guadagno mantenendo il controllo sulla posizione.",
     "Per [TOPIC], un buon take profit è posizionato a [TAKE_PROFIT] 📊, basato sui livelli di resistenza e sull’analisi tecnica corrente."
   ],
-    "cost": 2,
+    "cost": 3,
     "keywords": ["take profit", "target", "profitto"],
     "tag": "premium"
 },
@@ -1548,7 +1548,11 @@
     "cost": 0
 },
   "fundamental_analysis": {
-  "questions": ["analisi fondamentale di [TOPIC]"],
+  "questions": [
+    "Analisi fondamentale di [TOPIC]",
+    "Mi dai l'analisi fondamentale di [TOPIC]?",
+    "Puoi darmi l'analisi fondamentale di [TOPIC]?"
+  ],
   "answers": [
     "L’analisi fondamentale di [TOPIC] mostra che i dati macroeconomici e i bilanci recenti indicano una situazione [TREND_AGG_F]. 📊",
     "Valutando ricavi, utili e crescita di [TOPIC], il trend appare [TREND_AGG_M], suggerendo attenzione ai fattori chiave.",
@@ -1616,33 +1620,41 @@
     "E le criptovalute oggi?"
   ],
   "answers": [
-    "Oggi il mercato delle criptovalute mostra un andamento complessivamente [TREND_AGG_M].\n\nIn particolare, [MAIN_CRYPTO] sembra guidare i movimenti principali e il suo forecast per la giornata è di [FORECAST_MAIN_CRYPTO].",
-    "Il mercato crypto si trova attualmente in una fase [TREND_AGG_F].\n\nTra le principali monete, [MAIN_CRYPTO] sta avendo un ruolo dominante, con previsioni di oggi che indicano [FORECAST_MAIN_CRYPTO].",
-    "Le criptovalute oggi mostrano un quadro [TREND_AGG_M].\n\nA guidare il settore troviamo [MAIN_CRYPTO], che presenta un forecast giornaliero di [FORECAST_MAIN_CRYPTO].",
-    "Oggi il mercato crypto è piuttosto [TREND_AGG_M], con volumi e oscillazioni che confermano la direzione generale.\n\n[MAIN_CRYPTO] si distingue come protagonista, con un forecast stimato a [FORECAST_MAIN_CRYPTO].",
-    "L’analisi di oggi sul mercato delle criptovalute mostra un trend [TREND_AGG_M].\n\n[MAIN_CRYPTO] sta trainando le principali coin e il suo forecast odierno è pari a [FORECAST_MAIN_CRYPTO] 📈.",
-    "Il contesto crypto attuale è [TREND_AGG_M].\n\nLa giornata vede [MAIN_CRYPTO] tra le monete più influenti, con una previsione stimata a [FORECAST_MAIN_CRYPTO].",
-    "Oggi le crypto si muovono in uno scenario complessivamente [TREND_AGG_M].\n\nA trainare il settore c’è [MAIN_CRYPTO], con un forecast che segna [FORECAST_MAIN_CRYPTO] 🔥.",
-    "Il mercato delle criptovalute presenta oggi un segnale [TREND_AGG_M].\n\nIn prima linea troviamo [MAIN_CRYPTO], che secondo le analisi mostra una proiezione del [FORECAST_MAIN_CRYPTO].",
-    "La performance complessiva delle crypto risulta [TREND_AGG_F].\n\nLa giornata è dominata in gran parte da [MAIN_CRYPTO], con un forecast che si attesta a [FORECAST_MAIN_CRYPTO] 💹.",
-    "Oggi il mercato crypto appare [TREND_AGG_M].\n\nIl trend è rafforzato dal ruolo di [MAIN_CRYPTO], che secondo i dati più recenti ha una previsione del [FORECAST_MAIN_CRYPTO].",
-    "Il settore delle criptovalute vive oggi una fase [TREND_AGG_F].\n\nL’asset più in evidenza è [MAIN_CRYPTO], che si conferma trainante con un forecast giornaliero pari a [FORECAST_MAIN_CRYPTO].",
-    "Attualmente il mercato delle criptovalute nel complesso è [TREND_AGG_M].\n\nA guidare questa direzione c’è [MAIN_CRYPTO], supportato da un forecast del [FORECAST_MAIN_CRYPTO] 💎.",
-    "Il quadro odierno del mercato crypto è [TREND_AGG_M].\n\nTra le monete principali, [MAIN_CRYPTO] è quella che detta i ritmi con una proiezione stimata al [FORECAST_MAIN_CRYPTO].",
-    "Oggi l’andamento delle criptovalute è [TREND_AGG_M].\n\nIl mercato guarda soprattutto a [MAIN_CRYPTO], il cui forecast giornaliero segna [FORECAST_MAIN_CRYPTO] 🚀.",
-    "Il sentiment generale sulle crypto è [TREND_AGG_M].\n\n[MAIN_CRYPTO] resta l’osservata speciale della giornata, con proiezioni che indicano [FORECAST_MAIN_CRYPTO].",
-    "Le criptovalute mostrano oggi un contesto generale [TREND_AGG_M].\n\nLa giornata è caratterizzata dai movimenti di [MAIN_CRYPTO], che ha un forecast impostato a [FORECAST_MAIN_CRYPTO].",
-    "Oggi il mercato crypto appare piuttosto [TREND_AGG_M].\n\n[MAIN_CRYPTO] gioca un ruolo chiave, con un forecast giornaliero stimato al [FORECAST_MAIN_CRYPTO] 🏆.",
-    "Il panorama delle criptovalute è [TREND_AGG_M].\n\n[MAIN_CRYPTO] guida i volumi della giornata e le previsioni parlano di [FORECAST_MAIN_CRYPTO].",
-    "Oggi il trend complessivo delle crypto è [TREND_AGG_M].\n\nIl mercato segue da vicino i movimenti di [MAIN_CRYPTO], che secondo il forecast di giornata mostra [FORECAST_MAIN_CRYPTO].",
-    "Le crypto attraversano una fase [TREND_AGG_F].\n\nTra gli asset più importanti, [MAIN_CRYPTO] si distingue grazie a un forecast che oggi è di [FORECAST_MAIN_CRYPTO] 🚀."
+    "Oggi il mercato delle criptovalute mostra un andamento complessivamente [CRYPTO_AGG_M].\n\nIn particolare, [MAIN_CRYPTO] sembra guidare i movimenti principali e il suo forecast per la giornata è di [FORECAST_MAIN_CRYPTO].",
+    "Il mercato crypto si trova attualmente in una fase [CRYPTO_AGG_F].\n\nTra le principali monete, [MAIN_CRYPTO] sta avendo un ruolo dominante, con previsioni di oggi che indicano [FORECAST_MAIN_CRYPTO].",
+    "Le criptovalute oggi mostrano un quadro [CRYPTO_AGG_M].\n\nA guidare il settore troviamo [MAIN_CRYPTO], che presenta un forecast giornaliero di [FORECAST_MAIN_CRYPTO].",
+    "Oggi il mercato crypto è piuttosto [CRYPTO_AGG_M], con volumi e oscillazioni che confermano la direzione generale.\n\n[MAIN_CRYPTO] si distingue come protagonista, con un forecast stimato a [FORECAST_MAIN_CRYPTO].",
+    "L’analisi di oggi sul mercato delle criptovalute mostra un trend [CRYPTO_AGG_M].\n\n[MAIN_CRYPTO] sta trainando le principali coin e il suo forecast odierno è pari a [FORECAST_MAIN_CRYPTO] 📈.",
+    "Il contesto crypto attuale è [CRYPTO_AGG_M].\n\nLa giornata vede [MAIN_CRYPTO] tra le monete più influenti, con una previsione stimata a [FORECAST_MAIN_CRYPTO].",
+    "Oggi le crypto si muovono in uno scenario complessivamente [CRYPTO_AGG_M].\n\nA trainare il settore c’è [MAIN_CRYPTO], con un forecast che segna [FORECAST_MAIN_CRYPTO] 🔥.",
+    "Il mercato delle criptovalute presenta oggi un segnale [CRYPTO_AGG_M].\n\nIn prima linea troviamo [MAIN_CRYPTO], che secondo le analisi mostra una proiezione del [FORECAST_MAIN_CRYPTO].",
+    "La performance complessiva delle crypto risulta [CRYPTO_AGG_F].\n\nLa giornata è dominata in gran parte da [MAIN_CRYPTO], con un forecast che si attesta a [FORECAST_MAIN_CRYPTO] 💹.",
+    "Oggi il mercato crypto appare [CRYPTO_AGG_M].\n\nIl trend è rafforzato dal ruolo di [MAIN_CRYPTO], che secondo i dati più recenti ha una previsione del [FORECAST_MAIN_CRYPTO].",
+    "Il settore delle criptovalute vive oggi una fase [CRYPTO_AGG_F].\n\nL’asset più in evidenza è [MAIN_CRYPTO], che si conferma trainante con un forecast giornaliero pari a [FORECAST_MAIN_CRYPTO].",
+    "Attualmente il mercato delle criptovalute nel complesso è [CRYPTO_AGG_M].\n\nA guidare questa direzione c’è [MAIN_CRYPTO], supportato da un forecast del [FORECAST_MAIN_CRYPTO] 💎.",
+    "Il quadro odierno del mercato crypto è [CRYPTO_AGG_M].\n\nTra le monete principali, [MAIN_CRYPTO] è quella che detta i ritmi con una proiezione stimata al [FORECAST_MAIN_CRYPTO].",
+    "Oggi l’andamento delle criptovalute è [CRYPTO_AGG_M].\n\nIl mercato guarda soprattutto a [MAIN_CRYPTO], il cui forecast giornaliero segna [FORECAST_MAIN_CRYPTO] 🚀.",
+    "Il sentiment generale sulle crypto è [CRYPTO_AGG_M].\n\n[MAIN_CRYPTO] resta l’osservata speciale della giornata, con proiezioni che indicano [FORECAST_MAIN_CRYPTO].",
+    "Le criptovalute mostrano oggi un contesto generale [CRYPTO_AGG_M].\n\nLa giornata è caratterizzata dai movimenti di [MAIN_CRYPTO], che ha un forecast impostato a [FORECAST_MAIN_CRYPTO].",
+    "Oggi il mercato crypto appare piuttosto [CRYPTO_AGG_M].\n\n[MAIN_CRYPTO] gioca un ruolo chiave, con un forecast giornaliero stimato al [FORECAST_MAIN_CRYPTO] 🏆.",
+    "Il panorama delle criptovalute è [CRYPTO_AGG_M].\n\n[MAIN_CRYPTO] guida i volumi della giornata e le previsioni parlano di [FORECAST_MAIN_CRYPTO].",
+    "Oggi il trend complessivo delle crypto è [CRYPTO_AGG_M].\n\nIl mercato segue da vicino i movimenti di [MAIN_CRYPTO], che secondo il forecast di giornata mostra [FORECAST_MAIN_CRYPTO].",
+    "Le crypto attraversano una fase [CRYPTO_AGG_F].\n\nTra gli asset più importanti, [MAIN_CRYPTO] si distingue grazie a un forecast che oggi è di [FORECAST_MAIN_CRYPTO] 🚀."
   ],
-    "cost": 1,
+    "cost": 3,
     "keywords": ["mercato", "crypto", "cripto", "criptovalute"],
     "tag": "free"
 },
   "market_news": {
-  "questions": ["ci sono novità sui mercati?"],
+  "questions": [
+    "Ci sono novità sui mercati?",
+    "Hai notizie sui mercati?",
+    "Che notizie ci sono sui mercati?",
+    "Quali notizie mi puoi dare sui mercati di oggi?",
+    "Quali notizie mi dai sul mercato odierno?",
+    "Cosa dicono le notizie del mercato in generale?",
+    "Cosa indicano le notizie del mercato oggi?"
+  ],
   "answers": [
     "Oggi le notizie sui mercati indicano un trend generale interessante, con [MAIN_TOPIC] che reagisce agli eventi recenti 📊.",
     "Gli aggiornamenti economici mostrano una situazione molto interessante, con possibili impatti sui principali asset e indici.",
@@ -1723,7 +1735,7 @@
     "Perfetto, utile come sempre!",
     "Va bene grazie",
     "Va bene, grazie mille",
-    "Va bene, grazie mille!"
+    "Va bene, grazie ancora"
   ],
   "answers": [
     "Con piacere, buon trading! 📈",
@@ -2018,7 +2030,7 @@
     "Oggi [TOPIC] mostra [TREND] di [VALORE] 📊\n\nUltimo dato disponibile: [DATE]",
     "[TOPIC] è [TREND] di [VALORE] oggi 🔹\n\nUltimo dato disponibile: [DATE]"
   ],
-    "cost": 1,
+    "cost": 3,
     "keywords": ["oggi", "come sta", "andando", "procedendo", "muovendo"],
     "tag": "free"
 },
@@ -2109,7 +2121,7 @@
     "I mercati sono sensibili soprattutto alle sorprese macro inattese: più grande è la sorpresa, più forte la reazione.",
     "Le notizie macro influenzano la percezione del rischio: quando aumentano i timori, il mercato si rifugia in asset sicuri."
   ],
-    "cost": 1,
+    "cost": 0,
     "keywords": ["notizie macro", "macro"]
 },
   "actual_general_info": {
@@ -2351,15 +2363,16 @@
     "Posso mettere mille duecento dollari neozelandesi su [TOPIC]?"
   ],
   "answers": [
-    "In generale, cifre più alte possono avere senso quando l’asset mostra un **trend stabile e segnali tecnici positivi**, mentre in fasi di **volatilità o incertezza** è preferibile ridurre l’esposizione e mantenere una parte di liquidità pronta. Ricorda che la gestione del capitale serve a proteggerti tanto quanto a farti crescere.  \n\nTuttavia, non posso stabilire io l’importo preciso. La decisione dipende dal tuo profilo di rischio, dai tuoi obiettivi e dal capitale complessivo disponibile 💡.",
-    "Se l’analisi mostra **trend chiari e confermati dai volumi o dal sentiment positivo**, può essere opportuno considerare un’esposizione maggiore, ma sempre entro limiti prudenti. Al contrario, se il mercato è incerto o mostra divergenze, meglio ridurre la quota e attendere conferme.  \n\nDetto questo, non posso indicarti una cifra esatta 😅. Ti consiglio di valutare attentamente il tuo livello di rischio e di non investire mai più di quanto puoi permetterti di perdere.",
-    "Quando un asset è **in fase di consolidamento o mostra segnali di forza crescente**, un investimento moderato può avere senso; se invece il mercato è laterale o in forte calo, è meglio esporsi con cifre più contenute. La chiave è adattare la posizione alla volatilità del momento 📊.  \n\nComunque, la decisione finale spetta solo a te: io posso solo aiutarti a ragionare, non scegliere la cifra esatta.",
-    "Un buon approccio è aumentare la quota investita solo quando ci sono **conferme multiple** (trend positivo, sentiment favorevole, fondamentali solidi). Se invece prevale l’incertezza o ci sono segnali misti, conviene ridurre il rischio o restare in attesa.  \n\nTuttavia, non posso dirti io quanto investire 😉. Rifletti bene sui tuoi obiettivi, sulla tua tolleranza al rischio e sul capitale che puoi permetterti di utilizzare.",
-    "Quando il mercato mostra **chiarezza direzionale** e l’asset è supportato da dati solidi, può aver senso incrementare leggermente la posizione. Se invece ci sono **segnali contrastanti o forti oscillazioni**, è meglio procedere con piccoli passi e mantenere parte del capitale in riserva.  \n\nIn ogni caso, la scelta è personale: io non posso decidere l’importo preciso, ma solo invitarti a investire sempre in modo consapevole e prudente 🙌.",
-    "Le cifre più alte possono essere sensate in presenza di **trend confermati e segnali tecnici coerenti**, ma anche in questi casi è importante diversificare e non concentrare tutto su un singolo asset. Se invece il mercato è incerto o il sentiment è negativo, è meglio limitarsi a una posizione ridotta.  \n\nTuttavia, non posso determinare io quanto dovresti investire 😅. Ti consiglio di usare prudenza e di pianificare bene la tua strategia di gestione del rischio."
+    "In generale, cifre più alte possono avere senso quando l’asset mostra un *trend stabile e segnali tecnici positivi*, mentre in fasi di *volatilità o incertezza* è preferibile ridurre l’esposizione e mantenere una parte di liquidità pronta. Ricorda che la gestione del capitale serve a proteggerti tanto quanto a farti crescere.\n\nTuttavia, non posso stabilire io l’importo preciso. La decisione dipende dal tuo profilo di rischio, dai tuoi obiettivi e dal capitale complessivo disponibile 💡.",
+    "Se l’analisi mostra *trend chiari e confermati dai volumi o dal sentiment positivo*, può essere opportuno considerare un’esposizione maggiore, ma sempre entro limiti prudenti. Al contrario, se il mercato è incerto o mostra divergenze, meglio ridurre la quota e attendere conferme.\n\nDetto questo, non posso indicarti una cifra esatta 😅. Ti consiglio di valutare attentamente il tuo livello di rischio e di non investire mai più di quanto puoi permetterti di perdere.",
+    "Quando un asset è *in fase di consolidamento o mostra segnali di forza crescente*, un investimento moderato può avere senso; se invece il mercato è laterale o in forte calo, è meglio esporsi con cifre più contenute. La chiave è adattare la posizione alla volatilità del momento 📊.\n\nComunque, la decisione finale spetta solo a te: io posso solo aiutarti a ragionare, non scegliere la cifra esatta.",
+    "Un buon approccio è aumentare la quota investita solo quando ci sono *conferme multiple* (trend positivo, sentiment favorevole, fondamentali solidi). Se invece prevale l’incertezza o ci sono segnali misti, conviene ridurre il rischio o restare in attesa.\n\nTuttavia, non posso dirti io quanto investire 😉. Rifletti bene sui tuoi obiettivi, sulla tua tolleranza al rischio e sul capitale che puoi permetterti di utilizzare.",
+    "Quando il mercato mostra *chiarezza direzionale* e l’asset è supportato da dati solidi, può aver senso incrementare leggermente la posizione. Se invece ci sono *segnali contrastanti o forti oscillazioni*, è meglio procedere con piccoli passi e mantenere parte del capitale in riserva.\n\nIn ogni caso, la scelta è personale: io non posso decidere l’importo preciso, ma solo invitarti a investire sempre in modo consapevole e prudente 🙌.",
+    "Le cifre più alte possono essere sensate in presenza di *trend confermati e segnali tecnici coerenti*, ma anche in questi casi è importante diversificare e non concentrare tutto su un singolo asset. Se invece il mercato è incerto o il sentiment è negativo, è meglio limitarsi a una posizione ridotta.\n\nTuttavia, non posso determinare io quanto dovresti investire 😅. Ti consiglio di usare prudenza e di pianificare bene la tua strategia di gestione del rischio."
   ],
-    "cost": 0,
-    "keywords": ["quanto", "quanti", "soldi", "capitale", "somma", "cifra", "rischioso", "posso mettere", "se metto", "€", "euro", "$", "dollari", "£", "sterline", "franchi", "¥", "yen"]
+    "cost": 1,
+    "keywords": ["quanto", "quanti", "soldi", "capitale", "somma", "cifra", "rischioso", "posso mettere", "se metto", "€", "euro", "$", "dollari", "£", "sterline", "franchi", "¥", "yen"],
+    "tag": "free"
 },
   "ai_invece": {
   "questions": [
@@ -2422,7 +2435,7 @@
   "answers": [
     "Per [TOPIC] invece..."
   ],
-    "cost": 1,
+    "cost": 2,
     "keywords": ["invece", "per quanto riguarda", "a proposito di", "dimmi quello di", "dimmi quello per", "dimmelo di", "dimmelo per", "dammelo di", "dammelo per", "anche di", "anche su", "anche per"]
 },
   "today": {
@@ -2464,7 +2477,7 @@
     "La data precisa di oggi è il [TODAY] .",
     "La giornata odierna è il [TODAY] ."
   ],
-    "cost": 1,
+    "cost": 0,
     "keywords": ["oggi"]
 },
   "yesterday": {
@@ -2491,7 +2504,7 @@
     "Il calendario segna che ieri era il [YESTERDAY].",
     "La data registrata ieri è stata il [YESTERDAY]."
   ],
-    "cost": 1,
+    "cost": 0,
     "keywords": ["ieri"]
 },
   "top_gainers": {
@@ -2507,8 +2520,7 @@
     "Chi sono i top gainers del giorno?",
     "[TOPIC] è un top gainer?",
     "Voglio sapere quali sono i top gainers",
-    "È un top gainer?",
-    "Invece quali sono i top movers?",
+    "Quali saranno i top movers?",
     "Chi saranno i leader di mercato oggi?",
     "Mi fai vedere i principali top gainer?",
     "Elencami i probabili top performer della giornata",
@@ -2534,7 +2546,7 @@
     "Lista dei principali top gainers stimati per oggi:\n\n• [TOP_GAINER] – [FORECAST_TOP_GAINER]\n\n• [TOP_GAINER_2] – [FORECAST_TOP_GAINER_2]\n\n• [TOP_GAINER_3] – [FORECAST_TOP_GAINER_3]\n\n• [TOP_GAINER_4] – [FORECAST_TOP_GAINER_4]\n\n• [TOP_GAINER_5] – [FORECAST_TOP_GAINER_5]",
     "Ecco gli asset che probabilmente si muoveranno di più secondo le stime:\n\n• [TOP_GAINER] con probabilità [FORECAST_TOP_GAINER]\n\n• [TOP_GAINER_2] con [FORECAST_TOP_GAINER_2]\n\n• [TOP_GAINER_3] con [FORECAST_TOP_GAINER_3]\n\n• [TOP_GAINER_4] con [FORECAST_TOP_GAINER_4]\n\n• [TOP_GAINER_5] con [FORECAST_TOP_GAINER_5]"
   ],
-  "cost": 0,
+  "cost": 1,
   "keywords": ["main movers", "main mover", "top movers", "top mover", "leader", "leaders", "top gainers", "top gainer", "di più", "aumenterà", "aumenteranno", "salirà", "saliranno", "crescerà", "cresceranno"],
   "tag": "free"
 },
@@ -2550,13 +2562,12 @@
     "Quali asset cresceranno di meno?",
     "Chi crescerà di meno?",
     "Quali sono i top losers?",
-    "Invece quali sono i top losers?",
+    "Quali sono i top losers?",
     "Voglio sapere quali sono i top losers",
     "Chi sono i perdenti stimati?",
     "Mostrami i top losers del giorno",
     "Chi sono i top losers del giorno?",
     "[TOPIC] è un top loser?",
-    "È un top loser?",
     "Chi saranno i peggiori performer oggi?",
     "Mi fai vedere i principali top loser?",
     "Elencami i probabili peggiori della giornata",
@@ -2582,7 +2593,7 @@
     "Lista dei principali top losers stimati per oggi:\n\n• [TOP_LOSER] – [FORECAST_TOP_LOSER]\n\n• [TOP_LOSER_2] – [FORECAST_TOP_LOSER_2]\n\n• [TOP_LOSER_3] – [FORECAST_TOP_LOSER_3]\n\n• [TOP_LOSER_4] – [FORECAST_TOP_LOSER_4]\n\n• [TOP_LOSER_5] – [FORECAST_TOP_LOSER_5]",
     "Ecco gli asset che probabilmente perderanno di più secondo le stime:\n\n• [TOP_LOSER] con probabilità [FORECAST_TOP_LOSER]\n\n• [TOP_LOSER_2] con [FORECAST_TOP_LOSER_2]\n\n• [TOP_LOSER_3] con [FORECAST_TOP_LOSER_3]\n\n• [TOP_LOSER_4] con [FORECAST_TOP_LOSER_4]\n\n• [TOP_LOSER_5] con [FORECAST_TOP_LOSER_5]"
   ],
-  "cost": 0,
+  "cost": 1,
   "keywords": ["perdenti", "top losers", "losers", "loser", "di più", "di meno", "peggiori", "perderà", "perderanno", "diminuirà", "diminuiranno", "scenderà", "scenderanno"],
   "tag": "free"
 },
@@ -2618,7 +2629,7 @@
     "Questi sono i top fire settimanali 🔥\n\n[TOP_FIRE] ha segnato [TOP_FIRE_CHANGE_1]\n\n[TOP_FIRE_2] ha chiuso con [TOP_FIRE_CHANGE_2]\n\n[TOP_FIRE_3] con una crescita di [TOP_FIRE_CHANGE_3]",
     "La classifica dei migliori della settimana è la seguente:\n\n[TOP_FIRE] – [TOP_FIRE_CHANGE_1]\n\n[TOP_FIRE_2] – [TOP_FIRE_CHANGE_2]\n\n[TOP_FIRE_3] – [TOP_FIRE_CHANGE_3]"
   ],
-    "cost": 0,
+    "cost": 1,
     "keywords": ["top performers", "top performer", "settimana", "top fire", "top fires", "di più", "più alta"],
     "tag": "free"
 },
@@ -2639,7 +2650,7 @@
       "Oppure cosa?",
       "Che intendi?"
     ],
-      "cost": 0,
+      "cost": 2,
       "keywords": ["oppure"]
 },
     "ai_mannaggia": {
@@ -2716,7 +2727,7 @@
       "Ecco i dati di [TOPIC] rappresentati nel grafico a 3 mesi:",
       "Questo è il grafico a 90 giorni che mostra l’andamento di [TOPIC]:"
     ],
-      "cost": 1,
+      "cost": 3,
       "keywords": ["grafico", "disegna", "disegni", "disegnami", "disegnare", "disegnamo", "andamento", "traccia", "tracciami", "tracci", "tracciare", "tracciamo"],
       "tag": "free"
 },
@@ -2751,7 +2762,7 @@
       "Il valore recente di RSI per [TOPIC] è [RSI].\n\nLo stato è [STATE], suggerendo [SIGNIFICATO].",
       "Analisi tecnica: l'RSI di [TOPIC] si trova a [RSI].\n\nLo stato rilevato è [STATE], e ciò significa [SIGNIFICATO]."
     ],
-    "cost": 1,
+    "cost": 4,
     "keywords": ["rsi", "relative strength index", "attuale", "aggiornato"],
     "tag": "premium"
 },
@@ -2786,7 +2797,7 @@
       "Mi spiace, l'accesso all'RSI di [TOPIC] è limitato agli abbonati dei piani premium o ultra 😅. Puoi fare l'upgrade per goderti tutti i vantaggi! ",
       "L'indicatore RSI di [TOPIC] può essere visualizzato solo con un abbonamento premium o ultra. Non perdere l'opportunità di sfruttare tutte le funzionalità!"
     ],
-   "cost": 1,
+   "cost": 0,
    "keywords": ["rsi", "relative strength index", "attuale", "aggiornato"],
    "tag": "free"
 },
@@ -2817,7 +2828,7 @@
       "Secondo le ultime rilevazioni, [TOPIC] ha un MACD pari a [MACD_VALUE] e un trend [TA_TREND].",
       "Il MACD attuale di [TOPIC] è [MACD_VALUE] e suggerisce un comportamento [TA_TREND] del mercato."
     ],
-    "cost": 1,
+    "cost": 4,
     "keywords": ["macd", "moving average convergence divergence", "attuale", "aggiornato"],
     "tag": "premium"
 },
@@ -2848,7 +2859,7 @@
       "Mi spiace, l'accesso al MACD di [TOPIC] è limitato agli abbonati dei piani premium o ultra 😅. Puoi fare l'upgrade per goderti tutti i vantaggi!",
       "L'indicatore MACD di [TOPIC] può essere visualizzato solo con un abbonamento premium o ultra. Non perdere l'opportunità di sfruttare tutte le funzionalità!"
     ],
-    "cost": 1,
+    "cost": 0,
     "keywords": ["macd", "moving average convergence divergence", "attuale", "aggiornato"],
     "tag": "free"
 },
@@ -2880,7 +2891,7 @@
       "Attenzione ai valori dello stocastico di [TOPIC]:\n\nK = [STOCH_K]\nD = [STOCH_D]\n\nSituazione: [STATE], che per l'asset implica [SIGNIFICATO].",
       "I dati stocastici recenti per [TOPIC]:\n\nK = [STOCH_K]\nD = [STOCH_D]\n\nAnalisi: significa che è [STATE], quindi per l'asset indica [SIGNIFICATO]."
     ],
-    "cost": 1,
+    "cost": 4,
     "keywords": ["stocastico", "k e d"],
     "tag": "premium"
 },
@@ -2910,7 +2921,7 @@
       "Mi spiace, l'accesso allo stocastico di [TOPIC] è limitato agli abbonati dei piani premium o ultra 😅. Puoi fare l'upgrade per goderti tutti i vantaggi!",
       "L'indicatore stocastico di [TOPIC] può essere visualizzato solo con un abbonamento premium o ultra. Non perdere l'opportunità di sfruttare tutte le funzionalità!"
     ],
-    "cost": 1,
+    "cost": 0,
     "keywords": ["stocastico", "k e d"],
     "tag": "free"
 },
@@ -2940,7 +2951,7 @@
       "Il valore EMA 10 attuale di [TOPIC] è [EMA_VALUE].\n\nOsservando il prezzo [UP/DOWN] rispetto all'EMA10, possiamo dire che il trend è [TA_TREND].",
       "L'indicatore EMA10 di [TOPIC] oggi è [EMA_VALUE].\n\nIl prezzo si trova [UP/DOWN] rispetto all’EMA10, suggerendo un trend [TA_TREND]."
     ],
-    "cost": 1,
+    "cost": 4,
     "keywords": ["ema", "ema10", "ema 10", "ema a 10 giorni", "exponential moving average"],
     "tag": "premium"
 },
@@ -2970,7 +2981,7 @@
       "Mi spiace, l'accesso all'EMA10 di [TOPIC] è limitato agli abbonati dei piani premium o ultra 😅. Puoi fare l'upgrade per goderti tutti i vantaggi!",
       "L'indicatore EMA10 di [TOPIC] può essere visualizzato solo con un abbonamento premium o ultra. Non perdere l'opportunità di sfruttare tutte le funzionalità! 💎"
     ],
-    "cost": 1,
+    "cost": 0,
     "keywords": ["ema", "ema10", "ema 10 ", "ema a dieci giorni", "exponential moving average"],
     "tag": "free"
 },
@@ -3001,7 +3012,7 @@
       "Il Commodity Channel Index di [TOPIC] è [CCI_VALUE].\n\nLa condizione di [STATE] si traduce di norma in [SIGNIFICATO].",
       "Ultima analisi: il CCI di [TOPIC] segna [CCI_VALUE].\n\nSi tratta di uno stato [STATE], che rappresenta [SIGNIFICATO]."
     ],
-    "cost": 1,
+    "cost": 4,
     "keywords": ["cci", "commodity channel index", "attuale", "corrente", "aggiornato"],
     "tag": "premium"
 },
@@ -3032,7 +3043,7 @@
       "Per vedere il CCI di [TOPIC] occorre un abbonamento premium o ultra. Approfitta dei vantaggi dei nostri piani!",
       "Non hai accesso al CCI di [TOPIC] 😅. Fai l’upgrade ai piani premium o ultra per ottenere informazioni complete!"
     ],
-    "cost": 1,
+    "cost": 0,
     "keywords": ["cci", "commodity channel index", "attuale", "corrente", "aggiornato"],
     "tag": "free"
 },
@@ -3061,7 +3072,7 @@
       "Valore Williams %R per [TOPIC]: [WILLIAMS_VALUE].\n\nLo stato tecnico è [STATE], e questo fa pensare a [SIGNIFICATO].",
       "Aggiornamento: Williams %R di [TOPIC] = [WILLIAMS_VALUE].\n\nCondizione attuale: [STATE], il che significa [SIGNIFICATO]."
     ],
-    "cost": 1,
+    "cost": 4,
     "keywords": ["williams", "williams %r", "attuale", "corrente", "aggiornato"],
     "tag": "premium"
 },
@@ -3092,7 +3103,7 @@
       "Vuoi vedere il Williams %R di [TOPIC]? È riservato agli abbonati premium o ultra. Fai l’upgrade per avere accesso!",
       "Per consultare il Williams %R di [TOPIC], occorre un abbonamento premium o ultra. Approfitta dei vantaggi dell’upgrade!"
     ],
-    "cost": 1,
+    "cost": 0,
     "keywords": ["williams", "williams %r", "attuale", "corrente", "aggiornato"],
     "tag": "free"
 },
@@ -3122,7 +3133,7 @@
       "Analisi tecnica Bollinger per [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilità: [BB_VOLATILITY]\n- La banda è [UP/DOWN]\n\nL'asset risulta [STATE], che solitamente si traduce in [SIGNIFICATO].",
       "Ecco i dati delle bande di Bollinger di [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilità: [BB_VOLATILITY]\n- La banda è [UP/DOWN]\n\nSituazione: [STATE], che indica [SIGNIFICATO]."
     ],
-    "cost": 1,
+    "cost": 4,
     "keywords": ["bollinger", "attuale", "corrente", "aggiornato"],
     "tag": "premium"
 },
@@ -3155,7 +3166,7 @@
       "Non hai accesso ai dati Bollinger per [TOPIC] con il piano attuale. Passa a premium o ultra per sfruttare tutte le funzionalità!",
       "Ops! I dettagli delle bande di Bollinger sono riservati agli utenti premium o ultra. Effettua l'upgrade per consultarle."
     ],
-    "cost": 1,
+    "cost": 0,
     "keywords": ["bollinger", "attuale", "corrente", "aggiornato"],
     "tag": "free"
 },
@@ -3461,7 +3472,7 @@
       "Ti ho generato l’analisi di [TOPIC], dove puoi consultare tutti i key fundamental più rilevanti:",
       "Qui puoi visualizzare direttamente i fondamentali principali di [TOPIC] grazie al bottone dedicato:"
     ],
-    "cost": 0,
+    "cost": 1,
     "keywords": ["fondamentali", "fondamentali chiave", "fundamentals"],
     "tag": "free"
   },
@@ -3749,7 +3760,7 @@
       "Il rapporto prezzo/utili trailing per [TOPIC] è [TRAILING_PE_VALUE].",
       "Il trailing P/E registrato oggi per [TOPIC] è [TRAILING_PE_VALUE]."
     ],
-    "cost": 0,
+    "cost": 2,
     "keywords": ["trailing pe", "trailing p/e", "storico", "attuale", "corrente", "aggiornato"],
     "tag": "free"
 },
@@ -3779,7 +3790,7 @@
       "Il rapporto prezzo/utili forward per [TOPIC] è [FORWARD_PE_VALUE].",
       "Il forward P/E stimato oggi per [TOPIC] è [FORWARD_PE_VALUE]."
     ],
-    "cost": 0,
+    "cost": 2,
     "keywords": ["forward pe", "forward p/e", "previsto", "attuale", "corrente", "aggiornato"],
     "tag": "free"
 },
@@ -3808,7 +3819,7 @@
       "La crescita degli utili per azione per [TOPIC] è attualmente [EPS_GROWTH_VALUE].",
       "Il valore EPS growth stimato oggi per [TOPIC] è [EPS_GROWTH_VALUE]."
     ],
-    "cost": 0,
+    "cost": 2,
     "keywords": ["eps", "eps growth", "attuale", "corrente", "aggiornato"],
     "tag": "free"
 },
@@ -3837,7 +3848,7 @@
       "La crescita dei ricavi per [TOPIC] è attualmente [REVENUE_GROWTH_VALUE].",
       "Il valore revenue growth stimato oggi per [TOPIC] è [REVENUE_GROWTH_VALUE]."
     ],
-    "cost": 0,
+    "cost": 2,
     "keywords": ["revenue", "revenue growth", "ricavi", "attuale", "corrente", "aggiornato", "aggiornati"],
     "tag": "free"
 },
@@ -3867,7 +3878,7 @@
       "Il profit margins per [TOPIC] è attualmente [PROFIT_MARGINS_VALUE].",
       "Il valore stimato oggi del margine di profitto di [TOPIC] è [PROFIT_MARGINS_VALUE]."
     ],
-    "cost": 0,
+    "cost": 2,
     "keywords": ["profit margins", "profitto", "registrato", "attuale", "corrente", "aggiornato"],
     "tag": "free"
 },
@@ -3899,7 +3910,7 @@
       "Il debt to equity per [TOPIC] è attualmente [DEBT_TO_EQUITY_VALUE].",
       "Il valore stimato oggi del rapporto debito/capitale di [TOPIC] è [DEBT_TO_EQUITY_VALUE]."
     ],
-    "cost": 0,
+    "cost": 2,
     "keywords": ["debt to equity", "debt/equity", "debito/patrimonio", "equity di", "attuale", "corrente", "aggiornato"],
     "tag": "free"
 },
@@ -4368,11 +4379,11 @@
       "Uno Spearman a 0.6 va bene?"
     ],
     "answers": [
-    "La correlazione di Pearson e quella di Spearman sono due strumenti statistici per misurare il legame tra variabili, molto utilizzati anche in finanza.\n\nLa correlazione di **Pearson** misura la forza e la direzione del legame **lineare** tra due variabili 📈. Se due asset hanno un coefficiente vicino a +1, significa che tendono a crescere o scendere insieme in modo proporzionale; se è vicino a -1, si muovono in direzioni opposte; se è vicino a 0, non c’è relazione lineare significativa. Il coefficiente di Pearson varia sempre tra **-1 e +1**.\n\nLa correlazione di **Spearman**, invece, non guarda ai valori assoluti ma ai **ranghi**. È più utile quando il legame non è lineare o quando ci sono outlier. Spearman ti dice se due asset tendono comunque a muoversi nella stessa direzione (positiva) o in direzioni opposte (negativa), anche senza proporzionalità perfetta. Anche questo coefficiente va da **-1 a +1**.",
-    "Pearson e Spearman sono due modi diversi per valutare la correlazione tra asset.\n\nCon **Pearson**, analizziamo la relazione lineare: quanto un asset tende a muoversi proporzionalmente all’altro. È il metodo più usato in modelli di portafoglio classici, perché entra nei calcoli della varianza-covarianza. Il suo valore varia da **-1 a +1**, dove +1 indica correlazione positiva perfetta e -1 negativa perfetta.\n\nCon **Spearman**, invece, guardiamo alla monotonicità: se uno sale, anche l’altro tende a salire (o a scendere) indipendentemente dalla forza proporzionale del legame. Spearman è più robusto in presenza di dati anomali e mercati turbolenti, e anch’esso ha un coefficiente compreso tra **-1 e +1**.",
-    "La correlazione di Pearson misura la relazione lineare tra due variabili, mentre quella di Spearman misura la coerenza dell’**ordine** dei valori.\n\nIn finanza questo significa che Pearson è più utile per analisi precise di portafoglio e modelli quantitativi, ma può essere fuorviato da outlier forti. Spearman invece fornisce una visione più stabile del legame generale tra due asset, ed è adatto per capire se si muovono ‘insieme’ anche senza proporzionalità. Entrambi i coefficienti variano tra **-1 e +1**, dove valori vicini a 0 indicano correlazione debole o nulla.",
-    "Pearson e Spearman sono entrambi indicatori di correlazione, ma hanno applicazioni diverse.\n\n- **Pearson**: cattura relazioni lineari, ideale per statistiche tradizionali e analisi quantitativa. Il suo coefficiente va da -1 a +1.\n\n- **Spearman**: cattura relazioni monotone, anche non lineari, ed è più robusto con dati rumorosi o irregolari. Anche in questo caso, il coefficiente varia tra -1 e +1.\n\nIn finanza, usarli entrambi ti permette di capire se due asset sono legati solo in modo proporzionale (Pearson) oppure anche in termini di direzione generale (Spearman).",
-    "Pearson misura **quanto due asset sono proporzionalmente legati** nei loro movimenti, mentre Spearman misura **quanto due asset si muovono nella stessa direzione**, indipendentemente dalla proporzionalità.\n\nEntrambi i coefficienti variano tra **-1 e +1**, dove valori prossimi a +1 indicano correlazione positiva forte, valori prossimi a -1 correlazione negativa e valori vicini a 0 assenza di relazione lineare.\n\nUn buon approccio per gli investitori è calcolare entrambi: se i due valori sono simili, significa che il legame è solido e lineare; se divergono molto, significa che la relazione è più complessa e non perfettamente proporzionale."
+      "La correlazione di Pearson e quella di Spearman sono due strumenti statistici per misurare il legame tra variabili, molto utilizzati anche in finanza.\n\nLa correlazione di **Pearson** misura la forza e la direzione del legame **lineare** tra due variabili 📈. Se due asset hanno un coefficiente vicino a +1, significa che tendono a crescere o scendere insieme in modo proporzionale; se è vicino a -1, si muovono in direzioni opposte; se è vicino a 0, non c’è relazione lineare significativa. Il coefficiente di Pearson varia sempre tra **-1 e +1**.\n\nLa correlazione di **Spearman**, invece, non guarda ai valori assoluti ma ai **ranghi**. È più utile quando il legame non è lineare o quando ci sono outlier. Spearman ti dice se due asset tendono comunque a muoversi nella stessa direzione (positiva) o in direzioni opposte (negativa), anche senza proporzionalità perfetta. Anche questo coefficiente va da **-1 a +1**.",
+      "Pearson e Spearman sono due modi diversi per valutare la correlazione tra asset.\n\nCon **Pearson**, analizziamo la relazione lineare: quanto un asset tende a muoversi proporzionalmente all’altro. È il metodo più usato in modelli di portafoglio classici, perché entra nei calcoli della varianza-covarianza. Il suo valore varia da **-1 a +1**, dove +1 indica correlazione positiva perfetta e -1 negativa perfetta.\n\nCon **Spearman**, invece, guardiamo alla monotonicità: se uno sale, anche l’altro tende a salire (o a scendere) indipendentemente dalla forza proporzionale del legame. Spearman è più robusto in presenza di dati anomali e mercati turbolenti, e anch’esso ha un coefficiente compreso tra **-1 e +1**.",
+      "La correlazione di Pearson misura la relazione lineare tra due variabili, mentre quella di Spearman misura la coerenza dell’**ordine** dei valori.\n\nIn finanza questo significa che Pearson è più utile per analisi precise di portafoglio e modelli quantitativi, ma può essere fuorviato da outlier forti. Spearman invece fornisce una visione più stabile del legame generale tra due asset, ed è adatto per capire se si muovono ‘insieme’ anche senza proporzionalità. Entrambi i coefficienti variano tra **-1 e +1**, dove valori vicini a 0 indicano correlazione debole o nulla.",
+      "Pearson e Spearman sono entrambi indicatori di correlazione, ma hanno applicazioni diverse.\n\n- **Pearson**: cattura relazioni lineari, ideale per statistiche tradizionali e analisi quantitativa. Il suo coefficiente va da -1 a +1.\n\n- **Spearman**: cattura relazioni monotone, anche non lineari, ed è più robusto con dati rumorosi o irregolari. Anche in questo caso, il coefficiente varia tra -1 e +1.\n\nIn finanza, usarli entrambi ti permette di capire se due asset sono legati solo in modo proporzionale (Pearson) oppure anche in termini di direzione generale (Spearman).",
+      "Pearson misura **quanto due asset sono proporzionalmente legati** nei loro movimenti, mentre Spearman misura **quanto due asset si muovono nella stessa direzione**, indipendentemente dalla proporzionalità.\n\nEntrambi i coefficienti variano tra **-1 e +1**, dove valori prossimi a +1 indicano correlazione positiva forte, valori prossimi a -1 correlazione negativa e valori vicini a 0 assenza di relazione lineare.\n\nUn buon approccio per gli investitori è calcolare entrambi: se i due valori sono simili, significa che il legame è solido e lineare; se divergono molto, significa che la relazione è più complessa e non perfettamente proporzionale."
     ],
     "cost": 0,
     "keywords": ["pearson", "spearman", "cosa sono", "cos'è", "funzionano", "spiega", "spiegami", "spiegare", "spiegarmi", "servono", "serve", "differenza"]
@@ -4675,7 +4686,7 @@
       "Le ultime informazioni riguardanti [TOPIC] sono le seguenti:",
       "Ecco cosa ho trovato su [TOPIC]:"
     ],
-    "cost": 0,
+    "cost": 3,
     "keywords": ["notizia", "notizie", "news", "notizie riguardo", "news riguardo", "novità"],
     "tag": "free"
 },
@@ -4707,7 +4718,7 @@
       "Attualmente il segnale di [TOPIC] indica [SEGNALE].",
       "Le analisi tecniche mostrano che il segnale di [TOPIC] è [SEGNALE]."
     ],
-    "cost": 0,
+    "cost": 3,
     "keywords": ["segnale", "investire su", "investire in"],
     "tag": "premium"
   },
@@ -4771,13 +4782,13 @@
       "Analizza le correlazioni riguardo a [TOPIC]"
     ],
     "answers": [
-      "Ecco le correlazioni di [TOPIC] con gli altri asset. Puoi visualizzare tutti i dati, compresi il coefficiente di **Pearson** e quello di **Spearman**, direttamente nell’analisi che ho preparato per te 📊.",
+      "Ecco le correlazioni di [TOPIC] con gli altri asset. Puoi visualizzare tutti i dati, compresi il coefficiente di *Pearson* e quello di *Spearman*, direttamente nell’analisi che ho preparato per te 📊.",
       "Ho analizzato per te [TOPIC]: puoi vedere i dati completi sulle correlazioni, inclusi i coefficienti di Pearson e Spearman, direttamente nella pagina di analisi che ti ho preparato 🔍.",
-      "Ti ho preparato l’analisi di [TOPIC], dove puoi consultare i valori di correlazione calcolati dal mio algoritmo, come i coefficienti di Pearson e Spearman 📈. Basta un click e avrai i dati che ti servono 👍.",
-      "Puoi visualizzare tutte le correlazioni di [TOPIC] con altri asset — inclusi i coefficienti di Pearson e Spearman — direttamente nell’analisi dell’asset che ti ho creato 😇 📊.",
-      "Le correlazioni di [TOPIC], insieme ai coefficienti di Pearson e di Spearman calcolati dal mio algoritmo, sono disponibili nella sezione di analisi dedicata. Ti ho già preparato tutto, basta un click 👍."
+      "Ti ho preparato l’analisi di [TOPIC], dove puoi consultare i valori di correlazione calcolati dal mio algoritmo, come i coefficienti di *Pearson e Spearman* 📈. Basta un click e avrai i dati che ti servono 👍.",
+      "Puoi visualizzare tutte le correlazioni di [TOPIC] con altri asset — inclusi i coefficienti di *Pearson e Spearman* — direttamente nell’analisi dell’asset che ti ho creato 😇 📊.",
+      "Le correlazioni di [TOPIC], insieme ai coefficienti di *Pearson* e di *Spearman* calcolati dal mio algoritmo, sono disponibili nella sezione di analisi dedicata. Ti ho già preparato tutto, basta un click 👍."
     ],
-    "cost": 1,
+    "cost": 2,
     "keywords": ["correlazioni", "spearman di", "pearson di", "carca", "analizza", "dammi", "dimmi", "correlazioni di", "correlazioni per", "correlazioni riguardo", "correlazioni tra", "pearson e spearman di", "spearman e pearson di"],
     "tag": "ultra"
   },
@@ -4883,7 +4894,7 @@
       "Le vendite insider (informative sells) di [TOPIC] risultano a [INFORMATIVE_SELLS_VALUE] al momento, rispetto a un massimo storico di [INFORMATIVE_SELLS_STORIC]. 🔥",
       "Il dato aggiornato delle informative sells per [TOPIC] è [INFORMATIVE_SELLS_VALUE]. Storicamente, il valore più alto raggiunto è stato [INFORMATIVE_SELLS_STORIC]. 🚀"
     ],
-    "cost": 0,
+    "cost": 2,
     "keywords": ["informative sells", "vendite insider", "vendite degli insider", "vendite interne", "insider", "movimenti insider", "movimenti di vendita"],
     "tag": "ultra"
   },
@@ -5227,7 +5238,9 @@
     "Spiegamelo meglio, non ho capito quella parte"
   ],
   "answers": [
-    "Certo 😊, posso spiegartelo in modo diverso:"
+    "Certo 😊, posso spiegartelo in modo diverso:",
+    "Te lo rispiego diversamente:",
+    "Va bene."
   ],
   "cost": 0,
   "keywords": ["rispieghi", "rispiega", "rispiegare", "spiegamelo", "spiegami", "spieghi", "spiegare", "ripetere", "ripeterlo", "ripeti", "di nuovo", "ancora", "con altre parole", "altro modo", "modo diverso", "riformulare", "riformula", "chiarire", "chiarirmi", "chiariscimi", "chiarisci", "semplificarmelo", "semplificarmi", "semplificare", "semplificami", "semplificalo"] 
@@ -5388,7 +5401,7 @@
     "👍 Perfetto, allora procedo:",
     "👍 Ricevuto, procedo:"
   ],
-  "cost": 0,
+  "cost": 1,
   "keywords": ["si", "grazie", "procedi", "prosegui", "vai", "andiamo", "affermativo", "fai", "fallo", "fammelo", "dimmi", "dimmelo", "dammelo", "vai avanti", "l'avrei chiesto io", "lo avrei chiesto io", "lo stavo per domandare", "lo voglio", "mi serve", "può servire", "potrebbe servire", "continua", "d'accordo"]
 },
   "ai_no": {
@@ -5570,7 +5583,10 @@
     "Puoi darmi il recap di oggi?",
     "Che è successo oggi nel mondo finanziario?",
     "Qual è il riassunto della giornata di oggi?",
-    "Mostrami il report giornaliero"
+    "Mostrami il report giornaliero",
+    "Dammi il daily brief della giornata",
+    "Dammi il daily brief di oggi",
+    "Mi dai il daily brief?"
   ],
   "answers": [
     "Ecco cosa è successo oggi:",
@@ -5770,6 +5786,40 @@
   "cost": 0,
   "keywords": ["maschio", "femmina", "maschile", "femminile", "uomo", "donna", "sesso", "genere", "identità", "lui", "lei"]
 },
+  "daily_plan": {
+  "questions": [
+    "Puoi farmi un piano giornaliero?",
+    "Mi organizzi la giornata di trading?",
+    "Come potrei gestire la mia giornata?",
+    "Fammi un piano di investimento per oggi",
+    "Mi aiuti a pianificare la giornata?",
+    "Come posso impostare la giornata di trading?",
+    "Puoi darmi una scaletta giornaliera?",
+    "Mi fai una guida per la giornata?",
+    "Mi aiuti a impostare il piano di oggi?",
+    "Come posso iniziare la giornata di investimenti?",
+    "Cosa dovrei controllare oggi?",
+    "Qual è il piano ideale per oggi?",
+    "Cosa mi consigli di fare oggi?",
+    "Preparami un piano per oggi",
+    "Mi dai una routine giornaliera?",
+    "Pianifica la mia giornata di trading",
+    "Come posso organizzarmi oggi?",
+    "Cosa dovrei monitorare oggi?",
+    "Suggeriscimi un piano giornaliero",
+    "Aiutami a strutturare la giornata di analisi"
+  ],
+  "answers": [
+    "*☀️ Piano giornaliero di trading*\n\nInizia la tua giornata dando un’occhiata ai *Top Gainers* previsti 📈. Focalizzati su quelli che conosci meglio o che hai già analizzato in passato: la familiarità riduce il rischio e migliora la lettura dei movimenti.\n\nDopo di che, apri l’*analisi dettagliata* di ogni asset per verificare i segnali di trend — ad esempio RSI, volumi e andamento del prezzo. \n\nPrima di investire, assicurati sempre di controllare la *solidità dell’asset*, valutando dati come i *fondamentali* e le *informative sells*. Questi parametri ti aiutano a capire se il potenziale rialzo è sostenibile o solo momentaneo.",
+    "*📋 Ecco come strutturare la tua giornata di trading:*\n\n1. *Mattina:* Controlla i *Top Gainers previsti* e individua gli asset più interessanti per la giornata.\n2. *Metà giornata:* Analizza nel dettaglio i movimenti più forti e verifica indicatori come RSI e volumi.\n3. *Pomeriggio:* Valuta la solidità degli asset in cui vuoi investire guardando i fondamentali e le informative sells.\n\n💡 Consiglio: evita decisioni impulsive — basati sempre su dati reali e trend confermati.",
+    "*🧭 Routine giornaliera consigliata:*\n\n- *Passo 1:* Apri i *Top Gainers* del giorno per farti un’idea dei mercati più caldi 🔥.\n- *Passo 2:* Approfondisci l’analisi degli asset che ti interessano di più: controlla pattern, trend e segnali tecnici.\n- *Passo 3:* Prima di agire, verifica i *dati fondamentali* e le *informative sells* — ti aiutano a capire se un asset è davvero solido.\n\nLa chiave è avere costanza: piccoli controlli quotidiani costruiscono grandi strategie nel tempo. 📊",
+    "*📈 Piano giornaliero personalizzato*\n\n1. Inizia la giornata controllando i *Top Gainers previsti*: sono un ottimo punto di partenza per capire dove si sta spostando l’interesse del mercato.\n2. Analizza nel dettaglio gli asset che attirano la tua attenzione e verifica se ci sono conferme tecniche (RSI, volumi, pattern di inversione).\n3. Prima di qualsiasi investimento, guarda sempre i *fondamentali* e le *informative sells* per avere un quadro completo della solidità dell’asset.\n\n👉 La preparazione è la tua miglior difesa contro l’imprevisto!",
+    "*🗓️ Come gestire al meglio la giornata di trading*\n\n- *Mattina:* Dai uno sguardo ai *Top Gainers* per identificare le opportunità più promettenti.\n- *Durante la giornata:* Monitora i movimenti di prezzo e i volumi sugli asset di interesse.\n- *Prima di investire:* Verifica la stabilità e l’affidabilità dell’asset analizzando *fondamentali*, *informative sells* e andamento storico.\n\nTradeGPT può aiutarti a visualizzare subito l’analisi di ciascun asset, così hai sempre sotto controllo le informazioni più importanti. 🚀"
+  ],
+  "cost": 1,
+  "keywords": ["giornaliero", "oggi", "giornata", "routine", "piano", "scaletta", "programma", "organizzare", "organizza", "organizzami", "organizziamo", "pianifica", "pianificare", "strategia"],
+  "tag": "free"
+},
   "weekly_plan": {
   "questions": [
     "Puoi pianificarmi la settimana?",
@@ -5806,8 +5856,8 @@
     "*📊 Piano orientativo per la settimana di mercato*\n\nInizia la tua settimana già *dalla domenica* analizzando i dati più recenti: quali asset sono in crescita, quali stanno rallentando, e dove si concentra il volume (puoi vedere tutto nei *Top Fire* nella pagina principale). Questo ti aiuterà a partire con una visione chiara lunedì mattina. 🔍\n\n*Durante la settimana*, segui *quotidianamente* i trend più forti e lascia che gli indicatori tecnici ti guidino.\n*A fine settimana*, rivedi le tue analisi e prepara il terreno per quella successiva.\n\nNon posso ancora impostare piani automatici, ma per il momento ti accompagno volentieri passo passo con dati e previsioni per aiutarti a costruire la tua strategia personale. 💪",
     "*📅 Guida settimanale ai mercati*\n\n💼 *Domenica:* prepara la settimana analizzando i movimenti passati e i settori più promettenti.\n📈 *Lunedì e martedì:* concentrati sugli asset in trend, analizzali nel dettaglio e aggiorna la tua watchlist.\n🧭 *Mercoledì e giovedì:* perfeziona le tue strategie in base ai segnali più recenti.\n🔚 *Venerdì:* tira le somme e annota ciò che ha funzionato.\n\nNon ho ancora la capacità di strutturare un calendario operativo per te, ma posso offrirti dati e insight dettagliati per pianificare ogni settimana in modo più consapevole.\n\n*Consiglio:* molti investitori pensano che nel weekend i mercati rallentino e si fermino, in realtà anche il sabato e la domenica possono diventare giorni perfetti per studiare il mercato! 😉"
   ],
-  "cost": 0,
-  "keywords": ["piano", "guida", "settimanale", "7 giorni", "sette giorni", "scaletta", "agenda", "settimana", "organizza", "organizzami", "organizzare", "organizziamo", "pianificare", "pianifica", "pianificami", "pianifichiamo", "breve termine"],
+  "cost": 1,
+  "keywords": ["piano", "guida", "programma", "settimanale", "7 giorni", "sette giorni", "scaletta", "agenda", "settimana", "organizza", "organizzami", "organizzare", "organizziamo", "pianificare", "pianifica", "pianificami", "pianifichiamo", "breve termine"],
   "tag": "free"
 },
   "monthly_plan": {
@@ -5847,8 +5897,8 @@
     "*📊 Piano operativo per il mese*\n\n*Inizia il mese* con un’analisi approfondita del mercato: guarda i *Top Movers* e i *Top Fire* nella schermata principale per capire dove si sta concentrando l’interesse degli investitori. 🔥\n*Durante il mese*, mantieni un approccio dinamico: monitora i trend, osserva i volumi e sfrutta i momenti di consolidamento per ribilanciare il tuo portafoglio.\n*A fine mese*, fai una revisione delle tue operazioni, segna cosa ha funzionato e cosa no — è la chiave per migliorare ogni ciclo successivo. 📈\n\nTradeGPT non imposta ancora piani automatici, ma è progettato per fornirti ogni giorno analisi e insight utili per pianificare in autonomia con più consapevolezza. 😉",
     "*📅 Pianificazione mensile semplificata*\n\n💡 *Inizio mese:* identifica le opportunità e i trend principali.\n📈 *Durante il mese:* segui i movimenti del mercato e adatta la strategia alle variazioni di sentiment.\n🔚 *Fine mese:* valuta le performance e prepara il piano per il prossimo ciclo.\n\nNon posso ancora pianificare automaticamente per te, ma ti fornisco tutti gli strumenti per farlo in modo efficace.\nRicorda: dedicare qualche minuto ogni weekend alla revisione settimanale ti aiuterà a restare sempre un passo avanti! 🚀"
   ],
-  "cost": 0,
-  "keywords": ["piano", "guida", "mensile", "30 giorni", "trenta giorni", "scaletta", "agenda", "mese", "organizza", "organizzami", "organizzare", "organizziamo", "pianificare", "pianifica", "pianificami", "pianifichiamo", "medio termine"],
+  "cost": 1,
+  "keywords": ["piano", "guida", "programma", "mensile", "30 giorni", "trenta giorni", "scaletta", "agenda", "mese", "organizza", "organizzami", "organizzare", "organizziamo", "pianificare", "pianifica", "pianificami", "pianifichiamo", "medio termine"],
   "tag": "free"
 },
   "annual_plan": {
@@ -5892,8 +5942,8 @@
     "*📊 Piano annuale orientativo*\n\nPer pianificare l’anno, non serve stabilire tutto subito — serve metodo e costanza. Ti suggerisco di:\n\n1. *Dividere l’anno in tappe mensili*, ognuna dedicata a monitoraggio e revisione.\n2. Analizzare gli *asset più ricorrenti nei Top Gainers*: spesso questi trend nascono da movimenti strutturali di lungo periodo.\n3. Controllare i *grafici settimanali o mensili* per identificare stabilità o volatilità. Gli asset più “tranquilli” sono spesso quelli più affidabili per strategie durature.\n\n💡 Ricorda: un piano annuale efficace non è rigido, ma si evolve con il mercato. *TradeGPT* può aiutarti a mantenere il focus giusto mese dopo mese, offrendoti insight sempre aggiornati.",
     "*📅 Visione annuale e gestione consapevole*\n\nUn buon piano annuale parte dalla comprensione delle *dinamiche ricorrenti del mercato*. Non serve guardare troppo avanti: lavora mese per mese, lasciando che i dati ti mostrino la direzione.\n\n- Analizza i *Top Gainers e i volumi* ogni mese per capire dove si concentra la forza del mercato.\n- Valuta la *stabilità grafica* degli asset: movimenti troppo bruschi possono essere opportunità ma anche segnali di rischio.\n- Prenditi del tempo ogni weekend per aggiornare la tua visione e annotare i progressi.\n\n📊 Non posso ancora gestire automaticamente un piano annuale, ma posso offrirti analisi costanti e strumenti per impostare la tua strategia di lungo periodo con maggiore consapevolezza. 💪"
   ],
-  "cost": 0,
-  "keywords": ["piano", "guida", "annuale", "anno", "più mesi", "plurimestrale", "plurimensile", "dodici mesi", "agenda", "organizza", "pianifica", "pianificare", "pianificami", "pianifichiamo", "strategia", "lungo termine", "12 mesi"],
+  "cost": 1,
+  "keywords": ["piano", "guida", "programma", "annuale", "anno", "più mesi", "plurimestrale", "plurimensile", "dodici mesi", "agenda", "organizza", "pianifica", "pianificare", "pianificami", "pianifichiamo", "strategia", "lungo termine", "12 mesi"],
   "tag": "free"
 },
   "trading_tips_general": {
