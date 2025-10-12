@@ -330,7 +330,7 @@
   ],
     "cost": 0,
     "keywords": ["previsioni", "forecast", "outlook", "sentiment", "trend"],
-    "tag": "free"
+    "tag": "only_free"
 },
   "financial_forecast_premium": {
   "questions": [
@@ -1550,8 +1550,41 @@
   "fundamental_analysis": {
   "questions": [
     "Analisi fondamentale di [TOPIC]",
+    "Analisi dei key fundamentals di [TOPIC]",
+    "Analisi dei fondamentali chiave di [TOPIC]",
+    "Esegui l'analisi dei fondamentali di [TOPIC]",
+    "Procedi con l'analisi dei fondamentali di [TOPIC]",
+    "Fai un'analisi dei fondamentali di [TOPIC]",
     "Mi dai l'analisi fondamentale di [TOPIC]?",
-    "Puoi darmi l'analisi fondamentale di [TOPIC]?"
+    "Puoi darmi l'analisi fondamentale di [TOPIC]?",
+    "Cosa sappiamo dall'analisi fondamentale di [TOPIC]",
+    "Cosa dicono i dati fondamentali di [TOPIC]?",
+    "Cosa suggeriscono i dati fondamentali di [TOPIC]?",
+    "Cosa possiamo sapere dai dati fondamentali di [TOPIC]?",
+    "Cosa possiamo sapere dai key fundamentals di [TOPIC]?",
+    "Cosa si sa dall'analisi dei fondamentali di [TOPIC]?",
+    "Cosa si sa dall'analisi dei key fundamentals di [TOPIC]?",
+    "Cosa si legge dai fondamentali di [TOPIC]?",
+    "Cosa si legge dai dati fondamentali di [TOPIC]?",
+    "Cosa si può leggere dai fondamentali di [TOPIC]?",
+    "Analizza i dati fondamentali di [TOPIC]",
+    "Analizzami i fondamentali su [TOPIC]",
+    "Analizziamo i fondamentali su [TOPIC]",
+    "Puoi analizzare i fondamentali di [TOPIC]?",
+    "Mi puoi analizzare i key fundamentals di [TOPIC]?",
+    "Puoi farmi l'analisi dei key fundamentals su [TOPIC]?",
+    "Interpreta i fondamentali di [TOPIC]",
+    "Dammi un'interpretazione dei fondamentali di [TOPIC]",
+    "Dammi una interpretazione dei dati fondamentali di [TOPIC]",
+    "Dammi un'interpretazione dei key fundamentals di [TOPIC]",
+    "Aiutami a interpretare i dati fondamentali su [TOPIC]",
+    "Aiutami a interpretare i fondamentali di [TOPIC]",
+    "Aiutami a interpretare i key fundamentals di [TOPIC]",
+    "Aiutami ad analizzare i dati fondamentali di [TOPIC]",
+    "Analizza e interpreta i fondamentali di [TOPIC]",
+    "Analizza e interpreta i key fundamentals di [TOPIC]",
+    "Analisi e interpretazione dei dati fondamentali di [TOPIC]",
+    "Analisi e interpretazione dei key fundamentals di [TOPIC]"
   ],
   "answers": [
     "L’analisi fondamentale di [TOPIC] mostra che i dati macroeconomici e i bilanci recenti indicano una situazione [TREND_AGG_F]. 📊",
@@ -1596,7 +1629,7 @@
     "Analizzando la posizione di mercato di [TOPIC] emerge un quadro [TREND_AGG_M], con aspetti da monitorare attentamente."
   ],
     "cost": 1,
-    "keywords": ["analisi fondamentale", "fondamentali"],
+    "keywords": ["analisi", "analizza", "analizziamo", "analizzami", "analizzare", "interpretazione", "interpretare", "interpreta", "fondamentale", "fondamentali", "key fundamentals", "key fundamental"],
     "tag": "free"
 },
   "crypto_trading": {
@@ -2151,7 +2184,10 @@
     "Sta andando male oggi il mercato?",
     "Sta andando tutto bene per il mercato?",
     "Sta procedendo tutto bene sul mercato?",
-    "Tutto fila liscio sul mercato?"
+    "Tutto fila liscio sul mercato?",
+    "Parlami del mercato di oggi in generale",
+    "Dimmi del mercato odierno in generale",
+    "Descrivimi il mercato di oggi in generale"
   ],
   "answers": [
     "Oggi risulta che [TOP_FIRE] è stato l'asset più cresciuto in 7 giorni, con un aumento del [GAIN], mentre [BOTTOM_FIRE] ha perso terreno: oltre il [LOSE].",
@@ -2191,7 +2227,7 @@
     "Oggi [TOP_FIRE] ha registrato il massimo rialzo della settimana ([GAIN]), mentre [BOTTOM_FIRE] ha subito la flessione più evidente ([LOSE])."
   ],
     "cost": 1,
-    "keywords": ["mercato", "mercati", "andando", "oggi", "come", "procedendo"],
+    "keywords": ["mercato", "mercati", "andando", "oggi", "come", "procedendo", "in generale"],
     "tag": "free"
 },
   "ai_sorry": {
@@ -2799,7 +2835,7 @@
     ],
    "cost": 0,
    "keywords": ["rsi", "relative strength index", "attuale", "aggiornato"],
-   "tag": "free"
+   "tag": "only_free"
 },
     "macd_premium": {
     "questions": [
@@ -2861,7 +2897,7 @@
     ],
     "cost": 0,
     "keywords": ["macd", "moving average convergence divergence", "attuale", "aggiornato"],
-    "tag": "free"
+    "tag": "only_free"
 },
     "stochastic_premium": {
     "questions": [
@@ -2877,7 +2913,8 @@
       "Vorrei sapere la condizione stocastica di [TOPIC]",
       "Puoi fornirmi lo stocastico completo di [TOPIC]?",
       "Dammi l'analisi stocastica di [TOPIC]",
-      "K e D per [TOPIC]"
+      "K e D per [TOPIC]",
+      "Dammi lo stochastic di [TOPIC]"
     ],
     "answers": [
       "I valori attuali dello stocastico per [TOPIC] sono:\n\nK = [STOCH_K], D = [STOCH_D]\n\nLa condizione tipica è di [STATE]. Significato per l'asset: [SIGNIFICATO].",
@@ -2907,7 +2944,8 @@
       "K e D per [TOPIC]",
       "Indicatore stocastico di [TOPIC]",
       "Mostrami l'oscillatore stocastico di [TOPIC]",
-      "Ho bisogno dei valori stocastici per [TOPIC]"
+      "Ho bisogno dei valori stocastici per [TOPIC]",
+      "Dammi lo stochastic di [TOPIC]"
     ],
     "answers": [
       "Per visualizzare l'oscillatore stocastico di [TOPIC] è necessario un abbonamento premium o ultra. Fai l'upgrade per ottenere tutti i vantaggi! 😄",
@@ -2923,7 +2961,7 @@
     ],
     "cost": 0,
     "keywords": ["stocastico", "k e d"],
-    "tag": "free"
+    "tag": "only_free"
 },
     "ema_premium": {
     "questions": [
@@ -2983,7 +3021,7 @@
     ],
     "cost": 0,
     "keywords": ["ema", "ema10", "ema 10 ", "ema a dieci giorni", "exponential moving average"],
-    "tag": "free"
+    "tag": "only_free"
 },
     "cci_premium": {
     "questions": [
@@ -3045,7 +3083,7 @@
     ],
     "cost": 0,
     "keywords": ["cci", "commodity channel index", "attuale", "corrente", "aggiornato"],
-    "tag": "free"
+    "tag": "only_free"
 },
     "williams_premium": {
     "questions": [
@@ -3105,7 +3143,7 @@
     ],
     "cost": 0,
     "keywords": ["williams", "williams %r", "attuale", "corrente", "aggiornato"],
-    "tag": "free"
+    "tag": "only_free"
 },
     "bollinger_premium": {
     "questions": [
@@ -3168,7 +3206,7 @@
     ],
     "cost": 0,
     "keywords": ["bollinger", "attuale", "corrente", "aggiornato"],
-    "tag": "free"
+    "tag": "only_free"
 },
     "rsi_info": {
     "questions": [
@@ -3456,23 +3494,41 @@
       "Fammi vedere i dati fondamentali di [TOPIC]",
       "Voglio conoscere i fondamentali di [TOPIC]",
       "Puoi mostrarmi i key fundamentals di [TOPIC]?",
+      "Puoi dirmi i dati fondamentali di [TOPIC]?",
+      "Puoi darmi i fondamentali di [TOPIC]?",
       "Dimmi i dati fondamentali di [TOPIC]",
+      "Puoi dirmi i key fundamentals di [TOPIC]?",
+      "Dimmi i key fundamentals di [TOPIC]",
       "Vorrei i fondamentali chiave di [TOPIC]",
-      "Mostra l’analisi fondamentale di [TOPIC]",
       "Quali indicatori fondamentali hai per [TOPIC]?",
       "Fammi vedere i valori fondamentali di [TOPIC]",
       "Fondamentali di [TOPIC]",
       "Fondamentali chiave di [TOPIC]",
       "Key fundamentals di [TOPIC]",
-      "Key fundamentals per [TOPIC]"
+      "Key fundamentals per [TOPIC]",
+      "Dammi i fondamentali di [TOPIC]",
+      "Dammi i key fundamentals di [TOPIC]",
+      "Voglio sapere i fondamentali di [TOPIC]",
+      "Voglio sapere i dati fondamentali per [TOPIC]",
+      "Voglio che mi dici i dati fondamentali di [TOPIC]",
+      "Voglio che mi dici i key fundamentals di [TOPIC]",
+      "Voglio che mi dai i fondamentali di [TOPIC]",
+      "Mi dai i fondamentali di [TOPIC]?",
+      "Mi dai i key fundamentals su [TOPIC]?",
+      "Mi daresti i fondamentali su [TOPIC]?",
+      "Mi daresti i key fundamentals su [TOPIC]?",
+      "Mi potresti dare i dati fondamentali su [TOPIC]?",
+      "Mi potresti dare i key fundamentals su [TOPIC]?"
     ],
     "answers": [
       "Ti ho preparato l’analisi di [TOPIC], puoi vedere i key fundamental direttamente da lì 📊:",
-      "Ecco l’analisi di [TOPIC]: nella schermata trovi i suoi dati fondamentali principali:",
+      "Ecco l’analisi di [TOPIC]: fai click sul pannello e nella schermata troverai i suoi dati fondamentali principali:",
+      "👉 Ecco l’analisi di [TOPIC], dove puoi consultare facilmente tutti i key fundamental:",
       "Ti ho generato l’analisi di [TOPIC], dove puoi consultare tutti i key fundamental più rilevanti:",
-      "Qui puoi visualizzare direttamente i fondamentali principali di [TOPIC] grazie al bottone dedicato:"
+      "Qui puoi visualizzare direttamente i fondamentali principali di [TOPIC] grazie al bottone dedicato:",
+      "Qui puoi vedere direttamente i fondamentali di [TOPIC]. 📎 Fai click sul bottone dedicato:"
     ],
-    "cost": 1,
+    "cost": 0,
     "keywords": ["fondamentali", "fondamentali chiave", "fundamentals"],
     "tag": "free"
   },
@@ -4493,7 +4549,11 @@
     "Dimmi come si toglie l'abbonamento",
     "Dimmi come si annulla l'abbonamento",
     "Mi dici come di rimuove l'abbonamento?",
-    "Mi dici come di annulla l'abbonamento?"
+    "Mi dici come di annulla l'abbonamento?",
+    "Non voglio più essere abbonato",
+    "Non voglio più l'abbonamento",
+    "Non voglio più il mio abbonamento",
+    "Non voglio più avere l'abbonamento"
   ],
   "answers": [
     "Per cancellare il tuo abbonamento apri Google Play Store sul tuo dispositivo, vai al tuo profilo e seleziona Pagamenti & Abbonamenti > Abbonamenti. Da lì puoi gestire o cancellare i tuoi abbonamenti, incluso quello per TradeGPT.\n\nMi spiace molto se non hai trovato utile l'abbonamento 😔. Ti invito a lasciare un feedback all’e-mail di supporto per aiutare il team dell'app a migliorare l’esperienza utente... Spero tanto di rivederti presto con tutte le funzionalità che TradeGPT ha da offrirti! 🚀 🙌."
@@ -4981,11 +5041,11 @@
     "In cosa consiste la strategia swing?"
   ],
   "answers": [
-    "Lo Swing Trading è una strategia di trading di medio periodo che punta a sfruttare le oscillazioni di prezzo, mantenendo le posizioni aperte per alcuni giorni o settimane per trarre profitto dai movimenti di mercato.\n\nGli swing trader cercano di individuare i momenti in cui un trend cambia direzione, entrando e uscendo dalle posizioni in modo da massimizzare il guadagno nel breve periodo.",
-    "La strategia di Swing Trading mira a catturare i movimenti intermedi del mercato, restando in posizione per un periodo limitato e approfittando dei rialzi o ribassi di breve-medio termine.\nSi basa sull’analisi tecnica per identificare trend e punti di inversione, combinando indicatori come RSI, MACD e medie mobili per ottimizzare le entrate e le uscite.",
-    "Lo Swing Trading consiste nel comprare e vendere asset in base ai movimenti naturali dei prezzi, cercando di entrare quando un trend inizia e uscire prima che perda forza.\nÈ una strategia adatta a chi non vuole fare trading giornaliero ma nemmeno investire nel lungo periodo, offrendo un buon equilibrio tra tempo, rischio e rendimento.",
-    "Con lo Swing Trading si cerca di sfruttare i movimenti temporanei dei prezzi senza fare trading giornaliero, combinando analisi tecnica e fondamentale per individuare punti di ingresso e uscita efficaci.\nÈ una strategia molto diffusa perché consente di ottenere rendimenti consistenti con un impegno di tempo moderato rispetto al day trading.",
-    "Lo Swing Trading è una tecnica che bilancia tempo e rendimento, ideale per chi vuole operare sui mercati senza monitorarli costantemente ma seguendo i trend di breve periodo.\n\nGli swing trader approfittano dei cicli naturali di rialzo e ribasso all’interno dei trend più ampi, cercando di prevedere i movimenti futuri attraverso indicatori tecnici e modelli di prezzo."
+    "Lo *Swing Trading* è una strategia di trading di *medio periodo* che punta a sfruttare le oscillazioni di prezzo, mantenendo le posizioni aperte per alcuni giorni o settimane per trarre profitto dai movimenti di mercato.\n\nGli swing trader cercano di individuare i momenti in cui un trend cambia direzione, entrando e uscendo dalle posizioni in modo da massimizzare il guadagno nel breve periodo.",
+    "La strategia di *Swing Trading* mira a catturare i *movimenti intermedi* del mercato, restando in posizione per un periodo limitato e approfittando dei rialzi o ribassi di breve-medio termine.\nSi basa sull’analisi tecnica per identificare trend e punti di inversione, combinando indicatori come RSI, MACD e medie mobili per ottimizzare le entrate e le uscite.",
+    "Lo *Swing Trading* consiste nel comprare e vendere asset in base ai movimenti naturali dei prezzi, cercando di *entrare quando un trend inizia e uscire prima che perda forza*.\nÈ una strategia adatta a chi non vuole fare trading giornaliero ma nemmeno investire nel lungo periodo, offrendo un buon equilibrio tra tempo, rischio e rendimento.",
+    "Con lo *Swing Trading* si cerca di sfruttare i movimenti temporanei dei prezzi senza *fare trading giornaliero*, combinando analisi tecnica e fondamentale per individuare punti di ingresso e uscita efficaci.\nÈ una strategia molto diffusa perché consente di ottenere rendimenti consistenti con un impegno di tempo moderato rispetto al day trading.",
+    "Lo *Swing Trading* è una tecnica che bilancia tempo e rendimento, ideale per chi vuole *operare sui mercati senza monitorarli costantemente* ma seguendo i trend di breve periodo.\n\nGli swing trader approfittano dei cicli naturali di rialzo e ribasso all’interno dei trend più ampi, cercando di prevedere i movimenti futuri attraverso indicatori tecnici e modelli di prezzo."
   ],
   "cost": 0,
   "keywords": ["swing"]
@@ -5011,11 +5071,11 @@
     "Spiegami la strategia day trading"
   ],
   "answers": [
-    "Il Day Trading è una strategia che prevede l’apertura e la chiusura delle posizioni *nella stessa giornata di trading*, senza mai lasciarle aperte overnight. L’obiettivo è trarre profitto dalle piccole oscillazioni di prezzo che avvengono nel corso della giornata.\n\nI day trader utilizzano l’analisi tecnica, indicatori come RSI, MACD, medie mobili e volumi, e fanno largo uso di grafici intraday (1m, 5m, 15m) per individuare punti di ingresso e uscita rapidi.",
-    "La strategia di Day Trading punta a sfruttare *movimenti di breve termine* del mercato. Gli operatori chiudono tutte le operazioni prima della fine della sessione per evitare rischi legati alle notizie notturne o ai gap di apertura del giorno successivo.\n\nRichiede una buona conoscenza degli strumenti finanziari, disciplina, gestione del rischio e prontezza nelle decisioni, poiché le operazioni si sviluppano in tempi molto rapidi.",
-    "Con il Day Trading si cerca di ottenere *piccoli profitti ripetuti* nel corso della giornata, invece di guadagni ampi nel lungo periodo. È una strategia adatta a chi può monitorare costantemente i mercati e reagire in tempo reale ai cambiamenti di prezzo.\n\nViene spesso applicata con strumenti liquidi e a basso spread, come azioni molto scambiate, indici o criptovalute principali.",
-    "Il Day Trading è una delle strategie più dinamiche e impegnative del trading, poiché richiede *decisioni veloci*, analisi tecnica accurata e un piano preciso di gestione del rischio.\n\nI trader di questo tipo impostano limiti chiari di perdita giornaliera e target di profitto, evitando l’overtrading e mantenendo una disciplina ferrea per non compromettere il capitale.",
-    "Fare Day Trading significa concentrarsi sull’azione di prezzo giornaliera e approfittare di trend momentanei, breakout o rimbalzi tecnici. Non si basa su fondamentali, ma sull’analisi tecnica e sulla psicologia del mercato.\n\nÈ una strategia che può essere redditizia se gestita con rigore, ma comporta *elevato stress operativo* e un alto rischio di perdita se non si dispone di una buona esperienza o di un piano ben strutturato."
+    "Il *Day Trading* è una strategia che prevede l’apertura e la chiusura delle posizioni *nella stessa giornata di trading*, senza mai lasciarle aperte overnight. L’obiettivo è trarre profitto dalle piccole oscillazioni di prezzo che avvengono nel corso della giornata.\n\nI day trader utilizzano l’analisi tecnica, indicatori come RSI, MACD, medie mobili e volumi, e fanno largo uso di grafici intraday (1m, 5m, 15m) per individuare punti di ingresso e uscita rapidi.",
+    "La strategia di *Day Trading* punta a sfruttare *movimenti di breve termine* del mercato. Gli operatori chiudono tutte le operazioni prima della fine della sessione per evitare rischi legati alle notizie notturne o ai gap di apertura del giorno successivo.\n\nRichiede una buona conoscenza degli strumenti finanziari, disciplina, gestione del rischio e prontezza nelle decisioni, poiché le operazioni si sviluppano in tempi molto rapidi.",
+    "Con il *Day Trading* si cerca di ottenere *piccoli profitti ripetuti* nel corso della giornata, invece di guadagni ampi nel lungo periodo. È una strategia adatta a chi può monitorare costantemente i mercati e reagire in tempo reale ai cambiamenti di prezzo.\n\nViene spesso applicata con strumenti liquidi e a basso spread, come azioni molto scambiate, indici o criptovalute principali.",
+    "Il *Day Trading* è una delle strategie più dinamiche e impegnative del trading, poiché richiede *decisioni veloci*, analisi tecnica accurata e un piano preciso di gestione del rischio.\n\nI trader di questo tipo impostano limiti chiari di perdita giornaliera e target di profitto, evitando l’overtrading e mantenendo una disciplina ferrea per non compromettere il capitale.",
+    "Fare *Day Trading* significa concentrarsi sull’azione di prezzo giornaliera e approfittare di trend momentanei, breakout o rimbalzi tecnici. Non si basa su fondamentali, ma sull’analisi tecnica e sulla psicologia del mercato.\n\nÈ una strategia che può essere redditizia se gestita con rigore, ma comporta *elevato stress operativo* e un alto rischio di perdita se non si dispone di una buona esperienza o di un piano ben strutturato."
   ],
   "cost": 0,
   "keywords": ["day trading"]
@@ -5042,7 +5102,7 @@
     "La strategia di investimento a lungo termine, detta anche *Buy and Hold*, consiste nel mantenere gli asset per *anni o decenni*, puntando sulla crescita costante del valore nel tempo piuttosto che su guadagni immediati.\n\nÈ una strategia che si basa sulla fiducia nella solidità delle aziende o dei mercati in cui si investe, ignorando le fluttuazioni di breve periodo e concentrandosi sui fondamentali economici e sul potenziale futuro.",
     "Investire a lungo termine significa costruire un portafoglio destinato a crescere nel tempo, approfittando dell’effetto dell’interesse composto e della crescita economica generale.\n\nGli investitori a lungo termine analizzano i *dati fondamentali*, la *solidità finanziaria* e le *prospettive di mercato*, e tendono a ridurre al minimo le operazioni di compravendita per contenere i costi e ridurre lo stress operativo.",
     "La gestione a lungo termine è una strategia orientata alla *stabilità e alla sostenibilità* del rendimento. Più che reagire alle oscillazioni giornaliere, mira a ottenere profitti consistenti nel corso degli anni.\n\nQuesta filosofia si fonda sulla pazienza, sulla diversificazione del portafoglio e sull’importanza di mantenere gli investimenti anche durante i periodi di volatilità, evitando decisioni impulsive.",
-    "L’investimento a lungo termine (Buy and Hold) è adatto a chi desidera *accumulare valore nel tempo*, reinvestendo i dividendi e approfittando della crescita naturale dei mercati.\n\nÈ una strategia consigliata per chi ha orizzonti temporali medio-lunghi, come la pianificazione pensionistica o la costruzione di ricchezza, poiché riduce l’impatto delle oscillazioni a breve termine.",
+    "L’investimento a lungo termine (*Buy and Hold*) è adatto a chi desidera *accumulare valore nel tempo*, reinvestendo i dividendi e approfittando della crescita naturale dei mercati.\n\nÈ una strategia consigliata per chi ha orizzonti temporali medio-lunghi, come la pianificazione pensionistica o la costruzione di ricchezza, poiché riduce l’impatto delle oscillazioni a breve termine.",
     "La gestione a lungo termine è una delle strategie più classiche e affidabili della finanza. Si basa sull’idea che, nel lungo periodo, i mercati tendano a *premiare la costanza e la disciplina*.\n\nA differenza del trading attivo, questa strategia richiede meno tempo davanti ai grafici e si concentra sulla *qualità degli asset* e sulla *coerenza della visione finanziaria* nel tempo."
   ],
   "cost": 0,
@@ -5406,7 +5466,6 @@
     "Direi proprio di si",
     "Con piacere",
     "Volentieri"
-    
   ],
   "answers": [
     "Perfetto! Procedo 😊:",
