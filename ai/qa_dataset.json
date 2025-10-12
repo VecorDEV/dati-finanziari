@@ -6257,5 +6257,16 @@
   ],
   "cost": 0,
   "keywords": ["crediti", "credito", "limite", "limiti", "giornaliero", "giornalieri", "utilizzo", "disponibilità", "richieste", "oggi", "restano", "finito", "esaurito", "terminato", "raggiunto"]
+},
+  "fallback_limit_reached": {
+  "questions": [""],
+  "answers": [
+    "Sembra che tu abbia raggiunto il limite di utilizzo previsto dal tuo piano ⚠️\n\nAl momento non posso elaborare altre richieste, ma puoi riprovare più tardi oppure valutare un piano con più disponibilità di crediti per continuare ad analizzare i mercati senza interruzioni 📊.",
+    "⚠️ Hai probabilmente raggiunto il limite giornaliero previsto dal tuo piano.\n\nPer il momento non posso elaborare ulteriori richieste, ma il limite si azzera periodicamente. Se vuoi continuare subito, puoi considerare di passare a un piano superiore con più libertà operativa 😉.",
+    "Mi dispiace, ma non riesco a elaborare la tua richiesta perché sembra che tu abbia raggiunto il limite di utilizzo giornaliero 🚫\n\nIl limite dipende dal tuo piano attivo. Con *Premium* o *Ultra*, puoi continuare ad accedere all’AI senza interruzioni e ottenere analisi complete in tempo reale 📈.",
+    "Al momento non posso rispondere perché hai raggiunto il limite massimo di richieste del tuo piano 😣\n\nTi consiglio di attendere il reset giornaliero oppure passare a un piano con più disponibilità di crediti per continuare a usare TradeGPT senza limiti 🚀.",
+    "Sembra che tu abbia esaurito le richieste disponibili per oggi 😕\n\nIl limite si basa sul tuo piano attuale. Con *Premium* o *Ultra*, puoi utilizzare la versione più potente dell’AI senza interruzioni e con accesso completo ai dati e alle analisi 💪."
+  ],
+  "cost": 0
 }
 }
