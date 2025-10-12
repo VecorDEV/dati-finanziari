@@ -1144,7 +1144,11 @@
     "Vorrei sapere secondo te come andrà la giornata",
     "Come finirà la giornata?",
     "Dimmi velocemente come andrà oggi",
-    "Dimmi in breve come procederà oggi il mercato"
+    "Dimmi in breve come procederà oggi il mercato",
+    "Interpreta il mercato di oggi",
+    "Dammi un'interpretazione sul mercato di oggi",
+    "Come interpreti il mercato in questo momento?",
+    "Dammi una tua interpretazione su come andrà oggi il mercato"
   ],
   "answers": [
     "Oggi il mercato sembra [AGG_M], con i principali indici che mostrano movimenti coerenti con il trend recente 📊.\n\nL’asset che ha la probabilità più alta di crescita è [TOP_GAINER], con [SENTIMENT_TOP_GAINER] di possibilità, mentre quello meno probabile è [TOP_LOSER], fermo a [SENTIMENT_TOP_LOSER] ⚖️.",
@@ -5681,7 +5685,9 @@
     "Mostrami il report giornaliero",
     "Dammi il daily brief della giornata",
     "Dammi il daily brief di oggi",
-    "Mi dai il daily brief?"
+    "Mi dai il daily brief?",
+    "Dammi il resoconto della giornata",
+    "Dammi il resoconto di oggi"
   ],
   "answers": [
     "Ecco cosa è successo oggi:",
@@ -5693,7 +5699,7 @@
     "Ecco gli eventi principali di oggi.\nTi ho preparato un pannello per accedere direttamente al **daily brief**:"
   ],
   "cost": 0,
-  "keywords": ["recap", "riassunto", "successo", "riepilogo", "oggi", "daily brief", "report", "giornaliero", "giornata", "riassumi", "riassumeresti", "riassumimi", "riassumere", "riassumermi"],
+  "keywords": ["recap", "riassunto", "successo", "riepilogo", "resoconto", "oggi", "daily brief", "report", "giornaliero", "giornata", "riassumi", "riassumeresti", "riassumimi", "riassumere", "riassumermi"],
   "tag": "free"
 },
   "asset_growth_period": {
