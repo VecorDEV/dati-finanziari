@@ -985,7 +985,7 @@
     "cost": 0,
     "keywords": ["sei umano", "umano", "persona vera", "persona"]
 },
-    "ai_robot_check": {
+  "ai_robot_check": {
   "questions": [
     "Sei un robot?",
     "Chi sei, un robot?",
@@ -1847,7 +1847,7 @@
     "Felice di averti potuto aiutare 😊! Continua a seguire segnali e analisi per operazioni migliori."
   ],
     "cost": 0,
-    "keywords": ["grazie"]
+    "keywords": ["grazie", "ti ringrazio"]
 },
   "goodbye": {
   "questions": [
@@ -2336,7 +2336,7 @@
     "Oggi [TOP_FIRE] ha registrato il massimo rialzo della settimana ([GAIN]), mentre [BOTTOM_FIRE] ha subito la flessione più evidente ([LOSE])."
   ],
     "cost": 1,
-    "keywords": ["mercato", "mercati", "andando", "oggi", "come", "procedendo", "in generale"],
+    "keywords": ["mercato", "mercati", "andando", "oggi", "come", "procede", "procedendo", "in generale", "nel complesso", "complessivamente", "generalmente"],
     "tag": "free"
 },
   "ai_sorry": {
@@ -2423,14 +2423,14 @@
     "Hai ragione, capito male. ",
     "Mi dispiace, capito male. ",
     "Chiedo scusa, capito male. ",
-    "Giusto, non avevo capito. ",
-    "Hai ragione, non avevo capito. ",
-    "Scusami, non avevo capito. ",
-    "Mi scuso, non avevo capito. ",
-    "Hai ragione. Mi dispiace. ",
-    "Giusto. Mi scuso. ",
-    "Scusa. Non era corretto. ",
-    "Mi dispiace. Ho frainteso. "
+    "Giusto, non avevo capito.",
+    "Hai ragione, non avevo capito.",
+    "Scusami, non avevo capito.",
+    "Mi scuso, non avevo capito.",
+    "Hai ragione. Mi dispiace.",
+    "Giusto. Mi scuso.",
+    "Scusa. Non era corretto.",
+    "Mi dispiace. Ho frainteso."
   ],
     "cost": 0,
     "keywords": ["volevo", "no", "non", "intendevo", "avevo chiesto", "ho chiesto", "hai risposto"]
@@ -2541,6 +2541,10 @@
     "Per [TOPIC]?",
     "Per [TOPIC] invece?",
     "E per [TOPIC]?",
+    "Ora per [TOPIC]",
+    "Adesso per [TOPIC]",
+    "Adesso di [TOPIC]",
+    "Adesso dimmi di [TOPIC]",
     "Ok grazie, ora vorrei per [TOPIC]",
     "Grazie, ora invece vorrei sapere di [TOPIC]",
     "Ora vorrei sapere di [TOPIC]",
