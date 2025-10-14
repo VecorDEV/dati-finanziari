@@ -1382,7 +1382,8 @@
       "Vuoi che ti fornisca la lista completa dei Top Gainers previsti?": "top_gainers",
       "Vuoi che ti prepari l'analisi completa per [TOP_GAINER]?": "asset_analysis_open",
       "Vuoi dare un'occhiata all'analisi completa?": "asset_analysis_open",
-      "Posso tracciarti il grafico di [TOP_GAINER] per farti vedere il suo andamento nell'ultimo periodo. Vuoi che procedo?": "graph_request"}
+      "Posso tracciarti il grafico di [TOP_GAINER] per farti vedere il suo andamento nell'ultimo periodo. Vuoi che procedo?": "graph_request",
+      "Forse ti può servire il grafico di [TOP_GAINER]. Te lo disegno?": "graph_request"}
 },
   "ta_general": {
   "questions": [
@@ -1444,7 +1445,27 @@
   ],
     "cost": 4,
     "keywords": ["tecnica", "tecnico", "tecnici", "tecniche", "nello specifico", "specifica", "specifici", "specifiche", "analisi", "dati tecnici", "informazioni tecniche"],
-    "tag": "premium"
+    "tag": "premium",
+    "subquestions": {
+      "Vuoi conoscere anche l'analisi tecnica su [FAVOURITE]?": "ta_general",
+      "Posso darti anche l'analisi tecnica per [FAVOURITE]. Vuoi che lo faccia?": "ta_general",
+      "Posso tracciarti l'andamento grafico di [TOPIC]. Vuoi che te lo disegno?": "graph_request",
+      "Forse può esserti utile osservare come si sta muovendo [TOPIC] nell'ultimo periodo. Ti fa piacere se ti traccio il grafico?": "graph_request",
+      "Per esaminare a fondo [TOPIC] ti consiglio di dare un'occhiata alle principali notizie che lo riguardano. Le vuoi vedere?": "asset_news",
+      "Vuoi dare un'occhiata anche ai dati fondamentali di [TOPIC]?": "key_fundamentals",
+      "Vuoi un'idea generale su cosa suggeriscono i dati fondamentali riguardo a [TOPIC]?": "fundamental_analysis",
+      "Posso dirti anche il valore tecnico EMA (Media Mobile Esponenziale) su [TOPIC]. Ti interessa saperlo?": "ema_premium",
+      "Ti posso dare la Media Mobile Esponenziale (EMA) su [TOPIC]. La vuoi sapere?": "ema_premium",
+      "La Media Mobile Esponenziale (EMA) ti può aiutare a capire meglio la situazione. La vuoi conoscere?": "ema_premium",
+      "Posso darti anche l'indicatore tecnico Williams %R su [TOPIC]. Ti interessa saperlo?": "williams_premium",
+      "Ti posso dare l'indicatore tecnico Williams %R su [TOPIC]. La vuoi sapere?": "williams_premium",
+      "L'indicatore tecnico Williams %R ti può aiutare a identificare le condizioni di ipercomprato e ipervenduto. La vuoi conoscere?": "williams_premium",
+      "Posso darti anche l'indicatore tecnico CCI (Commodity Channel Index) su [TOPIC]. Ti interessa saperlo?": "cci_premium",
+      "Ti posso dare l'indicatore tecnico CCI (Commodity Channel Index) su [TOPIC]. La vuoi sapere?": "cci_premium",
+      "L'indicatore tecnico CCI (Commodity Channel Index) ti può aiutare identificare i livelli di ipercomprato e ipervenduto, misurando le variazioni di uno strumento dalla sua media statistica. Vuoi sapere quello calcolato su [TOPIC]?": "cci_premium",
+      "Posso darti anche le Bande di Bollinger calcolate su [TOPIC]. Ti interessa sapere questo dato tecnico?": "bollinger_premium",
+      "Ti posso dare le Bande di Bollinger su [TOPIC]. Vuoi sapere questa informazione?": "bollinger_premium",
+      "Le Bande di Bollinger si usano per misurare la volatilità. Vuoi che le calcoli per [TOPIC] così da avere una visione più precisa sul suo futuro?": "bollinger_premium"}
 },
   "trading_entry_decision": {
   "questions": [
