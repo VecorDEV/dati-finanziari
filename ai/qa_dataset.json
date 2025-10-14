@@ -448,7 +448,31 @@
   ],
     "cost": 2,
     "keywords": ["previsioni", "forecast", "outlook", "trend"],
-    "tag": "premium"
+    "tag": "premium",
+    "subquestions": {
+      "Vuoi sapere anche il sentiment per [FAVOURITE]?": "financial_forecast_premium",
+      "Ti serve sapere anche la previsione per [FAVOURITE]?": "financial_forecast_premium",
+      "Vuoi che ti dica cosa mostra l’analisi tecnica di [TOPIC]?": "ta_general",
+      "Per avere un quadro migliore su [TOPIC] ti consiglio di approfondire la sua analisi con gli indicatori tecnici. Ti interessano?": "ta_general",
+      "Vuoi che ti tracci il grafico di [TOPIC]?": "graph_request",
+      "Se vuoi avere un'idea generale su come sta andando [TOPIC] nell'ultimo periodo, ti consiglio di osservare il suo grafico. Vuoi che te lo disegni?": "graph_request",
+      "Vuoi controllare le correlazioni che ho trovato per [TOPIC]?": "correlazioni_asset",
+      "Prima di fare le tue conclusioni su [TOPIC], ti consiglio di dare un'occhiata alle sue correlazioni di mercato. Vuoi vedere quali ho trovato?": "correlazioni_asset",
+      "Vuoi che calcoli l’RSI attuale di [TOPIC]?": "rsi_premium",
+      "Vuoi che calcoli il MACD attuale di [TOPIC]?": "macd_premium",
+      "Vuoi che calcoli lo stocastico di [TOPIC]?": "stochastic_premium",
+      "Vuoi che calcoli l'EMA (Media Mobile Esponenziale) di [TOPIC]?": "ema_premium",
+      "Vuoi che calcoli il CCI (Commodity Channel index) per [TOPIC]?": "cci_premium",
+      "Vuoi che calcoli l'indicatore Williams attuale di [TOPIC]?": "williams_premium",
+      "Vuoi che calcoli le Bande di Bollinger di [TOPIC]?": "bollinger_premium",
+      "Desideri avere un’indicazione sul segnale attuale di [TOPIC]?": "segnale",
+      "Vuoi sapere quali sono i key fundamentals di [TOPIC]?": "key_fundamentals",
+      "Ti interessa sapere cosa dicono i dati fondamentali di [TOPIC]?": "fundamental_analysis",
+      "Ti interessa vedere l'andamento grafico di [TOPIC]?": "graph_request",
+      "Vuoi che ti mostri le ultime notizie rilevanti su [TOPIC]?": "asset_news",
+      "Ti posso mostrare le ultime notizie che ho trovato riguardo a [TOPIC]. Vuoi che procedo?": "asset_news",
+      "Posso mostrarti le notizie più recenti su [TOPIC]. Vuoi che procedo?": "asset_news",
+      "Vuoi un’analisi sulle vendite degli insider di [TOPIC]?": "informative_sells"}
 },
   "sentiment": {
   "questions": [
