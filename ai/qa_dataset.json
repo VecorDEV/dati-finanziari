@@ -985,7 +985,7 @@
       "Vuoi conoscere nel dettaglio il suo sentiment a 30 giorni?": "sentiment_30",
       "Vuoi sapere precisamente qual è il suo sentiment a 90 giorni?": "sentiment",
       "Vuoi conoscere nel dettaglio il suo sentiment a 90 giorni?": "sentiment",
-      "Per un'analisi completa potrebbe esserti utile osservare il suo andamento grafico dell'ultimo periodo. Ti preparo il grafico?": "graph_request"
+      "Per un'analisi completa potrebbe esserti utile osservare il suo andamento grafico dell'ultimo periodo. Ti preparo il grafico?": "graph_request"}
 },
   "ai_name": {
   "questions": [
@@ -1376,7 +1376,13 @@
   ],
     "cost": 1,
     "keywords": ["mercato", "mercati", "sentiment", "generico", "generale", "oggi", "giornata", "interpretazione", "interpreta", "presentimento"],
-    "tag": "free"
+    "tag": "free",
+    "subquestions": {
+      "Vuoi avere la lista di tutti i Top Gainers del momento?": "top_gainers",
+      "Vuoi che ti fornisca la lista completa dei Top Gainers previsti?": "top_gainers",
+      "Vuoi che ti prepari l'analisi completa per [TOP_GAINER]?": "asset_analysis_open",
+      "Vuoi dare un'occhiata all'analisi completa?": "asset_analysis_open",
+      "Posso tracciarti il grafico di [TOP_GAINER] per farti vedere il suo andamento nell'ultimo periodo. Vuoi che procedo?": "graph_request"}
 },
   "ta_general": {
   "questions": [
