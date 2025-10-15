@@ -339,6 +339,8 @@
       "Vuoi che ti dica cosa mostra l’analisi tecnica di [TOPIC]?": "ta_general",
       "Per avere un quadro migliore su [TOPIC] ti consiglio di approfondire la sua analisi con gli indicatori tecnici. Ti interessano?": "ta_general",
       "Vuoi che ti tracci il grafico di [TOPIC]?": "graph_request",
+      "Vuoi che ti disegni il grafico di [TOPIC]?": "graph_request",
+      "Forse può esserti d'aiuto vedere il grafico di [TOPIC]. Vuoi che te lo disegno?": "graph_request",
       "Se vuoi avere un'idea generale su come sta andando [TOPIC] nell'ultimo periodo, ti consiglio di osservare il suo grafico. Vuoi che te lo disegni?": "graph_request",
       "Vuoi controllare le correlazioni che ho trovato per [TOPIC]?": "correlazioni_asset",
       "Prima di fare le tue conclusioni su [TOPIC], ti consiglio di dare un'occhiata alle sue correlazioni di mercato. Vuoi vedere quali ho trovato?": "correlazioni_asset",
@@ -355,6 +357,7 @@
       "Ti interessa vedere l'andamento grafico di [TOPIC]?": "graph_request",
       "Vuoi che ti mostri le ultime notizie rilevanti su [TOPIC]?": "asset_news",
       "Ti posso mostrare le ultime notizie che ho trovato riguardo a [TOPIC]. Vuoi che procedo?": "asset_news",
+      "Forse ti può aiutare dare un'occhiata alle notizie recenti su [TOPIC]. Vuoi che te le cerco?: "asset_news",
       "Posso mostrarti le notizie più recenti su [TOPIC]. Vuoi che procedo?": "asset_news",
       "Vuoi un’analisi sulle vendite degli insider di [TOPIC]?": "informative_sells"}
 },
@@ -1532,7 +1535,15 @@
   ],
     "cost": 4,
     "keywords": ["conviene", "entrare", "ora", "adesso", "aspettare"],
-    "tag": "premium"
+    "tag": "premium",
+    "subquestions": {
+      "Vuoi sapere anche se conviene investire su [FAVOURITE]?": "trading_entry_decision",
+      "Posso darti anche un consiglio se investire oppure no su [FAVOURITE]. Vuoi che lo faccia?": "trading_entry_decision",
+      "Posso tracciarti l'andamento grafico di [TOPIC] per farti avere un'idea di come si sta comportando nell'ultimo periodo. Vuoi che te lo disegno?": "graph_request",
+      "Forse può esserti utile osservare come si sta muovendo [TOPIC] nell'ultimo periodo. Vuoi che ti traccio il grafico?": "graph_request",
+      "Prima di entrare nel mercato, ti consiglio di esaminare più a fondo [TOPIC]. Vuoi dare un'occhiata alle principali notizie che lo riguardano?": "asset_news",
+      "Prima di decidere se investire o no, vuoi dare un'occhiata anche ai dati fondamentali di [TOPIC]? Potrebbe esserti piuttosto utile.": "key_fundamentals",
+      "Prima di entrare nel mercato, vuoi un'idea generale su cosa suggeriscono i dati fondamentali riguardo a [TOPIC]?": "fundamental_analysis"}
 },
   "where_invest": {
   "questions": [
@@ -1617,7 +1628,15 @@
   ],
     "cost": 1,
     "keywords": ["dove", "conviene", "mettere", "puntare", "investire", "su cosa"],
-    "tag": "free"
+    "tag": "free",
+    "subquestions": {
+      "Vuoi sapere anche se conviene investire su [FAVOURITE]?": "trading_entry_decision",
+      "Posso darti anche un consiglio se investire oppure no su [FAVOURITE]. Vuoi che lo faccia?": "trading_entry_decision",
+      "Posso tracciarti l'andamento grafico di [TOP_GAINER] per farti avere un'idea di come si sta comportando nell'ultimo periodo. Vuoi che te lo disegno?": "graph_request",
+      "Forse può esserti utile osservare come si sta muovendo [TOP_GAINER] nell'ultimo periodo. Vuoi che ti traccio il grafico?": "graph_request",
+      "Forse ti potrebbe servire un'analisi completa su [TOP_GAINER]. Vuoi che te la preparo?": "asset_analysis_open",
+      "Vuoi che ti preparo l'analisi completa su [TOP_GAINER] così da avere maggiori conferme?": "asset_analysis_open",
+      "Se ti serve una panoramica più dettagliata su [TOP_GAINER], ti consiglio di guardare cosa dice l'analisi tecnica. Vuoi che te lo dica in breve?": "ta_general"}
 },
   "trading_stop_loss_level": {
   "questions": [
@@ -1662,7 +1681,16 @@
   ],
     "cost": 3,
     "keywords": ["stop loss"],
-    "tag": "premium"
+    "tag": "premium",
+    "subquestions": {
+      "Vuoi che ti consiglio anche un take profit ragionevole?": "trading_take_profit_level",
+      "Ti posso consigliare anche un take profit per [TOPIC]. Vuoi che procedo?": "trading_take_profit_level",
+      "Posso darti anche lo stop loss pensato per [FAVOURITE]. Vuoi che lo faccia?": "trading_stop_loss_level",
+      "Posso tracciarti l'andamento grafico di [TOP_GAINER] per farti avere un'idea di come si sta comportando nell'ultimo periodo. Vuoi che te lo disegno?": "graph_request",
+      "Forse può esserti utile osservare come si sta muovendo [TOP_GAINER] nell'ultimo periodo. Vuoi che ti traccio il grafico?": "graph_request",
+      "Forse ti potrebbe servire un'analisi completa su [TOPIC]. Vuoi che te la preparo?": "asset_analysis_open",
+      "Vuoi che ti preparo l'analisi completa su [TOPIC] così da avere maggiori conferme?": "asset_analysis_open",
+      "Se ti serve una panoramica più dettagliata su [TOPIC], ti consiglio di guardare cosa dice l'analisi tecnica. Vuoi che te lo dica in breve?": "ta_general"}
 },
   "trading_take_profit_level": {
   "questions": [
@@ -1711,7 +1739,16 @@
   ],
     "cost": 3,
     "keywords": ["take profit", "target", "profitto"],
-    "tag": "premium"
+    "tag": "premium",
+    "subquestions": {
+      "Vuoi che ti consiglio anche uno stop loss ragionevole?": "trading_stop_loss_level",
+      "Ti posso consigliare anche uno stop loss per [TOPIC]. Vuoi che procedo?": "trading_stop_loss_level",
+      "Posso darti anche il take profit pensato per [FAVOURITE]. Vuoi che lo faccia?": "trading_take_profit_level",
+      "Posso tracciarti l'andamento grafico di [TOP_GAINER] per farti avere un'idea di come si sta comportando nell'ultimo periodo. Vuoi che te lo disegno?": "graph_request",
+      "Forse può esserti utile osservare come si sta muovendo [TOP_GAINER] nell'ultimo periodo. Vuoi che ti traccio il grafico?": "graph_request",
+      "Forse ti potrebbe servire un'analisi completa su [TOPIC]. Vuoi che te la preparo?": "asset_analysis_open",
+      "Vuoi che ti preparo l'analisi completa su [TOPIC] così da avere maggiori conferme?": "asset_analysis_open",
+      "Se ti serve una panoramica più dettagliata su [TOPIC], ti consiglio di guardare cosa dice l'analisi tecnica. Vuoi che te lo dica in breve?": "ta_general"}
 },
   "ai_fallback": {
   "questions": [""],
@@ -1822,7 +1859,17 @@
   ],
     "cost": 1,
     "keywords": ["analisi", "analizza", "analizziamo", "analizzami", "analizzare", "interpretazione", "interpretare", "interpreta", "fondamentale", "fondamentali", "key fundamentals", "key fundamental"],
-    "tag": "free"
+    "tag": "free",
+    "subquestions": {
+      "Vuoi che ti cerco notizie recenti su [TOPIC] per avere un quadro più completo su ciò che si dice a riguardo?": "asset_news",
+      "Ti posso dare anche i singoli dati fondamentali. Vuoi che procedo?": "key_fundamentals",
+      "Posso darti anche l'analisi fondamentale per [FAVOURITE]. Vuoi che lo faccia?": "fundamental_analysis",
+      "Posso tracciarti l'andamento grafico di [TOPIC] per farti avere un'idea di come si sta comportando nell'ultimo periodo. Vuoi che te lo disegno?": "graph_request",
+      "Forse ti potrebbe servire un'analisi completa su [TOPIC]. Vuoi che te la preparo?": "asset_analysis_open",
+      "Vuoi che ti preparo l'analisi completa su [TOPIC] così da avere maggiori conferme?": "asset_analysis_open",
+      "Se ti serve una panoramica più dettagliata su [TOPIC], ti consiglio di guardare cosa dice l'analisi tecnica. Vuoi che te lo dica in breve?": "ta_general",
+      "Ti va di conoscere il trailing PE (Price to Earnings) di [TOPIC]? È un dato che viene calcolato basandosi sulla performance storica dell'azienda e può aiutare a determinare se il titolo è sottovalutato o sopravvalutato": "trailing_pe",
+      "Ti serve sapere il forward PE (prezzo/utile atteso) di [TOPIC]? È un dato che si basa su stime di analisti e fornisce una visione prospettica utile per valutare se l'azienda è pronta per la crescita degli utili": "forward_pe"}
 },
   "crypto_trading": {
   "questions": [
