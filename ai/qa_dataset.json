@@ -2516,7 +2516,10 @@
     "Le notizie macro influenzano la percezione del rischio: quando aumentano i timori, il mercato si rifugia in asset sicuri."
   ],
     "cost": 0,
-    "keywords": ["macro", "notizia", "notizie"]
+    "keywords": ["macro", "notizia", "notizie"],
+    "subquestions": {
+      "Vuoi sapere cosa dicono le notizie in generale?": "market_news",
+      "Vuoi che ti fornisca una panoramica generale sulle notizie di mercato?": "market_news"}
 },
   "actual_general_info": {
   "questions": [
@@ -2589,7 +2592,13 @@
   ],
     "cost": 1,
     "keywords": ["mercato", "mercati", "andando", "oggi", "come", "procede", "procedendo", "in generale", "nel complesso", "complessivamente", "generalmente"],
-    "tag": "free"
+    "tag": "free",
+    "subquestions": {
+      "Vuoi sapere il sentiment calcolato per [TOP_FIRE]?": "sentiment",
+      "Vuoi sapere il sentiment a 30 giorni di [TOP_FIRE]?": "sentiment_30",
+      "Vuoi sapere il sentiment a 7 giorni di [TOP_FIRE]?": "sentiment_7",
+      "Vuoi conoscere gli asset che hanno le probabilità maggiori di crescita?": "top_gainers",
+      "Forse ti può interessare avere la lista dei Top Gainers. Vuoi che te la fornisca?": "top_gainers"}
 },
   "ai_sorry": {
   "questions": [
@@ -2769,7 +2778,10 @@
   ],
     "cost": 1,
     "keywords": ["quanto", "quanti", "soldi", "capitale", "somma", "cifra", "rischioso", "posso mettere", "se metto", "€", "euro", "$", "dollari", "£", "sterline", "franchi", "¥", "yen"],
-    "tag": "free"
+    "tag": "free",
+    "subquestions": {
+      "Ti consiglio di approfondire l'analisi su [TOPIC] prima di investire. Vuoi che ti prepari l'analisi?": "asset_analysis_open",
+      "Per maggiori certezze ti invito a dare uno sguardo all'analisi completa di [TOPIC]. Vuoi che te la preparo?": "asset_analysis_open"}
 },
   "ai_invece": {
   "questions": [
