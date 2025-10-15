@@ -2781,7 +2781,8 @@
     "tag": "free",
     "subquestions": {
       "Ti consiglio di approfondire l'analisi su [TOPIC] prima di investire. Vuoi che ti prepari l'analisi?": "asset_analysis_open",
-      "Per maggiori certezze ti invito a dare uno sguardo all'analisi completa di [TOPIC]. Vuoi che te la preparo?": "asset_analysis_open"}
+      "Per maggiori certezze ti invito a dare uno sguardo all'analisi completa di [TOPIC]. Vuoi che te la preparo?": "asset_analysis_open",
+      "Prima di investire su [TOPIC] ti invito a guardare la sua analisi completa. Te la preparo?": "asset_analysis_open"}
 },
   "ai_invece": {
   "questions": [
@@ -2891,7 +2892,13 @@
     "La giornata odierna è il [TODAY] ."
   ],
     "cost": 0,
-    "keywords": ["oggi"]
+    "keywords": ["oggi"],
+    "subquestions": {
+      "Vuoi sapere quali asset sono stimati con la maggiore probabilità di crescita per oggi?": "top_gainers",
+      "Vuoi sapere quali asset hanno le maggiori probabilità di crescita secondo i dati di oggi?": "top_gainers",
+      "Vuoi conoscere i Top Gainers di oggi?": "top_gainers",
+      "Vuoi sapere quali asset hanno le migliori prospettive di crescita per oggi?": "top_gainers",
+      "Vuoi sapere quali asset sono considerati con il più alto potenziale di crescita secondo i dati di oggi?": "top_gainers"}
 },
   "yesterday": {
   "questions": [
@@ -2988,7 +2995,16 @@
   ],
   "cost": 1,
   "keywords": ["main movers", "main mover", "top movers", "top mover", "leader", "leaders", "top gainers", "top gainer", "di più", "aumenterà", "aumenteranno", "salirà", "saliranno", "crescerà", "cresceranno"],
-  "tag": "free"
+  "tag": "free",
+  "subquestions": {
+    "Vuoi conoscere il sentiment a 30 giorni per [TOP_GAINER]?": "sentiment_30",
+    "Vuoi conoscere il sentiment a 7 giorni per [TOP_GAINER]?": "sentiment_7",
+    "Se vuoi analizzare [TOP_GAINER] ti consiglio di partire dal suo andamento grafico dell'ultimo periodo. Vuoi che te lo tracci?": "graph_request",
+    "Se desideri approfondire [TOP_GAINER] ti posso preparare la sua analisi completa. Vuoi che lo faccia?": "asset_analysis_open",
+    "Vuoi sapere anche quali sono stati gli asset che si sono mossi di più negli ultimi 7 giorni?": "actual_general_info",
+    "Vuoi sapere anche quali sono stati i Top Fire della settimana?": "top_fire",
+    "Vuoi che ti dica anche i probabili perdenti stimati in base ai dati di oggi?": "top_losers",
+    "Vuoi conoscere anche i Top Losers stimati grazie ai dati di oggi?": "top_losers"}
 },
   "top_losers": {
   "questions": [
@@ -3040,7 +3056,15 @@
   ],
   "cost": 1,
   "keywords": ["perdenti", "top losers", "losers", "loser", "di più", "di meno", "peggiori", "perderà", "perderanno", "diminuirà", "diminuiranno", "scenderà", "scenderanno"],
-  "tag": "free"
+  "tag": "free",
+  "subquestions": {
+    "Vuoi conoscere il sentiment a 30 giorni per [TOP_LOSER]?": "sentiment_30",
+    "Vuoi conoscere il sentiment a 7 giorni per [TOP_LOSER]?": "sentiment_7",
+    "Se vuoi analizzare [TOP_LOSER] ti consiglio di partire dal suo andamento grafico dell'ultimo periodo. Vuoi che te lo tracci?": "graph_request",
+    "Se desideri approfondire [TOP_LOSER] ti posso preparare la sua analisi completa. Vuoi che lo faccia?": "asset_analysis_open",
+    "Vuoi sapere anche quali sono stati gli asset che si sono mossi di più negli ultimi 7 giorni?": "actual_general_info",
+    "Vuoi sapere anche quali sono stati i Top Fire della settimana?": "top_fire",
+    "Vuoi che ti dica anche i Top Gainers stimati in base ai dati di oggi?": "top_gainers"}
 },
     "top_fire": {
   "questions": [
