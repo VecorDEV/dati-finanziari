@@ -2999,6 +2999,7 @@
   "subquestions": {
     "Vuoi conoscere il sentiment a 30 giorni per [TOP_GAINER]?": "sentiment_30",
     "Vuoi conoscere il sentiment a 7 giorni per [TOP_GAINER]?": "sentiment_7",
+    "Vuoi sapere quanto vale al momento [TOP_GAINER]?": "asset_last_price",
     "Se vuoi analizzare [TOP_GAINER] ti consiglio di partire dal suo andamento grafico dell'ultimo periodo. Vuoi che te lo tracci?": "graph_request",
     "Se desideri approfondire [TOP_GAINER] ti posso preparare la sua analisi completa. Vuoi che lo faccia?": "asset_analysis_open",
     "Vuoi sapere anche quali sono stati gli asset che si sono mossi di più negli ultimi 7 giorni?": "actual_general_info",
@@ -3060,6 +3061,7 @@
   "subquestions": {
     "Vuoi conoscere il sentiment a 30 giorni per [TOP_LOSER]?": "sentiment_30",
     "Vuoi conoscere il sentiment a 7 giorni per [TOP_LOSER]?": "sentiment_7",
+    "Vuoi sapere quanto vale al momento [TOP_LOSER]?": "asset_last_price",
     "Se vuoi analizzare [TOP_LOSER] ti consiglio di partire dal suo andamento grafico dell'ultimo periodo. Vuoi che te lo tracci?": "graph_request",
     "Se desideri approfondire [TOP_LOSER] ti posso preparare la sua analisi completa. Vuoi che lo faccia?": "asset_analysis_open",
     "Vuoi sapere anche quali sono stati gli asset che si sono mossi di più negli ultimi 7 giorni?": "actual_general_info",
@@ -3114,7 +3116,13 @@
   ],
     "cost": 1,
     "keywords": ["top performers", "top performer", "settimana", "top fire", "top fires", "di più", "più alta"],
-    "tag": "free"
+    "tag": "free",
+    "subquestions": {
+      "Vuoi sapere quanto vale attualmente [TOP_FIRE]?": "asset_last_price",
+      "Vuoi avere l'analisi completa su [TOP_FIRE]?": "asset_analysis_open",
+      "Ti posso fornire il valore del sentiment su [TOP_FIRE]. Lo vuoi sapere?": "sentiment",
+      "Vuoi avere qualche dettaglio tecnico su [TOP_FIRE]?": "ta_general",
+      "Se ti può servire, posso tracciarti l'andamento grafico degli ultimi giorni di [TOPIC]. Vuoi che lo faccia?": "graph_request"}
 },
     "ai_oppure": {
     "questions": [
@@ -3149,7 +3157,10 @@
       "Ammazza",
       "Diamine",
       "Perbacco",
-      "Wow"
+      "Wow",
+      "Non ci credo",
+      "Non ci posso credere",
+      "Non mi dire"
     ],
     "answers": [
       "Eh, una bella sorpresa 😮",
@@ -3231,7 +3242,15 @@
     ],
       "cost": 3,
       "keywords": ["grafico", "disegna", "disegni", "disegnami", "disegnare", "disegnamo", "andamento", "traccia", "tracciami", "tracci", "tracciare", "tracciamo"],
-      "tag": "free"
+      "tag": "free",
+      "subquestions": {
+        "Ti posso preparare l'analisi completa su [TOPIC]. Vuoi che proceda?": "asset_analysis_open",
+        "Ti serve l'analisi completa su [TOPIC]?": "asset_analysis_open"
+        "Ti serve sapere il sentiment di crescita su [TOPIC]?": "sentiment",
+        "Vuoi conoscere il sentiment a 30 giorni di [TOPIC]?": "sentiment_30",
+        "Vuoi che ti fornisca anche l'andamento grafico di [FAVOURITE]?": "graph_request",
+        "Ti interessa anche l'andamento grafico di [FAVOURITE]?": "graph_request",
+        "Se vuoi ti posso fornire le notizie più recenti su [TOPIC]. Le vuoi?": "asset_news"}
 },
     "rsi_premium": {
     "questions": [
@@ -3266,7 +3285,16 @@
     ],
     "cost": 4,
     "keywords": ["rsi", "relative strength index", "attuale", "aggiornato"],
-    "tag": "premium"
+    "tag": "premium",
+    "subquestions": {
+      "Vuoi avere anche l'indicatore MACD su [TOPIC]?": "macd_premium",
+      "Vuoi sapere anche cosa dice l'oscillatore stocastico di [TOPIC]?": "stochastic_premium",
+      "Vuoi che ti dica anche l'indicatore EMA (Media Mobile Esponenziale) su [TOPIC]?": "ema_premium",
+      "Vuoi che ti dica anche l'indicatore CCI (Commodity Channel Index) su [TOPIC]?": "cci_premium",
+      "Vuoi sapere cosa dice l'indicatore Williams %R (Percent Range) su [TOPIC]?": "williams_premium",
+      "Vuoi che ti dica anche cosa suggeriscono le Bande di Bollinger su [TOPIC]?": "bollinger_premium",
+      "Vuoi che ti tracci l'andamento grafico dell'ultimo periodo di [TOPIC]?": "graph_request",
+      "Per maggiore sicurezza ti invito a guardare l'analisi completa di [TOPIC]. Vuoi che te la preparo?": "asset_analysis_open"}
 },
      "rsi": {
     "questions": [
@@ -3301,7 +3329,10 @@
     ],
    "cost": 0,
    "keywords": ["rsi", "relative strength index", "attuale", "aggiornato"],
-   "tag": "only_free"
+   "tag": "only_free",
+   "subquestions": {
+     "Vuoi sapere perchè conviene abbonarsi?": "subscription_info",
+     "Se vuoi posso dirti perchè conviene abbonarsi. Lo vuoi sapere?": "subscription_info"}
 },
     "macd_premium": {
     "questions": [
@@ -3332,7 +3363,16 @@
     ],
     "cost": 4,
     "keywords": ["macd", "moving average convergence divergence", "attuale", "aggiornato"],
-    "tag": "premium"
+    "tag": "premium",
+    "subquestions": {
+      "Vuoi avere anche l'indicatore RSI su [TOPIC]?": "rsi_premium",
+      "Vuoi sapere anche cosa dice l'oscillatore stocastico di [TOPIC]?": "stochastic_premium",
+      "Vuoi che ti dica anche l'indicatore EMA (Media Mobile Esponenziale) su [TOPIC]?": "ema_premium",
+      "Vuoi che ti dica anche l'indicatore CCI (Commodity Channel Index) su [TOPIC]?": "cci_premium",
+      "Vuoi sapere cosa dice l'indicatore Williams %R (Percent Range) su [TOPIC]?": "williams_premium",
+      "Vuoi che ti dica anche cosa suggeriscono le Bande di Bollinger su [TOPIC]?": "bollinger_premium",
+      "Vuoi che ti tracci l'andamento grafico dell'ultimo periodo di [TOPIC]?": "graph_request",
+      "Per maggiore sicurezza ti invito a guardare l'analisi completa di [TOPIC]. Vuoi che te la preparo?": "asset_analysis_open"}
 },
     "macd": {
     "questions": [
@@ -3363,7 +3403,10 @@
     ],
     "cost": 0,
     "keywords": ["macd", "moving average convergence divergence", "attuale", "aggiornato"],
-    "tag": "only_free"
+    "tag": "only_free",
+    "subquestions": {
+     "Vuoi sapere perchè conviene abbonarsi?": "subscription_info",
+     "Se vuoi posso dirti perchè conviene abbonarsi. Lo vuoi sapere?": "subscription_info"}
 },
     "stochastic_premium": {
     "questions": [
@@ -3396,7 +3439,16 @@
     ],
     "cost": 4,
     "keywords": ["stocastico", "k e d"],
-    "tag": "premium"
+    "tag": "premium",
+    "subquestions": {
+      "Vuoi avere anche l'indicatore RSI su [TOPIC]?": "rsi_premium",
+      "Vuoi sapere anche cosa dice il MACD di [TOPIC]?": "macd_premium",
+      "Vuoi che ti dica anche l'indicatore EMA (Media Mobile Esponenziale) su [TOPIC]?": "ema_premium",
+      "Vuoi che ti dica anche l'indicatore CCI (Commodity Channel Index) su [TOPIC]?": "cci_premium",
+      "Vuoi sapere cosa dice l'indicatore Williams %R (Percent Range) su [TOPIC]?": "williams_premium",
+      "Vuoi che ti dica anche cosa suggeriscono le Bande di Bollinger su [TOPIC]?": "bollinger_premium",
+      "Vuoi che ti tracci l'andamento grafico dell'ultimo periodo di [TOPIC]?": "graph_request",
+      "Per maggiore sicurezza ti invito a guardare l'analisi completa di [TOPIC]. Vuoi che te la preparo?": "asset_analysis_open"}
 },
     "stochastic": {
     "questions": [
@@ -3427,7 +3479,10 @@
     ],
     "cost": 0,
     "keywords": ["stocastico", "k e d"],
-    "tag": "only_free"
+    "tag": "only_free",
+    "subquestions": {
+     "Vuoi sapere perchè conviene abbonarsi?": "subscription_info",
+     "Se vuoi posso dirti perchè conviene abbonarsi. Lo vuoi sapere?": "subscription_info"}
 },
     "ema_premium": {
     "questions": [
@@ -3457,7 +3512,16 @@
     ],
     "cost": 4,
     "keywords": ["ema", "ema10", "ema 10", "ema a 10 giorni", "exponential moving average"],
-    "tag": "premium"
+    "tag": "premium",
+    "subquestions": {
+      "Vuoi avere anche l'indicatore RSI su [TOPIC]?": "rsi_premium",
+      "Vuoi sapere anche cosa dice il MACD di [TOPIC]?": "macd_premium",
+      "Vuoi che ti dica anche l'indicatore stocastico su [TOPIC]?": "stochastic_premium",
+      "Vuoi che ti dica anche l'indicatore CCI (Commodity Channel Index) su [TOPIC]?": "cci_premium",
+      "Vuoi sapere cosa dice l'indicatore Williams %R (Percent Range) su [TOPIC]?": "williams_premium",
+      "Vuoi che ti dica anche cosa suggeriscono le Bande di Bollinger su [TOPIC]?": "bollinger_premium",
+      "Vuoi che ti tracci l'andamento grafico dell'ultimo periodo di [TOPIC]?": "graph_request",
+      "Per maggiore sicurezza ti invito a guardare l'analisi completa di [TOPIC]. Vuoi che te la preparo?": "asset_analysis_open"}
 },
     "ema": {
     "questions": [
@@ -3487,7 +3551,10 @@
     ],
     "cost": 0,
     "keywords": ["ema", "ema10", "ema 10 ", "ema a dieci giorni", "exponential moving average"],
-    "tag": "only_free"
+    "tag": "only_free",
+    "subquestions": {
+     "Vuoi sapere perchè conviene abbonarsi?": "subscription_info",
+     "Se vuoi posso dirti perchè conviene abbonarsi. Lo vuoi sapere?": "subscription_info"}
 },
     "cci_premium": {
     "questions": [
@@ -3518,7 +3585,16 @@
     ],
     "cost": 4,
     "keywords": ["cci", "commodity channel index", "attuale", "corrente", "aggiornato"],
-    "tag": "premium"
+    "tag": "premium",
+    "subquestions": {
+      "Vuoi avere anche l'indicatore RSI su [TOPIC]?": "rsi_premium",
+      "Vuoi sapere anche cosa dice il MACD di [TOPIC]?": "macd_premium",
+      "Vuoi che ti dica anche l'indicatore stocastico su [TOPIC]?": "stochastic_premium",
+      "Vuoi che ti dica anche l'indicatore EMA (Media Mobile Esponenziale) su [TOPIC]?": "ema_premium",
+      "Vuoi sapere cosa dice l'indicatore Williams %R (Percent Range) su [TOPIC]?": "williams_premium",
+      "Vuoi che ti dica anche cosa suggeriscono le Bande di Bollinger su [TOPIC]?": "bollinger_premium",
+      "Vuoi che ti tracci l'andamento grafico dell'ultimo periodo di [TOPIC]?": "graph_request",
+      "Per maggiore sicurezza ti invito a guardare l'analisi completa di [TOPIC]. Vuoi che te la preparo?": "asset_analysis_open"}
 },
     "cci": {
     "questions": [
@@ -3549,7 +3625,10 @@
     ],
     "cost": 0,
     "keywords": ["cci", "commodity channel index", "attuale", "corrente", "aggiornato"],
-    "tag": "only_free"
+    "tag": "only_free",
+    "subquestions": {
+     "Vuoi sapere perchè conviene abbonarsi?": "subscription_info",
+     "Se vuoi posso dirti perchè conviene abbonarsi. Lo vuoi sapere?": "subscription_info"}
 },
     "williams_premium": {
     "questions": [
@@ -3562,7 +3641,8 @@
       "Che valore ha il Williams di [TOPIC] oggi?",
       "Dammi il Williams corrente per [TOPIC]",
       "Mostrami il livello Williams di [TOPIC]",
-      "Qual è il valore attuale del Williams %R di [TOPIC]?"
+      "Qual è il valore attuale del Williams %R di [TOPIC]?",
+      "Dammi il Williams Percent Range di [TOPIC]"
     ],
     "answers": [
       "Il valore di Williams %R per [TOPIC] è [WILLIAMS_VALUE].\n\nLa condizione risulta [STATE], il che significa [SIGNIFICATO].",
@@ -3578,7 +3658,16 @@
     ],
     "cost": 4,
     "keywords": ["williams", "williams %r", "attuale", "corrente", "aggiornato"],
-    "tag": "premium"
+    "tag": "premium",
+    "subquestions": {
+      "Vuoi avere anche l'indicatore RSI su [TOPIC]?": "rsi_premium",
+      "Vuoi sapere anche cosa dice il MACD di [TOPIC]?": "macd_premium",
+      "Vuoi che ti dica anche l'indicatore stocastico su [TOPIC]?": "stochastic_premium",
+      "Vuoi che ti dica anche l'indicatore EMA (Media Mobile Esponenziale) su [TOPIC]?": "ema_premium",
+      "Vuoi sapere cosa dice l'indicatore CCI (Commodity Channel Index) su [TOPIC]?": "cci_premium",
+      "Vuoi che ti dica anche cosa suggeriscono le Bande di Bollinger su [TOPIC]?": "bollinger_premium",
+      "Vuoi che ti tracci l'andamento grafico dell'ultimo periodo di [TOPIC]?": "graph_request",
+      "Per maggiore sicurezza ti invito a guardare l'analisi completa di [TOPIC]. Vuoi che te la preparo?": "asset_analysis_open"}
 },
     "williams": {
     "questions": [
@@ -3591,7 +3680,8 @@
       "Che valore ha il Williams %R di [TOPIC] oggi?",
       "Dammi il Williams corrente per [TOPIC]",
       "Mostrami il livello Williams di [TOPIC]",
-      "Qual è il valore attuale del Williams di [TOPIC]?"
+      "Qual è il valore attuale del Williams di [TOPIC]?",
+      "Dammi il Williams Percent Range di [TOPIC]"
     ],
     "answers": [
       "Per visualizzare il Williams %R di [TOPIC] è necessario avere un abbonamento premium o ultra. Fai l'upgrade per ottenere tutti i vantaggi! 😄",
@@ -3609,7 +3699,10 @@
     ],
     "cost": 0,
     "keywords": ["williams", "williams %r", "attuale", "corrente", "aggiornato"],
-    "tag": "only_free"
+    "tag": "only_free",
+    "subquestions": {
+     "Vuoi sapere perchè conviene abbonarsi?": "subscription_info",
+     "Se vuoi posso dirti perchè conviene abbonarsi. Lo vuoi sapere?": "subscription_info"}
 },
     "bollinger_premium": {
     "questions": [
@@ -3639,7 +3732,16 @@
     ],
     "cost": 4,
     "keywords": ["bollinger", "attuale", "corrente", "aggiornato"],
-    "tag": "premium"
+    "tag": "premium",
+    "subquestions": {
+      "Vuoi avere anche l'indicatore RSI su [TOPIC]?": "rsi_premium",
+      "Vuoi sapere anche cosa dice il MACD di [TOPIC]?": "macd_premium",
+      "Vuoi che ti dica anche l'indicatore stocastico su [TOPIC]?": "stochastic_premium",
+      "Vuoi che ti dica anche l'indicatore EMA (Media Mobile Esponenziale) su [TOPIC]?": "ema_premium",
+      "Vuoi sapere cosa dice l'indicatore CCI (Commodity Channel Index) su [TOPIC]?": "cci_premium",
+      "Vuoi che ti dica anche cosa suggerisce l'indicatore Williams %R (Percent Range) per [TOPIC]?": "williams_premium",
+      "Vuoi che ti tracci l'andamento grafico dell'ultimo periodo di [TOPIC]?": "graph_request",
+      "Per maggiore sicurezza ti invito a guardare l'analisi completa di [TOPIC]. Vuoi che te la preparo?": "asset_analysis_open"}
 },
     "bollinger": {
     "questions": [
@@ -3672,7 +3774,10 @@
     ],
     "cost": 0,
     "keywords": ["bollinger", "attuale", "corrente", "aggiornato"],
-    "tag": "only_free"
+    "tag": "only_free",
+    "subquestions": {
+     "Vuoi sapere perchè conviene abbonarsi?": "subscription_info",
+     "Se vuoi posso dirti perchè conviene abbonarsi. Lo vuoi sapere?": "subscription_info"}
 },
     "rsi_info": {
     "questions": [
@@ -3703,7 +3808,10 @@
       "L'RSI è un indicatore che offre informazioni preziose sullo stato di un asset. Viene calcolato dal confronto tra i movimenti al rialzo e al ribasso, tradotti in un valore compreso tra 0 e 100. Questo valore segnala le aree dove il prezzo potrebbe invertire la rotta."
     ],
     "cost": 0,
-    "keywords": ["rsi", "relative strength index", "spieghi", "spiega", "spiegami", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica"]
+    "keywords": ["rsi", "relative strength index", "spieghi", "spiega", "spiegami", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica"],
+    "subquestions": {
+     "Vuoi che ti spiego anche l'indicatore MACD?": "macd_info",
+     "Se vuoi posso dirti anche a cosa serve l'indicatore CCI. Lo vuoi sapere?": "cci_info"}
 },
     "macd_info": {
     "questions": [
@@ -3735,7 +3843,10 @@
       "Il Moving Average Convergence Divergence viene usato per analizzare la dinamica dei prezzi e identificare segnali operativi. \n\nÈ calcolato partendo da due medie mobili esponenziali a diversa velocità e confrontato con una linea di segnale.\nUn MACD sopra lo zero indica una fase di forza rialzista, sotto lo zero indica debolezza ribassista, mentre i crossover aiutano a individuare i cambi di trend."
     ],
     "cost": 0,
-    "keywords": ["macd", "moving average convergence divergence", "spieghi", "spiega", "spiegami", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica"]
+    "keywords": ["macd", "moving average convergence divergence", "spieghi", "spiega", "spiegami", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica"],
+    "subquestions": {
+     "Vuoi che ti spiego anche l'indicatore Williams %R (Percent Range)?": "williams_info",
+     "Se vuoi posso dirti anche a cosa servono le Bande di Bollinger. Lo vuoi sapere?": "bollinger_info"}
 },
     "stochastic_info": {
     "questions": [
@@ -3765,7 +3876,10 @@
       "Lo stocastico è utile per misurare il momentum e gli eccessi del mercato. \n\nSi calcola analizzando la chiusura dei prezzi rispetto al loro intervallo in un periodo prefissato. \n\nGeneralmente oltre 80 si parla di ipercomprato, sotto 20 di ipervenduto."
     ],
     "cost": 0,
-    "keywords": ["stocastico", "oscillatore", "spieghi", "spiega", "spiegami", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica"]
+    "keywords": ["stocastico", "oscillatore", "spieghi", "spiega", "spiegami", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica"],
+    "subquestions": {
+     "Vuoi che ti spiego anche l'indicatore EMA (Media Mobile Esponenziale)?": "ema_info",
+     "Se vuoi posso dirti anche a cosa serve l'indicatore RSI. Lo vuoi sapere?": "rsi_info"}
 },
     "ema_info": {
     "questions": [
@@ -3796,7 +3910,10 @@
       "La media mobile esponenziale a 10 periodi è usata dagli analisti per seguire i movimenti rapidi del mercato. \n\nSi calcola attribuendo un peso decrescente ai prezzi più vecchi e maggiore a quelli recenti. \n\nPrezzi sopra l’EMA 10 segnalano una fase di forza, prezzi sotto una fase di debolezza."
     ],
     "cost": 0,
-    "keywords": ["ema", "ema10", "ema 10", "exponential", "media mobile", "spieghi", "spiega", "spiegami", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica"]
+    "keywords": ["ema", "ema10", "ema 10", "exponential", "media mobile", "spieghi", "spiega", "spiegami", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica"],
+    "subquestions": {
+     "Vuoi che ti spiego anche l'oscillatore stocastico?": "stochastic_info",
+     "Se vuoi posso dirti anche a cosa serve l'indicatore CCI. Lo vuoi sapere?": "cci_info"}
 },
     "cci_info": {
     "questions": [
@@ -3825,7 +3942,10 @@
       "Il CCI è un oscillatore tecnico che oscilla sopra e sotto lo zero. \n\nSi calcola con la differenza tra prezzo tipico e media mobile, divisa per la deviazione media. \n\nSopra +100 è ipercomprato, sotto -100 ipervenduto, tra -100 e +100 è neutrale."
     ],
     "cost": 0,
-    "keywords": ["cci", "commodity channel index", "spieghi", "spiega", "spiegami", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica"]
+    "keywords": ["cci", "commodity channel index", "spieghi", "spiega", "spiegami", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica"],
+    "subquestions": {
+     "Vuoi che ti spiego anche l'indicatore MACD?": "macd_info",
+     "Se vuoi ti posso dire anche a cosa serve l'indicatore Williams %R (Percent Range). Lo vuoi sapere?": "williams_info"}
 },
     "williams_info": {
     "questions": [
@@ -3856,7 +3976,10 @@
       "Il Williams %R è simile allo stocastico, ma scalato tra 0 e -100. \n\nIl prezzo di chiusura viene confrontato con massimo e minimo degli ultimi periodi. \n\nValori alti (verso -20) indicano ipercomprato, valori bassi (verso -80) ipervenduto."
     ],
     "cost": 0,
-    "keywords": ["williams", "spieghi", "spiega", "spiegami", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica"]
+    "keywords": ["williams", "spieghi", "spiega", "spiegami", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica"],
+    "subquestions": {
+     "Vuoi che ti spiego anche l'indicatore EMA (Media Mobile Esponenziale)?": "ema_info",
+     "Se vuoi ti posso dire anche a cosa servono le Bande di Bollinger. Lo vuoi sapere?": "bollinger_info"}
 },
     "bollinger_info": {
     "questions": [
@@ -3889,7 +4012,10 @@
       "Le Bande di Bollinger sono un oscillatore di volatilità. \n\nLa media mobile centrale e le bande superiore/inferiore, calcolate con deviazioni standard, delimitano il prezzo. \n\nToccando la banda superiore il mercato è ipercomprato, toccando quella inferiore è ipervenduto."
     ],
     "cost": 0,
-    "keywords": ["bollinger", "spieghi", "spiega", "spiegami", "cosa sono", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica"]
+    "keywords": ["bollinger", "spieghi", "spiega", "spiegami", "cosa sono", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica"],
+    "subquestions": {
+     "Vuoi che ti spiego anche l'indicatore MACD?": "macd_info",
+     "Se vuoi posso dirti anche a cosa serve l'indicatore CCI. Lo vuoi sapere?": "cci_info"}
 },
     "fundamentals_info": {
     "questions": [
