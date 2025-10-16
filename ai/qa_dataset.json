@@ -4889,7 +4889,9 @@
       "Il prezzo di un asset non dipende solo dai dati storici ma anche dalle aspettative future degli investitori.\n\nProiezioni di crescita, anticipazioni sugli utili, politiche monetarie e cambi valutari sono alcuni dei fattori che muovono i mercati. Anche eventi imprevisti o shock esterni possono generare oscillazioni significative, rendendo il mercato dinamico e complesso."
     ],
     "cost": 0,
-    "keywords": ["cosa muove", "fa muovere", "influenza", "influenzano", "influenzati", "influenzato", "prezzi", "fattori", "prezzo", "mercato"]
+    "keywords": ["cosa muove", "fa muovere", "influenza", "influenzano", "influenzati", "influenzato", "prezzi", "fattori", "prezzo", "mercato"],
+    "subquestions": {
+      "Vuoi sapere il prezzo attuale di [FAVOURITE]?": "asset_last_price"}
 },
     "obbligazioni_info": {
     "questions": [
@@ -4910,7 +4912,10 @@
       "Le obbligazioni servono a finanziare l’emittente e offrono all’investitore un ritorno regolare sotto forma di interessi.\n\nFunzionano come un prestito: l’investitore riceve cedole periodiche e il rimborso del capitale a scadenza. Sono strumenti utili per diversificare, ridurre la volatilità del portafoglio e comprendere l’impatto dei tassi di interesse sul valore dei titoli a reddito fisso."
     ],
     "cost": 0,
-    "keywords": ["obbligazioni", "obbligazione", "titoli obbligazionari", "titolo obbligazionario"]
+    "keywords": ["obbligazioni", "obbligazione", "titoli obbligazionari", "titolo obbligazionario"],
+    "subquestions": {
+      "Vuoi sapere la differenza tra azione e obbligazione?": "azioni_obbligazioni",
+      "Ti posso spiegare la differenza tra azioni e obbligazioni. Vuoi che lo faccia?": "azioni_obbligazioni"}
 },
     "azioni_obbligazioni": {
     "questions": [
@@ -4930,7 +4935,10 @@
       "Le azioni e le obbligazioni sono due strumenti finanziari distinti: le prime danno proprietà e partecipazione agli utili, le seconde garantiscono un reddito fisso e il rimborso del capitale.\n\nGli investitori usano le azioni per crescite di valore e dividendi variabili, mentre le obbligazioni servono a stabilizzare il portafoglio e ottenere flussi di reddito prevedibili, bilanciando il rischio complessivo."
     ],
     "cost": 0,
-    "keywords": ["azioni e obbligazioni", "azione e obbligazione", "obbligazione e azione", "obbligazioni e azioni", "azionari", "azionario", "obbligazionari", "obbligazionario"]
+    "keywords": ["azioni e obbligazioni", "azione e obbligazione", "obbligazione e azione", "obbligazioni e azioni", "azionari", "azionario", "obbligazionari", "obbligazionario"],
+    "subquestions": {
+      "Vuoi sapere anche come funzionano gli ETF?": "etf_info",
+      "Vuoi che ti spiego anche cosa sono i fondi comuni di investimento?": "fondi_info"}
 },
     "etf_info": {
     "questions": [
@@ -4955,7 +4963,10 @@
       "Gli ETF combinano i vantaggi di un fondo comune e la negoziabilità di un’azione: replicano un indice o un paniere di titoli e possono essere comprati e venduti in borsa.\n\nSono utili per diversificare rapidamente il portafoglio, ridurre i rischi specifici di singoli titoli e accedere a mercati altrimenti difficili da raggiungere, il tutto con costi contenuti e alta trasparenza."
     ],
     "cost": 0,
-    "keywords": ["etf", "exchange traded funds", "exchange traded fund", "fondo indicizzato", "fondi indicizzati", "cosa sono", "cos'è", "funziona", "funzionano", "spiega", "spiegami", "spiegare", "spiegarmi", "servono", "consistono"]
+    "keywords": ["etf", "exchange traded funds", "exchange traded fund", "fondo indicizzato", "fondi indicizzati", "cosa sono", "cos'è", "funziona", "funzionano", "spiega", "spiegami", "spiegare", "spiegarmi", "servono", "consistono"],
+    "subquestions": {
+      "Vuoi che ti spiego anche come funziona un fondo comune di investimento?": "fondi_info",
+      "Vuoi sapere anche come funzionano le materie prime?": "commodities_info"}
 },
     "fondi_info": {
     "questions": [
@@ -4974,7 +4985,10 @@
       "I fondi comuni funzionano raccogliendo denaro da diversi investitori e impiegandolo in un portafoglio di asset scelto dal gestore del fondo.\n\nQuesto approccio offre vantaggi come diversificazione, gestione professionale e accesso a mercati complessi. Le quote del fondo rappresentano la frazione del patrimonio totale posseduta da ciascun investitore, e il valore delle quote varia in base all’andamento degli investimenti del fondo."
     ],
     "cost": 0,
-    "keywords": ["fondi", "fondo", "fondi comuni", "fondo comune", "cosa sono", "cos'è", "funziona", "funzionano", "spiega", "spiegami", "spiegare", "spiegarmi", "servono", "consistono"]
+    "keywords": ["fondi", "fondo", "fondi comuni", "fondo comune", "cosa sono", "cos'è", "funziona", "funzionano", "spiega", "spiegami", "spiegare", "spiegarmi", "servono", "consistono"],
+    "subquestions": {
+      "Vuoi che ti spiego anche come funziona una criptovaluta?": "crypto_info",
+      "Vuoi sapere anche come funzionano le materie prime?": "commodities_info"}
 },
     "commodities_info": {
     "questions": [
@@ -4997,7 +5011,10 @@
       "Le materie prime, note anche come commodities, includono metalli, energia e prodotti agricoli. Sono beni tangibili scambiati sui mercati finanziari e influenzano direttamente l’economia globale.\n\nInvestitori e aziende le utilizzano come strumenti di copertura, investimento o approvvigionamento, e il loro prezzo è soggetto a fluttuazioni legate a fattori economici, politici e ambientali."
     ],
     "cost": 0,
-    "keywords": ["materie prime", "materia prima", "commodities", "cosa sono", "funzionano", "spiega", "spiegami", "spiegare", "spiegarmi", "servono"]
+    "keywords": ["materie prime", "materia prima", "commodities", "cosa sono", "funzionano", "spiega", "spiegami", "spiegare", "spiegarmi", "servono"],
+    "subquestions": {
+      "Vuoi che ti spiego anche come funziona una criptovaluta?": "crypto_info",
+      "Vuoi sapere anche come funzionano gli ETF?": "etf_info"}
 },
     "crypto_info": {
     "questions": [
@@ -5021,7 +5038,10 @@
       "Le criptovalute sono valute digitali che sfruttano la tecnologia blockchain per garantire trasferimenti sicuri e verificabili.\n\nIl loro utilizzo va oltre l’investimento: possono servire per pagamenti, smart contract o applicazioni decentralizzate. La volatilità elevata le rende interessanti sia per trader sia per investitori a lungo termine."
     ],
     "cost": 0,
-    "keywords": ["cripto", "crypto", "criptovalute", "cosa sono", "cos'è", "funziona", "funzionano", "spiega", "spiegami", "spiegare", "spiegarmi", "servono"]
+    "keywords": ["cripto", "crypto", "criptovalute", "cosa sono", "cos'è", "funziona", "funzionano", "spiega", "spiegami", "spiegare", "spiegarmi", "servono"],
+    "subquestions": {
+      "Vuoi che ti spiego anche come funzionano le materie prime?": "commodities_info",
+      "Vuoi sapere anche come funzionano gli ETF?": "etf_info"}
 },
     "supporto_resistenza_info": {
     "questions": [
