@@ -4079,7 +4079,11 @@
       "I fondamentali chiave sono parametri che consentono di capire in maniera rapida e sintetica la forza finanziaria di un'azienda.  \n\nTra quelli disponibili qui ci sono: *Trailing P/E*, *Forward P/E*, *EPS Growth (YoY)*, *Revenue Growth (YoY)*, *Profit Margins* e *Debt to Equity*."
     ],
     "cost": 0,
-    "keywords": ["fondamentali", "fundamentals", "spieghi", "spiega", "spiegami", "cos'è", "cosa sono", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica", "intende"]
+    "keywords": ["fondamentali", "fundamentals", "spieghi", "spiega", "spiegami", "cos'è", "cosa sono", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica", "intende"],
+    "subquestions": {
+      "Vuoi sapere i fondamentali di [FAVOURITE]?": "key_fundamentals",
+      "Vuoi sapere cosa dice l'analisi fondamentale di [TOPIC]?": "fundamental_analysis",
+      "Ti serve avere una panoramica sui dati fondamentali di [TOPIC]?": "fundamental_analysis"}
 },
     "key_fundamentals": {
     "questions": [
@@ -4124,7 +4128,11 @@
     ],
     "cost": 0,
     "keywords": ["fondamentali", "fondamentali chiave", "fundamentals"],
-    "tag": "free"
+    "tag": "free",
+    "subquestions": {
+      "Vuoi sapere cosa suggerisce l'analisi fondamentale di [TOPIC]?": "fundamental_analysis",
+      "Ti serve avere una panoramica generale sui fondamentali di [TOPIC]?": "fundamental_analysis",
+      "Posso fornirti un riassunto di ciò che suggeriscono i fondamentali di [TOPIC]. Vuoi che te lo dia?": "fundamental_analysis"}
   },
     "trailing_pe_info": {
     "questions": [
@@ -4155,7 +4163,11 @@
       "Il trailing P/E indica il numero di volte che il prezzo dell’azione supera gli utili per azione già registrati.  \n\nUn valore basso può indicare che il titolo è conveniente, mentre uno alto può significare aspettative elevate da parte del mercato."
     ],
     "cost": 0,
-    "keywords": ["trailing pe", "trailing p/e", "storico", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica", "intende"]
+    "keywords": ["trailing pe", "trailing p/e", "storico", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica", "intende"],
+    "subquestions": {
+      "Vuoi sapere anche cos'è il Forward P/E?": "forward_pe_info",
+      "Vuoi sapere anche cos'è l'EPS Growth?": "eps_growth_info"}
+      
 },
     "forward_pe_info": {
     "questions": [
@@ -4185,7 +4197,10 @@
       "Il forward P/E indica la valutazione di un titolo rispetto agli utili previsti.  \n\nUn valore basso può segnalare sottovalutazione, uno alto aspettative elevate o possibili sopravvalutazioni."
     ],
     "cost": 0,
-    "keywords": ["forward pe", "forward p/e", "previsto", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica", "intende"]
+    "keywords": ["forward pe", "forward p/e", "previsto", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica", "intende"],
+    "subquestions": {
+      "Vuoi sapere anche cos'è il Revenue Growth?": "revenue_growth_info",
+      "Vuoi sapere anche cos'è l'EPS Growth?": "eps_growth_info"}
 },
     "eps_growth_info": {
     "questions": [
@@ -4226,7 +4241,10 @@
       "EPS growth (YoY) ti permette di capire la variazione degli utili per azione in un anno.\n\nSono in grado di fornirti questi valori per aiutarti nelle decisioni di investimento."
     ],
     "cost": 0,
-    "keywords": ["eps", "eps growth", "crescita dell'utile", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica", "intende"]
+    "keywords": ["eps", "eps growth", "crescita dell'utile", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica", "intende"],
+    "subquestions": {
+      "Vuoi sapere anche cos'è il Revenue Growth?": "revenue_growth_info",
+      "Vuoi sapere anche cosa sono i Profit Margins?": "profit_margins_info"}
 },
     "revenue_growth_info": {
     "questions": [
@@ -4267,7 +4285,10 @@
       "Revenue growth (YoY) ti permette di capire la variazione dei ricavi in un anno.\n\nSono in grado di fornirti questi valori per aiutarti nelle decisioni di investimento."
     ],
     "cost": 0,
-    "keywords": ["revenue", "revenue growth", "crescita dei ricavi", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica", "intende"]
+    "keywords": ["revenue", "revenue growth", "crescita dei ricavi", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica", "intende"],
+    "subquestions": {
+      "Vuoi sapere anche cos'è il rapporto Debt To Equity?": "debt_to_equity_info",
+      "Vuoi sapere anche cosa sono i Profit Margins?": "profit_margins_info"}
 },
     "profit_margins_info": {
     "questions": [
@@ -4303,7 +4324,10 @@
       "I profit margins misurano quanto dei ricavi di un'azienda diventa profitto netto.\n\nQuesta app ti offre questi dati per confrontare periodi o aziende differenti."
     ],
     "cost": 0,
-    "keywords": ["profit margin", "profit margins", "margini di utile", "margine di utile", "margine di profitto", "margini di profitto", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica", "intende"]
+    "keywords": ["profit margin", "profit margins", "margini di utile", "margine di utile", "margine di profitto", "margini di profitto", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica", "intende"],
+    "subquestions": {
+      "Vuoi sapere anche cos'è il rapporto Debt To Equity?": "debt_to_equity_info",
+      "Vuoi sapere anche cos'è il Trailing P/E?": "trailing_pe_info"}
 },
     "debt_to_equity_info": {
     "questions": [
@@ -4337,7 +4361,10 @@
       "Il debt to equity è un indicatore della leva finanziaria di un'azienda e della sua capacità di gestire il debito.\n\nQuesta app ti offre questi dati per confrontare periodi o aziende differenti."
     ],
     "cost": 0,
-    "keywords": ["debt to equity", "debito", "capitale", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica", "intende"]
+    "keywords": ["debt to equity", "debito", "capitale", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica", "intende"],
+    "subquestions": {
+      "Vuoi sapere anche cos'è il Forward P/E?": "forward_pe_info",
+      "Vuoi sapere anche cos'è il Trailing P/E?": "trailing_pe_info"}
 },
     "yoy_info": {
     "questions": [
@@ -4412,7 +4439,10 @@
     ],
     "cost": 2,
     "keywords": ["trailing pe", "trailing p/e", "storico", "attuale", "corrente", "aggiornato"],
-    "tag": "free"
+    "tag": "free",
+    "subquestions": {
+      "Vuoi sapere anche il Forward P/E di [TOPIC]?": "forward_pe",
+      "Vuoi sapere anche l'EPS Growth di [TOPIC]?": "eps_growth"}
 },
     "forward_pe": {
     "questions": [
@@ -4442,7 +4472,10 @@
     ],
     "cost": 2,
     "keywords": ["forward pe", "forward p/e", "previsto", "attuale", "corrente", "aggiornato"],
-    "tag": "free"
+    "tag": "free",
+    "subquestions": {
+      "Vuoi sapere anche il Revenue Growth di [TOPIC]?": "revenue_growth",
+      "Vuoi sapere anche l'EPS Growth di [TOPIC]?": "eps_growth"}
 },
     "eps_growth": {
     "questions": [
@@ -4471,7 +4504,10 @@
     ],
     "cost": 2,
     "keywords": ["eps", "eps growth", "attuale", "corrente", "aggiornato"],
-    "tag": "free"
+    "tag": "free",
+    "subquestions": {
+      "Vuoi sapere anche il Revenue Growth di [TOPIC]?": "revenue_growth",
+      "Vuoi sapere anche i Profit Margins di [TOPIC]?": "profit_margins"}
 },
     "revenue_growth": {
     "questions": [
@@ -4500,7 +4536,10 @@
     ],
     "cost": 2,
     "keywords": ["revenue", "revenue growth", "ricavi", "attuale", "corrente", "aggiornato", "aggiornati"],
-    "tag": "free"
+    "tag": "free",
+    "subquestions": {
+      "Vuoi sapere anche il rapporto Debt To Equity di [TOPIC]?": "debt_to_equity",
+      "Vuoi sapere anche i Profit Margins di [TOPIC]?": "profit_margins"}
 },
     "profit_margins": {
     "questions": [
@@ -4530,7 +4569,10 @@
     ],
     "cost": 2,
     "keywords": ["profit margins", "profitto", "registrato", "attuale", "corrente", "aggiornato"],
-    "tag": "free"
+    "tag": "free",
+    "subquestions": {
+      "Vuoi sapere anche il rapporto Debt To Equity di [TOPIC]?": "debt_to_equity",
+      "Vuoi sapere anche il Trailing P/E di [TOPIC]?": "trailing_pe"}
 },
     "debt_to_equity": {
     "questions": [
@@ -4562,7 +4604,10 @@
     ],
     "cost": 2,
     "keywords": ["debt to equity", "debt/equity", "debito/patrimonio", "equity di", "attuale", "corrente", "aggiornato"],
-    "tag": "free"
+    "tag": "free",
+    "subquestions": {
+      "Vuoi sapere anche il Forward P/E di [TOPIC]?": "forward_pe",
+      "Vuoi sapere anche il Trailing P/E di [TOPIC]?": "trailing_pe"}
 },
   "inflation_deflation": {
   "questions": [
