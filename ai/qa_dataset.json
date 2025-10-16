@@ -4634,7 +4634,10 @@
     "Sia inflazione che deflazione hanno conseguenze dirette sul sentiment degli investitori.\n\nL'inflazione eccessiva riduce il valore reale dei rendimenti, spingendo gli operatori verso investimenti alternativi. La deflazione segnala debolezza economica, aumenta i fallimenti aziendali e spinge gli investitori verso asset rifugio.\n\nIn entrambi i casi, la diversificazione diventa uno strumento fondamentale per limitare i rischi."
   ],
   "cost": 0,
-  "keywords": ["inflazione", "deflazione", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "cosa sono", "funziona", "vuol dire", "significa", "rappresenta", "indica"]
+  "keywords": ["inflazione", "deflazione", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "cosa sono", "funziona", "vuol dire", "significa", "rappresenta", "indica"],
+  "subquestions": {
+      "Vuoi che ti spiego anche come i tassi di cambio influenzano i mercati finanziari?": "tassi_cambio",
+      "Vuoi che ti spiego anche come funzionano le politiche monetarie?": "politiche_monetarie"}
 },
     "politiche_monetarie": {
     "questions": [
@@ -4659,7 +4662,10 @@
       "Le decisioni di politica monetaria sono cruciali per i mercati.\n\nEspansiva significa più credito, più crescita e maggior appetito per il rischio: le borse salgono e le valute tendono a indebolirsi. Restrittiva significa meno credito, consumi in calo e pressione sugli utili: le borse soffrono, ma la valuta si rafforza e le obbligazioni a tasso fisso diventano più interessanti.\n\nCapire in quale fase di politica monetaria ci si trova è fondamentale per prendere decisioni di investimento consapevoli."
     ],
     "cost": 0,
-    "keywords": ["politiche monetarie", "politica monetarie", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "cosa sono", "funziona", "funzionano", "vuol dire", "significa", "intende"]
+    "keywords": ["politiche monetarie", "politica monetarie", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "cosa sono", "funziona", "funzionano", "vuol dire", "significa", "intende"],
+    "subquestions": {
+      "Vuoi che ti spiego anche in che modo i tassi di cambio influenzano i mercati finanziari?": "tassi_cambio",
+      "Vuoi che ti spiego anche cosa sono le politiche fiscali?": "politiche_fiscali"}
 },
     "politiche_fiscali": {
     "questions": [
@@ -4680,7 +4686,10 @@
       "Le politiche fiscali funzionano in combinazione con quelle monetarie.\n\nAd esempio, una politica fiscale espansiva insieme a una politica monetaria espansiva (tassi bassi) può generare forti spinte ai mercati azionari.\n\nViceversa, una politica fiscale restrittiva combinata con politiche monetarie restrittive (tassi alti) tende a raffreddare fortemente l'economia e a rendere più difficile per gli asset rischiosi crescere di valore."
     ],
     "cost": 0,
-    "keywords": ["politiche fiscali", "politica fiscale", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "cosa sono", "funziona", "funzionano", "vuol dire", "significa", "intende"]
+    "keywords": ["politiche fiscali", "politica fiscale", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "cosa sono", "funziona", "funzionano", "vuol dire", "significa", "intende"],
+    "subquestions": {
+      "Vuoi che ti spiego anche i cicli economici?": "cicli_economici",
+      "Vuoi che ti spiego anche le politiche monetarie?": "politiche_monetarie"}
 },
     "cicli_economici": {
     "questions": [
@@ -4704,7 +4713,10 @@
       "La stagnazione è una fase di crescita molto bassa o nulla, spesso accompagnata da alta disoccupazione e bassa fiducia dei consumatori.\n\nIn questo contesto, i mercati finanziari possono restare laterali o volatili, e gli investitori tendono a ridurre l'esposizione ad asset rischiosi, privilegiando quelli più stabili."
     ],
     "cost": 0,
-    "keywords": ["cicli economici", "ciclo economico", "fasi economiche", "fasi di", "fase di espansione", "stagnazione", "recessione", "regressione", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "cosa sono", "funziona", "funzionano", "vuol dire", "significa", "intende"]
+    "keywords": ["cicli economici", "ciclo economico", "fasi economiche", "fasi di", "fase di espansione", "stagnazione", "recessione", "regressione", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "cosa sono", "funziona", "funzionano", "vuol dire", "significa", "intende"],
+    "subquestions": {
+      "Vuoi che ti spiego anche perchè il mercato del lavoro è importante per gli investitori?": "mercato_lavoro",
+      "Vuoi che ti spiego anche le politiche monetarie?": "politiche_monetarie"}
 },
     "mercato_lavoro": {
     "questions": [
@@ -4728,7 +4740,10 @@
       "Il legame tra occupazione e consumi è diretto: più persone lavorano, più reddito disponibile c’è, e quindi più domanda di beni e servizi.\n\nPer gli investitori, un mercato del lavoro forte è spesso un segnale di fiducia nell’economia e nei mercati azionari."
     ],
     "cost": 0,
-    "keywords": ["disoccupazione", "occupazione", "mercato", "lavoro", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "cosa sono", "funziona", "funzionano", "vuol dire", "significa", "intende", "relazione", "rapporto"]
+    "keywords": ["disoccupazione", "occupazione", "mercato", "lavoro", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "cosa sono", "funziona", "funzionano", "vuol dire", "significa", "intende", "relazione", "rapporto"],
+    "subquestions": {
+      "Vuoi che ti spiego anche perchè il PIL è importante per gli investitori?": "pil_crescita",
+      "Vuoi che ti spiego anche le politiche fiscali?": "politiche_fiscali"}
 },
     "pil_crescita": {
     "questions": [
@@ -4752,7 +4767,10 @@
       "I dati sul PIL aiutano gli investitori a capire in che fase del ciclo economico ci si trova.\n\nUn PIL in crescita rafforza le aspettative di utili, mentre un rallentamento spinge ad adottare strategie più difensive."
     ],
     "cost": 0,
-    "keywords": ["pil", "prodotto interno lordo", "crescita economica", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "cosa sono", "funziona", "funzionano", "vuol dire", "significa", "rapporto", "relazione"]
+    "keywords": ["pil", "prodotto interno lordo", "crescita economica", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "cosa sono", "funziona", "funzionano", "vuol dire", "significa", "rapporto", "relazione"],
+    "subquestions": {
+      "Vuoi che ti spiego anche cosa succede ai mercati quando scoppia un conflitto?": "guerre_mercati",
+      "Vuoi che ti spiego anche le politiche monetarie?": "politiche_monetarie"}
 },
     "guerre_mercati": {
     "questions": [
@@ -4775,7 +4793,10 @@
       "Le guerre e i conflitti generano instabilità nei mercati, influenzando prezzi, volumi e percezione del rischio.\n\nGli investitori tendono a privilegiare asset sicuri, mentre mercati azionari e valute dei paesi coinvolti possono subire forti oscillazioni. I settori più colpiti includono energia, trasporti e materie prime. Monitorare costantemente gli sviluppi e avere una strategia di diversificazione aiuta a limitare l'impatto negativo sul portafoglio."
     ],
     "cost": 0,
-    "keywords": ["guerra", "guerre", "conflitti", "tensioni", "tensione"]
+    "keywords": ["guerra", "guerre", "conflitti", "tensioni", "tensione"],
+    "subquestions": {
+      "Vuoi che ti spiego anche che effetto hanno le sanzioni economiche sui mercati?": "sanzioni_economiche",
+      "Vuoi che ti spiego anche che impatto hanno le elezioni sul mercato azionario?": "elezioni_mercato"}
 },
     "sanzioni_economiche": {
     "questions": [
@@ -4796,7 +4817,10 @@
       "Le sanzioni economiche hanno effetti immediati e indiretti sui mercati finanziari, aumentando la percezione di rischio e la volatilità.\n\nLe aziende esposte ai paesi sanzionati possono vedere ridursi il loro fatturato e subire pressioni sui margini. Gli investitori, di conseguenza, tendono a spostare il capitale verso asset più sicuri e a rivedere le strategie di portafoglio, seguendo da vicino gli sviluppi politici e commerciali."
     ],
     "cost": 0,
-    "keywords": ["sanzioni", "sanzione"]
+    "keywords": ["sanzioni", "sanzione"],
+    "subquestions": {
+      "Ti posso spiegare anche cosa succede ai mercati durante un periodo elettorale. Vuoi saperlo?": "elezioni_mercato",
+      "Vuoi che ti spiego anche come i tassi di cambio impattano sulle strategie degli investitori?": "tassi_cambio"}
 },
     "elezioni_mercato": {
     "questions": [
@@ -4817,7 +4841,10 @@
       "Le elezioni possono avere effetti diretti e indiretti sul mercato, influenzando le aspettative di crescita, inflazione e regolamentazioni.\n\nInvestitori istituzionali e privati monitorano attentamente i candidati e le loro politiche, adattando i portafogli per proteggersi dalle fluttuazioni o per cogliere opportunità derivanti da nuovi orientamenti politici."
     ],
     "cost": 0,
-    "keywords": ["elezioni", "elezione"]
+    "keywords": ["elezioni", "elezione"],
+    "subquestions": {
+      "Ti posso spiegare anche l'effetto delle sanzioni economiche sulle aziende e sugli investitori. Vuoi che te lo spieghi?": "sanzioni_economiche",
+      "Vuoi che ti spiego anche come si muovono i mercati in base ai cambi valutari?": "tassi_cambio"}
 },
     "tassi_cambio": {
     "questions": [
@@ -4838,7 +4865,10 @@
       "Le variazioni valutarie influenzano anche i mercati dei capitali e i settori esposti al commercio internazionale.\n\nUn attento monitoraggio dei tassi di cambio consente agli investitori di adattare le proprie posizioni, ridurre rischi e cogliere opportunità derivanti da trend valutari favorevoli."
     ],
     "cost": 0,
-    "keywords": ["tassi di cambio", "cambi", "valute", "valuta"]
+    "keywords": ["tassi di cambio", "cambi", "valute", "valuta"],
+    "subquestions": {
+      "Ti posso spiegare anche cosa succede ai mercati durante un periodo elettorale. Vuoi saperlo?": "elezioni_mercato",
+      "Ti posso spiegare anche la relazione tra mercati finanziari e conflitti geopolitici. Vuoi che procedo con la spiegazione?": "guerre_mercati"}
 },
     "asset_price_drivers": {
     "questions": [
