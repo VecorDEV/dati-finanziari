@@ -5207,7 +5207,7 @@
   "keywords": ["il mio abbonamento", "il mio piano", "quale piano ho", "upgrade"],
   "subquestions": {
     "Vuoi sapere perchè conviene fare l'upgrade su TradeGPT?": "subscription_info",
-    "Vuoi conoscere i piani disponibili su TradeGPT?": "navigazione_piani"
+    "Vuoi conoscere i piani disponibili su TradeGPT?": "navigazione_piani"}
 },
   "navigazione_analisi": {
   "questions": [
@@ -5382,7 +5382,7 @@
     "cost": 0,
     "keywords": ["schermata notizie", "schermata delle notizie", "schermata news", "schermata delle news", "pagina notizie", "pagina delle notizie"],
     "subquestions": {
-    "Vuoi che ti cerchi le ultime notizie riguardo a [FAVOURITE]?": "asset_news"}
+      "Vuoi che ti cerchi le ultime notizie riguardo a [FAVOURITE]?": "asset_news"}
 },
   "asset_news": {
     "questions": [
@@ -7347,6 +7347,5 @@
   "subquestions": {
     "Vuoi sapere quali piani offre TradeGPT?": "navigazione_piani",
     "Posso dirti i piani che offre TradeGPT. Li vuoi sapere?": "navigazione_piani"}
-  }
 }
 }
