@@ -5061,7 +5061,10 @@
       "Supporto e resistenza sono aree chiave dei grafici di prezzo. Il supporto indica la zona in cui la pressione di acquisto può fermare la discesa dei prezzi, mentre la resistenza rappresenta il punto in cui la pressione di vendita può bloccare i rialzi.\n\nQuesti livelli aiutano a prevedere possibili inversioni, breakout e conferme di trend, offrendo strumenti pratici per la gestione del rischio e la pianificazione delle operazioni sul mercato."
     ],
     "cost": 0,
-    "keywords": ["livelli", "livello", "supporto", "resistenza", "cosa sono", "funzionano", "spiega", "spiegami", "spiegare", "spiegarmi", "servono"]
+    "keywords": ["livelli", "livello", "supporto", "resistenza", "cosa sono", "funzionano", "spiega", "spiegami", "spiegare", "spiegarmi", "servono"],
+    "subquestions": {
+      "Vuoi sapere anche cosa sono i volumi di trading?": "volumi_info",
+      "Vuoi che ti spiego anche cos'è la volatilità di un asset?": "volatility_info"}
 },
     "volumi_info": {
     "questions": [
@@ -5081,7 +5084,10 @@
       "I volumi di mercato sono la misura della quantità di scambi effettuati su un asset in un determinato intervallo di tempo. Rappresentano un indicatore della partecipazione degli investitori e dell’interesse generale per quell’asset.\n\nL’interpretazione dei volumi permette di confermare la forza di un trend, anticipare inversioni o breakout e capire la solidità dei movimenti di prezzo, diventando uno strumento fondamentale per analisi tecniche efficaci."
     ],
     "cost": 0,
-    "keywords": ["volumi", "volume", "scambio", "trading", "mercato", "cosa sono", "cos'è", "spiega", "spiegami", "spiegare", "spiegarmi", "servono"]
+    "keywords": ["volumi", "volume", "scambio", "trading", "mercato", "cosa sono", "cos'è", "spiega", "spiegami", "spiegare", "spiegarmi", "servono"],
+    "subquestions": {
+      "Vuoi sapere anche cosa sono i coefficienti di Pearson e Spearman?": "pearson_spearman_info",
+      "Vuoi che ti spiego anche cos'è la volatilità di mercato?": "volatility_info"}
 },
     "volatility_info": {
     "questions": [
@@ -5101,7 +5107,10 @@
       "La volatilità è un indicatore di rischio che mostra quanto i prezzi di un asset oscillano nel tempo. Non indica la direzione del movimento, ma quanto i valori possono variare, rendendo il mercato più o meno imprevedibile.\n\nPer gli investitori, conoscere la volatilità è essenziale per bilanciare portafogli, selezionare strumenti finanziari coerenti con il proprio profilo di rischio e anticipare possibili periodi di turbolenza o stabilità nei mercati."
     ],
     "cost": 0,
-    "keywords": ["volatilità", "volatile"]
+    "keywords": ["volatilità", "volatile"],
+    "subquestions": {
+      "Vuoi sapere anche cosa sono i coefficienti di Pearson e Spearman?": "pearson_spearman_info",
+      "Vuoi che ti spiego anche cosa sono i livelli di supporto e resistenza?": "supporto_resistenza_info"}
 },
     "pearson_spearman_info": {
     "questions": [
@@ -5134,7 +5143,10 @@
       "Pearson misura **quanto due asset sono proporzionalmente legati** nei loro movimenti, mentre Spearman misura **quanto due asset si muovono nella stessa direzione**, indipendentemente dalla proporzionalità.\n\nEntrambi i coefficienti variano tra **-1 e +1**, dove valori prossimi a +1 indicano correlazione positiva forte, valori prossimi a -1 correlazione negativa e valori vicini a 0 assenza di relazione lineare.\n\nUn buon approccio per gli investitori è calcolare entrambi: se i due valori sono simili, significa che il legame è solido e lineare; se divergono molto, significa che la relazione è più complessa e non perfettamente proporzionale."
     ],
     "cost": 0,
-    "keywords": ["pearson", "spearman", "cosa sono", "cos'è", "funzionano", "spiega", "spiegami", "spiegare", "spiegarmi", "servono", "serve", "differenza"]
+    "keywords": ["pearson", "spearman", "cosa sono", "cos'è", "funzionano", "spiega", "spiegami", "spiegare", "spiegarmi", "servono", "serve", "differenza"],
+    "subquestions": {
+      "Vuoi sapere anche a cosa servono i volumi?": "volumi_info",
+      "Vuoi che ti spiego anche cosa sono i livelli di supporto e resistenza?": "supporto_resistenza_info"}
 },
   "navigazione_asset": {
   "questions": [
@@ -5160,7 +5172,9 @@
     "Puoi scoprire quali asset vengono seguiti entrando nella sezione apposita dell’app 📈.\n\nDa lì è possibile controllare l’andamento di ogni asset, stimarne il potenziale futuro e aggiungere alla lista dei preferiti quelli più rilevanti per averli sempre sott’occhio. 😉"
   ],
   "cost": 0,
-  "keywords": ["lista", "elenco", "asset disponibili"]
+  "keywords": ["lista", "elenco", "asset"],
+  "subquestions": {
+    "Ti serve sapere anche come si fa l'analisi di un asset su TradeGPT?": "navigazione_analisi"}
 },
   "navigazione_abbonamenti": {
   "questions": [
@@ -5190,7 +5204,10 @@
     "Per vedere il tuo abbonamento, vai nella home e clicca sul logo in alto a destra. Troverai il piano corrente e tutti i dettagli.\n\nIl piano Premium è ideale per chi desidera approfondire i dati finanziari degli asset, mentre il piano Ultra è perfetto per chi vuole il massimo controllo e accesso completo a tutte le funzionalità dell’app. 🚀"
   ],
   "cost": 0,
-  "keywords": ["il mio abbonamento", "il mio piano", "quale piano ho", "upgrade"]
+  "keywords": ["il mio abbonamento", "il mio piano", "quale piano ho", "upgrade"],
+  "subquestions": {
+    "Vuoi sapere perchè conviene fare l'upgrade su TradeGPT?": "subscription_info",
+    "Vuoi conoscere i piani disponibili su TradeGPT?": "navigazione_piani"
 },
   "navigazione_analisi": {
   "questions": [
@@ -5218,7 +5235,11 @@
     "Richiedere l’analisi di un asset è facile: chiedimela direttamente 🤖 oppure usa la schermata dedicata dove inserisci il nome dell’asset e premi invio per ottenere subito il risultato.\n\nUn’altra opzione è selezionare l’asset e cliccare su ‘Analisi’ 📈, così accederai direttamente alla pagina completa con tutti i dati aggiornati, grafici e informazioni per pianificare le tue strategie."
   ],
   "cost": 0,
-  "keywords": ["analisi di un asset", "analizzare un asset", "analizzo un asset", "si analizza un asset"]
+  "keywords": ["analisi di un asset", "analizzare un asset", "analizzo un asset", "si analizza un asset"],
+  "subquestions": {
+    "Ti serve sapere anche come funziona la schermata notizie su TradeGPT?": "navigazione_notizie",
+    "Vuoi sapere anche come funziona la schermata principale?": "navigazione_schermata_principale",
+    "Vuoi che ti preparo l'analisi completa di [FAVOURITE]?": "asset_analysis_open"}
 },
   "navigazione_disdetta_abbonamento": {
   "questions": [
@@ -5294,7 +5315,9 @@
     "Ecco i vari piani di TradeGPT e cosa offrono:\n\n• *Piano gratuito:*\n  - Accesso alle notizie di mercato 📢\n  - Calcolo del sentiment degli asset 📊\n  - Dati fondamentali delle aziende 📈\n  - Grafici con dati storici dei prezzi 📉\n\n• *Piano Premium:*\n  - Tutte le funzionalità del piano gratuito ✅\n  - Esperienza senza pubblicità 🚫📢\n  - Ampia gamma di indicatori tecnici per analisi avanzate 📊\n  - Consigli degli esperti 💡\n  - Limiti più ampi per l'AI, con analisi più dettagliate 🤖\n\n• *Piano Ultra:*\n  - Tutte le funzionalità del piano Premium ✅\n  - Dati sulle vendite degli insider 🏢\n  - Potente calcolo delle correlazioni tra asset 🔗\n  - Accesso illimitato alla versione più potente dell'AI 🚀\n  - Esperienza completa senza limiti, per tracciare con precisione il futuro dei tuoi asset 🌟\n\nUn'analisi di mercato di un esperto può costare fino a 100€ all'ora, mentre con TradeGPT ottieni potenti strumenti di analisi a partire da soli 8€ a settimana per il nostro piano più potente (Ultra)! 😉 😱"
   ],
   "cost": 0,
-  "keywords": ["piani disponibili", "quali piani", "quali abbonamenti", "piani dell'app", "piani di tradegpt", "che piani", "tipi di abbonamento", "tipi di piano", "piano ultra", "piano premium", "piano standard", "piano gratuito", "piano free"]
+  "keywords": ["piani disponibili", "quali piani", "quali abbonamenti", "piani dell'app", "piani di tradegpt", "che piani", "tipi di abbonamento", "tipi di piano", "piano ultra", "piano premium", "piano standard", "piano gratuito", "piano free"],
+  "subquestions": {
+    "Vuoi sapere perchè conviene fare l'upgrade su TradeGPT?": "subscription_info"}
 },
   "navigazione_schermata_principale": {
   "questions": [
@@ -5329,11 +5352,14 @@
     "Cosa mostra la pagina principale?"
   ],
   "answers": [
-    "Appena entri nella schermata principale, ti trovi di fronte a un pannello che mostra tre categorie principali:\n\n• **Top Gainers:** asset con maggior probabilità di crescita 📈\n• **Top Losers:** asset con minor probabilità di crescita 📉\n• **Top Fire:** asset che sono cresciuti o decresciuti di più nell'ultima settimana 🔥\n\nLe probabilità sono calcolate da un algoritmo basato sul sentiment degli asset, analizzando le notizie degli ultimi 90 giorni. Ti consiglio di approfondire ogni asset facendo un'analisi dettagliata per capire meglio il contesto e le opportunità.\n\nIn aggiunta, nella schermata principale puoi vedere anche altri pannelli utili, come quelli dedicati agli **asset preferiti**, così da tenerli sempre sott’occhio, e le **notizie principali** relative ai mercati, per avere rapidamente un’idea degli eventi più importanti che potrebbero influenzare i tuoi investimenti.",
-    "Nella schermata principale le percentuali indicano la probabilità di crescita o decrescita degli asset. In particolare:\n\n- I **Top Gainers** rappresentano gli asset con maggiori chance di crescita 📈\n- I **Top Losers** evidenziano quelli con minori possibilità di crescita 📉\n- I **Top Fire** mostrano gli asset che hanno registrato le variazioni più significative nell'ultima settimana 🔥\n\nQueste percentuali sono calcolate tramite un algoritmo che si basa esclusivamente sul sentiment generato dalle notizie degli ultimi 90 giorni. Ti suggerisco di fare un'analisi dettagliata per ogni asset se vuoi avere un quadro completo delle opportunità.\n\nIn più, nella schermata principale puoi consultare i tuoi **asset preferiti** e alcune **notizie chiave**, così da monitorare immediatamente gli asset che segui e restare aggiornato sugli eventi più importanti del mercato."
+    "Appena entri nella schermata principale, ti trovi di fronte a un pannello che mostra tre categorie principali:\n\n• *Top Gainers:* asset con maggior probabilità di crescita 📈\n• *Top Losers:* asset con minor probabilità di crescita 📉\n• *Top Fire:* asset che sono cresciuti o decresciuti di più nell'ultima settimana 🔥\n\nLe probabilità sono calcolate da un algoritmo basato sul sentiment degli asset, analizzando le notizie degli ultimi 90 giorni. Ti consiglio di approfondire ogni asset facendo un'analisi dettagliata per capire meglio il contesto e le opportunità.\n\nIn aggiunta, nella schermata principale puoi vedere anche altri pannelli utili, come quelli dedicati agli *asset preferiti*, così da tenerli sempre sott’occhio, e le *notizie principali* relative ai mercati, per avere rapidamente un’idea degli eventi più importanti che potrebbero influenzare i tuoi investimenti.",
+    "Nella schermata principale le percentuali indicano la probabilità di crescita o decrescita degli asset. In particolare:\n\n- I *Top Gainers* rappresentano gli asset con maggiori chance di crescita 📈\n- I *Top Losers* evidenziano quelli con minori possibilità di crescita 📉\n- I *Top Fire* mostrano gli asset che hanno registrato le variazioni più significative nell'ultima settimana 🔥\n\nQueste percentuali sono calcolate tramite un algoritmo che si basa esclusivamente sul sentiment generato dalle notizie degli ultimi 90 giorni. Ti suggerisco di fare un'analisi dettagliata per ogni asset se vuoi avere un quadro completo delle opportunità.\n\nIn più, nella schermata principale puoi consultare i tuoi *asset preferiti* e alcune *notizie chiave*, così da monitorare immediatamente gli asset che segui e restare aggiornato sugli eventi più importanti del mercato."
   ],
   "cost": 0,
-  "keywords": ["schermata home", "schermata iniziale", "schermata principale", "pagina principale", "pagina iniziale", "home dell'app", "home page"]
+  "keywords": ["schermata home", "schermata iniziale", "schermata principale", "pagina principale", "pagina iniziale", "home dell'app", "home page"],
+  "subquestions": {
+    "Vuoi sapere quali sono i Top Gainers stimati con i dati di oggi?": "top_gainers",
+    "Vuoi conoscere i Top Fire degli ultimi 7 giorni?": "top_fire"}
 },
   "navigazione_notizie": {
     "questions": [
@@ -5353,7 +5379,9 @@
       "La schermata notizie dell'app ti permette di avere sempre sott'occhio le ultime informazioni, filtrate e ordinate in modo chiaro.\n\nCliccando su una notizia puoi aprire il testo completo sul web o analizzarla subito. Inoltre, puoi incollare testi di notizie esterne nella barra di ricerca della schermata di analisi notizie: il nostro algoritmo valuta il sentiment dei titoli, permettendoti di ottenere rapidamente un'interpretazione accurata delle notizie."
     ],
     "cost": 0,
-    "keywords": ["schermata notizie", "schermata delle notizie", "schermata news", "schermata delle news", "pagina notizie", "pagina delle notizie"]
+    "keywords": ["schermata notizie", "schermata delle notizie", "schermata news", "schermata delle news", "pagina notizie", "pagina delle notizie"],
+    "subquestions": {
+    "Vuoi che ti cerchi le ultime notizie riguardo a [FAVOURITE]?": "asset_news"}
 },
   "asset_news": {
     "questions": [
@@ -5450,7 +5478,13 @@
     ],
     "cost": 3,
     "keywords": ["notizia", "notizie", "news", "notizie riguardo", "news riguardo", "novità"],
-    "tag": "free"
+    "tag": "free",
+    "subquestions": {
+      "Vuoi sapere anche le ultime news su [FAVOURITE]?": "asset_news",
+      "Ti posso preparare l'analisi completa per [TOPIC]. Vuoi che procedo?": "asset_analysis_open",
+      "Ti serve conoscere il sentiment per [TOPIC]?": "sentiment",
+      "Vuoi sapere cosa suggerisce l'analisi tecnica di [TOPIC]?": "ta_general",
+      "Vuoi sapere cosa suggerisce l'analisi dei fondamentali di [TOPIC]?": "fundamental_analysis"}
 },
     "segnale": {
     "questions": [
@@ -5482,7 +5516,13 @@
     ],
     "cost": 3,
     "keywords": ["segnale", "investire su", "investire in"],
-    "tag": "premium"
+    "tag": "premium",
+    "subquestions": {
+      "Vuoi sapere anche il segnale calcolato per [FAVOURITE]?": "segnale",
+      "Vuoi che ti prepari l'analisi completa di [TOPIC]?": "asset_analysis_open",
+      "Vuoi conoscere il sentiment calcolato per [TOPIC]?": "sentiment",
+      "Posso cercarti e poi mostrarti le news più recenti su [TOPIC], così da valutare meglio la situazione. Vuoi che procedo?": "asset_news",
+      "Posso tracciarti il grafico di [TOPIC], così da valutare meglio la situazione. Vuoi che lo faccia?": "graph_request"}
   },
     "languages": {
     "questions": [
@@ -5552,7 +5592,11 @@
     ],
     "cost": 2,
     "keywords": ["correlazioni", "spearman di", "pearson di", "carca", "analizza", "dammi", "dimmi", "correlazioni di", "correlazioni per", "correlazioni riguardo", "correlazioni tra", "pearson e spearman di", "spearman e pearson di"],
-    "tag": "ultra"
+    "tag": "ultra",
+    "subquestions": {
+      "Vuoi sapere cosa indicano i coefficienti di Pearson e Spearman?": "pearson_spearman_info",
+      "Ti posso dare anche dettagli sulle informative sells di [TOPIC] per completare la sua analisi. Vuoi che procedo?": "informative_sells",
+      "Vuoi conoscere anche le correlazioni trovate per [FAVOURITE]?": "correlazioni_asset"}
   },
   "broker_etoro": {
     "questions": [
@@ -5658,7 +5702,11 @@
     ],
     "cost": 2,
     "keywords": ["informative sells", "vendite insider", "vendite degli insider", "vendite interne", "insider", "movimenti insider", "movimenti di vendita"],
-    "tag": "ultra"
+    "tag": "ultra",
+    "subquestions": {
+      "Vuoi sapere cosa indicano le informative sells?": "informative_sells_info",
+      "Ti posso fornire anche le correlazioni trovate per [TOPIC]. Le vuoi conoscere?": "correlazioni_asset",
+      "Vuoi sapere anche le informative sells su [FAVOURITE]?": "informative_sells"}
   },
   "informative_sells_info": {
   "questions": [
@@ -5707,7 +5755,10 @@
     "Le informative sells, anche dette *insider sells*, sono le **vendite di azioni da parte di chi lavora o ha ruoli chiave all’interno di una società quotata**. Questi dati vengono tracciati e pubblicati per motivi di trasparenza, poiché riflettono movimenti potenzialmente significativi nel comportamento degli insider.\n\nIn sintesi, un alto valore di informative sells può segnalare un atteggiamento più prudente degli insider, mentre livelli bassi suggeriscono maggiore fiducia nella crescita dell’azienda."
   ],
   "cost": 0,
-  "keywords": ["informative sells", "vendite insider", "vendite degli insider", "vendite interne", "insider", "movimenti insider", "movimenti di vendita", "cosa sono", "cos'è", "spiega", "spiegami", "spieghi", "spiegare", "spiegarmi", "rappresentano", "indicano", "intende", "significa", "significano", "si riferisce", "vuol dire"]
+  "keywords": ["informative sells", "vendite insider", "vendite degli insider", "vendite interne", "insider", "movimenti insider", "movimenti di vendita", "cosa sono", "cos'è", "spiega", "spiegami", "spieghi", "spiegare", "spiegarmi", "rappresentano", "indicano", "intende", "significa", "significano", "si riferisce", "vuol dire"],
+  "subquestions": {
+      "Vuoi sapere anche cosa indicano i coefficienti di Pearson e Spearman?": "pearson_spearman_info",
+      "Ti posso fornire i dettagli sulle informative sells di [TOPIC]. Vuoi che procedo?": "informative_sells"}
 },
   "swing_trading_info": {
   "questions": [
