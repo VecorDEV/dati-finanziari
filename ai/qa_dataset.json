@@ -5317,7 +5317,8 @@
   "cost": 0,
   "keywords": ["piani disponibili", "quali piani", "quali abbonamenti", "piani dell'app", "piani di tradegpt", "che piani", "tipi di abbonamento", "tipi di piano", "piano ultra", "piano premium", "piano standard", "piano gratuito", "piano free"],
   "subquestions": {
-    "Vuoi sapere perchè conviene fare l'upgrade su TradeGPT?": "subscription_info"}
+    "Vuoi sapere perchè conviene fare l'upgrade su TradeGPT?": "subscription_info",
+    "Abbonarsi su TradeGPT è molto facile. Vuoi sapere quale piano stai usando e come fare l'upgrade?": "navigazione_abbonamenti"}
 },
   "navigazione_schermata_principale": {
   "questions": [
@@ -5927,8 +5928,8 @@
   "cost": 0,
   "keywords": ["media mobile", "medie mobili", "cos'è", "cosa sono", "spiega", "spiegami", "spieghi", "spiegarmi"],
   "subquestions": {
-    "Vuoi approfondire la Media Mobile Esponenziale (EMA)?": "ema_info",
-    "Vuoi che calcoli la Media Mobile Esponenziale (EMA) di [FAVOURITE]?": "ema_premium"}
+    "Per il momento su TradeGPT puoi conoscere solo la Media Mobile Esponenziale. Vuoi che ti spiego meglio come funziona?": "ema_info",
+    "Per il momento il mio algoritmo può calcolare solo la Media Mobile Esponenziale. Vuoi che calcoli quella di [FAVOURITE]?": "ema_premium"}
 },
   "fibonacci_info": {
   "questions": [
@@ -5971,7 +5972,9 @@
     "Fibonacci è un indicatore tecnico che sfrutta proporzioni matematiche ricorrenti in natura, applicate ai mercati finanziari. I livelli di Fibonacci (come 38.2%, 50% e 61.8%) vengono utilizzati per *prevedere potenziali aree di inversione del trend*, aiutando i trader a capire dove il prezzo potrebbe fermarsi o riprendere la direzione principale.\n\n👉 Al momento TradeGPT non include ancora i ritracciamenti di Fibonacci nelle sue analisi, ma gli sviluppatori stanno lavorando per ampliare le funzionalità grafiche e introdurre strumenti come questo nei prossimi aggiornamenti."
   ],
   "cost": 0,
-  "keywords": ["fibonacci"]
+  "keywords": ["fibonacci"],
+  "subquestions": {
+    "Vuoi sapere anche cosa si intende per analisi dei volumi?": "analisi_volumetrica_info"}
 },
   "analisi_volumetrica_info": {
   "questions": [
@@ -5999,7 +6002,10 @@
     "L’analisi volumetrica è una componente chiave dell’analisi tecnica che aiuta a comprendere *l’interesse reale degli investitori* in un determinato asset. I volumi rappresentano l’energia del mercato: più alti sono, maggiore è la partecipazione. Un buon uso dell’analisi volumetrica permette di anticipare rotture di supporti e resistenze, o confermare un trend in corso.\n\n😓 Attualmente TradeGPT non può ancora rilevare e analizzare i volumi in modo diretto, ma il team di sviluppo sta lavorando per introdurre presto questa funzionalità 📈."
   ],
   "cost": 0,
-  "keywords": ["analisi volumetrica", "volumi", "volume", "analisi dei volumi", "studiare i volumi", "studio dei volumi", "volumi", "volume profile"]
+  "keywords": ["analisi volumetrica", "volumi", "volume", "analisi dei volumi", "studiare i volumi", "studio dei volumi", "volumi", "volume profile"],
+  "subquestions": {
+    "Vuoi sapere anche cosa indicano i volumi di un asset?": "volumi_info",
+    "Vuoi sapere anche cosa si intende per volatilità?": "volatility_info"}
 },
   "gestione_rischio_info": {
   "questions": [
@@ -6020,7 +6026,11 @@
     "La gestione del rischio è l’insieme di strategie e regole adottate per proteggere il capitale e ottimizzare il rapporto tra rischio e rendimento. Ciò può includere diversificazione, limitazione delle esposizioni, uso di strumenti di stop loss e monitoraggio costante delle condizioni di mercato.\n\nAdottare un approccio disciplinato alla gestione del rischio aiuta a mantenere la calma durante oscillazioni di mercato e a prendere decisioni più consapevoli, senza farsi guidare dall’emotività."
   ],
   "cost": 0,
-  "keywords": ["gestione del rischio", "gestire il rischio", "gestisce il rischio", "rischio", "trading", "in modo sicuro", "in maniera sicura", "in sicurezza", "limitare le perdite"]
+  "keywords": ["gestione del rischio", "gestire il rischio", "gestisce il rischio", "rischio", "trading", "in modo sicuro", "in maniera sicura", "in sicurezza", "limitare le perdite"],
+  "subquestions": {
+    "Ti posso aiutare a ridurre il rischio offrendoti opzioni di analisi avanzate. Per esempio ti va di iniziare dando un'occhiata ai Top Gainers stimati dall'algoritmo?": "top_gainers",
+    "Con TradeGPT puoi ridurre il rischio grazie alle analisi avanzate sui tuoi asset preferiti. Vuoi conoscere i Top Gainers calcolati dall'algoritmo?": "top_gainers",
+    "Posso aiutarti a ridurre il rischio offrendoti consigli mirati. Ad esempio ti consiglierei di partire dalla lista degli asset che probabilmente cresceranno di più secondo il mio algoritmo. Vuoi che ti dica quali sono questi asset?": "top_gainers"}
 },
   "rispiega": {
   "questions": [
@@ -6233,7 +6243,11 @@
     "Direi di si",
     "Direi proprio di si",
     "Con piacere",
-    "Volentieri"
+    "Volentieri",
+    "Ovviamente sì",
+    "Ovviamente",
+    "Ovvio che sì",
+    "Ovvio"
   ],
   "answers": [
     "Perfetto! Procedo 😊:",
@@ -6283,6 +6297,8 @@
     "No, va bene così",
     "No, non c’è bisogno, grazie",
     "No, lascia stare",
+    "No, lo so già",
+    "No, so già tutto",
     "No, lascia pure stare",
     "No grazie, riposati",
     "No, vai a riposare",
@@ -6303,7 +6319,7 @@
     "Non ora",
     "No, me l'hai già detto",
     "No, me l'hai già spiegato",
-    "No, lo so già",
+    "No, lo sapevo già",
     "No, è sufficiente così",
     "No, va bene per ora",
     "No, è tutto a posto",
@@ -6380,7 +6396,9 @@
     "Mi hai già detto quello che mi serviva",
     "Stop",
     "Fermati",
-    "Ferma"
+    "Ferma",
+    "Ovviamente no",
+    "Ovvio che no"
   ],
   "answers": [
     "Va bene 😊\n\nResto comunque qui se hai bisogno di altro, chiedimi pure in qualsiasi momento 👋",
@@ -6441,7 +6459,11 @@
   ],
   "cost": 0,
   "keywords": ["recap", "riassunto", "successo", "riepilogo", "resoconto", "oggi", "daily brief", "report", "giornaliero", "giornata", "riassumi", "riassumeresti", "riassumimi", "riassumere", "riassumermi"],
-  "tag": "free"
+  "tag": "free",
+  "subquestions": {
+    "Posso dirti nel dettaglio come si sta muovendo un asset nella tua lista dei preferiti. Vuoi che ti dica come procede [FAVOURITE]?": "actual_asset_info",
+    "Posso dirti quali sono stati i Top Fire dell'ultima settimana. Li vuoi sapere?": "top_fire",
+    "Posso darti il sentiment generale sul mercato per oggi. Ti interessa saperlo?": "market_sentiment_today"}
 },
   "asset_growth_period": {
   "questions": [
@@ -6489,7 +6511,7 @@
     "Che crescita ha avuto [TOPIC] negli ultimi 7 giorni?",
     "Mostrami l’andamento giornaliero di [TOPIC]",
     "Vorrei sapere la variazione recente di [TOPIC]",
-    "Mi indichi quanto è salito [TOPIC]?",
+    "Mi indichi di quanto è salito [TOPIC]?",
     "Puoi dirmi quanto si è mosso [TOPIC] rispetto a una settimana fa?",
     "Fammi vedere come si è comportato [TOPIC] negli ultimi giorni",
     "Quanto è aumentato [TOPIC] nelle ultime settimane?",
@@ -6505,7 +6527,11 @@
   ],
   "cost": 0,
   "keywords": ["variazione", "aumentato", "diminuito", "comportato", "salito", "sceso", "ultimo periodo", "ultimi tempi", "andamento", "ultimi", "ultime", "ultima settimana", "giorni", "settimane", "mesi", "cresciuto", "variato", "quanto"],
-  "tag": "free"
+  "tag": "free",
+  "subquestions": {
+    "Vuoi sapere quali sono stati gli asset che si sono mossi di più (Top Fire) nell'ultima settimana?": "top_fire",
+    "Vuoi che cerchi notizie riguardo a [TOPIC]?": "asset_news",
+    "Ti interessa conoscere anche la performance recente di [FAVOURITE]?": "asset_growth_period"}
 },
   "asset_analysis_open": {
   "questions": [
@@ -6546,7 +6572,13 @@
   ],
   "cost": 0,
   "keywords": ["analisi", "portami", "preparami", "prepara", "prepararmi", "bottone", "link", "aprire", "accedere", "apri", "pannello", "pagina", "portami", "portare", "pulsante", "scheda", "tasto", "sezione"],
-  "tag": "free"
+  "tag": "free",
+  "subquestions": {
+    "Vuoi che ti prepari anche l'analisi di [FAVOURITE]?": "asset_analysis_open",
+    "Ti posso preparare anche l'analisi per [FAVOURITE]. Vuoi che lo faccia?": "asset_analysis_open",
+    "Se vuoi vedere il suo grafico posso dartelo subito. Vuoi che disegni il grafico di [TOPIC]?": "graph_request",
+    "Se vuoi conoscere il suo sentiment posso dartelo subito. Vuoi sapere il sentiment di [TOPIC]?": "sentiment",
+    "Vuoi che cerchi notizie recenti che riguardano [TOPIC]?": "asset_news"}
 },
   "other_topic": {
   "questions": [
@@ -6665,7 +6697,10 @@
   ],
   "cost": 1,
   "keywords": ["giornaliero", "oggi", "giornata", "routine", "piano", "scaletta", "programma", "organizzare", "organizza", "organizzami", "organizziamo", "pianifica", "pianificare", "strategia"],
-  "tag": "free"
+  "tag": "free",
+  "subquestions": {
+    "Posso crearti anche un piano di investimento settimanale. Ti interessa?": "weekly_plan",
+    "Posso strutturare anche un piano di investimento mensile. Vuoi che lo faccia?": "monthly_plan"}
 },
   "weekly_plan": {
   "questions": [
@@ -6705,7 +6740,10 @@
   ],
   "cost": 1,
   "keywords": ["piano", "guida", "programma", "settimanale", "7 giorni", "sette giorni", "scaletta", "agenda", "settimana", "organizza", "organizzami", "organizzare", "organizziamo", "pianificare", "pianifica", "pianificami", "pianifichiamo", "breve termine"],
-  "tag": "free"
+  "tag": "free",
+  "subquestions": {
+    "Posso crearti anche un piano di investimento mensile. Ti interessa?": "monthly_plan",
+    "Posso strutturare anche un piano di investimento giornaliero. Vuoi che lo faccia?": "daily_plan"}
 },
   "monthly_plan": {
   "questions": [
@@ -6746,7 +6784,10 @@
   ],
   "cost": 1,
   "keywords": ["piano", "guida", "programma", "mensile", "30 giorni", "trenta giorni", "scaletta", "agenda", "mese", "organizza", "organizzami", "organizzare", "organizziamo", "pianificare", "pianifica", "pianificami", "pianifichiamo", "medio termine"],
-  "tag": "free"
+  "tag": "free",
+  "subquestions": {
+    "Posso generarti anche un piano di investimento annuale. Ti interessa?": "annual_plan",
+    "Posso crearti anche un piano di investimento settimanale. Vuoi che lo faccia?": "weekly_plan"}
 },
   "annual_plan": {
   "questions": [
@@ -6791,7 +6832,10 @@
   ],
   "cost": 1,
   "keywords": ["piano", "guida", "programma", "annuale", "anno", "più mesi", "plurimestrale", "plurimensile", "dodici mesi", "agenda", "organizza", "pianifica", "pianificare", "pianificami", "pianifichiamo", "strategia", "lungo termine", "12 mesi"],
-  "tag": "free"
+  "tag": "free",
+  "subquestions": {
+    "Posso crearti anche un piano di investimento settimanale. Ti interessa?": "weekly_plan",
+    "Posso strutturare anche un piano di investimento mensile. Vuoi che lo faccia?": "monthly_plan"}
 },
   "trading_tips_general": {
   "questions": [
@@ -6824,7 +6868,12 @@
     "*📘 Suggerimenti pratici per migliorare nel trading*\n\n1. Analizza il mercato regolarmente, anche nei weekend.\n2. Imposta una strategia (swing, day trading, lungo termine...) e rispettala.\n3. Non rischiare mai più del necessario: fissa obiettivi realistici e valuta attentamente il rischio.\n4. Monitora il portafoglio e adatta il piano ai cambiamenti di mercato.\n5. Non smettere mai di studiare gli asset: l’apprendimento continuo è la chiave. 🔑\n\nTradeGPT ti aiuta a sviluppare queste abitudini, offrendoti dati e analisi sempre aggiornate per supportare le tue decisioni operative. 📈"
   ],
   "cost": 0,
-  "keywords": ["consigli", "consiglio", "migliorare", "migliore", "diventare", "buon", "gestire", "investimenti", "trader", "investitore", "strategie", "abitudini", "suggerimenti", "trading"]
+  "keywords": ["consigli", "consiglio", "migliorare", "migliore", "diventare", "buon", "gestire", "investimenti", "trader", "investitore", "strategie", "abitudini", "suggerimenti", "trading"],
+  "subquestions": {
+    "Se vuoi posso crearti un piano di investimento settimanale. Ti interessa?": "weekly_plan",
+    "Se ti interessa posso crearti un piano di investimento mensile. Vuoi che lo faccia?": "monthly_plan",
+    "Vuoi sapere come gestire il rischio?": "gestione_rischio_info",
+    "Ti posso dare indicazioni su come gestire il rischio. Le vuoi sapere?": gestione_rischio_info"}
 },
   "app_review": {
   "questions": [
@@ -6853,7 +6902,7 @@
     "Ogni tanto l’app ti propone automaticamente di lasciare una recensione ⭐️. Se vuoi farlo ora, puoi trovarne l’opzione nel *menu in alto a sinistra* della pagina principale: c’è un pulsante dedicato proprio per le valutazioni e i feedback!",
     "Puoi lasciare una recensione quando l’app te lo propone, oppure in qualsiasi momento dal *menu principale*, cliccando sull’icona in alto a sinistra. Da lì troverai la voce *Lascia una recensione* 📱.",
     "Grazie per voler lasciare una recensione! 🙌 Di tanto in tanto l’app ti invita a farlo, ma se vuoi farlo subito, apri il *menu in alto a sinistra* della schermata principale: troverai un pulsante dedicato per scrivere la tua valutazione.",
-    "Che bello sapere che vuoi lasciare una recensione! 💬 Puoi farlo direttamente dal *menu in alto a sinistra* nella home: troverai la sezione *Lascia una valutazione*. Inoltre, ogni tanto l’app ti propone di lasciare un feedback spontaneo.",
+    "Che bello sapere che vuoi lasciare una recensione! I feedback degli utenti ci aiutano a crescere 💬. Puoi farlo direttamente dal *menu in alto a sinistra* nella home: troverai la sezione *Lascia una valutazione*. Inoltre, ogni tanto l’app ti propone di lasciare un feedback spontaneo.",
     "Apprezzo tantissimo la tua voglia di condividere la tua opinione! 🤍 Per lasciare una recensione, basta aprire il *menu principale* (icona in alto a sinistra) e selezionare la voce dedicata. In alternativa, l’app ti inviterà automaticamente a farlo di tanto in tanto."
   ],
   "cost": 0,
@@ -6920,7 +6969,10 @@
     "Ogni piano ha limiti di utilizzo diversi perchè offre funzionalità diverse. 📊\n\n- Con il *Free*, hai accesso base e un numero ristretto di richieste giornaliere.\n- Con il *Premium*, puoi fare molte più analisi e ottenere risposte AI avanzate.\n- Con l’*Ultra*, hai libertà totale e accesso completo alla versione potenziata dell’AI, senza limiti 💫.\n\nSe vuoi verificare il tuo piano attuale o passare a un piano superiore, puoi farlo dal pannello in alto a destra nella schermata principale dell’app."
   ],
   "cost": 0,
-  "keywords": ["crediti", "credito", "limite", "limiti", "giornaliero", "giornalieri", "utilizzo", "disponibilità", "richieste", "oggi", "restano", "finito", "esaurito", "terminato", "raggiunto"]
+  "keywords": ["crediti", "credito", "limite", "limiti", "giornaliero", "giornalieri", "utilizzo", "disponibilità", "richieste", "oggi", "restano", "finito", "esaurito", "terminato", "raggiunto"],
+  "subquestions": {
+    "Vuoi sapere perchè conviene fare l'upgrade?": "subscription_info",
+    "Posso spiegarti perchè conviene fare l'upgrade su TradeGPT. Lo vuoi sapere?": "subscription_info"}
 },
   "fallback_limit_reached": {
   "questions": [""],
@@ -6931,7 +6983,10 @@
     "Al momento non posso rispondere perché hai raggiunto il limite massimo di richieste del tuo piano 😣\n\nTi consiglio di attendere il reset giornaliero oppure passare a un piano con più disponibilità di crediti per continuare a usare TradeGPT senza limiti 🚀.",
     "Sembra che tu abbia esaurito le richieste disponibili per oggi 😕\n\nIl limite si basa sul tuo piano attuale. Con *Premium* o *Ultra*, puoi utilizzare la versione più potente dell’AI senza interruzioni e con accesso completo ai dati e alle analisi 💪."
   ],
-  "cost": 0
+  "cost": 0,
+  "subquestions": {
+    "Vuoi sapere perchè conviene fare l'upgrade?": "subscription_info",
+    "Posso spiegarti perchè conviene fare l'upgrade su TradeGPT. Lo vuoi sapere?": "subscription_info"}
 },
   "asset_last_price": {
   "questions": [
@@ -6976,7 +7031,12 @@
   ],
   "cost": 0,
   "keywords": ["prezzo", "valore", "quota", "quotazione", "quanto vale", "ultimo prezzo", "quanto costa", "a quanto sta", "valore attuale", "quanto segna", "quanto è quotato"],
-  "tag": "free"
+  "tag": "free",
+  "subquestions": {
+    "Vuoi sapere anche l'ultimo prezzo di [FAVOURITE]?": "asset_last_price",
+    "Vuoi conoscere il sentiment di [TOPIC]?": "sentiment",
+    "Posso darti il grafico di [TOPIC], così avresti una panoramica più dettagliata sul suo andamento. Vuoi che te lo disegno?": "graph_request",
+    "Vuoi sapere se l'andamento di [TOPIC] è in linea con le ultime notizie che lo riguardano?": "asset_news"}
 },
   "asset_last_update": {
   "questions": [
@@ -7090,7 +7150,9 @@
     "La *capitalizzazione di mercato* serve per capire quanto un asset è grande o rilevante nel proprio settore. Si ottiene moltiplicando il prezzo attuale per il numero totale di unità. È un dato utile per confrontare la dimensione e il potenziale di diversi investimenti."
   ],
   "cost": 0,
-  "keywords": ["capitalizzazione di mercato", "market cap", "market capitalization", "cos'è", "significa", "vuol dire", "spiegami", "spiegare", "spiega", "cosa indica", "valore complessivo", "cosa rappresenta"]
+  "keywords": ["capitalizzazione di mercato", "market cap", "market capitalization", "cos'è", "significa", "vuol dire", "spiegami", "spiegare", "spiega", "cosa indica", "valore complessivo", "cosa rappresenta"],
+  "subquestions": {
+    "Vuoi sapere il prezzo attuale di [FAVOURITE]?": "asset_last_price"}
 },
   "dividends": {
   "questions": [
@@ -7174,7 +7236,10 @@
     "In generale, i dividendi rappresentano un ritorno economico per gli azionisti derivante dagli utili aziendali. Possono essere classificati in diversi tipi: ordinari, che vengono distribuiti regolarmente secondo la politica aziendale; straordinari, che vengono pagati in seguito a eventi eccezionali o profitti extra; e sotto forma di azioni aggiuntive. Monitorare i dividendi è importante perché fornisce indicazioni sulla solidità finanziaria della società e sulla sua capacità di generare profitti nel tempo."
   ],
   "cost": 0,
-  "keywords": ["dividendi", "dividendo", "cos'è", "cosa sono", "significa", "vuol dire", "spiegami", "spiegare", "spiega", "cosa indicano", "cosa rappresentano"]
+  "keywords": ["dividendi", "dividendo", "cos'è", "cosa sono", "significa", "vuol dire", "spiegami", "spiegare", "spiega", "cosa indicano", "cosa rappresentano"],
+  "subquestions": {
+    "Posso spiegarti anche il concetto di capitalizzazione di mercato. Lo vuoi sapere?": "capitalizzazione_info",
+    "Vuoi che ti spiego anche cos'è la capitalizzazione di mercato?": "capitalizzazione_info"}
 },
   "alert": {
   "questions": [
@@ -7246,7 +7311,10 @@
     "Il mio sviluppo è frutto del lavoro del team di TradeGPT, che ha combinato conoscenze finanziarie e intelligenza artificiale avanzata. Posso rispondere a domande sui mercati, sugli asset e sugli investimenti, offrendo analisi dettagliate e comprensibili."
   ],
   "cost": 0,
-  "keywords": ["chi", "programmato", "progettato", "realizzato", "addestrato", "sviluppato", "creato", "generato", "come fai a", "come riesci a", "tuo funzionamento", "come funzioni", "addestramento", "dataset"]
+  "keywords": ["chi", "programmato", "progettato", "realizzato", "addestrato", "sviluppato", "creato", "generato", "come fai a", "come riesci a", "tuo funzionamento", "come funzioni", "addestramento", "dataset"],
+  "subquestions": {
+    "Vuoi sapere cosa so fare?": "ai_capabilities",
+    "Vuoi che ti dica cosa posso fare per te?": "ai_capabilities"}
 },
   "subscription_info": {
   "questions": [
@@ -7275,6 +7343,9 @@
     "Abbonarsi significa ottenere una panoramica completa e dettagliata del mercato. Il piano free include funzionalità molto potenti disponibili gratuitamente, tuttavia ci sono alcune limitazioni di accesso su dati esclusivi. I piani premium e ultra invece includono previsioni molto più estese, segnali di trading, strumenti più avanzati per l’analisi e molto altro ancora.",
     "Scegliendo un piano di abbonamento potrai analizzare più nel dettaglio gli asset, avere accesso a più dati e accedere a funzionalità esclusive dell’AI come le analisi tecniche e il calcolo di correlazioni. È un upgrade che offre maggiore controllo e profondità alle tue analisi."
   ],
-  "keywords": ["abbonamento", "abbonandosi", "abbonandomi", "mi abbono", "si abbona", "pagamento", "pagando", "pago"]
+  "keywords": ["abbonamento", "abbonandosi", "abbonandomi", "mi abbono", "si abbona", "pagamento", "pagando", "pago"],
+  "subquestions": {
+    "Vuoi sapere quali piani offre TradeGPT?": "navigazione_piani",
+    "Posso dirti i piani che offre TradeGPT. Li vuoi sapere?": "navigazione_piani"}
 }
 }
