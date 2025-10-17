@@ -7103,5 +7103,156 @@
   ],
   "cost": 0,
   "keywords": ["dividends", "dividend", "yield", "coupons", "dividends of", "how much it pays", "distribution", "distributes", "ex-dividend date"]
+},
+  "dividends_info": {
+  "questions": [
+    "What are dividends?",
+    "Can you explain what dividends are?",
+    "Can you explain dividends to me?",
+    "What do dividends mean?",
+    "I would like to know what dividends are",
+    "How do dividends work?",
+    "Can you tell me what dividends are for?",
+    "Dividends meaning",
+    "What is the role of dividends?",
+    "How are dividends distributed?",
+    "What does a dividend indicate?",
+    "Can you give me information on dividends?",
+    "Tell me about dividends",
+    "Dividends: what they are and how they work",
+    "What are dividends for?",
+    "How are dividends calculated?",
+    "Can you explain the concept of a dividend?",
+    "Can you tell me in simple terms what dividends are?",
+    "Dividends explanation",
+    "What types of dividends exist?",
+    "How do dividend payments work?",
+    "Corporate dividends: what are they?",
+    "What does it mean to receive a dividend?",
+    "I want to understand dividends",
+    "Can you give me a summary of dividends?",
+    "Explain dividends to me in an easy way",
+    "Explain dividends to me",
+    "Can you explain how dividends work?"
+  ],
+  "answers": [
+    "Dividends represent the portion of profit that a company decides to distribute to its shareholders. They are a form of remuneration for those who own shares and reflect the company's economic performance. For example, if you own 100 shares of a company that pays a dividend of €1 per share, you would receive €100 as a return on the company's profits. Dividends are usually distributed periodically, such as quarterly or annually, depending on the company's policy.",
+    "A dividend is a share of a company's profit distributed to shareholders. It is one of the main ways investors can get a financial return on their stock investments. Dividends can be paid in cash, but sometimes also by issuing additional shares. For example, if a company decides to pay an extraordinary dividend of €2 per share, a shareholder with 50 shares will receive €100 in cash or possibly new shares, according to the company's chosen method.",
+    "Dividends are payments made by companies to their shareholders as a share of the profits earned. They act as an incentive for investors to hold the shares over time. The distribution of dividends is decided by the board of directors and may vary based on company results and financial policy. For instance, some companies opt for regular, consistent dividends, while others prefer to reinvest profits for growth, deferring dividend payments.",
+    "When you own shares in a company, you can receive part of its profits as dividends. This is a way to participate in the company's earnings without selling shares. Dividends provide an additional return beyond any changes in the stock price. For example, if you own shares in a stable company that distributes a 5% annual dividend, even without considering stock price changes, you would receive a 5% return on your invested capital.",
+    "In general, dividends represent a financial return for shareholders derived from company profits. They can be classified into different types: ordinary, which are distributed regularly according to company policy; extraordinary, which are paid following exceptional events or extra profits; and in the form of additional shares. Monitoring dividends is important because it provides indications of a company's financial health and its ability to generate profits over time."
+  ],
+  "cost": 0,
+  "keywords": ["dividends", "dividend", "what is it", "what are they", "means", "represents", "explain", "explaining", "explain to me", "what they indicate", "what they represent"],
+  "subquestions": {
+    "Can I also explain the concept of market capitalization to you? Do you want me to?": "capitalization_info",
+    "Do you want me to explain what market capitalization is as well?": "capitalization_info"}
+},
+"alert": {
+  "questions": [
+    "Can you notify me when [TOPIC] price changes?",
+    "Can you send me a notification if [TOPIC] varies?",
+    "Can I receive an alert on [TOPIC]'s price?",
+    "Can you alert me when [TOPIC] rises or falls?",
+    "How can I be notified if [TOPIC]'s price changes?",
+    "Can I set an alarm for [TOPIC]?",
+    "Can you notify me if [TOPIC] exceeds a certain value?",
+    "I would like to receive an alert for [TOPIC]",
+    "How can I receive price alerts for [TOPIC]?",
+    "Can you monitor [TOPIC] to notify me?",
+    "Set an alert for [TOPIC]",
+    "Set a notification for [TOPIC]",
+    "Set a notification when [TOPIC] rises",
+    "Set a notification when [TOPIC] falls",
+    "Create a notification when [TOPIC] rises",
+    "Schedule a notification for when [TOPIC] falls"
+  ],
+  "answers": [
+    "At the moment, I cannot send automatic notifications for price changes of [TOPIC]. However, the TradeGPT team is working to implement this feature, so in the future you will be able to receive real-time alerts directly in the app.",
+    "Currently, it is not possible to set automatic alerts for [TOPIC], but this feature is under development. Soon you will be notified every time the price changes, without needing to check manually.",
+    "For now, I cannot send notifications on [TOPIC]'s price, but our team is working to add this option. In the future, you will be able to receive customized alerts for any asset you want to monitor."
+  ],
+  "cost": 0,
+  "keywords": ["notification", "notify", "alert", "alert me", "notify me", "alerting", "being notified", "alerts", "set", "set up", "receive", "signal", "notify me", "report", "inform me"]
+},
+  "ai_origins": {
+  "questions": [
+    "How were you created?",
+    "Who developed you?",
+    "How does your algorithm work?",
+    "Who designed TradeGPT?",
+    "How did you become able to answer market questions?",
+    "What is your origin?",
+    "Where do you come from?",
+    "How does your artificial intelligence work?",
+    "Can you explain who created you?",
+    "What technologies do you use to analyze financial data?",
+    "How were you trained?",
+    "Who is behind your development?",
+    "How do you know about the markets?",
+    "What is your internal functioning?",
+    "How did you learn to provide financial analyses?",
+    "What tools do you use to process information?",
+    "Who created your software?",
+    "Who designed you?",
+    "How were you designed?",
+    "How do you work behind the scenes?",
+    "Where does your financial knowledge come from?",
+    "Can you explain your functioning?",
+    "How do you analyze market data?",
+    "How were you programmed?",
+    "Who created your AI model?",
+    "How do you understand users' questions?",
+    "What is your process for generating answers?",
+    "How do you provide investment advice?",
+    "What were you trained on?",
+    "What data were you trained on?",
+    "What are you trained on?",
+    "Which datasets were used to train you?"
+  ],
+  "answers": [
+    "I was developed by the TradeGPT team using advanced language models. My goal is to help you understand financial markets, analyze assets, and provide useful information for investors.",
+    "My algorithm was designed by the TradeGPT team. I work through artificial intelligence models capable of understanding natural language and analyzing financial data, offering analyses and insights on stocks, ETFs, bonds, and much more.",
+    "TradeGPT was created by a team of finance and AI enthusiasts. I use advanced language models to read, understand, and summarize information on markets and assets, aiming to always provide clear and detailed answers.",
+    "I am an AI developed by the TradeGPT team to assist you in investments. I analyze a lot of data, news, and financial indicators, and I can interpret them using sophisticated algorithms, so you get fast and understandable information.",
+    "My development is the result of TradeGPT team's work, combining financial knowledge and advanced artificial intelligence. I can answer questions about markets, assets, and investments, providing detailed and comprehensible analyses."
+  ],
+  "cost": 0,
+  "keywords": ["who", "programmed", "designed", "created", "trained", "developed", "made", "generated", "how do you", "how can you", "your functioning", "how you work", "training", "dataset"],
+  "subquestions": {
+    "Do you want to know what I can do?": "ai_capabilities",
+    "Do you want me to tell you what I can do for you?": "ai_capabilities"}
+},
+"subscription_info": {
+  "questions": [
+    "Why should I subscribe?",
+    "What is the subscription for?",
+    "Why is it worth subscribing?",
+    "What changes with a paid plan?",
+    "What benefits do I get if I subscribe?",
+    "Is it worth subscribing?",
+    "Why should I switch to a paid plan?",
+    "What do I gain with a subscription?",
+    "Why is it not convenient to stay with the free version?",
+    "Can you explain what the subscription is for?",
+    "Which additional features do I unlock if I subscribe?",
+    "Which benefits do I unlock by paying?",
+    "If I pay, can I get more details?",
+    "If I subscribe, can I get more information?",
+    "Is it worth activating the subscription?",
+    "What can I do more with the subscription?",
+    "Why do you recommend subscribing?"
+  ],
+  "answers": [
+    "By subscribing, you gain access to advanced features such as complete technical analyses, professional indicators, and more detailed asset reports. This way you can better evaluate market trends and make more informed investment decisions.",
+    "With the subscription, you can overcome the limitations of the free plan and access deeper data, such as RSI, MACD, moving averages, sell signals, and much more. It is designed for those who want to trade with more professional tools.",
+    "The subscription allows you to make the most of the AI: you can request premium analyses, have access to a wide range of data, and receive exclusive insights on each asset.",
+    "Subscribing means obtaining a complete and detailed market overview. The free plan includes very powerful features available for free, but there are some restrictions on exclusive data. Premium and Ultra plans include much more extensive forecasts, trading signals, advanced analysis tools, and much more.",
+    "By choosing a subscription plan, you can analyze assets in more detail, access more data, and unlock exclusive AI features such as technical analyses and correlation calculations. It is an upgrade that offers greater control and depth to your analyses."
+  ],
+  "keywords": ["subscription", "subscribing", "I subscribe", "subscription payment", "paying", "payment", "pay"],
+  "subquestions": {
+    "Do you want to know which plans TradeGPT offers?": "plan_navigation",
+    "I can tell you the plans TradeGPT offers. Do you want me to?": "plan_navigation"}
 }
 }
