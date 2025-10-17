@@ -5748,17 +5748,17 @@
     "Quali informazioni danno le vendite interne?"
   ],
   "answers": [
-    "Le informative sells rappresentano le **vendite di azioni da parte degli insider** di un’azienda, cioè dirigenti, amministratori o grandi azionisti che possiedono informazioni privilegiate sull’andamento della società.\n\nQuando un insider vende una parte delle proprie azioni, il dato viene registrato e pubblicato, poiché può offrire un segnale utile agli investitori sull’eventuale fiducia (o mancanza di fiducia) nella crescita futura dell’azienda.",
-    "Il termine *informative sells* si riferisce alle **operazioni di vendita effettuate da persone interne a un’azienda** — come dirigenti, amministratori o azionisti rilevanti. Queste operazioni sono chiamate 'informative' perché, essendo gli insider a conoscere meglio la situazione aziendale, le loro scelte possono fornire indizi sull’andamento futuro del titolo.\n\nUn aumento delle informative sells può talvolta essere interpretato come un segnale di cautela da parte del management.",
-    "Le *informative sells* sono le **vendite comunicate al mercato da parte degli insider** (persone con ruoli chiave o informazioni riservate sull’azienda). Questi dati vengono raccolti e resi pubblici per garantire trasparenza e permettere agli investitori di monitorare i comportamenti degli insider.\n\nUn numero elevato di informative sells può indicare prese di profitto o una possibile mancanza di fiducia a breve termine da parte di chi conosce bene la società.",
-    "Con il termine informative sells si intendono le **vendite interne all’azienda effettuate da dirigenti o azionisti principali**. Queste operazioni sono rese pubbliche proprio perché possono avere valore informativo per il mercato: gli insider, infatti, potrebbero vendere quando ritengono che il titolo sia arrivato a un livello elevato o vicino al suo valore reale.\n\nTuttavia, non sempre le informative sells indicano qualcosa di negativo: a volte gli insider vendono solo per motivi personali o di diversificazione del portafoglio.",
-    "Le informative sells, anche dette *insider sells*, sono le **vendite di azioni da parte di chi lavora o ha ruoli chiave all’interno di una società quotata**. Questi dati vengono tracciati e pubblicati per motivi di trasparenza, poiché riflettono movimenti potenzialmente significativi nel comportamento degli insider.\n\nIn sintesi, un alto valore di informative sells può segnalare un atteggiamento più prudente degli insider, mentre livelli bassi suggeriscono maggiore fiducia nella crescita dell’azienda."
+    "Le informative sells rappresentano le *vendite di azioni da parte degli insider* di un’azienda, cioè dirigenti, amministratori o grandi azionisti che possiedono informazioni privilegiate sull’andamento della società.\n\nQuando un insider vende una parte delle proprie azioni, il dato viene registrato e pubblicato, poiché può offrire un segnale utile agli investitori sull’eventuale fiducia (o mancanza di fiducia) nella crescita futura dell’azienda.",
+    "Il termine *informative sells* si riferisce alle *operazioni di vendita effettuate da persone interne a un’azienda* — come dirigenti, amministratori o azionisti rilevanti. Queste operazioni sono chiamate 'informative' perché, essendo gli insider a conoscere meglio la situazione aziendale, le loro scelte possono fornire indizi sull’andamento futuro del titolo.\n\nUn aumento delle informative sells può talvolta essere interpretato come un segnale di cautela da parte del management.",
+    "Le *informative sells* sono le *vendite comunicate al mercato da parte degli insider* (persone con ruoli chiave o informazioni riservate sull’azienda). Questi dati vengono raccolti e resi pubblici per garantire trasparenza e permettere agli investitori di monitorare i comportamenti degli insider.\n\nUn numero elevato di informative sells può indicare prese di profitto o una possibile mancanza di fiducia a breve termine da parte di chi conosce bene la società.",
+    "Con il termine informative sells si intendono le *vendite interne all’azienda effettuate da dirigenti o azionisti principali*. Queste operazioni sono rese pubbliche proprio perché possono avere valore informativo per il mercato: gli insider, infatti, potrebbero vendere quando ritengono che il titolo sia arrivato a un livello elevato o vicino al suo valore reale.\n\nTuttavia, non sempre le informative sells indicano qualcosa di negativo: a volte gli insider vendono solo per motivi personali o di diversificazione del portafoglio.",
+    "Le informative sells, anche dette *insider sells*, sono le *vendite di azioni da parte di chi lavora o ha ruoli chiave all’interno di una società quotata*. Questi dati vengono tracciati e pubblicati per motivi di trasparenza, poiché riflettono movimenti potenzialmente significativi nel comportamento degli insider.\n\nIn sintesi, un alto valore di informative sells può segnalare un atteggiamento più prudente degli insider, mentre livelli bassi suggeriscono maggiore fiducia nella crescita dell’azienda."
   ],
   "cost": 0,
   "keywords": ["informative sells", "vendite insider", "vendite degli insider", "vendite interne", "insider", "movimenti insider", "movimenti di vendita", "cosa sono", "cos'è", "spiega", "spiegami", "spieghi", "spiegare", "spiegarmi", "rappresentano", "indicano", "intende", "significa", "significano", "si riferisce", "vuol dire"],
   "subquestions": {
       "Vuoi sapere anche cosa indicano i coefficienti di Pearson e Spearman?": "pearson_spearman_info",
-      "Ti posso fornire i dettagli sulle informative sells di [TOPIC]. Vuoi che procedo?": "informative_sells"}
+      "Ti posso fornire i dettagli sulle informative sells di [FAVOURITE]. Vuoi che procedo?": "informative_sells"}
 },
   "swing_trading_info": {
   "questions": [
@@ -5788,7 +5788,12 @@
     "Lo *Swing Trading* è una tecnica che bilancia tempo e rendimento, ideale per chi vuole *operare sui mercati senza monitorarli costantemente* ma seguendo i trend di breve periodo.\n\nGli swing trader approfittano dei cicli naturali di rialzo e ribasso all’interno dei trend più ampi, cercando di prevedere i movimenti futuri attraverso indicatori tecnici e modelli di prezzo."
   ],
   "cost": 0,
-  "keywords": ["swing"]
+  "keywords": ["swing"],
+  "subquestions": {
+    "Vuoi conoscere anche la strategia di Day Trading?": "day_trading_info",
+    "Vuoi conoscere anche la strategia di investimento a lungo termine?": "long_term_investing_info",
+    "Vuoi che ti strutturo un piano di investimento mensile?": "monthly_plan",
+    "Vuoi che ti strutturo un piano di investimento settimanale?": "weekly_plan"}
 },
   "day_trading_info": {
   "questions": [
@@ -5818,7 +5823,11 @@
     "Fare *Day Trading* significa concentrarsi sull’azione di prezzo giornaliera e approfittare di trend momentanei, breakout o rimbalzi tecnici. Non si basa su fondamentali, ma sull’analisi tecnica e sulla psicologia del mercato.\n\nÈ una strategia che può essere redditizia se gestita con rigore, ma comporta *elevato stress operativo* e un alto rischio di perdita se non si dispone di una buona esperienza o di un piano ben strutturato."
   ],
   "cost": 0,
-  "keywords": ["day trading"]
+  "keywords": ["day trading"],
+  "subquestions": {
+    "Vuoi conoscere anche la strategia di Swing Trading?": "swing_trading_info",
+    "Vuoi conoscere anche la strategia di investimento a lungo termine?": "long_term_investing_info",
+    "Vuoi che ti strutturo un piano di investimento giornaliero?": "daily_plan"}
 },
   "long_term_investing_info": {
   "questions": [
@@ -5846,7 +5855,12 @@
     "La gestione a lungo termine è una delle strategie più classiche e affidabili della finanza. Si basa sull’idea che, nel lungo periodo, i mercati tendano a *premiare la costanza e la disciplina*.\n\nA differenza del trading attivo, questa strategia richiede meno tempo davanti ai grafici e si concentra sulla *qualità degli asset* e sulla *coerenza della visione finanziaria* nel tempo."
   ],
   "cost": 0,
-  "keywords": ["strategia", "a lungo termine", "lungo termine", "investimento", "gestione"]
+  "keywords": ["strategia", "a lungo termine", "lungo termine", "investimento", "gestione"],
+  "subquestions": {
+    "Vuoi conoscere anche la strategia di Day Trading?": "day_trading_info",
+    "Vuoi conoscere anche la strategia di Swing Trading?": "swing_trading_info",
+    "Vuoi che ti strutturo un piano di investimento mensile?": "monthly_plan",
+    "Vuoi che ti strutturo un piano di investimento annuale?": "annual_plan"}
 },
   "trading_strategy_choice": {
   "questions": [
@@ -5879,7 +5893,11 @@
     "Ecco le tre principali strategie di trading che puoi valutare in base al tuo profilo 🔍:\n\n• *Day Trading* – Operazioni rapide e giornaliere, perfette per chi segue costantemente i mercati.\n• *Swing Trading* – Mantieni le posizioni per giorni o settimane, bilanciando rischio e rendimento.\n• *Investimento a Lungo Termine* – Basato su crescita e stabilità nel tempo, adatto a chi investe con pazienza.\n\n📈 Tutte e tre possono essere valide: l’importante è scegliere quella che rispecchia la tua personalità e i tuoi obiettivi finanziari."
   ],
   "cost": 0,
-  "keywords": ["quale", "strategia", "strategie", "strategia di trading", "strategie di trading", "strategia di investimento", "strategie di investimento", "al caso mio", "al mio caso", "migliore per me", "adatta a me", "adatta per me"]
+  "keywords": ["quale", "strategia", "strategie", "strategia di trading", "strategie di trading", "strategia di investimento", "strategie di investimento", "al caso mio", "al mio caso", "migliore per me", "adatta a me", "adatta per me"],
+  "subquestions": {
+    "Vuoi approfondire la strategia di Day Trading?": "day_trading_info",
+    "Vuoi approfondire la strategia di investimento a lungo termine?": "long_term_investing_info",
+    "Vuoi approfondire la strategia di Swing Trading?": "swing_trading_info"}
 },
   "medie_mobili_info": {
   "questions": [
@@ -5907,7 +5925,10 @@
     "Le medie mobili sono strumenti fondamentali dell’analisi tecnica che servono per *smussare i movimenti di prezzo* e individuare direzioni di mercato 🎯.\n\nVengono calcolate come media dei prezzi in un certo periodo e cambiano man mano che arrivano nuovi dati. Per questo sono ‘mobili’.\n\n- *Media Mobile Semplice (SMA)*: assegna lo stesso peso a ogni prezzo del periodo.\n- *Media Mobile Esponenziale (EMA)*: attribuisce più importanza ai dati più recenti.\n\n💡 Quando due medie mobili di diversa durata si incrociano (ad esempio la 50 e la 200 giorni), possono generare segnali di acquisto o vendita, chiamati ‘golden cross’ e ‘death cross’."
   ],
   "cost": 0,
-  "keywords": ["media mobile", "medie mobili", "cos'è", "cosa sono", "spiega", "spiegami", "spieghi", "spiegarmi"]
+  "keywords": ["media mobile", "medie mobili", "cos'è", "cosa sono", "spiega", "spiegami", "spieghi", "spiegarmi"],
+  "subquestions": {
+    "Vuoi approfondire la Media Mobile Esponenziale (EMA)?": "ema_info",
+    "Vuoi che calcoli la Media Mobile Esponenziale (EMA) di [FAVOURITE]?": "ema_premium"}
 },
   "fibonacci_info": {
   "questions": [
