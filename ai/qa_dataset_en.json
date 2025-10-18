@@ -3154,7 +3154,18 @@
     "How did [TOPIC] go in the last half year?",
     "How did [TOPIC] go in the last year?",
     "How did [TOPIC] go in the last years?",
-    "How is [TOPIC] performing?"
+    "How is [TOPIC] performing?",
+    "Draw the graph for [TOPIC]",
+    "Can you show me the graph of [TOPIC]?",
+    "Can you give me the graph about [TOPIC]?",
+    "Can you provide the graph of [TOPIC]?",
+    "Can I have the graph of [TOPIC]?",
+    "Could you show me a graph about [TOPIC]?",
+    "Trend graph of [TOPIC]",
+    "Trend of [TOPIC] shown in a graph",
+    "Graph showing the trend of [TOPIC]",
+    "Graph of [TOPIC]’s performance",
+    "Performance trend of [TOPIC]"
   ],
   "answers": [
     "Here is the chart for the last 3 months of [TOPIC]:",
@@ -3169,7 +3180,7 @@
     "This is the 90-day chart showing the trend of [TOPIC]:"
   ],
   "cost": 3,
-  "keywords": ["chart", "draw", "trend", "plot"],
+  "keywords": ["chart", "draw", "trend", "plot", "graph", "graphic", "graphical"],
   "tag": "free",
   "subquestions": {
     "I can prepare a full analysis on [TOPIC]. Should I proceed?": "asset_analysis_open",
