@@ -3813,5 +3813,1115 @@
     "Willst du wissen, warum sich ein Abonnement lohnt?": "subscription_info",
     "Wenn du willst, kann ich dir erklären, warum ein Upgrade sinnvoll ist. Willst du es wissen?": "subscription_info"
   }
+},
+  "rsi_info": {
+  "questions": [
+    "Was ist der RSI?",
+    "Kannst du mir sagen, was RSI bedeutet?",
+    "Wozu dient der RSI-Indikator?",
+    "Was ist der RSI in der technischen Analyse?",
+    "Kannst du mir den RSI erklären?",
+    "Was bedeutet RSI?",
+    "Kannst du mir erklären, was der RSI darstellt?",
+    "Ich möchte wissen, was der RSI ist",
+    "Welche Funktion hat der RSI?",
+    "RSI – was bedeutet das?",
+    "Was ist der Relative Strength Index?",
+    "Kannst du mir den Relative Strength Index erklären?",
+    "Sag mir, was der RSI eines Assets ist"
+  ],
+  "answers": [
+    "Der RSI, oder Relative Strength Index, ist ein technischer Indikator, der die Stärke und Geschwindigkeit von Kursbewegungen misst. Er wird berechnet, indem der Durchschnitt der Aufwärtsbewegungen mit dem Durchschnitt der Abwärtsbewegungen über einen bestimmten Zeitraum (meist 14 Tage) verglichen wird. Er dient dazu, zu erkennen, ob ein Asset überkauft oder überverkauft ist.",
+    "Der Relative Strength Index (RSI) ist ein Oszillator, der hilft, extreme Marktbedingungen zu erkennen. Er berechnet sich aus dem Verhältnis von durchschnittlichen Gewinnen zu durchschnittlichen Verlusten über einen bestimmten Zeitraum. Hohe Werte deuten auf mögliche Überkauft-Zonen hin, niedrige Werte auf Überverkauft-Zonen.",
+    "Der RSI ist ein sehr gebräuchlicher Indikator zur Bewertung der Trendstärke. Er ergibt sich aus dem Verhältnis zwischen positiven und negativen Bewegungen eines Assets in den letzten Tagen. So können Bereiche identifiziert werden, in denen der Preis sich umkehren könnte.",
+    "Der Relative Strength Index ist ein Werkzeug, das Kauf- und Verkaufsdruck misst. Er wird als Verhältnis von durchschnittlichen Aufwärts- zu Abwärtsbewegungen in einem bestimmten Zeitraum berechnet. Werte über 70 deuten auf Überkauft hin, Werte unter 30 auf Überverkauft.",
+    "Der RSI ist ein Oszillator von 0 bis 100, der anzeigt, ob ein Asset überbewertet oder unterbewertet ist. Er vergleicht die Intensität der Aufwärtsbewegungen mit der der Abwärtsbewegungen und hilft, mögliche Trendwenden zu erkennen.",
+    "RSI steht für Relative Strength Index und misst die relative Stärke eines Assets. Er wird berechnet, indem die durchschnittlichen Gewinne mit den durchschnittlichen Verlusten über einen bestimmten Zeitraum verglichen werden. Extreme Werte zeigen mögliche Ungleichgewichte zwischen Angebot und Nachfrage an.",
+    "Der RSI ist ein Indikator, der die Dynamik der Preise analysiert. Er vergleicht positive und negative Bewegungen über einen definierten Zeitraum und zeigt so, wann ein Asset überkauft oder überverkauft sein könnte.",
+    "Der RSI ist ein in der technischen Analyse weit verbreiteter Oszillator. Er berechnet sich aus dem Durchschnitt der Auf- und Abwärtsbewegungen. Damit lässt sich erkennen, ob der Markt stark überkauft oder überverkauft ist und sich eine mögliche Gegenbewegung abzeichnet.",
+    "Der Relative Strength Index ist ein technisches Analysewerkzeug zur Messung der Trendstärke. Er basiert auf dem Verhältnis von durchschnittlichen Gewinnen und Verlusten über einen Zeitraum. Er hilft Anlegern, Überkauft- oder Überverkauft-Zonen zu identifizieren.",
+    "Der RSI liefert wertvolle Informationen über den Zustand eines Assets. Er berechnet sich aus dem Vergleich von Aufwärts- und Abwärtsbewegungen, dargestellt in einem Wert zwischen 0 und 100. Dieser Wert zeigt Bereiche an, in denen sich der Preis möglicherweise drehen könnte."
+  ],
+  "cost": 0,
+  "keywords": ["rsi", "relative strength index", "erklären", "erkläre", "erklär mir", "was ist", "funktion", "funktioniert", "dient", "bedeutet", "zeigt", "repräsentiert", "weist hin"],
+  "subquestions": {
+    "Willst du, dass ich dir auch den MACD-Indikator erkläre?": "macd_info",
+    "Wenn du willst, kann ich dir auch erklären, wozu der CCI-Indikator dient. Willst du das wissen?": "cci_info"
+  }
+},
+"macd_info": {
+  "questions": [
+    "Was ist der MACD?",
+    "Kannst du mir erklären, was der MACD ist?",
+    "Ich möchte wissen, wozu der MACD dient",
+    "Kannst du mir sagen, was der MACD anzeigt?",
+    "Erklär mir den MACD in der technischen Analyse",
+    "Was zeigt der MACD-Indikator?",
+    "Wozu wird der MACD verwendet?",
+    "Kannst du mir eine einfache Erklärung zum MACD geben?",
+    "Wie funktioniert der MACD?",
+    "Ich möchte den MACD-Indikator besser verstehen",
+    "Was ist der Moving Average Convergence Divergence?",
+    "Sag mir, was der MACD eines Assets ist",
+    "Warum verwendet man den MACD?",
+    "Wozu dient der MACD?"
+  ],
+  "answers": [
+    "Der MACD (Moving Average Convergence Divergence) ist ein technischer Indikator, der die Stärke und Richtung eines Trends misst.\nEr wird als Differenz zwischen zwei exponentiellen gleitenden Durchschnitten (einer schnellen und einer langsamen) berechnet und enthält eine Signallinie. Ein positiver MACD zeigt Aufwärtsdruck, ein negativer Abwärtsdruck. Kreuzungen mit der Signallinie können mögliche Trendumkehrungen anzeigen.",
+    "Der MACD wird verwendet, um Momentumwechsel und Trendumkehrungen zu erkennen.\nEr wird aus zwei exponentiellen gleitenden Durchschnitten (typischerweise 12 und 26 Perioden) berechnet und mit einer Signallinie (EMA 9 Perioden) verglichen. Liegt der MACD über null, deutet dies auf einen Aufwärtstrend, darunter auf einen Abwärtstrend. Kreuzungen mit der Signallinie zeigen mögliche Ein- oder Ausstiegspunkte.",
+    "Der MACD ist ein Oszillator, der zeigt, ob ein Asset an Trendstärke gewinnt oder verliert.\nEr wird berechnet, indem ein schneller von einem langsamen exponentiellen Durchschnitt subtrahiert wird, und eine Signallinie zum Vergleich hinzugefügt. Positive Werte deuten auf Aufwärtsdruck, negative auf Abwärtsdruck. Richtungswechsel signalisieren mögliche Trendwenden.",
+    "Der MACD misst die Trendstärke und erkennt mögliche Umkehrungen.\nEr berechnet die Differenz zwischen dem 12- und 26-Perioden-EMA, mit einem 9-Perioden-EMA als Signallinie. Ein Aufwärtskreuz über die Signallinie ist ein Kaufsignal, ein Abwärtskreuz ein Verkaufssignal.",
+    "MACD (Moving Average Convergence Divergence) hilft, Richtung und Intensität eines Trends zu bewerten.\nEr basiert auf dem Vergleich zweier exponentieller Durchschnitte und einer Signallinie. Ein positiver MACD deutet auf Aufwärtstrend, ein negativer auf Abwärtstrend hin; Kreuzungen signalisieren mögliche Szenarienwechsel.",
+    "Der MACD identifiziert Marktphasen von Stärke oder Schwäche.\nEr wird aus zwei exponentiellen Durchschnitten (schnell und langsam) und einer kürzeren Signallinie berechnet. Werte über null und positive Kreuzungen signalisieren Aufwärtstrend, Werte unter null und negative Kreuzungen Abwärtstrend.",
+    "Der MACD ist ein beliebter Indikator, da er Trend und Momentum kombiniert.\nEr ergibt sich aus der Differenz von zwei EMAs (typisch 12 und 26 Perioden) und einer Signallinie von 9 Perioden. Liegt der MACD über der Signallinie, ist der Trend Aufwärts, darunter Abwärts.",
+    "Moving Average Convergence Divergence zeigt, ob der Markt an Stärke gewinnt oder verliert.\nEr wird aus zwei EMAs verschiedener Länge berechnet und mit einer kürzeren Signallinie verglichen. Positiver MACD = Kaufdruck, negativer MACD = Verkaufsdruck; Kreuzungen zeigen Chancen.",
+    "Der MACD hilft, Trends und Umkehrungen zu erkennen.\nEr basiert auf der Differenz zwischen einem schnellen und einem langsamen Durchschnitt plus Signallinie. Ein Wechsel von negativ zu positiv kann einen Aufwärtstrend signalisieren, umgekehrt einen Abwärtstrend.",
+    "Moving Average Convergence Divergence wird zur Analyse von Preisbewegungen und zur Identifikation von Handelssignalen genutzt.\nBerechnet aus zwei EMAs unterschiedlicher Geschwindigkeit und einer Signallinie. MACD über null = Aufwärtsstärke, unter null = Abwärtsdruck, Kreuzungen helfen, Trendwechsel zu erkennen."
+  ],
+  "cost": 0,
+  "keywords": ["macd", "moving average convergence divergence", "erklären", "erkläre", "erklär mir", "was ist", "funktion", "funktioniert", "dient", "bedeutet", "zeigt", "repräsentiert", "weist hin"],
+  "subquestions": {
+    "Willst du, dass ich dir auch den Williams %R (Percent Range) erkläre?": "williams_info",
+    "Wenn du willst, kann ich dir auch erklären, wozu die Bollinger-Bänder dienen. Willst du das wissen?": "bollinger_info"
+  }
+},
+"stochastic_info": {
+  "questions": [
+    "Was ist der Stochastik-Oszillator?",
+    "Kannst du mir erklären, was der Stochastik anzeigt?",
+    "Wozu dient der Stochastik-Oszillator?",
+    "Ich möchte den Stochastik-Indikator besser verstehen",
+    "Erklär mir, wie der Stochastik funktioniert",
+    "Warum verwendet man den Stochastik-Oszillator?",
+    "Wie liest man den Stochastik-Oszillator?",
+    "Was zeigt der Stochastik an?",
+    "Was ist der Stochastik?",
+    "Was ist der Stochastik in der technischen Analyse?",
+    "Kannst du mir erklären, wozu der Stochastik dient?",
+    "Sag mir, was der Stochastik-Oszillator eines Assets ist"
+  ],
+  "answers": [
+    "Der Stochastik-Oszillator ist ein technischer Indikator, der zeigt, ob ein Asset überkauft oder überverkauft ist.\nEr wird berechnet, indem der aktuelle Schlusskurs mit der Preisspanne (Hochs und Tiefs) eines bestimmten Zeitraums verglichen wird. Werte über 80 deuten auf Überkauft, unter 20 auf Überverkauft, Werte dazwischen gelten als neutral.",
+    "Der Stochastik misst die Position des aktuellen Preises innerhalb der jüngsten Preisspanne und zeigt Übertreibungen im Markt an.\nDie Berechnung vergleicht den aktuellen Schlusskurs mit dem Höchst- und Tiefstpreis der letzten Perioden (meist 14). Über 80 = überkauft, unter 20 = überverkauft.",
+    "Der Stochastik-Oszillator ist ein Momentum-Oszillator, der die Geschwindigkeit der Preisbewegungen anzeigt.\nEr wird berechnet, indem der aktuelle Schlusskurs mit der Preisspanne eines bestimmten Zeitraums verglichen wird. Hohe Werte (>80) = überkauft, niedrige (<20) = überverkauft.",
+    "Der Stochastik ist ein Werkzeug der technischen Analyse, das Marktübertreibungen erkennt.\nEr vergleicht den aktuellen Schlusskurs mit den Hoch- und Tiefstwerten der Vergangenheit. Extreme Werte können mögliche Trendwenden signalisieren.",
+    "Der Stochastik-Oszillator zeigt, ob ein Asset überkauft oder überverkauft ist.\nEr basiert auf dem Vergleich von aktuellem Schlusskurs und Preisspanne. Über 80 = überkauft, unter 20 = überverkauft, mittlere Werte = ausgeglichen.",
+    "Der Stochastik ist ein weit verbreiteter Indikator, um potenzielle Trendwenden zu erkennen.\nEr vergleicht den Schlusskurs mit den jüngsten Hoch- und Tiefstwerten. Über 80 = mögliche Rückgänge, unter 20 = mögliche Aufwärtsbewegungen.",
+    "Der Stochastik-Oszillator signalisiert Kauf- oder Verkaufsübertreibungen.\nEr wird aus dem aktuellen Schlusskurs und der Preisspanne eines Zeitraums (meist 14 Tage) berechnet. Hohe Werte = überkauft, niedrige = überverkauft.",
+    "Der Stochastik ist ein technischer Indikator, der das Markt-Momentum zeigt.\nEr vergleicht den Schlusskurs mit den Hochs und Tiefs der letzten Perioden. Werte über 80 = Überkauft, unter 20 = Überverkauft.",
+    "Der Stochastik-Oszillator zeigt, wie nahe der aktuelle Preis am Maximum oder Minimum des Zeitraums liegt.\nDie Berechnung basiert auf dem Schlusskurs im Verhältnis zur Preisspanne. Hohe Werte = überkauft, niedrige Werte = überverkauft.",
+    "Der Stochastik hilft, Momentum und Marktübertreibungen zu messen.\nEr vergleicht den Schlusskurs mit der Preisspanne eines bestimmten Zeitraums. Werte über 80 = überkauft, unter 20 = überverkauft."
+  ],
+  "cost": 0,
+  "keywords": ["stochastik", "oszillator", "erklären", "erkläre", "erklär mir", "was ist", "funktion", "funktioniert", "dient", "bedeutet", "zeigt", "repräsentiert", "weist hin"],
+  "subquestions": {
+    "Willst du, dass ich dir auch den EMA (Exponentieller gleitender Durchschnitt) erkläre?": "ema_info",
+    "Wenn du willst, kann ich dir auch erklären, wozu der RSI-Indikator dient. Willst du das wissen?": "rsi_info"
+  }
+},
+  "ema_info": {
+  "questions": [
+    "Was ist der EMA über 10 Perioden?",
+    "Kannst du mir erklären, was EMA(10) bedeutet?",
+    "Was zeigt der EMA an?",
+    "Ich möchte den EMA 10 besser verstehen",
+    "Kannst du mir erklären, wie der EMA über 10 Tage funktioniert?",
+    "Warum verwendet man den EMA?",
+    "Wie interpretiert man den EMA (10)?",
+    "Was ist der exponentielle gleitende Durchschnitt über 10 Perioden?",
+    "Wozu dient der EMA10?",
+    "Welche Bedeutung hat der EMA (10) in der technischen Analyse?",
+    "Was ist ein exponentieller gleitender Durchschnitt?",
+    "Wozu dient der exponentielle gleitende Durchschnitt?",
+    "Sag mir, was der EMA eines Assets ist"
+  ],
+  "answers": [
+    "Der EMA (10), also der exponentielle gleitende Durchschnitt über 10 Perioden, ist ein technischer Indikator, der kurzfristige Kursbewegungen verfolgt.\nEr wird berechnet, indem die Preise der letzten 10 Perioden gemittelt werden, wobei den jüngsten Preisen ein höheres Gewicht beigemessen wird.\nLiegt der Preis über dem EMA, gilt der Trend als bullish, liegt er darunter, als bearish.",
+    "Der 10-Perioden-EMA (EMA 10) ist ein Durchschnitt der Preise, der die letzten Schlusskurse stärker gewichtet und dadurch sehr reaktiv auf aktuelle Bewegungen reagiert.\nWenn der Preis über dem EMA 10 liegt, deutet das auf Stärke hin, darunter auf Schwäche.",
+    "Der EMA (10) ist eine der schnellsten gleitenden Durchschnitte und nützlich, um kurzfristige Trends zu erkennen.\nEr berechnet die Mittelung der letzten 10 Perioden mit einem Gewichtungsfaktor für die neuesten Daten.\nPreise über der EMA-Linie signalisieren positive Phase, darunter negative.",
+    "Der 10-Perioden-EMA zeigt eine gewichtete Durchschnittslinie der jüngsten Preise.\nDurch die exponentielle Berechnung reagiert er schnell auf Marktveränderungen.\nIn der technischen Analyse wird er genutzt, um kurzfristige Trends und frühe Umkehrsignale zu erkennen.",
+    "Der EMA (10) bildet den sehr kurzfristigen Trend ab.\nDie Berechnung gewichtet aktuelle Preise stärker als ältere.\nPreis über EMA 10 = Aufwärtsstärke, Preis darunter = Abwärtsdruck.",
+    "Der 10-Perioden-EMA hilft, kurzfristige Bewegungen zu verfolgen.\nIm Vergleich zum einfachen Durchschnitt werden aktuelle Daten stärker berücksichtigt.\nPreis über EMA 10 = positiv, darunter = negativ.",
+    "EMA (10) steht für exponentieller gleitender Durchschnitt über 10 Perioden und gehört zu den schnellsten Indikatoren für Marktbewegungen.\nPreise über EMA = Aufwärtstrend, darunter = Abwärtstrend.",
+    "Der EMA 10 dient zur Erkennung kurzfristiger Trends.\nDie Formel gewichtet die letzten Schlusskurse stärker, wodurch der Indikator empfindlich reagiert.\nWert über EMA = Stärke, darunter = Schwäche.",
+    "EMA (10) ist ein technischer Indikator, der die letzten 10 Perioden gewichtet mittelt.\nDadurch reagiert er schneller als ein einfacher Durchschnitt.\nLiegt der Preis über dem EMA = positiver Trend, darunter = negativer Trend.",
+    "Der 10-Perioden-EMA wird von Analysten genutzt, um schnelle Marktbewegungen zu verfolgen.\nEr gewichtet ältere Preise geringer und aktuelle stärker.\nPreis über EMA 10 = Stärke, darunter = Schwäche."
+  ],
+  "cost": 0,
+  "keywords": ["ema", "ema10", "ema 10", "exponential", "gleitender Durchschnitt", "erklären", "erkläre", "erklär mir", "was ist", "funktion", "funktioniert", "dient", "bedeutet", "zeigt", "repräsentiert", "weist hin"],
+  "subquestions": {
+    "Willst du, dass ich dir auch den Stochastik-Oszillator erkläre?": "stochastic_info",
+    "Wenn du willst, kann ich dir auch erklären, wozu der CCI-Indikator dient. Willst du das wissen?": "cci_info"
+  }
+},
+"cci_info": {
+  "questions": [
+    "Was ist der CCI?",
+    "Kannst du mir erklären, wozu der Commodity Channel Index dient?",
+    "Was zeigt der CCI-Indikator?",
+    "Ich möchte den CCI besser verstehen",
+    "Kannst du mir erklären, wie der CCI funktioniert?",
+    "Warum verwendet man den Commodity Channel Index?",
+    "Wie interpretiert man den CCI?",
+    "Was ist der Commodity Channel Index-Indikator?",
+    "Wozu dient der CCI in der technischen Analyse?",
+    "Welche Bedeutung hat der CCI für ein Asset?",
+    "Sag mir, was der CCI eines Assets ist"
+  ],
+  "answers": [
+    "Der CCI (Commodity Channel Index) ist ein technischer Indikator, der misst, wie stark der Preis eines Assets von seinem statistischen Mittelwert abweicht.\nEr berechnet sich aus dem Vergleich des typischen Preises mit seinem gleitenden Durchschnitt, normiert durch die mittlere Abweichung.\nHohe Werte = Überkauft, niedrige Werte = Überverkauft, Werte nahe null = Gleichgewicht.",
+    "Der Commodity Channel Index (CCI) dient dazu, Überkauft- und Überverkauft-Zonen zu identifizieren.\nEr nutzt den typischen Preis (Durchschnitt aus Hoch, Tief und Schluss), vergleicht ihn mit dem gleitenden Durchschnitt und normiert die Abweichung.\nWerte über +100 = starke Aufwärtsbewegung, unter -100 = schwach/überverkauft.",
+    "Der CCI ist ein Oszillator, der zeigt, wie stark die Preise von ihrem gleitenden Durchschnitt abweichen.\nEr basiert auf dem typischen Preis und der Differenz zum Durchschnitt, angepasst durch die Abweichung.\nSehr hohe Werte = überdehnter Aufwärtstrend, sehr niedrige = überdehnter Abwärtstrend.",
+    "Der Commodity Channel Index wird verwendet, um mögliche Trendumkehrungen zu erkennen.\nEr vergleicht den typischen Preis eines Assets mit seinem Durchschnitt und der Abweichung.\nWerte über +100 = überkaufter Markt, unter -100 = überverkaufter Markt.",
+    "Der CCI misst die Abweichung des Asset-Preises vom gleitenden Durchschnitt.\nDie Formel nutzt den typischen Preis und die mittlere Abweichung.\nHohe positive Werte = überkauft, hohe negative Werte = überverkauft.",
+    "Der Commodity Channel Index zeigt, wann ein Asset überkauft oder überverkauft ist.\nEr berechnet die Differenz zwischen typischem Preis und Durchschnitt, geteilt durch die Abweichung.\nWerte >+100 = überkauft, <-100 = überverkauft.",
+    "Der CCI misst Stärke und Richtung des Trends.\nEr basiert auf dem typischen Preis im Vergleich zum Durchschnitt, angepasst durch Abweichung.\nSehr hohe Werte = mögliche Überdehnung nach oben, sehr niedrige = Überdehnung nach unten.",
+    "Der CCI wurde für Rohstoffmärkte entwickelt, wird heute aber für alle Assets genutzt.\nEr vergleicht den typischen Preis mit dem Durchschnitt und normiert die Abweichung.\nExtreme positive Werte = überkauft, extreme negative = überverkauft.",
+    "Der Commodity Channel Index zeigt, wie stark der aktuelle Preis vom Durchschnitt abweicht.\nDie Berechnung kombiniert typischen Preis, Durchschnitt und Abweichung.\nHohe Werte = überkauft, niedrige Werte = überverkauft, nahe null = Gleichgewicht.",
+    "Der CCI ist ein technischer Oszillator, der um null schwankt.\nEr berechnet sich aus der Differenz zwischen typischem Preis und gleitendem Durchschnitt, geteilt durch die mittlere Abweichung.\n>+100 = überkauft, <-100 = überverkauft, dazwischen = neutral."
+  ],
+  "cost": 0,
+  "keywords": ["cci", "commodity channel index", "erklären", "erkläre", "erklär mir", "was ist", "funktion", "funktioniert", "dient", "bedeutet", "zeigt", "repräsentiert", "weist hin"],
+  "subquestions": {
+    "Willst du, dass ich dir auch den MACD erkläre?": "macd_info",
+    "Wenn du willst, kann ich dir auch erklären, wozu der Williams %R (Percent Range) dient. Willst du das wissen?": "williams_info"
+  }
+},
+"williams_info": {
+  "questions": [
+    "Was ist der Williams?",
+    "Was ist der Williams %R?",
+    "Kannst du mir den Williams-Indikator erklären?",
+    "Was zeigt der Williams %R an?",
+    "Ich möchte den Williams %R besser verstehen",
+    "Kannst du mir erklären, wie der Williams %R funktioniert?",
+    "Wozu dient der Williams %R?",
+    "Wie interpretiert man den Williams %R?",
+    "Was ist der %R-Indikator von Williams?",
+    "Welche Bedeutung hat der Williams %R für ein Asset?",
+    "Kannst du mir erklären, was der Williams %R ist?",
+    "Sag mir, was der Williams eines Assets ist",
+    "Sag mir, was der Williams %R eines Assets ist"
+  ],
+  "answers": [
+    "Der Williams %R ist ein technischer Oszillator, der Überkauft- und Überverkauft-Zonen misst.\nEr wird berechnet, indem der aktuelle Schlusskurs mit der Hoch-Tief-Spanne eines bestimmten Zeitraums (meist 14 Tage) verglichen wird.\nWerte nahe -20 = überkauft, Werte nahe -80 = überverkauft.",
+    "Der Williams %R hilft, Phasen zu erkennen, in denen ein Asset überkaufte oder überverkaufte Levels erreicht.\nEr berechnet sich aus dem Verhältnis von Schlusskurs zur Hoch-Tief-Spanne des gewählten Zeitraums.\nWerte über -20 = starke Aufwärtsbewegung, unter -80 = Schwäche.",
+    "Der Williams %R zeigt, wie nah der aktuelle Preis an den jüngsten Hochs oder Tiefs liegt.\nFür die Berechnung wird der Schlusskurs mit Hoch und Tief der letzten 14 Perioden verglichen.\nÜber -20 = überkauft, unter -80 = überverkauft.",
+    "Der Williams %R zeigt die Position des Schlusskurses im Verhältnis zur Range der letzten Tage.\nEr vergleicht Schlusskurs, Hoch und Tief.\nHohe Werte (nahe -20) = überkauft, niedrige Werte (nahe -80) = überverkauft.",
+    "Der Williams %R wurde entwickelt, um Übertreibungszonen zu erkennen.\nEr vergleicht Schlusskurs mit den jüngsten Hochs und Tiefs.\nNahe -20 = überkauft, nahe -80 = überverkauft.",
+    "Der Williams %R gehört zu den Oszillatoren und schwankt zwischen 0 und -100.\nEr vergleicht den Schlusskurs mit Hoch und Tief des Zeitraums.\n0 bis -20 = überkauft, -80 bis -100 = überverkauft.",
+    "Der Williams %R hilft, die Trendstärke zu beurteilen.\nEr vergleicht Schlusskurs mit den extremen Hoch- und Tiefwerten.\nNahe -20 = mögliche Abwärtskorrektur, nahe -80 = mögliche Aufwärtswende.",
+    "Der Williams %R zeigt, wie nah der Preis an den Hochs oder Tiefs der letzten Perioden liegt.\nBerechnet aus Schlusskurs, Hoch und Tief.\nWerte nahe -20 = überkauft, nahe -80 = überverkauft.",
+    "Der Williams %R wurde von Larry Williams entwickelt, um mögliche Umkehrungen zu erkennen.\nBerechnet aus Schlusskurs und der Hoch-Tief-Spanne der letzten Perioden.\nÜber -20 = übermäßiger Aufwärtstrend, unter -80 = übermäßiger Abwärtstrend.",
+    "Der Williams %R ähnelt dem Stochastik, ist jedoch zwischen 0 und -100 skaliert.\nDer Schlusskurs wird mit Hoch und Tief der letzten Perioden verglichen.\nHohe Werte (nahe -20) = überkauft, niedrige Werte (nahe -80) = überverkauft."
+  ],
+  "cost": 0,
+  "keywords": ["williams", "erklären", "erkläre", "erklär mir", "was ist", "funktion", "funktioniert", "dient", "bedeutet", "zeigt", "repräsentiert", "weist hin"],
+  "subquestions": {
+    "Willst du, dass ich dir auch den EMA (Exponentieller gleitender Durchschnitt) erkläre?": "ema_info",
+    "Wenn du willst, kann ich dir auch erklären, wozu die Bollinger-Bänder dienen. Willst du das wissen?": "bollinger_info"
+  }
+},
+  "bollinger_info": {
+  "questions": [
+    "Was ist der Bollinger-Bänder-Indikator?",
+    "Kannst du mir die Bollinger-Bänder erklären?",
+    "Was zeigen die Bollinger-Bänder an?",
+    "Ich möchte verstehen, wie die Bollinger-Bänder funktionieren",
+    "Wozu dienen die Bollinger-Bänder?",
+    "Wie interpretiert man die Bollinger-Bänder?",
+    "Kannst du mir die Bollinger-Bänder erläutern?",
+    "Welche Bedeutung haben die Bollinger-Bänder für ein Asset?",
+    "Kannst du mir sagen, was der Bollinger-Indikator ist?",
+    "Wozu dient der Bollinger-Bänder-Indikator?",
+    "Was ist der Bollinger?",
+    "Sag mir, was der Bollinger eines Assets ist",
+    "Sag mir, was die Bollinger-Bänder eines Assets sind",
+    "Was sind die Bollinger-Bänder?",
+    "Was zeigen die Bollinger-Bänder an?"
+  ],
+  "answers": [
+    "Die Bollinger-Bänder sind ein technischer Indikator, der die Volatilität eines Assets misst.\nSie werden unter Verwendung eines gleitenden Durchschnitts (typischerweise 20 Perioden) und zwei Standardabweichungen berechnet, um die obere und untere Bandlinie zu erstellen.\nLiegt der Preis nahe der oberen Bandlinie, kann das Überkauft signalisieren, nahe der unteren Bandlinie Überverkauft.",
+    "Die Bollinger-Bänder helfen, Perioden hoher oder niedriger Volatilität und mögliche Preisumkehrungen zu erkennen.\nSie basieren auf einem gleitenden Durchschnitt und zwei Standardabweichungen, um die Bänder zu erzeugen.\nPreise nahe der oberen Bandlinie können einen übermäßigen Aufwärtstrend anzeigen, nahe der unteren einen übermäßigen Abwärtstrend.",
+    "Der Bollinger-Bänder-Indikator besteht aus einem mittleren gleitenden Durchschnitt und zwei seitlichen Bändern, die die Volatilität darstellen.\nDie mittlere Linie wird berechnet und zwei Standardabweichungen addiert oder subtrahiert.\nWenn der Preis die obere Bandlinie berührt, kann er überkauft sein, bei Berührung der unteren Bandlinie überverkauft.",
+    "Die Bollinger-Bänder zeigen die Preisschwankungen im Verhältnis zum jüngsten Durchschnitt.\nDer gleitende Durchschnitt und die Standardabweichungen bilden die obere und untere Bandlinie.\nPreise nahe der oberen Bandlinie zeigen übermäßige Stärke, nahe der unteren Schwäche.",
+    "Dieser Indikator hilft, die Volatilität eines Assets einzuschätzen.\nEin gleitender Durchschnitt und zwei Standardabweichungen bilden die Bänder.\nBerührt der Preis die obere Bandlinie, kann er überkauft sein, berührt er die untere, überverkauft.",
+    "Die Bollinger-Bänder sind nützlich, um Momente zu erkennen, in denen ein Asset eine Trendwende erleben könnte.\nSie basieren auf gleitendem Durchschnitt und Standardabweichung des Preises.\nNahe der oberen Bandlinie = überkauft, nahe der unteren = überverkauft.",
+    "Der Indikator zeigt, ob ein Asset hohe oder niedrige Volatilität erlebt.\nBerechnet durch einen gleitenden Durchschnitt plus/minus zwei Standardabweichungen.\nPreise weit über der oberen Bandlinie = überkauft, weit unter der unteren = überverkauft.",
+    "Die Bollinger-Bänder ermöglichen die Identifikation von oberen und unteren Preisgrenzen in einem Zeitraum.\nBerechnet mit gleitendem Durchschnitt und zwei Standardabweichungen.\nNahe der oberen Bandlinie = überkauft, nahe der unteren = überverkauft.",
+    "Der Bollinger-Indikator misst die Preisschwankungen eines Assets relativ zum gleitenden Durchschnitt.\nDie Bänder werden durch Hinzufügen/Subtrahieren der Standardabweichung erstellt.\nPreise nahe der oberen Bandlinie = potenziell überkauft, nahe der unteren = überverkauft.",
+    "Die Bollinger-Bänder sind ein Volatilitäts-Oszillator.\nDer mittlere gleitende Durchschnitt sowie obere und untere Bänder, berechnet mit Standardabweichungen, begrenzen den Preis.\nBerührt der Preis die obere Bandlinie = überkauft, untere Bandlinie = überverkauft."
+  ],
+  "cost": 0,
+  "keywords": ["bollinger", "erklären", "erkläre", "erklär mir", "was sind", "was ist", "funktion", "funktioniert", "dient", "bedeutet", "zeigt", "repräsentiert", "weist hin"],
+  "subquestions": {
+    "Willst du, dass ich dir auch den MACD erkläre?": "macd_info",
+    "Wenn du willst, kann ich dir auch erklären, wozu der CCI-Indikator dient. Willst du das wissen?": "cci_info"
+  }
+},
+"fundamentals_info": {
+  "questions": [
+    "Was sind die wichtigsten Fundamentaldaten?",
+    "Kannst du mir sagen, was unter Key Fundamentals zu verstehen ist?",
+    "Was bedeutet Fundamentaldaten eines Unternehmens?",
+    "Kannst du mir erklären, was Fundamentaldaten sind?",
+    "Welche sind die wichtigsten fundamentalen Kennzahlen?",
+    "Welche Fundamentaldaten analysiert diese App?",
+    "Welche Fundamentaldaten kann ich in dieser App einsehen?",
+    "Kannst du mir sagen, welche Key Fundamentals die App anbietet?",
+    "Ich möchte die Fundamentaldaten verstehen, die ich hier finde",
+    "Welche fundamentale Analyse kann ich hier durchführen?",
+    "Was sind die Fundamentaldaten eines Unternehmens?",
+    "Was sind die Key Fundamentals eines Unternehmens?",
+    "Kannst du mir erklären, was es bedeutet, Fundamentaldaten zu analysieren?",
+    "Was versteht man unter Key Fundamentals?",
+    "Was sind die Key Fundamentals eines Assets?",
+    "Kannst du mir erklären, was Fundamentaldaten in der Finanzwelt sind?",
+    "Welche sind die wichtigsten Fundamentaldaten?",
+    "Welche Daten fallen unter die Fundamentalanalyse?",
+    "Worauf achten Investoren bei Fundamentaldaten?",
+    "Kannst du mir sagen, wozu Fundamentals dienen?",
+    "Was versteht man unter Fundamentalanalyse?",
+    "Welche Fundamentaldaten kann ich in der App sehen?",
+    "Welche Fundamentaldaten analysiert die App?",
+    "Welche fundamentalen Daten stehen zur Verfügung?",
+    "Kannst du mir sagen, welche Key Fundamentals berücksichtigt werden?",
+    "Welche fundamentalen Kennzahlen finde ich in dieser App?",
+    "Kannst du mir die verfügbaren Fundamentaldaten nennen?",
+    "Welche Fundamentaldaten bietet ihr in Analysen an?",
+    "Wie viele Fundamentaldaten von Unternehmen bewertet die App?",
+    "Über welche Fundamentals kann ich Informationen erhalten?",
+    "Welche fundamentalen Parameter werden analysiert?",
+    "Welche fundamentalen Kennzahlen zeigt deine App?",
+    "Welche Key Fundamentals kannst du mir geben?",
+    "Was sind die Fundamentaldaten eines Assets?",
+    "Was sind die Key Fundamentals eines Assets?",
+    "Was sind die wichtigsten Fundamentaldaten eines Assets?"
+  ],
+  "answers": [
+    "Key Fundamentals sind wirtschaftliche und finanzielle Kennzahlen, die helfen, die Gesundheit und Wachstumsperspektiven eines Unternehmens zu bewerten. Sie dienen Investoren, um zu entscheiden, ob eine Aktie über- oder unterbewertet ist.\nIn dieser App können Sie Kennzahlen wie *Trailing P/E*, *Forward P/E*, *EPS Growth (YoY)*, *Revenue Growth (YoY)*, *Profit Margins* und *Debt to Equity* einsehen.",
+    "Unter Key Fundamentals versteht man Finanzkennzahlen, die die Stabilität und Rentabilität eines Unternehmens beschreiben und in der Fundamentalanalyse verwendet werden.\nVerfügbare Kennzahlen hier: *Trailing P/E*, *Forward P/E*, *EPS Growth (YoY)*, *Revenue Growth (YoY)*, *Profit Margins* und *Debt to Equity*.",
+    "Key Fundamentals sind Messgrößen, die die wirtschaftliche und finanzielle Performance eines Unternehmens darstellen. Sie helfen Investoren, den tatsächlichen Wert einer Aktie besser zu verstehen.\nIn dieser App verfügbar: *Trailing P/E*, *Forward P/E*, *EPS Growth (YoY)*, *Revenue Growth (YoY)*, *Profit Margins* und *Debt to Equity*.",
+    "Der Begriff Key Fundamentals beschreibt Finanzindikatoren, die Rentabilität, Wachstum und Verschuldung eines Unternehmens aufzeigen.\nIn dieser App können Sie Folgendes einsehen: *Trailing P/E*, *Forward P/E*, *EPS Growth (YoY)*, *Revenue Growth (YoY)*, *Profit Margins* und *Debt to Equity*.",
+    "Key Fundamentals sind Instrumente der Fundamentalanalyse, die helfen, die Stabilität und zukünftigen Perspektiven eines Unternehmens zu bewerten.\nVerfügbare Kennzahlen hier: *Trailing P/E*, *Forward P/E*, *EPS Growth (YoY)*, *Revenue Growth (YoY)*, *Profit Margins* und *Debt to Equity*.",
+    "Unter Key Fundamentals versteht man wirtschaftliche Indikatoren wie Gewinn, Umsatz, Margen und Verschuldung, die helfen, die Unternehmensperformance zu verstehen.\nAnalyse möglich mit: *Trailing P/E*, *Forward P/E*, *EPS Growth (YoY)*, *Revenue Growth (YoY)*, *Profit Margins* und *Debt to Equity*.",
+    "Key Fundamentals sind Parameter, die Investoren helfen, Chancen und Risiken einer Aktie zu bewerten.\nVerfügbare Kennzahlen: *Trailing P/E*, *Forward P/E*, *EPS Growth (YoY)*, *Revenue Growth (YoY)*, *Profit Margins* und *Debt to Equity*.",
+    "Als Key Fundamentals bezeichnet man Indikatoren, die Wachstum, Rentabilität und finanzielle Stabilität eines Unternehmens messen.\nDiese App bietet: *Trailing P/E*, *Forward P/E*, *EPS Growth (YoY)*, *Revenue Growth (YoY)*, *Profit Margins* und *Debt to Equity*.",
+    "Key Fundamentals sind die Hauptinstrumente, um zu erkennen, ob ein Unternehmen finanziell gesund ist und langfristig wachsen kann.\nVerfügbare Kennzahlen: *Trailing P/E*, *Forward P/E*, *EPS Growth (YoY)*, *Revenue Growth (YoY)*, *Profit Margins* und *Debt to Equity*.",
+    "Wenn wir von Key Fundamentals sprechen, meinen wir objektive Daten, die Rentabilität und Stabilität eines Unternehmens messen.\nDiese App zeigt: *Trailing P/E*, *Forward P/E*, *EPS Growth (YoY)*, *Revenue Growth (YoY)*, *Profit Margins* und *Debt to Equity*."
+  ],
+  "cost": 0,
+  "keywords": ["fundamentals", "fundamentaldaten", "erklären", "erkläre", "erklär mir", "was ist", "was sind", "funktion", "funktioniert", "dient", "bedeutet", "zeigt", "repräsentiert", "weist hin", "bezieht sich auf"],
+  "subquestions": {
+    "Willst du die Fundamentals von [FAVOURITE] wissen?": "key_fundamentals",
+    "Willst du wissen, was die Fundamentalanalyse von [TOPIC] sagt?": "fundamental_analysis",
+    "Willst du einen Überblick über die Fundamentaldaten von [TOPIC] bekommen?": "fundamental_analysis"
+  }
+},
+  "key_fundamentals": {
+  "questions": [
+    "Zeig mir die Key Fundamentals von [TOPIC]",
+    "Was sind die wichtigsten Fundamentaldaten von [TOPIC]?",
+    "Zeig mir die Fundamentaldaten von [TOPIC]",
+    "Ich möchte die Fundamentaldaten von [TOPIC] kennen",
+    "Kannst du mir die Key Fundamentals von [TOPIC] zeigen?",
+    "Kannst du mir die Fundamentaldaten von [TOPIC] sagen?",
+    "Kannst du mir die Fundamentaldaten von [TOPIC] geben?",
+    "Sag mir die Fundamentaldaten von [TOPIC]",
+    "Kannst du mir die Key Fundamentals von [TOPIC] sagen?",
+    "Sag mir die Key Fundamentals von [TOPIC]",
+    "Ich hätte gern die wichtigsten Fundamentaldaten von [TOPIC]",
+    "Welche fundamentalen Kennzahlen hast du für [TOPIC]?",
+    "Zeig mir die Werte der Fundamentaldaten von [TOPIC]",
+    "Fundamentaldaten von [TOPIC]",
+    "Wichtige Fundamentaldaten von [TOPIC]",
+    "Key Fundamentals von [TOPIC]",
+    "Key Fundamentals für [TOPIC]",
+    "Gib mir die Fundamentaldaten von [TOPIC]",
+    "Gib mir die Key Fundamentals von [TOPIC]",
+    "Ich möchte die Fundamentaldaten von [TOPIC] wissen",
+    "Ich möchte die Fundamentaldaten für [TOPIC] wissen",
+    "Sag mir die Fundamentaldaten von [TOPIC]",
+    "Sag mir die Key Fundamentals von [TOPIC]",
+    "Gib mir die Fundamentaldaten von [TOPIC]",
+    "Gib mir die Key Fundamentals zu [TOPIC]",
+    "Könntest du mir die Fundamentaldaten zu [TOPIC] geben?",
+    "Könntest du mir die Key Fundamentals zu [TOPIC] geben?",
+    "Kannst du mir die Fundamentaldaten zu [TOPIC] geben?",
+    "Kannst du mir die Key Fundamentals zu [TOPIC] geben?"
+  ],
+  "answers": [
+    "Ich habe die Analyse von [TOPIC] für dich vorbereitet, du kannst die Key Fundamentals direkt dort einsehen 📊:",
+    "Hier ist die Analyse von [TOPIC]: Klicke auf das Panel, und du findest die wichtigsten Fundamentaldaten:",
+    "👉 Hier ist die Analyse von [TOPIC], wo du alle Key Fundamentals einfach einsehen kannst:",
+    "Ich habe die Analyse von [TOPIC] erstellt, wo du alle wichtigsten Key Fundamentals findest:",
+    "Hier kannst du die wichtigsten Fundamentaldaten von [TOPIC] direkt über den entsprechenden Button einsehen:",
+    "Hier siehst du direkt die Fundamentaldaten von [TOPIC]. 📎 Klicke auf den entsprechenden Button:"
+  ],
+  "cost": 0,
+  "keywords": ["fundamentaldaten", "wichtige fundamentaldaten", "fundamentals"],
+  "tag": "free",
+  "subquestions": {
+    "Willst du wissen, was die Fundamentalanalyse von [TOPIC] aussagt?": "fundamental_analysis",
+    "Willst du eine allgemeine Übersicht über die Fundamentaldaten von [TOPIC] haben?": "fundamental_analysis",
+    "Ich kann dir eine Zusammenfassung dessen geben, was die Fundamentaldaten von [TOPIC] aussagen. Willst du, dass ich das mache?": "fundamental_analysis"
+  }
+},
+"trailing_pe_info": {
+  "questions": [
+    "Was ist das Trailing P/E?",
+    "Kannst du mir das Trailing Price to Earnings erklären?",
+    "Erklär mir, was Trailing P/E bedeutet",
+    "Was zeigt das Trailing P/E an?",
+    "Wozu dient das Trailing P/E?",
+    "Ich möchte das Konzept des Trailing P/E besser verstehen",
+    "Was bedeutet Trailing Price/Earnings Ratio?",
+    "Wie funktioniert das Trailing P/E?",
+    "Kannst du mir erklären, was das historische Kurs-Gewinn-Verhältnis ist?",
+    "Welche Informationen liefert das Trailing P/E?",
+    "Was ist das Trailing P/E?",
+    "Was ist das historische Kurs-Gewinn-Verhältnis?",
+    "Was versteht man unter Trailing P/E?"
+  ],
+  "answers": [
+    "Das Trailing P/E (Price to Earnings) ist ein Indikator, der den aktuellen Aktienkurs ins Verhältnis zu den in den letzten 12 Monaten erzielten Gewinnen pro Aktie (EPS) setzt.\nEs dient dazu zu verstehen, wie viel Investoren für jede Einheit Gewinn, die das Unternehmen in der Vergangenheit erwirtschaftet hat, zahlen. Ein hoher Wert kann Überbewertung anzeigen, ein niedriger Wert Unterbewertung.",
+    "Das Trailing P/E zeigt das Verhältnis zwischen dem Marktpreis einer Aktie und den im letzten Jahr erzielten Gewinnen pro Aktie. \nEs wird genutzt, um zu beurteilen, ob eine Aktie im Verhältnis zu ihrer historischen Ertragskraft teuer oder günstig ist.",
+    "Unter Trailing P/E versteht man ein Markt-Multiplikator, der den Aktienpreis durch das EPS der letzten 12 Monate teilt.\nEr zeigt, wie viel der Markt bereit ist, für jeden bereits erzielten Gewinn zu zahlen.",
+    "Das Trailing P/E misst, wie oft der Aktienkurs die vergangenen Gewinne des Unternehmens enthält.\nEs ist nützlich, um verschiedene Unternehmen oder Branchen zu vergleichen und zu erkennen, ob eine Aktie basierend auf historischen Daten über- oder unterbewertet ist.",
+    "Das historische Kurs-Gewinn-Verhältnis (Trailing P/E) ist ein Instrument der Fundamentalanalyse, das auf bereits veröffentlichten Gewinnen basiert.\nEs hilft einzuschätzen, ob der Kurs die vergangene Unternehmensleistung realistisch widerspiegelt.",
+    "Das Trailing P/E nimmt den aktuellen Aktienkurs und teilt ihn durch die Gewinne pro Aktie der letzten vier Quartale.\nEs handelt sich um eine historische Kennzahl, die die bereits erzielte Rentabilität widerspiegelt, nicht die zukünftige.",
+    "Das Trailing P/E ist ein Bewertungsindikator, der die historischen Gewinnzahlen mit dem aktuellen Aktienkurs in Beziehung setzt.\nIm Allgemeinen können hohe Werte auf hohe Erwartungen hinweisen, niedrige Werte auf Skepsis des Marktes.",
+    "Das Trailing P/E ist das Kurs-Gewinn-Multiplikator basierend auf den tatsächlichen Gewinnen des letzten Jahres.\nEs hilft Investoren zu verstehen, wie viel sie heute für die bereits erzielte Rentabilität des Unternehmens zahlen.",
+    "Mit Trailing P/E wird die Bewertung einer Aktie anhand ihrer vergangenen Gewinne gemessen.\nEs ist einer der am häufigsten verwendeten Indikatoren zum Vergleich von Unternehmen derselben Branche.",
+    "Das Trailing P/E zeigt, wie oft der Aktienkurs die bereits erzielten Gewinne pro Aktie übersteigt.\nEin niedriger Wert kann auf eine günstige Aktie hinweisen, ein hoher auf hohe Markterwartungen."
+  ],
+  "cost": 0,
+  "keywords": ["trailing pe", "trailing p/e", "historisch", "erklären", "erkläre", "erklär mir", "erklären", "was ist", "funktion", "funktioniert", "dient", "bedeutet", "zeigt", "repräsentiert", "weist hin", "meint"],
+  "subquestions": {
+    "Willst du auch wissen, was das Forward P/E ist?": "forward_pe_info",
+    "Willst du auch wissen, was EPS Growth ist?": "eps_growth_info"
+  }
+},
+  "forward_pe_info": {
+  "questions": [
+    "Was ist das Forward P/E?",
+    "Kannst du mir das Forward Price to Earnings erklären?",
+    "Erklär mir, was Forward P/E bedeutet",
+    "Was zeigt das Forward P/E an?",
+    "Wozu dient das Forward P/E?",
+    "Ich möchte das Konzept des Forward P/E besser verstehen",
+    "Was bedeutet Forward Price/Earnings Ratio?",
+    "Wie funktioniert das Forward P/E?",
+    "Kannst du mir erklären, was das erwartete Kurs-Gewinn-Verhältnis ist?",
+    "Welche Informationen liefert das Forward P/E?",
+    "Was ist das erwartete Kurs-Gewinn-Verhältnis?",
+    "Was versteht man unter Forward P/E?"
+  ],
+  "answers": [
+    "Das Forward P/E (Price to Earnings) ist das Verhältnis zwischen dem aktuellen Aktienkurs und den für die nächsten 12 Monate erwarteten Gewinnen pro Aktie.\nIm Gegensatz zum Trailing P/E, der auf historischen Daten basiert, betrachtet das Forward P/E die zukünftigen Analystenschätzungen.",
+    "Das Forward P/E zeigt, wie oft der Aktienkurs die für das nächste Jahr erwarteten Gewinne enthält.\nEs hilft zu verstehen, welche Wachstums­erwartungen der Markt einem Unternehmen zuschreibt.",
+    "Unter Forward P/E versteht man ein Bewertungsmultiplikator, der den aktuellen Aktienkurs durch die erwarteten Gewinne der nächsten vier Quartale teilt.\nDamit lässt sich abschätzen, ob ein Unternehmen im Verhältnis zu den zukünftigen Prognosen über- oder unterbewertet ist.",
+    "Das Forward P/E misst den Marktpreis einer Aktie im Verhältnis zu den erwarteten Gewinnen, nicht den historischen.\nEs ist ein nützliches Werkzeug für Investoren, die auf die Zukunft schauen und Unternehmen mit Wachstumsperspektiven suchen.",
+    "Das erwartete Kurs-Gewinn-Verhältnis basiert auf noch nicht realisierten Gewinnerwartungen.\nEs bietet eine zukunftsgerichtete Sicht und kann stark variieren, je nach Genauigkeit der Analystenprognosen.",
+    "Das Forward P/E setzt den aktuellen Aktienkurs in Relation zu den für das nächste Jahr erwarteten Gewinnen.\nHohe Werte deuten auf signifikantes Wachstum, niedrige Werte auf vorsichtigere Aussichten hin.",
+    "Das Forward P/E ist ein Bewertungsmultiplikator für zukünftige Gewinne.\nEs hilft, ähnliche Unternehmen zu vergleichen und zu erkennen, welche höhere Wachstumserwartungen haben.",
+    "Das Forward P/E ist ein zukunftsorientierter Indikator basierend auf den geschätzten Gewinnen.\nEr ist weniger zuverlässig als das Trailing P/E, da er auf Prognosen basiert, wird aber von zukunftsorientierten Investoren häufig genutzt.",
+    "Mit Forward P/E misst man, wie oft der Aktienkurs die für das nächste Jahr erwarteten Gewinne übersteigt.\nEs dient dazu, einzuschätzen, wie stark der Markt an das zukünftige Wachstum des Unternehmens glaubt.",
+    "Das Forward P/E zeigt die Bewertung einer Aktie im Verhältnis zu den erwarteten Gewinnen.\nEin niedriger Wert kann Unterbewertung signalisieren, ein hoher hohe Erwartungen oder mögliche Überbewertung."
+  ],
+  "cost": 0,
+  "keywords": ["forward pe", "forward p/e", "erwartet", "erklären", "erkläre", "erklär mir", "erklären", "was ist", "funktion", "funktioniert", "dient", "bedeutet", "zeigt", "repräsentiert", "weist hin", "meint"],
+  "subquestions": {
+    "Willst du auch wissen, was Revenue Growth ist?": "revenue_growth_info",
+    "Willst du auch wissen, was EPS Growth ist?": "eps_growth_info"
+  }
+},
+"eps_growth_info": {
+  "questions": [
+    "Was ist EPS Growth?",
+    "Kannst du mir EPS Growth erklären?",
+    "Was bedeutet EPS Growth?",
+    "Wozu dient EPS Growth?",
+    "Wie interpretiert man EPS Growth?",
+    "Was zeigt EPS Growth an?",
+    "Ich möchte EPS Growth verstehen",
+    "EPS Growth: Was ist das?",
+    "Kannst du mir das Konzept von EPS Growth erklären?",
+    "Was bedeutet EPS Growth?",
+    "Was ist EPS Growth (YoY)?",
+    "Was ist die Gewinnwachstumsrate pro Aktie?",
+    "Was versteht man unter Gewinnwachstum?"
+  ],
+  "answers": [
+    "EPS Growth (YoY) zeigt die prozentuale Veränderung des Gewinns pro Aktie eines Unternehmens im Vergleich zum Vorjahr.\nAuf dieser App kannst du diese Werte einsehen, um das Gewinnwachstum eines Unternehmens zu beurteilen und mit vorherigen Perioden zu vergleichen.",
+    "EPS Growth misst, wie stark der Gewinn pro Aktie eines Unternehmens im Vergleich zum Vorjahr gestiegen oder gefallen ist.\nIch kann dir diese Werte bereitstellen, um die finanzielle Leistung eines Assets über die Zeit zu verstehen.",
+    "Mit EPS Growth (Year over Year) wird die jährliche Veränderung des Gewinns pro Aktie beobachtet.\nÜber diese App kannst du diese Daten einsehen, um einen Eindruck vom wirtschaftlichen Wachstum des Unternehmens zu bekommen.",
+    "EPS Growth zeigt die prozentuale Veränderung des Gewinns pro Aktie gegenüber dem Vorjahr.\nIch kann dir diesen Indikator bereitstellen, um das finanzielle Wachstum der interessierenden Assets zu analysieren.",
+    "EPS Growth (YoY) zeigt, wie sich der Gewinn pro Aktie von einem Jahr zum nächsten verändert hat.\nAuf dieser App kannst du diese Werte einsehen, um die historische Performance einer Aktie besser zu verstehen.",
+    "EPS Growth misst die Wachstumsrate des Gewinns pro Aktie im Vergleich zum Vorjahr.\nIch kann dir diese Daten bereitstellen, um die Stabilität und das Wachstum deiner Assets zu bewerten.",
+    "EPS Growth (YoY) zeigt die jährliche Veränderung des Gewinns pro Aktie, nützlich, um zu erkennen, ob ein Unternehmen wächst.\nÜber diese App kannst du diese Werte erhalten, um verschiedene Unternehmen oder Zeiträume zu vergleichen.",
+    "EPS Growth misst die prozentuale Zunahme oder Abnahme des Gewinns pro Aktie eines Unternehmens im Vergleich zum Vorjahr.\nIch kann dir diese Informationen für eine umfassendere Analyse der Unternehmensleistung bereitstellen.",
+    "EPS Growth (Year over Year) zeigt, wie sich der Gewinn pro Aktie jährlich verändert.\nDu kannst diese Daten auf dieser App nutzen, um die Wachstumstrends eines Assets zu bewerten.",
+    "Mit EPS Growth kannst du die prozentuale Veränderung des Gewinns pro Aktie im Vergleich zum Vorjahr beobachten.\nDie App ermöglicht es, diese Werte einzusehen, um einen klaren Überblick über das wirtschaftliche Wachstum einer Aktie zu erhalten.",
+    "EPS Growth zeigt die jährliche Veränderung des Gewinns pro Aktie eines Unternehmens.\nÜber diese App kannst du diese Daten abrufen, um die finanzielle Entwicklung eines Assets zu verstehen.",
+    "EPS Growth (YoY) zeigt, wie sich der Gewinn pro Aktie im Vergleich zum Vorjahr verändert hat.\nIch kann dir diese Werte bereitstellen, um das Wachstum und die finanzielle Stabilität von Investitionen zu analysieren.",
+    "EPS Growth zeigt die prozentuale Veränderung des Gewinns pro Aktie von Jahr zu Jahr.\nAuf dieser App kannst du diese Daten einsehen, um verschiedene Perioden oder Unternehmen zu vergleichen.",
+    "Mit EPS Growth wird das jährliche Gewinnwachstum pro Aktie bewertet.\nÜber diese App kannst du auf diese Werte zugreifen, um einen klaren Überblick über die Unternehmensleistung zu erhalten.",
+    "EPS Growth misst die Entwicklung des Gewinns pro Aktie über ein Jahr.\nIch kann dir diese Informationen bereitstellen, um die finanzielle Gesundheit der Assets zu verstehen.",
+    "EPS Growth (YoY) zeigt die Wachstumsrate des Gewinns pro Aktie im Vergleich zum Vorjahr.\nDu kannst diese Werte auf dieser App einsehen, um detaillierte Analysen der Unternehmensleistung vorzunehmen.",
+    "EPS Growth zeigt die prozentuale Veränderung des Gewinns pro Aktie von einem Jahr zum nächsten.\nAuf dieser App kannst du diese Daten abrufen, um das wirtschaftliche Wachstum eines Unternehmens zu bewerten.",
+    "Mit EPS Growth lässt sich beobachten, wie sich der Gewinn pro Aktie im Vergleich zum Vorjahr verändert.\nDie App bietet diese Informationen für einen Vergleich zwischen Perioden oder Unternehmen.",
+    "EPS Growth ist ein Indikator für das jährliche Wachstum des Gewinns pro Aktie.\nÜber diese App kannst du diese Werte einsehen, um die Performance und finanzielle Stabilität eines Assets zu bewerten.",
+    "EPS Growth (YoY) ermöglicht es, die Veränderung des Gewinns pro Aktie innerhalb eines Jahres zu verstehen.\nIch kann dir diese Werte bereitstellen, um bei Investitionsentscheidungen zu helfen."
+  ],
+  "cost": 0,
+  "keywords": ["eps", "eps growth", "gewinnwachstum", "erklären", "erkläre", "erklär mir", "erklären", "was ist", "funktion", "funktioniert", "dient", "bedeutet", "zeigt", "repräsentiert", "weist hin", "meint"],
+  "subquestions": {
+    "Willst du auch wissen, was Revenue Growth ist?": "revenue_growth_info",
+    "Willst du auch wissen, was Profit Margins sind?": "profit_margins_info"
+  }
+},
+"revenue_growth_info": {
+  "questions": [
+    "Was ist Revenue Growth?",
+    "Kannst du mir Revenue Growth erklären?",
+    "Was bedeutet Revenue Growth?",
+    "Wozu dient Revenue Growth?",
+    "Wie interpretiert man Revenue Growth?",
+    "Was zeigt Revenue Growth an?",
+    "Ich möchte Revenue Growth verstehen",
+    "Revenue Growth: Was ist das?",
+    "Kannst du mir das Konzept von Revenue Growth erklären?",
+    "Was bedeutet Revenue Growth?",
+    "Was ist Revenue Growth (YoY)?",
+    "Was ist das Umsatzwachstum?",
+    "Was versteht man unter Revenue Growth?"
+  ],
+  "answers": [
+    "Revenue Growth (YoY) zeigt die prozentuale Veränderung des Umsatzes eines Unternehmens im Vergleich zum Vorjahr.\nÜber diese App kannst du diese Werte einsehen, um zu beurteilen, wie stark ein Unternehmen seine Umsätze über die Zeit steigert.",
+    "Revenue Growth misst, wie stark der Umsatz eines Unternehmens im Vergleich zum Vorjahr gestiegen oder gefallen ist.\nDu kannst diese Werte abrufen, um die Fähigkeit eines Unternehmens zur Umsatzgenerierung zu verstehen.",
+    "Mit Revenue Growth (Year over Year) wird die jährliche Veränderung des Umsatzes eines Unternehmens betrachtet.\nDiese App ermöglicht es, diese Daten einzusehen, um die wirtschaftliche Performance eines Assets zu analysieren.",
+    "Revenue Growth zeigt die prozentuale Veränderung des Umsatzes gegenüber dem Vorjahr.\nIch kann dir diesen Indikator bereitstellen, um einen klaren Überblick über das Unternehmenswachstum zu erhalten.",
+    "Revenue Growth (YoY) zeigt, wie sich der Umsatz eines Unternehmens von Jahr zu Jahr verändert.\nAuf dieser App kannst du diese Werte einsehen, um verschiedene Unternehmen oder Zeiträume zu vergleichen.",
+    "Revenue Growth misst das Umsatzwachstum eines Unternehmens im Vergleich zum Vorjahr.\nIch kann dir diese Daten bereitstellen, um die wirtschaftliche Entwicklung der interessierenden Assets zu bewerten.",
+    "Revenue Growth (YoY) zeigt die jährliche Veränderung des Umsatzes, nützlich, um zu erkennen, ob ein Unternehmen wächst.\nÜber diese App kannst du diese Werte für Vergleiche zwischen Perioden oder Unternehmen abrufen.",
+    "Revenue Growth zeigt die prozentuale Zunahme oder Abnahme des Umsatzes eines Unternehmens im Vergleich zum Vorjahr.\nIch kann dir diese Informationen für eine vollständige Analyse der Unternehmensperformance bereitstellen.",
+    "Revenue Growth (Year over Year) zeigt, wie sich der Umsatz jährlich verändert.\nDu kannst diese Daten auf dieser App nutzen, um die Wachstumstrends eines Assets zu bewerten.",
+    "Mit Revenue Growth lässt sich die prozentuale Veränderung des Umsatzes im Vergleich zum Vorjahr beobachten.\nDie App ermöglicht es, diese Werte einzusehen, um einen klaren Überblick über das wirtschaftliche Wachstum einer Aktie zu erhalten.",
+    "Revenue Growth zeigt die jährliche Veränderung des Umsatzes eines Unternehmens.\nÜber diese App kannst du diese Daten abrufen, um die finanzielle Entwicklung eines Assets zu verstehen.",
+    "Revenue Growth (YoY) zeigt, wie sich die Umsätze im Vergleich zum Vorjahr verändert haben.\nIch kann dir diese Werte bereitstellen, um das Wachstum und die finanzielle Stabilität von Investitionen zu analysieren.",
+    "Revenue Growth zeigt die prozentuale Veränderung des Umsatzes von Jahr zu Jahr.\nAuf dieser App kannst du diese Daten einsehen, um verschiedene Perioden oder Unternehmen zu vergleichen.",
+    "Mit Revenue Growth wird das jährliche Umsatzwachstum bewertet.\nÜber diese App kannst du auf diese Werte zugreifen, um einen klaren Überblick über die Unternehmensleistung zu erhalten.",
+    "Revenue Growth misst die Entwicklung der Umsätze innerhalb eines Jahres.\nIch kann dir diese Informationen bereitstellen, um die finanzielle Gesundheit der Assets zu verstehen.",
+    "Revenue Growth (YoY) zeigt die Wachstumsrate des Umsatzes im Vergleich zum Vorjahr.\nDu kannst diese Werte auf dieser App einsehen, um detaillierte Analysen der Unternehmensperformance vorzunehmen.",
+    "Revenue Growth zeigt die prozentuale Veränderung des Umsatzes eines Assets von einem Jahr zum nächsten.\nAuf dieser App kannst du diese Daten abrufen, um das wirtschaftliche Wachstum eines Unternehmens zu bewerten.",
+    "Mit Revenue Growth lässt sich beobachten, wie sich der Umsatz im Vergleich zum Vorjahr verändert.\nDie App bietet diese Informationen für einen Vergleich zwischen Perioden oder Unternehmen.",
+    "Revenue Growth ist ein Indikator für das jährliche Umsatzwachstum.\nÜber diese App kannst du diese Werte einsehen, um die Performance und finanzielle Stabilität eines Assets zu bewerten.",
+    "Revenue Growth (YoY) zeigt, wie sich die Umsätze innerhalb eines Jahres verändert haben.\nIch kann dir diese Werte bereitstellen, um bei Investitionsentscheidungen zu helfen."
+  ],
+  "cost": 0,
+  "keywords": ["revenue", "revenue growth", "umsatzwachstum", "erklären", "erkläre", "erklär mir", "erklären", "was ist", "funktion", "funktioniert", "dient", "bedeutet", "zeigt", "repräsentiert", "weist hin", "meint"],
+  "subquestions": {
+    "Willst du auch wissen, was das Verhältnis Debt to Equity ist?": "debt_to_equity_info",
+    "Willst du auch wissen, was Profit Margins sind?": "profit_margins_info"
+  }
+},
+  "profit_margins_info": {
+  "questions": [
+    "Was sind Profit Margins?",
+    "Kannst du mir Profit Margins erklären?",
+    "Was zeigt der Profit Margin an?",
+    "Wozu dienen Profit Margins?",
+    "Wie interpretiert man Profit Margins?",
+    "Was messen Profit Margins?",
+    "Ich möchte Profit Margins verstehen",
+    "Profit Margins: Was sind das?",
+    "Kannst du mir das Konzept von Profit Margins erklären?",
+    "Was ist die Bedeutung von Profit Margins?",
+    "Was sind die Gewinnmargen eines Unternehmens?",
+    "Was sind Gewinnmargen?",
+    "Kannst du mir erklären, was Gewinnmargen sind?",
+    "Was ist die Gewinnspanne?",
+    "Was sind Nettogewinnmargen?",
+    "Was versteht man unter Nettogewinnmargen?"
+  ],
+  "answers": [
+    "Profit Margins zeigen den Prozentsatz der Einnahmen, den ein Unternehmen als Gewinn behält, nachdem Produktions- und Betriebskosten gedeckt sind.\nAuf dieser App kannst du diese Werte einsehen, um die Rentabilität eines Unternehmens zu beurteilen.",
+    "Profit Margins messen, wie viel Gewinn ein Unternehmen pro Umsatz­einheit erzielt.\nDu kannst diese Werte einsehen, um die Fähigkeit eines Unternehmens zu verstehen, aus seinen Umsätzen Gewinn zu generieren.",
+    "Der Profit Margin zeigt den Prozentsatz der Einnahmen, der dem Unternehmen als Nettogewinn bleibt.\nDiese App ermöglicht es, diese Daten einzusehen, um die operative Effizienz eines Assets zu analysieren.",
+    "Profit Margins zeigen, wie viel der Gesamteinnahmen in Gewinn umgewandelt wird.\nIch kann dir diese Werte bereitstellen, um einen klaren Überblick über die Rentabilität zu erhalten.",
+    "Der Profit Margin zeigt den Anteil der Einnahmen, der nach Abzug aller Kosten beim Unternehmen verbleibt.\nAuf dieser App kannst du diese Daten einsehen, um verschiedene Unternehmen oder Zeiträume zu vergleichen.",
+    "Profit Margins messen die Rentabilität eines Unternehmens, also wie viel es im Verhältnis zu seinen Einnahmen verdient.\nIch kann dir diese Werte bereitstellen, um die wirtschaftliche Effizienz der interessierenden Assets zu bewerten.",
+    "Der Profit Margin zeigt den Prozentsatz der Einnahmen, den das Unternehmen als Nettogewinn behält.\nDiese App ermöglicht es, diese Werte für Vergleiche zwischen Unternehmen oder Perioden einzusehen.",
+    "Profit Margins zeigen, wie gut ein Unternehmen aus seinen Einnahmen Gewinn erzeugt.\nIch kann dir diese Informationen für eine vollständige Analyse der Unternehmensleistung bereitstellen.",
+    "Der Profit Margin zeigt den Anteil der Einnahmen, der in Nettogewinn umgewandelt wird.\nDu kannst diese Werte auf dieser App nutzen, um die Rentabilität und finanzielle Stabilität eines Assets zu bewerten.",
+    "Profit Margins ermöglichen es zu sehen, wie viel Gewinn ein Unternehmen im Verhältnis zu seinen Einnahmen erzielt.\nDie App erlaubt es, diese Werte einzusehen, um ein klares Bild der wirtschaftlichen Performance eines Assets zu erhalten.",
+    "Der Profit Margin zeigt die Nettorentabilität eines Unternehmens basierend auf den Gesamteinnahmen.\nAuf dieser App kannst du diese Daten einsehen, um die Effizienz eines Assets bei der Gewinn­erzielung zu verstehen.",
+    "Profit Margins messen, wie viel der Einnahmen eines Unternehmens in Nettogewinn umgewandelt wird.\nDie App stellt diese Daten bereit, um Perioden oder Unternehmen vergleichen zu können."
+  ],
+  "cost": 0,
+  "keywords": ["profit margin", "profit margins", "nettogewinnmargen", "gewinnspanne", "erklären", "erkläre", "erklär mir", "erklären", "was ist", "funktion", "funktioniert", "dient", "bedeutet", "zeigt", "repräsentiert", "weist hin", "meint"],
+  "subquestions": {
+    "Willst du auch wissen, was das Verhältnis Debt to Equity ist?": "debt_to_equity_info",
+    "Willst du auch wissen, was das Trailing P/E ist?": "trailing_pe_info"
+  }
+},
+"debt_to_equity_info": {
+  "questions": [
+    "Was ist Debt to Equity?",
+    "Kannst du mir Debt to Equity erklären?",
+    "Was zeigt das Debt-to-Equity-Verhältnis an?",
+    "Wozu dient Debt to Equity?",
+    "Wie interpretiert man Debt to Equity?",
+    "Was misst Debt to Equity?",
+    "Ich möchte Debt to Equity verstehen",
+    "Debt to Equity: Was bedeutet das?",
+    "Kannst du mir das Konzept von Debt to Equity erklären?",
+    "Was ist die Bedeutung von Debt to Equity?",
+    "Was zeigt das Verhältnis von Schulden zu Eigenkapital an?",
+    "Was ist das Verhältnis Schulden zu Eigenkapital?",
+    "Was versteht man unter Schulden-Eigenkapital-Verhältnis?",
+    "Was versteht man unter Debt to Equity?"
+  ],
+  "answers": [
+    "Debt to Equity zeigt das Verhältnis zwischen den gesamten Schulden eines Unternehmens und dessen Eigenkapital und verdeutlicht, wie stark das Unternehmen durch Fremdkapital im Vergleich zu Eigenmitteln finanziert ist.\nAuf dieser App kannst du diese Daten einsehen, um die finanzielle Stabilität eines Unternehmens zu bewerten.",
+    "Debt to Equity misst, wie stark ein Unternehmen seine Aktivitäten durch Schulden im Vergleich zum Eigenkapital finanziert.\nDu kannst diese Werte einsehen, um das finanzielle Risiko eines Assets zu verstehen.",
+    "Debt to Equity zeigt das Verhältnis von Schulden zu Eigenkapital eines Unternehmens.\nDie App ermöglicht es, diese Daten zur Analyse der Finanzstruktur eines Assets einzusehen.",
+    "Debt to Equity zeigt die Proportion von Schulden und Eigenkapital eines Unternehmens.\nIch kann dir diese Werte bereitstellen, um die wirtschaftliche Stabilität eines Assets zu bewerten.",
+    "Debt to Equity zeigt, wie stark die Finanzierung eines Unternehmens durch Schulden im Vergleich zu Eigenkapital erfolgt.\nAuf dieser App kannst du diese Werte einsehen, um verschiedene Unternehmen oder Zeiträume zu vergleichen.",
+    "Debt to Equity misst den Verschuldungsgrad eines Unternehmens.\nIch kann dir diese Werte bereitstellen, um das mit Schulden verbundene Risiko eines Assets zu bewerten.",
+    "Debt to Equity zeigt das Verhältnis zwischen Schulden und Eigenkapital, nützlich zur Beurteilung der Finanzstruktur.\nDie App ermöglicht es, diese Werte für Vergleiche zwischen Unternehmen oder Zeiträumen einzusehen.",
+    "Debt to Equity zeigt, wie viel externes Kapital ein Unternehmen im Verhältnis zu Eigenkapital nutzt.\nIch kann dir diese Informationen für eine vollständige Analyse der finanziellen Stabilität bereitstellen.",
+    "Debt to Equity zeigt das Verschuldungsniveau eines Unternehmens im Verhältnis zum Eigenkapital.\nDu kannst diese Daten auf dieser App nutzen, um das finanzielle Risiko und die Stabilität eines Assets zu bewerten.",
+    "Debt to Equity zeigt die Beziehung zwischen Schulden und Eigenkapital eines Unternehmens.\nDie App ermöglicht es, diese Werte einzusehen, um ein klares Bild der Finanzstruktur eines Assets zu erhalten.",
+    "Debt to Equity misst, wie hoch die Schulden eines Unternehmens im Vergleich zu Eigenkapital sind.\nAuf dieser App kannst du diese Werte einsehen, um zu verstehen, wie finanziell stabil ein Asset ist.",
+    "Debt to Equity ist ein Indikator für die Finanzhebelwirkung eines Unternehmens und dessen Fähigkeit, Schulden zu managen.\nDie App stellt diese Daten bereit, um Perioden oder Unternehmen vergleichen zu können."
+  ],
+  "cost": 0,
+  "keywords": ["debt to equity", "schulden", "kapital", "erklären", "erkläre", "erklär mir", "erklären", "was ist", "funktion", "funktioniert", "dient", "bedeutet", "zeigt", "repräsentiert", "weist hin", "meint"],
+  "subquestions": {
+    "Willst du auch wissen, was Forward P/E ist?": "forward_pe_info",
+    "Willst du auch wissen, was Trailing P/E ist?": "trailing_pe_info"
+  }
+},
+"yoy_info": {
+  "questions": [
+    "Was bedeutet YoY?",
+    "Erklär mir die Bedeutung von YoY",
+    "Was heißt YoY?",
+    "Kannst du mir die Bedeutung von YoY sagen?",
+    "Sag mir, was YoY bedeutet",
+    "Was ist YoY Growth?",
+    "YoY, was bedeutet das?",
+    "Was zeigt der Ausdruck Jahr über Jahr an?",
+    "Was ist die Bedeutung von YoY?",
+    "Kannst du mir erklären, was YoY bedeutet?",
+    "Kannst du mir erklären, was YoY heißt?",
+    "Was versteht man unter YoY?"
+  ],
+  "answers": [
+    "YoY steht für 'Year over Year', also den Vergleich aktueller Daten mit denen des gleichen Zeitraums des Vorjahres. Diese Messung wird häufig für fundamentale Kennzahlen wie EPS Growth (Gewinnwachstum pro Aktie) und Revenue Growth (Umsatzwachstum) verwendet.",
+    "Das Akronym YoY bezeichnet das Wachstum oder die Veränderung einer Kennzahl im Vergleich zum Vorjahr. Im Finanzbereich wird es häufig auf fundamentale Daten wie EPS Growth und Revenue Growth angewendet, um die Unternehmensperformance zu überwachen."
+  ],
+  "cost": 0,
+  "keywords": ["yoy", "YoY", "erklären", "erkläre", "erklär mir", "erklären", "was ist", "funktion", "funktioniert", "dient", "bedeutet", "zeigt", "repräsentiert", "weist hin", "meint"]
+},
+  "pe_info": {
+  "questions": [
+    "Was bedeutet P/E?",
+    "Erklär mir, was P/E heißt",
+    "Was heißt Price to Earnings?",
+    "Kannst du mir die Bedeutung von P/E sagen?",
+    "Sag mir, was P/E bedeutet",
+    "Was versteht man unter P/E?",
+    "Wozu dient P/E?",
+    "Was ist das Price-to-Earnings-Verhältnis?",
+    "Was ist das P/E-Verhältnis?",
+    "Was zeigt P/E an?",
+    "Kannst du mir P/E für ein Unternehmen erklären?",
+    "Was stellt P/E in der Finanzwelt dar?",
+    "Erklär mir, was P/E bedeutet",
+    "Erklär mir, was P/E heißt"
+  ],
+  "answers": [
+    "P/E, oder Price to Earnings, ist das Verhältnis zwischen dem Marktpreis einer Aktie und dem Gewinn je Aktie (EPS). Dieser Indikator wird verwendet, um zu beurteilen, ob eine Aktie im Verhältnis zu den erzielten Gewinnen über- oder unterbewertet ist.",
+    "Das Price-to-Earnings-Verhältnis (P/E) misst, wie oft der Preis einer Aktie ihren Gewinn je Aktie abdeckt. Es ist einer der wichtigsten fundamentalen Indikatoren, um Unternehmen oder Branchen zu vergleichen und die relative Bewertung am Markt zu verstehen."
+  ],
+  "cost": 0,
+  "keywords": ["pe", "p/e", "erklären", "erkläre", "erklär mir", "erklären", "was ist", "funktion", "funktioniert", "dient", "bedeutet", "zeigt", "repräsentiert", "weist hin", "meint"]
+},
+"trailing_pe": {
+  "questions": [
+    "Wie hoch ist das Trailing P/E von [TOPIC]?",
+    "Sag mir den Wert des Trailing P/E von [TOPIC]?",
+    "Welches Trailing P/E hat [TOPIC]?",
+    "Kannst du mir das Trailing P/E von [TOPIC] sagen?",
+    "Wie hoch ist das historische Kurs-Gewinn-Verhältnis von [TOPIC]?",
+    "Wie hoch ist das historische Preis-Gewinn-Verhältnis von [TOPIC]?",
+    "Gib mir das historische Trailing Price-to-Earnings von [TOPIC]",
+    "Wie hoch ist das Trailing P/E von [TOPIC]?",
+    "Zeig mir das Trailing P/E für [TOPIC]",
+    "Ich möchte das aktuelle Trailing P/E von [TOPIC] wissen",
+    "Sag mir das aktuelle Trailing P/E von [TOPIC]",
+    "Sag mir das Trailing PE von [TOPIC]"
+  ],
+  "answers": [
+    "Das Trailing P/E von [TOPIC] beträgt aktuell [TRAILING_PE_VALUE].",
+    "Für [TOPIC] liegt das historische Kurs-Gewinn-Verhältnis bei [TRAILING_PE_VALUE].",
+    "Der aktuelle Wert des Trailing P/E von [TOPIC] ist [TRAILING_PE_VALUE].",
+    "Laut den neuesten Daten hat [TOPIC] ein Trailing P/E von [TRAILING_PE_VALUE].",
+    "Derzeit beträgt das Trailing P/E von [TOPIC] [TRAILING_PE_VALUE].",
+    "Die neuesten Daten zeigen, dass [TOPIC] ein Trailing P/E von [TRAILING_PE_VALUE] hat.",
+    "Das historische Preis-Gewinn-Verhältnis für [TOPIC] beträgt [TRAILING_PE_VALUE].",
+    "Das heute registrierte Trailing P/E für [TOPIC] ist [TRAILING_PE_VALUE]."
+  ],
+  "cost": 2,
+  "keywords": ["trailing pe", "trailing p/e", "historisch", "aktuell", "gegenwärtig", "aktualisiert"],
+  "tag": "free",
+  "subquestions": {
+    "Willst du auch das Forward P/E von [TOPIC] wissen?": "forward_pe",
+    "Willst du auch das EPS Growth von [TOPIC] wissen?": "eps_growth"
+  }
+},
+"forward_pe": {
+  "questions": [
+    "Wie hoch ist das Forward P/E von [TOPIC]?",
+    "Sag mir den Wert des Forward P/E von [TOPIC]?",
+    "Welches Forward P/E hat [TOPIC]?",
+    "Kannst du mir das Forward P/E von [TOPIC] sagen?",
+    "Wie hoch ist das prognostizierte Preis-Gewinn-Verhältnis von [TOPIC]?",
+    "Gib mir das Forward Price-to-Earnings von [TOPIC]",
+    "Wie hoch ist das Forward P/E von [TOPIC]?",
+    "Zeig mir das Forward P/E für [TOPIC]",
+    "Ich möchte das aktuelle Forward P/E von [TOPIC] wissen",
+    "Sag mir das Forward P/E von [TOPIC]",
+    "Sag mir das Forward PE von [TOPIC]",
+    "Gib mir das Forward P/E von [TOPIC]",
+    "Gib mir das Forward von [TOPIC]"
+  ],
+  "answers": [
+    "Das Forward P/E von [TOPIC] beträgt aktuell [FORWARD_PE_VALUE].",
+    "Für [TOPIC] liegt das prognostizierte Preis-Gewinn-Verhältnis bei [FORWARD_PE_VALUE].",
+    "Der aktuelle Wert des Forward P/E von [TOPIC] ist [FORWARD_PE_VALUE].",
+    "Laut den neuesten Daten hat [TOPIC] ein Forward P/E von [FORWARD_PE_VALUE].",
+    "Derzeit beträgt das Forward P/E von [TOPIC] [FORWARD_PE_VALUE].",
+    "Die neuesten Daten zeigen, dass [TOPIC] ein prognostiziertes P/E von [FORWARD_PE_VALUE] hat.",
+    "Das Forward Preis-Gewinn-Verhältnis für [TOPIC] beträgt [FORWARD_PE_VALUE].",
+    "Das heute geschätzte Forward P/E für [TOPIC] ist [FORWARD_PE_VALUE]."
+  ],
+  "cost": 2,
+  "keywords": ["forward pe", "forward p/e", "prognostiziert", "aktuell", "gegenwärtig", "aktualisiert"],
+  "tag": "free",
+  "subquestions": {
+    "Willst du auch das Revenue Growth von [TOPIC] wissen?": "revenue_growth",
+    "Willst du auch das EPS Growth von [TOPIC] wissen?": "eps_growth"
+  }
+},
+"eps_growth": {
+  "questions": [
+    "Wie hoch ist das EPS-Wachstum von [TOPIC]?",
+    "Sag mir den Wert des EPS Growth von [TOPIC]?",
+    "Wie stark ist das Gewinnwachstum von [TOPIC]?",
+    "Kannst du mir das EPS Growth von [TOPIC] sagen?",
+    "Wie hoch ist die EPS-Änderung Jahr über Jahr von [TOPIC]?",
+    "Gib mir das EPS Growth (YoY) von [TOPIC]",
+    "Wie hoch ist das EPS-Wachstum von [TOPIC]?",
+    "Zeig mir das EPS Growth für [TOPIC]",
+    "Ich möchte wissen, wie stark das EPS von [TOPIC] gewachsen ist",
+    "Sag mir die EPS-Änderung Jahr über Jahr von [TOPIC]",
+    "EPS von [TOPIC]",
+    "Gib mir das EPS von [TOPIC]"
+  ],
+  "answers": [
+    "Das EPS-Wachstum von [TOPIC] in den letzten 12 Monaten beträgt [EPS_GROWTH_VALUE].",
+    "Für [TOPIC] liegt das EPS Growth (YoY) bei [EPS_GROWTH_VALUE].",
+    "Der aktuelle Wert des Gewinnwachstums je Aktie von [TOPIC] ist [EPS_GROWTH_VALUE].",
+    "Laut den neuesten Daten hat [TOPIC] ein EPS Growth von [EPS_GROWTH_VALUE].",
+    "Derzeit beträgt das EPS Growth von [TOPIC] [EPS_GROWTH_VALUE].",
+    "Die neuesten Daten zeigen, dass [TOPIC] eine EPS-Änderung von [EPS_GROWTH_VALUE] verzeichnet hat.",
+    "Das Gewinnwachstum je Aktie für [TOPIC] beträgt aktuell [EPS_GROWTH_VALUE].",
+    "Der heute geschätzte EPS Growth-Wert für [TOPIC] ist [EPS_GROWTH_VALUE]."
+  ],
+  "cost": 2,
+  "keywords": ["eps", "eps growth", "aktuell", "gegenwärtig", "aktualisiert"],
+  "tag": "free",
+  "subquestions": {
+    "Willst du auch das Revenue Growth von [TOPIC] wissen?": "revenue_growth",
+    "Willst du auch die Profit Margins von [TOPIC] wissen?": "profit_margins"
+  }
+},
+  "revenue_growth": {
+  "questions": [
+    "Wie hoch ist das Umsatzwachstum von [TOPIC]?",
+    "Sag mir den Wert des Revenue Growth von [TOPIC]?",
+    "Welches Umsatzwachstum hat [TOPIC] verzeichnet?",
+    "Kannst du mir das Revenue Growth von [TOPIC] sagen?",
+    "Wie hoch ist die Umsatzveränderung Jahr über Jahr von [TOPIC]?",
+    "Gib mir das Revenue Growth (YoY) von [TOPIC]",
+    "Wie hoch ist das Umsatzwachstum von [TOPIC]?",
+    "Zeig mir das Revenue Growth für [TOPIC]",
+    "Ich möchte wissen, wie stark der Umsatz von [TOPIC] gewachsen ist",
+    "Sag mir die Umsatzveränderung Jahr über Jahr von [TOPIC]",
+    "Gib mir die Umsatzveränderung von [TOPIC]",
+    "Gib mir das Revenue Growth von [TOPIC]"
+  ],
+  "answers": [
+    "Das Umsatzwachstum von [TOPIC] in den letzten 12 Monaten beträgt [REVENUE_GROWTH_VALUE].",
+    "Für [TOPIC] liegt das Revenue Growth (YoY) bei [REVENUE_GROWTH_VALUE].",
+    "Der aktuelle Wert der Umsatzveränderung von [TOPIC] ist [REVENUE_GROWTH_VALUE].",
+    "Laut den neuesten Daten hat [TOPIC] ein Revenue Growth von [REVENUE_GROWTH_VALUE].",
+    "Derzeit beträgt das Revenue Growth von [TOPIC] [REVENUE_GROWTH_VALUE].",
+    "Die neuesten Daten zeigen, dass [TOPIC] eine Umsatzveränderung von [REVENUE_GROWTH_VALUE] verzeichnet hat.",
+    "Das Umsatzwachstum für [TOPIC] beträgt aktuell [REVENUE_GROWTH_VALUE].",
+    "Der heute geschätzte Revenue Growth-Wert für [TOPIC] ist [REVENUE_GROWTH_VALUE]."
+  ],
+  "cost": 2,
+  "keywords": ["revenue", "revenue growth", "umsatz", "aktuell", "gegenwärtig", "aktualisiert", "aktuelle daten"],
+  "tag": "free",
+  "subquestions": {
+    "Willst du auch das Debt-to-Equity-Verhältnis von [TOPIC] wissen?": "debt_to_equity",
+    "Willst du auch die Profit Margins von [TOPIC] wissen?": "profit_margins"
+  }
+},
+"profit_margins": {
+  "questions": [
+    "Wie hoch ist die Gewinnmarge von [TOPIC]?",
+    "Sag mir den Wert der Profit Margins von [TOPIC]?",
+    "Welche Gewinnmarge hat [TOPIC] verzeichnet?",
+    "Kannst du mir die Profit Margin von [TOPIC] sagen?",
+    "Wie hoch ist der Prozentsatz des Gewinns von [TOPIC]?",
+    "Gib mir die Profit Margins von [TOPIC]",
+    "Wie hoch ist die Gewinnmarge von [TOPIC]?",
+    "Zeig mir die Profit Margins für [TOPIC]",
+    "Ich möchte wissen, wie hoch die Gewinnmarge von [TOPIC] ist",
+    "Sag mir den Prozentsatz des Gewinns von [TOPIC]",
+    "Gib mir die Gewinnmarge von [TOPIC]",
+    "Sag mir den Gewinn von [TOPIC]",
+    "Gib mir die Profit Margins von [TOPIC]"
+  ],
+  "answers": [
+    "Die Gewinnmarge von [TOPIC] beträgt aktuell [PROFIT_MARGINS_VALUE].",
+    "Für [TOPIC] liegen die Profit Margins bei [PROFIT_MARGINS_VALUE].",
+    "Der aktuelle Wert der Gewinnmarge von [TOPIC] ist [PROFIT_MARGINS_VALUE].",
+    "Laut den neuesten Daten hat [TOPIC] eine Gewinnmarge von [PROFIT_MARGINS_VALUE].",
+    "Derzeit beträgt die Gewinnmarge von [TOPIC] [PROFIT_MARGINS_VALUE].",
+    "Die neuesten Daten zeigen, dass [TOPIC] eine Gewinnmarge von [PROFIT_MARGINS_VALUE] verzeichnet hat.",
+    "Die Profit Margins für [TOPIC] betragen aktuell [PROFIT_MARGINS_VALUE].",
+    "Der heute geschätzte Wert der Gewinnmarge von [TOPIC] ist [PROFIT_MARGINS_VALUE]."
+  ],
+  "cost": 2,
+  "keywords": ["profit margins", "gewinn", "verzeichnet", "aktuell", "gegenwärtig", "aktualisiert"],
+  "tag": "free",
+  "subquestions": {
+    "Willst du auch das Debt-to-Equity-Verhältnis von [TOPIC] wissen?": "debt_to_equity",
+    "Willst du auch das Trailing P/E von [TOPIC] wissen?": "trailing_pe"
+  }
+},
+"debt_to_equity": {
+  "questions": [
+    "Wie hoch ist das Debt-to-Equity-Verhältnis von [TOPIC]?",
+    "Sag mir den Wert des Debt/Equity-Ratio von [TOPIC]?",
+    "Welches Verhältnis von Schulden zu Eigenkapital hat [TOPIC]?",
+    "Kannst du mir das Debt-to-Equity von [TOPIC] sagen?",
+    "Wie hoch ist der Schuldenstand im Verhältnis zum Eigenkapital von [TOPIC]?",
+    "Gib mir das Debt-to-Equity (Schulden/Eigenkapital) von [TOPIC]",
+    "Wie hoch ist das Debt/Equity von [TOPIC]?",
+    "Wie hoch ist das Debt-Equity von [TOPIC]?",
+    "Debt Equity von [TOPIC]",
+    "Debt to Equity von [TOPIC]",
+    "Debt/Equity von [TOPIC]",
+    "Zeig mir das Debt-to-Equity-Verhältnis für [TOPIC]",
+    "Ich möchte wissen, wie hoch das Verhältnis Schulden/Equity von [TOPIC] ist",
+    "Sag mir das Debt-to-Equity von [TOPIC]",
+    "Gib mir das Debt-to-Equity von [TOPIC]"
+  ],
+  "answers": [
+    "Das Debt-to-Equity-Verhältnis von [TOPIC] beträgt aktuell [DEBT_TO_EQUITY_VALUE].",
+    "Für [TOPIC] liegt das Debt/Equity-Ratio bei [DEBT_TO_EQUITY_VALUE].",
+    "Der aktuelle Wert des Schulden/Eigenkapital-Verhältnisses von [TOPIC] ist [DEBT_TO_EQUITY_VALUE].",
+    "Laut den neuesten Daten hat [TOPIC] ein Debt-to-Equity von [DEBT_TO_EQUITY_VALUE].",
+    "Derzeit beträgt das Debt-to-Equity-Verhältnis von [TOPIC] [DEBT_TO_EQUITY_VALUE].",
+    "Die neuesten Daten zeigen, dass [TOPIC] ein Debt/Equity von [DEBT_TO_EQUITY_VALUE] verzeichnet hat.",
+    "Das Debt-to-Equity für [TOPIC] beträgt aktuell [DEBT_TO_EQUITY_VALUE].",
+    "Der heute geschätzte Wert des Schulden/Eigenkapital-Verhältnisses von [TOPIC] ist [DEBT_TO_EQUITY_VALUE]."
+  ],
+  "cost": 2,
+  "keywords": ["debt to equity", "debt/equity", "schulden/eigenkapital", "equity", "aktuell", "gegenwärtig", "aktualisiert"],
+  "tag": "free",
+  "subquestions": {
+    "Willst du auch das Forward P/E von [TOPIC] wissen?": "forward_pe",
+    "Willst du auch das Trailing P/E von [TOPIC] wissen?": "trailing_pe"
+  }
+},
+  "inflation_deflation": {
+  "questions": [
+    "Wie wirkt sich Inflation auf die Märkte aus?",
+    "Welche Auswirkungen hat Deflation auf die Wirtschaft?",
+    "Kannst du mir erklären, welche Folgen Inflation und Deflation für Investoren haben?",
+    "Welche Effekte haben Inflation und Deflation auf die Finanzmärkte?",
+    "Ich möchte verstehen, wie Inflation und Deflation Investitionen beeinflussen",
+    "Was passiert an den Börsen bei Inflation?",
+    "Und bei Deflation, wie verändert sich der Markt?",
+    "Kannst du mir einfach erklären, wie sich Inflation und Deflation auswirken?",
+    "Welche Risiken bringt Inflation für Investoren mit sich?",
+    "Welche Folgen hat Deflation für die Märkte?",
+    "Erkläre mir Inflation",
+    "Erkläre mir Deflation",
+    "Erkläre mir Inflation und Deflation"
+  ],
+  "answers": [
+    "Inflation und Deflation wirken sich sehr unterschiedlich auf die Märkte aus.\n\nBei Inflation sinkt die Kaufkraft, und die Zentralbanken neigen dazu, die Zinssätze zu erhöhen, um sie zu kontrollieren. Dies belastet häufig Aktien- und Anleihemärkte, kann aber reale Vermögenswerte wie Gold und Rohstoffe begünstigen.\n\nDeflation hingegen führt zu einem allgemeinen Preis- und Rückgang des Konsums. Unternehmen senken Gewinne und Investitionen, Aktienmärkte leiden, und die Zentralbanken versuchen, die Wirtschaft durch Zinssenkungen oder expansive Maßnahmen zu stimulieren.",
+    "Inflation verringert den realen Geldwert und verteuert die Finanzierung. Staatsanleihen und andere festverzinsliche Wertpapiere können an Wert verlieren. Hingegen profitieren Sektoren mit realen Gütern und Rohstoffen oft davon.\n\nDeflation ist seltener, aber sehr riskant: sinkende Preise führen dazu, dass Verbraucher Käufe verschieben und Unternehmen Investitionen und Löhne senken. Dies erzeugt eine negative Spirale, die Aktienmärkte stark trifft.",
+    "Inflation und Deflation sind zwei Seiten der Preisstabilität, wirken aber beide auf Investitionen.\n\nBei hoher Inflation erhöhen die Zentralbanken die Zinsen, wodurch Kredite teurer werden. Aktien können leiden, aber einige Sektoren (Energie, Rohstoffe, Safe-Haven-Güter) werden attraktiver.\n\nBei Deflation hingegen sinken die Preise und die Wirtschaft verlangsamt sich. Investoren suchen sichere Anlagen wie Staatsanleihen und Gold, während die Börsen tendenziell fallen.",
+    "Inflation bedeutet einen allgemeinen Preisanstieg und eine Verringerung der Kaufkraft. Um dem entgegenzuwirken, greifen die Zentralbanken mit restriktiven Maßnahmen ein, die die Märkte bremsen.\n\nDeflation senkt die Preise, löst aber einen Rückgang von Konsum und Investitionen aus. In beiden Fällen stehen die Finanzmärkte unter Druck, und Investoren müssen ihre Strategien anpassen.",
+    "Kontrollierte Inflation ist für die Wirtschaft normal, aber hohe Inflation verursacht Volatilität und erschwert die Vorhersage der Märkte. Einige Vermögenswerte wie Immobilien und Rohstoffe können Schutz bieten.\n\nDeflation gilt als gefährlicher: Sie signalisiert wirtschaftliche Stagnation, verringert Unternehmensgewinne und führt oft zu breitflächigen Marktrückgängen.",
+    "Sowohl Inflation als auch Deflation wirken sich direkt auf die Anlegerstimmung aus.\n\nÜbermäßige Inflation verringert die reale Rendite und treibt Anleger zu alternativen Investments. Deflation signalisiert wirtschaftliche Schwäche, erhöht Unternehmenspleiten und lenkt Investoren in sichere Anlagen.\n\nIn beiden Fällen wird Diversifikation zu einem wichtigen Instrument zur Risikominimierung."
+  ],
+  "cost": 0,
+  "keywords": ["inflation", "deflation", "erklären", "erklärst", "erkläre mir", "was ist", "bedeutet", "zeigt", "zeigt an"],
+  "subquestions": {
+    "Willst du auch wissen, wie Wechselkurse die Finanzmärkte beeinflussen?": "tassi_cambio",
+    "Willst du auch wissen, wie Geldpolitik funktioniert?": "politiche_monetarie"
+  }
+},
+"politiche_monetarie": {
+  "questions": [
+    "Was sind expansive Geldpolitiken?",
+    "Welche Auswirkungen haben restriktive Geldpolitiken?",
+    "Kannst du mir den Unterschied zwischen expansiver und restriktiver Geldpolitik erklären?",
+    "Wie wirken sich geldpolitische Maßnahmen auf den Markt aus?",
+    "Wie beeinflussen expansive Geldpolitiken die Märkte?",
+    "Wie reagieren die Märkte auf restriktive Maßnahmen?",
+    "Ich möchte expansive und restriktive Geldpolitik besser verstehen",
+    "Kannst du mir erklären, wie Geldpolitik Wirtschaft und Investitionen beeinflusst?",
+    "Was ist der Unterschied zwischen restriktiver und expansiver Geldpolitik?",
+    "Wie beeinflussen geldpolitische Entscheidungen der Zentralbanken die Märkte?",
+    "Erkläre mir die Geldpolitik",
+    "Erzähl mir von der Geldpolitik"
+  ],
+  "answers": [
+    "Geldpolitiken sind Instrumente der Zentralbanken, um die Wirtschaft über die Kontrolle von Geldmenge und Zinssätzen zu beeinflussen.\n\nExpansive Politiken zielen darauf ab, das Wirtschaftswachstum zu fördern: die Zentralbank senkt die Zinsen oder erhöht die Liquidität, wodurch Kredite leichter verfügbar werden. Dies unterstützt Konsum und Investitionen, oft mit positiven Effekten für Aktienmärkte, kann aber die Währung schwächen und Inflation anheizen.\n\nRestriktive Politiken dienen dazu, Inflation zu begrenzen oder Überhitzung zu vermeiden: die Zinsen werden erhöht und die Liquidität reduziert. Dies kühlt Aktienmärkte und Kreditvergabe ab, stärkt jedoch die Währung und unterstützt Anleihenrenditen.",
+    "Bei expansiver Geldpolitik senkt die Zentralbank die Kreditkosten und erhöht die Liquidität. Dies führt zu steigenden Konsum, fördert Investitionen und stützt die Börsen. Langfristig kann dies jedoch inflationsfördernd wirken.\n\nBei restriktiver Politik steigen die Zinsen, Kredite werden teurer, und Liquidität wird knapp. Aktienmärkte können korrigieren, während Investoren zu Anleihen und defensiven Assets wechseln.",
+    "Expansive und restriktive Geldpolitik sind zwei gegensätzliche Ansätze der Wirtschaftssteuerung.\n\nExpansive Maßnahmen stimulieren Wachstum und Inflation, helfen Unternehmen und Aktienmärkten, mindern aber den realen Wert der Währung.\n\nRestriktive Maßnahmen bremsen die Wirtschaft, kontrollieren Preise, stärken die Währung, können jedoch Konsum und Gewinne verringern, was Volatilität auf den Märkten erzeugt.",
+    "Bei expansiver Geldpolitik wird Investieren und Kredite aufnehmen günstiger. Aktienmärkte profitieren in der Regel, und die Risikobereitschaft der Investoren steigt.\n\nRestriktive Politik reduziert verfügbare Liquidität, belastet Aktienmärkte und begünstigt kurzfristige Anleihen. Investoren müssen vorsichtiger sein und stärker diversifizieren.",
+    "Geldpolitische Entscheidungen sind entscheidend für die Märkte.\n\nExpansiv bedeutet mehr Kredit, mehr Wachstum, höhere Risikobereitschaft: Aktienmärkte steigen, Währungen tendieren zu schwächen. Restriktiv bedeutet weniger Kredit, rückläufiger Konsum, Druck auf Gewinne: Aktienmärkte leiden, Währungen stärken sich, festverzinsliche Anleihen werden attraktiver.\n\nZu wissen, in welcher Phase der Geldpolitik man sich befindet, ist entscheidend für fundierte Investmententscheidungen."
+  ],
+  "cost": 0,
+  "keywords": ["geldpolitik", "expansiv", "restriktiv", "erklären", "erklärst", "erkläre mir", "was ist", "bedeutet", "zeigt", "zeigt an"],
+  "subquestions": {
+    "Willst du auch wissen, wie Wechselkurse die Finanzmärkte beeinflussen?": "tassi_cambio",
+    "Willst du auch wissen, was Fiskalpolitik ist?": "politiche_fiscali"
+  }
+},
+"politiche_fiscali": {
+  "questions": [
+    "Was ist Fiskalpolitik?",
+    "Welche Auswirkungen hat Fiskalpolitik auf die Märkte?",
+    "Erkläre mir den Unterschied zwischen expansiver und restriktiver Fiskalpolitik",
+    "Wie beeinflusst Fiskalpolitik Investitionen?",
+    "Was bedeutet expansive Fiskalpolitik?",
+    "Was bedeutet restriktive Fiskalpolitik?",
+    "Wie beeinflusst Fiskalpolitik das Wirtschaftswachstum?",
+    "Kannst du mir erklären, wie Fiskalpolitik funktioniert?"
+  ],
+  "answers": [
+    "Fiskalpolitik betrifft die Nutzung von Staatsausgaben und Steuern durch den Staat, um die Wirtschaft zu beeinflussen.\n\nEine **expansive** Fiskalpolitik senkt Steuern oder erhöht Staatsausgaben, um Konsum und Investitionen anzuregen. Dies fördert Wirtschaftswachstum und unterstützt oft Aktienmärkte.\n\nEine **restriktive** Fiskalpolitik hingegen erhöht Steuern oder senkt Ausgaben, um Inflation zu begrenzen oder das Defizit zu verringern. Dies bremst wirtschaftliche Aktivität und kann die Märkte belasten.",
+    "Expansive und restriktive Fiskalpolitik wirken unterschiedlich auf die Märkte.\n\nMit expansiven Maßnahmen (Steuersenkungen, höhere Staatsausgaben) wird die Liquidität in der Wirtschaft erhöht, was Konsum und Unternehmensgewinne ankurbelt. Anleger sehen dies positiv für Aktien.\n\nRestriktive Maßnahmen dämpfen die Nachfrage, bremsen das Wachstum und belasten riskantere Vermögenswerte.",
+    "Fiskalpolitik ist ein zentrales Instrument der Regierung zur Steuerung der Wirtschaft.\n\nEine **expansive** Linie senkt Steuern und erhöht Ausgaben, um Konsum und Beschäftigung zu fördern. Zyklische Assets (Industrie, diskretionärer Konsum) profitieren oft.\n\nEine **restriktive** Linie zielt darauf ab, Defizite und Schulden zu reduzieren. In diesem Szenario sind defensive Sektoren und qualitativ hochwertige Anleihen attraktiver.",
+    "Die Wirkung von Fiskalpolitik auf die Märkte hängt vom Kontext ab.\n\nIn Rezessionen stimuliert expansive Fiskalpolitik die Märkte durch Nachfrage- und Beschäftigungsförderung.\n\nIn Zeiten starken Wachstums mit hoher Inflation kann restriktive Politik nötig sein: Anleger senken Wachstumsprognosen und bevorzugen sichere Anlagen.",
+    "Fiskalpolitik wirkt zusammen mit Geldpolitik.\n\nBeispielsweise kann expansive Fiskalpolitik zusammen mit expansiver Geldpolitik (niedrige Zinsen) die Aktienmärkte stark antreiben.\n\nUmgekehrt kann restriktive Fiskalpolitik zusammen mit restriktiver Geldpolitik (hohe Zinsen) die Wirtschaft abkühlen und risikoreiche Assets belasten."
+  ],
+  "cost": 0,
+  "keywords": ["fiskalpolitik", "fiskal", "erklären", "erklärst", "erkläre mir", "was ist", "bedeutet", "zeigt", "zeigt an"],
+  "subquestions": {
+    "Willst du auch wissen, was Wirtschaftskreisläufe sind?": "cicli_economici",
+    "Willst du auch mehr über Geldpolitik wissen?": "politiche_monetarie"
+  }
+},
+  "cicli_economici": {
+  "questions": [
+    "Was sind Wirtschaftskreisläufe?",
+    "Erkläre mir die Phasen des Konjunkturzyklus",
+    "Welche Phasen von Expansion und Rezession gibt es?",
+    "Wie wirken sich Wirtschaftskreisläufe auf die Finanzmärkte aus?",
+    "Wie beeinflussen wirtschaftliche Phasen Investitionen?",
+    "Kannst du mir erklären, was eine Rezession ist und was sie bedeutet?",
+    "Was bedeutet Phase der wirtschaftlichen Expansion?",
+    "Welche Auswirkungen hat Stagnation auf die Märkte?",
+    "Welcher Zusammenhang besteht zwischen Wirtschaftskreisläufen und Börse?",
+    "Kannst du den Konjunkturzyklus einfach beschreiben?"
+  ],
+  "answers": [
+    "Wirtschaftskreisläufe stellen die natürlichen Phasen von Wachstum und Kontraktion der Wirtschaft dar.\n\nDie Hauptphasen sind: **Expansion** (Wachstum von Produktion und Beschäftigung), **Hochpunkt** (Maximum des Wachstums), **Rezession** (wirtschaftliche Kontraktion mit Rückgang von BIP und Beschäftigung) und **Erholung** (Rückkehr zum Wachstum). Diese Zyklen wirken sich direkt auf Finanzmärkte und Anlagestrategien aus.",
+    "Ein Konjunkturzyklus besteht aus vier zentralen Phasen: Wachstum, Hochpunkt, Rezession und Erholung.\n\nWährend der Expansion steigern Unternehmen Gewinne und Investitionen, Aktienmärkte tendieren zu steigen, und Optimismus ist verbreitet. In der Rezessionsphase sinken Produktion und Konsum, und die Märkte können deutliche Korrekturen erfahren.",
+    "Wirtschaftskreisläufe beeinflussen die Märkte stark.\n\nIn der Expansion performen riskante Assets wie Aktien gut, während Investoren in Rezession oder Stagnation sichere Anlagen wie Staatsanleihen oder Gold bevorzugen. Das Verständnis des Zyklus hilft, Anlageentscheidungen zu steuern.",
+    "Während einer wirtschaftlichen Expansionsphase stellen Unternehmen mehr ein, der Konsum steigt, und die Aktienmärkte profitieren in der Regel.\n\nIn einer Rezession sinken Beschäftigung und Konsum, Märkte werden volatiler, und Investoren konzentrieren sich oft auf defensive Sektoren wie Gesundheitswesen, Versorgungsunternehmen und Grundbedarfsartikel.",
+    "Wirtschaftskreisläufe beeinflussen die Anlegerstimmung.\n\nIn Wachstumsphasen herrscht Optimismus und Risikobereitschaft steigt. In Rezessionen wird die Stimmung negativ, und Investoren suchen Sicherheit. Zu wissen, in welcher Phase man sich befindet, ist zentral für die makroökonomische Analyse.",
+    "Stagnation ist eine Phase sehr geringen oder keinen Wachstums, oft begleitet von hoher Arbeitslosigkeit und niedrigem Verbrauchervertrauen.\n\nIn diesem Kontext können Finanzmärkte seitwärts tendieren oder volatil sein, und Investoren reduzieren häufig riskante Anlagen zugunsten stabilerer Assets."
+  ],
+  "cost": 0,
+  "keywords": ["wirtschaftskreisläufe", "konjunkturzyklus", "wirtschaftliche phasen", "phase von", "expansionsphase", "stagnation", "rezession", "rückgang", "erklären", "erklärst", "erkläre mir", "was ist", "funktioniert", "funktionieren", "bedeutet", "zeigt", "zeigt an"],
+  "subquestions": {
+    "Willst du auch wissen, warum der Arbeitsmarkt für Investoren wichtig ist?": "mercato_lavoro",
+    "Willst du auch mehr über Geldpolitik wissen?": "politiche_monetarie"
+  }
+},
+"mercato_lavoro": {
+  "questions": [
+    "Was bedeutet Arbeitslosigkeit in der Wirtschaft?",
+    "Wie wird Arbeitslosigkeit gemessen?",
+    "Warum ist der Arbeitsmarkt für Investoren wichtig?",
+    "Welche Auswirkungen hat ein Anstieg der Arbeitslosigkeit auf die Märkte?",
+    "Wie wirkt sich Arbeitslosigkeit auf die Wirtschaft aus?",
+    "Wie beeinflussen Arbeitsmarktdaten die Börse?",
+    "Was ist die Arbeitslosenquote?",
+    "Warum achten Fed und EZB auf den Arbeitsmarkt?",
+    "Welcher Zusammenhang besteht zwischen Beschäftigung und Konsum?",
+    "Wie interpretiert man einen Rückgang der Arbeitslosigkeit?"
+  ],
+  "answers": [
+    "Arbeitslosigkeit ist der Prozentsatz der Personen, die Arbeit suchen, aber keine finden.\n\nSie wird berechnet, indem die Zahl der Arbeitslosen durch die Gesamtzahl der Erwerbspersonen geteilt wird. Ein hoher Wert deutet auf wirtschaftliche Schwäche hin, ein niedriger Wert auf Dynamik und Vertrauen im Markt.",
+    "Die Arbeitslosenquote misst den Anteil der Erwerbspersonen ohne Beschäftigung.\n\nEin Anstieg der Arbeitslosigkeit reduziert den Konsum und bremst das Wirtschaftswachstum, mit möglichen negativen Folgen für die Finanzmärkte.",
+    "Der Arbeitsmarkt ist für Investoren entscheidend, weil er die Gesundheit der Wirtschaft widerspiegelt.\n\nPositive Beschäftigungsdaten unterstützen Konsum, Wachstum und oft die Aktienmärkte, während negative Daten zu Verkäufen und Flucht in sichere Anlagen führen können.",
+    "Ein Anstieg der Arbeitslosigkeit signalisiert wirtschaftliche Schwäche.\n\nFür die Märkte bedeutet dies geringeres Vertrauen, sinkende Binnennachfrage und mögliche lockerere Geldpolitik seitens der Zentralbanken.",
+    "Ein Rückgang der Arbeitslosigkeit ist in der Regel positiv, da er Konsum und Unternehmensaktivität unterstützt.\n\nAllerdings kann ein zu niedriger Wert inflationsfördernd wirken und Zentralbanken zu Zinserhöhungen bewegen, mit gemischten Markteffekten.",
+    "Der Zusammenhang zwischen Beschäftigung und Konsum ist direkt: Mehr Beschäftigte bedeuten mehr verfügbares Einkommen und höhere Nachfrage nach Gütern und Dienstleistungen.\n\nFür Investoren ist ein starker Arbeitsmarkt ein Signal für Vertrauen in Wirtschaft und Aktienmärkte."
+  ],
+  "cost": 0,
+  "keywords": ["arbeitslosigkeit", "beschäftigung", "markt", "arbeit", "erklären", "erklärst", "erkläre mir", "was ist", "funktioniert", "funktionieren", "bedeutet", "zeigt", "zeigt an", "zusammenhang", "relation"],
+  "subquestions": {
+    "Willst du auch wissen, warum das BIP für Investoren wichtig ist?": "pil_crescita",
+    "Willst du auch mehr über Fiskalpolitik wissen?": "politiche_fiscali"
+  }
+},
+"pil_crescita": {
+  "questions": [
+    "Was ist das BIP?",
+    "Was bedeutet Wirtschaftswachstum?",
+    "Wie wird das BIP gemessen?",
+    "Warum ist das BIP für Investoren wichtig?",
+    "Welche Auswirkungen hat ein Anstieg des BIP auf die Märkte?",
+    "Wie wirkt sich ein Rückgang des BIP auf die Wirtschaft aus?",
+    "Welcher Zusammenhang besteht zwischen BIP und Finanzmärkten?",
+    "Wie beeinflusst Wirtschaftswachstum Unternehmen?",
+    "Wie interpretiert man BIP-Daten?"
+  ],
+  "answers": [
+    "Das BIP (Bruttoinlandsprodukt) stellt den Gesamtwert aller in einem Land in einem bestimmten Zeitraum produzierten Güter und Dienstleistungen dar.\n\nEs ist einer der wichtigsten Indikatoren zur Beurteilung der Gesundheit einer Wirtschaft und wird von Regierungen, Zentralbanken und Investoren genau beobachtet.",
+    "Wirtschaftswachstum wird anhand der Veränderung des BIP im Vergleich zu früheren Perioden gemessen.\n\nEin Anstieg signalisiert Expansion, Wohlstandsschaffung und neue Chancen für Unternehmen. Ein Rückgang kann hingegen auf eine Verlangsamung oder Rezession hindeuten.",
+    "Das BIP wird berechnet, indem Konsum, Investitionen, Staatsausgaben und Handelsbilanzsaldo (Exporte minus Importe) summiert werden.\n\nDie Veränderung, also das Wirtschaftswachstum, liefert ein Bild von der Dynamik eines Landes.",
+    "Ein Anstieg des BIP ist in der Regel positiv für die Finanzmärkte.\n\nEr bedeutet höhere Nachfrage, mehr Unternehmensgewinne und größeres Vertrauen der Investoren.",
+    "Ein Rückgang des BIP, besonders wenn er über zwei aufeinanderfolgende Quartale anhält, definiert eine Rezession.\n\nFür die Märkte zeigt sich dies oft in fallenden Aktienkursen, höherer Volatilität und einer Flucht in sichere Anlagen wie Gold und Staatsanleihen.",
+    "Das BIP und die Märkte stehen in engem Zusammenhang: Wenn die Wirtschaft wächst, erzielen Unternehmen mehr Gewinne, und Aktienindizes steigen tendenziell.\n\nUmgekehrt reduziert schwaches Wachstum Gewinnperspektiven und erhöht das Risiko von Verkäufen.",
+    "BIP-Daten helfen Investoren zu verstehen, in welcher Phase des Wirtschaftskreislaufs man sich befindet.\n\nWachsendes BIP stärkt Gewinnprognosen, während eine Abschwächung defensive Strategien nahelegt."
+  ],
+  "cost": 0,
+  "keywords": ["bip", "bruttoinlandsprodukt", "wirtschaftswachstum", "erklären", "erklärst", "erkläre mir", "funktioniert", "funktionieren", "was ist", "bedeutet", "zusammenhang", "relation"],
+  "subquestions": {
+    "Willst du auch wissen, was auf den Märkten passiert, wenn ein Konflikt ausbricht?": "guerre_mercati",
+    "Willst du auch mehr über Geldpolitik wissen?": "politiche_monetarie"
+  }
+},
+  "guerre_mercati": {
+  "questions": [
+    "Wie beeinflussen internationale Konflikte die Finanzmärkte?",
+    "Welche Auswirkungen hat ein Krieg auf die Märkte?",
+    "Was passiert mit den Märkten, wenn ein Konflikt ausbricht?",
+    "Wie wirken sich militärische Spannungen auf Börsen und Währungen aus?",
+    "Wie reagieren Rohstoffe während eines bewaffneten Konflikts?",
+    "Welche Auswirkungen haben Kriege auf Energiepreise?",
+    "Welche Folgen haben globale Konflikte für Investoren?",
+    "Wie bewegen sich Aktien während Kriegen oder Konflikten?",
+    "Welche Auswirkungen haben geopolitische Spannungen auf die Finanzmärkte?",
+    "Wie bewertet man Marktrisiken bei internationalen Konflikten?"
+  ],
+  "answers": [
+    "Konflikte und Kriege erzeugen Unsicherheit auf den Finanzmärkten, oft mit plötzlicher Volatilität und erhöhter Risikowahrnehmung.\n\nInvestoren bevorzugen in der Regel sichere Anlagen wie Gold, stabile Währungen oder Staatsanleihen, während Aktienmärkte und Währungen der betroffenen Länder stark fallen können. Energie- und Rohstoffsektoren können je nach Konfliktgebiet erhebliche Schwankungen zeigen.\n\nEs ist wichtig, geopolitische Entwicklungen zu verfolgen und die Asset-Exposition zu bewerten, da die Auswirkungen auch auf nicht direkt betroffene Volkswirtschaften übergreifen können.",
+    "Militärische Spannungen und internationale Konflikte wirken sich direkt auf die Finanzmärkte aus und schaffen Instabilität und Volatilität.\n\nInvestoren wenden sich oft sicheren Anlagegütern wie Gold, Anleihen stabiler Länder und starken Währungen zu, während Aktien in sensiblen Sektoren wie Energie und Transport erheblich sinken können. Auch Schwellenmärkte können negativ reagieren, und Rohstoffmärkte, insbesondere Öl und Gas, reagieren sehr sensibel auf geopolitische Ereignisse.\n\nDas Verständnis der Auswirkungen von Konflikten hilft, Portfolios besser zu verwalten und strategische Entscheidungen in unsicheren Zeiten zu treffen.",
+    "Bewaffnete Konflikte beeinflussen die Märkte, indem sie finanziellen Stress und Risikowahrnehmung unter Investoren erzeugen.\n\nAktien und Währungen betroffener Länder können einbrechen, während sichere Anlagen wie Gold und Staatsanleihen tendenziell an Wert gewinnen. Sektoren wie Energie, Verteidigung und Rohstoffe zeigen stärkere Schwankungen. Es ist entscheidend, die Portfoliobelastung zu prüfen und Diversifikationsstrategien in Zeiten geopolitischer Instabilität zu berücksichtigen.",
+    "Kriegsereignisse und internationale Spannungen erhöhen die wirtschaftliche Unsicherheit, mit unmittelbaren Auswirkungen auf die globalen Finanzmärkte.\n\nInvestoren und Trader reagieren oft, indem sie Kapital in sichere Anlagen umschichten, während Aktien- und Währungsmärkte der betroffenen Länder volatil sind. Schwankungen bei Rohstoffen wie Öl, Gas und Edelmetallen können die Auswirkungen verstärken. Risikomanagement und Aufmerksamkeit für geopolitische Nachrichten sind entscheidend, um in diesen Situationen zu navigieren.",
+    "Kriege und Konflikte erzeugen Instabilität auf den Märkten, beeinflussen Preise, Volumen und Risikowahrnehmung.\n\nInvestoren bevorzugen sichere Anlagen, während Aktienmärkte und Währungen der betroffenen Länder starke Schwankungen erfahren können. Besonders betroffene Sektoren sind Energie, Transport und Rohstoffe. Kontinuierliche Überwachung und Diversifikationsstrategien helfen, negative Auswirkungen auf das Portfolio zu begrenzen."
+  ],
+  "cost": 0,
+  "keywords": ["krieg", "kriege", "konflikte", "spannungen", "spannung"],
+  "subquestions": {
+    "Willst du auch erfahren, wie sich wirtschaftliche Sanktionen auf die Märkte auswirken?": "sanzioni_economiche",
+    "Willst du auch wissen, welchen Einfluss Wahlen auf den Aktienmarkt haben?": "elezioni_mercato"
+  }
+},
+"sanzioni_economiche": {
+  "questions": [
+    "Wie wirken sich wirtschaftliche Sanktionen auf die Märkte aus?",
+    "Welche Auswirkungen haben Sanktionen auf Unternehmen und Investoren?",
+    "Was passiert mit den Märkten, wenn Sanktionen verhängt werden?",
+    "Erkläre mir die Auswirkungen wirtschaftlicher Sanktionen",
+    "Wie reagieren Finanzmärkte auf Sanktionen?",
+    "Erkläre mir, wie Sanktionen die Märkte beeinflussen",
+    "Erzähle mir von Sanktionen und deren Auswirkungen auf den globalen Markt",
+    "Erzähle mir von wirtschaftlichen Sanktionen"
+  ],
+  "answers": [
+    "Wirtschaftliche Sanktionen gegen ein oder mehrere Länder erzeugen Unsicherheit auf den Finanzmärkten und können erhebliche Volatilität verursachen.\n\nInvestoren und Unternehmen überprüfen oft ihre Exposition gegenüber betroffenen Ländern, während spezifische Sektoren wie Energie, Technologie und internationaler Handel Verluste oder Verlangsamungen erleben können. Es ist entscheidend, geopolitische Nachrichten zu verfolgen und Anlagestrategien entsprechend anzupassen.",
+    "Die Verhängung wirtschaftlicher Sanktionen führt häufig zu Handels- und Finanzrestriktionen, die die globalen Märkte direkt beeinflussen.\n\nInvestoren können Kapital in sicherere Assets wie starke Währungen, Staatsanleihen oder Rohstoffe verschieben. Unternehmen mit direkter Exponierung gegenüber sanktionierten Ländern können Umsatzrückgänge oder operative Schwierigkeiten erfahren, was sich unmittelbar auf Aktienkurse auswirkt.",
+    "Wirtschaftliche Sanktionen erzeugen ein Klima von Risiko und Unsicherheit, das sich auf Finanzmärkte lokal und international auswirkt.\n\nWährungen, Aktien und Anleihen der betroffenen Länder können erhebliche Schwankungen erfahren. Besonders betroffene Sektoren sind Energie, Transport und Technologie. Eine gute Portfoliostruktur und Diversifikation sind entscheidend, um die Auswirkungen von Sanktionen zu begrenzen.",
+    "Wenn ein Staat wirtschaftliche Sanktionen verhängt, entstehen Einschränkungen, die den internationalen Handel und Kapitalfluss beeinflussen.\n\nInvestoren reagieren, indem sie mögliche Verluste oder Instabilität antizipieren, sichere Anlagen bevorzugen und die Exposition gegenüber riskanteren Märkten reduzieren. Schwankungen sind besonders in Sektoren spürbar, die vom internationalen Handel oder strategischen Lieferungen abhängen.",
+    "Wirtschaftliche Sanktionen haben unmittelbare und indirekte Auswirkungen auf Finanzmärkte, erhöhen die Risikowahrnehmung und die Volatilität.\n\nUnternehmen mit Exponierung gegenüber sanktionierten Ländern können Umsatzrückgänge erleben und Margenbelastungen erfahren. Investoren verschieben Kapital in sichere Anlagen und passen Portfolios unter Beobachtung politischer und wirtschaftlicher Entwicklungen an."
+  ],
+  "cost": 0,
+  "keywords": ["sanktionen", "sanktion"],
+  "subquestions": {
+    "Willst du auch wissen, was während einer Wahlperiode auf den Märkten passiert?": "elezioni_mercato",
+    "Willst du auch erfahren, wie Wechselkurse die Anlagestrategien beeinflussen?": "tassi_cambio"
+  }
+},
+"elezioni_mercato": {
+  "questions": [
+    "Wie beeinflussen Wahlen die Finanzmärkte?",
+    "Welche Auswirkungen haben Wahlen auf den Aktienmarkt?",
+    "Was passiert mit den Märkten während einer Wahlperiode?",
+    "Erkläre mir die Auswirkungen von Wahlen auf die Wirtschaft",
+    "Verändern Wahlen die Strategien der Investoren?",
+    "Wie reagieren Investoren auf Wahlergebnisse?",
+    "Welche Auswirkungen haben politische Wahlen auf die globalen Märkte?",
+    "Märkte und Wahlen: Was muss man wissen?"
+  ],
+  "answers": [
+    "Politische Wahlen erzeugen Unsicherheit auf den Finanzmärkten, da Investoren versuchen, die Wirtschaftspolitik der neuen Regierung vorherzusagen.\n\nWährend Wahlkämpfen und unmittelbar nach den Ergebnissen ist Volatilität an Aktien-, Anleihen- und Devisenmärkten üblich. Besonders sensible Sektoren sind regulierungsabhängig, Energie, Gesundheit und Technologie.",
+    "Märkte reagieren auf Wahlen, indem sie die Auswirkungen zukünftiger Wirtschaftspolitik auf Wachstum und Unternehmensgewinne bewerten.\n\nInvestoren können Kapital in als sicher empfundene Anlagen wie Staatsanleihen oder Rohstoffe verschieben, während regulierte oder spezifisch exponierte Sektoren starke Schwankungen erleben. Eine vorsichtige Strategie umfasst kontinuierliche Überwachung und Diversifikation des Portfolios.",
+    "Wahlen sind ein Schlüsselerlebnis, das das Vertrauen der Investoren und die Marktrichtung beeinflussen kann.\n\nNeben den unmittelbaren Preiswirkungen auf Vermögenswerte beeinflussen Erwartungen über Steuer-, Geld- oder Handelspolitik die Investitionsentscheidungen. Risikomanagement ist daher essenziell, um die typische Volatilität während dieser Perioden zu bewältigen.",
+    "Während Wahlen erzeugen politische Unsicherheit und mögliche Änderungen der Wirtschaftspolitik Schwankungen an den Finanzmärkten.\n\nInvestoren bewerten die Auswirkungen auf spezifische Sektoren und das allgemeine Wirtschaftswachstum. Eine gute Vorbereitung umfasst Szenarienanalyse, Planung und defensive Strategien, um das Risiko zu reduzieren.",
+    "Wahlen können direkte und indirekte Markteffekte haben, indem sie Erwartungen zu Wachstum, Inflation und Regulierung beeinflussen.\n\nInstitutionelle und private Investoren verfolgen Kandidaten und deren Politik genau, passen Portfolios an, um sich vor Schwankungen zu schützen oder Chancen aus neuen politischen Richtungen zu nutzen."
+  ],
+  "cost": 0,
+  "keywords": ["wahlen", "wahl"],
+  "subquestions": {
+    "Willst du auch die Auswirkungen wirtschaftlicher Sanktionen auf Unternehmen und Investoren erklärt bekommen?": "sanzioni_economiche",
+    "Willst du auch erfahren, wie sich Märkte in Abhängigkeit von Wechselkursen bewegen?": "tassi_cambio"
+  }
+},
+"tassi_cambio": {
+  "questions": [
+    "Wie beeinflussen Wechselkurse die Finanzmärkte?",
+    "Welche Auswirkungen haben Wechselkurse auf Investitionen?",
+    "Was passiert mit Assets, wenn Wechselkurse schwanken?",
+    "Erkläre mir die Auswirkungen von Wechselkursen auf die Wirtschaft",
+    "Wie reagieren Investoren auf Wechselkursschwankungen?",
+    "Welche Auswirkungen haben Wechselkurse auf den globalen Markt?",
+    "Wechselkurse und Anlagestrategien: Was sollte man beachten?",
+    "Wie bewegen sich Märkte in Abhängigkeit von Wechselkursen?"
+  ],
+  "answers": [
+    "Wechselkursänderungen beeinflussen direkt die Kosten von Importen und Exporten und wirken sich auf die Wettbewerbsfähigkeit von Unternehmen auf internationalen Märkten aus.\n\nEine Aufwertung der Landeswährung kann Exporte verteuern und Einnahmen in Fremdwährung verringern, während eine Abwertung Exporte fördern, aber Importkosten erhöhen kann. Investoren berücksichtigen diese Faktoren bei der Verwaltung globaler Portfolios.",
+    "Wechselkurse wirken sich auf den Wert in Fremdwährung denominierter Assets und die Rentabilität internationaler Investitionen aus.\n\nWenn die Referenzwährung stärker wird, können Renditen ausländischer Investitionen in Landeswährung sinken; umgekehrt kann eine schwächere Währung nominale Renditen erhöhen. Investoren nutzen Absicherungs- oder Diversifikationsstrategien, um Währungsrisiken zu mindern.",
+    "Wechselkursschwankungen erzeugen Volatilität auf den Finanzmärkten und beeinflussen Aktien, Anleihen und Rohstoffe.\n\nInvestoren und Unternehmen beobachten Währungsdynamiken, um Auswirkungen auf Kosten, Gewinne und Investitionsentscheidungen vorherzusagen. Eine vorsichtige Strategie berücksichtigt Risikoszenarien und Chancen durch Währungsschwankungen.",
+    "Wechselkursbewegungen können makroökonomische Effekte haben, indem sie Inflation, Wettbewerbsfähigkeit und Handelsströme verändern.\n\nDiese Faktoren wirken sich auf Anlagestrategien aus, bei denen Investoren Risiko und Rendite unter Berücksichtigung der nationalen und ausländischen Währungen abwägen müssen.",
+    "Wechselkursschwankungen beeinflussen auch Kapitalmärkte und Sektoren mit internationalem Handel.\n\nEin sorgfältiges Monitoring der Wechselkurse ermöglicht es Investoren, Positionen anzupassen, Risiken zu reduzieren und Chancen aus günstigen Währungstrends zu nutzen."
+  ],
+  "cost": 0,
+  "keywords": ["wechselkurse", "kurse", "währungen", "währung"],
+  "subquestions": {
+    "Willst du auch wissen, was während einer Wahlperiode auf den Märkten passiert?": "elezioni_mercato",
+    "Willst du auch die Beziehung zwischen Finanzmärkten und geopolitischen Konflikten erklärt bekommen?": "guerre_mercati"
+  }
 }
 }
