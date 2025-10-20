@@ -4923,5 +4923,388 @@
     "Willst du auch wissen, was während einer Wahlperiode auf den Märkten passiert?": "elezioni_mercato",
     "Willst du auch die Beziehung zwischen Finanzmärkten und geopolitischen Konflikten erklärt bekommen?": "guerre_mercati"
   }
+},
+  "asset_price_drivers": {
+  "questions": [
+    "Was bewegt die Preise von Vermögenswerten?",
+    "Welche Faktoren beeinflussen den Aktienkurs?",
+    "Warum ändern sich die Preise von Vermögenswerten?",
+    "Wie werden die Bewegungen der Finanzmärkte bestimmt?",
+    "Was beeinflusst den Wert von Aktien, Anleihen oder Kryptowährungen?",
+    "Welche Faktoren treiben die Preise von Vermögenswerten nach oben oder unten?",
+    "Wie werden die Preise von Wertpapieren an den Märkten bestimmt?",
+    "Was bewegt den Markt?"
+  ],
+  "answers": [
+    "Die Preise von Vermögenswerten werden durch eine Kombination aus wirtschaftlichen, finanziellen und psychologischen Faktoren beeinflusst.\n\nFundamentale Indikatoren wie Unternehmensgewinne, Umsatzwachstum, Gewinnmargen, Verschuldung und Cashflow bestimmen den inneren Wert eines Assets. Hinzu kommen die Erwartungen der Investoren, makroökonomische Bedingungen, Geld- und Fiskalpolitik sowie globale Ereignisse, die Volatilität auslösen können.",
+    "Der Markt reagiert ständig auf neue Informationen und Veränderungen der wirtschaftlichen und finanziellen Bedingungen.\n\nNachrichten über Zinssätze, Inflation, Regierungsrichtlinien, BIP-Daten oder Unternehmensverkäufe können die Preise steigen oder fallen lassen. Auch psychologische Faktoren wie Investorenstimmung und Risikowahrnehmung spielen eine wichtige Rolle bei der Preisbildung.",
+    "Die Preisbewegungen von Vermögenswerten spiegeln das Gleichgewicht zwischen Angebot und Nachfrage wider, das von makroökonomischen Daten und Unternehmensgrundlagen beeinflusst wird.\n\nGeopolitische Ereignisse, Krisen oder Konflikte, Zinsentscheidungen und regulatorische Änderungen können sofortige Auswirkungen auf die Preise haben. Erfahrene Anleger analysieren sowohl greifbare als auch psychologische Faktoren, um mögliche Schwankungen vorherzusehen.",
+    "Preise und Bewertungen von Vermögenswerten sind das Ergebnis der Interaktion wirtschaftlicher, politischer, sozialer und technologischer Informationen.\n\nWichtige Indikatoren wie Umsatzwachstum, Gewinne, Schulden und Margen – kombiniert mit Markterwartungen und Anlegerstimmung – bestimmen, wie und warum sich ein Asset im Wert verändert. Das Verständnis dieser Elemente ermöglicht fundiertere Anlageentscheidungen.",
+    "Der Preis eines Vermögenswerts hängt nicht nur von historischen Daten, sondern auch von den zukünftigen Erwartungen der Investoren ab.\n\nWachstumsprognosen, Gewinnerwartungen, Geldpolitik und Wechselkursveränderungen sind einige der Faktoren, die die Märkte bewegen. Auch unerwartete Ereignisse oder externe Schocks können erhebliche Schwankungen verursachen, was den Markt dynamisch und komplex macht."
+  ],
+  "cost": 0,
+  "keywords": ["was bewegt", "beeinflusst", "preis", "preise", "faktoren", "markt", "märkte"],
+  "subquestions": {
+    "Möchtest du den aktuellen Preis von [FAVOURITE] wissen?": "asset_last_price"
+  }
+},
+"obbligazioni_info": {
+  "questions": [
+    "Was sind Anleihen?",
+    "Erkläre mir Anleihen",
+    "Wie funktionieren Anleihen?",
+    "Wozu dienen Anleihen?",
+    "Wie ist das Funktionsprinzip von Anleihen?",
+    "Was stellen Anleihen dar?",
+    "Wie funktionieren Schuldverschreibungen?",
+    "Kannst du mir Anleihen und ihre Funktionsweise erklären?"
+  ],
+  "answers": [
+    "Anleihen sind Schuldtitel, die von Regierungen, öffentlichen Einrichtungen oder Unternehmen ausgegeben werden, um Kapital zu beschaffen.\n\nWer eine Anleihe kauft, leiht dem Emittenten Geld und erhält dafür regelmäßige Zinszahlungen (Kupons) sowie die Rückzahlung des Kapitals am Fälligkeitstag. Sie werden von Anlegern genutzt, um ein stabiles Einkommen zu erzielen und das Portfolio zu diversifizieren, wobei sie ein geringeres Risiko als Aktien aufweisen.",
+    "Eine Anleihe stellt ein Darlehen dar, das der Anleger dem Emittenten gewährt, der sich verpflichtet, den ursprünglichen Betrag bei Fälligkeit zurückzuzahlen und Zinsen zu zahlen.\n\nDie Funktionsweise von Anleihen hängt von Faktoren wie Kuponsatz, Laufzeit, Emissionspreis und Bonität des Emittenten ab. Anleihen können am Sekundärmarkt gehandelt werden, sodass sie vor Fälligkeit verkauft werden können. Ihr Preis variiert in Abhängigkeit von Zinsen und wahrgenommenem Risiko.",
+    "Anleihen sind festverzinsliche Anlageinstrumente, die es ermöglichen, Geld an öffentliche oder private Emittenten zu verleihen.\n\nJede Anleihe hat eine feste Laufzeit und einen Zinssatz: Der Anleger erhält regelmäßig Kupons und am Ende das Kapital zurück. Das Verständnis ihrer Funktionsweise hilft, erwartete Rendite, Kreditrisiko und die Auswirkungen von Zinsänderungen auf den Preis zu bewerten.",
+    "Beim Kauf einer Anleihe wird der Anleger zum Gläubiger des Emittenten und erhält regelmäßige Zinszahlungen bis zur Fälligkeit.\n\nDer Preis von Anleihen kann je nach Zinssatz, Inflation und Bonität schwanken. Das Wissen um diese Mechanismen hilft, gezielte Investitionen zu planen und die Rolle von Anleihen in einem ausgewogenen Portfolio zu verstehen.",
+    "Anleihen dienen der Finanzierung des Emittenten und bieten dem Anleger regelmäßige Erträge in Form von Zinsen.\n\nSie funktionieren wie ein Darlehen: Der Anleger erhält Kupons und am Ende die Rückzahlung des Kapitals. Sie sind nützliche Instrumente zur Diversifikation, zur Verringerung der Portfoliovolatilität und zum Verständnis der Zinseinflüsse auf den Wert festverzinslicher Wertpapiere."
+  ],
+  "cost": 0,
+  "keywords": ["anleihen", "schuldverschreibung", "obligation", "anleihe"],
+  "subquestions": {
+    "Möchtest du den Unterschied zwischen Aktien und Anleihen wissen?": "azioni_obbligazioni",
+    "Ich kann dir den Unterschied zwischen Aktien und Anleihen erklären. Möchtest du das?": "azioni_obbligazioni"
+  }
+},
+"azioni_obbligazioni": {
+  "questions": [
+    "Was ist der Unterschied zwischen Aktien und Anleihen?",
+    "Erkläre mir den Unterschied zwischen Aktien und Anleihen",
+    "Aktien vs Anleihen – worin liegen die Unterschiede?",
+    "Was unterscheidet eine Aktie von einer Anleihe?",
+    "Wie unterscheiden sich Aktien von Anleihen?",
+    "Aktien oder Anleihen – was sind die Unterschiede?",
+    "Was ist der Unterschied zwischen einem Aktien- und einem Anleihetitel?",
+    "Kannst du mir die Unterschiede zwischen Aktien und Anleihen erklären?"
+  ],
+  "answers": [
+    "Aktien repräsentieren einen Eigentumsanteil an einem Unternehmen, während Anleihen ein Darlehen darstellen, das der Anleger dem Emittenten gewährt.\n\nMit Aktien nimmt man an Gewinnen und Verlusten des Unternehmens teil und erhält Dividenden, sofern sie ausgeschüttet werden. Anleihen bieten dagegen feste Zinszahlungen und Kapitalrückzahlung bei Fälligkeit und gelten in der Regel als risikoärmer als Aktien.",
+    "Eine Aktie verleiht dem Anleger Eigentumsrechte an einem Unternehmen, einschließlich Stimmrecht und Anspruch auf Dividenden.\n\nAnleihen hingegen sind Schuldtitel: Der Anleger leiht dem Emittenten Geld und erhält regelmäßige Zinsen sowie das Kapital zurück. Aktien bieten höhere Renditechancen, aber auch höhere Volatilität, während Anleihen Stabilität und Kapitalschutz bieten, wenn auch mit geringeren Erträgen.",
+    "Der Hauptunterschied besteht darin, dass Aktien eine Beteiligung am Eigenkapital eines Unternehmens darstellen, während Anleihen ein Darlehen an ein Unternehmen oder den Staat sind.\n\nAktionäre teilen Gewinne und Risiken des Unternehmens, während Anleihegläubiger feste Zinsen erhalten und im Insolvenzfall Vorrang bei Rückzahlungen haben. Dadurch sind Anleihen sicherer, aber mit geringeren Ertragschancen.",
+    "Aktien und Anleihen sind zwei unterschiedliche Finanzinstrumente: Erstere geben Eigentum und Gewinnbeteiligung, letztere bieten feste Erträge und Kapitalrückzahlung.\n\nAnleger nutzen Aktien für Wertsteigerung und Dividenden, während Anleihen das Portfolio stabilisieren und vorhersehbare Einkommensströme bieten – wodurch das Gesamtrisiko ausgeglichen wird."
+  ],
+  "cost": 0,
+  "keywords": ["aktien und anleihen", "aktie und anleihe", "anleihe und aktie", "aktienmarkt", "obligation", "schuldverschreibung"],
+  "subquestions": {
+    "Möchtest du auch wissen, wie ETFs funktionieren?": "etf_info",
+    "Soll ich dir auch erklären, was Investmentfonds sind?": "fondi_info"
+  }
+},
+"etf_info": {
+  "questions": [
+    "Was sind ETFs?",
+    "Erkläre mir, was ein ETF ist",
+    "Wie funktionieren ETFs?",
+    "Was bedeutet ETF?",
+    "Kannst du mir erklären, wie ETFs funktionieren?",
+    "Wozu dienen ETFs?",
+    "Wie nutzt man ETFs zum Investieren?",
+    "Was sind Exchange Traded Funds?",
+    "Was bedeutet Exchange Traded Fund?",
+    "Erkläre mir Exchange Traded Funds",
+    "Was sind Indexfonds?",
+    "Was bedeutet Indexfonds?"
+  ],
+  "answers": [
+    "ETFs (Exchange Traded Funds) sind börsengehandelte Investmentfonds, die die Entwicklung eines Index, Sektors oder eines Korbs von Vermögenswerten nachbilden.\n\nSie ermöglichen Anlegern, ihr Portfolio zu diversifizieren, indem sie mit einem einzigen Instrument in viele verschiedene Titel investieren. ETFs können Aktien, Anleihen, Rohstoffe oder andere Finanzinstrumente enthalten und bieten Liquidität und Flexibilität ähnlich wie Aktien.",
+    "Ein ETF ist ein Fonds, der einem Marktindex oder einem Set von Vermögenswerten folgt und dessen Anteile wie Aktien an der Börse gehandelt werden.\n\nDiese Instrumente bieten Zugang zu bestimmten Märkten, Sektoren oder Strategien bei in der Regel niedrigeren Kosten als traditionelle Fonds. ETFs sind transparent und können während der Handelszeiten gekauft oder verkauft werden – ideal für verschiedene Anlegertypen.",
+    "ETFs kombinieren die Vorteile eines Investmentfonds mit der Handelbarkeit einer Aktie: Sie replizieren einen Index oder Korb von Wertpapieren und können an der Börse gehandelt werden.\n\nSie eignen sich, um das Portfolio schnell zu diversifizieren, spezifische Risiken zu reduzieren und Zugang zu Märkten zu erhalten, die sonst schwer erreichbar wären – mit niedrigen Kosten und hoher Transparenz."
+  ],
+  "cost": 0,
+  "keywords": ["etf", "exchange traded funds", "exchange traded fund", "indexfonds", "fonds", "was sind", "funktionieren", "erkläre", "zweck", "nutzen"],
+  "subquestions": {
+    "Soll ich dir auch erklären, wie ein Investmentfonds funktioniert?": "fondi_info",
+    "Möchtest du auch wissen, wie Rohstoffe funktionieren?": "commodities_info"
+  }
+},
+  "fondi_info": {
+  "questions": [
+    "Was sind Investmentfonds?",
+    "Erklär mir, was ein Investmentfonds ist",
+    "Wie funktionieren Fonds?",
+    "Kannst du mir sagen, was Investmentfonds sind?",
+    "Was bedeutet der Begriff Investmentfonds?",
+    "Kannst du mir erklären, wie Investmentfonds funktionieren?",
+    "Wozu dienen Investmentfonds?",
+    "Wie verwendet man Investmentfonds zum Investieren?"
+  ],
+  "answers": [
+    "Investmentfonds sind Finanzinstrumente, die Geld von mehreren Anlegern sammeln, um es in ein diversifiziertes Portfolio aus Wertpapieren wie Aktien, Anleihen oder anderen Vermögenswerten zu investieren.\n\nJeder Anleger besitzt Anteile am Fonds, die dem investierten Kapital entsprechen. Fonds werden von professionellen Managern verwaltet und bieten Diversifikation, aktive oder passive Verwaltung sowie Zugang zu Märkten, die für einzelne Anleger schwer zu erreichen wären.",
+    "Ein Investmentfonds ermöglicht es mehreren Anlegern, ihr Kapital zu bündeln, um Zugang zu einem professionell verwalteten Portfolio zu erhalten.\n\nDadurch lassen sich die Risiken einzelner Wertpapiere reduzieren und von der Erfahrung erfahrener Fondsmanager profitieren. Fonds können unterschiedliche Ziele verfolgen, wie Kapitalwachstum, Einkommenserzielung oder Kapitalschutz, und in verschiedene Arten von Finanzinstrumenten investieren.",
+    "Investmentfonds funktionieren, indem sie Geld von verschiedenen Anlegern einsammeln und es in ein vom Fondsmanager ausgewähltes Portfolio an Vermögenswerten investieren.\n\nDieser Ansatz bietet Vorteile wie Diversifikation, professionelles Management und Zugang zu komplexen Märkten. Die Fondsanteile repräsentieren den Anteil am Gesamtvermögen des Fonds, und ihr Wert schwankt entsprechend der Entwicklung der zugrunde liegenden Anlagen."
+  ],
+  "cost": 0,
+  "keywords": ["fonds", "investmentfonds", "gemeinsamer fonds", "was sind", "was ist", "funktioniert", "erklär", "erklären", "dienen", "bestehen aus"],
+  "subquestions": {
+    "Möchtest du auch wissen, wie eine Kryptowährung funktioniert?": "crypto_info",
+    "Willst du auch wissen, wie Rohstoffe funktionieren?": "commodities_info"
+  }
+},
+"commodities_info": {
+  "questions": [
+    "Was sind Rohstoffe?",
+    "Erklär mir, was Commodities sind",
+    "Wozu dienen Rohstoffe?",
+    "Kannst du mir sagen, was Commodities sind?",
+    "Was bedeutet der Begriff Rohstoffe auf den Finanzmärkten?",
+    "Wie funktionieren Rohstoffe?",
+    "Warum investieren Anleger in Commodities?",
+    "Welche Rolle spielen Rohstoffe in der Wirtschaft?",
+    "Was ist ein Rohstoff?",
+    "Kannst du mir erklären, was Rohstoffe sind?"
+  ],
+  "answers": [
+    "Rohstoffe, auch Commodities genannt, sind physische Güter, die an Finanzmärkten gehandelt werden. Dazu gehören Edelmetalle wie Gold und Silber, Energieträger wie Öl und Gas sowie landwirtschaftliche Produkte wie Weizen und Kaffee.\n\nAnleger nutzen sie sowohl als Investitionsinstrument als auch als Absicherung gegen Inflation. Ihre Preise werden durch wirtschaftliche, geopolitische und klimatische Faktoren beeinflusst.",
+    "Commodities sind grundlegende materielle Güter, die für die Wirtschaft unverzichtbar sind und an speziellen Börsen wie der NYMEX oder der LME gehandelt werden. Dazu zählen natürliche Ressourcen, Metalle und Agrarprodukte.\n\nNeben ihrer industriellen Nutzung sind sie für Anleger wertvolle Instrumente zur Diversifikation des Portfolios oder zum Schutz vor Inflation.",
+    "Unter Rohstoffen versteht man physische, weltweit gehandelte Güter wie Öl, Gas, Gold, Silber, Weizen und Kaffee.\n\nIhr Wert wird durch das weltweite Angebot und die Nachfrage bestimmt. Sie werden sowohl industriell verwendet als auch als Finanzinvestition eingesetzt und dienen häufig als Absicherung gegen Inflation.",
+    "Commodities sind natürliche Ressourcen oder Basisgüter, die auf internationalen Finanzmärkten gehandelt werden. Sie sind entscheidend für das Funktionieren der globalen Wirtschaft.\n\nAnleger nutzen sie zur Portfolio-Diversifikation, während Unternehmen sie für die Produktion benötigen. Ihre Preise reagieren empfindlich auf geopolitische Ereignisse, Wetterbedingungen und Veränderungen der globalen Nachfrage.",
+    "Rohstoffe, auch bekannt als Commodities, umfassen Metalle, Energie und landwirtschaftliche Erzeugnisse. Es handelt sich um physische Güter, die an Finanzmärkten gehandelt werden und die Weltwirtschaft direkt beeinflussen.\n\nSowohl Anleger als auch Unternehmen verwenden sie als Absicherungs-, Investitions- oder Beschaffungsinstrumente, deren Preise stark von wirtschaftlichen, politischen und ökologischen Faktoren abhängen."
+  ],
+  "cost": 0,
+  "keywords": ["rohstoffe", "commodity", "commodities", "was sind", "funktionieren", "erklär", "erklären", "dienen"],
+  "subquestions": {
+    "Möchtest du auch wissen, wie eine Kryptowährung funktioniert?": "crypto_info",
+    "Willst du auch wissen, wie ETFs funktionieren?": "etf_info"
+  }
+},
+"crypto_info": {
+  "questions": [
+    "Was sind Kryptowährungen?",
+    "Erklär mir, was Krypto ist",
+    "Wozu dienen Kryptowährungen?",
+    "Kannst du mir sagen, was Krypto ist?",
+    "Was bedeutet der Begriff Kryptowährung?",
+    "Wie funktionieren Kryptowährungen?",
+    "Warum investieren Anleger in Krypto?",
+    "Welche Rolle spielen Kryptowährungen in der Wirtschaft?",
+    "Wie funktioniert eine Kryptowährung?",
+    "Was ist eine Kryptowährung?",
+    "Was ist Krypto?"
+  ],
+  "answers": [
+    "Kryptowährungen sind digitale Währungen, die auf Blockchain-Technologie basieren und sichere, dezentrale Transaktionen ermöglichen. Bitcoin, Ethereum und andere Altcoins sind bekannte Beispiele.\n\nAnleger nutzen sie sowohl zur Diversifikation ihres Portfolios als auch als spekulative Anlageklasse, angesichts ihrer Volatilität und Renditechancen.",
+    "Krypto sind digitale, kryptografisch gesicherte Währungen, die ohne Vermittler wie Banken oder Regierungen funktionieren. Die Blockchain sorgt für Sicherheit und Transparenz.\n\nNeben ihrer Rolle als Investition können sie für internationale Geldtransfers und Smart Contracts verwendet werden und prägen zunehmend die moderne Finanzwelt.",
+    "Kryptowährungen sind digitale, dezentralisierte Vermögenswerte, die online auf speziellen Plattformen gehandelt werden. Zu den bekanntesten zählen Bitcoin, Ethereum, Ripple und Litecoin.\n\nIhr Preis wird durch Angebot, Nachfrage, Regulierung und technologische Entwicklungen bestimmt. Anleger betrachten sie oft als risikoreiche, aber renditestarke Anlagen.",
+    "Kryptowährungen sind digitale Münzen, die auf kryptografischen und dezentralen Protokollen basieren und sichere Transaktionen ohne traditionelle Vermittler ermöglichen.\n\nAnleger verwenden sie zur Diversifikation, als Absicherung gegen Inflation oder zu spekulativen Zwecken, wobei sie Volatilität und Markttrends genau beobachten.",
+    "Kryptowährungen sind digitale Währungen, die Blockchain-Technologie nutzen, um sichere und überprüfbare Transaktionen zu gewährleisten.\n\nIhr Nutzen geht über Investitionen hinaus: Sie können für Zahlungen, Smart Contracts oder dezentrale Anwendungen verwendet werden. Ihre hohe Volatilität macht sie sowohl für Trader als auch für langfristige Investoren interessant."
+  ],
+  "cost": 0,
+  "keywords": ["krypto", "kryptowährungen", "was sind", "was ist", "funktionieren", "erklär", "erklären", "dienen"],
+  "subquestions": {
+    "Möchtest du auch wissen, wie Rohstoffe funktionieren?": "commodities_info",
+    "Willst du auch wissen, wie ETFs funktionieren?": "etf_info"
+  }
+},
+"supporto_resistenza_info": {
+  "questions": [
+    "Was sind Unterstützungsniveaus?",
+    "Was sind Widerstandsniveaus?",
+    "Erklär mir Unterstützung und Widerstand",
+    "Wie funktionieren Unterstützungs- und Widerstandsniveaus?",
+    "Was bedeutet Unterstützung im Trading?",
+    "Was bedeutet Widerstand im Trading?",
+    "Welche Rolle spielen Unterstützung und Widerstand in der technischen Analyse?"
+  ],
+  "answers": [
+    "Unterstützungsniveaus sind Preisbereiche auf einem Chart, in denen der Kurs eines Vermögenswerts dazu neigt, einen „Boden“ zu finden – also wo die Nachfrage stark genug ist, um den Preisverfall zu stoppen oder zu verlangsamen. Widerstand hingegen ist ein Niveau, bei dem das Angebot stark genug ist, um weitere Anstiege zu verhindern.\n\nDiese Konzepte sind in der technischen Analyse entscheidend, da sie helfen, potenzielle Ein- oder Ausstiegspunkte zu erkennen und mögliche Trendwenden oder Konsolidierungen zu antizipieren.",
+    "Die Unterstützung ist ein Bereich, in dem der Preis durch verstärkte Nachfrage gestützt wird, während der Widerstand eine Zone markiert, in der Verkaufsdruck den Aufwärtstrend stoppt. Beide markieren Schlüsselpunkte, an denen sich die Preise umkehren oder pausieren können.\n\nTrader und Investoren nutzen diese Niveaus, um Einstiegs- oder Ausstiegsstrategien zu planen, Stop-Loss- oder Take-Profit-Orders zu setzen und die Stärke eines Trends zu beurteilen.",
+    "Unterstützung und Widerstand sind Konzepte der technischen Analyse, die Preisniveaus beschreiben, an denen ein Vermögenswert dazu neigt, anzuhalten oder umzukehren. Unterstützung wirkt als „Boden“ des Preises, während Widerstand als „Decke“ fungiert.\n\nDas Erkennen dieser Niveaus hilft, die Marktpsychologie zu verstehen und mögliche zukünftige Bewegungen vorherzusehen, was das Risikomanagement und Handelsentscheidungen verbessert.",
+    "Unterstützungsniveaus zeigen, wo die Preise Halt finden und nicht weiter fallen, während Widerstandsniveaus anzeigen, wo die Preise stoppen oder den Trend umkehren könnten.\n\nDie richtige Anwendung dieser Konzepte ermöglicht eine präzisere Chartanalyse, das Erkennen von Breakouts, Rebounds und die Bestätigung von Trends – unverzichtbar für Trader und Investoren.",
+    "Unterstützung und Widerstand sind Schlüsselzonen in Kursdiagrammen. Unterstützung bezeichnet den Bereich, in dem die Kaufkraft einen Preisrückgang stoppen kann, während Widerstand die Zone darstellt, in der Verkaufsdruck Anstiege begrenzt.\n\nDiese Niveaus helfen, mögliche Umkehrungen, Breakouts und Trendbestätigungen zu identifizieren und sind zentrale Werkzeuge für das Risikomanagement und Handelsstrategien."
+  ],
+  "cost": 0,
+  "keywords": ["unterstützung", "widerstand", "unterstützungsniveau", "widerstandsniveau", "was sind", "funktionieren", "erklär", "erklären", "dienen"],
+  "subquestions": {
+    "Möchtest du auch wissen, was Handelsvolumen ist?": "volumi_info",
+    "Willst du auch, dass ich dir erkläre, was die Volatilität eines Vermögenswerts ist?": "volatility_info"
+  }
+},
+  "volumi_info": {
+  "questions": [
+    "Was ist das Handelsvolumen?",
+    "Erklär mir das Marktvolumen",
+    "Wozu dient das Handelsvolumen?",
+    "Was zeigt das Volumen eines Assets an?",
+    "Wie interpretiert man das Handelsvolumen?",
+    "Kannst du mir sagen, was das Volumen an der Börse ist?",
+    "Warum ist das Volumen wichtig?"
+  ],
+  "answers": [
+    "Das Handelsvolumen gibt an, wie viele Wertpapiere oder Vermögenswerte in einem bestimmten Zeitraum – etwa an einem Tag, in einer Woche oder in einer Stunde – gehandelt wurden. Es zeigt die Intensität und das Interesse der Marktteilnehmer an diesem Asset.\n\nDurch die Analyse von Volumen und Preisbewegung lässt sich die Stärke eines Trends erkennen, mögliche Umkehrpunkte identifizieren oder ein Ausbruch bestätigen. Steigendes Volumen bei steigenden Kursen signalisiert einen soliden Trend, während geringes Volumen auf Schwäche oder Unsicherheit im Markt hinweisen kann.",
+    "Das Volumen misst die Anzahl der Transaktionen eines bestimmten Assets und ist entscheidend, um Liquidität und Anlegerbeteiligung zu verstehen. Es zeigt nicht nur, wie stark ein Asset gehandelt wird, sondern auch, wie groß das Marktinteresse ist.\n\nEin steigendes Volumen während eines Kursanstiegs bestätigt den Trend, während ein hohes Volumen bei fallenden Kursen auf starken Verkaufsdruck hinweisen kann. Niedriges Volumen hingegen kann auf Konsolidierung oder mangelnde Überzeugung unter Tradern deuten.",
+    "Das Handelsvolumen repräsentiert die Menge an Vermögenswerten, die in einem bestimmten Zeitraum gehandelt werden, und dient zur Messung der Marktaktivität. Es ist ein zentrales Instrument, um die Dynamik der Preise und die Beteiligung der Investoren zu verstehen.\n\nWenn steigendes Volumen mit einer Kursbewegung einhergeht, stärkt das die Gültigkeit des Trends. Sinkt das Volumen hingegen, könnte die Bewegung schwach oder nur vorübergehend sein. Deshalb ist das Volumen ein unverzichtbares Instrument für fundierte Handelsentscheidungen.",
+    "Im Finanzwesen zeigt das Volumen, wie viele Aktien, Kryptowährungen oder andere Vermögenswerte in einem bestimmten Zeitraum gehandelt wurden. Es hilft dabei, Liquidität und Kauf- bzw. Verkaufsdruck im Markt einzuschätzen.\n\nWenn man Volumen und Preisdiagramme gemeinsam betrachtet, kann man zwischen nachhaltigen und schwachen Bewegungen unterscheiden, mögliche Umkehrpunkte erkennen und bestehende Trends bestätigen – was die Genauigkeit von Handelsstrategien deutlich verbessert.",
+    "Das Marktvolumen misst die Anzahl der Transaktionen eines Assets innerhalb eines bestimmten Zeitraums. Es dient als Indikator für die Beteiligung der Investoren und das allgemeine Interesse am Asset.\n\nDie Interpretation des Volumens ermöglicht es, die Stärke eines Trends zu bestätigen, mögliche Umkehrungen oder Ausbrüche vorherzusehen und die Stabilität der Preisbewegungen zu beurteilen – ein Schlüsselinstrument für eine präzise technische Analyse."
+  ],
+  "cost": 0,
+  "keywords": ["volumen", "handelsvolumen", "marktvolumen", "trading", "börse", "was ist", "erklär", "erklären", "wozu", "dient", "funktion"],
+  "subquestions": {
+    "Möchtest du auch wissen, was die Pearson- und Spearman-Koeffizienten sind?": "pearson_spearman_info",
+    "Willst du, dass ich dir erkläre, was Marktvolatilität ist?": "volatility_info"
+  }
+},
+"volatility_info": {
+  "questions": [
+    "Was bedeutet Volatilität?",
+    "Erklär mir die Marktvolatilität",
+    "Was ist die Volatilität eines Assets?",
+    "Wozu dient es, die Volatilität zu kennen?",
+    "Was zeigt die Volatilität an?",
+    "Warum ist Volatilität für Investoren wichtig?",
+    "Was bedeutet es, wenn ein Asset volatil ist?"
+  ],
+  "answers": [
+    "Volatilität misst, wie stark die Preise eines Vermögenswerts in einem bestimmten Zeitraum schwanken. Anders gesagt: Sie zeigt, wie schnell und wie weit sich die Preise nach oben oder unten bewegen können – und spiegelt so die Unsicherheit oder das Risiko im Markt wider.\n\nFür Investoren ist die Volatilität entscheidend, um das Risiko einer Anlage zu bewerten. Hohe Preisschwankungen können Chancen auf Gewinne bieten, erhöhen aber auch das Verlustrisiko. Durch die Analyse der Volatilität zusammen mit anderen Indikatoren lassen sich fundiertere Strategien entwickeln und Portfolios besser steuern.",
+    "In der Finanzwelt misst die Volatilität die Stärke der Preisschwankungen eines Assets innerhalb eines bestimmten Zeitraums. Hohe Volatilität bedeutet starke, schnelle Bewegungen; niedrige Volatilität steht für stabile, vorhersehbare Kurse.\n\nDas Verständnis der Volatilität hilft Investoren, ihr Risikoniveau zu bestimmen, Stop-Loss-Marken zu setzen und günstige Einstiegs- oder Ausstiegspunkte zu erkennen. Sie ist ein zentrales Werkzeug für das Risikomanagement und die Planung von Handelsstrategien.",
+    "Volatilität zeigt, wie stark und wie schnell sich die Preise einer Aktie, Kryptowährung oder eines anderen Vermögenswerts verändern. Sie spiegelt die Risikowahrnehmung der Marktteilnehmer und die Unsicherheit des Marktes wider.\n\nTrader und Investoren nutzen sie, um die Wahrscheinlichkeit starker Kursbewegungen abzuschätzen, Positionsgrößen anzupassen und risikoreichere oder stabilere Finanzinstrumente zu wählen. Ein gutes Verständnis der Volatilität ermöglicht bewusstere Entscheidungen und besseren Kapitalschutz.",
+    "Die Messung der Volatilität zeigt, wie weit die Preise im Verhältnis zu ihrem Durchschnitt innerhalb eines bestimmten Zeitraums streuen. Je größer die Streuung, desto höher die Volatilität – und damit das potenzielle Risiko.\n\nVolatilität hilft, die Stabilität einer Anlage einzuschätzen, Risikoprämien zu berechnen, Absicherungsstrategien zu planen und das Marktverhalten in unsicheren Phasen besser zu verstehen.",
+    "Volatilität ist ein Risikomaß, das zeigt, wie stark die Preise eines Vermögenswerts im Zeitverlauf schwanken. Sie beschreibt nicht die Richtung der Bewegung, sondern deren Intensität – und macht den Markt damit mehr oder weniger vorhersehbar.\n\nFür Investoren ist das Wissen um die Volatilität essenziell, um Portfolios auszubalancieren, passende Finanzinstrumente zu wählen und mögliche Phasen der Instabilität oder Ruhe frühzeitig zu erkennen."
+  ],
+  "cost": 0,
+  "keywords": ["volatilität", "volatil", "preisbewegung", "risiko", "schwankung", "was ist", "erklär", "erklären", "bedeutet"],
+  "subquestions": {
+    "Möchtest du auch wissen, was die Pearson- und Spearman-Koeffizienten sind?": "pearson_spearman_info",
+    "Willst du, dass ich dir erkläre, was Unterstützungs- und Widerstandsniveaus sind?": "supporto_resistenza_info"
+  }
+},
+"pearson_spearman_info": {
+  "questions": [
+    "Was bedeutet die Pearson-Korrelation?",
+    "Was bedeutet die Spearman-Korrelation?",
+    "Erklär mir den Unterschied zwischen Pearson und Spearman",
+    "Wozu dienen Pearson und Spearman?",
+    "Wie werden Pearson und Spearman in der Finanzwelt verwendet?",
+    "Kannst du mir erklären, was Pearson und Spearman sind?",
+    "Was ist der Unterschied zwischen Pearson- und Spearman-Korrelation?",
+    "Wie interpretiert man die Pearson- und Spearman-Koeffizienten?",
+    "Was zeigen Pearson und Spearman an?",
+    "Worin besteht die Pearson- und Spearman-Korrelation?",
+    "Was ist der Unterschied zwischen Pearson und Spearman?",
+    "Pearson und Spearman",
+    "Sind Spearman-Werte von 0,8 optimal?",
+    "Sind Pearson-Werte von 0,7 optimal?",
+    "Ist ein Spearman-Wert von 0,7 gut?",
+    "Ist ein Pearson-Wert von 0,6 gut?",
+    "Ist ein Pearson-Wert von 0,7 positiv?",
+    "Ist ein Spearman-Wert von 0,8 positiv?",
+    "Ist ein Pearson-Wert von 0,6 akzeptabel?",
+    "Ist ein Spearman-Wert von 0,6 akzeptabel?"
+  ],
+  "answers": [
+    "Die Pearson- und Spearman-Korrelation sind zwei statistische Methoden zur Messung der Beziehung zwischen Variablen – auch in der Finanzwelt weit verbreitet.\n\nDie **Pearson-Korrelation** misst die Stärke und Richtung der **linearen** Beziehung zwischen zwei Variablen 📈. Wenn zwei Assets einen Koeffizienten nahe +1 haben, steigen oder fallen sie proportional; bei -1 bewegen sie sich entgegengesetzt; bei 0 besteht keine lineare Beziehung. Der Pearson-Koeffizient liegt immer zwischen **-1 und +1**.\n\nDie **Spearman-Korrelation** hingegen basiert auf den **Rängen** statt auf den absoluten Werten. Sie ist nützlich, wenn die Beziehung nicht linear ist oder Ausreißer vorhanden sind. Spearman zeigt, ob zwei Assets tendenziell gemeinsam (positiv) oder gegensätzlich (negativ) verlaufen, auch ohne perfekte Proportionalität. Auch dieser Koeffizient liegt zwischen **-1 und +1**.",
+    "Pearson und Spearman sind zwei verschiedene Ansätze zur Messung der Korrelation zwischen Assets.\n\nMit **Pearson** analysieren wir die lineare Beziehung: wie stark sich ein Asset proportional zum anderen bewegt. Diese Methode ist in klassischen Portfoliomodellen weit verbreitet, da sie in die Varianz-Kovarianz-Berechnungen eingeht. Der Wert liegt zwischen **-1 und +1**, wobei +1 perfekte positive und -1 perfekte negative Korrelation bedeutet.\n\n**Spearman** hingegen misst, ob sich zwei Variablen in dieselbe Richtung bewegen – unabhängig von der Stärke der linearen Beziehung. Er ist robuster gegenüber Ausreißern und Marktrauschen, ebenfalls mit einem Wertebereich zwischen **-1 und +1**.",
+    "Die Pearson-Korrelation misst die lineare Beziehung zwischen zwei Variablen, während die Spearman-Korrelation die **Rangordnung** der Werte berücksichtigt.\n\nIn der Finanzwelt bedeutet das: Pearson eignet sich besser für quantitative Portfoliomodelle, kann aber durch starke Ausreißer verzerrt werden. Spearman bietet eine stabilere Sicht auf die generelle Beziehung zwischen zwei Assets – auch wenn sie nicht streng proportional ist. Beide Koeffizienten liegen zwischen **-1 und +1**, wobei Werte nahe 0 auf eine schwache oder keine lineare Beziehung hindeuten.",
+    "Pearson und Spearman sind beides Korrelationsindikatoren, werden aber für unterschiedliche Zwecke eingesetzt.\n\n- **Pearson**: Erfasst lineare Zusammenhänge und wird in klassischen statistischen Analysen verwendet. Der Koeffizient liegt zwischen -1 und +1.\n\n- **Spearman**: Erfasst monotone, auch nichtlineare Zusammenhänge und ist robuster bei unregelmäßigen Daten. Auch hier liegt der Koeffizient zwischen -1 und +1.\n\nIn der Finanzanalyse ist es sinnvoll, beide zu verwenden, um zu erkennen, ob zwei Assets nur proportional (Pearson) oder generell gemeinsam (Spearman) verlaufen.",
+    "Pearson misst **wie stark zwei Assets proportional miteinander verbunden sind**, während Spearman **zeigt, ob sie sich in dieselbe Richtung bewegen**, unabhängig von der Proportionalität.\n\nBeide Koeffizienten liegen zwischen **-1 und +1**: Werte nahe +1 zeigen eine starke positive, Werte nahe -1 eine starke negative und Werte um 0 eine schwache oder keine Beziehung.\n\nEin guter Ansatz für Investoren ist, beide zu vergleichen: Wenn die Werte ähnlich sind, ist die Beziehung stabil und linear; bei großen Abweichungen ist sie komplexer und nicht rein proportional."
+  ],
+  "cost": 0,
+  "keywords": ["pearson", "spearman", "korrelation", "koeffizient", "unterschied", "was ist", "erklär", "erklären", "funktion", "verwendung", "interpretation"],
+  "subquestions": {
+    "Möchtest du auch wissen, wozu das Handelsvolumen dient?": "volumi_info",
+    "Willst du, dass ich dir erkläre, was Unterstützungs- und Widerstandsniveaus sind?": "supporto_resistenza_info"
+  }
+},
+  "navigazione_asset": {
+  "questions": [
+    "Welche Vermögenswerte analysiert die App?",
+    "Welche Assets kann ich hier einsehen?",
+    "Wo finde ich die Liste der Assets?",
+    "Welche Assets sind verfügbar?",
+    "Kann ich erfahren, welche Assets analysiert werden?",
+    "Welche Art von Assets kann man in der App sehen?",
+    "Wo kann ich alle von euch abgedeckten Assets sehen?",
+    "Welche Assets werden überwacht?",
+    "Wie kann ich die verfügbaren Assets anzeigen?",
+    "Wo befindet sich die Asset-Liste?"
+  ],
+  "answers": [
+    "Die vollständige Liste der Assets findest du im dafür vorgesehenen Bereich 🔎.\n\nIn diesem Abschnitt kannst du jedes Asset analysieren, seine Entwicklung und mögliche Zukunftstrends betrachten und deine meistverfolgten Assets zu den Favoriten hinzufügen, um sie jederzeit auf dem Startbildschirm im Blick zu behalten. 👀",
+    "Du kannst die vollständige Liste aller analysierten Assets direkt im entsprechenden Bereich der App 📲 einsehen.\n\nDort kannst du die Entwicklung jedes Assets überprüfen, zukünftige Trends verfolgen und die wichtigsten zu deinen Favoriten hinzufügen, um sie jederzeit griffbereit zu haben.",
+    "Die Liste der überwachten Assets ist im speziellen Bereich verfügbar.\n\nVon dort aus kannst du detaillierte Analysen zu jedem Asset durchführen, ihre Performance bewerten und die meistverfolgten in deine Favoritenliste auf dem Hauptbildschirm aufnehmen.",
+    "Um alle unterstützten Assets anzuzeigen, öffne einfach den dafür vorgesehenen Bereich in der App 📊.\n\nDort kannst du auch schnell ihre Entwicklung betrachten, mögliche zukünftige Bewegungen abschätzen und deine wichtigsten Assets zu den Favoriten hinzufügen, um sie immer im Blick zu behalten. 👀",
+    "Die analysierten Assets findest du im entsprechenden Bereich, der leicht über das Hauptmenü zugänglich ist.\n\nDu kannst die Performance jedes Assets überprüfen, ihr zukünftiges Potenzial einschätzen und die interessantesten zu deiner Favoritenliste auf dem Startbildschirm hinzufügen.",
+    "Es gibt einen speziellen Bereich in der App, in dem du alle verfügbaren Assets findest.\n\nDort kannst du jedes Asset analysieren, seine mögliche Entwicklung betrachten und deine Favoriten speichern, um sie immer im Blick zu behalten.",
+    "Die Asset-Liste ist im dafür vorgesehenen Bildschirm sichtbar: dort findest du alle Details.\n\nDu kannst außerdem schnell die Entwicklung jedes Assets bewerten, zukünftige Bewegungen abschätzen und die wichtigsten zu den Favoriten hinzufügen, um sie immer griffbereit zu haben. 😉",
+    "Du kannst herausfinden, welche Assets verfolgt werden, indem du den entsprechenden Bereich der App 📈 öffnest.\n\nDort kannst du die Entwicklung jedes Assets überprüfen, ihr zukünftiges Potenzial einschätzen und die wichtigsten zu deiner Favoritenliste hinzufügen, um sie stets im Blick zu behalten. 😉"
+  ],
+  "cost": 0,
+  "keywords": ["liste", "verzeichnis", "asset"],
+  "subquestions": {
+    "Möchtest du auch wissen, wie man eine Asset-Analyse in TradeGPT durchführt?": "navigazione_analisi"
+  }
+},
+"navigazione_abbonamenti": {
+  "questions": [
+    "Wo sehe ich mein Abonnement?",
+    "Wie kann ich meinen aktuellen Plan überprüfen?",
+    "Kann ich sehen, welchen Plan ich habe?",
+    "Wo befindet sich der Abonnementbereich?",
+    "Wie überprüfe ich meinen Plan?",
+    "Ich möchte wissen, welches Abo ich habe",
+    "Wie kann ich meinen Plan upgraden?",
+    "Wo kann ich meinen Plan ändern?",
+    "Wie kann ich die verfügbaren Pläne sehen?",
+    "Wie kann ich zu Premium oder Ultra wechseln?",
+    "Wie ändere ich meinen Plan?",
+    "Wie modifiziere ich meinen Plan?",
+    "Wie macht man ein Upgrade?",
+    "Wie kann ich ein Upgrade durchführen?"
+  ],
+  "answers": [
+    "Um dein Abonnement zu sehen, klicke auf das Symbol oben rechts auf dem Startbildschirm, wo sich das App-Logo befindet. Dort findest du deinen aktuellen Plan und alle zugehörigen Informationen.\n\nDu kannst auch ein Upgrade durchführen, indem du zwischen dem **Premium-Plan**, ideal für detailliertere Finanzdaten und tiefere Asset-Einblicke, oder dem **Ultra-Plan** wählst, perfekt für Investoren, die alles im Blick behalten möchten – mehr Daten, mehr Chancen, mehr Leistung. 💎",
+    "Gehe zum Startbildschirm und klicke auf das Logo oben rechts, um dein Abonnement zu sehen. In diesem Bereich kannst du deinen aktuellen Plan und die verfügbaren Funktionen überprüfen.\n\nWenn du upgraden möchtest, bietet **Premium** erweiterte Tools zur Überwachung von Finanzdaten, während **Ultra** dir alles gibt, was du brauchst, um zukünftige Asset-Trends vollständig zu verfolgen – mehr Daten, mehr Möglichkeiten und mehr Power. 💎",
+    "Du findest die Informationen zu deinem Abonnement, indem du auf das Logo oben rechts auf dem Startbildschirm klickst. Dort siehst du deinen aktuellen Plan und alle Details dazu.\n\nDu kannst zu **Premium** wechseln, um zusätzliche Finanzdaten und Analysen zu erhalten, oder zu **Ultra**, wenn du ein umfassendes Erlebnis möchtest, das dir ermöglicht, die Zukunft deiner Assets mit erweiterten Tools zu verfolgen. 💪",
+    "Klicke auf das Logo oben rechts auf dem Startbildschirm, um deinen aktuellen Plan zu sehen. Hier findest du alle Informationen zu deinem Abonnement.\n\nDie Pläne **Premium** und **Ultra** bieten viele zusätzliche Funktionen: **Premium** für detailliertere Daten und Einblicke, **Ultra** für maximale Kontrolle und alle Informationen, die du brauchst, um Markttrends zu analysieren und vorherzusagen. 💪",
+    "Um dein Abonnement zu überprüfen, gehe auf den Startbildschirm und klicke auf das Logo oben rechts. Du siehst deinen aktuellen Plan und die enthaltenen Funktionen.\n\nWenn du mehr Tools möchtest, bietet **Premium** tiefere Analysen und zusätzliche Daten, während **Ultra** alle Funktionen liefert, um einen umfassenden Überblick über jedes Asset und dessen Zukunft zu erhalten. 🔝",
+    "Auf dem Startbildschirm kannst du durch einen Klick auf das Logo oben rechts dein aktuelles Abonnement sehen. Dort findest du alle Informationen zu deinem gewählten Plan.\n\nDie Pläne **Premium** und **Ultra** bieten viele Vorteile: **Premium** für erweiterte Finanzdaten, **Ultra** für maximale Kontrolle über Trends, mit mehr Daten und mehr Möglichkeiten. 🔝",
+    "Klicke auf das Logo oben rechts auf dem Startbildschirm, um deinen aktuellen Plan und die Abonnementdetails anzuzeigen.\n\nDu kannst zu **Premium** wechseln, um zusätzliche Finanzanalysetools zu erhalten, oder zu **Ultra** für ein umfassendes Erlebnis mit mehr Daten, mehr Chancen und leistungsstarken Tools zur Zukunftsprognose jedes Assets. 💎",
+    "Um dein Abonnement zu sehen, gehe zum Startbildschirm und klicke auf das Logo oben rechts. Du findest dort deinen aktuellen Plan und alle Details.\n\nDer **Premium-Plan** ist ideal für diejenigen, die tiefer in Finanzdaten eintauchen möchten, während **Ultra** perfekt ist, wenn du maximale Kontrolle und vollständigen Zugriff auf alle App-Funktionen möchtest. 🚀"
+  ],
+  "cost": 0,
+  "keywords": ["mein abonnement", "mein plan", "welcher plan", "upgrade"],
+  "subquestions": {
+    "Möchtest du wissen, warum es sich lohnt, bei TradeGPT ein Upgrade durchzuführen?": "subscription_info",
+    "Möchtest du die verfügbaren Pläne bei TradeGPT kennenlernen?": "navigazione_piani"
+  }
+},
+"navigazione_analisi": {
+  "questions": [
+    "Wie kann ich eine Analyse eines Assets durchführen?",
+    "Kann ich ein Asset analysieren?",
+    "Wie wird eine Asset-Analyse durchgeführt?",
+    "Wie kann ich eine Analyse für ein Asset erhalten?",
+    "Wie kann ich die Analyse eines Assets sehen?",
+    "Wie kann ich ein Asset schnell analysieren?",
+    "Kann ich sofort die Analyse eines Assets sehen?",
+    "Wie kann ich eine Asset-Analyse anfordern?",
+    "Gibt es eine einfache Möglichkeit, ein Asset zu analysieren?",
+    "Wie kann ich die Analyse eines Assets abrufen?"
+  ],
+  "answers": [
+    "Du kannst mich direkt bitten, eine Analyse für jedes Asset durchzuführen 📊, oder den entsprechenden Bereich verwenden: gib einfach den Namen des Assets ein und drücke Enter – in weniger als einer Sekunde erscheint die Analyse.\n\nAlternativ kannst du auch ein Asset auswählen und auf „Analyse“ klicken 🚀, um sofort auf die vollständige Analyse-Seite zu gelangen – mit allen aktuellen Daten und Hinweisen für fundierte Entscheidungen.",
+    "Um die Analyse eines Assets zu erhalten, kannst du mich einfach direkt fragen 💬 oder den Suchbereich nutzen: gib den Namen des Assets ein und drücke Enter, um sofort das Ergebnis zu sehen.\n\nWenn du möchtest, wähle ein Asset aus und klicke auf „Analyse“ 🖱️: du wirst direkt zur Seite weitergeleitet, wo du alle Daten, Trends und Schlüsselinformationen einsehen kannst.",
+    "Eine Analyse eines Assets anzufordern ist ganz einfach: Du kannst mich direkt darum bitten 📈 oder im entsprechenden Bereich den Namen des Assets eingeben und Enter drücken, um das Ergebnis sofort zu erhalten.\n\nWenn du auf ein Asset klickst und „Analyse“ 🔍 auswählst, gelangst du direkt zu einer vollständigen Seite mit allen Informationen, um die Entwicklung und Perspektiven des Assets zu verstehen.",
+    "Du kannst eine Asset-Analyse auf zwei Arten durchführen: indem du mich direkt darum bittest 🤖 oder den Suchbereich nutzt, in dem du einfach den Namen des Assets eingibst und Enter drückst.\n\nAlternativ klicke auf das Asset und wähle „Analyse“ 🏠: du wirst direkt zur entsprechenden Seite weitergeleitet, die alle Details, Diagramme und Hinweise enthält, um zukünftige Entwicklungen zu bewerten.",
+    "Um ein Asset zu analysieren, kannst du mich direkt fragen 📊 oder den entsprechenden Bereich nutzen: gib den Namen des Assets ein, drücke Enter und du erhältst sofort die Analyse.\n\nDu kannst auch auf ein Asset klicken und „Analyse“ 🚀 auswählen, um sofort eine vollständige Übersicht mit Daten, Diagrammen und aktuellen Trends zu erhalten.",
+    "Willst du die Analyse eines Assets? Frag mich einfach 💬 oder geh zum entsprechenden Bereich und gib den Namen des Assets ein: drücke Enter und die Analyse erscheint sofort.\n\nAußerdem kannst du das Asset auswählen und auf „Analyse“ 🖱️ klicken, um zur vollständigen Seite mit allen Informationen zu gelangen, um die Entwicklung und Zukunftsperspektiven zu bewerten.",
+    "Eine Asset-Analyse durchzuführen ist einfach: Du kannst mich direkt darum bitten 🤖 oder den Suchbereich nutzen, den Namen des Assets eingeben und Enter drücken, um das Ergebnis sofort zu sehen.\n\nOder klicke auf das Asset und drücke „Analyse“ 📈, um auf die Seite mit allen Hauptdaten, Trends und Empfehlungen für fundierte Entscheidungen zu gelangen.",
+    "Du kannst die Analyse eines Assets anfordern, indem du mich direkt fragst 📊 oder den Namen des Assets im entsprechenden Bereich eingibst und Enter drückst, um sofort eine Antwort zu erhalten.\n\nAlternativ wähle das Asset aus und klicke auf „Analyse“ 🚀: du wirst zur vollständigen Seite mit allen Daten und Informationen weitergeleitet, um die Entwicklung des Assets zu bewerten.",
+    "Um sofort die Analyse eines Assets zu sehen, kannst du mich direkt fragen 💬 oder den Suchbereich nutzen: gib den Namen des Assets ein und drücke Enter – das Ergebnis erscheint im Handumdrehen.\n\nDu kannst auch auf das Asset klicken und „Analyse“ 🖱️ auswählen, um auf die vollständige Seite mit Diagrammen, Trends und den wichtigsten Daten zuzugreifen.",
+    "Eine Asset-Analyse anzufordern ist ganz einfach: Frag mich direkt 🤖 oder nutze den entsprechenden Bereich, gib den Namen des Assets ein und drücke Enter, um sofort das Ergebnis zu erhalten.\n\nEine weitere Möglichkeit ist, das Asset auszuwählen und auf „Analyse“ 📈 zu klicken, um direkt zur vollständigen Seite mit allen aktuellen Daten, Diagrammen und Informationen zu gelangen, die dir helfen, deine Strategien zu planen."
+  ],
+  "cost": 0,
+  "keywords": ["asset-analyse", "ein asset analysieren", "analyse durchführen", "analyse eines assets"],
+  "subquestions": {
+    "Möchtest du auch wissen, wie der Nachrichtenbildschirm in TradeGPT funktioniert?": "navigazione_notizie",
+    "Möchtest du auch wissen, wie der Hauptbildschirm funktioniert?": "navigazione_schermata_principale",
+    "Soll ich die vollständige Analyse von [FAVOURITE] für dich vorbereiten?": "asset_analysis_open"
+  }
 }
 }
