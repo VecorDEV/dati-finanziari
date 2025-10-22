@@ -4668,5 +4668,578 @@
     "subquestions": {
       "Quer que eu explique também de que forma as taxas de câmbio influenciam os mercados financeiros?": "tassi_cambio",
       "Quer que eu explique também o que são as políticas fiscais?": "politiche_fiscali"}
+  },
+  "politiche_fiscali": {
+    "questions": [
+      "O que são políticas fiscais?",
+      "Qual é o impacto das políticas fiscais nos mercados?",
+      "Explique-me a diferença entre políticas fiscais expansionistas e restritivas",
+      "Como as políticas fiscais afetam os investimentos?",
+      "O que significa política fiscal expansionista?",
+      "O que significa política fiscal restritiva?",
+      "De que forma as políticas fiscais influenciam o crescimento econômico?",
+      "Pode me explicar como funcionam as políticas fiscais?"
+    ],
+    "answers": [
+      "As políticas fiscais referem-se ao uso de gastos públicos e tributação pelo Estado para influenciar a economia.\n\nUma política fiscal **expansionista** reduz impostos ou aumenta os gastos públicos para estimular consumo e investimentos. Isso tende a favorecer o crescimento econômico e, consequentemente, geralmente sustenta os mercados acionários.\n\nUma política fiscal **restritiva**, por outro lado, aumenta impostos ou reduz gastos públicos, com o objetivo de controlar a inflação ou reduzir o déficit. Isso normalmente desacelera a atividade econômica e pode pesar sobre os mercados.",
+      "Políticas fiscais expansionistas e restritivas afetam os mercados de maneira diferente.\n\nCom medidas expansionistas (corte de impostos, aumento de gastos públicos), cria-se mais liquidez na economia, estimulando consumo e lucros das empresas. Os investidores percebem isso como um sinal positivo para as ações.\n\nEm contrapartida, políticas restritivas tendem a frear a demanda, reduzir o crescimento e gerar pressões negativas principalmente sobre ativos mais arriscados.",
+      "A política fiscal é uma ferramenta chave dos governos para gerir o desempenho da economia.\n\nSe o Estado adota uma linha **expansionista**, reduz a carga tributária e aumenta gastos para sustentar consumo e emprego. Nesse cenário, ativos cíclicos (por exemplo, indústria e consumo discricionário) geralmente se beneficiam.\n\nSe adota uma linha **restritiva**, foca em conter déficit e dívida, com efeitos mais prudentes: setores defensivos e títulos de alta qualidade podem se tornar relativamente mais atrativos.",
+      "O efeito das políticas fiscais nos mercados depende do contexto.\n\nEm recessão, uma política fiscal expansionista tende a ter efeitos muito positivos nos mercados, porque sustenta demanda e emprego.\n\nEm período de forte crescimento com inflação elevada, uma política restritiva pode ser necessária: nesse caso, investidores frequentemente revisam expectativas de crescimento para baixo e se orientam para ativos mais seguros.",
+      "As políticas fiscais funcionam em conjunto com as monetárias.\n\nPor exemplo, uma política fiscal expansionista combinada com política monetária expansionista (taxas baixas) pode gerar fortes estímulos aos mercados acionários.\n\nEm contrapartida, uma política fiscal restritiva combinada com política monetária restritiva (taxas altas) tende a esfriar a economia e dificultar a valorização de ativos arriscados."
+    ],
+    "cost": 0,
+    "keywords": ["políticas fiscais", "política fiscal", "explica", "explique", "explicar", "o que é", "o que são", "funciona", "funcionam", "significa", "intende"],
+    "subquestions": {
+      "Quer que eu explique também os ciclos econômicos?": "cicli_economici",
+      "Quer que eu explique também as políticas monetárias?": "politiche_monetarie"}
+  },
+  "cicli_economici": {
+    "questions": [
+      "O que são ciclos econômicos?",
+      "Explique-me as fases do ciclo econômico",
+      "Quais são as fases de expansão e recessão?",
+      "Como os ciclos econômicos afetam os mercados financeiros?",
+      "De que forma as fases econômicas influenciam os investimentos?",
+      "Pode me explicar o que é uma recessão e suas consequências?",
+      "O que significa fase de expansão econômica?",
+      "Qual é o impacto da estagnação nos mercados?",
+      "Qual é a relação entre ciclos econômicos e bolsa?",
+      "Pode descrever o ciclo econômico em termos simples?"
+    ],
+    "answers": [
+      "Os ciclos econômicos representam as fases naturais de crescimento e contração da economia.\n\nAs principais fases são: **expansão** (crescimento da produção e do emprego), **pico** (máximo crescimento), **recessão** (contração econômica com queda do PIB e emprego) e **recuperação** (retorno ao crescimento). Esses ciclos se refletem diretamente nos mercados financeiros e nas estratégias dos investidores.",
+      "Um ciclo econômico é composto por quatro momentos fundamentais: crescimento, pico, recessão e recuperação.\n\nDurante a expansão, empresas aumentam lucros e investimentos, os mercados tendem a subir e o otimismo é generalizado. Na recessão, produção e consumo caem, e os mercados podem registrar correções significativas.",
+      "Os ciclos econômicos impactam profundamente os mercados.\n\nNa expansão, ativos de risco como ações tendem a performar bem, enquanto em recessão ou estagnação, investidores buscam refúgio em ativos mais seguros, como títulos governamentais ou ouro. Compreender o ciclo ajuda a orientar escolhas de portfólio.",
+      "Durante uma fase de expansão econômica, empresas contratam mais, consumo aumenta e mercados acionários geralmente se beneficiam.\n\nNa recessão, emprego e consumo caem e mercados tornam-se mais voláteis: investidores geralmente se concentram em setores defensivos como saúde, utilidades e bens essenciais.",
+      "Os ciclos econômicos influenciam o sentimento dos investidores.\n\nEm crescimento, predomina otimismo e maior propensão ao risco. Em recessão, o sentimento torna-se negativo e busca-se segurança. Entender a fase do ciclo é chave na análise macroeconômica.",
+      "A estagnação é uma fase de crescimento muito baixo ou nulo, frequentemente acompanhada de desemprego elevado e baixa confiança dos consumidores.\n\nNeste contexto, mercados podem permanecer laterais ou voláteis, e investidores tendem a reduzir exposição a ativos arriscados, privilegiando os mais estáveis."
+    ],
+    "cost": 0,
+    "keywords": ["ciclos econômicos", "ciclo econômico", "fases econômicas", "fase de", "fase de expansão", "estagnação", "recessão", "spieghi", "explica", "explique", "explicar", "o que é", "o que são", "funciona", "funcionam", "significa", "intende"],
+    "subquestions": {
+      "Quer que eu explique também por que o mercado de trabalho é importante para investidores?": "mercato_lavoro",
+      "Quer que eu explique também as políticas monetárias?": "politiche_monetarie"}
+  },
+  "mercato_lavoro": {
+    "questions": [
+      "O que significa desemprego na economia?",
+      "Como é medido o desemprego?",
+      "Por que o mercado de trabalho é importante para investidores?",
+      "Qual efeito tem um aumento do desemprego nos mercados?",
+      "Como o desemprego afeta a economia?",
+      "De que forma os dados de emprego influenciam a bolsa?",
+      "O que é a taxa de desemprego?",
+      "Por que o Fed e o BCE observam o mercado de trabalho?",
+      "Qual é a relação entre emprego e consumo?",
+      "Como interpretar uma queda do desemprego?"
+    ],
+    "answers": [
+      "O desemprego é a porcentagem de pessoas que procuram emprego mas não conseguem encontrá-lo.\n\nÉ calculado dividindo o número de desempregados pela força de trabalho total. Um nível elevado indica fraqueza econômica, enquanto um nível baixo sinaliza dinamismo e confiança no mercado.",
+      "A taxa de desemprego mede a proporção da força de trabalho que não consegue emprego.\n\nUm aumento do desemprego reduz consumo e desacelera crescimento econômico, com possíveis impactos negativos nos mercados financeiros.",
+      "O mercado de trabalho é crucial para investidores pois reflete a saúde da economia.\n\nDados positivos de emprego sustentam consumo, crescimento e frequentemente os índices acionários, enquanto dados negativos podem gerar vendas e migração para ativos de refúgio.",
+      "Um aumento do desemprego sinaliza fraqueza econômica.\n\nPara os mercados, significa menor confiança, queda da demanda interna e possível política monetária mais acomodatícia pelos bancos centrais.",
+      "Uma queda do desemprego é geralmente positiva porque sustenta crescimento do consumo e das empresas.\n\nPorém, se muito baixa, pode gerar pressões inflacionárias e levar bancos centrais a aumentar taxas, com efeitos mistos nos mercados.",
+      "A relação entre emprego e consumo é direta: mais pessoas trabalhando significa mais renda disponível e maior demanda por bens e serviços.\n\nPara investidores, um mercado de trabalho forte é sinal de confiança na economia e nos mercados acionários."
+    ],
+    "cost": 0,
+    "keywords": ["desemprego", "emprego", "mercado", "trabalho", "explica", "explique", "explicar", "o que é", "o que são", "funciona", "funcionam", "significa", "intende", "relação", "rapporto"],
+    "subquestions": {
+      "Quer que eu explique também por que o PIB é importante para investidores?": "pil_crescita",
+      "Quer que eu explique também as políticas fiscais?": "politiche_fiscali"}
+  },
+  "pil_crescita": {
+    "questions": [
+      "O que é o PIB?",
+      "O que significa crescimento econômico?",
+      "Como é medido o PIB?",
+      "Por que o PIB é importante para investidores?",
+      "Qual efeito tem um aumento do PIB nos mercados?",
+      "Como um declínio do PIB afeta a economia?",
+      "Qual é a relação entre PIB e mercados financeiros?",
+      "Como o crescimento econômico influencia as empresas?",
+      "Como interpretar dados do PIB?"
+    ],
+    "answers": [
+      "O PIB, Produto Interno Bruto, representa o valor total de bens e serviços produzidos em um país em um determinado período.\n\nÉ um dos principais indicadores para avaliar a saúde econômica e é monitorado atentamente por governos, bancos centrais e investidores.",
+      "O crescimento econômico é medido pela variação do PIB em relação a períodos anteriores.\n\nUm aumento indica expansão, criação de riqueza e novas oportunidades para empresas. Uma queda pode indicar desaceleração ou recessão.",
+      "O PIB é calculado somando consumo, investimentos, gastos públicos e saldo comercial (exportações menos importações).\n\nSua variação, chamada crescimento econômico, fornece uma fotografia da dinâmica de um país.",
+      "Um aumento do PIB geralmente é positivo para mercados financeiros.\n\nSignifica mais demanda, mais lucros para empresas e maior confiança dos investidores.",
+      "Uma queda do PIB, especialmente se prolongada por dois trimestres consecutivos, caracteriza a chamada recessão.\n\nPara os mercados, isso frequentemente resulta em quedas acionárias, maior volatilidade e busca por ativos seguros como ouro e títulos governamentais.",
+      "A relação entre PIB e mercados é estreita: quando a economia cresce, empresas geram mais lucros e índices acionários tendem a subir.\n\nAo contrário, crescimento fraco reduz perspectivas de ganho e aumenta risco de vendas.",
+      "Dados do PIB ajudam investidores a entender em que fase do ciclo econômico estamos.\n\nUm PIB em crescimento reforça expectativas de lucro, enquanto uma desaceleração leva a estratégias mais defensivas."
+    ],
+    "cost": 0,
+    "keywords": ["PIB", "produto interno bruto", "crescimento econômico", "explica", "explique", "explicar", "o que é", "o que são", "funciona", "funcionam", "significa", "relação", "rapporto"],
+    "subquestions": {
+      "Quer que eu explique também o que acontece nos mercados durante um conflito?": "guerre_mercati",
+      "Quer que eu explique também as políticas monetárias?": "politiche_monetarie"}
+  },
+  "guerre_mercati": {
+    "questions": [
+      "Como os conflitos internacionais influenciam os mercados financeiros?",
+      "Qual é o impacto de uma guerra nos mercados?",
+      "O que acontece nos mercados quando eclode um conflito?",
+      "De que forma tensões militares afetam bolsas e moedas?",
+      "Como reagem as commodities durante um conflito armado?",
+      "Quais efeitos as guerras têm nos preços da energia?",
+      "O que os conflitos globais implicam para investidores?",
+      "Como se comportam as ações durante períodos de guerra ou conflito?",
+      "Qual é o impacto das tensões geopolíticas nos mercados financeiros?",
+      "Como avaliar o risco de mercado em caso de conflitos internacionais?"
+    ],
+    "answers": [
+      "Conflitos e guerras geram incerteza nos mercados financeiros, frequentemente causando volatilidade súbita e aumento da percepção de risco.\n\nInvestidores tendem a privilegiar ativos de refúgio como ouro, moedas estáveis ou títulos governamentais, enquanto mercados acionários e moedas dos países envolvidos podem sofrer fortes quedas. Setores de energia e commodities podem registrar variações significativas dependendo da região afetada pelo conflito.\n\nÉ importante monitorar desenvolvimentos geopolíticos e avaliar a exposição dos ativos, pois as consequências podem se estender a economias não diretamente envolvidas.",
+      "Tensões militares e conflitos internacionais impactam diretamente os mercados financeiros, criando instabilidade e volatilidade.\n\nInvestidores frequentemente recorrem a bens de refúgio como ouro, títulos de países seguros e moedas fortes, enquanto ações de setores sensíveis, como energia e transporte, podem sofrer contrações significativas. Mercados emergentes também podem reagir negativamente, e o comportamento das commodities, especialmente petróleo e gás, tende a ser muito sensível a eventos geopolíticos.\n\nCompreender o impacto de conflitos ajuda a gerenciar melhor a carteira e tomar decisões estratégicas em contextos de alta incerteza.",
+      "Conflitos armados afetam os mercados criando estresse financeiro e percepção de risco entre investidores.\n\nAções e moedas dos países envolvidos podem colapsar, enquanto bens de refúgio como ouro e títulos de Estado seguros tendem a se valorizar. Setores como energia, defesa e commodities apresentam oscilações mais marcantes. Avaliar a exposição da carteira e considerar estratégias de diversificação é fundamental em períodos de instabilidade geopolítica.",
+      "Eventos bélicos e tensões internacionais aumentam a incerteza econômica, com efeitos imediatos nos mercados financeiros globais.\n\nInvestidores e traders frequentemente deslocam capital para ativos seguros, enquanto mercados acionários e cambiais dos países envolvidos sofrem volatilidade. Flutuações de commodities como petróleo, gás e metais preciosos podem amplificar o impacto. Uma boa gestão de risco e atenção às notícias geopolíticas são essenciais para navegar nesses contextos.",
+      "Guerras e conflitos geram instabilidade nos mercados, influenciando preços, volumes e percepção de risco.\n\nInvestidores tendem a privilegiar ativos seguros, enquanto mercados acionários e moedas dos países envolvidos podem sofrer fortes oscilações. Setores mais afetados incluem energia, transporte e commodities. Monitorar constantemente os desenvolvimentos e ter uma estratégia de diversificação ajuda a limitar impactos negativos na carteira."
+    ],
+    "cost": 0,
+    "keywords": ["guerra", "guerras", "conflitos", "tensões", "tensão"],
+    "subquestions": {
+      "Quer que eu explique também o efeito das sanções econômicas nos mercados?": "sanzioni_economiche",
+      "Quer que eu explique também o impacto das eleições no mercado acionário?": "elezioni_mercato"}
+  },
+  "sanzioni_economiche": {
+    "questions": [
+      "Como as sanções econômicas impactam os mercados?",
+      "Qual é o efeito das sanções sobre empresas e investidores?",
+      "O que acontece nos mercados quando sanções são impostas?",
+      "Explique o impacto das sanções econômicas",
+      "Como reagem os mercados financeiros às sanções?",
+      "Explique como sanções influenciam os mercados",
+      "Fale sobre sanções e como elas afetam o mercado global",
+      "Fale sobre sanções econômicas"
+    ],
+    "answers": [
+      "Sanções econômicas impostas a um ou mais países criam incerteza nos mercados financeiros e podem causar volatilidade significativa.\n\nInvestidores e empresas tendem a revisar sua exposição a ativos dos países afetados, enquanto setores específicos, como energia, tecnologia e comércio internacional, podem sofrer perdas ou desacelerações. É fundamental acompanhar notícias geopolíticas e adaptar estratégias de investimento conforme os desenvolvimentos.",
+      "A imposição de sanções econômicas frequentemente leva a restrições comerciais e financeiras que influenciam diretamente o mercado global.\n\nInvestidores podem reagir deslocando capital para ativos considerados mais seguros, como moedas fortes, títulos governamentais ou commodities de refúgio. Empresas com exposição direta aos países sancionados podem ver receita reduzir ou enfrentar dificuldades operacionais, impactando imediatamente os preços das ações.",
+      "Sanções econômicas geram um clima de risco e incerteza refletido nos mercados financeiros, tanto locais quanto internacionais.\n\nMoedas, ações e títulos dos países afetados podem sofrer oscilações marcantes. Setores sensíveis como energia, transporte e tecnologia são particularmente impactados. Boa gestão de carteira e diversificação são ferramentas-chave para limitar os efeitos das sanções.",
+      "Quando um Estado impõe sanções econômicas, cria restrições que afetam comércio internacional e fluxo de capitais.\n\nInvestidores reagem antecipando possíveis perdas ou instabilidade, preferindo ativos de refúgio e reduzindo exposição a mercados mais arriscados. Flutuações podem ser particularmente intensas em setores dependentes de comércio internacional ou fornecimento estratégico.",
+      "Sanções econômicas têm efeitos imediatos e indiretos nos mercados financeiros, aumentando percepção de risco e volatilidade.\n\nEmpresas expostas a países sancionados podem ver receita cair e margens pressionadas. Investidores, consequentemente, tendem a realocar capital para ativos mais seguros e rever estratégias de carteira, acompanhando de perto desenvolvimentos políticos e comerciais."
+    ],
+    "cost": 0,
+    "keywords": ["sanções", "sanção"],
+    "subquestions": {
+      "Posso explicar também o que acontece nos mercados durante um período eleitoral. Quer saber?": "elezioni_mercato",
+      "Quer que eu explique também como as taxas de câmbio impactam estratégias de investimento?": "tassi_cambio"}
+  },
+  "elezioni_mercato": {
+    "questions": [
+      "Como as eleições influenciam os mercados financeiros?",
+      "Qual é o impacto das eleições no mercado acionário?",
+      "O que acontece nos mercados durante o período eleitoral?",
+      "Explique o efeito das eleições na economia",
+      "Eleições mudam estratégias de investidores?",
+      "Como investidores reagem aos resultados eleitorais?",
+      "Quais efeitos têm eleições políticas nos mercados globais?",
+      "Mercados e eleições: o que é importante saber?"
+    ],
+    "answers": [
+      "Eleições políticas criam períodos de incerteza nos mercados financeiros, pois investidores tentam antecipar políticas econômicas do novo governo.\n\nDurante campanhas eleitorais e logo após resultados, é comum observar volatilidade nos mercados acionário, de títulos e cambial. Setores particularmente sensíveis podem ser regulatórios, energia, saúde e tecnologia.",
+      "Mercados reagem às eleições avaliando o impacto de políticas econômicas futuras sobre crescimento e lucros das empresas.\n\nInvestidores podem mover capital para ativos percebidos como mais seguros, como títulos governamentais ou commodities, enquanto setores regulados ou expostos a políticas fiscais específicas podem sofrer flutuações significativas. Estratégia prudente inclui monitoramento constante e diversificação de carteira.",
+      "Eleições representam evento-chave que pode influenciar confiança de investidores e direção dos mercados.\n\nAlém do impacto imediato nos preços de ativos, expectativas sobre reformas fiscais, monetárias ou comerciais influenciam decisões de investimento. Gestão de risco torna-se essencial para lidar com volatilidade típica desses períodos.",
+      "Durante eleições, incerteza política e possíveis alterações em políticas econômicas geram oscilações nos mercados financeiros.\n\nInvestidores avaliam impacto das eleições em setores específicos e no crescimento geral da economia. Preparação adequada envolve análise de resultados esperados, planejamento de cenários e estratégias defensivas para reduzir exposição ao risco.",
+      "Eleições podem ter efeitos diretos e indiretos no mercado, influenciando expectativas de crescimento, inflação e regulamentações.\n\nInvestidores institucionais e privados monitoram candidatos e políticas, ajustando portfólios para se proteger de flutuações ou aproveitar oportunidades de novos rumos políticos."
+    ],
+    "cost": 0,
+    "keywords": ["eleições", "eleição"],
+    "subquestions": {
+      "Posso explicar também o efeito das sanções econômicas sobre empresas e investidores. Quer que eu explique?": "sanzioni_economiche",
+      "Quer que eu explique também como os mercados se movimentam com base nas taxas de câmbio?": "tassi_cambio"}
+  },
+  "tassi_cambio": {
+    "questions": [
+      "Como as taxas de câmbio influenciam os mercados financeiros?",
+      "Qual é o impacto das variações cambiais nos investimentos?",
+      "O que acontece com os ativos quando as taxas de câmbio mudam?",
+      "Explique o efeito das taxas de câmbio na economia",
+      "Como investidores reagem às variações das taxas de câmbio?",
+      "Qual efeito têm as taxas de câmbio no mercado global?",
+      "Taxas de câmbio e estratégias de investimento: o que considerar?",
+      "Como os mercados se movem de acordo com as variações cambiais?"
+    ],
+    "answers": [
+      "Variações nas taxas de câmbio influenciam diretamente o custo de importações e exportações, impactando competitividade de empresas nos mercados internacionais.\n\nValorização da moeda local pode tornar exportações mais caras e reduzir receitas em moeda estrangeira, enquanto desvalorização pode estimular exportações e aumentar custo de importações. Investidores consideram esses fatores para gerenciar carteiras globais.",
+      "Taxas de câmbio afetam o valor de ativos denominados em moeda estrangeira e rentabilidade de investimentos internacionais.\n\nQuando a moeda de referência se fortalece, retornos de investimentos no exterior podem diminuir; inversamente, enfraquecimento da moeda pode aumentar retornos nominais. Investidores usam estratégias de hedge ou diversificação para mitigar riscos cambiais.",
+      "Oscilações das taxas de câmbio geram volatilidade nos mercados financeiros, influenciando ações, títulos e commodities.\n\nInvestidores e empresas monitoram dinâmicas cambiais para prever impactos em custos, lucros e decisões de investimento. Gestão prudente considera cenários de risco e oportunidades derivadas de flutuações cambiais.",
+      "Movimentos das taxas de câmbio podem ter efeitos macroeconômicos significativos, alterando inflação, competitividade e fluxos comerciais.\n\nFatores refletem nas estratégias de investidores, que devem equilibrar risco e retorno considerando tanto a moeda nacional quanto moedas estrangeiras relacionadas aos ativos da carteira.",
+      "Variações cambiais influenciam também mercados de capitais e setores expostos ao comércio internacional.\n\nMonitoramento atento das taxas de câmbio permite investidores adaptarem posições, reduzirem riscos e aproveitarem oportunidades derivadas de tendências cambiais favoráveis."
+    ],
+    "cost": 0,
+    "keywords": ["taxas de câmbio", "câmbios", "moedas", "moeda"],
+    "subquestions": {
+      "Posso explicar também o que acontece nos mercados durante um período eleitoral. Quer saber?": "elezioni_mercato",
+      "Posso explicar também a relação entre mercados financeiros e conflitos geopolíticos. Quer que eu explique?": "guerre_mercati"}
+  },
+  "asset_price_drivers": {
+    "questions": [
+      "O que move os preços dos ativos?",
+      "Quais são os fatores que influenciam o preço das ações?",
+      "Por que os preços dos ativos mudam?",
+      "Como se determinam os movimentos dos mercados financeiros?",
+      "O que influencia o valor de ações, obrigações ou criptomoedas?",
+      "Quais fatores fazem subir ou cair os preços dos ativos?",
+      "Como são determinados os preços dos títulos nos mercados?",
+      "O que faz o mercado se mover?"
+    ],
+    "answers": [
+      "Os preços dos ativos são influenciados por uma combinação de fatores econômicos, financeiros e psicológicos.\n\nIndicadores fundamentais como lucros das empresas, crescimento da receita, margens de lucro, dívida e fluxo de caixa determinam o valor intrínseco dos ativos. Além disso, entram em jogo as expectativas dos investidores, condições macroeconômicas, políticas monetárias e fiscais, e eventos globais que podem gerar volatilidade.",
+      "O mercado reage constantemente a novas informações e variações nas condições econômicas e financeiras.\n\nNotícias sobre taxas de juros, inflação, políticas governamentais, dados de PIB ou vendas corporativas podem impulsionar os preços para cima ou para baixo. Fatores psicológicos, como o sentimento dos investidores e a percepção de risco, também desempenham papel importante nos movimentos de preço.",
+      "Os movimentos dos preços dos ativos refletem o equilíbrio entre oferta e demanda, influenciado por dados macroeconômicos e fundamentos empresariais.\n\nEventos geopolíticos, crises ou conflitos, decisões sobre taxas de juros e mudanças regulatórias podem ter impactos imediatos nos preços. Investidores experientes analisam fatores tangíveis e psicológicos para antecipar possíveis oscilações.",
+      "Preços e avaliações de ativos resultam da interação entre informações econômicas, políticas, sociais e tecnológicas.\n\nIndicadores-chave como crescimento de receita, lucros, dívida e margens, junto com expectativas de mercado e sentimento dos investidores, determinam como e quanto um ativo muda de valor. Compreender esses elementos permite decisões de investimento mais informadas.",
+      "O preço de um ativo não depende apenas de dados históricos, mas também das expectativas futuras dos investidores.\n\nProjeções de crescimento, antecipações de lucros, políticas monetárias e variações cambiais são alguns dos fatores que movimentam os mercados. Eventos imprevistos ou choques externos também podem gerar oscilações significativas, tornando o mercado dinâmico e complexo."
+    ],
+    "cost": 0,
+    "keywords": ["o que move", "faz mover", "influencia", "influenciam", "influenciado", "preços", "fatores", "preço", "mercado"],
+    "subquestions": {
+      "Quer saber o preço atual de [FAVOURITE]?": "asset_last_price"}
+  },
+  "obbligazioni_info": {
+    "questions": [
+      "O que são obrigações?",
+      "Explique as obrigações",
+      "Como funcionam as obrigações?",
+      "Pode me dizer para que servem as obrigações?",
+      "Qual é o funcionamento das obrigações?",
+      "O que representam as obrigações?",
+      "Como funcionam os títulos obrigacionários?",
+      "Pode me explicar as obrigações e seu funcionamento?"
+    ],
+    "answers": [
+      "Obrigações são instrumentos financeiros de dívida emitidos por governos, entidades públicas ou empresas para captar capital.\n\nQuem compra uma obrigação empresta dinheiro ao emissor em troca do pagamento periódico de juros (cupom) e do reembolso do capital no vencimento. São usadas pelos investidores para obter fluxo de renda estável e diversificar a carteira, equilibrando o risco em relação a ações ou outros instrumentos mais voláteis.",
+      "Uma obrigação representa um empréstimo que o investidor concede ao emissor, que se compromete a devolver o valor inicial no vencimento e a pagar juros.\n\nO funcionamento das obrigações depende de fatores como taxa de cupom, prazo, preço de emissão e solvência do emissor. Obrigações podem ser negociadas no mercado secundário, permitindo venda antes do vencimento, e seu preço pode variar conforme taxas de juros e risco percebido.",
+      "Obrigações são instrumentos de investimento de renda fixa que permitem emprestar dinheiro a entidades públicas ou privadas.\n\nCada obrigação tem prazo e taxa de juros definidos: o investidor recebe cupons periodicamente e, ao final, o reembolso do capital. Entender o funcionamento das obrigações ajuda a avaliar rendimento esperado, risco de crédito e impacto de variações de taxas de juros no preço do título.",
+      "Ao comprar uma obrigação, o investidor se torna credor do emissor, recebendo juros periódicos até o vencimento.\n\nO preço das obrigações pode oscilar com taxas de juros, inflação e solvência do emissor. Conhecer esses mecanismos permite planejar investimentos e compreender o papel das obrigações em uma carteira equilibrada.",
+      "Obrigações servem para financiar o emissor e oferecem ao investidor retorno regular sob forma de juros.\n\nFuncionam como um empréstimo: o investidor recebe cupons periódicos e o reembolso do capital no vencimento. São úteis para diversificação, reduzir volatilidade da carteira e entender impacto das taxas de juros no valor dos títulos de renda fixa."
+    ],
+    "cost": 0,
+    "keywords": ["obrigações", "obrigação", "títulos obrigacionários", "título obrigacionário"],
+    "subquestions": {
+      "Quer saber a diferença entre ação e obrigação?": "azioni_obbligazioni",
+      "Posso explicar a diferença entre ações e obrigações. Quer que eu faça?": "azioni_obbligazioni"}
+  },
+  "azioni_obbligazioni": {
+    "questions": [
+      "Qual é a diferença entre ações e obrigações?",
+      "Explique a diferença entre ações e obrigações",
+      "Ações vs obrigações, quais são as diferenças?",
+      "Pode me dizer o que distingue uma ação de uma obrigação?",
+      "Como diferem ações de obrigações?",
+      "Ações ou obrigações, quais diferenças existem?",
+      "O que muda entre um título acionário e um obrigacionário?",
+      "Pode me explicar as diferenças entre ações e obrigações?"
+    ],
+    "answers": [
+      "Ações representam uma participação em uma empresa, enquanto obrigações representam um empréstimo que o investidor concede ao emissor.\n\nCom ações, participa-se nos lucros e perdas da empresa, recebendo dividendos se distribuídos e beneficiando-se de aumentos de preço. Obrigações oferecem fluxo de renda fixa via cupons e prevêem reembolso do capital no vencimento, geralmente com risco menor que ações.",
+      "Uma ação dá ao investidor direitos de propriedade na empresa, incluindo possibilidade de votar em assembleia e receber dividendos.\n\nObrigações são instrumentos de dívida: o investidor empresta dinheiro ao emissor e recebe juros periódicos e capital no vencimento. Ações têm maior potencial de rendimento, mas mais volatilidade; obrigações oferecem estabilidade e segurança do capital, embora com retornos normalmente menores.",
+      "A diferença principal é que ações representam participação no capital de uma empresa, enquanto obrigações representam empréstimo à empresa ou ao estado.\n\nAcionistas compartilham lucros e riscos da empresa, enquanto detentores de obrigações recebem juros fixos e têm prioridade no reembolso em caso de falência, tornando obrigações mais seguras mas com menor potencial de ganho que ações.",
+      "Ações e obrigações são instrumentos distintos: as primeiras oferecem propriedade e participação nos lucros, as segundas garantem renda fixa e reembolso do capital.\n\nInvestidores usam ações para valorização e dividendos variáveis, e obrigações para estabilizar carteira e obter fluxo de renda previsível, equilibrando risco geral."
+    ],
+    "cost": 0,
+    "keywords": ["ações e obrigações", "ação e obrigação", "obrigação e ação", "obrigações e ações", "acionários", "acionário", "obrigacionários", "obrigacionário"],
+    "subquestions": {
+      "Quer também saber como funcionam os ETFs?": "etf_info",
+      "Quer que eu explique também o que são fundos de investimento?": "fondi_info"}
+  },
+  "etf_info": {
+    "questions": [
+      "O que são ETFs?",
+      "Explique o que significa ETF",
+      "Como funcionam os ETFs?",
+      "Pode me dizer o que são ETFs?",
+      "ETF, o que significa esse termo?",
+      "Pode me explicar como funcionam os ETFs?",
+      "Para que servem os ETFs?",
+      "ETF, como se usam para investir?",
+      "Em que consistem os ETFs?",
+      "Como funcionam os Exchange Traded Funds?",
+      "O que são Exchange Traded Funds?",
+      "Explique os Exchange Traded Funds",
+      "O que significa fundos indexados?",
+      "O que significa fundo indexado?"
+    ],
+    "answers": [
+      "ETFs, ou Exchange Traded Funds, são fundos de investimento negociados em bolsa que replicam a performance de um índice, setor ou cesta de ativos.\n\nPermitem aos investidores diversificar a carteira comprando um único instrumento que contém múltiplos títulos. ETFs podem incluir ações, obrigações, commodities ou outros instrumentos financeiros, oferecendo liquidez e flexibilidade semelhante a uma ação.",
+      "Um ETF é um fundo que segue um índice de mercado ou um conjunto de ativos, e suas cotas são negociáveis em bolsa como uma ação.\n\nPermitem exposição a mercados específicos, setores ou estratégias, com custos geralmente menores que fundos tradicionais. ETFs oferecem transparência e possibilidade de compra e venda durante o horário de negociação, tornando-os versáteis para diversos tipos de investidores.",
+      "ETFs combinam vantagens de um fundo comum e a negociabilidade de uma ação: replicam índice ou cesta de títulos e podem ser comprados e vendidos em bolsa.\n\nSão úteis para diversificar rapidamente a carteira, reduzir riscos específicos de títulos individuais e acessar mercados de difícil alcance, tudo com custos baixos e alta transparência."
+    ],
+    "cost": 0,
+    "keywords": ["etf", "exchange traded funds", "exchange traded fund", "fundo indexado", "fundos indexados", "o que são", "significa", "funciona", "funcionam", "explique", "explicar", "servem", "consistem"],
+    "subquestions": {
+      "Quer que eu explique também como funciona um fundo de investimento comum?": "fondi_info",
+      "Quer também saber como funcionam as commodities?": "commodities_info"}
+  },
+  "fondi_info": {
+    "questions": [
+      "O que são fundos de investimento?",
+      "Explique o que significa fundo comum",
+      "Como funcionam os fundos?",
+      "Pode me dizer o que são fundos de investimento?",
+      "Fundo comum, o que significa este termo?",
+      "Pode me explicar como funcionam os fundos de investimento?",
+      "Para que servem os fundos de investimento?",
+      "Fundos de investimento, como se usam para investir?"
+    ],
+    "answers": [
+      "Fundos de investimento são instrumentos financeiros que reúnem dinheiro de vários investidores para aplicá-lo em uma carteira diversificada de ativos, como ações, obrigações ou outros instrumentos.\n\nCada investidor possui cotas do fundo proporcionais ao capital investido. Os fundos são geridos por profissionais e oferecem diversificação, gestão ativa ou passiva, e possibilidade de acesso a mercados de outra forma difíceis de alcançar para um investidor individual.",
+      "Um fundo de investimento permite que vários investidores unam seus capitais para acessar uma carteira profissionalmente gerida.\n\nIsso ajuda a reduzir os riscos ligados a títulos individuais e a beneficiar-se da experiência de gestores especializados. Os fundos podem ter objetivos diferentes, como crescimento de capital, geração de renda ou proteção de capital, e podem investir em diversos tipos de instrumentos financeiros.",
+      "Fundos de investimento funcionam reunindo dinheiro de vários investidores e aplicando-o em uma carteira de ativos escolhida pelo gestor do fundo.\n\nEssa abordagem oferece vantagens como diversificação, gestão profissional e acesso a mercados complexos. As cotas do fundo representam a fração do patrimônio total possuída por cada investidor, e seu valor varia conforme o desempenho dos investimentos do fundo."
+    ],
+    "cost": 0,
+    "keywords": ["fundos", "fundo", "fundos de investimento", "fundo comum", "o que são", "como funciona", "funciona", "funcionam", "explique", "explicar", "servem", "consistem"],
+    "subquestions": {
+      "Quer que eu explique também como funciona uma criptomoeda?": "crypto_info",
+      "Quer também saber como funcionam as commodities?": "commodities_info"}
+  },
+  "commodities_info": {
+    "questions": [
+      "O que são commodities?",
+      "Explique as commodities",
+      "Para que servem as commodities?",
+      "Pode me dizer o que são commodities?",
+      "Qual é o significado de commodities nos mercados financeiros?",
+      "Como funcionam as commodities?",
+      "Por que os investidores compram commodities?",
+      "Qual é o papel das commodities na economia?",
+      "O que é uma commodity?",
+      "Pode me explicar o que são as commodities?"
+    ],
+    "answers": [
+      "Commodities são bens físicos básicos negociados nos mercados financeiros. Incluem metais preciosos como ouro e prata, recursos energéticos como petróleo e gás, e produtos agrícolas como trigo e café.\n\nInvestidores as utilizam tanto como instrumento de investimento quanto como proteção contra a inflação. Seus preços podem ser influenciados por fatores econômicos, geopolíticos e climáticos.",
+      "Commodities representam bens tangíveis essenciais para a economia, negociados em mercados especializados como NYMEX ou LME. Podem incluir recursos naturais, metais e produtos agrícolas.\n\nAlém de uso industrial, são valiosas para investidores que querem diversificar carteira ou se proteger contra flutuações inflacionárias.",
+      "O termo commodities refere-se a bens físicos essenciais negociados globalmente, como petróleo, gás, ouro, prata, trigo e café.\n\nSeu valor é determinado pela oferta e demanda globais, servindo tanto para fins industriais quanto para investimentos financeiros, funcionando também como proteção contra a inflação.",
+      "Commodities são recursos naturais ou bens básicos comprados e vendidos nos mercados financeiros internacionais, essenciais para o funcionamento da economia global.\n\nInvestidores as utilizam para diversificar a carteira, enquanto empresas as usam na produção. Os preços são sensíveis a eventos geopolíticos, condições climáticas e mudanças na demanda global.",
+      "Commodities incluem metais, energia e produtos agrícolas. São bens tangíveis negociados nos mercados financeiros, impactando diretamente a economia global.\n\nInvestidores e empresas os utilizam como instrumentos de proteção, investimento ou suprimento, e os preços são sujeitos a flutuações por fatores econômicos, políticos e ambientais."
+    ],
+    "cost": 0,
+    "keywords": ["commodities", "commodity", "bens primários", "o que são", "funcionam", "explique", "explicar", "servem"],
+    "subquestions": {
+      "Quer que eu explique também como funciona uma criptomoeda?": "crypto_info",
+      "Quer também saber como funcionam os ETFs?": "etf_info"}
+  },
+  "crypto_info": {
+    "questions": [
+      "O que são criptomoedas?",
+      "Explique as cryptos",
+      "Para que servem as criptomoedas?",
+      "Pode me dizer o que são cryptos?",
+      "Qual é o significado de criptomoedas?",
+      "Como funcionam as criptomoedas?",
+      "Por que os investidores compram cryptos?",
+      "Qual é o papel das criptomoedas na economia?",
+      "Como funciona uma crypto?",
+      "O que é uma criptomoeda?",
+      "O que é uma crypto?"
+    ],
+    "answers": [
+      "Criptomoedas são moedas digitais baseadas em tecnologia blockchain, que permite transações seguras e descentralizadas. Bitcoin, Ethereum e outras altcoins são exemplos de cryptos.\n\nInvestidores as utilizam tanto para diversificação de carteira quanto como ativos especulativos, considerando sua volatilidade e potencial de retorno.",
+      "Cryptos são moedas digitais criptográficas projetadas para funcionar sem intermediários, como bancos ou governos. A blockchain garante segurança e transparência.\n\nAlém de instrumentos de investimento, podem ser usadas para transferências globais de dinheiro e contratos inteligentes, influenciando cada vez mais o cenário financeiro moderno.",
+      "Criptomoedas representam ativos digitais descentralizados, negociados em plataformas online. Exemplos principais incluem Bitcoin, Ethereum, Ripple e Litecoin.\n\nSeus preços são influenciados por demanda, oferta, regulamentações e desenvolvimentos tecnológicos, sendo considerados instrumentos de alto risco, mas com potencial de rendimento elevado.",
+      "Cryptos são moedas digitais baseadas em protocolos criptográficos e descentralizados, permitindo transações seguras sem intermediários tradicionais.\n\nInvestidores as usam para diversificação de carteira, proteção contra inflação ou operações especulativas, monitorando constantemente volatilidade e tendências de mercado.",
+      "Criptomoedas são moedas digitais que utilizam tecnologia blockchain para garantir transferências seguras e verificáveis.\n\nSeu uso vai além do investimento: podem servir para pagamentos, contratos inteligentes ou aplicações descentralizadas. Sua alta volatilidade as torna interessantes tanto para traders quanto para investidores de longo prazo."
+    ],
+    "cost": 0,
+    "keywords": ["crypto", "criptomoeda", "criptos", "o que são", "funciona", "funcionam", "explique", "explicar", "servem"],
+    "subquestions": {
+      "Quer que eu explique também como funcionam as commodities?": "commodities_info",
+      "Quer também saber como funcionam os ETFs?": "etf_info"}
+  },
+  "supporto_resistenza_info": {
+    "questions": [
+      "O que são níveis de suporte?",
+      "O que são níveis de resistência?",
+      "Explique suporte e resistência",
+      "Como funcionam os níveis de suporte e resistência?",
+      "Pode me dizer o que significa suporte?",
+      "Pode me dizer o que significa resistência?",
+      "Qual é o papel de suporte e resistência na análise técnica?"
+    ],
+    "answers": [
+      "Níveis de suporte são pontos no gráfico onde o preço de um ativo tende a encontrar um 'piso', ou seja, onde a demanda é forte o suficiente para impedir ou retardar a queda dos preços. A resistência, ao contrário, é um nível onde a oferta é suficientemente forte para impedir novos aumentos.\n\nEsses conceitos são fundamentais na análise técnica, ajudando a identificar possíveis pontos de entrada ou saída do mercado, prevendo potenciais reversões ou pausas em tendências.",
+      "O suporte representa uma zona onde os preços encontram apoio devido ao aumento da demanda, enquanto a resistência é uma área onde a pressão de venda tende a impedir a alta. Ambos indicam áreas-chave onde os preços podem reagir.\n\nInvestidores e traders usam esses níveis para planejar estratégias de entrada ou saída, posicionar stop loss ou take profit e compreender a força de uma tendência.",
+      "Suporte e resistência são conceitos da análise técnica que descrevem níveis de preço onde um ativo tende a parar ou rebater. O suporte atua como um 'piso' do preço, enquanto a resistência funciona como um 'teto'.\n\nReconhecer esses níveis ajuda a entender a psicologia do mercado e prever movimentos futuros, tornando mais eficaz a gestão de risco e operações.",
+      "Níveis de suporte indicam onde os preços podem encontrar apoio e não cair mais, enquanto níveis de resistência sinalizam onde os preços podem parar ou inverter a tendência.\n\nUsar corretamente esses conceitos permite interpretar gráficos com mais precisão, identificar rompimentos, rebotes e confirmar a força de uma tendência, tornando-se ferramenta essencial para traders e investidores.",
+      "Suporte e resistência são áreas-chave nos gráficos de preço. O suporte indica a zona onde a pressão de compra pode parar a queda dos preços, enquanto a resistência representa o ponto onde a pressão de venda pode bloquear a alta.\n\nEsses níveis ajudam a prever possíveis reversões, rompimentos e confirmações de tendências, oferecendo ferramentas práticas para gestão de risco e planejamento de operações no mercado."
+    ],
+    "cost": 0,
+    "keywords": ["níveis", "nível", "suporte", "resistência", "o que são", "funcionam", "explique", "explicar", "servem"],
+    "subquestions": {
+      "Quer também saber o que são volumes de negociação?": "volumi_info",
+      "Quer que eu explique também o que é a volatilidade de um ativo?": "volatility_info"}
+  },
+  "volumi_info": {
+    "questions": [
+      "O que são volumes de negociação?",
+      "Explique os volumes de mercado",
+      "Para que servem os volumes?",
+      "O que indicam os volumes de um ativo?",
+      "Como interpretar os volumes de negociação?",
+      "Pode me dizer o que são volumes na bolsa?",
+      "Por que os volumes são importantes?"
+    ],
+    "answers": [
+      "Volumes de negociação representam a quantidade de títulos ou ativos negociados em um determinado intervalo de tempo, como um dia, semana ou hora. Indicam a intensidade e o interesse dos operadores de mercado por esse ativo.\n\nAnalisando os volumes junto aos preços, é possível entender a força de uma tendência, identificar possíveis reversões ou confirmar rompimentos. Volumes crescentes em uma alta indicam tendência sólida, enquanto volumes baixos podem sugerir fraqueza ou indecisão do mercado.",
+      "Os volumes medem o número de transações realizadas para um determinado ativo e são fundamentais para interpretar a liquidez e a participação dos investidores. Não indicam apenas quanto um ativo é negociado, mas também o quanto é acompanhado pelo mercado.\n\nUm aumento nos volumes durante uma alta de preços sinaliza confirmação da tendência, enquanto um aumento durante uma queda pode indicar forte pressão de venda. Volumes reduzidos podem sugerir consolidação ou falta de convicção entre os traders.",
+      "Volumes de negociação representam a quantidade de ativos negociados em um determinado período e servem para medir a atividade do mercado. São uma ferramenta chave para compreender a dinâmica de preços e a participação dos investidores.\n\nQuando os volumes aumentam junto com os movimentos de preço, isso reforça a validade da tendência; se os volumes diminuem, o movimento pode ser fraco ou temporário. Isso torna os volumes essenciais para decisões de negociação informadas.",
+      "Em finanças, os volumes indicam quantas ações, criptomoedas ou outros ativos foram negociados em certo período. Ajudam a avaliar a liquidez e a pressão de compra e venda no mercado.\n\nObservando os volumes junto aos gráficos de preços, é possível distinguir entre movimentos sustentados e frágeis, identificar possíveis reversões e confirmar tendências existentes, melhorando a precisão das estratégias operacionais.",
+      "Volumes de mercado medem a quantidade de negociações realizadas em um ativo em um determinado intervalo de tempo. Representam um indicador da participação dos investidores e do interesse geral pelo ativo.\n\nInterpretar os volumes permite confirmar a força de uma tendência, antecipar reversões ou rompimentos e entender a solidez dos movimentos de preço, tornando-se uma ferramenta fundamental para análises técnicas eficazes."
+    ],
+    "cost": 0,
+    "keywords": ["volumes", "volume", "negociação", "mercado", "o que são", "explique", "explicar", "servem"],
+    "subquestions": {
+      "Quer também saber o que são os coeficientes de Pearson e Spearman?": "pearson_spearman_info",
+      "Quer que eu explique também o que é a volatilidade do mercado?": "volatility_info"}
+  },
+  "volatility_info": {
+    "questions": [
+      "O que significa volatilidade?",
+      "Explique a volatilidade do mercado",
+      "O que é a volatilidade de um ativo?",
+      "Para que serve conhecer a volatilidade?",
+      "Pode me dizer o que indica a volatilidade?",
+      "Por que a volatilidade é importante para investidores?",
+      "O que significa que um ativo é volátil?"
+    ],
+    "answers": [
+      "A volatilidade representa a medida da variação dos preços de um ativo em um determinado período de tempo. Em outras palavras, indica o quanto os preços podem subir ou descer rapidamente, refletindo a incerteza ou o risco percebido pelo mercado.\n\nPara investidores, a volatilidade é fundamental para avaliar o risco associado a um investimento. Movimentos de preço elevados podem oferecer oportunidades de lucro, mas também aumentam o risco de perdas. Analisando a volatilidade junto a outros indicadores, é possível planejar estratégias mais informadas e gerenciar melhor o portfólio.",
+      "Em finanças, a volatilidade mede a amplitude das flutuações de preços de um ativo em um certo período. Alta volatilidade significa que os preços mudam rapidamente e significativamente, enquanto baixa volatilidade indica movimentos mais estáveis e previsíveis.\n\nCompreender a volatilidade ajuda os investidores a decidir quanto risco assumir, configurar stop loss e identificar momentos favoráveis para entrar ou sair do mercado. É uma ferramenta chave para gestão de risco e planejamento de estratégias de negociação.",
+      "A volatilidade indica quanto e quão rapidamente os preços de um título, criptomoeda ou outro ativo variam. Ela reflete a percepção de risco pelos operadores e a incerteza dos mercados.\n\nInvestidores e traders a utilizam para estimar a probabilidade de grandes movimentos, ajustar o tamanho das posições e escolher instrumentos financeiros mais ou menos arriscados. Compreender a volatilidade permite tomar decisões mais conscientes e proteger o capital.",
+      "Medir a volatilidade significa observar a dispersão dos preços em relação à média em um determinado intervalo de tempo. Quanto maior a dispersão, maior a volatilidade e, portanto, o risco potencial.\n\nA volatilidade é útil para avaliar a segurança dos investimentos, determinar prêmios de risco, planejar estratégias de hedge e compreender melhor o comportamento do mercado em cenários incertos.",
+      "A volatilidade é um indicador de risco que mostra quanto os preços de um ativo oscilam ao longo do tempo. Não indica a direção do movimento, mas o quanto os valores podem variar, tornando o mercado mais ou menos imprevisível.\n\nPara investidores, conhecer a volatilidade é essencial para equilibrar portfólios, selecionar instrumentos financeiros compatíveis com seu perfil de risco e antecipar possíveis períodos de turbulência ou estabilidade no mercado."
+    ],
+    "cost": 0,
+    "keywords": ["volatilidade", "volátil"],
+    "subquestions": {
+      "Quer também saber o que são os coeficientes de Pearson e Spearman?": "pearson_spearman_info",
+      "Quer que eu explique também o que são os níveis de suporte e resistência?": "supporto_resistenza_info"}
+  },
+  "pearson_spearman_info": {
+    "questions": [
+      "O que significa correlação de Pearson?",
+      "O que significa correlação de Spearman?",
+      "Explique a diferença entre Pearson e Spearman",
+      "Para que servem Pearson e Spearman?",
+      "Como se usam Pearson e Spearman em finanças?",
+      "Pode me explicar o que são Pearson e Spearman?",
+      "Qual a diferença entre correlação Pearson e Spearman?",
+      "Como interpretar os coeficientes de Pearson e Spearman?",
+      "O que indicam Pearson e Spearman?",
+      "Em que consiste a correlação de Pearson e a de Spearman?",
+      "Qual a diferença entre Pearson e Spearman?",
+      "Pearson e Spearman",
+      "Valores de Spearman de 0,8 são ótimos?",
+      "Valores de Pearson de 0,7 são ótimos?",
+      "Um valor de Spearman de 0,7 é ótimo?",
+      "Um valor de Pearson de 0,6 é ótimo?",
+      "Um Pearson de 0,7 é positivo?",
+      "Um Spearman de 0,8 é positivo?",
+      "Um Pearson de 0,6 é bom?",
+      "Um Spearman de 0,6 é bom?"
+    ],
+    "answers": [
+      "A correlação de Pearson e a de Spearman são duas ferramentas estatísticas para medir a relação entre variáveis, muito usadas também em finanças.\n\nA correlação de **Pearson** mede a força e a direção da relação **linear** entre duas variáveis 📈. Se dois ativos têm coeficiente próximo de +1, significa que tendem a subir ou cair juntos de forma proporcional; se próximo de -1, movem-se em direções opostas; se próximo de 0, não há relação linear significativa. O coeficiente de Pearson varia sempre entre **-1 e +1**.\n\nA correlação de **Spearman**, por outro lado, não analisa os valores absolutos, mas os **rankings**. É mais útil quando a relação não é linear ou há outliers. Spearman indica se dois ativos tendem a se mover na mesma direção (positiva) ou em direções opostas (negativa), mesmo sem proporcionalidade perfeita. Também varia entre **-1 e +1**.",
+      "Pearson e Spearman são formas diferentes de avaliar a correlação entre ativos.\n\nCom **Pearson**, analisamos a relação linear: quanto um ativo tende a se mover proporcionalmente ao outro. É o método mais usado em modelos clássicos de portfólio, pois entra nos cálculos de variância-covariância. O valor varia de **-1 a +1**, onde +1 indica correlação positiva perfeita e -1 negativa perfeita.\n\nCom **Spearman**, observamos a monotonicidade: se um sobe, o outro tende a subir (ou cair), independentemente da força proporcional da relação. Spearman é mais robusto em presença de dados atípicos e mercados turbulentos, e também varia entre **-1 e +1**.",
+      "A correlação de Pearson mede a relação linear entre duas variáveis, enquanto a de Spearman mede a coerência da **ordem** dos valores.\n\nEm finanças, isso significa que Pearson é mais útil para análises precisas de portfólio e modelos quantitativos, mas pode ser influenciado por outliers fortes. Spearman fornece uma visão mais estável da relação geral entre dois ativos, sendo útil para entender se eles se movem 'juntos' mesmo sem proporcionalidade. Ambos variam entre **-1 e +1**, valores próximos de 0 indicam correlação fraca ou nula.",
+      "Pearson e Spearman são ambos indicadores de correlação, mas têm aplicações diferentes.\n\n- **Pearson**: captura relações lineares, ideal para estatísticas tradicionais e análise quantitativa. O coeficiente varia de -1 a +1.\n\n- **Spearman**: captura relações monotônicas, mesmo não lineares, e é mais robusto com dados ruidosos ou irregulares. Também varia de -1 a +1.\n\nEm finanças, usar ambos permite entender se dois ativos estão ligados apenas proporcionalmente (Pearson) ou também em termos de direção geral (Spearman).",
+      "Pearson mede **quanto dois ativos estão proporcionalmente ligados** em seus movimentos, enquanto Spearman mede **quanto dois ativos se movem na mesma direção**, independentemente da proporcionalidade.\n\nAmbos os coeficientes variam entre **-1 e +1**, valores próximos de +1 indicam forte correlação positiva, valores próximos de -1 correlação negativa e valores próximos de 0 ausência de relação linear.\n\nUma boa prática para investidores é calcular ambos: se os dois valores forem similares, o vínculo é sólido e linear; se divergirem muito, a relação é mais complexa e não perfeitamente proporcional."
+    ],
+    "cost": 0,
+    "keywords": ["pearson", "spearman", "o que são", "explique", "explicar", "servem", "diferença"],
+    "subquestions": {
+      "Quer também saber para que servem os volumes?": "volumi_info",
+      "Quer que eu explique também o que são os níveis de suporte e resistência?": "supporto_resistenza_info"}
+  },
+  "navigazione_asset": {
+    "questions": [
+      "Quais ativos o app analisa?",
+      "Quais ativos posso consultar aqui?",
+      "Onde encontro a lista de ativos?",
+      "Quais são os ativos disponíveis?",
+      "Posso saber quais ativos são analisados?",
+      "Que tipo de ativos podem ser vistos no app?",
+      "Onde posso ver todos os ativos que vocês cobrem?",
+      "Quais ativos são monitorados?",
+      "Como posso ver os ativos disponíveis?",
+      "Onde está a lista de ativos?"
+    ],
+    "answers": [
+      "Você encontra a lista completa de ativos na tela dedicada 🔎.\n\nNesta seção, você pode realizar análises para cada ativo, dar uma olhada rápida no seu desempenho e no possível futuro, e adicionar seus ativos favoritos à lista de preferidos para tê-los sempre à vista na tela principal do app. 👀",
+      "Você pode consultar a lista de todos os ativos analisados diretamente na seção apropriada do app 📲.\n\nAlém disso, pode acompanhar o desempenho de cada ativo, monitorar as projeções futuras e adicionar à lista de favoritos os mais importantes para você, tendo-os sempre à mão.",
+      "A lista de ativos monitorados está disponível na tela dedicada.\n\nNesta seção, você também pode realizar análises detalhadas de cada ativo, avaliar seu desempenho e adicionar os mais seguidos aos favoritos na tela principal do app.",
+      "Para visualizar todos os ativos suportados, basta abrir a seção dedicada no app 📊.\n\nAlém disso, você pode ver rapidamente o desempenho deles, prever possíveis desenvolvimentos futuros e adicionar seus ativos mais importantes aos favoritos para tê-los sempre à vista. 👀",
+      "Os ativos analisados estão na tela reservada, facilmente acessível pelo menu principal.\n\nVocê poderá conferir o desempenho de cada ativo, estimar seu potencial futuro e adicionar aqueles de interesse à lista de favoritos na tela principal.",
+      "Há uma seção específica no app onde você pode encontrar todos os ativos disponíveis.\n\nDe lá, você também pode realizar análises de cada ativo, observar o desempenho futuro e salvar seus favoritos para tê-los sempre à mão.",
+      "A lista de ativos está visível na tela dedicada: lá você encontra todos os detalhes.\n\nVocê também pode avaliar rapidamente o desempenho de cada ativo, estimar movimentos futuros e adicionar os mais importantes à lista de favoritos para tê-los sempre à mão. 😉",
+      "Você pode descobrir quais ativos são acompanhados entrando na seção apropriada do app 📈.\n\nDe lá, é possível verificar o desempenho de cada ativo, estimar seu potencial futuro e adicionar os mais relevantes à lista de favoritos para tê-los sempre à vista. 😉"
+    ],
+    "cost": 0,
+    "keywords": ["lista", "elenco", "ativos"],
+    "subquestions": {
+      "Quer saber também como fazer a análise de um ativo no TradeGPT?": "navigazione_analisi"}
+  },
+  "navigazione_abbonamenti": {
+    "questions": [
+      "Onde vejo minha assinatura?",
+      "Como faço para conferir meu plano atual?",
+      "Posso ver qual plano tenho?",
+      "Onde está a seção de assinaturas?",
+      "Como verifico meu plano?",
+      "Gostaria de saber qual é minha assinatura",
+      "Como faço para atualizar meu plano?",
+      "Onde posso mudar de plano?",
+      "Como ver os planos disponíveis?",
+      "Como fazer para passar para Premium ou Ultra?",
+      "Como faço para alterar meu plano?",
+      "Como modifico meu plano?",
+      "Como faço o upgrade?",
+      "Como faço para fazer o upgrade?"
+    ],
+    "answers": [
+      "Para ver sua assinatura, clique no botão no canto superior direito na tela inicial, onde está o logo do app. Lá você encontrará seu plano atual e todas as informações relacionadas.\n\nAlém disso, você pode fazer o upgrade escolhendo entre o plano Premium, pensado para quem quer monitorar mais dados financeiros e ter uma visão mais detalhada dos ativos, ou o plano Ultra, ideal para investidores que querem acompanhar tudo o que precisam para rastrear o futuro de diversos ativos: mais dados, mais oportunidades e mais potência. 💎",
+      "Acesse a tela inicial e clique no logo no canto superior direito para ver sua assinatura. Nesta seção, você pode conferir o plano atual e as funcionalidades disponíveis.\n\nSe quiser fazer o upgrade, o plano Premium oferece ferramentas avançadas para monitorar mais dados financeiros, enquanto o plano Ultra permite ter tudo o que precisa para seguir a evolução futura dos ativos, com mais dados, mais oportunidades e maior potência do app. 💎",
+      "Você encontra as informações sobre sua assinatura clicando no botão no canto superior direito da tela inicial (onde está o logo do app). Lá você pode ver o plano atual e seus detalhes.\n\nTambém pode mudar para Premium para ter mais dados financeiros e insights, ou escolher Ultra se quiser uma experiência completa que permite monitorar tudo o que é necessário para acompanhar o futuro dos seus ativos com ferramentas aprimoradas. 💪",
+      "Clique no logo no canto superior direito na tela inicial para visualizar seu plano atual. Aqui você encontrará todas as informações sobre sua assinatura.\n\nOs planos Premium e Ultra oferecem muitas funcionalidades adicionais: Premium para quem quer mais dados e detalhes sobre ativos, Ultra para quem deseja controle máximo e todas as informações necessárias para prever e analisar tendências de mercado. 💪",
+      "Para conferir sua assinatura, vá à tela inicial e clique no logo no canto superior direito. Você verá o plano atual e as funcionalidades incluídas.\n\nSe quiser mais ferramentas, Premium oferece análises aprofundadas e mais dados, enquanto Ultra fornece todas as ferramentas possíveis para ter uma visão completa e detalhada de cada ativo e seu possível futuro. 🔝",
+      "Na tela inicial, clicando no logo no canto superior direito você pode ver sua assinatura atual. Encontrará todas as informações sobre o plano escolhido.\n\nOs planos Premium e Ultra oferecem funcionalidades muito interessantes: Premium permite monitorar mais dados financeiros e detalhes, Ultra permite ter tudo sob controle para acompanhar cada tendência, com mais dados e mais oportunidades. 🔝",
+      "Clique no logo no canto superior direito na tela inicial para descobrir seu plano atual e as informações sobre a assinatura.\n\nVocê pode passar para Premium para obter ferramentas adicionais para análise financeira, ou para Ultra para uma experiência completa: mais dados, mais oportunidades e ferramentas avançadas para rastrear o futuro de cada ativo. 💎",
+      "Para ver sua assinatura, vá à tela inicial e clique no logo no canto superior direito. Encontrará o plano atual e todos os detalhes.\n\nO plano Premium é ideal para quem deseja aprofundar os dados financeiros dos ativos, enquanto o plano Ultra é perfeito para quem quer controle máximo e acesso completo a todas as funcionalidades do app. 🚀"
+    ],
+    "cost": 0,
+    "keywords": ["minha assinatura", "meu plano", "qual plano tenho", "upgrade"],
+    "subquestions": {
+      "Quer saber por que vale a pena fazer o upgrade no TradeGPT?": "subscription_info",
+      "Quer conhecer os planos disponíveis no TradeGPT?": "navigazione_piani"}
+  },
+  "navigazione_analisi": {
+    "questions": [
+      "Como faço para analisar um ativo?",
+      "Posso analisar um ativo?",
+      "Como se realiza a análise de um ativo?",
+      "Como obter a análise de um ativo?",
+      "Qual é a maneira de ver a análise de um ativo?",
+      "Como analisar rapidamente um ativo?",
+      "Posso ver imediatamente a análise de um ativo?",
+      "Como solicitar a análise de um ativo?",
+      "Há uma maneira simples de analisar um ativo?",
+      "Como consultar a análise de um ativo?"
+    ],
+    "answers": [
+      "Você pode me pedir diretamente para analisar qualquer ativo 📊, ou usar a tela dedicada: escreva o nome do ativo e pressione enter, e em menos de um segundo a análise aparecerá.\n\nComo alternativa, você também pode selecionar um ativo e clicar em ‘Análise’, e será levado imediatamente à página completa de análise 🚀, com todos os dados atualizados e orientações para tomar decisões informadas.",
+      "Para obter a análise de um ativo, você pode simplesmente me pedir 💬, ou usar a tela de pesquisa: digite o nome do ativo e pressione enter para ter o resultado imediatamente.\n\nSe preferir, selecione um ativo e clique em ‘Análise’ 🖱️: você será levado diretamente à página onde pode aprofundar todos os dados, tendências e informações-chave do ativo.",
+      "Solicitar a análise de um ativo é fácil: você pode me pedir diretamente para gerar 📈, ou na tela dedicada escrever o nome do ativo e pressionar enter para ter o resultado imediato.\n\nAlém disso, clicando em um ativo e selecionando ‘Análise’ 🔍, você acessará imediatamente uma página completa com todas as informações necessárias para compreender o desempenho e as perspectivas do ativo.",
+      "Você pode analisar um ativo de duas maneiras: pedindo diretamente para eu gerar 🤖, ou usando a tela de pesquisa, onde basta inserir o nome do ativo e pressionar enter.\n\nComo alternativa, clique no ativo e selecione ‘Análise’ 🏠: será levado diretamente à página dedicada com todos os detalhes, gráficos e orientações para avaliar o possível futuro do ativo.",
+      "Para analisar um ativo, você pode me pedir diretamente 📊 ou usar a tela dedicada: escreva o nome do ativo, pressione enter e obterá a análise instantaneamente.\n\nTambém pode clicar em um ativo e pressionar ‘Análise’ 🚀, acessando imediatamente uma visão completa com dados, gráficos e tendências atualizadas.",
+      "Quer a análise de um ativo? Peça-me diretamente 💬, ou vá à tela dedicada e digite o nome do ativo: pressione enter e verá a análise em um instante.\n\nAlém disso, você pode selecionar o ativo e clicar em ‘Análise’ 🖱️, sendo levado à página completa com todas as informações para avaliar o desempenho e perspectivas futuras.",
+      "Analisar um ativo é simples: você pode me pedir diretamente 🤖 ou usar a tela de pesquisa, digitar o nome do ativo e pressionar enter para obter o resultado imediatamente.\n\nOu clique no ativo e pressione ‘Análise’ 📈, para ser levado à página onde estão mostrados todos os dados principais, tendências e sugestões para tomar decisões informadas.",
+      "Você pode obter a análise de um ativo pedindo-me diretamente 📊, ou escrevendo o nome do ativo na tela dedicada e pressionando enter para uma resposta imediata.\n\nComo alternativa, selecione o ativo e clique em ‘Análise’ 🚀: você será levado à página completa com todos os dados e informações para avaliar o desempenho do ativo.",
+      "Para ver imediatamente a análise de um ativo, você pode me pedir diretamente 💬 ou usar a tela de pesquisa: digite o nome do ativo e pressione enter, o resultado chegará em um instante.\n\nVocê também pode clicar no ativo e selecionar ‘Análise’ 🖱️, assim acessará a página completa com gráficos, tendências e dados essenciais para monitorar o ativo.",
+      "Solicitar a análise de um ativo é fácil: peça-me diretamente 🤖 ou use a tela dedicada onde insere o nome do ativo e pressiona enter para obter o resultado imediatamente.\n\nOutra opção é selecionar o ativo e clicar em ‘Análise’ 📈, acessando diretamente a página completa com todos os dados atualizados, gráficos e informações para planejar suas estratégias."
+    ],
+    "cost": 0,
+    "keywords": ["análise de um ativo", "analisar um ativo", "analiso um ativo", "se analisa um ativo"],
+    "subquestions": {
+      "Quer saber também como funciona a tela de notícias no TradeGPT?": "navigazione_notizie",
+      "Quer saber também como funciona a tela principal?": "navigazione_schermata_principale",
+      "Quer que eu prepare a análise completa de [FAVOURITE]?": "asset_analysis_open"}
   }
-}
