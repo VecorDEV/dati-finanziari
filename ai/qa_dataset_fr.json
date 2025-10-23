@@ -3629,4 +3629,1584 @@
     "subquestions": {
       "Voulez-vous savoir pourquoi il est avantageux de s'abonner ?": "subscription_info",
       "Si vous voulez, je peux vous dire pourquoi il est avantageux de s'abonner. Voulez-vous le savoir ?": "subscription_info"}
+  },
+    "williams_premium": {
+    "questions": [
+      "Montre-moi le Williams de [TOPIC]",
+      "Quelle est la valeur du Williams pour [TOPIC]?",
+      "Pouvez-vous me fournir l'indicateur Williams %R de [TOPIC]?",
+      "J'aimerais connaître le Williams de [TOPIC]",
+      "Indique-moi la valeur du Williams %R pour [TOPIC]",
+      "Peux-tu me donner le Williams %R mis à jour de [TOPIC]?",
+      "Quelle est la valeur du Williams de [TOPIC] aujourd'hui?",
+      "Donne-moi le Williams actuel pour [TOPIC]",
+      "Montre-moi le niveau Williams de [TOPIC]",
+      "Quelle est la valeur actuelle du Williams %R de [TOPIC]?",
+      "Donne-moi le Williams Percent Range de [TOPIC]"
+    ],
+    "answers": [
+      "La valeur du Williams %R pour [TOPIC] est [WILLIAMS_VALUE].\n\nLa condition est [STATE], ce qui signifie [SIGNIFICATO].",
+      "Williams %R de [TOPIC]: [WILLIAMS_VALUE].\n\nÉtat actuel: [STATE]. Signification pour l'actif: [SIGNIFICATO].",
+      "Pour [TOPIC], le Williams %R est égal à [WILLIAMS_VALUE].\n\nSituation technique: [STATE], indiquant [SIGNIFICATO].",
+      "Valeur: le Williams %R de [TOPIC] est [WILLIAMS_VALUE].\n\nCondition: [STATE].\n\nInterprétation: [SIGNIFICATO].",
+      "Voici le Williams %R de [TOPIC]: [WILLIAMS_VALUE].\n\nL'état actuel est [STATE], ce qui signifie [SIGNIFICATO].",
+      "La valeur actuelle du Williams %R pour [TOPIC] est [WILLIAMS_VALUE].\n\nIndicateur [STATE]: [SIGNIFICATO].",
+      "Pour [TOPIC], Williams %R = [WILLIAMS_VALUE].\n\nCondition technique: [STATE]. Signification: [SIGNIFICATO].",
+      "Le Williams %R de [TOPIC] est [WILLIAMS_VALUE].\n\nSituation: [STATE], ce qui indique [SIGNIFICATO].",
+      "Valeur Williams %R pour [TOPIC]: [WILLIAMS_VALUE].\n\nL'état technique est [STATE], et cela suggère [SIGNIFICATO].",
+      "Mise à jour: Williams %R de [TOPIC] = [WILLIAMS_VALUE].\n\nCondition actuelle: [STATE], ce qui signifie [SIGNIFICATO]."
+    ],
+    "cost": 4,
+    "keywords": ["williams", "williams %r", "actuel", "courant", "mis à jour"],
+    "tag": "premium",
+    "subquestions": {
+      "Voulez-vous aussi l'indicateur RSI sur [TOPIC]?": "rsi_premium",
+      "Voulez-vous aussi savoir ce que dit le MACD de [TOPIC]?": "macd_premium",
+      "Voulez-vous que je vous donne aussi l'indicateur stochastique sur [TOPIC]?": "stochastic_premium",
+      "Voulez-vous que je vous donne aussi l'indicateur EMA (Moyenne Mobile Exponentielle) sur [TOPIC]?": "ema_premium",
+      "Voulez-vous savoir ce que dit l'indicateur CCI (Commodity Channel Index) sur [TOPIC]?": "cci_premium",
+      "Voulez-vous que je vous dise aussi ce que suggèrent les Bandes de Bollinger sur [TOPIC]?": "bollinger_premium",
+      "Voulez-vous que je vous trace l'évolution graphique de la dernière période de [TOPIC]?": "graph_request",
+      "Pour plus de sécurité, je vous invite à consulter l'analyse complète de [TOPIC]. Voulez-vous que je la prépare?": "asset_analysis_open"}
+},
+    "williams": {
+    "questions": [
+      "Montre-moi le Williams de [TOPIC]",
+      "Quelle est la valeur du Williams pour [TOPIC]?",
+      "Pouvez-vous me fournir l'indicateur Williams %R de [TOPIC]?",
+      "J'aimerais connaître le Williams %R de [TOPIC]",
+      "Indique-moi la valeur du Williams pour [TOPIC]",
+      "Peux-tu me donner le Williams %R mis à jour de [TOPIC]",
+      "Quelle est la valeur du Williams %R de [TOPIC] aujourd'hui?",
+      "Donne-moi le Williams actuel pour [TOPIC]",
+      "Montre-moi le niveau Williams de [TOPIC]",
+      "Quelle est la valeur actuelle du Williams de [TOPIC]?",
+      "Donne-moi le Williams Percent Range de [TOPIC]"
+    ],
+    "answers": [
+      "Pour visualiser le Williams %R de [TOPIC], il est nécessaire d'avoir un abonnement premium ou ultra. Faites la mise à niveau pour obtenir tous les avantages! 😄",
+      "Je suis désolé, cette donnée technique est disponible uniquement pour les utilisateurs premium ou ultra. Si vous le souhaitez, vous pouvez passer à la mise à niveau pour profiter de tous les avantages! 📈",
+      "L'accès au Williams %R de [TOPIC] nécessite un abonnement. Envisagez la mise à niveau vers les plans premium ou ultra pour le consulter. 😄",
+      "Pour consulter l'indicateur Williams %R de [TOPIC], vous devez être abonné à l'un de nos plans premium ou ultra.",
+      "Malheureusement, il semble que vous ayez le plan standard gratuit 😅. Le Williams %R de [TOPIC] est une fonctionnalité réservée aux utilisateurs ayant un abonnement premium ou ultra.",
+      "Oups, il semble que vous n'êtes pas abonné 🤔… faites la mise à niveau vers les plans premium ou ultra pour profiter de tous les avantages qu'un investisseur comme vous mérite!",
+      "Pour obtenir la valeur Williams %R de [TOPIC], il est nécessaire d'avoir un abonnement actif, premium ou ultra 😅.",
+      "Cette information technique est disponible exclusivement pour les utilisateurs premium ou ultra.",
+      "Je suis désolé, l'accès au Williams %R de [TOPIC] est limité aux abonnés des plans premium ou ultra 😅. Vous pouvez faire la mise à niveau pour profiter de tous les avantages!",
+      "L'indicateur Williams %R de [TOPIC] peut être visualisé uniquement avec un abonnement premium ou ultra. Ne manquez pas l'opportunité de profiter de toutes les fonctionnalités!",
+      "Voulez-vous voir le Williams %R de [TOPIC]? Il est réservé aux abonnés premium ou ultra. Faites la mise à niveau pour y avoir accès!",
+      "Pour consulter le Williams %R de [TOPIC], un abonnement premium ou ultra est requis. Profitez des avantages de la mise à niveau!"
+    ],
+    "cost": 0,
+    "keywords": ["williams", "williams %r", "actuel", "courant", "mis à jour"],
+    "tag": "only_free",
+    "subquestions": {
+     "Voulez-vous savoir pourquoi il est avantageux de s'abonner?": "subscription_info",
+     "Si vous voulez, je peux vous dire pourquoi il est avantageux de s'abonner. Voulez-vous le savoir?": "subscription_info"}
+},
+    "bollinger_premium": {
+    "questions": [
+      "Montre-moi les Bandes de Bollinger pour [TOPIC]",
+      "Quelle est la situation des Bandes de Bollinger sur [TOPIC]?",
+      "Pouvez-vous me dire l'état des Bandes de Bollinger pour [TOPIC]?",
+      "Je veux voir les Bandes de Bollinger de [TOPIC]",
+      "Comment sont les Bandes de Bollinger sur [TOPIC] en ce moment?",
+      "Mets-moi à jour sur la Bande de Bollinger de [TOPIC]",
+      "Indique-moi %B et la position de la Bande de Bollinger pour [TOPIC]",
+      "J'aimerais connaître la Bande de Bollinger actuelle de [TOPIC]",
+      "Montre-moi la volatilité et les Bandes de Bollinger pour [TOPIC]",
+      "Pouvez-vous me fournir l'état des Bandes de Bollinger sur [TOPIC]?",
+      "Bandes de Bollinger pour [TOPIC]"
+    ],
+    "answers": [
+      "Bandes de Bollinger pour [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilité: [BB_VOLATILITY]\n- La bande est [UP/DOWN]\n\nLa condition est [STATE], ce qui signifie [SIGNIFICATO].",
+      "Voici les informations sur les Bandes de Bollinger de [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilité: [BB_VOLATILITY]\n- La bande est [UP/DOWN]\n\nActuellement, l'état est [STATE], ce qui indique généralement [SIGNIFICATO].",
+      "Analyse Bollinger pour [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilité: [BB_VOLATILITY]\n- La bande est [UP/DOWN]\n\nLa condition est [STATE], impliquant [SIGNIFICATO].",
+      "Les Bandes de Bollinger de [TOPIC] montrent:\n\n- %B: [BB_VALUE]\n- Volatilité: [BB_VOLATILITY]\n- La bande est [UP/DOWN]\n\nSituation actuelle: [STATE], ce qui suggère [SIGNIFICATO].",
+      "Pour [TOPIC], les Bandes de Bollinger sont:\n\n- %B: [BB_VALUE]\n- Volatilité: [BB_VOLATILITY]\n- La bande est [UP/DOWN]\n\nCondition: [STATE], indiquant [SIGNIFICATO].",
+      "Voici l'état des Bandes de Bollinger sur [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilité: [BB_VOLATILITY]\n- La bande est [UP/DOWN]\n\nActuellement, cela résulte en [STATE], indiquant [SIGNIFICATO].",
+      "Situation Bollinger pour [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilité: [BB_VOLATILITY]\n- La bande est [UP/DOWN]\n\nL'état est [STATE], ce qui signifie [SIGNIFICATO].",
+      "Bandes de Bollinger mises à jour pour [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilité: [BB_VOLATILITY]\n- La bande est [UP/DOWN]\n\nCondition actuelle: [STATE], ce qui implique [SIGNIFICATO].",
+      "Analyse technique Bollinger pour [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilité: [BB_VOLATILITY]\n- La bande est [UP/DOWN]\n\nL'actif est [STATE], ce qui se traduit généralement par [SIGNIFICATO].",
+      "Voici les données des Bandes de Bollinger de [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilité: [BB_VOLATILITY]\n- La bande est [UP/DOWN]\n\nSituation: [STATE], ce qui indique [SIGNIFICATO]."
+    ],
+    "cost": 4,
+    "keywords": ["bollinger", "actuel", "courant", "mis à jour"],
+    "tag": "premium",
+    "subquestions": {
+      "Voulez-vous aussi l'indicateur RSI sur [TOPIC]?": "rsi_premium",
+      "Voulez-vous aussi savoir ce que dit le MACD de [TOPIC]?": "macd_premium",
+      "Voulez-vous que je vous donne aussi l'indicateur stochastique sur [TOPIC]?": "stochastic_premium",
+      "Voulez-vous que je vous donne aussi l'indicateur EMA (Moyenne Mobile Exponentielle) sur [TOPIC]?": "ema_premium",
+      "Voulez-vous savoir ce que dit l'indicateur CCI (Commodity Channel Index) sur [TOPIC]?": "cci_premium",
+      "Voulez-vous que je vous dise aussi ce que suggère l'indicateur Williams %R (Percent Range) pour [TOPIC]?": "williams_premium",
+      "Voulez-vous que je vous trace l'évolution graphique de la dernière période de [TOPIC]?": "graph_request",
+      "Pour plus de sécurité, je vous invite à consulter l'analyse complète de [TOPIC]. Voulez-vous que je la prépare?": "asset_analysis_open"}
+},
+    "bollinger": {
+    "questions": [
+      "Montre-moi les Bandes de Bollinger pour [TOPIC]",
+      "Quelle est la situation des Bandes de Bollinger sur [TOPIC]?",
+      "Pouvez-vous me dire l'état des Bandes de Bollinger pour [TOPIC]?",
+      "Je veux voir les Bandes de Bollinger de [TOPIC]",
+      "Comment sont les Bandes de Bollinger sur [TOPIC] en ce moment?",
+      "Mets-moi à jour sur la Bande de Bollinger de [TOPIC]",
+      "Indique-moi %B et la position de la Bande de Bollinger pour [TOPIC]",
+      "J'aimerais connaître la Bande de Bollinger actuelle de [TOPIC]",
+      "Montre-moi la volatilité et les Bandes de Bollinger pour [TOPIC]",
+      "Pouvez-vous me fournir l'état des Bandes de Bollinger sur [TOPIC]?",
+      "Bandes de Bollinger pour [TOPIC]",
+      "Bollinger de [TOPIC]"
+    ],
+    "answers": [
+      "Pour visualiser les Bandes de Bollinger de [TOPIC], un abonnement premium ou ultra est nécessaire. Faites la mise à niveau pour obtenir tous les détails! 💎",
+      "Je suis désolé, les données complètes des Bandes de Bollinger sont disponibles uniquement pour les utilisateurs premium ou ultra. Envisagez la mise à niveau! 📈",
+      "L'accès aux Bandes de Bollinger de [TOPIC] nécessite un abonnement actif, premium ou ultra 💎.",
+      "Oups, il semble que vous n'êtes pas abonné 🤔… faites la mise à niveau vers les plans premium ou ultra pour voir les Bandes de Bollinger et tous les avantages pour un investisseur!",
+      "Malheureusement, votre plan actuel n'inclut pas les Bandes de Bollinger 😅. Passez à premium ou ultra pour avoir toutes les informations.",
+      "Pour consulter les Bandes de Bollinger de [TOPIC], vous devez être abonné à l'un de nos plans premium ou ultra.",
+      "Cette fonctionnalité est réservée aux utilisateurs premium ou ultra. Effectuez la mise à niveau pour consulter les Bandes de Bollinger de [TOPIC].",
+      "Je suis désolé, l'accès aux Bandes de Bollinger est limité aux plans premium ou ultra 😅. Faites la mise à niveau pour obtenir toutes les données!",
+      "Les Bandes de Bollinger de [TOPIC] sont disponibles uniquement avec un abonnement premium ou ultra. Ne manquez pas l'opportunité de tout voir!",
+      "Pour obtenir les informations complètes sur les Bandes de Bollinger de [TOPIC], vous devez avoir un abonnement actif premium ou ultra 😄.",
+      "Vous n'avez pas accès aux données Bollinger pour [TOPIC] avec le plan actuel. Passez à premium ou ultra pour profiter de toutes les fonctionnalités!",
+      "Oups! Les détails des Bandes de Bollinger sont réservés aux utilisateurs premium ou ultra. Effectuez la mise à niveau pour les consulter."
+    ],
+    "cost": 0,
+    "keywords": ["bollinger", "actuel", "courant", "mis à jour"],
+    "tag": "only_free",
+    "subquestions": {
+     "Voulez-vous savoir pourquoi il est avantageux de s'abonner?": "subscription_info",
+     "Si vous voulez, je peux vous dire pourquoi il est avantageux de s'abonner. Voulez-vous le savoir?": "subscription_info"}
+},
+    "rsi_info": {
+    "questions": [
+      "Qu'est-ce que le RSI?",
+      "Pouvez-vous me dire ce que signifie RSI?",
+      "À quoi sert l'indicateur RSI?",
+      "Qu'est-ce que le RSI en analyse technique?",
+      "Pouvez-vous m'expliquer le RSI?",
+      "Que veut dire RSI?",
+      "Expliquez-moi ce que représente le RSI?",
+      "J'aimerais savoir ce qu'est le RSI",
+      "Quelle est la fonction du RSI?",
+      "RSI que signifie-t-il?",
+      "Qu'est-ce que le Relative Strength Index?",
+      "Expliquez-moi le Relative Strength Index?",
+      "Dites-moi ce qu'est le RSI d'un actif"
+    ],
+    "answers": [
+      "Le **RSI**, ou **Relative Strength Index**, est un indicateur technique qui mesure la force et la vitesse des mouvements de prix. Il est calculé en comparant la moyenne des hausses avec la moyenne des baisses sur une période donnée (généralement 14 jours). Il sert à comprendre si un actif est en **surachat** ou en **survente**.",
+      "Le **Relative Strength Index (RSI)** est un oscillateur qui aide à identifier des conditions extrêmes du marché. Il est calculé en rapportant les gains moyens aux pertes moyennes sur une certaine période de temps. Des valeurs élevées indiquent un surachat potentiel, des valeurs basses des situations de survente possibles.",
+      "Le RSI est un indicateur très utilisé pour évaluer la force de la tendance. On l'obtient en mesurant la proportion entre les mouvements positifs et négatifs d'un actif au cours des derniers jours. Cela permet d'identifier des zones où le prix pourrait s'inverser.",
+      "Le **Relative Strength Index** est un outil qui mesure la pression des achats et des ventes. Il est calculé en faisant un ratio entre les hausses et les baisses moyennes sur une période établie. Lorsque la valeur dépasse 70, on parle de surachat, en dessous de 30, de survente.",
+      "Le RSI est un oscillateur qui varie de 0 à 100 et sert à comprendre si un actif est surévalué ou sous-évalué. Son calcul compare l'intensité des hausses avec celle des baisses. Il est utile pour identifier de possibles inversions de tendance.",
+      "**RSI** signifie **Relative Strength Index** et mesure la force relative d'un actif. Pour le calculer, on compare les gains moyens avec les pertes moyennes sur un certain intervalle. Des valeurs extrêmes indiquent de probables déséquilibres entre l'offre et la demande.",
+      "Le RSI est un indicateur qui analyse la dynamique des prix. Il est calculé en comparant les mouvements positifs avec les mouvements négatifs sur une période prédéfinie. Il signale ainsi quand un titre pourrait être en excès d'achats ou de ventes.",
+      "L'indice RSI est un oscillateur très répandu en analyse technique. Il est calculé à partir de la moyenne des mouvements haussiers et baissiers. Il permet de comprendre si le marché est trop orienté à la hausse ou à la baisse et donc proche d'un possible retracement.",
+      "Le **Relative Strength Index** est un outil d'analyse technique qui mesure la force de la tendance. Il est basé sur le rapport entre les gains et les pertes moyens enregistrés sur une période de temps. Il aide les investisseurs à reconnaître les zones de surachat ou de survente.",
+      "Le RSI est un indicateur qui offre des informations précieuses sur l'état d'un actif. Il est calculé par la comparaison entre les mouvements à la hausse et à la baisse, traduits en une valeur comprise entre 0 et 100. Cette valeur signale les zones où le prix pourrait inverser sa direction."
+    ],
+    "cost": 0,
+    "keywords": ["rsi", "relative strength index", "expliquer", "explique", "explique-moi", "qu'est-ce que c'est", "fonction", "fonctionne", "sert", "veut dire", "signifie", "représente", "indique"],
+    "subquestions": {
+     "Voulez-vous que je vous explique aussi l'indicateur MACD?": "macd_info",
+     "Si vous voulez, je peux vous dire aussi à quoi sert l'indicateur CCI. Voulez-vous le savoir?": "cci_info"}
+},
+    "macd_info": {
+    "questions": [
+      "Qu'est-ce que le MACD?",
+      "Pouvez-vous m'expliquer ce qu'est le MACD?",
+      "J'aimerais savoir à quoi sert le MACD",
+      "Pouvez-vous me dire ce qu'indique le MACD?",
+      "Expliquez-moi le MACD en analyse technique",
+      "Que représente l'indicateur MACD?",
+      "À quoi est utilisé le MACD?",
+      "Pouvez-vous me donner une explication simple du MACD?",
+      "Comment fonctionne le MACD?",
+      "J'aimerais mieux comprendre l'indicateur MACD",
+      "Qu'est-ce que le Moving Average Convergence Divergence?",
+      "Dites-moi ce qu'est le MACD d'un actif",
+      "Pourquoi utilise-t-on le MACD?",
+      "À quoi sert le MACD?"
+    ],
+    "answers": [
+      "Le **MACD** (**Moving Average Convergence Divergence**) est un indicateur d'analyse technique qui sert à mesurer la force et la direction de la tendance. \n\nIl est calculé comme la différence entre deux moyennes mobiles exponentielles (une rapide et une lente) et inclut une ligne de signal.\nLorsque le MACD est positif, cela indique une prédominance des hausses, lorsqu'il est négatif, une prédominance des baisses. Le croisement avec la ligne de signal fournit de possibles signaux d'inversion.",
+      "Le MACD est utilisé pour identifier les changements de **momentum** et les inversions de tendance. \n\nIl est calculé à partir de deux moyennes mobiles exponentielles (généralement 12 et 26 périodes) et comparé à une ligne de signal (EMA à 9 périodes).\nSi le MACD est au-dessus de zéro, cela indique une tendance haussière, s'il est en dessous, une tendance baissière. Les croisements avec la ligne de signal indiquent des points d'entrée ou de sortie potentiels.",
+      "Le MACD est un oscillateur qui aide à comprendre si un actif est en phase d'accélération ou de ralentissement de la tendance. \n\nIl est calculé en soustrayant une moyenne mobile exponentielle lente d'une rapide et en ajoutant une ligne de signal pour la comparaison.\nDes valeurs positives suggèrent une pression haussière, des valeurs négatives une pression baissière, tandis que les changements de direction signalent de possibles inversions.",
+      "Le MACD est un outil qui mesure la force de la tendance et identifie de possibles inversions. \n\nLe calcul est basé sur la différence entre les EMA de 12 et 26 périodes, avec une EMA à 9 périodes qui sert de ligne de signal.\nLorsque le MACD croise la ligne de signal à la hausse, c'est un signal d'achat potentiel, inversement, un signal de vente.",
+      "Le **MACD**, acronyme de **Moving Average Convergence Divergence**, est un indicateur qui aide à évaluer la direction et l'intensité de la tendance. \n\nIl dérive de la comparaison entre deux moyennes mobiles exponentielles et d'une ligne de signal qui en simplifie la lecture.\nSi la valeur du MACD est positive, cela indique une tendance haussière, si elle est négative, une tendance baissière, avec des croisements qui mettent en évidence de possibles changements de scénario.",
+      "Le MACD est utilisé pour identifier des moments de force ou de faiblesse sur les marchés. \n\nSon calcul prévoit la soustraction entre deux moyennes mobiles exponentielles (rapide et lente) et la comparaison avec une moyenne mobile plus courte appelée ligne de signal.\nDes valeurs supérieures à zéro et des croisements positifs signalent une phase de croissance, des valeurs inférieures à zéro et des croisements négatifs signalent une phase de baisse.",
+      "Le MACD est l'un des indicateurs techniques les plus répandus car il combine tendance et momentum. \n\nIl est obtenu en calculant la différence entre deux EMA (généralement 12 et 26 périodes) et une ligne de signal à 9 périodes.\nSi le MACD est supérieur à la ligne de signal, la tendance semble haussière, s'il est inférieur, elle semble baissière.",
+      "Le **Moving Average Convergence Divergence** permet de comprendre si le marché gagne ou perd en force. \n\nIl est calculé en prenant deux moyennes mobiles exponentielles de différentes longueurs et en les comparant avec une moyenne mobile plus courte appelée signal.\nLorsque le MACD est positif, cela suggère une prédominance des achats, lorsqu'il est négatif, une prédominance des ventes, tandis que les *crossovers* signalent des opportunités potentielles.",
+      "Le MACD est un indicateur qui aide à détecter les tendances et les inversions de manière simple. \n\nIl est basé sur la différence entre une moyenne mobile rapide et une lente, plus une ligne de signal qui rend la lecture plus claire.\nSi le MACD passe de négatif à positif, cela peut indiquer le début d'une tendance haussière, le contraire peut signaler une baisse.",
+      "Le **Moving Average Convergence Divergence** est utilisé pour analyser la dynamique des prix et identifier des signaux opérationnels. \n\nIl est calculé à partir de deux moyennes mobiles exponentielles de vitesses différentes et comparé à une ligne de signal.\nUn MACD au-dessus de zéro indique une phase de force haussière, en dessous de zéro indique une faiblesse baissière, tandis que les croisements aident à identifier les changements de tendance."
+    ],
+    "cost": 0,
+    "keywords": ["macd", "moving average convergence divergence", "expliquer", "explique", "explique-moi", "qu'est-ce que c'est", "fonction", "fonctionne", "sert", "veut dire", "signifie", "représente", "indique"],
+    "subquestions": {
+     "Voulez-vous que je vous explique aussi l'indicateur Williams %R (Percent Range)?": "williams_info",
+     "Si vous voulez, je peux vous dire aussi à quoi servent les Bandes de Bollinger. Voulez-vous le savoir?": "bollinger_info"}
+},
+    "stochastic_info": {
+    "questions": [
+      "Qu'est-ce que l'oscillateur stochastique?",
+      "Pouvez-vous m'expliquer ce qu'indique le stochastique?",
+      "À quoi sert l'oscillateur stochastique?",
+      "J'aimerais mieux comprendre l'indicateur stochastique",
+      "Expliquez-moi comment fonctionne le stochastique",
+      "Pourquoi utilise-t-on l'oscillateur stochastique?",
+      "Comment lit-on l'oscillateur stochastique?",
+      "Que représente le stochastique?",
+      "Qu'est-ce que le stochastique?",
+      "Qu'est-ce que le stochastique dans l'analyse technique?",
+      "Pouvez-vous me clarifier à quoi sert le stochastique?",
+      "Dites-moi ce qu'est l'oscillateur stochastique d'un actif"
+    ],
+    "answers": [
+      "L'**oscillateur stochastique** est un indicateur technique utilisé pour comprendre si un actif est en phase de **surachat** ou de **survente**. \n\nIl est calculé en comparant le prix de clôture le plus récent avec la plage des prix (maximums et minimums) sur une période donnée. \n\nDes valeurs au-dessus de 80 indiquent typiquement un surachat, en dessous de 20 une survente, tandis que les valeurs intermédiaires sont considérées comme neutres.",
+      "Le stochastique sert à mesurer la position du prix actuel par rapport à la plage des prix récents, mettant en évidence les excès du marché. \n\nLe calcul compare le prix de clôture actuel avec le maximum et le minimum des dernières périodes (souvent 14). \n\nLorsqu'il dépasse 80, l'actif est considéré en surachat, lorsqu'il descend sous 20, en survente.",
+      "L'oscillateur stochastique est un oscillateur de **momentum** qui indique la vitesse du mouvement des prix. \n\nIl est calculé en rapportant la clôture actuelle à la plage des prix sur un certain laps de temps. \n\nUne valeur élevée (au-dessus de 80) signale des conditions de surachat, une valeur basse (en dessous de 20) signale une survente.",
+      "Le stochastique est un outil d'analyse technique qui aide à identifier des moments d'excès sur les marchés. \n\nLa formule compare la clôture du prix actuel avec l'intervalle des maximums et minimums passés. \n\nEn pratique, des valeurs extrêmes (hautes ou basses) peuvent signaler de possibles inversions de tendance.",
+      "L'oscillateur stochastique est utilisé pour évaluer si un titre a été acheté ou vendu excessivement. \n\nIl est basé sur la comparaison entre le prix de clôture actuel et l'intervalle des prix récents. \n\nS'il se trouve au-dessus de 80, il est en surachat, en dessous de 20, en survente, tandis que les valeurs centrales indiquent l'équilibre.",
+      "Le stochastique est l'un des indicateurs les plus répandus pour comprendre si un marché est proche d'un point d'inversion. \n\nLe calcul prend en compte le prix de clôture par rapport aux maximums et minimums récents. \n\nLes valeurs au-delà de 80 anticipent souvent de possibles baisses, les valeurs en dessous de 20 de possibles hausses.",
+      "L'oscillateur stochastique signale des conditions d'excès d'achat ou de vente. \n\nIl est calculé en comparant le prix de clôture actuel avec la plage de prix sur une période (généralement 14 jours). \n\nLorsque le stochastique est élevé, on a tendance à penser que le titre est en surachat, lorsqu'il est bas, qu'il est en survente.",
+      "Le stochastique est un indicateur technique qui sert à comprendre le **momentum** du marché. \n\nIl est obtenu en comparant où se trouve la clôture par rapport au maximum et au minimum des dernières périodes. \n\nDes valeurs au-delà de 80 suggèrent un excès d'achats, en dessous de 20 un excès de ventes.",
+      "L'oscillateur stochastique montre à quel point le prix actuel est proche du maximum ou du minimum de la période considérée. \n\nLa formule prend comme référence la clôture actuelle et la rapporte à la plage des prix. \n\nAvec des valeurs élevées, l'actif est souvent en surachat, avec des valeurs basses en survente.",
+      "Le stochastique est utile pour mesurer le **momentum** et les excès du marché. \n\nIl est calculé en analysant la clôture des prix par rapport à leur intervalle sur une période préfixée. \n\nGénéralement, au-delà de 80, on parle de surachat, en dessous de 20, de survente."
+    ],
+    "cost": 0,
+    "keywords": ["stochastique", "oscillateur", "expliquer", "explique", "explique-moi", "qu'est-ce que c'est", "fonction", "fonctionne", "sert", "veut dire", "signifie", "représente", "indique"],
+    "subquestions": {
+     "Voulez-vous que je vous explique aussi l'indicateur EMA (Moyenne Mobile Exponentielle)?": "ema_info",
+     "Si vous voulez, je peux vous dire aussi à quoi sert l'indicateur RSI. Voulez-vous le savoir?": "rsi_info"}
+},
+    "ema_info": {
+    "questions": [
+      "Qu'est-ce que l'EMA à 10 périodes?",
+      "Pouvez-vous m'expliquer ce que signifie EMA(10)?",
+      "Qu'est-ce qu'indique l'EMA?",
+      "J'aimerais mieux comprendre l'indicateur EMA 10",
+      "Pouvez-vous m'expliquer comment fonctionne l'EMA à 10 jours?",
+      "Pourquoi utilise-t-on l'EMA?",
+      "Comment interprète-t-on l'EMA (10)?",
+      "Qu'est-ce que la Moyenne Mobile Exponentielle à 10 périodes?",
+      "À quoi sert l'EMA10?",
+      "Quelle est la signification de l'EMA (10) dans l'analyse technique?",
+      "Qu'est-ce que la moyenne mobile exponentielle?",
+      "À quoi sert la moyenne mobile exponentielle?",
+      "Dites-moi ce qu'est l'EMA d'un actif"
+    ],
+    "answers": [
+      "L'**EMA (10)**, c'est-à-dire la **Moyenne Mobile Exponentielle** à 10 périodes, est un indicateur technique qui sert à suivre l'évolution du prix sur un horizon très court. \n\nElle est calculée en faisant une moyenne des prix des 10 dernières périodes, mais en donnant plus de poids aux valeurs les plus récentes. \n\nSi le prix est au-dessus de l'EMA, la tendance est considérée comme haussière, tandis qu'en dessous de l'EMA, elle est vue comme baissière.",
+      "La **Moyenne Mobile Exponentielle à 10 périodes** (**EMA 10**) est une moyenne des prix qui privilégie les dernières clôtures, la rendant très réactive aux mouvements récents. \n\nLe calcul attribue un poids plus important aux cotations les plus proches dans le temps. \n\nHabituellement, si le prix reste au-dessus de l'EMA 10, c'est un signal de force, tandis qu'en dessous, cela indique une faiblesse.",
+      "L'**EMA (10)** est l'une des moyennes mobiles les plus rapides, utile pour saisir les tendances à court terme. \n\nElle est obtenue en calculant la moyenne des prix des 10 dernières périodes, en appliquant un coefficient qui valorise davantage les données récentes. \n\nLorsque le prix est stable au-dessus de la ligne EMA 10, l'actif est interprété comme étant en phase positive; en dessous, comme étant en phase négative.",
+      "L'indicateur EMA à 10 périodes représente une moyenne des prix récents avec une emphase sur les dernières valeurs. \n\nLe calcul est exponentiel, il réagit donc rapidement aux changements de marché. \n\nEn analyse technique, il est utilisé pour identifier les tendances immédiates et les signaux d'inversion précoces.",
+      "L'**EMA (10)** est une Moyenne Mobile Exponentielle qui photographie la tendance à très court terme. \n\nElle est calculée avec une formule qui pèse davantage les prix récents que les plus anciens. \n\nLorsque le prix se trouve au-dessus de l'EMA 10, cela indique une force haussière, lorsqu'il est en dessous une faiblesse baissière.",
+      "La **Moyenne Mobile Exponentielle à 10 périodes** sert à suivre les variations à court terme. \n\nContrairement à une moyenne simple, l'EMA attribue plus d'importance aux données les plus proches dans le temps. \n\nUn prix supérieur à l'EMA 10 est souvent un signal positif, inférieur est considéré comme négatif.",
+      "**EMA (10)** signifie **Moyenne Mobile Exponentielle à 10 périodes**, et est l'un des indicateurs les plus rapides pour suivre les mouvements du marché. \n\nLe calcul combine les prix passés, mais avec un poids plus important pour les plus récents. \n\nNormalement, des prix au-dessus de l'EMA signalent une tendance haussière, des prix en dessous une tendance baissière.",
+      "La **Moyenne Mobile Exponentielle à 10 périodes (EMA 10)** est utilisée pour comprendre la tendance à court terme. \n\nLa formule valorise les dernières clôtures, rendant l'indicateur très sensible. \n\nUne valeur supérieure à l'EMA indique la force, tandis qu'une valeur inférieure signale la faiblesse.",
+      "**EMA (10)** est un indicateur technique qui mesure la moyenne des prix des 10 dernières périodes en donnant plus de poids aux données récentes. \n\nCela rend la courbe plus réactive qu'une moyenne mobile simple. \n\nElle s'interprète en comparant la position du prix avec l'EMA: au-dessus tendance positive, en dessous tendance négative.",
+      "La **Moyenne Mobile Exponentielle à 10 périodes** est utilisée par les analystes pour suivre les mouvements rapides du marché. \n\nElle est calculée en attribuant un poids décroissant aux prix les plus anciens et plus grand aux plus récents. \n\nDes prix au-dessus de l'EMA 10 signalent une phase de force, des prix en dessous une phase de faiblesse."
+    ],
+    "cost": 0,
+    "keywords": ["ema", "ema10", "ema 10", "exponentielle", "moyenne mobile", "expliquer", "explique", "explique-moi", "qu'est-ce que c'est", "fonction", "fonctionne", "sert", "veut dire", "signifie", "représente", "indique"],
+    "subquestions": {
+     "Voulez-vous que je vous explique aussi l'oscillateur stochastique?": "stochastic_info",
+     "Si vous voulez, je peux vous dire aussi à quoi sert l'indicateur CCI. Voulez-vous le savoir?": "cci_info"}
+},
+    "cci_info": {
+    "questions": [
+      "Qu'est-ce que le CCI?",
+      "Pouvez-vous m'expliquer à quoi sert le Commodity Channel Index?",
+      "Qu'est-ce qu'indique l'indicateur CCI?",
+      "J'aimerais mieux comprendre le CCI",
+      "Pouvez-vous m'expliquer comment fonctionne le CCI?",
+      "Pourquoi utilise-t-on le Commodity Channel Index?",
+      "Comment interprète-t-on le CCI?",
+      "Qu'est-ce que l'indicateur Commodity Channel Index?",
+      "À quoi sert le CCI dans l'analyse technique?",
+      "Quelle est la signification du CCI pour un actif?",
+      "Dites-moi ce qu'est le CCI d'un actif"
+    ],
+    "answers": [
+      "Le **CCI**, ou **Commodity Channel Index**, est un indicateur technique qui mesure à quel point le prix d'un actif s'écarte de sa moyenne statistique. \n\nIl est calculé en comparant le prix typique à sa moyenne mobile et en rapportant la différence à la déviation moyenne. \n\nDes valeurs élevées indiquent une condition de **surachat**, des valeurs basses une condition de **survente**, tandis que les valeurs proches de zéro signalent l'équilibre.",
+      "Le **Commodity Channel Index (CCI)** sert à identifier les phases de surachat et de survente d'un actif. \n\nLe calcul prend le prix typique (moyenne du maximum, du minimum et de la clôture), le compare à la moyenne mobile et le normalise avec la déviation moyenne. \n\nEn général, des valeurs supérieures à +100 indiquent une force excessive (surachat), inférieures à -100 une faiblesse (survente).",
+      "Le CCI est un oscillateur qui montre à quel point les prix s'écartent de leur moyenne mobile. \n\nIl est basé sur le prix typique et sur la différence par rapport à la moyenne, ajustée par la déviation. \n\nUn CCI très élevé suggère une tendance haussière trop étendue, un CCI très bas une tendance baissière exagérée.",
+      "Le **Commodity Channel Index** est utilisé pour identifier des inversions de tendance potentielles. \n\nLe calcul compare le prix typique de l'actif à sa moyenne et à la déviation. \n\nDes valeurs au-dessus de +100 suggèrent des excès haussiers, en dessous de -100 des excès baissiers.",
+      "Le CCI mesure la distance entre le prix d'un actif et sa moyenne mobile. \n\nL'algorithme utilise le prix typique et la déviation moyenne pour obtenir une valeur oscillante. \n\nDes valeurs positives élevées indiquent une force excessive, des valeurs négatives élevées signalent une faiblesse.",
+      "Le **Commodity Channel Index** est un oscillateur qui aide à comprendre quand un actif est en surachat ou en survente. \n\nIl est obtenu en calculant la différence entre le prix typique et la moyenne mobile, divisée par la déviation. \n\nHabituellement, des valeurs au-delà de +100 sont lues comme surachat, sous -100 comme survente.",
+      "Le **CCI (Commodity Channel Index)** est utile pour mesurer la vitesse et la direction de la tendance. \n\nLe calcul part du prix typique et le compare à la moyenne, ajustant le résultat en fonction de la déviation. \n\nDes valeurs très élevées indiquent de possibles excès de croissance, des valeurs très basses des excès de baisse.",
+      "Le CCI a été développé pour le marché des matières premières, mais il est aujourd'hui utilisé sur tous les actifs. \n\nIl fonctionne en comparant le prix typique à la moyenne mobile et en rapportant la différence à la déviation. \n\nDes valeurs positives extrêmes montrent un surachat, des valeurs négatives extrêmes une survente.",
+      "Le **Commodity Channel Index** montre à quel point le prix actuel s'éloigne de la moyenne. \n\nLe calcul combine prix typique, moyenne mobile et déviation. \n\nDes valeurs élevées signalent des excès haussiers, des valeurs basses des excès baissiers, proches de zéro l'équilibre.",
+      "Le CCI est un oscillateur technique qui oscille au-dessus et au-dessous de zéro. \n\nIl est calculé avec la différence entre le prix typique et la moyenne mobile, divisée par la déviation moyenne. \n\nAu-dessus de +100, il est en surachat, sous -100 en survente, entre -100 et +100 il est neutre."
+    ],
+    "cost": 0,
+    "keywords": ["cci", "commodity channel index", "expliquer", "explique", "explique-moi", "qu'est-ce que c'est", "fonction", "fonctionne", "sert", "veut dire", "signifie", "représente", "indique"],
+    "subquestions": {
+     "Voulez-vous que je vous explique aussi l'indicateur MACD?": "macd_info",
+     "Si vous voulez, je peux vous dire aussi à quoi sert l'indicateur Williams %R (Percent Range). Voulez-vous le savoir?": "williams_info"}
+},
+    "williams_info": {
+    "questions": [
+      "Qu'est-ce que le Williams?",
+      "Qu'est-ce que le Williams %R?",
+      "Pouvez-vous m'expliquer l'indicateur Williams?",
+      "Qu'est-ce qu'indique le Williams %R?",
+      "J'aimerais mieux comprendre l'indicateur Williams %R",
+      "Pouvez-vous m'expliquer comment fonctionne le Williams %R?",
+      "À quoi sert le Williams %R?",
+      "Comment interprète-t-on le Williams %R?",
+      "Qu'est-ce que l'indicateur %R de Williams?",
+      "Quelle est la signification du Williams %R pour un actif?",
+      "Expliquez-moi ce qu'est le Williams %R?",
+      "Dites-moi ce qu'est le Williams d'un actif",
+      "Dites-moi ce qu'est le Williams %R d'un actif"
+    ],
+    "answers": [
+      "Le **Williams %R** est un oscillateur technique qui mesure les niveaux de **surachat** et de **survente**. \n\nIl est calculé en comparant le prix de clôture actuel à la plage maximum-minimum d'une période donnée, généralement 14 jours. \n\nDes valeurs proches de -20 indiquent un surachat, des valeurs proches de -80 une survente.",
+      "Le **Williams %R** sert à identifier les moments où un actif pourrait avoir atteint des niveaux excessifs de croissance ou de baisse. \n\nLe calcul est basé sur le rapport entre le prix de clôture et l'intervalle maximum-minimum de la période choisie. \n\nGénéralement, des valeurs au-delà de -20 signalent une force excessive, en dessous de -80 une faiblesse.",
+      "Le **Williams %R** est un oscillateur qui indique à quel point le prix actuel se trouve près des maximums ou des minimums récents. \n\nPour le calcul, on utilise le prix de clôture par rapport au maximum et minimum des 14 dernières périodes. \n\nAu-dessus de -20 signale un surachat, sous -80 une survente.",
+      "L'indicateur **Williams %R** montre la position du prix de clôture par rapport à la plage des derniers jours. \n\nIl est obtenu en comparant la clôture, le maximum et le minimum de la période. \n\nDes valeurs très élevées (vers -20) indiquent que l'actif est en surachat, très basses (vers -80) qu'il est en survente.",
+      "Le **Williams %R** a été conçu pour identifier les zones d'excès dans les mouvements du marché. \n\nLe calcul rapporte le prix de clôture aux maximums et minimums récents. \n\nSi le résultat est proche de -20, il est considéré comme surachat, proche de -80 comme survente.",
+      "Le **Williams %R** appartient à la famille des oscillateurs et oscille entre 0 et -100. \n\nIl est calculé avec une formule qui lie le prix de clôture au maximum et minimum de la période. \n\nLes valeurs entre 0 et -20 signalent un surachat, entre -80 et -100 une survente.",
+      "Le **Williams %R** est utile pour évaluer la force de la tendance. \n\nIl est obtenu en comparant le prix de clôture aux niveaux extrêmes de maximum et minimum. \n\nPrès de -20 signale une possible correction baissière, près de -80 une possible inversion haussière.",
+      "Le **Williams %R** montre à quel point le prix est proche des maximums ou des minimums des dernières périodes. \n\nLe calcul est basé sur la clôture, le maximum et le minimum. \n\nDes valeurs proches de -20 indiquent un surachat, proches de -80 une survente.",
+      "Le **Williams %R** est un indicateur développé par Larry Williams pour anticiper de possibles inversions. \n\nIl est calculé en rapportant la clôture à la plage maximum-minimum récente. \n\nAu-dessus de -20 signale un excès haussier, sous -80 un excès baissier.",
+      "Le **Williams %R** est similaire au stochastique, mais il est mis à l'échelle entre 0 et -100. \n\nLe prix de clôture est comparé au maximum et au minimum des dernières périodes. \n\nDes valeurs élevées (vers -20) indiquent un surachat, des valeurs basses (vers -80) une survente."
+    ],
+    "cost": 0,
+    "keywords": ["williams", "expliquer", "explique", "explique-moi", "qu'est-ce que c'est", "fonction", "fonctionne", "sert", "veut dire", "signifie", "représente", "indique"],
+    "subquestions": {
+     "Voulez-vous que je vous explique aussi l'indicateur EMA (Moyenne Mobile Exponentielle)?": "ema_info",
+     "Si vous voulez, je peux vous dire aussi à quoi servent les Bandes de Bollinger. Voulez-vous le savoir?": "bollinger_info"}
+},
+    "bollinger_info": {
+    "questions": [
+      "Qu'est-ce que l'indicateur des Bandes de Bollinger?",
+      "Expliquez-moi les Bandes de Bollinger?",
+      "Qu'est-ce qu'indiquent les Bandes de Bollinger?",
+      "J'aimerais comprendre comment fonctionnent les Bandes de Bollinger",
+      "À quoi servent les Bandes de Bollinger?",
+      "Comment interprète-t-on les Bandes de Bollinger?",
+      "Pouvez-vous m'expliquer les Bandes de Bollinger?",
+      "Quelle est la signification des Bandes de Bollinger pour un actif?",
+      "Pouvez-vous me dire ce qu'est l'indicateur Bollinger?",
+      "À quoi sert l'indicateur des Bandes de Bollinger?",
+      "Qu'est-ce que le Bollinger?",
+      "Dites-moi ce qu'est le Bollinger d'un actif",
+      "Dites-moi ce que sont les Bandes de Bollinger d'un actif",
+      "Que sont les Bandes de Bollinger?",
+      "Qu'est-ce que les Bandes de Bollinger indiquent?"
+    ],
+    "answers": [
+      "Les **Bandes de Bollinger** sont un indicateur technique qui mesure la **volatilité** d'un actif. \n\nElles sont calculées en utilisant une moyenne mobile (généralement 20 périodes) et deux écarts types pour tracer les bandes supérieure et inférieure. \n\nSi le prix s'approche de la bande supérieure, cela peut indiquer un **surachat**, si de la bande inférieure, une **survente**.",
+      "Les **Bandes de Bollinger** aident à identifier les périodes de forte ou faible volatilité et les possibles inversions de prix. \n\nElles sont basées sur une moyenne mobile et sur deux écarts types pour créer les bandes. \n\nDes prix proches de la bande supérieure peuvent suggérer un excès haussier, proches de la bande inférieure un excès baissier.",
+      "L'indicateur des **Bandes de Bollinger** consiste en une moyenne mobile centrale avec deux bandes latérales qui représentent la volatilité. \n\nOn calcule la moyenne mobile et on ajoute/soustrait deux écarts types. \n\nLorsque le prix touche la bande supérieure, il peut être en surachat, lorsqu'il touche la bande inférieure, en survente.",
+      "Les **Bandes de Bollinger** montrent les fluctuations du prix par rapport à la moyenne récente. \n\nLa moyenne mobile centrale et les écarts types créent les bandes supérieure et inférieure. \n\nDes prix proches de la bande supérieure indiquent une force excessive, proches de celle inférieure une faiblesse.",
+      "Cet indicateur aide à évaluer la volatilité d'un actif. \n\nOn calcule une moyenne mobile et deux écarts types pour tracer les bandes. \n\nEn touchant la bande supérieure, le prix peut être en surachat, en touchant la bande inférieure, en survente.",
+      "Les **Bandes de Bollinger** sont utiles pour identifier les moments où un actif pourrait inverser la tendance. \n\nElles sont basées sur la moyenne mobile et l'écart type du prix. \n\nPrès de la bande supérieure signale un surachat, près de l'inférieure une survente.",
+      "L'indicateur montre si un actif connaît une volatilité élevée ou faible. \n\nIl est obtenu en calculant une moyenne mobile et en ajoutant/soustrayant deux écarts types. \n\nDes prix très élevés par rapport à la bande supérieure indiquent un surachat, très bas par rapport à l'inférieure une survente.",
+      "Les **Bandes de Bollinger** permettent de comprendre les limites supérieures et inférieures du prix sur une certaine période. \n\nOn calcule la moyenne mobile et on applique deux écarts types pour les bandes. \n\nPrès de la bande supérieure peut être interprété comme un surachat, près de l'inférieure comme une survente.",
+      "L'indicateur Bollinger mesure la plage d'oscillation d'un actif par rapport à la moyenne mobile. \n\nOn calcule la moyenne mobile et on trace les bandes en ajoutant et soustrayant les écarts types. \n\nDes prix à proximité de la bande supérieure indiquent un surachat potentiel, ceux proches de la bande inférieure une survente.",
+      "Les **Bandes de Bollinger** sont un oscillateur de volatilité. \n\nLa moyenne mobile centrale et les bandes supérieure/inférieure, calculées avec des écarts types, délimitent le prix. \n\nEn touchant la bande supérieure, le marché est en surachat, en touchant l'inférieure il est en survente."
+    ],
+    "cost": 0,
+    "keywords": ["bollinger", "expliquer", "explique", "explique-moi", "que sont", "qu'est-ce que c'est", "fonction", "fonctionne", "sert", "veut dire", "signifie", "représente", "indique"],
+    "subquestions": {
+     "Voulez-vous que je vous explique aussi l'indicateur MACD?": "macd_info",
+     "Si vous voulez, je peux vous dire aussi à quoi sert l'indicateur CCI. Voulez-vous le savoir?": "cci_info"}
+},
+{
+    "fundamentals_info": {
+    "questions": [
+      "Que sont les fondamentaux clés?",
+      "Pouvez-vous me dire ce qu'on entend par key fundamentals?",
+      "Que signifient les fondamentaux d'une entreprise?",
+      "Pouvez-vous m'expliquer ce que sont les fondamentaux?",
+      "Quels sont les principaux indicateurs fondamentaux?",
+      "Qu'analyse cette application en termes de fondamentaux?",
+      "Quels fondamentaux puis-je consulter sur cette application?",
+      "Pouvez-vous me dire quels key fundamentals l'application propose?",
+      "Je voudrais comprendre les fondamentaux que je peux trouver ici",
+      "Quel type d'analyse fondamentale puis-je obtenir?",
+      "Que sont les fondamentaux d'une entreprise?",
+      "Que sont les key fundamentals d'une entreprise?",
+      "Pouvez-vous m'expliquer ce que signifie analyser les fondamentaux?",
+      "Qu'entend-on par key fundamentals?",
+      "Que sont les key fundamental d'un titre?",
+      "Pouvez-vous m'expliquer ce que sont les fondamentaux en finance?",
+      "Quels sont les principaux indicateurs fondamentaux?",
+      "Quel type de données fait partie de l'analyse fondamentale?",
+      "Que regardent les investisseurs lorsqu'ils parlent de fondamentaux?",
+      "Pouvez-vous me dire à quoi servent les fundamentals?",
+      "Qu'entend-on par analyse fondamentale?",
+      "Quels fondamentaux puis-je voir sur l'application?",
+      "Quelles données fondamentales l'application analyse-t-elle?",
+      "Quelles données fondamentales avez-vous?",
+      "Pouvez-vous me dire quels sont les key fundamentals que vous considérez?",
+      "Quels indicateurs fondamentaux puis-je trouver dans cette application?",
+      "Pouvez-vous m'indiquer les indicateurs fondamentaux disponibles?",
+      "Quels fondamentaux offrez-vous dans les analyses?",
+      "Combien de fondamentaux d'entreprises l'application évalue-t-elle?",
+      "Sur quels fundamentals puis-je avoir des informations?",
+      "Quels paramètres fondamentaux sont analysés?",
+      "Quels indicateurs fondamentaux votre application me montre-t-elle?",
+      "Quels key fundamentals pouvez-vous me donner?",
+      "Que sont les fondamentaux d'un actif?",
+      "Que sont les key fundamentals d'un actif?",
+      "Que sont les fondamentaux clés d'un actif?"
+    ],
+    "answers": [
+      "Les fondamentaux clés sont des indicateurs économiques et financiers qui aident à évaluer la santé et les perspectives de croissance d'une entreprise. Ils servent aux investisseurs pour comprendre si un titre est surévalué ou sous-évalué.  \n\nSur cette application, vous pouvez consulter des indicateurs tels que : *Trailing P/E*, *Forward P/E*, *EPS Growth (YoY)*, *Revenue Growth (YoY)*, *Profit Margins* et *Debt to Equity*.",
+      "Les fondamentaux clés désignent les paramètres financiers qui décrivent la solidité et la rentabilité d'une entreprise, couramment utilisés dans l'analyse fondamentale.  \n\nDes indicateurs comme : *Trailing P/E*, *Forward P/E*, *EPS Growth (YoY)*, *Revenue Growth (YoY)*, *Profit Margins* et *Debt to Equity* sont disponibles ici.",
+      "Les fondamentaux clés représentent des mesures qui décrivent la performance économique et financière d'une société. Ils permettent aux investisseurs de mieux comprendre la valeur réelle d'un titre.  \n\nSur cette application, vous avez accès à : *Trailing P/E*, *Forward P/E*, *EPS Growth (YoY)*, *Revenue Growth (YoY)*, *Profit Margins* et *Debt to Equity*.",
+      "On parle de fondamentaux clés pour décrire des indicateurs financiers qui mettent en évidence la rentabilité, la croissance et l'endettement d'une entreprise.  \n\nDans cette application, vous pouvez consulter : *Trailing P/E*, *Forward P/E*, *EPS Growth (YoY)*, *Revenue Growth (YoY)*, *Profit Margins* et *Debt to Equity*.",
+      "Les fondamentaux clés sont des outils de l'analyse fondamentale qui aident à évaluer la stabilité et les perspectives futures d'une entreprise.  \n\nLes indicateurs disponibles ici sont : *Trailing P/E*, *Forward P/E*, *EPS Growth (YoY)*, *Revenue Growth (YoY)*, *Profit Margins* et *Debt to Equity*.",
+      "Le terme fondamentaux clés fait référence à des indicateurs économiques comme les bénéfices, les revenus, les marges et la dette, qui aident à comprendre les performances d'une entreprise.  \n\nSur cette application, vous pouvez analyser : *Trailing P/E*, *Forward P/E*, *EPS Growth (YoY)*, *Revenue Growth (YoY)*, *Profit Margins* et *Debt to Equity*.",
+      "Les fondamentaux clés sont des paramètres qui permettent aux investisseurs d'évaluer l'opportunité et le risque d'un investissement sur un titre.  \n\nParmi ceux que vous pouvez consulter ici, il y a : *Trailing P/E*, *Forward P/E*, *EPS Growth (YoY)*, *Revenue Growth (YoY)*, *Profit Margins* et *Debt to Equity*.",
+      "On définit les fondamentaux clés comme ces indicateurs qui mesurent la croissance, la rentabilité et la solidité financière d'une société.  \n\nCette application met à disposition : *Trailing P/E*, *Forward P/E*, *EPS Growth (YoY)*, *Revenue Growth (YoY)*, *Profit Margins* et *Debt to Equity*.",
+      "Les fondamentaux clés sont les outils principaux pour comprendre si une entreprise est saine du point de vue financier et combien elle peut croître dans le temps.  \n\nLes indicateurs disponibles ici incluent : *Trailing P/E*, *Forward P/E*, *EPS Growth (YoY)*, *Revenue Growth (YoY)*, *Profit Margins* et *Debt to Equity*.",
+      "Lorsque nous parlons de fondamentaux clés, nous nous référons à des données objectives qui aident à mesurer la rentabilité et la solidité d'une entreprise.  \n\nCette application vous offre des indicateurs tels que : *Trailing P/E*, *Forward P/E*, *EPS Growth (YoY)*, *Revenue Growth (YoY)*, *Profit Margins* et *Debt to Equity*.",
+      "Les fondamentaux clés sont des paramètres utilisés pour analyser une entreprise au-delà de l'évolution du prix de ses actions.  \n\nSur cette application, vous trouverez : *Trailing P/E*, *Forward P/E*, *EPS Growth (YoY)*, *Revenue Growth (YoY)*, *Profit Margins* et *Debt to Equity*.",
+      "Avec les fondamentaux clés, on décrit des métriques financières de base qui permettent de comparer plusieurs entreprises et de comprendre leur attractivité.  \n\nCeux disponibles sur cette application sont : *Trailing P/E*, *Forward P/E*, *EPS Growth (YoY)*, *Revenue Growth (YoY)*, *Profit Margins* et *Debt to Equity*.",
+      "Les investisseurs utilisent les fondamentaux clés pour comprendre si un titre est surévalué, sous-évalué ou en ligne avec le marché.  \n\nLes indicateurs que vous pouvez consulter ici comprennent : *Trailing P/E*, *Forward P/E*, *EPS Growth (YoY)*, *Revenue Growth (YoY)*, *Profit Margins* et *Debt to Equity*.",
+      "Les fondamentaux clés sont des indicateurs de rentabilité, de croissance et de risque qui aident à construire des stratégies d'investissement éclairées.  \n\nCette application vous permet de voir : *Trailing P/E*, *Forward P/E*, *EPS Growth (YoY)*, *Revenue Growth (YoY)*, *Profit Margins* et *Debt to Equity*.",
+      "Les fondamentaux clés désignent les métriques qui résument de manière synthétique la performance économique d'une entreprise.  \n\nLes indicateurs que vous pouvez analyser ici sont : *Trailing P/E*, *Forward P/E*, *EPS Growth (YoY)*, *Revenue Growth (YoY)*, *Profit Margins* et *Debt to Equity*.",
+      "Les fondamentaux clés permettent d'évaluer une entreprise non seulement en regardant le prix des actions, mais aussi sa capacité réelle à générer des bénéfices et à croître.  \n\nLes indicateurs disponibles sur cette application incluent : *Trailing P/E*, *Forward P/E*, *EPS Growth (YoY)*, *Revenue Growth (YoY)*, *Profit Margins* et *Debt to Equity*.",
+      "Les fondamentaux clés sont des outils essentiels pour ceux qui font de l'analyse fondamentale : ils permettent d'évaluer la solidité, la croissance et la rentabilité.  \n\nCette application met à disposition : *Trailing P/E*, *Forward P/E*, *EPS Growth (YoY)*, *Revenue Growth (YoY)*, *Profit Margins* et *Debt to Equity*.",
+      "Les analystes utilisent les fondamentaux clés pour estimer la valeur intrinsèque d'une entreprise par rapport à son prix de marché.  \n\nIci, vous pouvez accéder à : *Trailing P/E*, *Forward P/E*, *EPS Growth (YoY)*, *Revenue Growth (YoY)*, *Profit Margins* et *Debt to Equity*.",
+      "Avec les fondamentaux clés, on observe des aspects comme les bénéfices, les revenus, les marges et l'endettement, fondamentaux pour prendre des décisions d'investissement.  \n\nLes indicateurs que vous trouvez sur cette application sont : *Trailing P/E*, *Forward P/E*, *EPS Growth (YoY)*, *Revenue Growth (YoY)*, *Profit Margins* et *Debt to Equity*.",
+      "Les fondamentaux clés sont des paramètres qui permettent de comprendre de manière rapide et synthétique la force financière d'une entreprise.  \n\nParmi ceux disponibles ici, il y a : *Trailing P/E*, *Forward P/E*, *EPS Growth (YoY)*, *Revenue Growth (YoY)*, *Profit Margins* et *Debt to Equity*."
+    ],
+    "cost": 0,
+    "keywords": ["fondamentaux", "fundamentals", "expliquer", "explique", "expliques-moi", "qu'est-ce que c'est", "que sont", "fonction", "fonctionne", "sert", "veut dire", "signifie", "représente", "indique", "entend"],
+    "subquestions": {
+      "Voulez-vous connaître les fondamentaux de [FAVOURITE]?": "key_fundamentals",
+      "Voulez-vous savoir ce que dit l'analyse fondamentale de [TOPIC]?": "fundamental_analysis",
+      "Avez-vous besoin d'un aperçu des données fondamentales de [TOPIC]?": "fundamental_analysis"}
+},
+    "key_fundamentals": {
+    "questions": [
+      "Montrez-moi les key fundamentals de [TOPIC]",
+      "Quels sont les fondamentaux principaux de [TOPIC]?",
+      "Faites-moi voir les données fondamentales de [TOPIC]",
+      "Je veux connaître les fondamentaux de [TOPIC]",
+      "Pouvez-vous me montrer les key fundamentals de [TOPIC]?",
+      "Pouvez-vous me dire les données fondamentales de [TOPIC]?",
+      "Pouvez-vous me donner les fondamentaux de [TOPIC]?",
+      "Dites-moi les données fondamentales de [TOPIC]",
+      "Pouvez-vous me dire les key fundamentals de [TOPIC]?",
+      "Dites-moi les key fundamentals de [TOPIC]",
+      "Je voudrais les fondamentaux clés de [TOPIC]",
+      "Quels indicateurs fondamentaux avez-vous pour [TOPIC]?",
+      "Faites-moi voir les valeurs fondamentales de [TOPIC]",
+      "Fondamentaux de [TOPIC]",
+      "Fondamentaux clés de [TOPIC]",
+      "Key fundamentals de [TOPIC]",
+      "Key fundamentals pour [TOPIC]",
+      "Donnez-moi les fondamentaux de [TOPIC]",
+      "Donnez-moi les key fundamentals de [TOPIC]",
+      "Je veux savoir les fondamentaux de [TOPIC]",
+      "Je veux savoir les données fondamentales pour [TOPIC]",
+      "Je veux que vous me disiez les données fondamentales de [TOPIC]",
+      "Je veux que vous me disiez les key fundamentals de [TOPIC]",
+      "Je veux que vous me donniez les fondamentaux de [TOPIC]",
+      "Me donnez-vous les fondamentaux de [TOPIC]?",
+      "Me donnez-vous les key fundamentals sur [TOPIC]?",
+      "Me donneriez-vous les fondamentaux sur [TOPIC]?",
+      "Me donneriez-vous les key fundamentals sur [TOPIC]?",
+      "Pourriez-vous me donner les données fondamentales sur [TOPIC]?",
+      "Pourriez-vous me donner les key fundamentals sur [TOPIC]?"
+    ],
+    "answers": [
+      "Je vous ai préparé l'analyse de [TOPIC], vous pouvez voir les key fundamentals directement à partir de là 📊:",
+      "Voici l'analyse de [TOPIC]: cliquez sur le panneau et dans l'écran, vous trouverez ses principales données fondamentales:",
+      "👉 Voici l'analyse de [TOPIC], où vous pouvez consulter facilement tous les key fundamentals:",
+      "J'ai généré l'analyse de [TOPIC], où vous pouvez consulter tous les key fundamentals les plus pertinents:",
+      "Ici, vous pouvez visualiser directement les principaux fondamentaux de [TOPIC] grâce au bouton dédié:",
+      "Ici, vous pouvez voir directement les fondamentaux de [TOPIC]. 📎 Cliquez sur le bouton dédié:"
+    ],
+    "cost": 0,
+    "keywords": ["fondamentaux", "fondamentaux clés", "fundamentals"],
+    "tag": "free",
+    "subquestions": {
+      "Voulez-vous savoir ce que suggère l'analyse fondamentale de [TOPIC]?": "fundamental_analysis",
+      "Avez-vous besoin d'un aperçu général des fondamentaux de [TOPIC]?": "fundamental_analysis",
+      "Je peux vous fournir un résumé de ce que suggèrent les fondamentaux de [TOPIC]. Voulez-vous que je vous le donne?": "fundamental_analysis"}
+  },
+    "trailing_pe_info": {
+    "questions": [
+      "Qu'est-ce que le P/E trailing?",
+      "Pouvez-vous m'expliquer le price to earnings trailing?",
+      "M'expliquez-vous ce que signifie le P/E trailing?",
+      "Qu'indique le P/E trailing?",
+      "Pouvez-vous me dire à quoi sert le P/E trailing?",
+      "Je voudrais mieux comprendre le concept de P/E trailing",
+      "Que veut dire le ratio prix/bénéfices trailing?",
+      "Comment fonctionne le P/E trailing?",
+      "Pouvez-vous m'expliquer ce qu'est le ratio prix/bénéfices historique?",
+      "Quelles informations donne le P/E trailing?",
+      "Qu'est-ce que le P/E trailing?",
+      "Qu'est-ce que le ratio prix/bénéfices historique?",
+      "Qu'entend-on par P/E trailing?"
+    ],
+    "answers": [
+      "Le Trailing P/E (Price to Earnings) est un indicateur qui met en relation le prix actuel d'une action avec les bénéfices par action (BPA) réalisés au cours des 12 derniers mois.  \n\nIl sert à comprendre combien les investisseurs paient pour chaque unité de bénéfice générée par l'entreprise dans le passé. Une valeur élevée peut indiquer une surévaluation, tandis qu'une valeur basse peut indiquer une sous-évaluation.",
+      "Le P/E trailing représente le ratio entre le prix de marché d'un titre et le bénéfice par action généré au cours de la dernière année.  \n\nIl est utilisé pour évaluer si une action est chère ou à bon prix par rapport à sa capacité à générer des bénéfices historiques.",
+      "Le P/E trailing est un multiple de marché qui divise le prix de l'action par le BPA enregistré au cours des 12 mois précédents.  \n\nIl indique combien le marché est prêt à payer pour chaque dollar ou euro de bénéfice déjà réalisé par l'entreprise.",
+      "Le P/E trailing mesure combien de fois le prix de l'action intègre les bénéfices passés de l'entreprise.  \n\nIl est utile pour comparer différentes sociétés ou secteurs et comprendre si un titre est surévalué ou sous-évalué sur la base des données historiques.",
+      "Le ratio prix/bénéfices trailing (P/E trailing) est un outil d'analyse fondamentale qui se base sur les bénéfices déjà publiés.  \n\nIl permet d'estimer si le titre reflète de manière réaliste la performance passée de l'entreprise.",
+      "Le P/E trailing prend le prix actuel de l'action et le divise par les bénéfices par action réalisés au cours des 4 derniers trimestres.  \n\nC'est une mesure historique, elle reflète donc la rentabilité déjà réalisée, et non la rentabilité future.",
+      "Le P/E trailing est un indicateur d'évaluation qui utilise les données historiques des bénéfices pour les rapporter au prix courant du titre.  \n\nEn général, des valeurs élevées peuvent indiquer des attentes élevées, tandis que des valeurs basses peuvent signaler le scepticisme du marché.",
+      "Le P/E trailing est le multiple prix/bénéfices calculé sur les bénéfices effectifs de la dernière année.  \n\nIl aide les investisseurs à comprendre combien ils paient aujourd'hui pour la rentabilité déjà démontrée par l'entreprise.",
+      "Le P/E trailing mesure le niveau d'évaluation d'un titre sur la base de ses bénéfices passés.  \n\nC'est l'un des indicateurs les plus utilisés pour comparer des entreprises du même secteur.",
+      "Le P/E trailing indique le nombre de fois que le prix de l'action dépasse les bénéfices par action déjà enregistrés.  \n\nUne valeur basse peut indiquer que le titre est abordable, tandis qu'une valeur élevée peut signifier des attentes élevées de la part du marché."
+    ],
+    "cost": 0,
+    "keywords": ["trailing pe", "trailing p/e", "historique", "expliquer", "explique", "expliques-moi", "expliquer", "qu'est-ce que c'est", "fonction", "fonctionne", "sert", "veut dire", "signifie", "représente", "indique", "entend"],
+    "subquestions": {
+      "Voulez-vous aussi savoir ce qu'est le P/E forward?": "forward_pe_info",
+      "Voulez-vous aussi savoir ce qu'est l'EPS Growth?": "eps_growth_info"}
+},
+    "forward_pe_info": {
+    "questions": [
+      "Qu'est-ce que le P/E forward?",
+      "Pouvez-vous m'expliquer le price to earnings forward?",
+      "M'expliquez-vous ce que signifie le P/E forward?",
+      "Qu'indique le P/E forward?",
+      "Pouvez-vous me dire à quoi sert le P/E forward?",
+      "Je voudrais mieux comprendre le concept de P/E forward",
+      "Que veut dire le ratio prix/bénéfices forward?",
+      "Comment fonctionne le P/E forward?",
+      "Pouvez-vous m'expliquer ce qu'est le ratio prix/bénéfices prévisionnel?",
+      "Quelles informations donne le P/E forward?",
+      "Qu'est-ce que le ratio prix/bénéfices prévu?",
+      "Qu'entend-on par P/E forward?"
+    ],
+    "answers": [
+      "Le Forward P/E (Price to Earnings) est le ratio entre le prix actuel d'une action et les bénéfices par action prévus pour les 12 prochains mois.  \n\nContrairement au P/E trailing, qui se base sur des données passées, le P/E forward se penche sur les estimations futures des analystes.",
+      "Le P/E forward représente combien de fois le prix d'une action intègre les bénéfices estimés pour l'année suivante.  \n\nIl est utile pour comprendre les attentes de croissance que le marché attribue à une entreprise.",
+      "Le P/E forward est un multiple d'évaluation qui divise le prix actuel de l'action par les bénéfices attendus pour les 4 prochains trimestres.  \n\nEn pratique, il sert à estimer si l'entreprise est surévaluée ou sous-évaluée par rapport aux projections futures.",
+      "Le P/E forward mesure le prix de marché d'un titre par rapport aux bénéfices prévus et non aux bénéfices historiques.  \n\nC'est un outil utile pour les investisseurs qui regardent vers l'avenir et recherchent des entreprises avec des perspectives de croissance.",
+      "Le ratio prix/bénéfices forward est un indicateur qui se base sur des estimations de bénéfices pas encore réalisés.  \n\nIl offre une vision prospective et peut changer beaucoup en fonction de la précision des prévisions des analystes.",
+      "Le P/E forward prend le prix courant de l'action et le rapporte aux bénéfices attendus pour l'année suivante.  \n\nDes valeurs élevées indiquent que le marché s'attend à une croissance significative, des valeurs basses suggèrent des perspectives plus prudentes.",
+      "Le P/E forward est un multiple d'évaluation qui se penche sur les bénéfices futurs.  \n\nIl aide à comparer des entreprises similaires pour comprendre lesquelles ont des attentes de croissance plus élevées.",
+      "Le P/E forward représente un indicateur prospectif basé sur des bénéfices estimés.  \n\nIl peut être moins fiable que le P/E trailing car il dépend des prévisions, mais il est très utilisé par les investisseurs axés sur l'avenir.",
+      "Le P/E forward mesure combien de fois le prix d'une action dépasse les bénéfices attendus pour l'année prochaine.  \n\nIl sert à évaluer à quel point le marché croit en la croissance future de l'entreprise.",
+      "Le P/E forward indique l'évaluation d'un titre par rapport aux bénéfices prévus.  \n\nUne valeur basse peut signaler une sous-évaluation, une valeur élevée des attentes élevées ou de possibles surévaluations."
+    ],
+    "cost": 0,
+    "keywords": ["forward pe", "forward p/e", "prévu", "expliquer", "explique", "expliques-moi", "expliquer", "qu'est-ce que c'est", "fonction", "fonctionne", "sert", "veut dire", "signifie", "représente", "indique", "entend"],
+    "subquestions": {
+      "Voulez-vous aussi savoir ce qu'est le Revenue Growth?": "revenue_growth_info",
+      "Voulez-vous aussi savoir ce qu'est l'EPS Growth?": "eps_growth_info"}
+},
+    "eps_growth_info": {
+    "questions": [
+      "Qu'est-ce que l'EPS growth?",
+      "Pouvez-vous m'expliquer l'EPS growth?",
+      "Que signifie EPS growth?",
+      "Me dites-vous à quoi sert l'EPS growth?",
+      "Comment interpréter l'EPS growth?",
+      "Qu'indique l'EPS growth?",
+      "Je voudrais comprendre l'EPS growth",
+      "EPS growth: qu'est-ce que c'est?",
+      "Pouvez-vous m'expliquer le concept d'EPS growth?",
+      "Quelle est la signification d'EPS growth?",
+      "Qu'est-ce que l'EPS growth (YoY)?",
+      "Qu'est-ce que la croissance du bénéfice par action?",
+      "Qu'entend-on par croissance du bénéfice?"
+    ],
+    "answers": [
+      "L'EPS growth (YoY) indique la variation en pourcentage du bénéfice par action d'une société par rapport à l'année précédente.\n\nSur cette application, je suis en mesure de vous offrir cette donnée pour évaluer la croissance des bénéfices d'une entreprise et la comparer aux périodes précédentes.",
+      "L'EPS growth mesure dans quelle mesure le bénéfice par action d'une entreprise a augmenté ou diminué par rapport à l'année précédente.\n\nJe suis en mesure de vous fournir ces valeurs pour vous aider à comprendre la performance financière d'un actif dans le temps.",
+      "Avec l'EPS growth (Year over Year), on observe la variation annuelle du bénéfice par action.\n\nGrâce à cette application, vous pouvez voir ces données pour avoir une idée de la croissance économique de l'entreprise.",
+      "L'EPS growth représente le pourcentage de changement du bénéfice par action par rapport à l'année précédente.\n\nJe peux vous offrir cet indicateur pour analyser la croissance financière des actifs qui vous intéressent.",
+      "L'EPS growth (YoY) indique comment le bénéfice par action a varié d'une année à l'autre.\n\nCette application vous permet de visualiser ces valeurs pour mieux comprendre la performance historique d'un titre.",
+      "L'EPS growth est la mesure de la croissance du bénéfice par action d'une entreprise par rapport à l'année précédente.\n\nJe peux vous fournir cette donnée pour évaluer la solidité et la croissance de vos actifs.",
+      "L'EPS growth (YoY) indique la variation annuelle du bénéfice par action, utile pour comprendre si une société est en croissance.\n\nGrâce à cette application, vous pouvez obtenir ces valeurs pour comparer différentes entreprises ou périodes temporelles.",
+      "L'EPS growth mesure l'augmentation ou la diminution en pourcentage du bénéfice par action d'une entreprise par rapport à l'année précédente.\n\nJe suis en mesure de vous offrir ces informations pour une analyse plus complète de la performance de l'entreprise.",
+      "L'EPS growth (Year over Year) représente à quel point le bénéfice par action change annuellement.\n\nVous pouvez utiliser ces données sur cette application pour évaluer la trajectoire de croissance d'un actif.",
+      "Avec l'EPS growth, vous pouvez observer la variation en pourcentage du bénéfice par action par rapport à l'année précédente.\n\nCette application vous permet de consulter ces valeurs pour avoir une image claire de la croissance économique d'un titre.",
+      "L'EPS growth indique la variation annuelle du bénéfice par action d'une société.\n\nGrâce à cette application, vous pouvez obtenir cette donnée pour comprendre la tendance financière d'un actif.",
+      "L'EPS growth (YoY) vous montre comment le bénéfice par action a changé par rapport à l'année précédente.\n\nJe suis en mesure de vous fournir ces valeurs pour analyser la croissance et la stabilité financière des investissements.",
+      "L'EPS growth représente le pourcentage de croissance du bénéfice par action d'une année à l'autre.\n\nCette application vous permet de visualiser ces données pour comparer des périodes ou des entreprises différentes.",
+      "Avec l'EPS growth, on évalue la croissance annuelle du bénéfice par action.\n\nGrâce à cette application, vous pouvez accéder à ces valeurs pour avoir une vision claire de la performance de l'entreprise.",
+      "L'EPS growth mesure l'évolution du bénéfice par action sur une période annuelle.\n\nJe suis en mesure de vous offrir ces informations pour comprendre la santé financière des actifs.",
+      "L'EPS growth (YoY) indique le taux de croissance du bénéfice par action par rapport à l'année précédente.\n\nVous pouvez consulter ces valeurs sur cette application pour des analyses détaillées de la performance de l'entreprise.",
+      "L'EPS growth montre la variation en pourcentage du bénéfice par action d'un titre d'une année à l'autre.\n\nSur cette application, vous pouvez obtenir ces données pour évaluer la croissance économique d'une société.",
+      "Avec l'EPS growth, on observe combien le bénéfice par action a changé par rapport à l'année passée.\n\nCette application vous offre ces informations pour une comparaison entre différentes périodes ou entreprises.",
+      "L'EPS growth est un indicateur de la croissance annuelle du bénéfice par action.\n\nGrâce à cette application, vous pouvez visualiser ces données pour évaluer la performance et la solidité financière d'un actif.",
+      "L'EPS growth (YoY) vous permet de comprendre la variation du bénéfice par action en un an.\n\nJe suis en mesure de vous fournir ces valeurs pour vous aider dans vos décisions d'investissement."
+    ],
+    "cost": 0,
+    "keywords": ["eps", "eps growth", "croissance du bénéfice", "expliquer", "explique", "expliques-moi", "expliquer", "qu'est-ce que c'est", "fonction", "fonctionne", "sert", "veut dire", "signifie", "représente", "indique", "entend"],
+    "subquestions": {
+      "Voulez-vous aussi savoir ce qu'est le Revenue Growth?": "revenue_growth_info",
+      "Voulez-vous aussi savoir ce que sont les Profit Margins?": "profit_margins_info"}
+},
+    "revenue_growth_info": {
+    "questions": [
+      "Qu'est-ce que la revenue growth?",
+      "Pouvez-vous m'expliquer la revenue growth?",
+      "Que signifie revenue growth?",
+      "Me dites-vous à quoi sert la revenue growth?",
+      "Comment interpréter la revenue growth?",
+      "Qu'indique la revenue growth?",
+      "Je voudrais comprendre la revenue growth",
+      "Revenue growth: qu'est-ce que c'est?",
+      "Pouvez-vous m'expliquer le concept de revenue growth?",
+      "Quelle est la signification de revenue growth?",
+      "Qu'est-ce que revenue growth (YoY)?",
+      "Qu'est-ce que la croissance des revenus?",
+      "Qu'entend-on par revenue growth?"
+    ],
+    "answers": [
+      "La revenue growth (YoY) indique la variation en pourcentage du chiffre d'affaires d'une entreprise par rapport à l'année précédente.\n\nSur cette application, je suis en mesure de vous offrir cette donnée pour évaluer dans quelle mesure une entreprise augmente ses revenus dans le temps.",
+      "La revenue growth mesure dans quelle mesure le chiffre d'affaires d'une entreprise a augmenté ou diminué par rapport à l'année précédente.\n\nVous pouvez consulter ces valeurs pour comprendre la capacité de l'entreprise à générer des revenus.",
+      "Avec la revenue growth (Year over Year), on observe la variation annuelle des revenus d'une société.\n\nCette application vous permet de visualiser ces données pour analyser la performance économique d'un actif.",
+      "La revenue growth représente le pourcentage de changement du chiffre d'affaires par rapport à l'année précédente.\n\nJe suis en mesure de vous fournir cet indicateur pour avoir une image claire de la croissance de l'entreprise.",
+      "La revenue growth (YoY) indique comment les revenus d'une entreprise ont varié d'une année à l'autre.\n\nSur cette application, vous pouvez voir ces valeurs pour comparer différentes entreprises ou périodes temporelles.",
+      "La revenue growth mesure la croissance des revenus d'une entreprise par rapport à l'année précédente.\n\nJe peux vous offrir cette donnée pour évaluer la tendance économique des actifs qui vous intéressent.",
+      "Revenue growth (YoY) indique la variation annuelle des revenus, utile pour comprendre si une entreprise est en croissance.\n\nCette application vous permet d'obtenir ces valeurs pour comparer des périodes ou des entreprises différentes.",
+      "La revenue growth indique l'augmentation ou la diminution en pourcentage des revenus d'une entreprise par rapport à l'année précédente.\n\nJe suis en mesure de vous offrir ces informations pour une analyse complète de la performance de l'entreprise.",
+      "Revenue growth (Year over Year) représente à quel point le chiffre d'affaires change annuellement.\n\nVous pouvez utiliser ces données sur cette application pour évaluer la trajectoire de croissance d'un actif.",
+      "Avec la revenue growth, vous pouvez observer la variation en pourcentage des revenus par rapport à l'année précédente.\n\nCette application vous permet de consulter ces valeurs pour avoir une image claire de la croissance économique d'un titre.",
+      "La revenue growth indique la variation annuelle des revenus d'une société.\n\nGrâce à cette application, vous pouvez obtenir cette donnée pour comprendre la tendance financière d'un actif.",
+      "Revenue growth (YoY) vous montre comment les revenus ont changé par rapport à l'année précédente.\n\nJe suis en mesure de vous fournir ces valeurs pour analyser la croissance et la stabilité financière des investissements.",
+      "La revenue growth représente le pourcentage de croissance des revenus d'une année à l'autre.\n\nCette application vous permet de visualiser ces données pour comparer des périodes ou des entreprises différentes.",
+      "Avec la revenue growth, on évalue la croissance annuelle des revenus.\n\nGrâce à cette application, vous pouvez accéder à ces valeurs pour avoir une vision claire de la performance de l'entreprise.",
+      "La revenue growth mesure l'évolution des revenus sur une période annuelle.\n\nJe suis en mesure de vous offrir ces informations pour comprendre la santé financière des actifs.",
+      "Revenue growth (YoY) indique le taux de croissance des revenus par rapport à l'année précédente.\n\nVous pouvez consulter ces valeurs sur cette application pour des analyses détaillées de la performance de l'entreprise.",
+      "La revenue growth montre la variation en pourcentage des revenus d'un titre d'une année à l'autre.\n\nSur cette application, vous pouvez obtenir ces données pour évaluer la croissance économique d'une société.",
+      "Avec la revenue growth, on observe combien les revenus ont changé par rapport à l'année passée.\n\nCette application vous offre ces informations pour une comparaison entre différentes périodes ou entreprises.",
+      "La revenue growth est un indicateur de la croissance annuelle des revenus.\n\nGrâce à cette application, vous pouvez visualiser ces données pour évaluer la performance et la solidité financière d'un actif.",
+      "Revenue growth (YoY) vous permet de comprendre la variation des revenus en un an.\n\nJe suis en mesure de vous fournir ces valeurs pour vous aider dans vos décisions d'investissement."
+    ],
+    "cost": 0,
+    "keywords": ["revenue", "revenue growth", "croissance des revenus", "expliquer", "explique", "expliques-moi", "expliquer", "qu'est-ce que c'est", "fonction", "fonctionne", "sert", "veut dire", "signifie", "représente", "indique", "entend"],
+    "subquestions": {
+      "Voulez-vous aussi savoir ce qu'est le ratio Debt To Equity?": "debt_to_equity_info",
+      "Voulez-vous aussi savoir ce que sont les Profit Margins?": "profit_margins_info"}
+},
+    "profit_margins_info": {
+    "questions": [
+      "Que sont les profit margins?",
+      "Pouvez-vous m'expliquer les profit margins?",
+      "Qu'indique le profit margin?",
+      "Me dites-vous à quoi servent les profit margins?",
+      "Comment interpréter les profit margins?",
+      "Que mesurent les profit margins?",
+      "Je voudrais comprendre les profit margins",
+      "Profit margins: qu'est-ce que c'est?",
+      "Pouvez-vous m'expliquer le concept de profit margins?",
+      "Quelle est la signification des profit margins?",
+      "Que sont les marges de profit d'une entreprise?",
+      "Que sont les marges de profit?",
+      "M'expliquez-vous ce que sont les marges de profit?",
+      "Qu'est-ce que la marge de profit?",
+      "Que sont les marges d'exploitation?",
+      "Qu'entend-on par marges d'exploitation?"
+    ],
+    "answers": [
+      "Les profit margins indiquent le pourcentage de revenus qu'une entreprise conserve comme profit après avoir couvert les coûts de production et opérationnels.\n\nSur cette application, je suis en mesure de vous offrir cette donnée pour évaluer la rentabilité d'une entreprise.",
+      "Les profit margins mesurent combien de profit une entreprise réalise pour chaque unité de revenu.\n\nVous pouvez consulter ces valeurs pour comprendre la capacité d'une entreprise à générer des gains à partir de ses revenus.",
+      "La profit margin représente le pourcentage de revenus qui reste à l'entreprise comme bénéfice net.\n\nCette application vous permet de visualiser ces données pour analyser l'efficacité opérationnelle d'un actif.",
+      "Les profit margins montrent quelle part des revenus totaux est convertie en profit.\n\nJe suis en mesure de vous fournir ces valeurs pour avoir une image claire de la rentabilité de l'entreprise.",
+      "La profit margin indique la part des revenus qui reste à l'entreprise après avoir supporté tous les coûts.\n\nSur cette application, vous pouvez voir ces données pour comparer différentes entreprises ou périodes temporelles.",
+      "Les profit margins mesurent la rentabilité d'une entreprise, c'est-à-dire combien elle gagne par rapport à ses revenus.\n\nJe peux vous offrir ces valeurs pour évaluer l'efficacité économique des actifs qui vous intéressent.",
+      "La profit margin indique le pourcentage de revenus que l'entreprise conserve comme bénéfice net.\n\nCette application vous permet d'obtenir ces données pour comparer des entreprises ou des périodes différentes.",
+      "Les profit margins représentent la capacité de l'entreprise à générer du profit à partir de ses propres revenus.\n\nJe suis en mesure de vous offrir ces informations pour une analyse complète de la performance de l'entreprise.",
+      "La profit margin montre la proportion de revenus qui se transforme en gain net.\n\nVous pouvez utiliser ces données sur cette application pour évaluer la rentabilité et la solidité financière d'un titre.",
+      "Les profit margins vous permettent d'observer combien de profit une entreprise réalise par rapport à ses revenus.\n\nCette application vous permet de consulter ces valeurs pour avoir une image claire de la performance économique d'un actif.",
+      "La profit margin indique la rentabilité nette d'une entreprise calculée sur les revenus totaux.\n\nSur cette application, vous pouvez obtenir cette donnée pour comprendre à quel point un actif est efficace pour générer des gains.",
+      "Les profit margins mesurent quelle part des revenus d'une entreprise devient un profit net.\n\nCette application vous offre ces données pour comparer différentes périodes ou entreprises."
+    ],
+    "cost": 0,
+    "keywords": ["profit margin", "profit margins", "marges d'exploitation", "marge d'exploitation", "marge de profit", "marges de profit", "expliquer", "explique", "expliques-moi", "expliquer", "qu'est-ce que c'est", "fonction", "fonctionne", "sert", "veut dire", "signifie", "représente", "indique", "entend"],
+    "subquestions": {
+      "Voulez-vous aussi savoir ce qu'est le ratio Debt To Equity?": "debt_to_equity_info",
+      "Voulez-vous aussi savoir ce qu'est le P/E Trailing?": "trailing_pe_info"}
+},
+    "debt_to_equity_info": {
+    "questions": [
+      "Qu'est-ce que le debt to equity?",
+      "Pouvez-vous m'expliquer le debt to equity?",
+      "Qu'indique le ratio debt to equity?",
+      "Me dites-vous à quoi sert le debt to equity?",
+      "Comment interpréter le debt to equity?",
+      "Que mesure le debt to equity?",
+      "Je voudrais comprendre le debt to equity",
+      "Debt to equity: que signifie-t-il?",
+      "Pouvez-vous m'expliquer le concept de debt to equity?",
+      "Quelle est la signification du debt to equity?",
+      "Qu'indique le ratio dette/capitaux propres?",
+      "Qu'est-ce que le ratio dette/capitaux propres?",
+      "Qu'entend-on par ratio dette capitaux propres?",
+      "Qu'entend-on par debt to equity?"
+    ],
+    "answers": [
+      "Le debt to equity indique le rapport entre la dette totale d'une entreprise et ses capitaux propres, montrant dans quelle mesure l'entreprise est financée par la dette par rapport aux fonds propres.\n\nSur cette application, je suis en mesure de vous offrir cette donnée pour évaluer la solidité financière d'une entreprise.",
+      "Le debt to equity mesure combien une entreprise utilise la dette pour financer ses activités par rapport au capital des actionnaires.\n\nVous pouvez consulter ces valeurs pour comprendre le niveau de risque financier d'un actif.",
+      "Le debt to equity représente le rapport entre les dettes et les capitaux propres d'une entreprise.\n\nCette application vous permet de visualiser ces données pour analyser la structure financière d'un actif.",
+      "Le debt to equity montre la proportion entre la dette et les capitaux propres d'une entreprise.\n\nJe suis en mesure de vous fournir ces valeurs pour évaluer la stabilité économique et financière d'un titre.",
+      "Le debt to equity indique combien la dette contribue au financement de l'entreprise par rapport aux fonds propres.\n\nSur cette application, vous pouvez voir ces données pour comparer différentes entreprises ou périodes.",
+      "Le debt to equity mesure le degré de levier financier d'une entreprise.\n\nJe peux vous offrir ces valeurs pour évaluer le risque associé à l'endettement de l'actif.",
+      "Le debt to equity montre la proportion entre la dette et le capital actionnarial, utile pour comprendre la structure financière.\n\nCette application vous permet d'obtenir ces données pour comparer différentes entreprises ou périodes.",
+      "Le debt to equity indique combien de capital externe une entreprise utilise par rapport à son propre capital.\n\nJe suis en mesure de vous offrir ces informations pour une analyse complète de la solidité financière.",
+      "Le debt to equity représente le niveau d'endettement d'une entreprise par rapport aux capitaux propres.\n\nVous pouvez utiliser ces données sur cette application pour évaluer le risque financier et la stabilité du titre.",
+      "Le debt to equity indique la relation entre la dette et le patrimoine net d'une entreprise.\n\nCette application vous permet de consulter ces valeurs pour avoir une image claire de la structure financière de l'actif.",
+      "Le debt to equity mesure combien de dette une entreprise a par rapport à ses capitaux propres.\n\nSur cette application, vous pouvez obtenir cette donnée pour comprendre à quel point un actif est financièrement stable.",
+      "Le debt to equity est un indicateur du levier financier d'une entreprise et de sa capacité à gérer la dette.\n\nCette application vous offre ces données pour comparer différentes périodes ou entreprises."
+    ],
+    "cost": 0,
+    "keywords": ["debt to equity", "dette", "capitaux propres", "expliquer", "explique", "expliques-moi", "expliquer", "qu'est-ce que c'est", "fonction", "fonctionne", "sert", "veut dire", "signifie", "représente", "indique", "entend"],
+    "subquestions": {
+      "Voulez-vous aussi savoir ce qu'est le P/E Forward?": "forward_pe_info",
+      "Voulez-vous aussi savoir ce qu'est le P/E Trailing?": "trailing_pe_info"}
+},
+    "yoy_info": {
+    "questions": [
+      "Que signifie YoY?",
+      "Expliquez-moi la signification de YoY",
+      "Que veut dire YoY?",
+      "Me dites-vous la signification de YoY?",
+      "Dites-moi ce que veut dire YoY",
+      "Qu'est-ce que la croissance YoY?",
+      "YoY, que signifie-t-il?",
+      "Qu'indique l'expression année sur année?",
+      "Quelle est la signification de YoY?",
+      "M'expliquez-vous ce que veut dire YoY?",
+      "M'expliquez-vous ce que signifie YoY?",
+      "Qu'entend-on par YoY?"
+    ],
+    "answers": [
+      "YoY signifie 'Year over Year', c'est-à-dire la comparaison des données actuelles avec celles de la même période de l'année précédente. Cette mesure est souvent utilisée pour des indicateurs fondamentaux comme l'EPS growth (croissance du bénéfice par action) et la revenue growth (croissance des revenus).",
+      "L'acronyme YoY indique la croissance ou la variation d'un indicateur en comparant l'année courante avec l'année précédente. Dans le domaine financier, il est couramment appliqué à des données fondamentales comme l'EPS growth et la revenue growth pour surveiller les performances de l'entreprise."
+    ],
+    "cost": 0,
+    "keywords": ["yoy", "YoY", "expliquer", "explique", "expliques-moi", "expliquer", "qu'est-ce que c'est", "fonction", "fonctionne", "sert", "veut dire", "signifie", "représente", "indique", "entend"]
+},
+    "pe_info": {
+    "questions": [
+      "Que signifie P/E?",
+      "Expliquez-moi ce que veut dire P/E",
+      "Que veut dire Price to Earnings?",
+      "Me dites-vous la signification du P/E?",
+      "Dites-moi ce que veut dire P/E",
+      "Qu'entend-on par PE?",
+      "À quoi sert le PE?",
+      "Qu'est-ce que le ratio Price to Earnings?",
+      "Qu'est-ce que le ratio PE?",
+      "Qu'indique le PE?",
+      "Pouvez-vous m'expliquer le PE d'une entreprise?",
+      "Que représente le PE en finance?",
+      "M'expliquez-vous ce que signifie PE?",
+      "M'expliquez-vous ce que veut dire P/E?"
+    ],
+    "answers": [
+      "Le P/E, ou Price to Earnings, est le ratio entre le prix de marché d'une action et le bénéfice par action (BPA). Cet indicateur est utilisé pour évaluer si une action est surévaluée ou sous-évaluée par rapport aux bénéfices générés.",
+      "Le ratio Price to Earnings (P/E) mesure combien de fois le prix d'une action couvre son bénéfice par action. C'est l'un des principaux indicateurs fondamentaux utilisés pour comparer des entreprises ou des secteurs et comprendre l'évaluation relative sur le marché."
+    ],
+    "cost": 0,
+    "keywords": ["pe", "p/e", "expliquer", "explique", "expliques-moi", "expliquer", "qu'est-ce que c'est", "fonction", "fonctionne", "sert", "veut dire", "signifie", "représente", "indique", "entend"]
+},
+    "trailing_pe": {
+    "questions": [
+      "Quel est le P/E trailing de [TOPIC]?",
+      "Me dites-vous la valeur du P/E trailing de [TOPIC]?",
+      "Quel P/E trailing a [TOPIC]?",
+      "Pouvez-vous me dire le P/E trailing de [TOPIC]?",
+      "Quel est le ratio prix/bénéfices trailing de [TOPIC]?",
+      "Quel est le ratio prix/bénéfices historique de [TOPIC]?",
+      "Me donnez-vous le price to earnings trailing historique de [TOPIC]?",
+      "À combien s'élève le P/E trailing de [TOPIC]?",
+      "Montrez-moi le P/E trailing pour [TOPIC]",
+      "Je voudrais savoir le P/E trailing actuel de [TOPIC]",
+      "Dites-moi le P/E trailing courant de [TOPIC]",
+      "Dites-moi le PE trailing de [TOPIC]"
+    ],
+    "answers": [
+      "Le P/E trailing de [TOPIC] est actuellement [TRAILING_PE_VALUE].",
+      "Pour [TOPIC], le ratio prix/bénéfices trailing s'élève à [TRAILING_PE_VALUE].",
+      "La valeur courante du P/E trailing de [TOPIC] est [TRAILING_PE_VALUE].",
+      "Selon les données les plus récentes, [TOPIC] a un P/E trailing égal à [TRAILING_PE_VALUE].",
+      "Actuellement, le P/E trailing de [TOPIC] est [TRAILING_PE_VALUE].",
+      "Les dernières données indiquent que [TOPIC] a un P/E trailing de [TRAILING_PE_VALUE].",
+      "Le ratio prix/bénéfices trailing pour [TOPIC] est [TRAILING_PE_VALUE].",
+      "Le P/E trailing enregistré aujourd'hui pour [TOPIC] est [TRAILING_PE_VALUE]."
+    ],
+    "cost": 2,
+    "keywords": ["trailing pe", "trailing p/e", "historique", "actuel", "courant", "mis à jour"],
+    "tag": "free",
+    "subquestions": {
+      "Voulez-vous aussi savoir le P/E Forward de [TOPIC]?": "forward_pe",
+      "Voulez-vous aussi savoir l'EPS Growth de [TOPIC]?": "eps_growth"}
+},
+    "forward_pe": {
+    "questions": [
+      "Quel est le P/E forward de [TOPIC]?",
+      "Me dites-vous la valeur du P/E forward de [TOPIC]?",
+      "Quel P/E forward a [TOPIC]?",
+      "Pouvez-vous me dire le P/E forward de [TOPIC]?",
+      "Quel est le ratio prix/bénéfices prévu de [TOPIC]?",
+      "Me donnez-vous le price to earnings forward de [TOPIC]?",
+      "À combien s'élève le P/E forward de [TOPIC]?",
+      "Montrez-moi le P/E forward pour [TOPIC]",
+      "Je voudrais savoir le P/E forward actuel de [TOPIC]",
+      "Dites-moi le P/E forward de [TOPIC]",
+      "Dites-moi le PE forward de [TOPIC]",
+      "Donnez-moi le P/E forward de [TOPIC]",
+      "Donnez-moi le forward de [TOPIC]"
+    ],
+    "answers": [
+      "Le P/E forward de [TOPIC] est actuellement [FORWARD_PE_VALUE].",
+      "Pour [TOPIC], le ratio prix/bénéfices prévu s'élève à [FORWARD_PE_VALUE].",
+      "La valeur courante du P/E forward de [TOPIC] est [FORWARD_PE_VALUE].",
+      "Selon les données les plus récentes, [TOPIC] a un P/E forward égal à [FORWARD_PE_VALUE].",
+      "Actuellement, le P/E forward de [TOPIC] est [FORWARD_PE_VALUE].",
+      "Les dernières données indiquent que [TOPIC] a un P/E prévu de [FORWARD_PE_VALUE].",
+      "Le ratio prix/bénéfices forward pour [TOPIC] est [FORWARD_PE_VALUE].",
+      "Le P/E forward estimé aujourd'hui pour [TOPIC] est [FORWARD_PE_VALUE]."
+    ],
+    "cost": 2,
+    "keywords": ["forward pe", "forward p/e", "prévu", "actuel", "courant", "mis à jour"],
+    "tag": "free",
+    "subquestions": {
+      "Voulez-vous aussi savoir la Revenue Growth de [TOPIC]?": "revenue_growth",
+      "Voulez-vous aussi savoir l'EPS Growth de [TOPIC]?": "eps_growth"}
+},
+    "eps_growth": {
+    "questions": [
+      "Quelle est la croissance EPS de [TOPIC]?",
+      "Me dites-vous la valeur de l'EPS growth de [TOPIC]?",
+      "Quelle croissance des bénéfices a [TOPIC]?",
+      "Pouvez-vous m'indiquer l'EPS growth de [TOPIC]?",
+      "Quelle est la variation de l'EPS année sur année de [TOPIC]?",
+      "Me donnez-vous l'EPS growth (YoY) de [TOPIC]?",
+      "À combien s'élève la croissance de l'EPS de [TOPIC]?",
+      "Montrez-moi l'EPS growth pour [TOPIC]",
+      "Je voudrais savoir de combien l'EPS de [TOPIC] a augmenté",
+      "Dites-moi la variation EPS année sur année de [TOPIC]",
+      "EPS de [TOPIC]",
+      "Donnez-moi l'EPS de [TOPIC]"
+    ],
+    "answers": [
+      "La croissance EPS de [TOPIC] au cours des 12 derniers mois est [EPS_GROWTH_VALUE].",
+      "Pour [TOPIC], l'EPS growth (YoY) s'élève à [EPS_GROWTH_VALUE].",
+      "La valeur actuelle de la croissance des bénéfices par action de [TOPIC] est [EPS_GROWTH_VALUE].",
+      "Selon les données les plus récentes, [TOPIC] a un EPS growth égal à [EPS_GROWTH_VALUE].",
+      "Actuellement, l'EPS growth de [TOPIC] est [EPS_GROWTH_VALUE].",
+      "Les dernières données indiquent que [TOPIC] a enregistré une variation EPS de [EPS_GROWTH_VALUE].",
+      "La croissance des bénéfices par action pour [TOPIC] est actuellement [EPS_GROWTH_VALUE].",
+      "La valeur EPS growth estimée aujourd'hui pour [TOPIC] est [EPS_GROWTH_VALUE]."
+    ],
+    "cost": 2,
+    "keywords": ["eps", "eps growth", "actuel", "courant", "mis à jour"],
+    "tag": "free",
+    "subquestions": {
+      "Voulez-vous aussi savoir la Revenue Growth de [TOPIC]?": "revenue_growth",
+      "Voulez-vous aussi savoir les Profit Margins de [TOPIC]?": "profit_margins"}
+},
+    "revenue_growth": {
+    "questions": [
+      "Quelle est la croissance des revenus de [TOPIC]?",
+      "Me dites-vous la valeur de la revenue growth de [TOPIC]?",
+      "Quelle croissance des revenus a enregistré [TOPIC]?",
+      "Pouvez-vous m'indiquer la revenue growth de [TOPIC]?",
+      "Quelle est la variation des revenus année sur année de [TOPIC]?",
+      "Me donnez-vous la revenue growth (YoY) de [TOPIC]?",
+      "À combien s'élève la croissance des revenus de [TOPIC]?",
+      "Montrez-moi la revenue growth pour [TOPIC]",
+      "Je voudrais savoir de combien les revenus de [TOPIC] ont augmenté",
+      "Dites-moi la variation des revenus année sur année de [TOPIC]",
+      "Donnez-moi la variation des revenus de [TOPIC]",
+      "Donnez-moi la revenue growth de [TOPIC]"
+    ],
+    "answers": [
+      "La croissance des revenus de [TOPIC] au cours des 12 derniers mois est [REVENUE_GROWTH_VALUE].",
+      "Pour [TOPIC], la revenue growth (YoY) s'élève à [REVENUE_GROWTH_VALUE].",
+      "La valeur actuelle de la variation des revenus de [TOPIC] est [REVENUE_GROWTH_VALUE].",
+      "Selon les données les plus récentes, [TOPIC] a une revenue growth égale à [REVENUE_GROWTH_VALUE].",
+      "Actuellement, la revenue growth de [TOPIC] est [REVENUE_GROWTH_VALUE].",
+      "Les dernières données indiquent que [TOPIC] a enregistré une variation des revenus de [REVENUE_GROWTH_VALUE].",
+      "La croissance des revenus pour [TOPIC] est actuellement [REVENUE_GROWTH_VALUE].",
+      "La valeur revenue growth estimée aujourd'hui pour [TOPIC] est [REVENUE_GROWTH_VALUE]."
+    ],
+    "cost": 2,
+    "keywords": ["revenue", "revenue growth", "revenus", "actuel", "courant", "mis à jour", "mis à jours"],
+    "tag": "free",
+    "subquestions": {
+      "Voulez-vous aussi savoir le ratio Debt To Equity de [TOPIC]?": "debt_to_equity",
+      "Voulez-vous aussi savoir les Profit Margins de [TOPIC]?": "profit_margins"}
+},
+    "profit_margins": {
+    "questions": [
+      "Quelle est la marge de profit de [TOPIC]?",
+      "Me dites-vous la valeur des profit margins de [TOPIC]?",
+      "Quelle marge de profit a enregistré [TOPIC]?",
+      "Pouvez-vous m'indiquer la profit margin de [TOPIC]?",
+      "Quel est le pourcentage de profit de [TOPIC]?",
+      "Me donnez-vous les profit margins de [TOPIC]?",
+      "À combien s'élève la marge de profit de [TOPIC]?",
+      "Montrez-moi les profit margins pour [TOPIC]",
+      "Je voudrais savoir quelle est la marge de profit de [TOPIC]",
+      "Dites-moi le pourcentage de profit de [TOPIC]",
+      "Donnez-moi la marge de profit de [TOPIC]",
+      "Dites-moi le profit de [TOPIC]",
+      "Donnez-moi les profit margins de [TOPIC]"
+    ],
+    "answers": [
+      "La marge de profit de [TOPIC] est actuellement [PROFIT_MARGINS_VALUE].",
+      "Pour [TOPIC], les profit margins s'élèvent à [PROFIT_MARGINS_VALUE].",
+      "La valeur actuelle de la marge de profit de [TOPIC] est [PROFIT_MARGINS_VALUE].",
+      "Selon les données les plus récentes, [TOPIC] a des profit margins égaux à [PROFIT_MARGINS_VALUE].",
+      "Actuellement, la marge de profit de [TOPIC] est [PROFIT_MARGINS_VALUE].",
+      "Les dernières données indiquent que [TOPIC] a enregistré une marge de profit de [PROFIT_MARGINS_VALUE].",
+      "Les profit margins pour [TOPIC] sont actuellement [PROFIT_MARGINS_VALUE].",
+      "La valeur estimée aujourd'hui de la marge de profit de [TOPIC] est [PROFIT_MARGINS_VALUE]."
+    ],
+    "cost": 2,
+    "keywords": ["profit margins", "profit", "enregistré", "actuel", "courant", "mis à jour"],
+    "tag": "free",
+    "subquestions": {
+      "Voulez-vous aussi savoir le ratio Debt To Equity de [TOPIC]?": "debt_to_equity",
+      "Voulez-vous aussi savoir le P/E Trailing de [TOPIC]?": "trailing_pe"}
+},
+    "debt_to_equity": {
+    "questions": [
+      "Quel est le ratio debt to equity de [TOPIC]?",
+      "Me dites-vous la valeur du ratio debt/equity de [TOPIC]?",
+      "Quel ratio entre dette et capitaux propres a [TOPIC]?",
+      "Pouvez-vous m'indiquer le debt to equity de [TOPIC]?",
+      "Quelle est la valeur de la dette par rapport au patrimoine de [TOPIC]?",
+      "Me donnez-vous le debt to equity (ratio dette/capitaux propres) de [TOPIC]?",
+      "À combien s'élève le debt/equity de [TOPIC]?",
+      "Que vaut le debt equity de [TOPIC]?",
+      "Debt equity de [TOPIC]",
+      "Debt to equity de [TOPIC]",
+      "Debt/equity de [TOPIC]",
+      "Montrez-moi le ratio debt to equity pour [TOPIC]",
+      "Je voudrais savoir quel est le ratio dette/patrimoine de [TOPIC]",
+      "Dites-moi le debt to equity de [TOPIC]",
+      "Donnez-moi le debt to equity de [TOPIC]"
+    ],
+    "answers": [
+      "Le ratio debt to equity de [TOPIC] est actuellement [DEBT_TO_EQUITY_VALUE].",
+      "Pour [TOPIC], le ratio debt/equity s'élève à [DEBT_TO_EQUITY_VALUE].",
+      "La valeur actuelle du ratio dette/capitaux propres de [TOPIC] est [DEBT_TO_EQUITY_VALUE].",
+      "Selon les données les plus récentes, [TOPIC] a un debt to equity égal à [DEBT_TO_EQUITY_VALUE].",
+      "Actuellement, le ratio debt to equity de [TOPIC] est [DEBT_TO_EQUITY_VALUE].",
+      "Les dernières données indiquent que [TOPIC] a enregistré un debt/equity de [DEBT_TO_EQUITY_VALUE].",
+      "Le debt to equity pour [TOPIC] est actuellement [DEBT_TO_EQUITY_VALUE].",
+      "La valeur estimée aujourd'hui du ratio dette/capitaux propres de [TOPIC] est [DEBT_TO_EQUITY_VALUE]."
+    ],
+    "cost": 2,
+    "keywords": ["debt to equity", "debt/equity", "dette/patrimoine", "equity de", "actuel", "courant", "mis à jour"],
+    "tag": "free",
+    "subquestions": {
+      "Voulez-vous aussi savoir le P/E Forward de [TOPIC]?": "forward_pe",
+      "Voulez-vous aussi savoir le P/E Trailing de [TOPIC]?": "trailing_pe"}
+},
+  "inflation_deflation": {
+    "questions": [
+      "Comment l'inflation affecte-t-elle les marchés ?",
+      "Quel est l'impact de la déflation sur l'économie ?",
+      "Pouvez-vous m'expliquer les implications de l'inflation et de la déflation pour les investisseurs ?",
+      "Quels effets l'inflation et la déflation ont-elles sur les marchés financiers ?",
+      "Je voudrais comprendre comment l'inflation et la déflation influencent les investissements",
+      "Que se passe-t-il sur les marchés boursiers en cas d'inflation ?",
+      "Et en cas de déflation, qu'est-ce qui change pour les marchés ?",
+      "Pouvez-vous m'expliquer simplement l'impact de l'inflation et de la déflation ?",
+      "Quels risques l'inflation représente-t-elle pour les investisseurs ?",
+      "Quelles sont les conséquences de la déflation sur les marchés ?",
+      "Expliquez-moi l'inflation",
+      "Expliquez-moi la déflation",
+      "Expliquez-moi l'inflation et la déflation"
+    ],
+    "answers": [
+      "L'inflation et la déflation ont des impacts très différents sur les marchés.\n\nAvec l'inflation, le pouvoir d'achat diminue et les banques centrales ont tendance à augmenter les taux d'intérêt pour la contrôler. Cela pèse souvent sur les marchés boursiers et obligataires, mais peut favoriser les actifs réels comme l'or et les matières premières.\n\nLa déflation, quant à elle, entraîne une baisse générale des prix et de la consommation. Les entreprises réduisent leurs bénéfices et leurs investissements, les marchés boursiers en souffrent et les banques centrales tentent de stimuler l'économie en baissant les taux ou en introduisant des politiques expansionnistes.",
+      "L'inflation a tendance à réduire la valeur réelle de l'argent et rend le financement plus coûteux. Pour cette raison, les obligations d'État et les obligations peuvent perdre de la valeur. Au contraire, les secteurs liés aux biens réels et aux matières premières peuvent en bénéficier.\n\nLa déflation est plus rare mais très risquée : avec la chute des prix, les consommateurs reportent leurs achats et les entreprises réduisent leurs investissements et leurs salaires. Cela génère une spirale négative qui frappe durement les marchés boursiers.",
+      "L'inflation et la déflation sont deux faces opposées de la stabilité des prix, mais toutes deux ont un impact sur les investissements.\n\nAvec une inflation élevée, les banques centrales augmentent les taux et le crédit devient plus coûteux. Les actions peuvent souffrir, mais certains secteurs (énergie, matières premières, valeurs refuges) deviennent plus attractifs.\n\nAvec la déflation, en revanche, les prix baissent et l'économie ralentit. Les investisseurs se réfugient dans des actifs sûrs comme les obligations d'État et l'or, tandis que les marchés boursiers ont tendance à baisser.",
+      "L'inflation entraîne une augmentation générale des prix et une réduction du pouvoir d'achat. Pour la contrer, les banques centrales interviennent avec des politiques restrictives qui freinent les marchés.\n\nLa déflation réduit les prix, mais déclenche une spirale de baisse de la consommation et des investissements. Dans les deux cas, les marchés financiers subissent de fortes pressions et la stratégie d'un investisseur doit s'adapter au contexte.",
+      "Une inflation contrôlée est physiologique pour l'économie, mais si elle devient élevée, elle entraîne de la volatilité et rend les marchés plus difficiles à prévoir. Certains actifs comme l'immobilier et les matières premières peuvent protéger contre ce risque.\n\nLa déflation, en revanche, est considérée comme plus dangereuse : elle signale une stagnation économique, réduit les bénéfices des entreprises et pousse les marchés vers des baisses généralisées.",
+      "L'inflation et la déflation ont toutes deux des conséquences directes sur le sentiment des investisseurs.\n\nUne inflation excessive réduit la valeur réelle des rendements, poussant les opérateurs vers des investissements alternatifs. La déflation signale une faiblesse économique, augmente les faillites d'entreprises et pousse les investisseurs vers des valeurs refuges.\n\nDans les deux cas, la diversification devient un outil fondamental pour limiter les risques."
+    ],
+    "cost": 0,
+    "keywords": ["inflation", "déflation", "explique", "expliquer", "c'est quoi", "que sont", "fonctionne", "signifie", "représente", "indique"],
+    "subquestions": {
+      "Voulez-vous que j'explique aussi comment les taux de change influencent les marchés financiers ?": "tassi_cambio",
+      "Voulez-vous que j'explique aussi comment fonctionnent les politiques monétaires ?": "politiche_monetarie"}
+  },
+  "politiche_monetarie": {
+    "questions": [
+      "Que sont les politiques monétaires expansionnistes ?",
+      "Quels sont les effets des politiques monétaires restrictives ?",
+      "Pouvez-vous m'expliquer la différence entre les politiques monétaires expansionnistes et restrictives ?",
+      "Quel impact les politiques monétaires ont-elles sur le marché ?",
+      "Comment les politiques monétaires expansionnistes influencent-elles les marchés ?",
+      "Comment les marchés réagissent-ils aux politiques restrictives ?",
+      "Je voudrais mieux comprendre les politiques monétaires expansionnistes et restrictives",
+      "Pouvez-vous m'expliquer comment les politiques monétaires affectent l'économie et les investissements ?",
+      "Quelle est la différence entre une politique monétaire restrictive et une politique expansionniste ?",
+      "Comment les décisions de politique monétaire des banques centrales influencent-elles les marchés ?",
+      "Expliquez-moi les politiques monétaires",
+      "Parlez-moi des politiques monétaires"
+    ],
+    "answers": [
+      "Les politiques monétaires sont des outils utilisés par les banques centrales pour influencer l'économie en contrôlant la monnaie et les taux d'intérêt.\n\nLes politiques expansionnistes visent à stimuler la croissance économique : la banque centrale abaisse les taux d'intérêt ou augmente les liquidités, facilitant l'obtention de crédit. Cela favorise la consommation et l'investissement, souvent avec des effets positifs sur les marchés boursiers, mais peut affaiblir la monnaie et alimenter l'inflation.\n\nLes politiques restrictives, en revanche, servent à contenir l'inflation ou à éviter la surchauffe de l'économie : les taux sont augmentés et les liquidités réduites. Cela refroidit les marchés boursiers et le crédit, mais a tendance à renforcer la monnaie et à soutenir les rendements obligataires.",
+      "Avec une politique monétaire expansionniste, la banque centrale réduit le coût de l'argent et augmente la disponibilité de liquidités. Cela entraîne une augmentation de la consommation, favorise les investissements et soutient les marchés boursiers. Cependant, à long terme, cela peut générer des pressions inflationnistes.\n\nAvec une politique restrictive, c'est le contraire qui se produit : les taux montent, le crédit devient plus cher et les liquidités se raréfient. Les marchés boursiers peuvent subir des corrections, tandis que les investisseurs se tournent vers les obligations et les actifs défensifs.",
+      "Les politiques monétaires expansionnistes et restrictives représentent deux approches opposées de la gestion de l'économie.\n\nLes politiques expansionnistes stimulent la croissance et l'inflation, aidant les entreprises et les marchés boursiers, mais réduisant la valeur réelle de la monnaie.\n\nLes politiques restrictives refroidissent l'économie pour contrôler les prix, renforcent la monnaie mais peuvent freiner la consommation et les bénéfices des entreprises, générant de la volatilité sur les marchés.",
+      "Lorsque la banque centrale adopte une politique monétaire expansionniste, elle rend plus intéressant d'investir et d'emprunter. Les marchés boursiers en bénéficient généralement et la propension au risque des investisseurs augmente.\n\nInversement, une politique restrictive réduit les liquidités disponibles, pénalise les marchés boursiers et récompense les marchés obligataires à court terme. Pour les investisseurs, ce contexte exige une plus grande prudence et diversification.",
+      "Les décisions de politique monétaire sont cruciales pour les marchés.\n\nExpansionniste signifie plus de crédit, plus de croissance et un plus grand appétit pour le risque : les marchés boursiers montent et les devises ont tendance à s'affaiblir. Restrictive signifie moins de crédit, une baisse de la consommation et une pression sur les bénéfices : les marchés boursiers souffrent, mais la monnaie se renforce et les obligations à taux fixe deviennent plus intéressantes.\n\nComprendre dans quelle phase de politique monétaire on se trouve est fondamental pour prendre des décisions d'investissement éclairées."
+    ],
+    "cost": 0,
+    "keywords": ["politiques monétaires", "politique monétaire", "explique", "expliquer", "c'est quoi", "que sont", "fonctionne", "fonctionnent", "signifie", "entend"],
+    "subquestions": {
+      "Voulez-vous que j'explique aussi comment les taux de change influencent les marchés financiers ?": "tassi_cambio",
+      "Voulez-vous que j'explique aussi ce que sont les politiques fiscales ?": "politiche_fiscali"}
+  },
+  "politiche_fiscali": {
+    "questions": [
+      "Que sont les politiques fiscales ?",
+      "Quel est l'impact des politiques fiscales sur les marchés ?",
+      "Expliquez-moi la différence entre les politiques fiscales expansionnistes et restrictives",
+      "Comment les politiques fiscales affectent-elles les investissements ?",
+      "Que signifie politique fiscale expansionniste ?",
+      "Que signifie politique fiscale restrictive ?",
+      "Comment les politiques fiscales influencent-elles la croissance économique ?",
+      "Pouvez-vous m'expliquer comment fonctionnent les politiques fiscales ?"
+    ],
+    "answers": [
+      "Les politiques fiscales concernent l'utilisation des dépenses publiques et de la taxation par l'État pour influencer l'économie.\n\nUne politique fiscale **expansionniste** réduit les impôts ou augmente les dépenses publiques pour stimuler la consommation et les investissements. Cela tend à favoriser la croissance économique et, par conséquent, soutient souvent les marchés boursiers.\n\nUne politique fiscale **restrictive**, en revanche, augmente les impôts ou réduit les dépenses publiques, dans le but de contenir l'inflation ou de réduire le déficit. Cela refroidit généralement l'activité économique et peut peser sur les marchés.",
+      "Les politiques fiscales expansionnistes et restrictives ont un impact différent sur les marchés.\n\nAvec des mesures expansionnistes (baisse d'impôts, plus de dépenses publiques), une plus grande liquidité est créée dans l'économie, ce qui stimule souvent la consommation et les bénéfices des entreprises. Les investisseurs perçoivent cela comme un signal positif pour les actions.\n\nInversement, les politiques restrictives ont tendance à freiner la demande, à réduire la croissance et peuvent générer des pressions négatives, surtout sur les actifs les plus risqués.",
+      "La politique fiscale est un outil clé des gouvernements pour gérer l'évolution de l'économie.\n\nSi l'État adopte une ligne **expansionniste**, il réduit la pression fiscale et augmente les dépenses pour soutenir la consommation et l'emploi. Dans ce scénario, les actifs cycliques (par exemple, l'industrie et la consommation discrétionnaire) en bénéficient souvent.\n\nS'il adopte une ligne **restrictive**, il vise à contenir le déficit et la dette, avec des effets plus prudents : les secteurs défensifs et les obligations de haute qualité peuvent être relativement plus attractifs.",
+      "L'effet des politiques fiscales sur les marchés dépend également du contexte.\n\nEn phase de récession, une politique fiscale expansionniste a tendance à avoir des effets très positifs sur les marchés, car elle soutient la demande et l'emploi.\n\nEn phase de forte croissance avec une inflation élevée, en revanche, une politique restrictive peut être nécessaire : dans ce cas, les investisseurs révisent souvent à la baisse les perspectives de croissance et s'orientent vers des actifs plus sûrs.",
+      "Les politiques fiscales fonctionnent en combinaison avec les politiques monétaires.\n\nPar exemple, une politique fiscale expansionniste associée à une politique monétaire expansionniste (taux bas) peut générer de fortes poussées sur les marchés boursiers.\n\nInversement, une politique fiscale restrictive combinée à des politiques monétaires restrictives (taux élevés) a tendance à fortement refroidir l'économie et à rendre plus difficile la croissance de la valeur des actifs risqués."
+    ],
+    "cost": 0,
+    "keywords": ["politiques fiscales", "politique fiscale", "explique", "expliquer", "c'est quoi", "que sont", "fonctionne", "fonctionnent", "signifie", "entend"],
+    "subquestions": {
+      "Voulez-vous que j'explique aussi les cycles économiques ?": "cicli_economici",
+      "Voulez-vous que j'explique aussi les politiques monétaires ?": "politiche_monetarie"}
+  },
+  "cicli_economici": {
+    "questions": [
+      "Que sont les cycles économiques ?",
+      "Expliquez-moi les phases du cycle économique",
+      "Quelles sont les phases d'expansion et de récession ?",
+      "Comment les cycles économiques affectent-ils les marchés financiers ?",
+      "Comment les phases économiques influencent-elles les investissements ?",
+      "Pouvez-vous m'expliquer ce qu'est une récession et ce qu'elle implique ?",
+      "Que signifie la phase d'expansion économique ?",
+      "Quel est l'impact de la stagnation sur les marchés ?",
+      "Quelle est la relation entre les cycles économiques et la bourse ?",
+      "Pouvez-vous décrire le cycle économique en termes simples ?"
+    ],
+    "answers": [
+      "Les cycles économiques représentent les phases naturelles de croissance et de contraction de l'économie.\n\nLes phases principales sont : **expansion** (croissance de la production et de l'emploi), **sommet** (maximum de la croissance), **récession** (contraction économique avec baisse du PIB et de l'emploi) et **reprise** (retour à la croissance). Ces cycles se reflètent directement sur les marchés financiers et les stratégies des investisseurs.",
+      "Un cycle économique est composé de quatre moments fondamentaux : croissance, sommet, récession et reprise.\n\nDurant l'expansion, les entreprises augmentent leurs bénéfices et leurs investissements, les marchés boursiers ont tendance à monter et l'optimisme est généralisé. Dans la phase de récession, en revanche, la production et la consommation baissent, et les marchés peuvent enregistrer des corrections même significatives.",
+      "Les cycles économiques ont un impact profond sur les marchés.\n\nEn expansion, les actifs risqués comme les actions ont tendance à bien performer, tandis que dans les phases de récession ou de stagnation, les investisseurs préfèrent se réfugier dans des actifs plus sûrs, comme les obligations d'État ou l'or. La compréhension du cycle est donc utile pour orienter les choix de portefeuille.",
+      "Pendant une phase d'expansion économique, les entreprises embauchent davantage, la consommation augmente et les marchés boursiers bénéficient généralement de cet élan.\n\nAu contraire, pendant une récession, l'emploi diminue, la consommation ralentit et les marchés deviennent plus volatils : les investisseurs se concentrent souvent sur des secteurs défensifs comme la santé, les services publics et les biens de première nécessité.",
+      "Les cycles économiques influencent le sentiment des investisseurs.\n\nLorsque l'économie est en croissance, l'optimisme prévaut et la propension au risque augmente. Lorsque l'économie entre en récession, en revanche, le sentiment devient négatif et les investisseurs recherchent la sécurité. Comprendre dans quelle phase on se trouve est un élément clé de l'analyse macroéconomique.",
+      "La stagnation est une phase de croissance très faible ou nulle, souvent accompagnée d'un chômage élevé et d'une faible confiance des consommateurs.\n\nDans ce contexte, les marchés financiers peuvent rester latéraux ou volatils, et les investisseurs ont tendance à réduire leur exposition aux actifs risqués, privilégiant ceux qui sont plus stables."
+    ],
+    "cost": 0,
+    "keywords": ["cycles économiques", "cycle économique", "phases économiques", "phases de", "phase d'expansion", "stagnation", "récession", "régression", "explique", "expliquer", "c'est quoi", "que sont", "fonctionne", "fonctionnent", "signifie", "entend"],
+    "subquestions": {
+      "Voulez-vous que j'explique aussi pourquoi le marché du travail est important pour les investisseurs ?": "mercato_lavoro",
+      "Voulez-vous que j'explique aussi les politiques monétaires ?": "politiche_monetarie"}
+  },
+  "mercato_lavoro": {
+    "questions": [
+      "Que signifie le chômage en économie ?",
+      "Comment le chômage est-il mesuré ?",
+      "Pourquoi le marché du travail est-il important pour les investisseurs ?",
+      "Quel effet une augmentation du chômage a-t-elle sur les marchés ?",
+      "Comment le chômage affecte-t-il l'économie ?",
+      "Comment les données sur l'emploi influencent-elles la bourse ?",
+      "Qu'est-ce que le taux de chômage ?",
+      "Pourquoi la Fed et la BCE regardent-elles le marché du travail ?",
+      "Quel est le lien entre l'emploi et la consommation ?",
+      "Comment interpréter une baisse du chômage ?"
+    ],
+    "answers": [
+      "Le chômage est le pourcentage de personnes qui cherchent du travail mais n'arrivent pas à en trouver.\n\nIl est calculé en divisant le nombre de chômeurs par la population active totale. Un niveau élevé indique une faiblesse économique, tandis qu'un niveau bas signale un dynamisme et une confiance dans le marché.",
+      "Le taux de chômage mesure la part de la population active qui ne parvient pas à trouver un emploi.\n\nUne augmentation du chômage réduit la consommation et ralentit la croissance économique, avec des répercussions négatives possibles sur les marchés financiers.",
+      "Le marché du travail est crucial pour les investisseurs car il reflète la santé de l'économie.\n\nDes données d'emploi positives soutiennent la consommation, la croissance et souvent les marchés boursiers, tandis que des données négatives peuvent générer des ventes et des déplacements vers des valeurs refuges.",
+      "Une augmentation du chômage signale une faiblesse économique.\n\nPour les marchés, cela signifie moins de confiance, une baisse de la demande intérieure et des politiques monétaires possibles plus accommodantes de la part des banques centrales.",
+      "Une baisse du chômage est généralement positive car elle soutient la croissance de la consommation et des entreprises.\n\nCependant, si elle est trop basse, elle peut générer des pressions inflationnistes et pousser les banques centrales à augmenter les taux, avec des effets mitigés sur les marchés.",
+      "Le lien entre l'emploi et la consommation est direct : plus il y a de personnes qui travaillent, plus il y a de revenu disponible, et donc plus de demande de biens et services.\n\nPour les investisseurs, un marché du travail fort est souvent un signal de confiance dans l'économie et dans les marchés boursiers."
+    ],
+    "cost": 0,
+    "keywords": ["chômage", "emploi", "marché", "travail", "explique", "expliquer", "c'est quoi", "que sont", "fonctionne", "fonctionnent", "signifie", "entend", "relation", "rapport"],
+    "subquestions": {
+      "Voulez-vous que j'explique aussi pourquoi le PIB est important pour les investisseurs ?": "pil_crescita",
+      "Voulez-vous que j'explique aussi les politiques fiscales ?": "politiche_fiscali"}
+  },
+  "pil_crescita": {
+    "questions": [
+      "Qu'est-ce que le PIB ?",
+      "Que signifie la croissance économique ?",
+      "Comment le PIB est-il mesuré ?",
+      "Pourquoi le PIB est-il important pour les investisseurs ?",
+      "Quel effet une augmentation du PIB a-t-elle sur les marchés ?",
+      "Comment une baisse du PIB influence-t-elle l'économie ?",
+      "Quel est le lien entre le PIB et les marchés financiers ?",
+      "Comment la croissance économique influence-t-elle les entreprises ?",
+      "Comment interpréter les données sur le PIB ?"
+    ],
+    "answers": [
+      "Le PIB, Produit Intérieur Brut, représente la valeur totale des biens et services produits dans un pays au cours d'une période donnée.\n\nC'est l'un des principaux indicateurs pour évaluer la santé d'une économie et il est surveillé attentivement par les gouvernements, les banques centrales et les investisseurs.",
+      "La croissance économique est mesurée par la variation du PIB par rapport aux périodes précédentes.\n\nUne augmentation signale une expansion, la création de richesse et de nouvelles opportunités pour les entreprises. Une baisse, en revanche, peut indiquer un ralentissement ou une récession.",
+      "Le PIB est calculé en additionnant la consommation, les investissements, les dépenses publiques et le solde commercial (exportations moins importations).\n\nSa variation, appelée croissance économique, fournit une photographie du dynamisme d'un pays.",
+      "Une augmentation du PIB est généralement positive pour les marchés financiers.\n\nElle signifie plus de demande, plus de bénéfices pour les entreprises et plus de confiance des investisseurs.",
+      "Une baisse du PIB, surtout si elle est prolongée pendant deux trimestres consécutifs, définit la récession.\n\nPour les marchés, cela se traduit souvent par des baisses boursières, une plus grande volatilité et un refuge vers des actifs plus sûrs comme l'or et les obligations d'État.",
+      "Le lien entre le PIB et les marchés est étroit : lorsque l'économie croît, les entreprises génèrent plus de bénéfices et les indices boursiers ont tendance à monter.\n\nAu contraire, une croissance faible réduit les perspectives de gains et augmente le risque de ventes.",
+      "Les données sur le PIB aident les investisseurs à comprendre dans quelle phase du cycle économique on se trouve.\n\nUn PIB en croissance renforce les attentes de bénéfices, tandis qu'un ralentissement pousse à adopter des stratégies plus défensives."
+    ],
+    "cost": 0,
+    "keywords": ["pib", "produit intérieur brut", "croissance économique", "explique", "expliquer", "c'est quoi", "que sont", "fonctionne", "fonctionnent", "signifie", "rapport", "relation"],
+    "subquestions": {
+      "Voulez-vous que j'explique aussi ce qui arrive aux marchés quand un conflit éclate ?": "guerre_mercati",
+      "Voulez-vous que j'explique aussi les politiques monétaires ?": "politiche_monetarie"}
+  },
+  "guerre_mercati": {
+    "questions": [
+      "Comment les conflits internationaux influencent-ils les marchés financiers ?",
+      "Quel est l'impact d'une guerre sur les marchés ?",
+      "Que se passe-t-il sur les marchés quand un conflit éclate ?",
+      "Comment les tensions militaires influencent-elles les bourses et les devises ?",
+      "Comment les matières premières réagissent-elles pendant un conflit armé ?",
+      "Quels effets les guerres ont-elles sur les prix de l'énergie ?",
+      "Qu'impliquent les conflits mondiaux pour les investisseurs ?",
+      "Comment les actions évoluent-elles pendant les périodes de guerre ou de conflit ?",
+      "Quel est l'impact des tensions géopolitiques sur les marchés financiers ?",
+      "Comment évaluer le risque de marché en cas de conflits internationaux ?"
+    ],
+    "answers": [
+      "Les conflits et les guerres génèrent de l'incertitude sur les marchés financiers, provoquant souvent une volatilité soudaine et une augmentation de la perception du risque.\n\nLes investisseurs ont tendance à privilégier les valeurs refuges comme l'or, les devises stables ou les titres d'État, tandis que les marchés boursiers et les devises des pays concernés peuvent subir de fortes baisses. Le secteur de l'énergie et des matières premières peut enregistrer des variations marquées selon la zone touchée par le conflit.\n\nIl est important de surveiller les développements géopolitiques et d'évaluer l'exposition des actifs, car les conséquences peuvent s'étendre aux économies non directement impliquées dans le conflit.",
+      "Les tensions militaires et les conflits internationaux ont un impact direct sur les marchés financiers, créant instabilité et volatilité.\n\nLes investisseurs se tournent souvent vers les valeurs refuges comme l'or, les obligations de pays sûrs et les devises fortes, tandis que les actions de secteurs sensibles, comme l'énergie et les transports, peuvent subir des contractions significatives. Les marchés émergents peuvent également réagir négativement, et l'évolution des matières premières, en particulier le pétrole et le gaz, tend à être très sensible aux événements géopolitiques.\n\nComprendre l'impact des conflits aide à mieux gérer le portefeuille et à prendre des décisions stratégiques dans des contextes de forte incertitude.",
+      "Les conflits armés affectent les marchés en créant un stress financier et une perception du risque chez les investisseurs.\n\nLes actions et les devises des pays concernés peuvent chuter, tandis que les valeurs refuges comme l'or et les obligations d'État sûres ont tendance à se renforcer. Des secteurs comme l'énergie, la défense et les matières premières montrent des oscillations plus marquées. Il est fondamental d'évaluer l'exposition de son portefeuille et d'envisager des stratégies de diversification en période d'instabilité géopolitique.",
+      "Les événements de guerre et les tensions internationales augmentent l'incertitude économique, avec des effets immédiats sur les marchés financiers mondiaux.\n\nLes investisseurs et les traders réagissent souvent en déplaçant les capitaux vers des actifs sûrs, tandis que les marchés boursiers et des devises des pays concernés subissent de la volatilité. Les fluctuations des matières premières comme le pétrole, le gaz et les métaux précieux peuvent amplifier l'impact. Une bonne gestion du risque et une attention aux nouvelles géopolitiques sont essentielles pour naviguer dans ces contextes.",
+      "Les guerres et les conflits génèrent de l'instabilité sur les marchés, influençant les prix, les volumes et la perception du risque.\n\nLes investisseurs ont tendance à privilégier les actifs sûrs, tandis que les marchés boursiers et les devises des pays concernés peuvent subir de fortes oscillations. Les secteurs les plus touchés comprennent l'énergie, les transports et les matières premières. Surveiller constamment les développements et avoir une stratégie de diversification aide à limiter l'impact négatif sur le portefeuille."
+    ],
+    "cost": 0,
+    "keywords": ["guerre", "guerres", "conflits", "tensions", "tension"],
+    "subquestions": {
+      "Voulez-vous que j'explique aussi l'effet des sanctions économiques sur les marchés ?": "sanzioni_economiche",
+      "Voulez-vous que j'explique aussi l'impact des élections sur le marché boursier ?": "elezioni_mercato"}
+  },
+  "sanzioni_economiche": {
+    "questions": [
+      "Comment les sanctions économiques impactent-elles les marchés ?",
+      "Quel effet les sanctions ont-elles sur les entreprises et les investisseurs ?",
+      "Que se passe-t-il sur les marchés lorsque des sanctions sont imposées ?",
+      "Expliquez-moi l'impact des sanctions économiques",
+      "Comment les marchés financiers réagissent-ils aux sanctions ?",
+      "Expliquez-moi comment les sanctions influencent les marchés",
+      "Parlez-moi des sanctions et de la façon dont elles affectent le marché mondial",
+      "Parlez-moi des sanctions économiques"
+    ],
+    "answers": [
+      "Les sanctions économiques imposées à un ou plusieurs pays créent de l'incertitude sur les marchés financiers et peuvent provoquer une volatilité significative.\n\nLes investisseurs et les entreprises ont tendance à revoir leur exposition aux actifs des pays touchés, tandis que des secteurs spécifiques, comme l'énergie, la technologie et le commerce international, peuvent subir des pertes ou des ralentissements. Il est fondamental de surveiller les nouvelles géopolitiques et d'adapter les stratégies d'investissement en fonction des développements.",
+      "L'imposition de sanctions économiques entraîne souvent des restrictions commerciales et financières qui influencent directement le marché mondial.\n\nLes investisseurs peuvent réagir en déplaçant les capitaux vers des actifs considérés comme plus sûrs, comme les devises fortes, les titres d'État ou les matières premières refuges. Les entreprises ayant une exposition directe aux pays sanctionnés peuvent voir leurs revenus diminuer ou faire face à des difficultés opérationnelles, avec un impact immédiat sur les prix des actions.",
+      "Les sanctions économiques génèrent un climat de risque et d'incertitude qui se reflète sur les marchés financiers, tant locaux qu'internationaux.\n\nLes devises, actions et obligations des pays concernés peuvent subir des oscillations marquées. Les secteurs sensibles comme l'énergie, les transports et la technologie sont particulièrement touchés. Une bonne gestion de portefeuille et la diversification sont des outils clés pour limiter l'impact des sanctions.",
+      "Lorsqu'un État impose des sanctions économiques, cela crée des contraintes qui influencent le commerce international et le flux de capitaux.\n\nLes investisseurs réagissent en anticipant des pertes ou une instabilité possibles, préférant les actifs refuges et réduisant l'exposition aux marchés les plus risqués. Les fluctuations peuvent être particulièrement marquées dans les secteurs qui dépendent des échanges internationaux ou des fournitures stratégiques.",
+      "Les sanctions économiques ont des effets immédiats et indirects sur les marchés financiers, augmentant la perception du risque et la volatilité.\n\nLes entreprises exposées aux pays sanctionnés peuvent voir leur chiffre d'affaires diminuer et subir des pressions sur leurs marges. Les investisseurs, par conséquent, ont tendance à déplacer les capitaux vers des actifs plus sûrs et à revoir les stratégies de portefeuille, en suivant de près les développements politiques et commerciaux."
+    ],
+    "cost": 0,
+    "keywords": ["sanctions", "sanction"],
+    "subquestions": {
+      "Je peux aussi vous expliquer ce qui arrive aux marchés pendant une période électorale. Voulez-vous le savoir ?": "elezioni_mercato",
+      "Voulez-vous que j'explique aussi comment les taux de change impactent les stratégies des investisseurs ?": "tassi_cambio"}
+  },
+  "elezioni_mercato": {
+    "questions": [
+      "Comment les élections influencent-elles les marchés financiers ?",
+      "Quel impact les élections ont-elles sur le marché boursier ?",
+      "Que se passe-t-il sur les marchés pendant la période électorale ?",
+      "Expliquez-moi l'effet des élections sur l'économie",
+      "Les élections modifient-elles les stratégies des investisseurs ?",
+      "Comment les investisseurs réagissent-ils aux résultats électoraux ?",
+      "Quels effets les élections politiques ont-elles sur les marchés mondiaux ?",
+      "Marchés et élections : que faut-il savoir ?"
+    ],
+    "answers": [
+      "Les élections politiques créent une période d'incertitude sur les marchés financiers, car les investisseurs cherchent à anticiper les politiques économiques du nouveau gouvernement.\n\nIl est courant d'observer de la volatilité sur les marchés boursiers, obligataires et des devises pendant les campagnes électorales et juste après les résultats. Les secteurs particulièrement sensibles peuvent être ceux liés aux réglementations, à l'énergie, à la santé et à la technologie.",
+      "Les marchés réagissent aux élections en évaluant l'impact des futures politiques économiques sur la croissance et les bénéfices des entreprises.\n\nLes investisseurs peuvent déplacer les capitaux vers des actifs perçus comme plus sûrs, tels que les titres d'État ou les matières premières, tandis que les secteurs réglementés ou exposés à des politiques fiscales spécifiques peuvent connaître des fluctuations significatives. Une stratégie prudente comprend une surveillance constante et la diversification du portefeuille.",
+      "Les élections représentent un événement clé qui peut influencer la confiance des investisseurs et la direction des marchés.\n\nOutre l'impact immédiat sur les prix des actifs, les attentes concernant les réformes fiscales, monétaires ou commerciales influencent les décisions d'investissement. La gestion du risque devient donc essentielle pour naviguer dans la volatilité typique de ces périodes.",
+      "Pendant les élections, l'incertitude politique et les variations possibles des politiques économiques génèrent des oscillations sur les marchés financiers.\n\nLes investisseurs ont tendance à évaluer l'impact des élections sur des secteurs spécifiques et sur la croissance économique générale. Une préparation adéquate comprend l'analyse des résultats attendus, la planification de scénarios et des stratégies défensives pour réduire l'exposition au risque.",
+      "Les élections peuvent avoir des effets directs et indirects sur le marché, influençant les attentes de croissance, d'inflation et de réglementations.\n\nLes investisseurs institutionnels et privés surveillent attentivement les candidats et leurs politiques, adaptant les portefeuilles pour se protéger des fluctuations ou pour saisir les opportunités découlant des nouvelles orientations politiques."
+    ],
+    "cost": 0,
+    "keywords": ["élections", "élection"],
+    "subquestions": {
+      "Je peux aussi vous expliquer l'effet des sanctions économiques sur les entreprises et les investisseurs. Voulez-vous que je vous l'explique ?": "sanzioni_economiche",
+      "Voulez-vous que j'explique aussi comment les marchés évoluent en fonction des taux de change ?": "tassi_cambio"}
+  },
+  "tassi_cambio": {
+    "questions": [
+      "Comment les taux de change influencent-ils les marchés financiers ?",
+      "Quel impact les taux de change des devises ont-ils sur les investissements ?",
+      "Que se passe-t-il avec les actifs lorsque les taux de change varient ?",
+      "Expliquez-moi l'effet des taux de change sur l'économie",
+      "Comment les investisseurs réagissent-ils aux variations des taux de change ?",
+      "Quel effet les taux de change ont-ils sur le marché mondial ?",
+      "Taux de change et stratégies d'investissement : que considérer ?",
+      "Comment les marchés évoluent-ils en fonction des taux de change ?"
+    ],
+    "answers": [
+      "Les variations des taux de change influencent directement le coût des importations et des exportations, impactant la compétitivité des entreprises sur les marchés internationaux.\n\nUne appréciation de la devise locale peut rendre les exportations plus coûteuses et réduire les revenus en devise étrangère, tandis qu'une dévaluation peut stimuler les exportations mais augmenter le coût des importations. Les investisseurs tiennent compte de ces facteurs pour gérer les portefeuilles mondiaux.",
+      "Les taux de change affectent la valeur des actifs libellés en devise étrangère et la rentabilité des investissements internationaux.\n\nLorsque la devise de référence se renforce, les rendements des investissements étrangers en devise locale peuvent diminuer ; inversement, un affaiblissement de la devise peut augmenter les rendements nominaux. Les investisseurs adoptent des stratégies de couverture ou de diversification pour atténuer les risques de change.",
+      "Les oscillations des taux de change génèrent de la volatilité sur les marchés financiers, influençant les actions, les obligations et les matières premières.\n\nLes investisseurs et les entreprises surveillent les dynamiques monétaires pour prévoir l'impact sur les coûts, les bénéfices et les décisions d'investissement. Une gestion prudente considère les scénarios de risque et les opportunités découlant des fluctuations des devises.",
+      "Les mouvements des taux de change peuvent avoir des effets macroéconomiques significatifs, altérant l'inflation, la compétitivité et les flux commerciaux.\n\nCes facteurs se reflètent sur les stratégies des investisseurs, qui doivent équilibrer le risque et le rendement en tenant compte à la fois de l'évolution de la devise nationale et de celle des devises étrangères corrélées aux actifs du portefeuille.",
+      "Les variations des devises influencent également les marchés des capitaux et les secteurs exposés au commerce international.\n\nUne surveillance attentive des taux de change permet aux investisseurs d'adapter leurs positions, de réduire les risques et de saisir les opportunités découlant de tendances monétaires favorables."
+    ],
+    "cost": 0,
+    "keywords": ["taux de change", "change", "devises", "devise"],
+    "subquestions": {
+      "Je peux aussi vous expliquer ce qui arrive aux marchés pendant une période électorale. Voulez-vous le savoir ?": "elezioni_mercato",
+      "Je peux aussi vous expliquer la relation entre les marchés financiers et les conflits géopolitiques. Voulez-vous que je procède à l'explication ?": "guerre_mercati"}
+  },
+  "asset_price_drivers": {
+    "questions": [
+      "Qu'est-ce qui fait bouger les prix des actifs ?",
+      "Quels sont les facteurs qui influencent le prix des actions ?",
+      "Pourquoi les prix des actifs changent-ils ?",
+      "Comment les mouvements des marchés financiers sont-ils déterminés ?",
+      "Qu'est-ce qui influence la valeur des actions, des obligations ou des cryptomonnaies ?",
+      "Quels facteurs poussent les prix des actifs à la hausse ou à la baisse ?",
+      "Comment les prix des titres sur les marchés sont-ils déterminés ?",
+      "Qu'est-ce qui fait bouger le marché ?"
+    ],
+    "answers": [
+      "Les prix des actifs sont influencés par une combinaison de facteurs économiques, financiers et psychologiques.\n\nDes indicateurs fondamentaux tels que les bénéfices des entreprises, la croissance des revenus, les marges de profit, la dette et les flux de trésorerie déterminent la valeur intrinsèque des actifs. À ceux-ci s'ajoutent les attentes des investisseurs, les conditions macroéconomiques, les politiques monétaires et fiscales, et les événements mondiaux qui peuvent générer de la volatilité.",
+      "Le marché réagit constamment aux nouvelles informations et aux variations des conditions économiques et financières.\n\nLes nouvelles sur les taux d'intérêt, l'inflation, les politiques gouvernementales, les données sur le PIB ou sur les ventes des entreprises peuvent pousser les prix à la hausse ou à la baisse. Des facteurs psychologiques, comme le sentiment des investisseurs et les perceptions du risque, jouent également un rôle important dans la détermination des mouvements de prix.",
+      "Les mouvements des prix des actifs reflètent l'équilibre entre l'offre et la demande, influencé par les données macroéconomiques et les fondamentaux des entreprises.\n\nLes événements géopolitiques, les crises ou les conflits, les décisions sur les taux d'intérêt et les changements réglementaires peuvent avoir des impacts immédiats sur les prix. Les investisseurs expérimentés analysent à la fois les facteurs tangibles et psychologiques pour anticiper les oscillations possibles.",
+      "Les prix et les valorisations des actifs sont le résultat de l'interaction entre les informations économiques, politiques, sociales et technologiques.\n\nDes indicateurs clés comme la croissance des revenus, les bénéfices, la dette et les marges, ainsi que les attentes du marché et le sentiment des investisseurs, déterminent comment et dans quelle mesure un actif change de valeur. Comprendre ces éléments permet de prendre des décisions d'investissement plus éclairées.",
+      "Le prix d'un actif ne dépend pas seulement des données historiques, mais aussi des attentes futures des investisseurs.\n\nLes projections de croissance, les anticipations de bénéfices, les politiques monétaires et les taux de change sont quelques-uns des facteurs qui font bouger les marchés. Des événements imprévus ou des chocs externes peuvent également générer des oscillations significatives, rendant le marché dynamique et complexe."
+    ],
+    "cost": 0,
+    "keywords": ["ce qui fait bouger", "fait bouger", "influence", "influencent", "influencés", "influencé", "prix", "facteurs", "marché"],
+    "subquestions": {
+      "Voulez-vous connaître le prix actuel de [FAVOURITE] ?": "asset_last_price"}
+  },
+  "obbligazioni_info": {
+    "questions": [
+      "Que sont les obligations ?",
+      "Expliquez-moi les obligations",
+      "Comment fonctionnent les obligations ?",
+      "Dites-moi à quoi servent les obligations ?",
+      "Quel est le fonctionnement des obligations ?",
+      "Que représentent les obligations ?",
+      "Comment fonctionnent les titres obligataires ?",
+      "Pouvez-vous m'expliquer les obligations et leur fonctionnement ?"
+    ],
+    "answers": [
+      "Les obligations sont des instruments financiers de dette émis par des gouvernements, des entités publiques ou des sociétés pour lever des capitaux.\n\nCelui qui achète une obligation prête de l'argent à l'émetteur en échange du paiement périodique d'intérêts (coupons) et du remboursement du capital à l'échéance. Elles sont utilisées par les investisseurs pour obtenir un flux de revenu stable et diversifier le portefeuille, en équilibrant le risque par rapport aux actions ou à d'autres instruments plus volatils.",
+      "Une obligation représente un prêt que l'investisseur accorde à l'émetteur, qui s'engage à restituer le montant initial à l'échéance et à verser des intérêts.\n\nLe fonctionnement des obligations dépend de facteurs tels que le taux du coupon, la durée, le prix d'émission et la solvabilité de l'émetteur. Les obligations peuvent être négociées sur le marché secondaire, permettant de vendre avant l'échéance, et leur prix peut varier en fonction des taux d'intérêt et du risque perçu.",
+      "Les obligations sont des instruments d'investissement à revenu fixe qui permettent de prêter de l'argent à des entités publiques ou privées.\n\nChaque obligation a une échéance et un taux d'intérêt défini : l'investisseur reçoit périodiquement des coupons et obtient à la fin le remboursement du capital. Comprendre le fonctionnement des obligations aide à évaluer le rendement attendu, le risque de crédit et l'impact des variations des taux d'intérêt sur le prix du titre.",
+      "En achetant une obligation, l'investisseur devient créancier de l'émetteur, recevant des intérêts périodiques jusqu'à l'échéance du titre.\n\nLe prix des obligations peut fluctuer en fonction des taux d'intérêt, de l'inflation et de la solvabilité de l'émetteur. Connaître ces mécanismes permet de planifier des investissements ciblés et de comprendre le rôle des obligations dans un portefeuille équilibré.",
+      "Les obligations servent à financer l'émetteur et offrent à l'investisseur un retour régulier sous forme d'intérêts.\n\nElles fonctionnent comme un prêt : l'investisseur reçoit des coupons périodiques et le remboursement du capital à l'échéance. Ce sont des instruments utiles pour diversifier, réduire la volatilité du portefeuille et comprendre l'impact des taux d'intérêt sur la valeur des titres à revenu fixe."
+    ],
+    "cost": 0,
+    "keywords": ["obligations", "obligation", "titres obligataires", "titre obligataire"],
+    "subquestions": {
+      "Voulez-vous connaître la différence entre action et obligation ?": "azioni_obbligazioni",
+      "Je peux vous expliquer la différence entre actions et obligations. Voulez-vous que je le fasse ?": "azioni_obbligazioni"}
+  },
+  "azioni_obbligazioni": {
+    "questions": [
+      "Quelle est la différence entre actions et obligations ?",
+      "Expliquez-moi la différence entre actions et obligations",
+      "Actions vs obligations, quelles sont les différences ?",
+      "Dites-moi ce qui distingue une action d'une obligation ?",
+      "Comment les actions diffèrent-elles des obligations ?",
+      "Actions ou obligations, quelles différences y a-t-il ?",
+      "Qu'est-ce qui change entre un titre d'action et un titre obligataire ?",
+      "Pouvez-vous m'expliquer les différences entre actions et obligations ?"
+    ],
+    "answers": [
+      "Les actions représentent une part de propriété d'une société, tandis que les obligations représentent un prêt que l'investisseur accorde à l'émetteur.\n\nAvec les actions, on participe aux bénéfices et aux pertes de l'entreprise, en recevant des dividendes s'ils sont distribués et en bénéficiant d'éventuelles augmentations de prix. Les obligations, en revanche, offrent un flux de revenu fixe par le biais de coupons et prévoient le remboursement du capital à l'échéance, comportant généralement un risque moindre que les actions.",
+      "Une action donne à l'investisseur des droits de propriété sur une société, y compris la possibilité de voter en assemblée et de recevoir des dividendes.\n\nLes obligations, au contraire, sont des instruments de dette : l'investisseur prête de l'argent à l'émetteur et reçoit des intérêts périodiques et le capital à l'échéance. Les actions ont un potentiel de rendement plus élevé mais avec une plus grande volatilité, tandis que les obligations offrent stabilité et sécurité du capital, bien qu'avec des rendements généralement plus faibles.",
+      "La principale différence est que les actions représentent une participation au capital d'une entreprise, tandis que les obligations représentent un prêt à l'entreprise ou à l'État.\n\nLes actionnaires partagent les profits et les risques de l'entreprise, tandis que les détenteurs d'obligations reçoivent des intérêts fixes et ont la priorité de remboursement en cas de faillite. Cela rend les obligations des instruments plus sûrs mais avec des possibilités de gain moindres que les actions.",
+      "Les actions et les obligations sont deux instruments financiers distincts : les premières donnent la propriété et la participation aux bénéfices, les secondes garantissent un revenu fixe et le remboursement du capital.\n\nLes investisseurs utilisent les actions pour la croissance de la valeur et les dividendes variables, tandis que les obligations servent à stabiliser le portefeuille et à obtenir des flux de revenus prévisibles, en équilibrant le risque global."
+    ],
+    "cost": 0,
+    "keywords": ["actions et obligations", "action et obligation", "obligation et action", "obligations et actions", "d'actions", "obligataires", "obligataire"],
+    "subquestions": {
+      "Voulez-vous aussi savoir comment fonctionnent les ETF ?": "etf_info",
+      "Voulez-vous que j'explique aussi ce que sont les fonds communs de placement ?": "fondi_info"}
+  },
+  "etf_info": {
+    "questions": [
+      "Que sont les ETF ?",
+      "Expliquez-moi ce que signifie ETF",
+      "Comment fonctionnent les ETF ?",
+      "Dites-moi ce que sont les ETF ?",
+      "ETF, qu'indique ce terme ?",
+      "Pouvez-vous m'expliquer comment fonctionnent les ETF ?",
+      "À quoi servent les ETF ?",
+      "ETF, comment les utiliser pour investir ?",
+      "En quoi consistent les ETF ?",
+      "Comment fonctionnent les Exchange Traded Funds ?",
+      "Que sont les Exchange Traded Funds ?",
+      "Expliquez-moi les Exchange Traded Funds",
+      "Que signifie fonds indiciels ?",
+      "Que signifie fonds indiciel ?"
+    ],
+    "answers": [
+      "Les ETF, ou Exchange Traded Funds, sont des fonds d'investissement cotés en bourse qui répliquent l'évolution d'un indice, d'un secteur ou d'un panier d'actifs.\n\nIls permettent aux investisseurs de diversifier le portefeuille en achetant un seul instrument qui contient de multiples titres. Les ETF peuvent inclure des actions, des obligations, des matières premières ou d'autres instruments financiers, offrant une liquidité et une flexibilité similaires à celles d'une action.",
+      "Un ETF est un fonds qui suit un indice de marché ou un ensemble d'actifs, et ses parts sont négociables en bourse comme une action.\n\nCes instruments permettent d'obtenir une exposition à des marchés spécifiques, des secteurs ou des stratégies, avec des coûts généralement inférieurs aux fonds traditionnels. Les ETF offrent également transparence et possibilité d'achat et de vente pendant les heures de négociation, ce qui en fait un outil polyvalent pour différents types d'investisseurs.",
+      "Les ETF combinent les avantages d'un fonds commun et la négociabilité d'une action : ils répliquent un indice ou un panier de titres et peuvent être achetés et vendus en bourse.\n\nIls sont utiles pour diversifier rapidement le portefeuille, réduire les risques spécifiques des titres individuels et accéder à des marchés autrement difficiles à atteindre, le tout avec des coûts contenus et une grande transparence."
+    ],
+    "cost": 0,
+    "keywords": ["etf", "exchange traded funds", "exchange traded fund", "fonds indiciel", "fonds indiciels", "que sont", "c'est quoi", "fonctionne", "fonctionnent", "explique", "expliquer", "servent", "consistent"],
+    "subquestions": {
+      "Voulez-vous que j'explique aussi comment fonctionne un fonds commun de placement ?": "fondi_info",
+      "Voulez-vous aussi savoir comment fonctionnent les matières premières ?": "commodities_info"}
+  },
+  "fondi_info": {
+    "questions": [
+      "Que sont les fonds communs de placement ?",
+      "Expliquez-moi ce que signifie fonds commun",
+      "Comment fonctionnent les fonds ?",
+      "Dites-moi ce que sont les fonds communs ?",
+      "Fonds commun, qu'indique ce terme ?",
+      "Pouvez-vous m'expliquer comment fonctionnent les fonds communs ?",
+      "À quoi servent les fonds communs ?",
+      "Fonds communs, comment les utiliser pour investir ?"
+    ],
+    "answers": [
+      "Les fonds communs de placement sont des instruments financiers qui collectent de l'argent auprès de plusieurs investisseurs pour l'investir dans un portefeuille diversifié de titres, comme des actions, des obligations ou d'autres instruments.\n\nChaque investisseur possède des parts du fonds proportionnelles au capital investi. Les fonds sont gérés par des professionnels et offrent diversification, gestion active ou passive, et la possibilité d'accéder à des marchés autrement difficiles à atteindre pour un seul investisseur.",
+      "Un fonds commun de placement permet à plusieurs investisseurs de mettre en commun leurs capitaux pour accéder à un portefeuille géré professionnellement.\n\nCela permet de réduire les risques liés aux titres individuels et de bénéficier de la compétence de gestionnaires expérimentés. Les fonds peuvent avoir des objectifs différents, tels que la croissance du capital, la génération de revenus ou la protection du capital, et peuvent investir dans divers types d'instruments financiers.",
+      "Les fonds communs fonctionnent en collectant de l'argent auprès de différents investisseurs et en l'employant dans un portefeuille d'actifs choisi par le gestionnaire du fonds.\n\nCette approche offre des avantages tels que la diversification, la gestion professionnelle et l'accès à des marchés complexes. Les parts du fonds représentent la fraction du patrimoine total possédée par chaque investisseur, et la valeur des parts varie en fonction de l'évolution des investissements du fonds."
+    ],
+    "cost": 0,
+    "keywords": ["fonds", "fond", "fonds communs", "fonds commun", "que sont", "c'est quoi", "fonctionne", "fonctionnent", "explique", "expliquer", "servent", "consistent"],
+    "subquestions": {
+      "Voulez-vous que j'explique aussi comment fonctionne une cryptomonnaie ?": "crypto_info",
+      "Voulez-vous aussi savoir comment fonctionnent les matières premières ?": "commodities_info"}
+  },
+  "commodities_info": {
+    "questions": [
+      "Que sont les matières premières ?",
+      "Expliquez-moi les commodities",
+      "À quoi servent les matières premières ?",
+      "Dites-moi ce que sont les commodities ?",
+      "Quelle est la signification des matières premières sur les marchés financiers ?",
+      "Comment fonctionnent les matières premières ?",
+      "Pourquoi les investisseurs achètent-ils des commodities ?",
+      "Quel rôle les matières premières jouent-elles dans l'économie ?",
+      "Qu'est-ce qu'une matière première ?",
+      "Pouvez-vous m'expliquer ce que sont les matières premières ?"
+    ],
+    "answers": [
+      "Les matières premières, ou commodities, sont des biens physiques de base échangés sur les marchés financiers. Elles comprennent les métaux précieux comme l'or et l'argent, les ressources énergétiques comme le pétrole et le gaz, et les produits agricoles comme le blé et le café.\n\nLes investisseurs les utilisent à la fois comme outil d'investissement et comme couverture contre l'inflation. Leur prix peut être influencé par des facteurs économiques, géopolitiques et climatiques.",
+      "Les commodities représentent des biens tangibles fondamentaux pour l'économie, échangés sur des marchés dédiés comme le NYMEX ou le LME. Elles peuvent inclure des ressources naturelles, des métaux et des produits agricoles.\n\nOutre leur usage industriel, ce sont des instruments précieux pour les investisseurs qui souhaitent diversifier leur portefeuille ou se protéger contre les fluctuations inflationnistes.",
+      "Le terme matières premières désigne des biens physiques essentiels qui sont échangés au niveau mondial. On y trouve le pétrole, le gaz, l'or, l'argent, le blé et le café.\n\nLeur valeur est déterminée par l'offre et la demande mondiale, et elles servent à la fois à des fins industrielles et à des investissements financiers, agissant également comme protection contre l'inflation.",
+      "Les commodities sont des ressources naturelles ou des biens de base qui sont achetés et vendus sur les marchés financiers internationaux. Elles sont fondamentales pour le fonctionnement de l'économie mondiale.\n\nLes investisseurs les utilisent pour diversifier leur portefeuille, tandis que les entreprises les emploient pour la production. Les prix sont sensibles aux événements géopolitiques, aux conditions climatiques et aux changements de la demande mondiale.",
+      "Les matières premières, également connues sous le nom de commodities, comprennent les métaux, l'énergie et les produits agricoles. Ce sont des biens tangibles échangés sur les marchés financiers et qui influencent directement l'économie mondiale.\n\nLes investisseurs et les entreprises les utilisent comme instruments de couverture, d'investissement ou d'approvisionnement, et leur prix est soumis à des fluctuations liées à des facteurs économiques, politiques et environnementaux."
+    ],
+    "cost": 0,
+    "keywords": ["matières premières", "matière première", "commodities", "que sont", "fonctionnent", "explique", "expliquer", "servent"],
+    "subquestions": {
+      "Voulez-vous que j'explique aussi comment fonctionne une cryptomonnaie ?": "crypto_info",
+      "Voulez-vous aussi savoir comment fonctionnent les ETF ?": "etf_info"}
+  },
+  "crypto_info": {
+    "questions": [
+      "Que sont les cryptomonnaies ?",
+      "Expliquez-moi les cryptos",
+      "À quoi servent les cryptomonnaies ?",
+      "Dites-moi ce que sont les cryptos ?",
+      "Quelle est la signification des cryptomonnaies ?",
+      "Comment fonctionnent les cryptomonnaies ?",
+      "Pourquoi les investisseurs achètent-ils des cryptos ?",
+      "Quel rôle les cryptomonnaies jouent-elles dans l'économie ?",
+      "Comment fonctionne une crypto ?",
+      "Qu'est-ce qu'une cryptomonnaie ?",
+      "Qu'est-ce qu'une crypto ?"
+    ],
+    "answers": [
+      "Les cryptomonnaies sont des monnaies numériques basées sur la technologie blockchain, qui permet des transactions sécurisées et décentralisées. Bitcoin, Ethereum et d'autres altcoins sont des exemples de cryptos.\n\nLes investisseurs les utilisent à la fois comme outil de diversification de portefeuille et comme actif spéculatif, compte tenu de leur volatilité et de leur potentiel de rendement.",
+      "Les cryptos sont des devises numériques cryptographiques, conçues pour fonctionner sans intermédiaires comme les banques ou les gouvernements. La blockchain garantit sécurité et transparence.\n\nEn plus d'être des instruments d'investissement, elles peuvent être utilisées pour des transferts d'argent mondiaux et des contrats intelligents (smart contracts), influençant de plus en plus le paysage financier moderne.",
+      "Les cryptomonnaies représentent des actifs numériques décentralisés, échangés sur des plateformes en ligne. Les principaux exemples incluent Bitcoin, Ethereum, Ripple et Litecoin.\n\nLeur prix est influencé par l'offre, la demande, les réglementations et les développements technologiques, et les investisseurs les considèrent souvent comme des instruments à haut risque mais avec un potentiel de rendement élevé.",
+      "Les cryptos sont des monnaies numériques basées sur des protocoles cryptographiques et décentralisés, qui permettent des transactions sécurisées sans intermédiaires traditionnels.\n\nLes investisseurs les utilisent pour diversifier le portefeuille, comme couverture contre l'inflation, ou pour des opérations spéculatives, surveillant constamment la volatilité et les tendances du marché.",
+      "Les cryptomonnaies sont des devises numériques qui exploitent la technologie blockchain pour garantir des transferts sécurisés et vérifiables.\n\nLeur utilisation va au-delà de l'investissement : elles peuvent servir pour les paiements, les contrats intelligents ou les applications décentralisées. La volatilité élevée les rend intéressantes tant pour les traders que pour les investisseurs à long terme."
+    ],
+    "cost": 0,
+    "keywords": ["crypto", "cryptos", "cryptomonnaies", "que sont", "c'est quoi", "fonctionne", "fonctionnent", "explique", "expliquer", "servent"],
+    "subquestions": {
+      "Voulez-vous que j'explique aussi comment fonctionnent les matières premières ?": "commodities_info",
+      "Voulez-vous aussi savoir comment fonctionnent les ETF ?": "etf_info"}
+  },
+  "supporto_resistenza_info": {
+    "questions": [
+      "Que sont les niveaux de support ?",
+      "Que sont les niveaux de résistance ?",
+      "Expliquez-moi support et résistance",
+      "Comment fonctionnent les niveaux de support et de résistance ?",
+      "Dites-moi ce que signifie support ?",
+      "Dites-moi ce que signifie résistance ?",
+      "Quel rôle jouent support et résistance dans l'analyse technique ?"
+    ],
+    "answers": [
+      "Les niveaux de support sont des points sur le graphique où le prix d'un actif tend à trouver un « plancher », c'est-à-dire où la demande est suffisamment forte pour arrêter ou ralentir la baisse des prix. La résistance, au contraire, est un niveau où l'offre est suffisamment forte pour empêcher de nouvelles hausses.\n\nCes concepts sont fondamentaux dans l'analyse technique car ils aident à identifier les points d'entrée ou de sortie possibles du marché, en prévoyant des inversions potentielles ou des pauses dans les tendances.",
+      "Le support représente une zone où les prix trouvent un soutien grâce à une augmentation de la demande, tandis que la résistance est une zone où la pression de vente tend à arrêter la hausse. Les deux indiquent des zones clés où les prix pourraient réagir.\n\nLes investisseurs et les traders utilisent ces niveaux pour planifier des stratégies d'entrée ou de sortie, pour placer des stop loss ou des take profit et pour comprendre la force d'une tendance en cours.",
+      "Support et résistance sont des concepts d'analyse technique qui décrivent les niveaux de prix auxquels un actif a tendance à s'arrêter ou à rebondir. Le support agit comme un « plancher » du prix, tandis que la résistance fait office de « plafond ».\n\nReconnaître ces niveaux aide à comprendre la psychologie du marché et à prévoir les mouvements futurs potentiels, rendant la gestion du risque et des opérations plus efficace.",
+      "Les niveaux de support indiquent où les prix peuvent trouver un soutien et ne pas baisser davantage, tandis que les niveaux de résistance signalent où les prix pourraient s'arrêter ou inverser la tendance.\n\nUtiliser correctement ces concepts permet d'interpréter les graphiques avec une plus grande précision, d'identifier les cassures (breakouts), les rebonds et de confirmer la force d'une tendance, devenant un outil essentiel pour les traders et les investisseurs.",
+      "Support et résistance sont des zones clés des graphiques de prix. Le support indique la zone où la pression d'achat peut arrêter la descente des prix, tandis que la résistance représente le point où la pression de vente peut bloquer les hausses.\n\nCes niveaux aident à prévoir des inversions potentielles, des cassures et des confirmations de tendance, offrant des outils pratiques pour la gestion du risque et la planification des opérations sur le marché."
+    ],
+    "cost": 0,
+    "keywords": [ "niveaux", "niveau", "support", "résistance", "que sont", "fonctionnent", "explique", "expliquer", "servent"],
+    "subquestions": {
+      "Voulez-vous aussi savoir ce que sont les volumes de trading ?": "volumi_info",
+      "Voulez-vous que j'explique aussi ce qu'est la volatilité d'un actif ?": "volatility_info"}
+  },
+  "volumi_info": {
+    "questions": [
+      "Que sont les volumes de trading ?",
+      "Expliquez-moi les volumes de marché",
+      "À quoi servent les volumes ?",
+      "Qu'indiquent les volumes d'un actif ?",
+      "Comment interpréter les volumes d'échange ?",
+      "Dites-moi ce que sont les volumes en bourse ?",
+      "Pourquoi les volumes sont-ils importants ?"
+    ],
+    "answers": [
+      "Les volumes de trading représentent la quantité de titres ou d'actifs échangés dans un intervalle de temps donné, comme un jour, une semaine ou une heure. Ils indiquent l'intensité et l'intérêt des opérateurs de marché pour cet actif.\n\nEn analysant les volumes avec les prix, il est possible de comprendre la force d'une tendance, d'identifier des inversions potentielles ou de confirmer des cassures. Des volumes croissants lors d'une hausse indiquent une tendance solide, tandis que des volumes faibles peuvent suggérer une faiblesse ou une indécision du marché.",
+      "Les volumes mesurent le nombre de transactions effectuées pour un actif donné et sont fondamentaux pour interpréter la liquidité et la participation des investisseurs. Ils n'indiquent pas seulement à quel point un actif est échangé, mais aussi à quel point il est suivi par le marché.\n\nUne augmentation des volumes pendant une montée des prix signale une confirmation de la tendance, tandis qu'une augmentation pendant une descente peut indiquer une forte pression de vente. De même, des volumes réduits peuvent suggérer une consolidation ou un manque de conviction parmi les traders.",
+      "Les volumes d'échange représentent la quantité d'actifs négociés dans une période donnée et servent à mesurer l'activité du marché. Ils sont un outil clé pour comprendre la dynamique des prix et la participation des investisseurs.\n\nLorsque les volumes augmentent en concomitance avec les mouvements de prix, cela renforce la validité de la tendance ; si au contraire les volumes diminuent, le mouvement pourrait être faible ou temporaire. Cela rend les volumes essentiels pour des décisions de trading éclairées.",
+      "En finance, les volumes indiquent combien d'actions, de cryptomonnaies ou d'autres actifs ont été échangés dans une certaine période. Ils aident à évaluer la liquidité et la pression d'achat/vente sur le marché.\n\nEn observant les volumes avec les graphiques des prix, on peut distinguer entre des mouvements soutenus et des mouvements fragiles, identifier des inversions potentielles et confirmer des tendances existantes, améliorant la précision des stratégies opérationnelles.",
+      "Les volumes de marché sont la mesure de la quantité d'échanges effectués sur un actif dans un intervalle de temps donné. Ils représentent un indicateur de la participation des investisseurs et de l'intérêt général pour cet actif.\n\nL'interprétation des volumes permet de confirmer la force d'une tendance, d'anticiper des inversions ou des cassures et de comprendre la solidité des mouvements de prix, devenant un outil fondamental pour des analyses techniques efficaces."
+    ],
+    "cost": 0,
+    "keywords": ["volumes", "volume", "échange", "trading", "marché", "que sont", "c'est quoi", "explique", "expliquer", "servent"],
+    "subquestions": {
+      "Voulez-vous aussi savoir ce que sont les coefficients de Pearson et Spearman ?": "pearson_spearman_info",
+      "Voulez-vous que j'explique aussi ce qu'est la volatilité du marché ?": "volatility_info"}
+  },
+  "volatility_info": {
+    "questions": [
+      "Que signifie la volatilité ?",
+      "Expliquez-moi la volatilité du marché",
+      "Qu'est-ce que la volatilité d'un actif ?",
+      "À quoi sert de connaître la volatilité ?",
+      "Dites-moi ce qu'indique la volatilité ?",
+      "Pourquoi la volatilité est-elle importante pour les investisseurs ?",
+      "Que signifie qu'un actif est volatile ?"
+    ],
+    "answers": [
+      "La volatilité représente la mesure de la variation des prix d'un actif dans un intervalle de temps donné. En d'autres termes, elle indique à quelle vitesse les prix peuvent monter ou descendre rapidement, reflétant l'incertitude ou le risque perçu par le marché.\n\nPour les investisseurs, la volatilité est fondamentale pour évaluer le risque associé à un investissement. Des mouvements de prix élevés peuvent offrir des opportunités de profit, mais augmentent également le risque de pertes. En analysant la volatilité avec d'autres indicateurs, il est possible de planifier des stratégies plus éclairées et de mieux gérer le portefeuille.",
+      "En finance, la volatilité mesure l'amplitude des fluctuations des prix d'un actif sur une certaine période. Une volatilité élevée signifie que les prix changent rapidement et de manière significative, tandis qu'une faible volatilité indique des mouvements plus stables et prévisibles.\n\nComprendre la volatilité aide les investisseurs à décider quel risque prendre, à définir des stop loss et à identifier des moments favorables pour entrer ou sortir du marché. C'est un outil clé pour la gestion du risque et la planification des stratégies de trading.",
+      "La volatilité indique à quel point et à quelle vitesse les prix d'un titre, d'une cryptomonnaie ou d'un autre actif varient. Elle reflète la perception du risque par les opérateurs et l'incertitude des marchés.\n\nLes investisseurs et les traders l'utilisent pour estimer la probabilité de grands mouvements, ajuster la taille des positions et choisir des instruments financiers plus ou moins risqués. Une compréhension claire de la volatilité permet de prendre des décisions plus conscientes et de protéger le capital.",
+      "Mesurer la volatilité signifie observer la dispersion des prix par rapport à la moyenne dans un certain intervalle de temps. Plus la dispersion est grande, plus la volatilité est élevée et, par conséquent, le risque potentiel est grand.\n\nLa volatilité est utile pour évaluer la sécurité des investissements, déterminer les primes de risque, planifier des stratégies de couverture et mieux comprendre le comportement des marchés dans des scénarios incertains.",
+      "La volatilité est un indicateur de risque qui montre à quel point les prix d'un actif oscillent dans le temps. Elle n'indique pas la direction du mouvement, mais la mesure dans laquelle les valeurs peuvent varier, rendant le marché plus ou moins imprévisible.\n\nPour les investisseurs, connaître la volatilité est essentiel pour équilibrer les portefeuilles, sélectionner des instruments financiers cohérents avec son profil de risque et anticiper d'éventuelles périodes de turbulence ou de stabilité sur les marchés."
+    ],
+    "cost": 0,
+    "keywords": ["volatilité", "volatile"],
+    "subquestions": {
+      "Voulez-vous aussi savoir ce que sont les coefficients de Pearson et Spearman ?": "pearson_spearman_info",
+      "Voulez-vous que j'explique aussi ce que sont les niveaux de support et de résistance ?": "supporto_resistenza_info"}
+  },
+  "pearson_spearman_info": {
+    "questions": [
+      "Que signifie la corrélation de Pearson ?",
+      "Que veut dire la corrélation de Spearman ?",
+      "Expliquez-moi la différence entre Pearson et Spearman",
+      "À quoi servent Pearson et Spearman ?",
+      "Comment utilise-t-on Pearson et Spearman en finance ?",
+      "Pouvez-vous m'expliquer ce que sont Pearson et Spearman ?",
+      "Quelle est la différence entre la corrélation de Pearson et celle de Spearman ?",
+      "Comment interpréter les coefficients de Pearson et Spearman ?",
+      "Qu'indiquent Pearson et Spearman ?",
+      "En quoi consistent la corrélation de Pearson et celle de Spearman ?",
+      "Quelle est la différence entre Pearson et Spearman ?",
+      "Pearson et Spearman",
+      "Des valeurs de Spearman à 0.8 sont-elles optimales ?",
+      "Des valeurs de Pearson à 0.7 sont-elles optimales ?",
+      "Une valeur de Spearman à 0.7 est-elle optimale ?",
+      "Une valeur de Pearson à 0.6 est-elle optimale ?",
+      "Un Pearson à 0.7 est-il positif ?",
+      "Un Spearman à 0.8 est-il positif ?",
+      "Un Pearson à 0.6 est-il acceptable ?",
+      "Un Spearman à 0.6 est-il acceptable ?"
+    ],
+    "answers": [
+      "La corrélation de Pearson et celle de Spearman sont deux outils statistiques pour mesurer le lien entre des variables, très utilisés également en finance.\n\nLa corrélation de **Pearson** mesure la force et la direction du lien **linéaire** entre deux variables 📈. Si deux actifs ont un coefficient proche de +1, cela signifie qu'ils ont tendance à croître ou à baisser ensemble de manière proportionnelle ; s'il est proche de -1, ils évoluent dans des directions opposées ; s'il est proche de 0, il n'y a pas de relation linéaire significative. Le coefficient de Pearson varie toujours entre **-1 et +1**.\n\nLa corrélation de **Spearman**, en revanche, ne regarde pas les valeurs absolues mais les **rangs**. Elle est plus utile lorsque le lien n'est pas linéaire ou lorsqu'il y a des valeurs aberrantes (outliers). Spearman vous dit si deux actifs ont quand même tendance à évoluer dans la même direction (positive) ou dans des directions opposées (négative), même sans proportionnalité parfaite. Ce coefficient varie également entre **-1 et +1**.",
+      "Pearson et Spearman sont deux façons différentes d'évaluer la corrélation entre des actifs.\n\nAvec **Pearson**, nous analysons la relation linéaire : dans quelle mesure un actif a tendance à évoluer proportionnellement à l'autre. C'est la méthode la plus utilisée dans les modèles de portefeuille classiques, car elle entre dans les calculs de variance-covariance. Sa valeur varie de **-1 à +1**, où +1 indique une corrélation positive parfaite et -1 une corrélation négative parfaite.\n\nAvec **Spearman**, en revanche, nous regardons la monotonicité : si l'un monte, l'autre a également tendance à monter (ou à descendre) indépendamment de la force proportionnelle du lien. Spearman est plus robuste en présence de données anormales et de marchés turbulents, et il a également un coefficient compris entre **-1 et +1**.",
+      "La corrélation de Pearson mesure la relation linéaire entre deux variables, tandis que celle de Spearman mesure la cohérence de l'**ordre** des valeurs.\n\nEn finance, cela signifie que Pearson est plus utile pour les analyses précises de portefeuille et les modèles quantitatifs, mais peut être faussé par des valeurs aberrantes fortes. Spearman, au contraire, fournit une vision plus stable du lien général entre deux actifs, et convient pour comprendre s'ils évoluent 'ensemble' même sans proportionnalité. Les deux coefficients varient entre **-1 et +1**, où des valeurs proches de 0 indiquent une corrélation faible ou nulle.",
+      "Pearson et Spearman sont tous deux des indicateurs de corrélation, mais ils ont des applications différentes.\n\n- **Pearson** : capture les relations linéaires, idéal pour les statistiques traditionnelles et l'analyse quantitative. Son coefficient va de -1 à +1.\n\n- **Spearman** : capture les relations monotones, même non linéaires, et est plus robuste avec des données bruitées ou irrégulières. Dans ce cas également, le coefficient varie entre -1 et +1.\n\nEn finance, les utiliser tous les deux vous permet de comprendre si deux actifs sont liés uniquement de manière proportionnelle (Pearson) ou aussi en termes de direction générale (Spearman).",
+      "Pearson mesure **dans quelle mesure deux actifs sont proportionnellement liés** dans leurs mouvements, tandis que Spearman mesure **dans quelle mesure deux actifs évoluent dans la même direction**, indépendamment de la proportionnalité.\n\nLes deux coefficients varient entre **-1 et +1**, où des valeurs proches de +1 indiquent une forte corrélation positive, des valeurs proches de -1 une corrélation négative et des valeurs proches de 0 une absence de relation linéaire.\n\nUne bonne approche pour les investisseurs est de calculer les deux : si les deux valeurs sont similaires, cela signifie que le lien est solide et linéaire ; s'ils divergent beaucoup, cela signifie que la relation est plus complexe et pas parfaitement proportionnelle."
+    ],
+    "cost": 0,
+    "keywords": ["pearson", "spearman", "que sont", "c'est quoi", "fonctionnent", "explique", "expliquer", "servent", "sert", "différence"],
+    "subquestions": {
+      "Voulez-vous aussi savoir à quoi servent les volumes ?": "volumi_info",
+      "Voulez-vous que j'explique aussi ce que sont les niveaux de support et de résistance ?": "supporto_resistenza_info"}
+  },
+  "navigazione_asset": {
+    "questions": [
+      "Quels actifs l'application analyse-t-elle ?",
+      "Quels actifs puis-je consulter ici ?",
+      "Où puis-je trouver la liste des actifs ?",
+      "Quels sont les actifs disponibles ?",
+      "Puis-je savoir quels actifs sont analysés ?",
+      "Quel type d'actifs peut-on voir sur l'application ?",
+      "Où puis-je voir tous les actifs que vous couvrez ?",
+      "Quels actifs sont surveillés ?",
+      "Comment puis-je voir les actifs disponibles ?",
+      "Où se trouve la liste des actifs ?"
+    ],
+    "answers": [
+      "Vous trouvez la liste complète des actifs dans l'écran dédié 🔎.\n\nDans cette section, vous pouvez effectuer des analyses pour chaque actif, jeter un coup d'œil rapide à son évolution et à son futur possible, et ajouter vos actifs les plus suivis à la liste des favoris pour les avoir toujours sous les yeux sur l'écran principal de l'application. 👀",
+      "Vous pouvez consulter la liste de tous les actifs analysés directement dans la section appropriée de l'application 📲.\n\nVous pouvez également vérifier l'évolution de chaque actif, surveiller ses performances futures et ajouter ceux qui sont les plus importants pour vous à la liste des favoris, afin de les avoir toujours à portée de main.",
+      "La liste des actifs surveillés est disponible dans l'écran dédié.\n\nÀ partir de cette section, vous pourrez également effectuer des analyses approfondies pour chaque actif, évaluer leur évolution et insérer ceux qui sont les plus suivis parmi les favoris sur l'écran principal de l'application.",
+      "Pour visualiser tous les actifs supportés, il vous suffit d'ouvrir la section dédiée dans l'application 📊.\n\nDe plus, vous pouvez jeter un coup d'œil rapide à leur évolution, prévoir les développements futurs possibles et ajouter vos actifs les plus importants aux favoris pour les avoir toujours sous les yeux. 👀",
+      "Les actifs analysés se trouvent dans l'écran réservé, facilement accessible depuis le menu principal.\n\nVous pourrez vérifier les performances de chaque actif, estimer son potentiel futur et ajouter ceux qui vous intéressent à la liste des favoris de l'écran principal.",
+      "Il y a une section spécifique dans l'application où vous pouvez trouver tous les actifs disponibles.\n\nDe là, vous pouvez également effectuer des analyses sur chaque actif, jeter un coup d'œil à l'évolution future possible et sauvegarder vos favoris pour les avoir toujours sous les yeux.",
+      "La liste des actifs est visible dans l'écran dédié : vous y trouvez tous les détails.\n\nVous pouvez également évaluer rapidement l'évolution de chaque actif, estimer les mouvements futurs et ajouter les plus importants à la liste des favoris pour les avoir toujours à portée de main. 😉",
+      "Vous pouvez découvrir quels actifs sont suivis en entrant dans la section appropriée de l'application 📈.\n\nDe là, il est possible de vérifier l'évolution de chaque actif, d'estimer son potentiel futur et d'ajouter ceux qui sont les plus pertinents à la liste des favoris pour les avoir toujours sous les yeux. 😉"
+    ],
+    "cost": 0,
+    "keywords": ["liste", "actif"],
+    "subquestions": {
+      "Voulez-vous aussi savoir comment faire l'analyse d'un actif sur TradeGPT ?": "navigazione_analisi"}
+  },
+  "navigazione_abbonamenti": {
+    "questions": [
+      "Où puis-je voir mon abonnement ?",
+      "Comment puis-je vérifier mon plan actuel ?",
+      "Puis-je voir quel plan j'ai ?",
+      "Où se trouve la section abonnements ?",
+      "Comment puis-je vérifier mon plan ?",
+      "Je voudrais savoir quel est mon abonnement",
+      "Comment puis-je mettre à niveau mon plan ?",
+      "Où puis-je changer de plan ?",
+      "Comment voir les plans disponibles ?",
+      "Comment faire pour passer à premium ou ultra ?",
+      "Comment puis-je modifier mon plan ?",
+      "Comment est-ce que je modifie mon plan ?",
+      "Comment fait-on la mise à niveau (upgrade) ?",
+      "Comment puis-je faire la mise à niveau (upgrade) ?"
+    ],
+    "answers": [
+      "Pour voir votre abonnement, cliquez sur le bouton en haut à droite sur l'écran d'accueil, où se trouve le logo de l'application. Vous y trouverez votre plan actuel et toutes les informations relatives.\n\nDe plus, vous pouvez effectuer la mise à niveau en choisissant entre le plan Premium, conçu pour ceux qui veulent surveiller plus de données financières et avoir une image plus détaillée des actifs, ou le plan Ultra, idéal pour les investisseurs qui veulent garder sous contrôle tout ce qui est nécessaire pour suivre l'avenir des différents actifs : plus de données, plus d'opportunités et plus de puissance. 💎",
+      "Accédez à l'écran d'accueil et cliquez sur le logo en haut à droite pour voir votre abonnement. Dans cette section, vous pouvez vérifier le plan actuel et les fonctionnalités disponibles.\n\nSi vous souhaitez effectuer la mise à niveau, le plan Premium offre des outils avancés pour surveiller plus de données financières, tandis que le plan Ultra vous permet d'avoir tout ce dont vous avez besoin pour suivre l'évolution future des actifs, avec plus de données, plus d'opportunités et une plus grande puissance de l'application. 💎",
+      "Vous trouvez les informations sur votre abonnement en cliquant sur le bouton en haut à droite sur l'écran d'accueil (où se trouve le logo de l'application). De là, vous pouvez voir le plan actuel et les détails relatifs.\n\nVous pouvez également passer à Premium pour avoir plus de données financières et d'analyses approfondies, ou choisir Ultra si vous voulez une expérience complète qui vous permet de surveiller tout ce qui est nécessaire pour suivre l'avenir de vos actifs avec des outils améliorés. 💪",
+      "Cliquez sur le logo en haut à droite sur l'accueil pour visualiser votre plan actuel. Ici, vous trouverez toutes les informations sur votre abonnement.\n\nLes plans Premium et Ultra offrent de nombreuses fonctionnalités supplémentaires : Premium pour ceux qui veulent plus de données et de détails sur les actifs, Ultra pour ceux qui désirent le maximum de contrôle et toutes les informations nécessaires pour prévoir et analyser les tendances des marchés. 💪",
+      "Pour vérifier votre abonnement, allez sur l'écran d'accueil et cliquez sur le logo en haut à droite. Vous verrez le plan courant et les fonctionnalités incluses.\n\nSi vous voulez plus d'outils, Premium offre des analyses approfondies et plus de données, tandis qu'Ultra fournit tous les outils possibles pour avoir une vision complète et détaillée de chaque actif et de son futur possible. 🔝",
+      "Sur l'écran d'accueil, en cliquant sur le logo en haut à droite, vous pouvez voir votre abonnement actuel. Vous trouverez toutes les informations sur le plan choisi.\n\nLes plans Premium et Ultra offrent des fonctionnalités très intéressantes : Premium vous permet de surveiller plus de données financières et de détails, Ultra vous permet d'avoir tout sous contrôle pour suivre chaque tendance, avec plus de données et plus d'opportunités. 🔝",
+      "Cliquez sur le logo en haut à droite sur l'accueil pour découvrir votre plan actuel et les informations sur l'abonnement.\n\nVous pouvez passer à Premium pour obtenir des outils supplémentaires pour l'analyse financière, ou à Ultra pour une expérience complète : plus de données, plus d'opportunités et des outils avancés pour tracer l'avenir de chaque actif. 💎",
+      "Pour voir votre abonnement, allez sur l'accueil et cliquez sur le logo en haut à droite. Vous trouverez le plan courant et tous les détails.\n\nLe plan Premium est idéal pour ceux qui souhaitent approfondir les données financières des actifs, tandis que le plan Ultra est parfait pour ceux qui veulent le maximum de contrôle et un accès complet à toutes les fonctionnalités de l'application. 🚀"
+    ],
+    "cost": 0,
+    "keywords": ["mon abonnement", "mon plan", "quel plan j'ai", "mise à niveau", "upgrade"],
+    "subquestions": {
+      "Voulez-vous savoir pourquoi il est avantageux de faire la mise à niveau (upgrade) sur TradeGPT ?": "subscription_info",
+      "Voulez-vous connaître les plans disponibles sur TradeGPT ?": "navigazione_piani"}
   }
+}
