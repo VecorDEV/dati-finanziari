@@ -242,7 +242,9 @@
     "Dis-moi le trend futur de [TOPIC]",
     "Dis-moi le sentiment pour [TOPIC]",
     "Quel est le sentiment de [TOPIC] ?",
-    "Sentiment calculé pour [TOPIC]"
+    "Sentiment calculé pour [TOPIC]",
+    "Peux-tu me dire les prévisions pour [TOPIC] ?",
+    "Pouvez-vous me donner les prévisions pour [TOPIC] ?"
   ],
   "answers": [
     "Les dernières prévisions pour [TOPIC] soulignent différentes possibilités dans les jours à venir 📈.\nCertains détails méritent attention et pourraient être pertinents pour les décisions futures.\n\nL'analyse complète est prête et peut être visualisée en cliquant sur le bouton ci-dessous.",
@@ -406,7 +408,9 @@
     "Prévisions rapides [TOPIC]",
     "Prévisions rapides de [TOPIC]",
     "Donne-moi des indications rapides sur l'avenir de [TOPIC]",
-    "Dis-moi le trend futur de [TOPIC]"
+    "Dis-moi le trend futur de [TOPIC]",
+    "Peux-tu me dire les prévisions pour [TOPIC] ?",
+    "Pouvez-vous me donner les prévisions pour [TOPIC] ?"
   ],
   "answers": [
     "Les prévisions actuelles indiquent que [TOPIC] aura tendance à avoir une évolution [FORECAST_TREND] dans les prochaines périodes.\n\nLa probabilité de succès globale estimée est de [FORECAST_VALUE]. 📊",
@@ -530,7 +534,9 @@
     "Montre-moi la prévision de sentiment quatre-vingt-dix jours pour [TOPIC]",
     "Quel est le sentiment de [TOPIC] à long terme ?",
     "Sentiment de [TOPIC] à long terme",
-    "Sentiment trimestriel de [TOPIC]"
+    "Sentiment trimestriel de [TOPIC]",
+    "Peux-tu me dire le sentiment pour [TOPIC] ?",
+    "Pouvez-vous me dire le sentiment sur 90 jours pour [TOPIC] ?"
   ],
   "answers": [
     "Selon les dernières données disponibles, le sentiment pour [TOPIC] est [SENTIMENT_90].",
@@ -620,7 +626,9 @@
     "Perspective à 30 jours pour le sentiment de [TOPIC]",
     "Montre-moi la prévision de sentiment mensuel pour [TOPIC]",
     "Quel est le sentiment de [TOPIC] à long terme ?",
-    "Sentiment de [TOPIC] à long terme"
+    "Sentiment de [TOPIC] à long terme",
+    "Peux-tu me dire le sentiment sur 30 jours pour [TOPIC] ?",
+    "Pouvez-vous me dire le sentiment sur 30 jours pour [TOPIC] ?"
   ],
   "answers": [
     "Selon les dernières données disponibles, le sentiment de [TOPIC] dans les 30 prochains jours est [SENTIMENT_30].",
@@ -701,7 +709,7 @@
     "Comment vois-tu [TOPIC] dans les 7 prochains jours ?",
     "Donne-moi le sentiment de [TOPIC] pour la semaine prochaine",
     "Sentiment à une semaine pour [TOPIC]",
-    "Quel sentiment est prévu pour [TOPIC] à 7 jours ?",
+    "Quel sentiment est prévu pour [TOPIC] à sept jours ?",
     "Montre-moi la perspective hebdomadaire pour [TOPIC]",
     "Quel est le résultat du sentiment de [TOPIC] d'ici 7 jours ?",
     "Selon les données, quel sentiment [TOPIC] aura-t-il la semaine prochaine ?",
@@ -711,7 +719,9 @@
     "Quel sentiment se dégage pour [TOPIC] sur une base hebdomadaire ?",
     "Quel est le sentiment de [TOPIC] à court terme ?",
     "Sentiment de [TOPIC] à court terme",
-    "Sentiment hebdomadaire de [TOPIC]"
+    "Sentiment hebdomadaire de [TOPIC]",
+    "Peux-tu me dire le sentiment sur 7 jours pour [TOPIC] ?",
+    "Pouvez-vous me dire le sentiment sur 7 jours pour [TOPIC] ?"
   ],
   "answers": [
     "Selon les dernières données, le sentiment de [TOPIC] dans les 7 prochains jours est [SENTIMENT_7].",
