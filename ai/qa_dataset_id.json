@@ -7396,5 +7396,22 @@
     "Apakah Anda ingin saya siapkan analisis lengkap untuk [TOPIC]?": "asset_analysis_open",
     "Apakah Anda ingin saya berikan analisis fundamental untuk [TOPIC]?": "fundamental_analysis",
     "Saya bisa memberikan analisis teknikal untuk [TOPIC]. Apakah saya lanjutkan?": "ta_general"}
+},
+  "not_subscribed": {
+  "questions": [
+    "..."
+  ],
+  "answers": [
+    "😔 Sayangnya, fitur ini tidak tersedia di paketmu saat ini. Tapi kamu bisa melakukan upgrade dengan mudah untuk membukanya! 🚀",
+    "😢 Maaf, kamu belum bisa mengakses fitur ini. Tingkatkan paketmu dan dapatkan akses sekarang! ✨",
+    "😞 Fitur ini hanya tersedia untuk paket lebih tinggi. Kabar baik: dengan upgrade, kamu bisa menggunakannya segera! 💡",
+    "😔 Saat ini kamu tidak bisa menggunakan fitur ini. Dengan upgrade paket yang sederhana, kamu bisa mengaksesnya tanpa masalah! 🔑",
+    "😢 Maaf, sayangnya paketmu saat ini tidak memberi akses ke fitur ini. Upgrade paketmu dan buka semua fitur! ⭐"
+  ],
+  "cost": 0,
+  "subquestions": {
+    "Ingin tahu cara melakukan upgrade paketmu?": "navigazione_abbonamenti",
+    "Ingin mengetahui fitur apa saja yang akan kamu dapatkan dengan berbagai paket TradeGPT?": "navigazione_piani",
+    "Ingin tahu mengapa upgrade itu menguntungkan?": "subscription_info"}
 }
 }
