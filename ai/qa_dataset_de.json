@@ -7481,5 +7481,22 @@
     "Möchtest du, dass ich eine vollständige Analyse von [TOPIC] vorbereite?": "asset_analysis_open",
     "Soll ich dir die Fundamentalanalyse von [TOPIC] bereitstellen?": "fundamental_analysis",
     "Ich kann dir die technische Analyse von [TOPIC] geben. Soll ich fortfahren?": "ta_general"}
+},
+  "not_subscribed": {
+  "questions": [
+    "..."
+  ],
+  "answers": [
+    "😔 Leider ist diese Funktion in deinem aktuellen Plan nicht verfügbar. Aber du kannst ganz einfach upgraden, um sie freizuschalten! 🚀",
+    "😢 Es tut mir leid, du hast derzeit keinen Zugriff auf diese Funktion. Upgrade deinen Plan und erhalte sofort Zugang! ✨",
+    "😞 Diese Funktion ist nur für höhere Pläne verfügbar. Gute Nachrichten: Mit einem Upgrade kannst du sie sofort nutzen! 💡",
+    "😔 Momentan kannst du diese Funktion nicht verwenden. Mit einem einfachen Plan-Upgrade erhältst du problemlos Zugriff! 🔑",
+    "😢 Es tut mir leid, leider hast du mit deinem aktuellen Plan keinen Zugriff auf diese Funktion. Upgrade deinen Plan und schalte alle Funktionen frei! ⭐"
+  ],
+  "cost": 0,
+  "subquestions": {
+    "Möchtest du wissen, wie du deinen Plan upgraden kannst?": "navigazione_abbonamenti",
+    "Möchtest du herausfinden, welche Funktionen du mit den verschiedenen TradeGPT-Plänen erhältst?": "navigazione_piani",
+    "Möchtest du wissen, warum sich ein Upgrade lohnt?": "subscription_info"}
 }
 }
