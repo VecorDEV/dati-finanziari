@@ -7437,7 +7437,49 @@
   "keywords": ["abonnement", "abonniere", "abonnieren", "ich abonniere", "bezahlt", "bezahlend", "zahlung", "pago"],
   "subquestions": {
     "Möchtest du wissen, welche Pläne TradeGPT anbietet?": "navigazione_piani",
-    "Ich kann dir die Pläne von TradeGPT nennen. Willst du sie wissen?": "navigazione_piani"
-  }
+    "Ich kann dir die Pläne von TradeGPT nennen. Willst du sie wissen?": "navigazione_piani"}
+},
+  "supporto_resistenza": {
+  "questions": [
+    "Kannst du mir die Unterstützungs- und Widerstandsniveaus von [TOPIC] nennen?",
+    "Zeig mir die Unterstützung und den Widerstand für [TOPIC].",
+    "Kannst du die Unterstützung und den Widerstand für [TOPIC] berechnen?",
+    "Auf welchem Niveau liegt die Unterstützung von [TOPIC]?",
+    "Wo liegt der Widerstand für [TOPIC]?",
+    "Was ist die Unterstützung von [TOPIC]?",
+    "Was ist der Widerstand von [TOPIC]?",
+    "Kannst du mir die Unterstützung und den Widerstand von [TOPIC] berechnen?",
+    "Gib mir die Unterstützungsniveaus von [TOPIC].",
+    "Gib mir die Widerstandsniveaus von [TOPIC].",
+    "Unterstützung und Widerstand von [TOPIC], danke.",
+    "Ich möchte wissen, wo sich die Unterstützungs- und Widerstandsniveaus von [TOPIC] befinden.",
+    "Kannst du mir die aktuelle Unterstützung und den aktuellen Widerstand von [TOPIC] zeigen?",
+    "Auf welchem Niveau liegt die Hauptunterstützung von [TOPIC]?",
+    "Und wo liegt der Widerstand für [TOPIC]?",
+    "Gib mir die Unterstützungs- und Widerstandsniveaus von [TOPIC].",
+    "Zeig mir die Unterstützungs- und Widerstandspunkte für [TOPIC].",
+    "Analysiere bitte die Unterstützungs- und Widerstandsniveaus von [TOPIC].",
+    "Zeig mir die technischen Unterstützungs- und Widerstandsniveaus für [TOPIC]."
+  ],
+  "answers": [
+    "Für [TOPIC] liegt das *Unterstützungsniveau* bei etwa *[SUPPORTO]*, während der *Widerstand* bei ungefähr *[RESISTENZA]* liegt 📊.",
+    "[TOPIC] zeigt eine *Unterstützung* um *[SUPPORTO]* und einen *Widerstand* bei *[RESISTENZA]* – beide sind wichtige technische Niveaus zur Beobachtung.",
+    "Die aktuelle *Unterstützung* von [TOPIC] liegt bei *[SUPPORTO]*, während der *Widerstand* bei *[RESISTENZA]* liegt.",
+    "Laut technischer Analyse liegt für [TOPIC] die *Hauptunterstützung* bei *[SUPPORTO]* und der *Widerstand* bei *[RESISTENZA]* 🔍.",
+    "Die Schlüsselniveaus für [TOPIC] sind: *Unterstützung bei [SUPPORTO]* und *Widerstand bei [RESISTENZA]*.",
+    "Der Preis von [TOPIC] findet *Unterstützung* im Bereich von *[SUPPORTO]*, während der nächste *Widerstand* bei etwa *[RESISTENZA]* liegt.",
+    "Die Analyse zeigt eine *Unterstützung* bei *[SUPPORTO]* und einen *Widerstand* bei *[RESISTENZA]* für [TOPIC] – zwei wichtige technische Punkte für Trader.",
+    "Für [TOPIC] liegt die *Hauptunterstützung* bei *[SUPPORTO]*, während der *Hauptwiderstand* bei *[RESISTENZA]* liegt ⚙️.",
+    "Das untere *Unterstützungsniveau* von [TOPIC] liegt um *[SUPPORTO]*, während das obere *Widerstandsniveau* bei *[RESISTENZA]* liegt.",
+    "Laut den neuesten Daten befindet sich die *Unterstützung* von [TOPIC] bei *[SUPPORTO]*, und der *Widerstand* liegt bei *[RESISTENZA]*."
+  ],
+  "cost": 1,
+  "keywords": ["unterstützung", "widerstand", "niveaus"],
+  "tag": "free",
+  "subquestions": {
+    "Möchtest du, dass ich dir den Chart von [TOPIC] zeige, um seine Entwicklung zu sehen?": "graph_request",
+    "Möchtest du, dass ich eine vollständige Analyse von [TOPIC] vorbereite?": "asset_analysis_open",
+    "Soll ich dir die Fundamentalanalyse von [TOPIC] bereitstellen?": "fundamental_analysis",
+    "Ich kann dir die technische Analyse von [TOPIC] geben. Soll ich fortfahren?": "ta_general"}
 }
 }
