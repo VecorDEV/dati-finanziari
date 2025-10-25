@@ -7395,5 +7395,22 @@
     "Quer que eu prepare uma análise completa de [TOPIC]?": "asset_analysis_open",
     "Deseja que eu forneça a análise fundamental de [TOPIC]?": "fundamental_analysis",
     "Posso fornecer a análise técnica de [TOPIC]. Quer que eu prossiga?": "ta_general"}
+},
+  "not_subscribed": {
+  "questions": [
+    "..."
+  ],
+  "answers": [
+    "😔 Infelizmente, esta função não está disponível no seu plano atual. Mas você pode atualizar facilmente para desbloqueá-la! 🚀",
+    "😢 Desculpe, você não pode acessar esta função no momento. Atualize seu plano e obtenha acesso imediato! ✨",
+    "😞 Esta função é reservada para planos superiores. A boa notícia: com um upgrade você pode usá-la imediatamente! 💡",
+    "😔 No momento você não pode usar esta função. Com uma simples atualização do plano, você terá acesso sem problemas! 🔑",
+    "😢 Desculpe, infelizmente você não tem acesso a esta função com seu plano atual. Atualize seu plano e desbloqueie todas as funcionalidades! ⭐"
+  ],
+  "cost": 0,
+  "subquestions": {
+    "Quer saber como atualizar seu plano?": "navigazione_abbonamenti",
+    "Quer descobrir quais funções você obteria com os diferentes planos do TradeGPT?": "navigazione_piani",
+    "Quer saber por que vale a pena fazer o upgrade do seu plano?": "subscription_info"}
 }
 }
