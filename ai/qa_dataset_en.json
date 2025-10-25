@@ -7312,5 +7312,22 @@
     "Would you like me to prepare a complete analysis of [TOPIC]?": "asset_analysis_open",
     "Would you like me to provide the fundamental analysis of [TOPIC]?": "fundamental_analysis",
     "I can provide you with the technical analysis for [TOPIC]. Should I proceed?": "ta_general"}
+},
+  "not_subscribed": {
+  "questions": [
+    "..."
+  ],
+  "answers": [
+    "😔 Unfortunately, this feature is not available with your current plan. But you can easily upgrade to unlock it! 🚀",
+    "😢 Sorry, you can't access this feature right now. Upgrade your plan to get instant access! ✨",
+    "😞 This feature is reserved for higher-tier plans. Good news: with an upgrade, you can use it immediately! 💡",
+    "😔 At the moment, you can't use this feature. With a simple plan upgrade, you'll be able to access it without any issues! 🔑",
+    "😢 Sorry, you don't have access to this feature with your current plan. Upgrade your plan and unlock all premium features! ⭐"
+  ],
+  "cost": 0,
+  "subquestions": {
+    "Do you want to know how to upgrade your plan?": "navigazione_abbonamenti",
+    "Do you want to discover what features you would get with the different TradeGPT plans?": "navigazione_piani",
+    "Do you want to know why upgrading is worth it?": "subscription_info"}
 }
 }
