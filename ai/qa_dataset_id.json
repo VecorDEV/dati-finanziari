@@ -7353,5 +7353,48 @@
   "subquestions": {
     "Apakah Anda ingin tahu paket apa yang ditawarkan TradeGPT?": "navigazione_piani",
     "Saya dapat memberi tahu Anda paket apa yang ditawarkan TradeGPT. Apakah Anda ingin tahu?": "navigazione_piani"}
+},
+  "supporto_resistenza": {
+  "questions": [
+    "Bisa beri tahu saya level support dan resistance untuk [TOPIC]?",
+    "Tunjukkan support dan resistance untuk [TOPIC]",
+    "Bisakah Anda menghitung support dan resistance untuk [TOPIC]?",
+    "Di level berapa support untuk [TOPIC]?",
+    "Di mana resistance untuk [TOPIC]?",
+    "Apa level support untuk [TOPIC]?",
+    "Apa level resistance untuk [TOPIC]?",
+    "Bisa hitungkan support dan resistance untuk [TOPIC]?",
+    "Bisa beri saya level support untuk [TOPIC]?",
+    "Bisa beri saya level resistance untuk [TOPIC]?",
+    "Support dan resistance untuk [TOPIC], terima kasih",
+    "Saya ingin tahu di mana level support dan resistance untuk [TOPIC]",
+    "Bisakah Anda menunjukkan support dan resistance saat ini untuk [TOPIC]?",
+    "Di level berapa support utama untuk [TOPIC]?",
+    "Di mana resistance untuk [TOPIC]?",
+    "Beri saya level support dan resistance untuk [TOPIC]",
+    "Tunjukkan titik support dan resistance untuk [TOPIC]?",
+    "Analisis level support dan resistance untuk [TOPIC]",
+    "Tunjukkan level teknikal support dan resistance untuk [TOPIC]"
+  ],
+  "answers": [
+    "Untuk [TOPIC], level *support* berada di sekitar *[SUPPORTO]*, sedangkan *resistance* utama berada di sekitar *[RESISTENZA]* 📊.",
+    "[TOPIC] memiliki *support* di sekitar *[SUPPORTO]* dan *resistance* di *[RESISTENZA]*, keduanya merupakan level kunci yang perlu diperhatikan.",
+    "*Support* saat ini untuk [TOPIC] berada di *[SUPPORTO]*, sementara *resistance* berada di *[RESISTENZA]*.",
+    "Menurut analisis teknikal, *support* utama untuk [TOPIC] ada di *[SUPPORTO]* dan *resistance* di *[RESISTENZA]* 🔍.",
+    "Level kunci untuk [TOPIC] adalah: *support di [SUPPORTO]* dan *resistance di [RESISTENZA]*.",
+    "Harga [TOPIC] menemukan *support* di area *[SUPPORTO]*, sementara *resistance* berikutnya diperkirakan sekitar *[RESISTENZA]*.",
+    "Analisis menunjukkan *support* di *[SUPPORTO]* dan *resistance* di *[RESISTENZA]* untuk [TOPIC], dua titik teknikal penting bagi trader.",
+    "Untuk [TOPIC], *support* utama berada di *[SUPPORTO]*, sementara *resistance* kunci berada di *[RESISTENZA]* ⚙️.",
+    "Level bawah *support* untuk [TOPIC] berada di sekitar *[SUPPORTO]*, sedangkan level atas *resistance* berada di area *[RESISTENZA]*.",
+    "Menurut data terbaru, *support* untuk [TOPIC] berada di *[SUPPORTO]*, dan *resistance* berada di *[RESISTENZA]*."
+  ],
+  "cost": 1,
+  "keywords": ["support", "resistance", "level"],
+  "tag": "free",
+  "subquestions": {
+    "Apakah Anda ingin saya tunjukkan grafik [TOPIC] untuk melihat tren pergerakannya?": "graph_request",
+    "Apakah Anda ingin saya siapkan analisis lengkap untuk [TOPIC]?": "asset_analysis_open",
+    "Apakah Anda ingin saya berikan analisis fundamental untuk [TOPIC]?": "fundamental_analysis",
+    "Saya bisa memberikan analisis teknikal untuk [TOPIC]. Apakah saya lanjutkan?": "ta_general"}
 }
 }
