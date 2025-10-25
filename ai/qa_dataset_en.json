@@ -7270,40 +7270,39 @@
     "Do you want to know which plans TradeGPT offers?": "plan_navigation",
     "I can tell you the plans TradeGPT offers. Do you want me to?": "plan_navigation"}
 },
-  "supporto_resistenza": {
+"supporto_resistenza": {
   "questions": [
-    "Can you tell me the support and resistance levels for [TOPIC]?",
-    "What are the key levels for [TOPIC]?",
-    "Show me the support and resistance for [TOPIC].",
+    "Can you tell me the support and resistance levels of [TOPIC]?",
+    "Show me support and resistance for [TOPIC].",
     "Can you calculate the support and resistance for [TOPIC]?",
-    "At what level is the support for [TOPIC]?",
+    "At what level is the support of [TOPIC]?",
     "Where is the resistance for [TOPIC]?",
-    "What is the support level for [TOPIC]?",
-    "What is the resistance level for [TOPIC]?",
-    "Can you calculate both support and resistance for [TOPIC]?",
-    "Give me the support levels for [TOPIC].",
-    "Give me the resistance levels for [TOPIC].",
-    "Support and resistance for [TOPIC], please.",
+    "What is the support level of [TOPIC]?",
+    "What is the resistance level of [TOPIC]?",
+    "Can you calculate the support and resistance of [TOPIC]?",
+    "Give me the support levels of [TOPIC].",
+    "Give me the resistance levels of [TOPIC].",
+    "Support and resistance of [TOPIC], please.",
     "I’d like to know where the support and resistance levels of [TOPIC] are located.",
     "Can you show me the current support and resistance of [TOPIC]?",
-    "At what level is the main support for [TOPIC]?",
-    "And where is the resistance for [TOPIC]?",
-    "Give me the technical levels for [TOPIC].",
+    "At what level is the main support of [TOPIC]?",
+    "Where is the resistance for [TOPIC]?",
+    "Give me the support and resistance levels of [TOPIC].",
     "Can you show me the support and resistance points for [TOPIC]?",
-    "Please analyze the support and resistance levels for [TOPIC].",
-    "Show me the key technical levels for [TOPIC]."
+    "Analyze the support and resistance levels for [TOPIC].",
+    "Show me the technical resistance and support levels for [TOPIC]."
   ],
   "answers": [
-    "For [TOPIC], the *support* level is around *[SUPPORTO]*, while the main *resistance* is near *[RESISTENZA]* 📊.",
-    "[TOPIC] shows a *support* around *[SUPPORTO]* and a *resistance* near *[RESISTENZA]*, both key levels to watch.",
-    "The current *support* for [TOPIC] is at *[SUPPORTO]*, while the *resistance* is positioned at *[RESISTENZA]*.",
+    "For [TOPIC], the *support* level is around *[SUPPORTO]*, while the main *resistance* is around *[RESISTENZA]* 📊.",
+    "[TOPIC] shows a *support* near *[SUPPORTO]* and a *resistance* around *[RESISTENZA]*, both key levels to watch.",
+    "The current *support* for [TOPIC] is at *[SUPPORTO]*, while the *resistance* stands at *[RESISTENZA]*.",
     "According to technical analysis, for [TOPIC] the main *support* is at *[SUPPORTO]* and the *resistance* is at *[RESISTENZA]* 🔍.",
-    "Key levels for [TOPIC]: *support at [SUPPORTO]* and *resistance at [RESISTENZA]*.",
+    "The key levels for [TOPIC] are: *support at [SUPPORTO]* and *resistance at [RESISTENZA]*.",
     "The price of [TOPIC] finds *support* around *[SUPPORTO]*, while the next *resistance* is estimated near *[RESISTENZA]*.",
-    "Analysis indicates *support* at *[SUPPORTO]* and *resistance* at *[RESISTENZA]* for [TOPIC] — two important technical points for traders.",
-    "For [TOPIC], the main *support* is at *[SUPPORTO]*, while the key *resistance* is at *[RESISTENZA]* ⚙️.",
+    "The analysis indicates a *support* at *[SUPPORTO]* and a *resistance* at *[RESISTENZA]* for [TOPIC], two important technical points for traders.",
+    "For [TOPIC], the main *support* is located at *[SUPPORTO]*, while the key *resistance* is at *[RESISTENZA]* ⚙️.",
     "The lower *support* level of [TOPIC] is around *[SUPPORTO]*, while the upper *resistance* area is near *[RESISTENZA]*.",
-    "According to the latest data, *support* for [TOPIC] is located at *[SUPPORTO]*, and *resistance* is found at *[RESISTENZA]*."
+    "According to the latest data, the *support* of [TOPIC] is around *[SUPPORTO]*, and the *resistance* is at *[RESISTENZA]*."
   ],
   "cost": 1,
   "keywords": ["support", "resistance", "levels"],
@@ -7311,7 +7310,7 @@
   "subquestions": {
     "Would you like me to show you the chart of [TOPIC] to observe its trend?": "graph_request",
     "Would you like me to prepare a complete analysis of [TOPIC]?": "asset_analysis_open",
-    "Do you want me to provide the fundamental analysis for [TOPIC]?": "fundamental_analysis",
-    "I can provide the technical analysis for [TOPIC]. Would you like me to proceed?": "ta_general"}
+    "Would you like me to provide the fundamental analysis of [TOPIC]?": "fundamental_analysis",
+    "I can provide you with the technical analysis for [TOPIC]. Should I proceed?": "ta_general"}
 }
 }
