@@ -3446,16 +3446,16 @@
     "Exponential moving average of [TOPIC]"
   ],
   "answers": [
-    "The 10-day EMA of [TOPIC] is currently [EMA_VALUE].\n\nThe price is [UP_DOWN] relative to EMA10, indicating a [STATE_EMA] trend for the asset.",
-    "The EMA10 value of [TOPIC] is [EMA_VALUE].\n\nThe price is [UP_DOWN] relative to EMA10, suggesting a [STATE_EMA] trend.",
+    "The 10-day EMA of [TOPIC] is currently [EMA_VALUE].\n\nThe price is [EMA_UP_DOWN] relative to EMA10, indicating a [STATE_EMA] trend for the asset.",
+    "The EMA10 value of [TOPIC] is [EMA_VALUE].\n\nThe price is [EMA_UP_DOWN] relative to EMA10, suggesting a [STATE_EMA] trend.",
     "Currently, the EMA 10 of [TOPIC] is [EMA_VALUE].\n\nObserving the price position relative to EMA10, the trend appears [STATE_EMA].",
-    "The EMA10 indicator for [TOPIC] is [EMA_VALUE].\n\nThe asset price is [UP_DOWN] relative to EMA10, indicating a [STATE_EMA] trend.",
-    "10-day EMA of [TOPIC]: [EMA_VALUE].\n\nThe price being [UP_DOWN] relative to EMA10 shows a [STATE_EMA] trend.",
-    "The current EMA10 value of [TOPIC] is [EMA_VALUE].\n\nThis implies that the price is [UP_DOWN] relative to EMA10, indicating a [STATE_EMA] trend.",
-    "The EMA10 of [TOPIC] is [EMA_VALUE].\n\nWith the price [UP_DOWN] relative to EMA10, the asset trend is [STATE_EMA].",
-    "For [TOPIC], the 10-day EMA is [EMA_VALUE].\n\nThe price being [UP_DOWN] relative to EMA10 indicates a [STATE_EMA] trend.",
-    "The current EMA10 value of [TOPIC] is [EMA_VALUE].\n\nObserving the price [UP_DOWN] relative to EMA10, we can say the trend is [STATE_EMA].",
-    "The EMA10 indicator of [TOPIC] today is [EMA_VALUE].\n\nThe price is [UP_DOWN] relative to EMA10, suggesting a [STATE_EMA] trend."
+    "The EMA10 indicator for [TOPIC] is [EMA_VALUE].\n\nThe asset price is [EMA_UP_DOWN] relative to EMA10, indicating a [STATE_EMA] trend.",
+    "10-day EMA of [TOPIC]: [EMA_VALUE].\n\nThe price being [EMA_UP_DOWN] relative to EMA10 shows a [STATE_EMA] trend.",
+    "The current EMA10 value of [TOPIC] is [EMA_VALUE].\n\nThis implies that the price is [EMA_UP_DOWN] relative to EMA10, indicating a [STATE_EMA] trend.",
+    "The EMA10 of [TOPIC] is [EMA_VALUE].\n\nWith the price [EMA_UP_DOWN] relative to EMA10, the asset trend is [STATE_EMA].",
+    "For [TOPIC], the 10-day EMA is [EMA_VALUE].\n\nThe price being [EMA_UP_DOWN] relative to EMA10 indicates a [STATE_EMA] trend.",
+    "The current EMA10 value of [TOPIC] is [EMA_VALUE].\n\nObserving the price [EMA_UP_DOWN] relative to EMA10, we can say the trend is [STATE_EMA].",
+    "The EMA10 indicator of [TOPIC] today is [EMA_VALUE].\n\nThe price is [EMA_UP_DOWN] relative to EMA10, suggesting a [STATE_EMA] trend."
   ],
   "cost": 4,
   "keywords": ["ema", "ema10", "ema 10", "10-day ema", "exponential moving average"],
@@ -3666,16 +3666,16 @@
     "Bollinger Bands for [TOPIC]"
   ],
   "answers": [
-    "Bollinger Bands for [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatility: [BB_VOLATILITY]\n- Band is [UP_DOWN]\n\nCondition: [STATE_BB], which means [SIGNIFICATO_BB].",
-    "Here is the Bollinger Bands info for [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatility: [BB_VOLATILITY]\n- Band is [UP_DOWN]\n\nCurrent state is [STATE_BB], usually indicating [SIGNIFICATO_BB].",
-    "Bollinger analysis for [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatility: [BB_VOLATILITY]\n- Band is [UP_DOWN]\n\nCondition is [STATE_BB], implying [SIGNIFICATO_BB].",
-    "The Bollinger Bands of [TOPIC] show:\n\n- %B: [BB_VALUE]\n- Volatility: [BB_VOLATILITY]\n- Band is [UP_DOWN]\n\nCurrent situation: [STATE_BB], suggesting [SIGNIFICATO_BB].",
-    "For [TOPIC], the Bollinger Bands are:\n\n- %B: [BB_VALUE]\n- Volatility: [BB_VOLATILITY]\n- Band is [UP_DOWN]\n\nCondition: [STATE_BB], indicating [SIGNIFICATO_BB].",
-    "Here is the status of the Bollinger Bands for [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatility: [BB_VOLATILITY]\n- Band is [UP_DOWN]\n\nCurrently [STATE_BB], indicating [SIGNIFICATO_BB].",
-    "Bollinger situation for [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatility: [BB_VOLATILITY]\n- Band is [UP_DOWN]\n\nState is [STATE_BB], meaning [SIGNIFICATO_BB].",
-    "Updated Bollinger Bands for [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatility: [BB_VOLATILITY]\n- Band is [UP_DOWN]\n\nCurrent condition: [STATE_BB], implying [SIGNIFICATO_BB].",
-    "Technical Bollinger analysis for [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatility: [BB_VOLATILITY]\n- Band is [UP_DOWN]\n\nAsset is [STATE_BB], usually translating to [SIGNIFICATO_BB].",
-    "Here is the Bollinger Bands data for [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatility: [BB_VOLATILITY]\n- Band is [UP_DOWN]\n\nSituation: [STATE_BB], indicating [SIGNIFICATO_BB]."
+    "Bollinger Bands for [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatility: [BB_VOLATILITY]\n- Band is [BB_UP_DOWN]\n\nCondition: [STATE_BB], which means [SIGNIFICATO_BB].",
+    "Here is the Bollinger Bands info for [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatility: [BB_VOLATILITY]\n- Band is [BB_UP_DOWN]\n\nCurrent state is [STATE_BB], usually indicating [SIGNIFICATO_BB].",
+    "Bollinger analysis for [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatility: [BB_VOLATILITY]\n- Band is [BB_UP_DOWN]\n\nCondition is [STATE_BB], implying [SIGNIFICATO_BB].",
+    "The Bollinger Bands of [TOPIC] show:\n\n- %B: [BB_VALUE]\n- Volatility: [BB_VOLATILITY]\n- Band is [BB_UP_DOWN]\n\nCurrent situation: [STATE_BB], suggesting [SIGNIFICATO_BB].",
+    "For [TOPIC], the Bollinger Bands are:\n\n- %B: [BB_VALUE]\n- Volatility: [BB_VOLATILITY]\n- Band is [BB_UP_DOWN]\n\nCondition: [STATE_BB], indicating [SIGNIFICATO_BB].",
+    "Here is the status of the Bollinger Bands for [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatility: [BB_VOLATILITY]\n- Band is [BB_UP_DOWN]\n\nCurrently [STATE_BB], indicating [SIGNIFICATO_BB].",
+    "Bollinger situation for [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatility: [BB_VOLATILITY]\n- Band is [BB_UP_DOWN]\n\nState is [STATE_BB], meaning [SIGNIFICATO_BB].",
+    "Updated Bollinger Bands for [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatility: [BB_VOLATILITY]\n- Band is [BB_UP_DOWN]\n\nCurrent condition: [STATE_BB], implying [SIGNIFICATO_BB].",
+    "Technical Bollinger analysis for [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatility: [BB_VOLATILITY]\n- Band is [BB_UP_DOWN]\n\nAsset is [STATE_BB], usually translating to [SIGNIFICATO_BB].",
+    "Here is the Bollinger Bands data for [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatility: [BB_VOLATILITY]\n- Band is [BB_UP_DOWN]\n\nSituation: [STATE_BB], indicating [SIGNIFICATO_BB]."
   ],
   "cost": 4,
   "keywords": ["bollinger", "current", "updated"],
