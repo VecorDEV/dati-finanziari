@@ -3517,16 +3517,16 @@
       "Moyenne mobile exponentielle de [TOPIC]"
     ],
     "answers": [
-      "L'EMA à 10 jours de [TOPIC] est actuellement [EMA_VALUE].\n\nLe prix se trouve [UP_DOWN] par rapport à l'EMA10, indiquant une tendance [STATE_EMA] pour l'actif.",
-      "La valeur EMA10 de [TOPIC] est [EMA_VALUE].\n\nLe prix est [UP_DOWN] par rapport à l'EMA10, suggérant une tendance [STATE_EMA].",
+      "L'EMA à 10 jours de [TOPIC] est actuellement [EMA_VALUE].\n\nLe prix se trouve [EMA_UP_DOWN] par rapport à l'EMA10, indiquant une tendance [STATE_EMA] pour l'actif.",
+      "La valeur EMA10 de [TOPIC] est [EMA_VALUE].\n\nLe prix est [EMA_UP_DOWN] par rapport à l'EMA10, suggérant une tendance [STATE_EMA].",
       "Actuellement, l'EMA 10 de [TOPIC] s'établit à [EMA_VALUE].\n\nEn observant la position du prix par rapport à l'EMA10, la tendance semble [STATE_EMA].",
-      "L'indicateur EMA10 pour [TOPIC] est [EMA_VALUE].\n\nLe prix de l'actif est [UP_DOWN] par rapport à l'EMA10, ce qui indique une tendance [STATE_EMA].",
-      "EMA à 10 jours de [TOPIC] : [EMA_VALUE].\n\nLa position du prix [UP_DOWN] par rapport à l'EMA10 montre une tendance [STATE_EMA].",
-      "La valeur actuelle de l'EMA10 de [TOPIC] est [EMA_VALUE].\n\nCela implique que le prix est [UP_DOWN] par rapport à l'EMA10, indiquant une tendance [STATE_EMA].",
-      "L'EMA10 de [TOPIC] est [EMA_VALUE].\n\nAvec le prix [UP_DOWN] par rapport à l'EMA10, la tendance de l'actif est [STATE_EMA].",
-      "Pour [TOPIC], l'EMA à 10 jours est [EMA_VALUE].\n\nLa condition du prix [UP_DOWN] par rapport à l'EMA10 indique une tendance [STATE_EMA].",
-      "La valeur EMA 10 actuelle de [TOPIC] est [EMA_VALUE].\n\nEn observant le prix [UP_DOWN] par rapport à l'EMA10, nous pouvons dire que la tendance est [STATE_EMA].",
-      "L'indicateur EMA10 de [TOPIC] aujourd'hui est [EMA_VALUE].\n\nLe prix se trouve [UP_DOWN] par rapport à l'EMA10, suggérant une tendance [STATE_EMA]."
+      "L'indicateur EMA10 pour [TOPIC] est [EMA_VALUE].\n\nLe prix de l'actif est [EMA_UP_DOWN] par rapport à l'EMA10, ce qui indique une tendance [STATE_EMA].",
+      "EMA à 10 jours de [TOPIC] : [EMA_VALUE].\n\nLa position du prix [EMA_UP_DOWN] par rapport à l'EMA10 montre une tendance [STATE_EMA].",
+      "La valeur actuelle de l'EMA10 de [TOPIC] est [EMA_VALUE].\n\nCela implique que le prix est [EMA_UP_DOWN] par rapport à l'EMA10, indiquant une tendance [STATE_EMA].",
+      "L'EMA10 de [TOPIC] est [EMA_VALUE].\n\nAvec le prix [EMA_UP_DOWN] par rapport à l'EMA10, la tendance de l'actif est [STATE_EMA].",
+      "Pour [TOPIC], l'EMA à 10 jours est [EMA_VALUE].\n\nLa condition du prix [EMA_UP_DOWN] par rapport à l'EMA10 indique une tendance [STATE_EMA].",
+      "La valeur EMA 10 actuelle de [TOPIC] est [EMA_VALUE].\n\nEn observant le prix [EMA_UP_DOWN] par rapport à l'EMA10, nous pouvons dire que la tendance est [STATE_EMA].",
+      "L'indicateur EMA10 de [TOPIC] aujourd'hui est [EMA_VALUE].\n\nLe prix se trouve [EMA_UP_DOWN] par rapport à l'EMA10, suggérant une tendance [STATE_EMA]."
     ],
     "cost": 4,
     "keywords": ["ema", "ema10", "ema 10", "ema à 10 jours", "moyenne mobile exponentielle"],
@@ -3737,16 +3737,16 @@
       "Bandes de Bollinger pour [TOPIC]"
     ],
     "answers": [
-      "Bandes de Bollinger pour [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilité: [BB_VOLATILITY]\n- La bande est [UP_DOWN]\n\nLa condition est [STATE_BB], ce qui signifie [SIGNIFICATO_BB].",
-      "Voici les informations sur les Bandes de Bollinger de [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilité: [BB_VOLATILITY]\n- La bande est [UP_DOWN]\n\nActuellement, l'état est [STATE_BB], ce qui indique généralement [SIGNIFICATO_BB].",
-      "Analyse Bollinger pour [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilité: [BB_VOLATILITY]\n- La bande est [UP_DOWN]\n\nLa condition est [STATE_BB], impliquant [SIGNIFICATO_BB].",
-      "Les Bandes de Bollinger de [TOPIC] montrent:\n\n- %B: [BB_VALUE]\n- Volatilité: [BB_VOLATILITY]\n- La bande est [UP_DOWN]\n\nSituation actuelle: [STATE_BB], ce qui suggère [SIGNIFICATO_BB].",
-      "Pour [TOPIC], les Bandes de Bollinger sont:\n\n- %B: [BB_VALUE]\n- Volatilité: [BB_VOLATILITY]\n- La bande est [UP_DOWN]\n\nCondition: [STATE_BB], indiquant [SIGNIFICATO_BB].",
-      "Voici l'état des Bandes de Bollinger sur [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilité: [BB_VOLATILITY]\n- La bande est [UP_DOWN]\n\nActuellement, cela résulte en [STATE_BB], indiquant [SIGNIFICATO_BB].",
-      "Situation Bollinger pour [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilité: [BB_VOLATILITY]\n- La bande est [UP_DOWN]\n\nL'état est [STATE_BB], ce qui signifie [SIGNIFICATO_BB].",
-      "Bandes de Bollinger mises à jour pour [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilité: [BB_VOLATILITY]\n- La bande est [UP_DOWN]\n\nCondition actuelle: [STATE_BB], ce qui implique [SIGNIFICATO_BB].",
-      "Analyse technique Bollinger pour [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilité: [BB_VOLATILITY]\n- La bande est [UP_DOWN]\n\nL'actif est [STATE_BB], ce qui se traduit généralement par [SIGNIFICATO_BB].",
-      "Voici les données des Bandes de Bollinger de [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilité: [BB_VOLATILITY]\n- La bande est [UP_DOWN]\n\nSituation: [STATE_BB], ce qui indique [SIGNIFICATO_BB]."
+      "Bandes de Bollinger pour [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilité: [BB_VOLATILITY]\n- La bande est [BB_UP_DOWN]\n\nLa condition est [STATE_BB], ce qui signifie [SIGNIFICATO_BB].",
+      "Voici les informations sur les Bandes de Bollinger de [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilité: [BB_VOLATILITY]\n- La bande est [BB_UP_DOWN]\n\nActuellement, l'état est [STATE_BB], ce qui indique généralement [SIGNIFICATO_BB].",
+      "Analyse Bollinger pour [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilité: [BB_VOLATILITY]\n- La bande est [BB_UP_DOWN]\n\nLa condition est [STATE_BB], impliquant [SIGNIFICATO_BB].",
+      "Les Bandes de Bollinger de [TOPIC] montrent:\n\n- %B: [BB_VALUE]\n- Volatilité: [BB_VOLATILITY]\n- La bande est [BB_UP_DOWN]\n\nSituation actuelle: [STATE_BB], ce qui suggère [SIGNIFICATO_BB].",
+      "Pour [TOPIC], les Bandes de Bollinger sont:\n\n- %B: [BB_VALUE]\n- Volatilité: [BB_VOLATILITY]\n- La bande est [BB_UP_DOWN]\n\nCondition: [STATE_BB], indiquant [SIGNIFICATO_BB].",
+      "Voici l'état des Bandes de Bollinger sur [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilité: [BB_VOLATILITY]\n- La bande est [BB_UP_DOWN]\n\nActuellement, cela résulte en [STATE_BB], indiquant [SIGNIFICATO_BB].",
+      "Situation Bollinger pour [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilité: [BB_VOLATILITY]\n- La bande est [BB_UP_DOWN]\n\nL'état est [STATE_BB], ce qui signifie [SIGNIFICATO_BB].",
+      "Bandes de Bollinger mises à jour pour [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilité: [BB_VOLATILITY]\n- La bande est [BB_UP_DOWN]\n\nCondition actuelle: [STATE_BB], ce qui implique [SIGNIFICATO_BB].",
+      "Analyse technique Bollinger pour [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilité: [BB_VOLATILITY]\n- La bande est [BB_UP_DOWN]\n\nL'actif est [STATE_BB], ce qui se traduit généralement par [SIGNIFICATO_BB].",
+      "Voici les données des Bandes de Bollinger de [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilité: [BB_VOLATILITY]\n- La bande est [BB_UP_DOWN]\n\nSituation: [STATE_BB], ce qui indique [SIGNIFICATO_BB]."
     ],
     "cost": 4,
     "keywords": ["bollinger", "actuel", "courant", "mis à jour"],
