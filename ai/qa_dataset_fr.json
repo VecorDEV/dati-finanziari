@@ -4767,6 +4767,41 @@
       "Voulez-vous aussi savoir le P/E Forward de [TOPIC]?": "forward_pe",
       "Voulez-vous aussi savoir le P/E Trailing de [TOPIC]?": "trailing_pe"}
 },
+    "dividend_yield": {
+  "questions": [
+    "Quel est le dividend yield de [TOPIC] ?",
+    "Peux-tu me dire la valeur du dividend yield de [TOPIC] ?",
+    "Quel est le rendement du dividende de [TOPIC] ?",
+    "Peux-tu m’indiquer le dividend yield de [TOPIC] ?",
+    "Combien rapporte en pourcentage [TOPIC] ?",
+    "Donne-moi le dividend yield de [TOPIC]",
+    "À combien s’élève le rendement du dividende de [TOPIC] ?",
+    "Quelle est la valeur actuelle du dividend yield de [TOPIC] ?",
+    "Quel est le rendement du dividende pour [TOPIC] ?",
+    "Dividend yield de [TOPIC]",
+    "Rendement du dividende de [TOPIC]",
+    "Montre-moi le dividend yield pour [TOPIC]",
+    "Je voudrais connaître le rendement du dividende de [TOPIC]",
+    "Dis-moi le dividend yield de [TOPIC]",
+    "Donne-moi le dividend yield de [TOPIC]"
+  ],
+  "answers": [
+    "Le dividend yield de [TOPIC] est actuellement de [DIVIDEND_YIELD_VALUE].",
+    "Pour [TOPIC], le rendement du dividende est de [DIVIDEND_YIELD_VALUE].",
+    "La valeur actuelle du dividend yield de [TOPIC] est [DIVIDEND_YIELD_VALUE].",
+    "D’après les données les plus récentes, [TOPIC] affiche un dividend yield de [DIVIDEND_YIELD_VALUE].",
+    "En ce moment, le dividend yield de [TOPIC] est de [DIVIDEND_YIELD_VALUE].",
+    "Les dernières données indiquent que [TOPIC] a enregistré un dividend yield de [DIVIDEND_YIELD_VALUE].",
+    "Le rendement du dividende pour [TOPIC] est actuellement de [DIVIDEND_YIELD_VALUE].",
+    "La valeur estimée aujourd’hui du dividend yield de [TOPIC] est [DIVIDEND_YIELD_VALUE]."
+  ],
+  "cost": 2,
+  "keywords": ["dividend yield", "rendement du dividende", "rendement", "yield", "actuel", "courant", "mis à jour"],
+  "tag": "free",
+  "subquestions": {
+    "Souhaitez-vous aussi connaître le dividend yield de [FAVOURITE] ?": "dividend_yield",
+    "Voulez-vous aussi connaître le ratio dette/capitaux propres de [TOPIC] ?": "debt_to_equity"}
+},
   "inflation_deflation": {
     "questions": [
       "Comment l'inflation affecte-t-elle les marchés ?",
