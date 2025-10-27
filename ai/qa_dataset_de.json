@@ -4803,6 +4803,42 @@
     "Willst du auch das Trailing P/E von [TOPIC] wissen?": "trailing_pe"
   }
 },
+  "dividend_yield": {
+  "questions": [
+    "Wie hoch ist das dividend yield von [TOPIC]?",
+    "Kannst du mir den Wert des dividend yield von [TOPIC] nennen?",
+    "Wie hoch ist die Dividendenrendite von [TOPIC]?",
+    "Kannst du mir das dividend yield von [TOPIC] zeigen?",
+    "Wie viel Prozent Rendite erzielt [TOPIC]?",
+    "Sag mir das dividend yield von [TOPIC]",
+    "Wie viel beträgt die Dividendenrendite von [TOPIC]?",
+    "Wie hoch ist der aktuelle dividend yield von [TOPIC]?",
+    "Wie hoch ist die Rendite aus Dividenden von [TOPIC]?",
+    "Dividend yield von [TOPIC]",
+    "Dividendenrendite von [TOPIC]",
+    "Zeig mir das dividend yield für [TOPIC]",
+    "Ich möchte wissen, wie hoch die Dividendenrendite von [TOPIC] ist",
+    "Sag mir das dividend yield von [TOPIC]",
+    "Gib mir das dividend yield von [TOPIC]"
+  ],
+  "answers": [
+    "Das dividend yield von [TOPIC] beträgt derzeit [DIVIDEND_YIELD_VALUE].",
+    "Für [TOPIC] liegt die Dividendenrendite bei [DIVIDEND_YIELD_VALUE].",
+    "Der aktuelle Wert des dividend yield von [TOPIC] beträgt [DIVIDEND_YIELD_VALUE].",
+    "Laut den neuesten Daten hat [TOPIC] ein dividend yield von [DIVIDEND_YIELD_VALUE].",
+    "Im Moment beträgt das dividend yield von [TOPIC] [DIVIDEND_YIELD_VALUE].",
+    "Die jüngsten Daten zeigen, dass [TOPIC] ein dividend yield von [DIVIDEND_YIELD_VALUE] aufweist.",
+    "Die Dividendenrendite für [TOPIC] liegt derzeit bei [DIVIDEND_YIELD_VALUE].",
+    "Der geschätzte heutige Wert des dividend yield von [TOPIC] beträgt [DIVIDEND_YIELD_VALUE]."
+  ],
+  "cost": 2,
+  "keywords": ["dividend yield", "Dividendenrendite", "Rendite", "yield", "aktuell", "aktuelle", "gegenwärtig", "aktualisiert"],
+  "tag": "free",
+  "subquestions": {
+    "Möchtest du auch das dividend yield von [FAVOURITE] wissen?": "dividend_yield",
+    "Möchtest du auch das Verhältnis Schulden zu Eigenkapital von [TOPIC] wissen?": "debt_to_equity"
+  }
+},
   "inflation_deflation": {
   "questions": [
     "Wie wirkt sich Inflation auf die Märkte aus?",
