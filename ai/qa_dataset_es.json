@@ -1672,7 +1672,11 @@
     "Para [TOPIC] ¿qué stop loss recomiendas?",
     "Para [TOPIC] ¿qué stop loss?",
     "¿Y cuál stop loss?",
-    "Recomiéndame el stop loss para [TOPIC]"
+    "Recomiéndame el stop loss para [TOPIC]",
+    "Recomiéndame un SL para [TOPIC]",
+    "¿Qué SL debo poner para [TOPIC]?",
+    "SL en [TOPIC]",
+    "SL para [TOPIC]"
   ],
   "answers": [
     "Te recomiendo poner el stop loss en [TOPIC] a [STOP_LOSS], para proteger el capital si el mercado se mueve en tu contra 🔒.",
@@ -1697,7 +1701,7 @@
     "Para [TOPIC], un buen stop loss se coloca en [STOP_LOSS] 🔒, basado en los niveles de soporte y el análisis técnico actual."
   ],
   "cost": 3,
-  "keywords": ["stop loss"],
+  "keywords": ["stop loss", "sl"],
   "tag": "premium",
   "subquestions": {
     "¿Quieres que también te aconseje un take profit razonable?": "trading_take_profit_level",
@@ -1731,7 +1735,11 @@
     "Para [TOPIC] ¿qué take profit recomiendas?",
     "Para [TOPIC] ¿qué take profit?",
     "¿Y cuál take profit?",
-    "Recomiéndame el take profit para [TOPIC]"
+    "Recomiéndame el take profit para [TOPIC]",
+    "Recomiéndame un TP para [TOPIC]",
+    "¿Qué TP debo poner para [TOPIC]?",
+    "TP en [TOPIC]",
+    "TP para [TOPIC]"
   ],
   "answers": [
     "Te recomiendo poner el take profit en [TOPIC] a [TAKE_PROFIT], para asegurarte una ganancia razonable si el mercado se mueve a tu favor 📈.",
@@ -1756,7 +1764,7 @@
     "Para [TOPIC], un buen take profit se coloca en [TAKE_PROFIT] 📊, basado en niveles de resistencia y análisis técnico actual."
   ],
   "cost": 3,
-  "keywords": ["take profit", "objetivo", "ganancia"],
+  "keywords": ["take profit", "objetivo", "ganancia", "tp"],
   "tag": "premium",
   "subquestions": {
     "¿Quieres que también te aconseje un stop loss razonable?": "trading_stop_loss_level",
