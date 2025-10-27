@@ -4492,6 +4492,41 @@
       "Vuoi sapere anche cos'è il Forward P/E?": "forward_pe_info",
       "Vuoi sapere anche cos'è il Trailing P/E?": "trailing_pe_info"}
 },
+  "dividend_yield_info": {
+  "questions": [
+      "Che cosa è il dividend yield?",
+      "Puoi spiegarmi il dividend yield?",
+      "Cosa indica il dividend yield?",
+      "Mi dici a cosa serve il dividend yield?",
+      "Come si interpreta il dividend yield?",
+      "Che cosa misura il dividend yield?",
+      "Vorrei capire il dividend yield",
+      "Dividend yield: che cosa significa?",
+      "Mi puoi spiegare il concetto di dividend yield?",
+      "Qual è il significato del dividend yield?",
+      "Cosa indica il rendimento da dividendo?",
+      "Cos'è il rendimento da dividendo?",
+      "Cosa si intende per rendimento da dividendo?",
+      "Cosa si intende per dividend yield?"
+  ],
+  "answers": [
+      "Il dividend yield indica il rendimento percentuale dei dividendi di un'azienda rispetto al prezzo attuale dell'azione.\n\nSu questa app sono in grado di offrirti questo dato per valutare quanto un titolo renda in termini di dividendi.",
+      "Il dividend yield misura quanto un'azienda distribuisce in dividendi rispetto al prezzo dell'azione.\n\nPuoi consultare questo valore per capire il potenziale ritorno da dividendi di un asset.",
+      "Il dividend yield rappresenta la percentuale di rendimento derivante dai dividendi rispetto al prezzo di mercato dell'azione.\n\nQuesta app ti permette di visualizzare questi dati per confrontare diversi asset o periodi.",
+      "Il dividend yield mostra quanto rendimento dai dividendi puoi aspettarti in proporzione al prezzo dell'azione.\n\nSono in grado di fornirti questi valori per valutare la redditività da dividendi di un titolo.",
+      "Il dividend yield indica la relazione tra dividendi annuali e prezzo attuale dell'azione.\n\nSu questa app puoi vedere questi dati per confrontare aziende o periodi diversi.",
+      "Il dividend yield misura quanto rende un titolo in termini di dividendi rispetto al prezzo di mercato.\n\nPosso offrirti questi valori per valutare il ritorno da dividendi di un asset.",
+      "Il dividend yield indica la percentuale di dividendi rispetto al capitale investito in un'azione.\n\nQuesta app ti permette di ottenere questi dati per confrontare titoli o periodi diversi.",
+      "Il dividend yield mostra il rendimento da dividendo di un'azione in percentuale rispetto al prezzo corrente.\n\nSono in grado di offrirti queste informazioni per un'analisi completa del rendimento da dividendi.",
+      "Il dividend yield rappresenta il ritorno percentuale dei dividendi di un'azienda rispetto al prezzo di mercato dell'azione.\n\nPuoi usare questi dati su questa app per valutare la redditività da dividendi.",
+      "Il dividend yield indica la relazione tra dividendi pagati e prezzo dell'azione.\n\nQuesta app ti consente di consultare questi valori per avere un quadro chiaro del rendimento da dividendi dell'asset."
+  ],
+  "cost": 0,
+  "keywords": ["dividend yield", "dividend", "spieghi", "spiega", "spiegami", "spiegare", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "indica", "intende"],
+  "subquestions": {
+    "Vuoi sapere il dividend yield per [FAVOURITE]?": "dividend_yield",
+    "Vuoi conoscere il dividend yield per [FAVOURITE]?": "dividend_yield"}
+},
     "yoy_info": {
     "questions": [
       "Cosa significa YoY?",
@@ -4734,6 +4769,41 @@
     "subquestions": {
       "Vuoi sapere anche il Forward P/E di [TOPIC]?": "forward_pe",
       "Vuoi sapere anche il Trailing P/E di [TOPIC]?": "trailing_pe"}
+},
+  "dividend_yield": {
+  "questions": [
+    "Qual è il dividend yield di [TOPIC]?",
+    "Mi dici il valore del dividend yield di [TOPIC]?",
+    "Quanto rende in percentuale [TOPIC]?",
+    "Puoi indicarmi il dividend yield di [TOPIC]?",
+    "Qual è il rendimento da dividendo di [TOPIC]?",
+    "Mi dai il dividend yield di [TOPIC]?",
+    "A quanto ammonta il dividend yield di [TOPIC]?",
+    "Quanto vale il rendimento da dividendo di [TOPIC]?",
+    "Quanto vale il dividend yield di [TOPIC]?",
+    "Dividend yield di [TOPIC]",
+    "Rendimento da dividendo di [TOPIC]",
+    "Mostrami il dividend yield per [TOPIC]",
+    "Vorrei sapere qual è il rendimento da dividendo di [TOPIC]",
+    "Dimmi il dividend yield di [TOPIC]",
+    "Dammi il dividend yield di [TOPIC]"
+  ],
+  "answers": [
+    "Il dividend yield di [TOPIC] è attualmente [DIVIDEND_YIELD_VALUE].",
+    "Per [TOPIC], il rendimento da dividendo risulta essere [DIVIDEND_YIELD_VALUE].",
+    "Il valore attuale del dividend yield di [TOPIC] è [DIVIDEND_YIELD_VALUE].",
+    "Secondo i dati più recenti, [TOPIC] ha un dividend yield pari a [DIVIDEND_YIELD_VALUE].",
+    "Al momento, il dividend yield di [TOPIC] è [DIVIDEND_YIELD_VALUE].",
+    "Gli ultimi dati indicano che [TOPIC] ha registrato un dividend yield di [DIVIDEND_YIELD_VALUE].",
+    "Il rendimento da dividendo per [TOPIC] è attualmente [DIVIDEND_YIELD_VALUE].",
+    "Il valore stimato oggi del dividend yield di [TOPIC] è [DIVIDEND_YIELD_VALUE]."
+  ],
+  "cost": 2,
+  "keywords": ["dividend yield", "rendimento", "yield", "attuale", "corrente", "aggiornato"],
+  "tag": "free",
+  "subquestions": {
+    "Vuoi sapere anche il dividend yield di [FAVOURITE]?": "dividend_yield",
+    "Vuoi sapere anche il debt to equity di [TOPIC]?": "debt_to_equity"}
 },
   "inflation_deflation": {
   "questions": [
