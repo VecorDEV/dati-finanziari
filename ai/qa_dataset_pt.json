@@ -4759,6 +4759,41 @@
       "Quer saber também o Forward P/E de [TOPIC]?": "forward_pe",
       "Quer saber também o Trailing P/E de [TOPIC]?": "trailing_pe"}
   },
+  "dividend_yield": {
+  "questions": [
+    "Qual é o dividend yield de [TOPIC]?",
+    "Você pode me dizer o valor do dividend yield de [TOPIC]?",
+    "Qual é o rendimento de dividendos de [TOPIC]?",
+    "Pode me indicar o dividend yield de [TOPIC]?",
+    "Quanto rende em porcentagem [TOPIC]?",
+    "Diga-me o dividend yield de [TOPIC]",
+    "A quanto chega o rendimento de dividendos de [TOPIC]?",
+    "Qual é o valor atual do dividend yield de [TOPIC]?",
+    "Qual é o rendimento de dividendos para [TOPIC]?",
+    "Dividend yield de [TOPIC]",
+    "Rendimento de dividendos de [TOPIC]",
+    "Mostre-me o dividend yield de [TOPIC]",
+    "Gostaria de saber qual é o rendimento de dividendos de [TOPIC]",
+    "Diga o dividend yield de [TOPIC]",
+    "Me diga o dividend yield de [TOPIC]"
+  ],
+  "answers": [
+    "O dividend yield de [TOPIC] é atualmente [DIVIDEND_YIELD_VALUE].",
+    "Para [TOPIC], o rendimento de dividendos é de [DIVIDEND_YIELD_VALUE].",
+    "O valor atual do dividend yield de [TOPIC] é [DIVIDEND_YIELD_VALUE].",
+    "De acordo com os dados mais recentes, [TOPIC] tem um dividend yield de [DIVIDEND_YIELD_VALUE].",
+    "Neste momento, o dividend yield de [TOPIC] é de [DIVIDEND_YIELD_VALUE].",
+    "Os dados mais recentes indicam que [TOPIC] registrou um dividend yield de [DIVIDEND_YIELD_VALUE].",
+    "O rendimento de dividendos para [TOPIC] é atualmente [DIVIDEND_YIELD_VALUE].",
+    "O valor estimado hoje do dividend yield de [TOPIC] é [DIVIDEND_YIELD_VALUE]."
+  ],
+  "cost": 2,
+  "keywords": ["dividend yield", "rendimento de dividendos", "rendimento", "yield", "atual", "corrente", "atualizado"],
+  "tag": "free",
+  "subquestions": {
+    "Você quer saber também o dividend yield de [FAVOURITE]?": "dividend_yield",
+    "Quer saber também o índice dívida/patrimônio de [TOPIC]?": "debt_to_equity"}
+},
   "inflation_deflation": {
     "questions": [
       "Como a inflação afeta os mercados?",
