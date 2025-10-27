@@ -4481,6 +4481,41 @@
       "Quer saber também o que é o Forward P/E?": "forward_pe_info",
       "Quer saber também o que é o Trailing P/E?": "trailing_pe_info"}
   },
+  "dividend_yield_info": {
+  "questions": [
+      "O que é o dividend yield?",
+      "Você pode me explicar o dividend yield?",
+      "O que significa o dividend yield?",
+      "Pode me dizer para que serve o dividend yield?",
+      "Como se interpreta o dividend yield?",
+      "O que mede o dividend yield?",
+      "Quero entender o dividend yield",
+      "Dividend yield: o que significa?",
+      "Você pode me explicar o conceito de dividend yield?",
+      "Qual é o significado do dividend yield?",
+      "O que indica o rendimento de dividendos?",
+      "O que é o rendimento de dividendos?",
+      "O que se entende por rendimento de dividendos?",
+      "O que se entende por dividend yield?"
+  ],
+  "answers": [
+      "O dividend yield indica a porcentagem de retorno dos dividendos de uma empresa em relação ao preço atual da ação.\n\nNeste app posso fornecer este dado para avaliar quanto uma ação rende em termos de dividendos.",
+      "O dividend yield mede quanto uma empresa distribui em dividendos em relação ao preço da ação.\n\nVocê pode consultar este valor para entender o potencial retorno de dividendos de um ativo.",
+      "O dividend yield representa a porcentagem de retorno derivado dos dividendos em relação ao preço de mercado da ação.\n\nEste app permite visualizar esses dados para comparar diferentes ativos ou períodos.",
+      "O dividend yield mostra quanto retorno de dividendos você pode esperar em proporção ao preço da ação.\n\nPosso fornecer esses valores para avaliar a rentabilidade por dividendos de uma ação.",
+      "O dividend yield indica a relação entre dividendos anuais e o preço atual da ação.\n\nNeste app você pode ver esses dados para comparar diferentes empresas ou períodos.",
+      "O dividend yield mede quanto uma ação rende em termos de dividendos em relação ao preço de mercado.\n\nPosso oferecer esses valores para avaliar o retorno de dividendos de um ativo.",
+      "O dividend yield indica a porcentagem de dividendos em relação ao capital investido em uma ação.\n\nEste app permite obter esses dados para comparar ações ou diferentes períodos.",
+      "O dividend yield mostra o rendimento por dividendos de uma ação em porcentagem em relação ao preço atual.\n\nPosso fornecer essas informações para uma análise completa do retorno de dividendos.",
+      "O dividend yield representa o retorno percentual dos dividendos de uma empresa em relação ao preço de mercado da ação.\n\nVocê pode usar esses dados neste app para avaliar a rentabilidade por dividendos.",
+      "O dividend yield indica a relação entre dividendos pagos e o preço da ação.\n\nEste app permite consultar esses valores para ter uma visão clara do rendimento de dividendos do ativo."
+  ],
+  "cost": 0,
+  "keywords": ["dividend yield", "rendimento de dividendos", "dividendo", "explicar", "explique", "explicar-me", "o que é", "função", "serve para", "significa", "indica", "representa"],
+  "subquestions": {
+    "Quer conhecer o dividend yield de [FAVOURITE]?": "dividend_yield",
+    "Quer ver o dividend yield de [FAVOURITE]?": "dividend_yield"}
+},
   "yoy_info": {
     "questions": [
       "O que significa YoY?",
