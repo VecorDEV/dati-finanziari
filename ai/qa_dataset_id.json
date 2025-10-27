@@ -3108,11 +3108,13 @@
     "Beritahu saya siapa top fire",
     "Top fire minggu lalu",
     "Top fire beberapa hari terakhir",
-    "Beri saya top fire"
+    "Beri saya top fire",
+    "Aset mana yang sedang menonjol?",
+    "Aset mana yang berkinerja baik?"
   ],
   "answers": [
     "Berikut adalah top fire minggu lalu:\n\n[TOP_FIRE] dengan variasi [TOP_FIRE_CHANGE_1] 🏆\n\n[TOP_FIRE_2] dengan [TOP_FIRE_CHANGE_2]\n\n[TOP_FIRE_3] dengan [TOP_FIRE_CHANGE_3]",
-    "Ini adalah aset yang berkinerja terbaik dalam 7 hari terakhir:\n\n[TOP_FIRE] (+[TOP_FIRE_CHANGE_1])\n\n[TOP_FIRE_2] (+[TOP_FIRE_CHANGE_2])\n\n[TOP_FIRE_3] (+[TOP_FIRE_CHANGE_3])",
+    "Ini adalah aset yang berkinerja terbaik dalam 7 hari terakhir:\n\n[TOP_FIRE] ([TOP_FIRE_CHANGE_1])\n\n[TOP_FIRE_2] ([TOP_FIRE_CHANGE_2])\n\n[TOP_FIRE_3] ([TOP_FIRE_CHANGE_3])",
     "Pemenang mingguan utama adalah:\n\n1. [TOP_FIRE] – pertumbuhan [TOP_FIRE_CHANGE_1] 🔥\n\n2. [TOP_FIRE_2] – [TOP_FIRE_CHANGE_2]\n\n3. [TOP_FIRE_3] – [TOP_FIRE_CHANGE_3]",
     "Dalam seminggu terakhir pemimpin pasar adalah:\n\n[TOP_FIRE] dengan [TOP_FIRE_CHANGE_1]\n\n[TOP_FIRE_2] dengan [TOP_FIRE_CHANGE_2]\n\n[TOP_FIRE_3] dengan [TOP_FIRE_CHANGE_3]",
     "Berikut adalah tiga aset yang mencatat kinerja mingguan terbaik:\n\n[TOP_FIRE] ([TOP_FIRE_CHANGE_1])\n\n[TOP_FIRE_2] ([TOP_FIRE_CHANGE_2])\n\n[TOP_FIRE_3] ([TOP_FIRE_CHANGE_3])",
@@ -3128,6 +3130,61 @@
       "Saya bisa memberikan nilai sentimen pada [TOP_FIRE]. Apakah Anda ingin mengetahuinya?": "sentiment",
       "Apakah Anda ingin beberapa detail teknis tentang [TOP_FIRE]?": "ta_general",
       "Jika Anda butuh, saya bisa menggambar tren grafis beberapa hari terakhir [TOP_FIRE]. Apakah Anda mau?": "graph_request"}
+},
+  "bottom_fire": {
+  "questions": [
+    "Siapa yang tumbuh paling sedikit dalam seminggu terakhir?",
+    "Aset mana yang naik paling sedikit minggu ini?",
+    "Bisa beri tahu saya performer terburuk minggu ini?",
+    "Siapa yang mencatat kinerja terburuk dalam 7 hari terakhir?",
+    "Apa saja bottom fire minggu ini?",
+    "Siapa yang mencatatkan keuntungan paling rendah minggu ini?",
+    "Tunjukkan aset terlemah minggu ini",
+    "Aset mana yang mengalami penurunan dalam 7 hari terakhir?",
+    "Siapa saja bottom fire mingguan?",
+    "Tunjukkan bottom fire minggu ini",
+    "Saham mana yang memiliki pertumbuhan paling rendah minggu ini?",
+    "Siapa yang berkinerja paling buruk selama 7 hari terakhir?",
+    "Siapa yang mengalami kerugian terbesar dalam beberapa hari terakhir?",
+    "Aset mana yang paling banyak kehilangan nilai minggu ini?",
+    "Beri saya yang terburuk minggu ini",
+    "Apa yang paling turun minggu ini?",
+    "Apa yang paling turun dalam beberapa hari terakhir?",
+    "Apa yang paling menurun belakangan ini?",
+    "Apa yang paling turun akhir-akhir ini?",
+    "Apakah ada aset yang turun tajam baru-baru ini?",
+    "Apakah ada aset yang menurun banyak?",
+    "Apakah ada aset yang merosot tajam?",
+    "Apakah ada sesuatu yang turun banyak?",
+    "Apa saja yang menjadi bottom minggu ini?",
+    "Tunjukkan para pecundang mingguan",
+    "Yang mana yang paling turun dalam 7 hari terakhir?",
+    "Siapa yang mencatat kerugian mingguan terbesar?",
+    "Beri saya bottom fire minggu ini",
+    "Beri saya bottom fire beberapa hari terakhir",
+    "Sebutkan apa saja bottom fire-nya",
+    "Bottom fire minggu lalu",
+    "Bottom fire beberapa hari terakhir",
+    "Tunjukkan bottom fire"
+  ],
+  "answers": [
+    "Berikut adalah bottom fire minggu ini:\n\n[BOTTOM_FIRE] dengan perubahan [BOTTOM_FIRE_CHANGE_1] 🏆\n\n[BOTTOM_FIRE_2] dengan [BOTTOM_FIRE_CHANGE_2]\n\n[BOTTOM_FIRE_3] dengan [BOTTOM_FIRE_CHANGE_3]",
+    "Berikut aset dengan kinerja terburuk dalam 7 hari terakhir:\n\n[BOTTOM_FIRE] ([BOTTOM_FIRE_CHANGE_1])\n\n[BOTTOM_FIRE_2] ([BOTTOM_FIRE_CHANGE_2])\n\n[BOTTOM_FIRE_3] ([BOTTOM_FIRE_CHANGE_3])",
+    "Pecundang mingguan utama adalah:\n\n1. [BOTTOM_FIRE] – perubahan [BOTTOM_FIRE_CHANGE_1] 🔥\n\n2. [BOTTOM_FIRE_2] – [BOTTOM_FIRE_CHANGE_2]\n\n3. [BOTTOM_FIRE_3] – [BOTTOM_FIRE_CHANGE_3]",
+    "Dalam seminggu terakhir, aset dengan kinerja terburuk di pasar adalah:\n\n[BOTTOM_FIRE] dengan [BOTTOM_FIRE_CHANGE_1]\n\n[BOTTOM_FIRE_2] dengan [BOTTOM_FIRE_CHANGE_2]\n\n[BOTTOM_FIRE_3] dengan [BOTTOM_FIRE_CHANGE_3]",
+    "Berikut tiga aset dengan performa mingguan terburuk:\n\n[BOTTOM_FIRE] ([BOTTOM_FIRE_CHANGE_1])\n\n[BOTTOM_FIRE_2] ([BOTTOM_FIRE_CHANGE_2])\n\n[BOTTOM_FIRE_3] ([BOTTOM_FIRE_CHANGE_3])",
+    "Inilah bottom fire mingguan ⬇️\n\n[BOTTOM_FIRE] mencatat [BOTTOM_FIRE_CHANGE_1]\n\n[BOTTOM_FIRE_2] ditutup dengan [BOTTOM_FIRE_CHANGE_2]\n\n[BOTTOM_FIRE_3] dengan perubahan [BOTTOM_FIRE_CHANGE_3]",
+    "Daftar aset dengan performa terburuk minggu ini adalah:\n\n[BOTTOM_FIRE] – [BOTTOM_FIRE_CHANGE_1]\n\n[BOTTOM_FIRE_2] – [BOTTOM_FIRE_CHANGE_2]\n\n[BOTTOM_FIRE_3] – [BOTTOM_FIRE_CHANGE_3]"
+  ],
+  "cost": 1,
+  "keywords": ["terburuk", "buruk", "pecundang", "minggu", "bottom fire", "paling sedikit", "rendah", "turun", "menurun", "jatuh", "kehilangan", "kerugian", "negatif"],
+  "tag": "free",
+  "subquestions": {
+    "Apakah kamu ingin tahu berapa nilai [BOTTOM_FIRE] saat ini?": "asset_last_price",
+    "Apakah kamu ingin saya buatkan analisis lengkap untuk [BOTTOM_FIRE]?": "asset_analysis_open",
+    "Saya bisa memberimu nilai sentimen untuk [BOTTOM_FIRE]. Mau tahu?": "sentiment",
+    "Apakah kamu ingin detail teknis tentang [BOTTOM_FIRE]?": "ta_general",
+    "Kalau kamu mau, saya bisa tampilkan grafik pergerakan [BOTTOM_FIRE] beberapa hari terakhir. Apakah saya lanjutkan?": "graph_request"}
 },
     "ai_oppure": {
     "questions": [
