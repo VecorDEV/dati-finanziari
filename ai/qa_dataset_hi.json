@@ -4750,6 +4750,41 @@
       "क्या आप [TOPIC] का फॉरवर्ड P/E भी जानना चाहेंगे?": "forward_pe",
       "क्या आप [TOPIC] का ट्रेलिंग P/E भी जानना चाहेंगे?": "trailing_pe"}
 },
+  "dividend_yield": {
+  "questions": [
+    "[TOPIC] का dividend yield क्या है?",
+    "मुझे [TOPIC] का dividend yield बताओ",
+    "[TOPIC] का डिविडेंड यील्ड कितना है?",
+    "क्या तुम [TOPIC] का dividend yield बता सकते हो?",
+    "[TOPIC] का डिविडेंड यील्ड प्रतिशत में कितना है?",
+    "[TOPIC] के लिए dividend yield कितना है?",
+    "मुझे [TOPIC] का डिविडेंड यील्ड दो",
+    "[TOPIC] का डिविडेंड रिटर्न कितना है?",
+    "[TOPIC] का dividend yield कितना है?",
+    "[TOPIC] का dividend yield दिखाओ",
+    "[TOPIC] का डिविडेंड यील्ड दिखाओ",
+    "मैं जानना चाहता हूँ कि [TOPIC] का डिविडेंड यील्ड क्या है",
+    "[TOPIC] का dividend yield बताइए",
+    "मुझे [TOPIC] का dividend yield चाहिए",
+    "डिविडेंड यील्ड [TOPIC]"
+  ],
+  "answers": [
+    "[TOPIC] का dividend yield अभी [DIVIDEND_YIELD_VALUE] है।",
+    "[TOPIC] के लिए डिविडेंड यील्ड [DIVIDEND_YIELD_VALUE] दर्ज किया गया है।",
+    "[TOPIC] का वर्तमान dividend yield [DIVIDEND_YIELD_VALUE] है।",
+    "नवीनतम डेटा के अनुसार, [TOPIC] का dividend yield [DIVIDEND_YIELD_VALUE] है।",
+    "अभी के समय में, [TOPIC] का डिविडेंड यील्ड [DIVIDEND_YIELD_VALUE] है।",
+    "हाल के आँकड़ों के अनुसार, [TOPIC] का dividend yield [DIVIDEND_YIELD_VALUE] है।",
+    "[TOPIC] के लिए डिविडेंड रिटर्न इस समय [DIVIDEND_YIELD_VALUE] है।",
+    "आज के अनुमानित आँकड़ों के अनुसार, [TOPIC] का dividend yield [DIVIDEND_YIELD_VALUE] है।"
+  ],
+  "cost": 2,
+  "keywords": ["dividend yield", "डिविडेंड यील्ड", "डिविडेंड रिटर्न", "प्रतिशत", "रिटर्न", "मूल्य", "वर्तमान", "नवीनतम"],
+  "tag": "free",
+  "subquestions": {
+    "क्या आप [FAVOURITE] का dividend yield भी जानना चाहते हैं?": "dividend_yield",
+    "क्या आप [TOPIC] का debt to equity भी जानना चाहते हैं?": "debt_to_equity"}
+},
   "inflation_deflation": {
   "questions": [
     "मुद्रास्फीति बाजारों को कैसे प्रभावित करती है?",
