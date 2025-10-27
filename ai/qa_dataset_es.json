@@ -3149,11 +3149,13 @@
     "Dime cuáles son los top fire",
     "Top fire de la última semana",
     "Top fire de los últimos días",
-    "Dame los top fire"
+    "Dame los top fire",
+    "¿Qué activos están destacando?",
+    "¿Qué activos están teniendo un buen rendimiento?"
   ],
   "answers": [
     "Aquí están los top fire de la última semana:\n\n[TOP_FIRE] con una variación de [TOP_FIRE_CHANGE_1] 🏆\n\n[TOP_FIRE_2] con [TOP_FIRE_CHANGE_2]\n\n[TOP_FIRE_3] con [TOP_FIRE_CHANGE_3]",
-    "Estos son los activos que mejor han rendido en los últimos 7 días:\n\n[TOP_FIRE] (+[TOP_FIRE_CHANGE_1])\n\n[TOP_FIRE_2] (+[TOP_FIRE_CHANGE_2])\n\n[TOP_FIRE_3] (+[TOP_FIRE_CHANGE_3])",
+    "Estos son los activos que mejor han rendido en los últimos 7 días:\n\n[TOP_FIRE] ([TOP_FIRE_CHANGE_1])\n\n[TOP_FIRE_2] ([TOP_FIRE_CHANGE_2])\n\n[TOP_FIRE_3] ([TOP_FIRE_CHANGE_3])",
     "Los principales ganadores semanales han sido:\n\n1. [TOP_FIRE] – crecimiento [TOP_FIRE_CHANGE_1] 🔥\n\n2. [TOP_FIRE_2] – [TOP_FIRE_CHANGE_2]\n\n3. [TOP_FIRE_3] – [TOP_FIRE_CHANGE_3]",
     "En la última semana, los líderes del mercado fueron:\n\n[TOP_FIRE] con [TOP_FIRE_CHANGE_1]\n\n[TOP_FIRE_2] con [TOP_FIRE_CHANGE_2]\n\n[TOP_FIRE_3] con [TOP_FIRE_CHANGE_3]",
     "Aquí tienes los tres activos que registraron los mejores rendimientos semanales:\n\n[TOP_FIRE] ([TOP_FIRE_CHANGE_1])\n\n[TOP_FIRE_2] ([TOP_FIRE_CHANGE_2])\n\n[TOP_FIRE_3] ([TOP_FIRE_CHANGE_3])",
@@ -3169,6 +3171,62 @@
     "Puedo darte el valor del sentimiento sobre [TOP_FIRE]. ¿Quieres saberlo?": "sentiment",
     "¿Quieres tener algunos detalles técnicos sobre [TOP_FIRE]?": "ta_general",
     "Si te sirve, puedo trazarte la evolución gráfica de los últimos días de [TOPIC]. ¿Quieres que lo haga?": "graph_request"
+  }
+},
+  "bottom_fire": {
+  "questions": [
+    "¿Quién ha crecido menos en la última semana?",
+    "¿Qué activos han subido menos esta semana?",
+    "¿Me dices los peores desempeños semanales?",
+    "¿Quién tuvo el peor rendimiento en los últimos 7 días?",
+    "¿Cuáles son los bottom fire de la semana?",
+    "¿Quién registró las menores ganancias esta semana?",
+    "Dime los títulos más débiles de la última semana",
+    "¿Qué activos han perdido en los últimos 7 días?",
+    "¿Quiénes son los bottom fire semanales?",
+    "Muéstrame los bottom fire de esta semana",
+    "¿Qué títulos tuvieron el crecimiento más bajo en la semana?",
+    "¿Quién ha tenido el peor desempeño durante los últimos 7 días?",
+    "¿Quién ha marcado la mayor pérdida en los últimos días?",
+    "¿Cuáles son los activos que más han perdido esta semana?",
+    "Dame los peores de la semana",
+    "¿Qué ha bajado más en la semana?",
+    "¿Qué ha caído más en los últimos días?",
+    "¿Qué ha disminuido más últimamente?",
+    "¿Qué ha bajado más últimamente?",
+    "¿Hay activos que hayan bajado mucho recientemente?",
+    "¿Hay activos que hayan disminuido mucho?",
+    "¿Hay activos que hayan caído mucho?",
+    "¿Hay algo que haya bajado mucho?",
+    "¿Cuáles han sido los bottom de la semana?",
+    "Muéstrame los perdedores semanales",
+    "¿Cuáles han bajado más en los últimos 7 días?",
+    "¿Quién registró la mayor pérdida semanal?",
+    "Dame los bottom fire de la semana",
+    "Dame los bottom fire de los últimos días",
+    "Dime cuáles son los bottom fire",
+    "Bottom fire de la última semana",
+    "Bottom fire de los últimos días",
+    "Dame los bottom fire"
+  ],
+  "answers": [
+    "Estos son los bottom fire de la última semana:\n\n[BOTTOM_FIRE] con una variación de [BOTTOM_FIRE_CHANGE_1] 🏆\n\n[BOTTOM_FIRE_2] con [BOTTOM_FIRE_CHANGE_2]\n\n[BOTTOM_FIRE_3] con [BOTTOM_FIRE_CHANGE_3]",
+    "Estos son los activos que han tenido el peor rendimiento en los últimos 7 días:\n\n[BOTTOM_FIRE] ([BOTTOM_FIRE_CHANGE_1])\n\n[BOTTOM_FIRE_2] ([BOTTOM_FIRE_CHANGE_2])\n\n[BOTTOM_FIRE_3] ([BOTTOM_FIRE_CHANGE_3])",
+    "Los principales perdedores semanales fueron:\n\n1. [BOTTOM_FIRE] – variación [BOTTOM_FIRE_CHANGE_1] 🔥\n\n2. [BOTTOM_FIRE_2] – [BOTTOM_FIRE_CHANGE_2]\n\n3. [BOTTOM_FIRE_3] – [BOTTOM_FIRE_CHANGE_3]",
+    "Durante la última semana, los principales perdedores del mercado fueron:\n\n[BOTTOM_FIRE] con [BOTTOM_FIRE_CHANGE_1]\n\n[BOTTOM_FIRE_2] con [BOTTOM_FIRE_CHANGE_2]\n\n[BOTTOM_FIRE_3] con [BOTTOM_FIRE_CHANGE_3]",
+    "Estos son los tres activos que registraron los peores desempeños semanales:\n\n[BOTTOM_FIRE] ([BOTTOM_FIRE_CHANGE_1])\n\n[BOTTOM_FIRE_2] ([BOTTOM_FIRE_CHANGE_2])\n\n[BOTTOM_FIRE_3] ([BOTTOM_FIRE_CHANGE_3])",
+    "Estos son los bottom fire semanales ⬇️\n\n[BOTTOM_FIRE] registró [BOTTOM_FIRE_CHANGE_1]\n\n[BOTTOM_FIRE_2] cerró con [BOTTOM_FIRE_CHANGE_2]\n\n[BOTTOM_FIRE_3] con una variación de [BOTTOM_FIRE_CHANGE_3]",
+    "El ranking de los peores de la semana es el siguiente:\n\n[BOTTOM_FIRE] – [BOTTOM_FIRE_CHANGE_1]\n\n[BOTTOM_FIRE_2] – [BOTTOM_FIRE_CHANGE_2]\n\n[BOTTOM_FIRE_3] – [BOTTOM_FIRE_CHANGE_3]"
+  ],
+  "cost": 1,
+  "keywords": ["peores", "peor", "rendimiento", "pérdida", "caída", "bajada", "bottom fire", "semana", "menos", "disminuido", "descenso", "bajos", "debilidad", "perdedor", "perdedores"],
+  "tag": "free",
+  "subquestions": {
+    "¿Quieres saber cuánto vale actualmente [BOTTOM_FIRE]?": "asset_last_price",
+    "¿Quieres que te prepare un análisis completo de [BOTTOM_FIRE]?": "asset_analysis_open",
+    "Puedo darte el valor del sentimiento de [BOTTOM_FIRE]. ¿Quieres saberlo?": "sentiment",
+    "¿Quieres que te dé algunos detalles técnicos sobre [BOTTOM_FIRE]?": "ta_general",
+    "Si quieres, puedo mostrarte el gráfico de los últimos días de [BOTTOM_FIRE]. ¿Quieres que lo haga?": "graph_request"
   }
 },
   "ai_oppure": {
