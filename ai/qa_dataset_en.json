@@ -3317,7 +3317,7 @@
   ],
   "answers": [
     "The current RSI of [TOPIC] is [RSI].\n\nThe state is [STATE_RSI], which means [SIGNIFICATO_RSI].",
-    "According to the latest data, [TOPIC] has an RSI of [RSI].\n\nThis indicates a [STATE] state and suggests [SIGNIFICATO_RSI].",
+    "According to the latest data, [TOPIC] has an RSI of [RSI].\n\nThis indicates a [STATE_RSI] state and suggests [SIGNIFICATO_RSI].",
     "The RSI value of [TOPIC] is [RSI].\n\nThe state is considered [STATE_RSI], therefore [SIGNIFICATO_RSI].",
     "Attention: the RSI of [TOPIC] is currently [RSI].\n\nIn this [STATE_RSI] condition, it means [SIGNIFICATO_RSI].",
     "At the moment, the RSI indicator of [TOPIC] is [RSI].\n\nThe trend appears [STATE_RSI], suggesting a [SIGNIFICATO_RSI].",
@@ -3623,7 +3623,7 @@
     "What is the CCI value of [TOPIC]?"
   ],
   "answers": [
-    "The CCI of [TOPIC] is currently [CCI_VALUE].\n\nThis indicates a typical [STATE_CCI] condition and means [SIGNIFICATO].",
+    "The CCI of [TOPIC] is currently [CCI_VALUE].\n\nThis indicates a typical [STATE_CCI] condition and means [SIGNIFICATO_CCI].",
     "According to current data, [TOPIC] shows a CCI of [CCI_VALUE].\n\nPractically, it is a [STATE_CCI] state implying [SIGNIFICATO_CCI].",
     "[TOPIC] has a CCI of [CCI_VALUE].\n\nThis corresponds to a [STATE_CCI] condition and suggests [SIGNIFICATO_CCI].",
     "Currently, the CCI of [TOPIC] is [CCI_VALUE].\n\nIt is a [STATE_CCI] condition, with significance for the asset: [SIGNIFICATO_CCI].",
@@ -3633,7 +3633,7 @@
     "The current CCI of [TOPIC] is [CCI_VALUE].\n\nThis [STATE_CCI] situation suggests [SIGNIFICATO_CCI].",
     "CCI analysis: [TOPIC] has a CCI of [CCI_VALUE].\n\nIn practice, a [STATE_CCI] state implies [SIGNIFICATO_CCI].",
     "The CCI of [TOPIC] is [CCI_VALUE].\n\nThis is a [STATE_CCI] condition that normally suggests [SIGNIFICATO_CCI].",
-    "The Commodity Channel Index of [TOPIC] is [CCI_VALUE].\n\nThe [STATE_CCI] condition typically translates to [SIGNIFICATO].",
+    "The Commodity Channel Index of [TOPIC] is [CCI_VALUE].\n\nThe [STATE_CCI] condition typically translates to [SIGNIFICATO_CCI].",
     "Latest analysis: the CCI of [TOPIC] is [CCI_VALUE].\n\nIt is a [STATE_CCI] state representing [SIGNIFICATO_CCI]."
   ],
   "cost": 4,
