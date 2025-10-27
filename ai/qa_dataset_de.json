@@ -4518,6 +4518,42 @@
     "Willst du auch wissen, was Trailing P/E ist?": "trailing_pe_info"
   }
 },
+  "dividend_yield_info": {
+  "questions": [
+      "Was ist der dividend yield?",
+      "Kannst du mir den dividend yield erklären?",
+      "Was bedeutet der dividend yield?",
+      "Kannst du mir sagen, wozu der dividend yield dient?",
+      "Wie interpretiert man den dividend yield?",
+      "Was misst der dividend yield?",
+      "Ich möchte den dividend yield verstehen",
+      "Dividend yield: was bedeutet das?",
+      "Kannst du mir das Konzept des dividend yield erklären?",
+      "Was ist die Bedeutung des dividend yield?",
+      "Was zeigt die Dividendenrendite an?",
+      "Was ist die Dividendenrendite?",
+      "Was versteht man unter Dividendenrendite?",
+      "Was versteht man unter dividend yield?"
+  ],
+  "answers": [
+      "Der dividend yield zeigt die prozentuale Rendite der Dividenden eines Unternehmens im Verhältnis zum aktuellen Aktienkurs.\n\nIn dieser App kann ich dir diesen Wert bereitstellen, um zu bewerten, wie ertragreich eine Aktie in Bezug auf Dividenden ist.",
+      "Der dividend yield misst, wie viel ein Unternehmen an Dividenden im Verhältnis zum Aktienkurs ausschüttet.\n\nDu kannst diesen Wert einsehen, um die potenzielle Dividendenrendite eines Assets zu verstehen.",
+      "Der dividend yield stellt den prozentualen Ertrag aus Dividenden im Verhältnis zum Marktpreis der Aktie dar.\n\nMit dieser App kannst du diese Daten einsehen, um verschiedene Assets oder Zeiträume zu vergleichen.",
+      "Der dividend yield zeigt, wie viel Dividendenrendite du proportional zum Aktienkurs erwarten kannst.\n\nIch kann dir diese Werte bereitstellen, um die Dividendenrentabilität einer Aktie zu bewerten.",
+      "Der dividend yield zeigt das Verhältnis von jährlichen Dividenden zum aktuellen Aktienkurs an.\n\nIn dieser App kannst du diese Daten vergleichen, um unterschiedliche Unternehmen oder Zeiträume zu analysieren.",
+      "Der dividend yield misst, wie ertragreich eine Aktie in Bezug auf Dividenden im Verhältnis zum Marktpreis ist.\n\nIch kann dir diese Werte bereitstellen, um die Dividendenrendite eines Assets zu bewerten.",
+      "Der dividend yield zeigt den Prozentsatz der Dividenden im Verhältnis zum investierten Kapital in einer Aktie an.\n\nMit dieser App kannst du diese Daten erhalten, um Aktien oder Zeiträume zu vergleichen.",
+      "Der dividend yield zeigt die Dividendenrendite einer Aktie in Prozent im Verhältnis zum aktuellen Kurs.\n\nIch kann dir diese Informationen bereitstellen, um eine umfassende Analyse der Dividendenrendite zu erhalten.",
+      "Der dividend yield stellt die prozentuale Dividendenrendite eines Unternehmens im Verhältnis zum Marktpreis der Aktie dar.\n\nDu kannst diese Daten in dieser App nutzen, um die Dividendenrentabilität zu bewerten.",
+      "Der dividend yield zeigt das Verhältnis zwischen gezahlten Dividenden und Aktienkurs an.\n\nMit dieser App kannst du diese Werte einsehen, um einen klaren Überblick über die Dividendenrendite eines Assets zu bekommen."
+  ],
+  "cost": 0,
+  "keywords": ["dividend yield", "dividendenrendite", "dividende", "erklären", "erkläre", "erkläre mir", "was ist", "funktion", "dient", "bedeutet", "zeigt", "repräsentiert"],
+  "subquestions": {
+    "Möchtest du den dividend yield von [FAVOURITE] sehen?": "dividend_yield",
+    "Willst du den dividend yield von [FAVOURITE] kennen?": "dividend_yield"
+  }
+},
 "yoy_info": {
   "questions": [
     "Was bedeutet YoY?",
