@@ -4410,6 +4410,41 @@
     "Do you also want to know what the Forward P/E is?": "forward_pe_info",
     "Do you also want to know what the Trailing P/E is?": "trailing_pe_info"}
 },
+  "dividend_yield_info": {
+  "questions": [
+      "What is the dividend yield?",
+      "Can you explain the dividend yield?",
+      "What does the dividend yield indicate?",
+      "Can you tell me what the dividend yield is for?",
+      "How is the dividend yield interpreted?",
+      "What does the dividend yield measure?",
+      "I want to understand the dividend yield",
+      "Dividend yield: what does it mean?",
+      "Can you explain the concept of dividend yield?",
+      "What is the meaning of dividend yield?",
+      "What does the dividend return indicate?",
+      "What is the dividend return?",
+      "What is meant by dividend return?",
+      "What is meant by dividend yield?"
+  ],
+  "answers": [
+      "The dividend yield indicates the percentage return of a company's dividends relative to the current stock price.\n\nIn this app, I can provide this data to help you evaluate how much a stock yields in terms of dividends.",
+      "The dividend yield measures how much a company distributes in dividends relative to its stock price.\n\nYou can check this value to understand the potential dividend return of an asset.",
+      "The dividend yield represents the percentage return from dividends relative to the market price of the stock.\n\nThis app allows you to view this data to compare different assets or time periods.",
+      "The dividend yield shows how much return from dividends you can expect in proportion to the stock price.\n\nI can provide these values to assess a stock's dividend profitability.",
+      "The dividend yield indicates the relationship between annual dividends and the current stock price.\n\nOn this app, you can see these data to compare different companies or periods.",
+      "The dividend yield measures how much a stock yields in dividends relative to its market price.\n\nI can provide these values to evaluate the dividend return of an asset.",
+      "The dividend yield indicates the percentage of dividends relative to the capital invested in a stock.\n\nThis app allows you to obtain these data to compare stocks or different periods.",
+      "The dividend yield shows the dividend return of a stock as a percentage of the current price.\n\nI can provide this information for a complete analysis of dividend returns.",
+      "The dividend yield represents the percentage return of a company's dividends relative to the market price of the stock.\n\nYou can use this data on this app to evaluate dividend profitability.",
+      "The dividend yield indicates the relationship between dividends paid and the stock price.\n\nThis app lets you consult these values to have a clear picture of an asset's dividend yield."
+  ],
+  "cost": 0,
+  "keywords": ["dividend yield", "dividend", "explain", "explains", "explain to me", "explaining", "what is", "function", "works", "used for", "means", "indicates", "represents"],
+  "subquestions": {
+    "Do you want to know the dividend yield for [FAVOURITE]?": "dividend_yield",
+    "Do you want to see the dividend yield for [FAVOURITE]?": "dividend_yield"}
+},
 "yoy_info": {
   "questions": [
     "What does YoY mean?",
