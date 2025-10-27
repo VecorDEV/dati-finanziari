@@ -1658,7 +1658,11 @@
     "Untuk [TOPIC], stop loss apa yang Anda sarankan?",
     "Untuk [TOPIC], stop loss apa?",
     "Dan stop loss apa?",
-    "Sarankan saya stop loss untuk [TOPIC]"
+    "Sarankan saya stop loss untuk [TOPIC]",
+    "Sarankan SL untuk [TOPIC]",
+    "SL apa yang harus saya pasang untuk [TOPIC]?",
+    "SL di [TOPIC]",
+    "SL untuk [TOPIC]"
   ],
   "answers": [
     "Saya sarankan Anda menetapkan stop loss pada [TOPIC] di [STOP_LOSS], untuk melindungi modal jika pasar bergerak melawan Anda 🔒.",
@@ -1683,7 +1687,7 @@
     "Untuk [TOPIC], stop loss yang baik ditempatkan di [STOP_LOSS] 🔒, berdasarkan level support dan analisis teknis saat ini."
   ],
     "cost": 3,
-    "keywords": ["stop loss"],
+    "keywords": ["stop loss", "sl"],
     "tag": "premium",
     "subquestions": {
       "Apakah Anda ingin saya menyarankan juga take profit yang wajar?": "trading_take_profit_level",
@@ -1716,7 +1720,11 @@
     "Untuk [TOPIC], take profit apa yang Anda sarankan?",
     "Untuk [TOPIC], take profit apa?",
     "Dan take profit apa?",
-    "Sarankan saya take profit untuk [TOPIC]"
+    "Sarankan saya take profit untuk [TOPIC]",
+    "Sarankan TP untuk [TOPIC]",
+    "TP apa yang harus saya pasang untuk [TOPIC]?",
+    "TP di [TOPIC]",
+    "TP untuk [TOPIC]"
   ],
   "answers": [
     "Saya sarankan Anda menetapkan take profit pada [TOPIC] di [TAKE_PROFIT], sehingga memastikan keuntungan yang wajar jika pasar bergerak sesuai keinginan Anda 📈.",
@@ -1741,7 +1749,7 @@
     "Untuk [TOPIC], take profit yang baik ditempatkan di [TAKE_PROFIT] 📊, berdasarkan level resistance dan analisis teknis saat ini."
   ],
     "cost": 3,
-    "keywords": ["take profit", "target", "keuntungan"],
+    "keywords": ["take profit", "target", "keuntungan", "tp"],
     "tag": "premium",
     "subquestions": {
       "Apakah Anda ingin saya menyarankan juga stop loss yang wajar?": "trading_stop_loss_level",
