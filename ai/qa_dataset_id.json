@@ -4497,6 +4497,41 @@
       "Anda juga ingin tahu apa itu Forward P/E?": "forward_pe_info",
       "Anda juga ingin tahu apa itu Trailing P/E?": "trailing_pe_info"}
 },
+  "dividend_yield_info": {
+  "questions": [
+      "Apa itu dividend yield?",
+      "Bisakah kamu menjelaskan dividend yield?",
+      "Apa arti dividend yield?",
+      "Bisakah kamu memberitahuku kegunaan dividend yield?",
+      "Bagaimana cara menginterpretasikan dividend yield?",
+      "Apa yang diukur oleh dividend yield?",
+      "Saya ingin memahami dividend yield",
+      "Dividend yield: apa artinya?",
+      "Bisakah kamu menjelaskan konsep dividend yield?",
+      "Apa makna dividend yield?",
+      "Apa yang ditunjukkan oleh hasil dividen?",
+      "Apa itu hasil dividen?",
+      "Apa yang dimaksud dengan hasil dividen?",
+      "Apa yang dimaksud dengan dividend yield?"
+  ],
+  "answers": [
+      "Dividend yield menunjukkan persentase hasil dividen suatu perusahaan dibandingkan dengan harga saham saat ini.\n\nDi aplikasi ini saya dapat memberikan data ini untuk menilai seberapa menguntungkan saham dalam hal dividen.",
+      "Dividend yield mengukur seberapa banyak perusahaan membagikan dividen dibandingkan harga saham.\n\nKamu dapat melihat nilai ini untuk memahami potensi pengembalian dividen suatu aset.",
+      "Dividend yield menunjukkan persentase hasil dari dividen dibandingkan harga pasar saham.\n\nAplikasi ini memungkinkan kamu melihat data ini untuk membandingkan berbagai aset atau periode.",
+      "Dividend yield menunjukkan berapa hasil dividen yang dapat kamu harapkan sebanding dengan harga saham.\n\nSaya dapat memberikan nilai ini untuk menilai profitabilitas dividen suatu saham.",
+      "Dividend yield menunjukkan hubungan antara dividen tahunan dan harga saham saat ini.\n\nDi aplikasi ini kamu bisa membandingkan data ini untuk berbagai perusahaan atau periode.",
+      "Dividend yield mengukur seberapa menguntungkan saham dalam hal dividen dibandingkan dengan harga pasar.\n\nSaya dapat memberikan nilai ini untuk menilai pengembalian dividen suatu aset.",
+      "Dividend yield menunjukkan persentase dividen dibandingkan modal yang diinvestasikan dalam sebuah saham.\n\nAplikasi ini memungkinkan kamu mendapatkan data ini untuk membandingkan saham atau periode berbeda.",
+      "Dividend yield menunjukkan hasil dividen saham dalam persen dibandingkan dengan harga saat ini.\n\nSaya dapat memberikan informasi ini untuk analisis lengkap mengenai hasil dividen.",
+      "Dividend yield menunjukkan persentase pengembalian dividen perusahaan dibandingkan harga pasar saham.\n\nKamu dapat menggunakan data ini di aplikasi untuk menilai profitabilitas dividen.",
+      "Dividend yield menunjukkan hubungan antara dividen yang dibayarkan dan harga saham.\n\nAplikasi ini memungkinkan kamu melihat nilai ini untuk memahami hasil dividen suatu aset secara jelas."
+  ],
+  "cost": 0,
+  "keywords": ["dividend yield", "hasil dividen", "dividen", "jelaskan", "terangkan", "apa itu", "fungsi", "berguna", "artinya", "menunjukkan", "mengindikasikan"],
+  "subquestions": {
+    "Apakah kamu ingin tahu dividend yield dari [FAVOURITE]?": "dividend_yield",
+    "Apakah kamu ingin mengetahui dividend yield dari [FAVOURITE]?": "dividend_yield"}
+},
     "yoy_info": {
     "questions": [
       "Apa arti YoY?",
