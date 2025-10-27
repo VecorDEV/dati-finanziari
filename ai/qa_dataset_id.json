@@ -4775,6 +4775,41 @@
       "Anda juga ingin tahu Forward P/E dari [TOPIC]?": "forward_pe",
       "Anda juga ingin tahu Trailing P/E dari [TOPIC]?": "trailing_pe"}
 },
+  "dividend_yield": {
+  "questions": [
+    "Berapa dividend yield dari [TOPIC]?",
+    "Bisa beri tahu saya nilai dividend yield dari [TOPIC]?",
+    "Berapa hasil dividen dari [TOPIC]?",
+    "Bisa tunjukkan dividend yield dari [TOPIC]?",
+    "Berapa persentase hasil dividen dari [TOPIC]?",
+    "Berapa dividend yield untuk [TOPIC]?",
+    "Beri saya dividend yield dari [TOPIC]",
+    "Berapa nilai hasil dividen dari [TOPIC]?",
+    "Berapa nilai dividend yield dari [TOPIC]?",
+    "Dividend yield dari [TOPIC]",
+    "Hasil dividen dari [TOPIC]",
+    "Tunjukkan dividend yield untuk [TOPIC]",
+    "Saya ingin tahu berapa hasil dividen dari [TOPIC]",
+    "Katakan pada saya dividend yield dari [TOPIC]",
+    "Berikan saya dividend yield dari [TOPIC]"
+  ],
+  "answers": [
+    "Dividend yield dari [TOPIC] saat ini adalah [DIVIDEND_YIELD_VALUE].",
+    "Untuk [TOPIC], hasil dividen tercatat sebesar [DIVIDEND_YIELD_VALUE].",
+    "Nilai terbaru dari dividend yield [TOPIC] adalah [DIVIDEND_YIELD_VALUE].",
+    "Menurut data terbaru, [TOPIC] memiliki dividend yield sebesar [DIVIDEND_YIELD_VALUE].",
+    "Saat ini, dividend yield dari [TOPIC] adalah [DIVIDEND_YIELD_VALUE].",
+    "Data terkini menunjukkan bahwa [TOPIC] memiliki dividend yield sebesar [DIVIDEND_YIELD_VALUE].",
+    "Hasil dividen untuk [TOPIC] saat ini adalah [DIVIDEND_YIELD_VALUE].",
+    "Perkiraan nilai hari ini untuk dividend yield [TOPIC] adalah [DIVIDEND_YIELD_VALUE]."
+  ],
+  "cost": 2,
+  "keywords": ["dividend yield", "hasil dividen", "yield", "rendemen", "sekarang", "terkini", "terbaru"],
+  "tag": "free",
+  "subquestions": {
+    "Apakah kamu juga ingin tahu dividend yield dari [FAVOURITE]?": "dividend_yield",
+    "Apakah kamu juga ingin tahu debt to equity dari [TOPIC]?": "debt_to_equity"}
+},
   "inflation_deflation": {
   "questions": [
     "Bagaimana inflasi memengaruhi pasar?",
