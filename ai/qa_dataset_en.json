@@ -4688,6 +4688,41 @@
     "Do you also want to know the Forward P/E of [TOPIC]?": "forward_pe",
     "Do you also want to know the Trailing P/E of [TOPIC]?": "trailing_pe"}
 },
+  "dividend_yield": {
+  "questions": [
+    "What is the dividend yield of [TOPIC]?",
+    "Can you tell me the dividend yield value of [TOPIC]?",
+    "How much does [TOPIC] yield in percentage?",
+    "Could you show me the dividend yield of [TOPIC]?",
+    "What is the dividend return of [TOPIC]?",
+    "Give me the dividend yield of [TOPIC].",
+    "How high is the dividend yield of [TOPIC]?",
+    "What is the dividend return value of [TOPIC]?",
+    "What is the current dividend yield of [TOPIC]?",
+    "Dividend yield of [TOPIC]",
+    "Dividend return of [TOPIC]",
+    "Show me the dividend yield for [TOPIC]",
+    "I’d like to know the dividend return of [TOPIC]",
+    "Tell me the dividend yield of [TOPIC]",
+    "Give me the dividend yield for [TOPIC]"
+  ],
+  "answers": [
+    "The dividend yield of [TOPIC] is currently [DIVIDEND_YIELD_VALUE].",
+    "For [TOPIC], the dividend return is [DIVIDEND_YIELD_VALUE].",
+    "The current dividend yield value of [TOPIC] is [DIVIDEND_YIELD_VALUE].",
+    "According to the latest data, [TOPIC] has a dividend yield of [DIVIDEND_YIELD_VALUE].",
+    "At the moment, the dividend yield of [TOPIC] is [DIVIDEND_YIELD_VALUE].",
+    "Recent data shows that [TOPIC] recorded a dividend yield of [DIVIDEND_YIELD_VALUE].",
+    "The dividend return for [TOPIC] is currently [DIVIDEND_YIELD_VALUE].",
+    "The estimated dividend yield of [TOPIC] today is [DIVIDEND_YIELD_VALUE]."
+  ],
+  "cost": 2,
+  "keywords": ["dividend yield", "dividend return", "yield", "yields", "current", "latest", "updated"],
+  "tag": "free",
+  "subquestions": {
+    "Would you also like to know the dividend yield of [FAVOURITE]?": "dividend_yield",
+    "Would you also like to know the debt to equity of [TOPIC]?": "debt_to_equity"}
+},
   "inflation_deflation": {
   "questions": [
     "How does inflation affect the markets?",
