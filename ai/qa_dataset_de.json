@@ -3354,7 +3354,8 @@
     "Kannst du mir den RSI-Wert von [TOPIC] zeigen?",
     "Wie ist der RSI von [TOPIC] heute?",
     "Zeig mir die technische RSI-Angabe von [TOPIC]",
-    "Relative Strength Index für [TOPIC]"
+    "Relative Strength Index für [TOPIC]",
+    "Wie hoch ist der RSI von [TOPIC]?"
   ],
   "answers": [
     "Der aktuelle RSI von [TOPIC] beträgt [RSI].\n\nDer Status ist [STATE_RSI], was bedeutet [SIGNIFICATO_RSI].",
@@ -3399,7 +3400,8 @@
     "Kannst du mir den RSI-Wert von [TOPIC] zeigen?",
     "Wie ist der RSI von [TOPIC] heute?",
     "Zeig mir die technische RSI-Angabe von [TOPIC]",
-    "Relative Strength Index für [TOPIC]"
+    "Relative Strength Index für [TOPIC]",
+    "Wie hoch ist der RSI von [TOPIC]?"
   ],
   "answers": [
     "Um den RSI von [TOPIC] anzuzeigen, benötigst du ein Premium- oder Ultra-Abonnement. Upgrade jetzt für alle Vorteile! 😄",
@@ -3434,7 +3436,8 @@
     "Analysiere den MACD von [TOPIC]",
     "Aktueller MACD von [TOPIC]",
     "Aktualisierter MACD von [TOPIC]",
-    "Moving Average Convergence Divergence für [TOPIC]"
+    "Moving Average Convergence Divergence für [TOPIC]",
+    "Wie hoch ist der MACD von [TOPIC]?"
   ],
   "answers": [
     "Der MACD von [TOPIC] beträgt aktuell [MACD_VALUE] und deutet auf einen [STATE_MACD]-Trend hin.",
@@ -3475,7 +3478,8 @@
     "Analysiere den MACD von [TOPIC]",
     "Aktueller MACD von [TOPIC]",
     "Aktualisierter MACD von [TOPIC]",
-    "Moving Average Convergence Divergence für [TOPIC]"
+    "Moving Average Convergence Divergence für [TOPIC]",
+    "Wie hoch ist der MACD von [TOPIC]?"
   ],
   "answers": [
     "Um den MACD von [TOPIC] anzuzeigen, benötigst du ein Premium- oder Ultra-Abonnement. Upgrade jetzt für alle Vorteile! 😄",
@@ -3512,7 +3516,8 @@
     "Kannst du mir den kompletten Stochastik von [TOPIC] geben?",
     "Gib mir die stochastische Analyse von [TOPIC]",
     "K und D für [TOPIC]",
-    "Gib mir den Stochastik von [TOPIC]"
+    "Gib mir den Stochastik von [TOPIC]",
+    "Wie hoch ist der stochastische Oszillator von [TOPIC]?"
   ],
   "answers": [
     "Die aktuellen Stochastik-Werte für [TOPIC] sind:\n\nK = [STOCH_K], D = [STOCH_D]\n\nTypischer Zustand: [STATE_STOCH]. Bedeutung für das Asset: [SIGNIFICATO_STOCH].",
@@ -3553,7 +3558,8 @@
     "Stochastik-Indikator von [TOPIC]",
     "Zeig mir den stochastischen Oszillator von [TOPIC]",
     "Ich brauche die Stochastik-Werte für [TOPIC]",
-    "Gib mir den Stochastik von [TOPIC]"
+    "Gib mir den Stochastik von [TOPIC]",
+    "Wie hoch ist der stochastische Oszillator von [TOPIC]?"
   ],
   "answers": [
     "Um den stochastischen Oszillator von [TOPIC] anzuzeigen, benötigst du ein Premium- oder Ultra-Abonnement. Upgrade jetzt für alle Vorteile! 😄",
@@ -3587,7 +3593,8 @@
     "EMA10 von [TOPIC], bitte",
     "Gib mir den 10-Tage-EMA von [TOPIC]",
     "Überprüfe den EMA10-Wert von [TOPIC]",
-    "Exponentieller gleitender Durchschnitt von [TOPIC]"
+    "Exponentieller gleitender Durchschnitt von [TOPIC]",
+    "Wie hoch ist der EMA von [TOPIC]?"
   ],
   "answers": [
     "Der 10-Tage-EMA von [TOPIC] liegt aktuell bei [EMA_VALUE].\n\nDer Preis steht [EMA_UP_DOWN] im Vergleich zum EMA10, was einen [STATE_EMA]-Trend für das Asset signalisiert.",
@@ -3627,7 +3634,8 @@
     "EMA10 von [TOPIC], bitte",
     "Gib mir den 10-Tage-EMA von [TOPIC]",
     "Überprüfe den EMA10-Wert von [TOPIC]",
-    "Exponentieller gleitender Durchschnitt von [TOPIC]"
+    "Exponentieller gleitender Durchschnitt von [TOPIC]",
+    "Wie hoch ist der EMA von [TOPIC]?"
   ],
   "answers": [
     "Um den EMA10 von [TOPIC] anzuzeigen, benötigst du ein Premium- oder Ultra-Abonnement. Upgrade jetzt für alle Vorteile! 😄",
@@ -3660,7 +3668,8 @@
     "Kann ich den CCI von [TOPIC] sehen?",
     "Wie lautet der aktuelle CCI von [TOPIC]?",
     "Gib mir den CCI-Status von [TOPIC] an",
-    "Ich möchte den CCI für [TOPIC] kennen"
+    "Ich möchte den CCI für [TOPIC] kennen",
+    "Wie hoch ist der CCI von [TOPIC]?"
   ],
   "answers": [
     "Der CCI von [TOPIC] liegt aktuell bei [CCI_VALUE].\n\nDies zeigt einen typischen Zustand von [STATE_CCI] und bedeutet [SIGNIFICATO_CCI].",
@@ -3701,7 +3710,8 @@
     "Ich möchte den Commodity Channel Index von [TOPIC] überprüfen",
     "Kannst du mir den CCI von [TOPIC] sagen?",
     "Mich interessiert der CCI von [TOPIC]",
-    "Gib mir den Commodity Channel Index von [TOPIC]"
+    "Gib mir den Commodity Channel Index von [TOPIC]",
+    "Wie hoch ist der CCI von [TOPIC]?"
   ],
   "answers": [
     "Um den CCI von [TOPIC] anzuzeigen, benötigst du ein Premium- oder Ultra-Abonnement. Upgrade jetzt für alle Vorteile! 😄",
@@ -3737,7 +3747,8 @@
     "Gib mir den aktuellen Williams für [TOPIC]",
     "Zeig mir das Williams-Level von [TOPIC]",
     "Wie lautet der aktuelle Williams %R von [TOPIC]?",
-    "Gib mir den Williams Percent Range von [TOPIC]"
+    "Gib mir den Williams Percent Range von [TOPIC]",
+    "Wie hoch ist der Williams von [TOPIC]?"
   ],
   "answers": [
     "Der Williams %R für [TOPIC] liegt bei [WILLIAMS_VALUE].\n\nDer Zustand ist [STATE_WILLIAMS], was [SIGNIFICATO_WILLIAMS] bedeutet.",
@@ -3777,7 +3788,8 @@
     "Gib mir den aktuellen Williams für [TOPIC]",
     "Zeig mir das Williams-Level von [TOPIC]",
     "Wie lautet der aktuelle Williams-Wert von [TOPIC]?",
-    "Gib mir den Williams Percent Range von [TOPIC]"
+    "Gib mir den Williams Percent Range von [TOPIC]",
+    "Wie hoch ist der Williams von [TOPIC]?"
   ],
   "answers": [
     "Um den Williams %R von [TOPIC] anzuzeigen, benötigst du ein Premium- oder Ultra-Abonnement. Upgrade jetzt für alle Vorteile! 😄",
@@ -3813,7 +3825,9 @@
     "Ich möchte den aktuellen Bollinger-Bandwert von [TOPIC] wissen",
     "Zeig mir Volatilität und Bollinger-Bänder für [TOPIC]",
     "Kannst du mir den Status der Bollinger-Bänder bei [TOPIC] geben?",
-    "Bollinger-Bänder für [TOPIC]"
+    "Bollinger-Bänder für [TOPIC]",
+    "Wie hoch sind die Bollinger-Bänder von [TOPIC]?",
+    "Wie hoch ist der Bollinger von [TOPIC]?"
   ],
   "answers": [
     "Bollinger-Bänder für [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilität: [BB_VOLATILITY]\n- Bandposition: [BB_UP_DOWN]\n\nDer Zustand ist [STATE_BB], was [SIGNIFICATO_BB] bedeutet.",
@@ -3854,7 +3868,9 @@
     "Zeig mir Volatilität und Bollinger-Bänder für [TOPIC]",
     "Kannst du mir den Status der Bollinger-Bänder bei [TOPIC] geben?",
     "Bollinger-Bänder für [TOPIC]",
-    "Bollinger von [TOPIC]"
+    "Bollinger von [TOPIC]",
+    "Wie hoch sind die Bollinger-Bänder von [TOPIC]?",
+    "Wie hoch ist der Bollinger von [TOPIC]?"
   ],
   "answers": [
     "Um die Bollinger-Bänder von [TOPIC] zu sehen, benötigst du ein Premium- oder Ultra-Abonnement. Upgrade jetzt für alle Details! 💎",
