@@ -3331,7 +3331,8 @@
       "Bisakah Anda menunjukkan nilai rsi [TOPIC]?",
       "Bagaimana RSI [TOPIC] hari ini?",
       "Tunjukkan data teknis RSI [TOPIC]",
-      "Relative Strength Index untuk [TOPIC]"
+      "Relative Strength Index untuk [TOPIC]",
+      "Berapa nilai RSI [TOPIC]?"
     ],
     "answers": [
       "RSI [TOPIC] saat ini adalah [RSI].\n\nStatusnya adalah [STATE_RSI], yang berarti [SIGNIFICATO_RSI].",
@@ -3375,7 +3376,8 @@
       "Bisakah Anda menunjukkan nilai rsi [TOPIC]?",
       "Bagaimana RSI [TOPIC] hari ini?",
       "Tunjukkan data teknis RSI [TOPIC]",
-      "Relative Strength Index untuk [TOPIC]"
+      "Relative Strength Index untuk [TOPIC]",
+      "Berapa nilai RSI [TOPIC]?"
     ],
     "answers": [
       "Untuk melihat RSI [TOPIC], Anda perlu memiliki langganan premium atau ultra. Tingkatkan untuk mendapatkan semua keuntungan! 😄",
@@ -3409,7 +3411,8 @@
       "Analisis MACD [TOPIC]",
       "MACD [TOPIC] saat ini",
       "MACD [TOPIC] yang diperbarui",
-      "Moving Average Convergence Divergence untuk [TOPIC]"
+      "Moving Average Convergence Divergence untuk [TOPIC]",
+      "Berapa nilai MACD [TOPIC]?"
     ],
     "answers": [
       "MACD [TOPIC] saat ini adalah [MACD_VALUE], menyarankan tren [STATE_MACD].",
@@ -3449,7 +3452,8 @@
       "Analisis MACD [TOPIC]",
       "MACD [TOPIC] saat ini",
       "MACD [TOPIC] yang diperbarui",
-      "Moving Average Convergence Divergence untuk [TOPIC]"
+      "Moving Average Convergence Divergence untuk [TOPIC]",
+      "Berapa nilai MACD [TOPIC]?"
     ],
     "answers": [
       "Untuk melihat MACD [TOPIC], Anda perlu memiliki langganan premium atau ultra. Tingkatkan untuk mendapatkan semua keuntungan! 😄",
@@ -3485,7 +3489,8 @@
       "Bisakah Anda memberikan stokastik lengkap [TOPIC]?",
       "Beri saya analisis stokastik [TOPIC]",
       "K dan D untuk [TOPIC]",
-      "Beri saya stokastik [TOPIC]"
+      "Beri saya stokastik [TOPIC]",
+      "Berapa nilai osilator stokastik [TOPIC]?"
     ],
     "answers": [
       "Nilai stokastik saat ini untuk [TOPIC] adalah:\n\nK = [STOCH_K], D = [STOCH_D]\n\nKondisi tipikalnya adalah [STATE_STOCH]. Arti untuk aset: [SIGNIFICATO_STOCH].",
@@ -3525,7 +3530,8 @@
       "Indikator stokastik [TOPIC]",
       "Tunjukkan osilator stokastik [TOPIC]",
       "Saya perlu nilai-nilai stokastik untuk [TOPIC]",
-      "Beri saya stokastik [TOPIC]"
+      "Beri saya stokastik [TOPIC]",
+      "Berapa nilai osilator stokastik [TOPIC]?"
     ],
     "answers": [
       "Untuk melihat osilator stokastik [TOPIC], diperlukan langganan premium atau ultra. Tingkatkan sekarang untuk mendapatkan semua manfaat! 😄",
@@ -3558,7 +3564,8 @@
       "EMA10 [TOPIC], tolong.",
       "Beri saya EMA 10 hari [TOPIC]?",
       "Periksa nilai EMA10 [TOPIC].",
-      "Exponential moving average [TOPIC]"
+      "Exponential moving average [TOPIC]",
+      "Berapa nilai EMA [TOPIC]?"
     ],
     "answers": [
       "EMA 10 hari [TOPIC] saat ini adalah [EMA_VALUE].\n\nHarga berada [EMA_UP_DOWN] dibandingkan dengan EMA10, menunjukkan tren [STATE_EMA] untuk aset tersebut.",
@@ -3597,7 +3604,8 @@
       "EMA10 [TOPIC], tolong",
       "Beri saya EMA 10 hari [TOPIC]?",
       "Periksa nilai EMA10 [TOPIC]",
-      "Exponential moving average [TOPIC]"
+      "Exponential moving average [TOPIC]",
+      "Berapa nilai EMA [TOPIC]?"
     ],
     "answers": [
       "Untuk melihat EMA10 [TOPIC], Anda harus memiliki langganan premium atau ultra. Tingkatkan sekarang untuk mendapatkan semua manfaat! 😄",
@@ -3629,7 +3637,8 @@
       "Bisakah saya melihat CCI [TOPIC]?",
       "Berapa CCI [TOPIC] saat ini?",
       "Tunjukkan status CCI [TOPIC]",
-      "Saya ingin tahu CCI untuk [TOPIC]"
+      "Saya ingin tahu CCI untuk [TOPIC]",
+      "Berapa nilai CCI [TOPIC]?"
     ],
     "answers": [
       "CCI [TOPIC] saat ini adalah [CCI_VALUE].\n\nIni menunjukkan kondisi khas [STATE_CCI] dan berarti [SIGNIFICATO_CCI].",
@@ -3669,7 +3678,8 @@
       "Saya ingin memeriksa Commodity Channel Index [TOPIC]",
       "Bisakah Anda memberi tahu saya CCI [TOPIC]?",
       "Saya tertarik dengan CCI [TOPIC]",
-      "Tunjukkan Commodity Channel Index [TOPIC]"
+      "Tunjukkan Commodity Channel Index [TOPIC]",
+      "Berapa nilai CCI [TOPIC]?"
     ],
     "answers": [
       "Untuk melihat CCI [TOPIC], Anda harus memiliki langganan premium atau ultra. Tingkatkan sekarang untuk mendapatkan semua manfaat! 😄",
@@ -3704,7 +3714,8 @@
       "Beri saya Williams saat ini untuk [TOPIC]",
       "Tunjukkan level Williams [TOPIC]",
       "Berapa nilai Williams %R [TOPIC] saat ini?",
-      "Beri saya Williams Percent Range [TOPIC]"
+      "Beri saya Williams Percent Range [TOPIC]",
+      "Berapa nilai Williams [TOPIC]?"
     ],
     "answers": [
       "Nilai Williams %R untuk [TOPIC] adalah [WILLIAMS_VALUE].\n\nKondisinya adalah [STATE_WILLIAMS], yang berarti [SIGNIFICATO_WILLIAMS].",
@@ -3743,7 +3754,8 @@
       "Beri saya Williams saat ini untuk [TOPIC]",
       "Tunjukkan level Williams [TOPIC]",
       "Berapa nilai Williams [TOPIC] saat ini?",
-      "Beri saya Williams Percent Range [TOPIC]"
+      "Beri saya Williams Percent Range [TOPIC]",
+      "Berapa nilai Williams [TOPIC]?"
     ],
     "answers": [
       "Untuk melihat Williams %R [TOPIC], Anda harus memiliki langganan premium atau ultra. Tingkatkan sekarang untuk mendapatkan semua manfaat! 😄",
@@ -3778,7 +3790,9 @@
       "Saya ingin tahu Bollinger Band [TOPIC] saat ini",
       "Tunjukkan volatilitas dan Bollinger Bands untuk [TOPIC]",
       "Bisakah Anda memberikan status Bollinger Bands pada [TOPIC]?",
-      "Bollinger Bands untuk [TOPIC]"
+      "Bollinger Bands untuk [TOPIC]",
+      "Berapa nilai Bollinger Bands [TOPIC]?",
+      "Berapa nilai Bollinger [TOPIC]?"
     ],
     "answers": [
       "Bollinger Bands untuk [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilitas: [BB_VOLATILITY]\n- Band berada [BB_UP_DOWN]\n\nKondisinya adalah [STATE_BB], yang berarti [SIGNIFICATO_BB].",
@@ -3818,7 +3832,9 @@
       "Tunjukkan volatilitas dan Bollinger Bands untuk [TOPIC]",
       "Bisakah Anda memberikan status Bollinger Bands pada [TOPIC]?",
       "Bollinger Bands untuk [TOPIC]",
-      "Bollinger [TOPIC]"
+      "Bollinger [TOPIC]",
+      "Berapa nilai Bollinger Bands [TOPIC]?",
+      "Berapa nilai Bollinger [TOPIC]?"
     ],
     "answers": [
       "Untuk melihat Bollinger Bands [TOPIC], diperlukan langganan premium atau ultra. Tingkatkan sekarang untuk mendapatkan detail lengkap! 💎",
