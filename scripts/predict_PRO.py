@@ -81,7 +81,7 @@ symbol_list = ["AAPL", "MSFT", "GOOGL", "AMZN", "META", "TSLA", "V", "JPM", "JNJ
                
         "BTCUSD", "ETHUSD", "LTCUSD", "XRPUSD", "BCHUSD", "EOSUSD", "XLMUSD", "ADAUSD", "TRXUSD", "NEOUSD",
         "DASHUSD", "XMRUSD", "ETCUSD", "ZECUSD", "BNBUSD", "DOGEUSD", "USDTUSD", "LINKUSD", "ATOMUSD", "XTZUSD",
-        "COCOA", "XAUUSD", "GOLD", "XAGUSD", "SILVER", "OIL", "NATGAS"]  # Puoi aggiungere altri simboli
+        "COCOA", "GOLD", "SILVER", "OIL", "NATGAS"]  # Puoi aggiungere altri simboli
 
 '''
     
@@ -120,8 +120,6 @@ symbol_list_for_yfinance = [
     # Commodities (correct tickers)
     "CC=F",       # Cocoa
     "GC=F",   # Gold spot
-    "GC=F",   # Gold spot
-    "SI=F",   # Silver spot
     "SI=F",   # Silver spot
     "CL=F",        # Crude oil
     "NG=F"        # Natural gas
@@ -313,9 +311,7 @@ symbol_name_map = {
 
     # Commodities
     "COCOA": ["Cocoa", "Cocoa Futures"],
-    "XAUUSD": ["Gold", "XAU/USD", "Gold price", "Gold spot"],
     "GOLD": ["Gold", "XAU/USD", "Gold price", "Gold spot"],
-    "XAGUSD": ["Silver", "XAG/USD", "Silver price", "Silver spot"],
     "SILVER": ["Silver", "XAG/USD", "Silver price", "Silver spot"],
     "OIL": ["Crude oil", "Oil price", "WTI", "Brent", "Brent oil", "WTI crude"],
     "NATGAS": ["Natural gas", "Gas price", "Natgas", "Henry Hub", "NG=F", "Natural gas futures"]
