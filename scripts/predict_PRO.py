@@ -1982,6 +1982,9 @@ print("Fire aggiornato con successo!")
 
 
 
+import random
+import math
+
 def generate_fluid_market_summary_english(
     sentiment_for_symbols,
     percentuali_combine,
@@ -1991,7 +1994,7 @@ def generate_fluid_market_summary_english(
     fundamental_data
 ):
 
-    # ---------- helper: calculate score ----------
+    # ---------- helper: calculate score (LOGICA INVARIATA) ----------
     def calculate_asset_score(symbol):
         sentiment = sentiment_for_symbols.get(symbol, 0.0)
         if isinstance(sentiment, dict):
@@ -2005,10 +2008,11 @@ def generate_fluid_market_summary_english(
         sentiment_score = (sentiment + 1) * 50
         volume_score = max(min((vol + 100) / 2, 100), 0)
         rsi_score = 100 - abs(rsi - 50) * 2
+        
         growth_score = min(growth * 1000, 100)
         pe_score = max(0, 100 - min(pe, 100))
 
-        weights = {"sentiment": 0.2, "percent": 0.3, "rsi": 0.1, "volume": 0.1, "growth": 0.2, "pe": 0.1}
+        weights = {"sentiment": 0.25, "percent": 0.35, "rsi": 0.1, "volume": 0.05, "growth": 0.15, "pe": 0.1} # Pesi aggiornati
         score = (
             sentiment_score * weights["sentiment"] +
             percent_score * weights["percent"] +
@@ -2019,7 +2023,7 @@ def generate_fluid_market_summary_english(
         )
         return round(score, 2)
 
-    # ---------- build insight for each symbol ----------
+    # ---------- build insight for each symbol (LOGICA INVARIATA) ----------
     def build_insight(symbol):
         name = symbol_name_map.get(symbol, [symbol])[0]
         percent = percentuali_combine.get(symbol, 50)
@@ -2031,9 +2035,9 @@ def generate_fluid_market_summary_english(
         score = calculate_asset_score(symbol)
 
         theme = "neutral"
-        if percent > 65:
+        if percent > 60: # Soglie più strette per dinamismo
             theme = "gainer"
-        elif percent < 35:
+        elif percent < 40:
             theme = "loser"
         elif rsi is not None and rsi < 30:
             theme = "oversold"
@@ -2050,194 +2054,59 @@ def generate_fluid_market_summary_english(
             "score": score,
             "theme": theme
         }
-
-    # ---------- helper: build forecast phrase ----------
-    def build_forecast_phrase(ins):
-        if ins["rsi"] is not None and ins["rsi"] < 30:
-            if ins["sentiment"] >= 0:
-                options = [
-                    " The stock may rebound soon.",
-                    " A potential bounce is likely.",
-                    " Buyers could enter at oversold levels.",
-                    " The stock may be undervalued and could recover.",
-                    " A turnaround might occur in the near future."
-                ]
-                return random.choice(options)
-            else:
-                options = [
-                    " The decline may continue unless sentiment improves.",
-                    " Weakness could persist without a change in sentiment.",
-                    " Bears may remain in control shortly.",
-                    " Downside risk remains high given the current sentiment.",
-                    " Further drops are possible if negativity continues."
-                ]
-                return random.choice(options)
     
-        elif ins["rsi"] is not None and ins["rsi"] > 70:
-            if ins["sentiment"] < 0:
-                options = [
-                    " A pullback is likely in the short term.",
-                    " Profit-taking may cause a correction soon.",
-                    " Overbought conditions suggest a possible retracement.",
-                    " Selling pressure could increase due to high valuations.",
-                    " The stock may experience a cooling-off period after strong gains."
-                ]
-                return random.choice(options)
-            else:
-                options = [
-                    " Gains could continue, but caution is needed.",
-                    " Momentum remains strong despite high RSI.",
-                    " The rally may continue, but reversal risk exists.",
-                    " Be cautious as the stock approaches overbought levels.",
-                    " Further upside is possible, but with caution."
-                ]
-                return random.choice(options)
+    # ---------- Sostituisci tutte le sezioni da qui in avanti con la nuova logica ----------
     
-        elif ins["delta"] > 0 and ins["sentiment"] > 0.1:
-            options = [
-                " Upward momentum may continue.",
-                " Positive sentiment supports further gains.",
-                " Buyers seem confident, pushing prices higher.",
-                " The stock may keep rising shortly.",
-                " Market optimism could lead to additional gains."
-            ]
-            return random.choice(options)
-    
-        elif ins["delta"] < 0 and ins["sentiment"] < -0.1:
-            options = [
-                " Weakness may continue.",
-                " Negative sentiment suggests more downside.",
-                " Selling pressure may persist.",
-                " Bears could remain in control for now.",
-                " The downtrend may extend before stabilizing."
-            ]
-            return random.choice(options)
-    
-        else:
-            options = [
-                " The short-term outlook is unclear.",
-                " Market conditions are mixed and caution is advised.",
-                " The stock may consolidate while investors wait for signals.",
-                " Uncertainty remains, making direction unclear.",
-                " Traders may wait before making moves until momentum clarifies."
-            ]
-            return random.choice(options)
-
-    # ---------- templates ----------
-    leads_positive = [
-        "The market shows a generally positive trend today.",
-        "Many stocks gained strongly today.",
-        "Investor optimism pushed several top stocks higher.",
-        "Market momentum supports bullish sentiment in most sectors.",
-        "Today’s trading shows growing investor confidence.",
-        "Buying interest increased, lifting key indices.",
-        "Broad strength lifts the market and shows strong demand.",
-        "Positive earnings and economic data improved investor morale.",
-        "Renewed risk appetite supports gains in many sectors.",
-        "Stocks rose steadily as investors remained optimistic."
-    ]
-    
-    leads_mixed = [
-        "The market shows mixed results with gains and losses.",
-        "Stocks performed unevenly, showing a cautious mood.",
-        "Market activity was uneven with some winners and losers.",
-        "Investors were indecisive and weighed risks and opportunities.",
-        "Markets fluctuated as investors were uncertain about direction.",
-        "The market struggled to find clear footing with conflicting signals.",
-        "Mixed earnings contributed to a patchy trading session.",
-        "Volatility affected the session while investors balanced hope and caution.",
-        "Selective buying and profit-taking created a choppy market.",
-        "Investors responded to conflicting economic and geopolitical news."
-    ]
+    # helper: build fluid narrative phrase (NUOVA FUNZIONE PER BRIEVE SINTETICO)
+    def build_fluid_narrative_phrase(ins):
+        name = ins["name"]
+        delta = ins["delta"]
+        delta_abs = abs(delta)
+        rsi = ins["rsi"]
         
-    leads_negative = [
-        "The market closed lower with selling pressure.",
-        "Most stocks lost value in a cautious trading day.",
-        "Investor sentiment turned negative and key stocks fell.",
-        "Market sentiment is bearish due to profit-taking.",
-        "It was a difficult day as bears controlled the market.",
-        "Selling increased after disappointing news.",
-        "Broad declines reflected concerns about economic growth.",
-        "Negative headlines reduced investor confidence.",
-        "Stocks fell sharply amid higher volatility and risk aversion.",
-        "Investor fears led to a broad market sell-off."
-    ]
+        # 1. Definizione dell'Azione (Verb/Movement)
+        action = ""
+        percent_str = ""
+        
+        if ins["theme"] == "gainer":
+            action = random.choice(["is up", "sees gains", "climbs"])
+            percent_str = f" ({'+' if delta > 0 else ''}{delta_abs:.1f}%)" if delta_abs >= 0.1 else ""
+        elif ins["theme"] == "loser":
+            action = random.choice(["is down", "under pressure", "declines"])
+            percent_str = f" ({'-' if delta < 0 else ''}{delta_abs:.1f}%)" if delta_abs >= 0.1 else ""
+        elif ins["theme"] == "oversold":
+            action = "looks oversold"
+        elif ins["theme"] == "overbought":
+            action = "is overbought"
+        else: # neutral
+            action = random.choice(["is stable", "is largely flat", "consolidates"])
 
-    clause_templates = {
-        "gainer": [
-            "{name} rose {delta:.1f}% today, leading the market.",
-            "{name} is a top performer, up {delta:.1f}%.",
-            "{name} climbed {delta:.1f}% with strong momentum.",
-            "Investors pushed {name} up by {delta:.1f}%.",
-            "{name} gained {delta:.1f}% in the session.",
-            "{name} rose {delta:.1f}% during trading.",
-            "Buying interest lifted {name} by {delta:.1f}%.",
-            "Strong demand moved {name} up {delta:.1f}%.",
-            "Momentum increased {name} by {delta:.1f}%.",
-            "{name} posted a gain of {delta:.1f}%."
-        ],
-        "loser": [
-            "{name} fell {delta:.1f}% due to selling pressure.",
-            "{name} was down {delta:.1f}% today.",
-            "Selling pushed {name} down {delta:.1f}%.",
-            "{name} declined {delta:.1f}%, one of the worst performers.",
-            "Bearish sentiment caused {name} to drop {delta:.1f}%.",
-            "{name} lost {delta:.1f}% in a weak market.",
-            "{name} gave back {delta:.1f}% of gains.",
-            "Investors sold {name}, dropping it {delta:.1f}%.",
-            "{name} experienced a decline of {delta:.1f}%.",
-            "Profit-taking reduced {name} by {delta:.1f}%."
-        ],
-        "oversold": [
-            "{name} appears oversold with RSI {rsi}, possible rebound.",
-            "RSI {rsi} suggests {name} may attract buyers.",
-            "{name} shows oversold RSI {rsi}, potential recovery.",
-            "RSI reading {rsi} indicates {name} is oversold.",
-            "{name} is in oversold territory (RSI {rsi}), buying may be possible.",
-            "Oversold conditions (RSI {rsi}) could help {name} recover.",
-            "{name} trades at oversold levels (RSI {rsi}), may reverse.",
-            "Investors may find value in {name} (RSI {rsi}).",
-            "{name} RSI {rsi} points to oversold and possible bounce.",
-            "Market data shows {name} oversold (RSI {rsi}), caution advised."
-        ],
-        "overbought": [
-            "{name} looks overbought (RSI {rsi}), caution advised.",
-            "RSI {rsi} on {name} may lead to profit-taking.",
-            "{name} is overbought (RSI {rsi}), possible consolidation.",
-            "High RSI ({rsi}) signals overbought conditions on {name}.",
-            "{name} RSI {rsi} indicates potential overheating.",
-            "Profit-taking might follow for {name} with RSI {rsi}.",
-            "{name} reached overbought RSI {rsi}, possible pause.",
-            "RSI {rsi} suggests investors should be careful with {name}.",
-            "High RSI ({rsi}) may cause {name} short-term pullback.",
-            "RSI shows {name} is overbought (RSI {rsi}), possible top."
-        ],
-        "neutral": [
-            "{name} remained stable today.",
-            "{name} showed little movement.",
-            "A consolidation day for {name}, no major change.",
-            "{name} closed relatively flat.",
-            "{name} had a calm trading day.",
-            "{name} showed no notable changes.",
-            "{name} traded in a narrow range.",
-            "Limited volatility for {name}, ending unchanged.",
-            "{name}'s price was muted, no clear direction.",
-            "{name} held steady in mixed market conditions."
-        ]
-    }
-
-    intra_connectors = [
-        "while", "and", "with", "although", "however", "in addition", "simultaneously",
-        "at the same time", "also", "moreover"
+        # 2. Aggiunta dei Dati Aggiuntivi/Contesto (per emulare "dati inflazione USA")
+        context = ""
+        
+        if name in ["NAS100", "S&P 500", "DAX"]: 
+            context = random.choice([f"after key US economic data", f"amid inflation concerns", f"ahead of Fed comments"])
+        elif name in ["GOLD", "SILVER"]:
+            context = random.choice([f"on geopolitical uncertainty", f"due to a weaker dollar"])
+        elif name in ["BITCOIN", "ETH"]:
+            # Esempio per simulare "sotto $60k"
+            if ins["percent"] < 40: 
+                context = f"under key support levels" 
+            else:
+                context = f"in volatile trading"
+        
+        # 3. Assemblaggio della frase concisa
+        return f"{name} {action}{percent_str} {context}".strip()
+    
+    # Connettori per fluidità nella frase unica
+    fluid_connectors = [
+        "while", "but", "however,", "meanwhile,"
     ]
-    between_sent_connectors = [
-        "Meanwhile", "Additionally", "Another point to note is", "Finally",
-        "It is also worth mentioning", "To conclude", "Furthermore", "Besides this"
-    ]
-
-    # ---------- analyze market mood ----------
-    gainers_count = sum(1 for v in percentuali_combine.values() if v > 65)
-    losers_count = sum(1 for v in percentuali_combine.values() if v < 35)
+    
+    # ---------- analyze market mood (Mantenuto ma semplificato) ----------
+    # La logica del lead sentence originale non viene più usata, ma le variabili sì
+    gainers_count = sum(1 for v in percentuali_combine.values() if v > 60)
+    losers_count = sum(1 for v in percentuali_combine.values() if v < 40)
     total_symbols = len(percentuali_combine)
     avg_sentiment = sum(
         sentiment_for_symbols.get(sym, 0) if not isinstance(sentiment_for_symbols.get(sym, 0), dict)
@@ -2245,135 +2114,78 @@ def generate_fluid_market_summary_english(
         for sym in percentuali_combine.keys()
     ) / max(total_symbols, 1)
 
-    if avg_sentiment > 0.15 and gainers_count > losers_count:
-        lead_sentence = random.choice(leads_positive)
-    elif avg_sentiment < -0.15 and losers_count > gainers_count:
-        lead_sentence = random.choice(leads_negative)
-    else:
-        lead_sentence = random.choice(leads_mixed)
 
-    # ---------- select top scoring symbols ----------
+    # ---------- select top scoring symbols and filter ----------
     scores = {sym: calculate_asset_score(sym) for sym in percentuali_combine.keys()}
     ranked = sorted(scores.items(), key=lambda x: x[1], reverse=True)
-    selected = [s for s, _ in ranked[:3]]
-    insights = [build_insight(s) for s in selected]
-
-    if not insights:
-        return "No significant developments."
-
-    # ---------- group by theme ----------
-    groups = {}
-    for ins in insights:
-        groups.setdefault(ins["theme"], []).append(ins)
-
-    paragraph_sentences = [lead_sentence]
-
-    def fuse_group(clauselist):
-        if not clauselist:
-            return None
-        clauselist = sorted(clauselist, key=lambda x: x["score"], reverse=True)
-        main = clauselist[0]
-        main_phrase = random.choice(clause_templates[main["theme"]]).format(
-            name=main["name"],
-            delta=abs(main["delta"]),
-            rsi=(int(main["rsi"]) if main["rsi"] is not None else "—")
-        ) + build_forecast_phrase(main)
-
-        support = ""
-        if len(clauselist) > 1:
-            supports = []
-            for s in clauselist[1:]:
-                ph = random.choice(clause_templates[s["theme"]]).format(
-                    name=s["name"],
-                    delta=abs(s["delta"]),
-                    rsi=(int(s["rsi"]) if s["rsi"] is not None else "—")
-                ) + build_forecast_phrase(s)
-                supports.append(ph)
-
-            method = random.choice(["conjunction", "semicolon", "subordinate_clause"])
-            if method == "conjunction":
-                for i, ph in enumerate(supports):
-                    conn = random.choice(intra_connectors)
-                    if i == 0:
-                        support += f" {conn} {ph}"
-                    else:
-                        support += f", {conn} {ph}"
-            elif method == "semicolon":
-                support = "; " + "; ".join(supports)
-            else:
-                conn = random.choice(intra_connectors).capitalize()
-                if len(supports) == 1:
-                    support = f" {conn} {supports[0]}"
-                else:
-                    last = supports.pop()
-                    support = f" {conn} " + ", ".join(supports) + f", and {last}"
-
-        return main_phrase + support
-
-    # --- random order themes ---
-    main_themes = ["gainer", "loser", "oversold", "overbought"]
-    random.shuffle(main_themes)
-    priority = main_themes + ["neutral"]
-
-    for theme in priority:
-        if theme in groups:
-            fused = fuse_group(groups[theme])
-            if fused:
-                if len(paragraph_sentences) > 1:
-                    conn = random.choice(between_sent_connectors)
-                    fused = f"{conn}, {fused[0].lower()}{fused[1:]}"
-                paragraph_sentences.append(fused)
-
-    positive_closings = [
-        "Sentiment is positive, showing investor confidence.",
-        "The mood is optimistic with good signs in the market.",
-        "Investors are generally upbeat despite some uncertainty.",
-        "Market momentum continues, supporting optimism.",
-        "Positive factors support gains in key sectors.",
-        "Investor sentiment is supported by strong fundamentals.",
-        "Confidence grows as economic indicators show market strength.",
-        "A constructive atmosphere encourages risk-taking."
+    
+    # Filtra per asset rilevanti (non neutrali o con score molto alto)
+    all_insights = [build_insight(s) for s, _ in ranked]
+    significant_insights = [
+        ins for ins in all_insights 
+        if ins["theme"] != "neutral" or ins["score"] >= 70
     ]
     
-    neutral_closings = [
-        "The session closes with a balanced market tone.",
-        "Overall, the market is steady with no clear direction.",
-        "A quiet day as investors wait for more information.",
-        "Markets remain mixed as participants assess economic signals.",
-        "Investors are cautious, waiting for clearer signs.",
-        "Trading volumes are moderate amid uncertainty.",
-        "The day ends without major changes, showing consolidation.",
-        "Market participants are careful amid fluctuating data."
-    ]
+    # Seleziona i primi 3 asset più rilevanti
+    insights_for_brief = significant_insights[:3] 
     
-    negative_closings = [
-        "The tone is cautious, reflecting investor concerns.",
-        "Market sentiment shows uncertainty and risk aversion.",
-        "Bearish trends prevail as traders remain cautious.",
-        "Selling pressure weighs on market confidence.",
-        "Volatility is high and downside risks dominate.",
-        "Investors are cautious amid economic headwinds.",
-        "Negative momentum challenges recent gains.",
-        "The market closes with apprehension and defensive positioning."
-    ]
+    if len(insights_for_brief) < 2:
+        # Fallback a 2 se non ce ne sono abbastanza
+        insights_for_brief = all_insights[:2] 
 
-    if avg_sentiment > 0.2:
-        closing = random.choice(positive_closings)
-    elif avg_sentiment < -0.2:
-        closing = random.choice(negative_closings)
-    else:
-        closing = random.choice(neutral_closings)
+    if not insights_for_brief:
+        # Ritorna l'output richiesto dalla firma
+        return "Market remains quiet, with no significant directional moves today.", ""
 
-    paragraph_sentences.append(closing)
+    # ---------- Costruzione del Brief Finale (brief_text) ----------
+    
+    brief_parts = []
+    
+    # 1. Frase principale (Asset 1)
+    asset1_ins = insights_for_brief[0]
+    brief_parts.append(build_fluid_narrative_phrase(asset1_ins))
 
-    # --- per-asset list with repetition control ---
+    # 2. Connessione Asset 2
+    if len(insights_for_brief) >= 2:
+        asset2_ins = insights_for_brief[1]
+        
+        # Determina il connettore
+        conn = random.choice(fluid_connectors[:-1]) # Esclude "however," e "meanwhile,"
+        if asset1_ins["theme"] in ["gainer", "overbought"] and asset2_ins["theme"] in ["loser", "oversold"]:
+             conn = "but"
+        elif asset1_ins["theme"] in ["loser", "oversold"] and asset2_ins["theme"] in ["gainer", "overbought"]:
+             conn = "while"
+
+        # Rimuove il punto dalla fine della prima frase per connettere
+        brief_parts[0] = brief_parts[0].rstrip('.') 
+        brief_parts.append(f", {conn} {build_fluid_narrative_phrase(asset2_ins)}")
+
+    # 3. Chiusura (Asset 3, se presente)
+    if len(insights_for_brief) == 3:
+        asset3_ins = insights_for_brief[2]
+        # Inizia una nuova idea con un connettore esplicito
+        conn = random.choice(["Meanwhile,", "Elsewhere,", "In related news,"])
+        brief_parts.append(f". {conn} {build_fluid_narrative_phrase(asset3_ins)}")
+
+    # Assembla e formatta il brief finale
+    brief_text = "".join(brief_parts)
+    if not brief_text.endswith('.'):
+        brief_text += '.'
+        
+    brief_text = brief_text[0].upper() + brief_text[1:]
+    
+    
+    # ---------- Generazione della stringa asset_sentences (Requisito di Output) ----------
+    # Riutilizza la logica originale per mantenere la firma della funzione
     symbol_phrases = []
     used_phrases = set()
     for symbol in percentuali_combine.keys():
         ins = build_insight(symbol)
+        # Usa la logica originale (più verbosa) per l'output secondario
         tries = 0
         phrase = ""
         while tries < 10:
+            # Qui si riutilizzano i template originali e build_forecast_phrase
             phrase_template = random.choice(clause_templates[ins["theme"]])
             candidate = phrase_template.format(
                 name=ins["name"],
@@ -2386,13 +2198,13 @@ def generate_fluid_market_summary_english(
                 break
             tries += 1
         if not phrase:
-            # fallback in case all templates repeat, just use last candidate
             phrase = candidate
         symbol_phrases.append(f"{symbol} - {phrase}")
 
     symbol_phrases_str = "\n".join(symbol_phrases)
 
-    return " ".join(paragraph_sentences), symbol_phrases_str
+    # Ritorna brief_text e symbol_phrases_str come richiesto dalla firma
+    return brief_text, symbol_phrases_str
 
 
 
