@@ -1266,7 +1266,21 @@
     "Je suis là pour te fournir un soutien complet : analyse technique, fondamentale, gestion des risques et stratégies opérationnelles, tout en un seul endroit."
   ],
     "cost": 0,
-    "keywords": ["sais faire", "es bon", "aider", "être utile", "m'être utile", "peux faire", "es capable"]
+    "keywords": ["sais faire", "es bon", "aider", "être utile", "m'être utile", "peux faire", "es capable"],
+    "subquestions": {
+      "Je peux t’expliquer comment fonctionne la stratégie de Swing Trading. Veux-tu que je te le dise ?": "swing_trading_info",
+      "Je peux t’expliquer comment fonctionne la stratégie de Day Trading. Veux-tu que je te le dise ?": "day_trading_info",
+      "Je peux t’expliquer comment fonctionne Fibonacci dans le trading. Veux-tu que je poursuive avec l’explication ?": "fibonacci_info",
+      "Je peux t’expliquer en quoi consiste la stratégie d’investissement à long terme. Veux-tu le savoir ?": "long_term_investing_info",
+      "Je peux t’aider à trouver la stratégie de trading qui te convient le mieux. Veux-tu que je continue ?": "trading_strategy_choice",
+      "Je peux t’aider à chercher la stratégie de trading la plus adaptée pour toi. Veux-tu approfondir ?": "trading_strategy_choice",
+      "Je peux te donner les dernières nouvelles concernant un actif que tu as ajouté à ta liste de favoris. Veux-tu connaître les dernières actualités sur [FAVOURITE] ?": "asset_news",
+      "Veux-tu connaître la tendance générale du marché aujourd’hui ?": "market_sentiment_today",
+      "Je peux te dire comment se porte le marché aujourd’hui. Ça t’intéresse ?": "market_sentiment_today",
+      "Veux-tu connaître le sentiment calculé pour [FAVOURITE] ?": "sentiment",
+      "Je peux t’aider à comprendre sur quoi il vaut mieux investir aujourd’hui. Veux-tu approfondir ?": "where_invest",
+      "Je peux te lister les actifs qui ont le plus augmenté au cours des sept derniers jours. Puis-je continuer ?": "top_fire",
+      "Je peux te donner une liste des actifs qui ont le plus de chances de croître. Veux-tu que je continue ?": "top_gainers"}
 },
   "market_sentiment_today": {
   "questions": [
