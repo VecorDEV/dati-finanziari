@@ -1250,7 +1250,21 @@
     "Saya di sini untuk memberikan dukungan penuh kepada Anda: analisis teknis, fundamental, manajemen risiko, dan strategi operasional, semuanya di satu tempat."
   ],
     "cost": 0,
-    "keywords": ["bisa kamu lakukan", "keahlianmu", "membantu", "menjadi bantuan", "menjadi bantuan bagi saya", "bisa kamu lakukan", "mampu"]
+    "keywords": ["bisa kamu lakukan", "keahlianmu", "membantu", "menjadi bantuan", "menjadi bantuan bagi saya", "bisa kamu lakukan", "mampu"],
+    "subquestions": {
+      "Saya bisa menjelaskan bagaimana strategi Swing Trading bekerja. Apakah kamu ingin saya jelaskan?": "swing_trading_info",
+      "Saya bisa menjelaskan bagaimana strategi Day Trading bekerja. Apakah kamu ingin saya jelaskan?": "day_trading_info",
+      "Saya bisa menjelaskan bagaimana Fibonacci digunakan dalam trading. Apakah saya harus melanjutkan penjelasannya?": "fibonacci_info",
+      "Saya bisa menjelaskan apa itu strategi investasi jangka panjang. Apakah kamu ingin mengetahuinya?": "long_term_investing_info",
+      "Saya bisa membantumu menemukan strategi trading yang tepat untukmu. Apakah saya lanjutkan?": "trading_strategy_choice",
+      "Saya bisa membantumu mencari strategi trading yang sesuai denganmu. Apakah ingin lebih mendalam?": "trading_strategy_choice",
+      "Saya bisa memberimu berita terbaru tentang aset yang ada di daftar favoritmu. Apakah kamu ingin tahu berita terbaru [FAVOURITE]?": "asset_news",
+      "Apakah kamu ingin mengetahui kondisi umum pasar hari ini?": "market_sentiment_today",
+      "Saya bisa memberitahumu bagaimana pasar bergerak hari ini. Apakah kamu ingin mengetahuinya?": "market_sentiment_today",
+      "Apakah kamu ingin mengetahui sentimen yang dihitung untuk [FAVOURITE]?": "sentiment",
+      "Saya bisa membantumu memahami aset mana yang layak diinvestasikan hari ini. Apakah kamu ingin lebih mendalam?": "where_invest",
+      "Saya bisa memberimu daftar aset yang naik paling banyak dalam tujuh hari terakhir. Apakah saya lanjutkan?": "top_fire",
+      "Saya bisa memberimu daftar aset yang kemungkinan besar akan naik paling banyak. Apakah kamu ingin saya lanjutkan?": "top_gainers"}
 },
   "market_sentiment_today": {
   "questions": [
