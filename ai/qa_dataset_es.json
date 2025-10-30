@@ -1260,7 +1260,22 @@
     "Estoy aquí para proporcionarte soporte completo: análisis técnico, fundamental, gestión de riesgos y estrategias operativas, todo en un solo lugar."
   ],
   "cost": 0,
-  "keywords": ["saber hacer", "ser bueno", "ayudar", "ser útil", "puedes hacer", "eres capaz"]
+  "keywords": ["saber hacer", "ser bueno", "ayudar", "ser útil", "puedes hacer", "eres capaz"],
+  "subquestions": {
+    "Puedo explicarte cómo funciona la estrategia de Swing Trading. ¿Quieres que te lo cuente?": "swing_trading_info",
+    "Puedo explicarte cómo funciona la estrategia de Day Trading. ¿Quieres que te lo diga?": "day_trading_info",
+    "Puedo explicarte cómo funciona Fibonacci en el trading. ¿Quieres que continúe con la explicación?": "fibonacci_info",
+    "Puedo explicarte en qué consiste la estrategia de inversión a largo plazo. ¿Quieres saberlo?": "long_term_investing_info",
+    "Puedo ayudarte a encontrar la estrategia de trading adecuada para ti. ¿Quieres que continúe?": "trading_strategy_choice",
+    "Puedo echarte una mano para encontrar la estrategia de trading que mejor se adapte a ti. ¿Quieres profundizar?": "trading_strategy_choice",
+    "Puedo darte noticias recientes sobre un activo que has añadido a tu lista de favoritos. ¿Quieres saber las últimas novedades de [FAVOURITE]?": "asset_news",
+    "¿Quieres conocer la tendencia general del mercado de hoy?": "market_sentiment_today",
+    "Puedo decirte cómo se está comportando el mercado hoy. ¿Te interesa saberlo?": "market_sentiment_today",
+    "¿Quieres conocer el sentimiento calculado para [FAVOURITE]?": "sentiment",
+    "Puedo ayudarte a entender en qué conviene invertir hoy. ¿Quieres profundizar?": "where_invest",
+    "Puedo enumerarte los activos que más han crecido en los últimos siete días. ¿Sigo?": "top_fire",
+    "Puedo darte una lista de los activos que probablemente crecerán más. ¿Quieres que continúe?": "top_gainers"
+  }
 },
 "market_sentiment_today": {
   "questions": [
