@@ -1261,7 +1261,22 @@
     "Ich bin hier, um umfassende Unterstützung zu bieten: technische Analyse, Fundamentaldaten, Risikomanagement und operative Strategien, alles an einem Ort."
   ],
   "cost": 0,
-  "keywords": ["kannst du tun", "gut in", "helfen", "unterstützen", "kannst mir helfen", "fähig"]
+  "keywords": ["kannst du tun", "gut in", "helfen", "unterstützen", "kannst mir helfen", "fähig"],
+  "subquestions": {
+    "Ich kann dir erklären, wie die Swing-Trading-Strategie funktioniert. Willst du, dass ich es dir erkläre?": "swing_trading_info",
+    "Ich kann dir erklären, wie die Day-Trading-Strategie funktioniert. Willst du, dass ich es dir erkläre?": "day_trading_info",
+    "Ich kann dir erklären, wie Fibonacci im Trading funktioniert. Soll ich mit der Erklärung fortfahren?": "fibonacci_info",
+    "Ich kann dir erklären, worin die langfristige Anlagestrategie besteht. Willst du es wissen?": "long_term_investing_info",
+    "Ich kann dir helfen, die richtige Trading-Strategie für dich zu finden. Soll ich weitermachen?": "trading_strategy_choice",
+    "Ich kann dir helfen, die Trading-Strategie zu finden, die zu dir passt. Willst du mehr darüber wissen?": "trading_strategy_choice",
+    "Ich kann dir aktuelle Nachrichten zu einem Vermögenswert geben, den du auf deiner Favoritenliste hast. Willst du die neuesten News zu [FAVOURITE] wissen?": "asset_news",
+    "Willst du den allgemeinen Trend des Marktes heute kennen?": "market_sentiment_today",
+    "Ich kann dir sagen, wie sich der Markt heute entwickelt. Willst du es wissen?": "market_sentiment_today",
+    "Willst du den berechneten Sentimentwert für [FAVOURITE] kennen?": "sentiment",
+    "Ich kann dir helfen zu verstehen, worin es sich heute lohnt zu investieren. Willst du mehr darüber wissen?": "where_invest",
+    "Ich kann dir die Vermögenswerte auflisten, die in den letzten sieben Tagen am meisten gestiegen sind. Soll ich fortfahren?": "top_fire",
+    "Ich kann dir eine Liste der Vermögenswerte geben, die wahrscheinlich am meisten steigen werden. Willst du, dass ich fortfahre?": "top_gainers"
+ }
 },
   "market_sentiment_today": {
   "questions": [
