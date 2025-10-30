@@ -1209,7 +1209,21 @@
       "I’m here to provide full support: technical analysis, fundamental analysis, risk management, and trading strategies, all in one place."
     ],
     "cost": 0,
-    "keywords": ["can do", "skilled", "help", "assist", "be of help", "capable"]
+    "keywords": ["can do", "skilled", "help", "assist", "be of help", "capable"],
+    "subquestions": {
+      "I can explain to you how the Swing Trading strategy works. Do you want me to tell you?": "swing_trading_info",
+      "I can explain to you how the Day Trading strategy works. Do you want me to tell you?": "day_trading_info",
+      "I can explain how Fibonacci works in trading. Do you want me to go ahead with the explanation?": "fibonacci_info",
+      "I can explain what the long-term investing strategy consists of. Do you want to know?": "long_term_investing_info",
+      "I can help you find the right trading strategy for you. Do you want me to proceed?": "trading_strategy_choice",
+      "I can give you a hand finding the trading strategy that suits you best. Do you want to go deeper?": "trading_strategy_choice",
+      "I can give you recent news about an asset you’ve added to your favorites list. Do you want to hear the latest news about [FAVOURITE]?": "asset_news",
+      "Do you want to know today’s overall market trend?": "market_sentiment_today",
+      "I can tell you how the market is doing today. Are you interested?": "market_sentiment_today",
+      "Do you want to know the sentiment calculated for [FAVOURITE]?": "sentiment",
+      "I can help you understand what’s worth investing in today. Do you want to go deeper?": "where_invest",
+      "I can list the assets that have grown the most in the last seven days. Shall I proceed?": "top_fire",
+      "I can give you a list of the assets that are most likely to grow. Do you want me to continue?": "top_gainers"}
   },
   "market_sentiment_today": {
   "questions": [
