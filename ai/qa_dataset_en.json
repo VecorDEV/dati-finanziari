@@ -3561,7 +3561,8 @@
     "Give me the 10-day EMA of [TOPIC].",
     "Check the EMA10 value of [TOPIC].",
     "Exponential moving average of [TOPIC]",
-    "What is the EMA value of [TOPIC]?"
+    "What is the EMA value of [TOPIC]?",
+    "EMA of [TOPIC]"
   ],
   "answers": [
     "The 10-day EMA of [TOPIC] is currently [EMA_VALUE].\n\nThe price is [EMA_UP_DOWN] relative to EMA10, indicating a [STATE_EMA] trend for the asset.",
@@ -3601,7 +3602,8 @@
     "Give me the 10-day EMA of [TOPIC]?",
     "Check the EMA10 value of [TOPIC]",
     "Exponential moving average of [TOPIC]",
-    "What is the EMA value of [TOPIC]?"
+    "What is the EMA value of [TOPIC]?",
+    "EMA of [TOPIC]"
   ],
   "answers": [
     "To view the EMA10 of [TOPIC], a premium or ultra subscription is required. Upgrade to get all benefits! 😄",
@@ -3634,7 +3636,8 @@
     "What is the current CCI of [TOPIC]?",
     "Indicate the CCI state of [TOPIC]",
     "I would like to know the CCI for [TOPIC]",
-    "What is the CCI value of [TOPIC]?"
+    "What is the CCI value of [TOPIC]?",
+    "CCI of [TOPIC]"
   ],
   "answers": [
     "The CCI of [TOPIC] is currently [CCI_VALUE].\n\nThis indicates a typical [STATE_CCI] condition and means [SIGNIFICATO_CCI].",
@@ -3675,7 +3678,8 @@
     "Can you tell me the CCI of [TOPIC]?",
     "I’m interested in the CCI of [TOPIC]",
     "Give me the Commodity Channel Index of [TOPIC]",
-    "What is the CCI value of [TOPIC]?"
+    "What is the CCI value of [TOPIC]?",
+    "CCI of [TOPIC]"
   ],
   "answers": [
     "To view the CCI of [TOPIC], a premium or ultra subscription is required. Upgrade to get all benefits! 😄",
@@ -3711,7 +3715,8 @@
     "Show me the Williams level of [TOPIC]",
     "What is the current value of Williams %R of [TOPIC]?",
     "Give me the Williams Percent Range of [TOPIC]",
-    "What is the Williams %R value of [TOPIC]?"
+    "What is the Williams %R value of [TOPIC]?",
+    "Williams of [TOPIC]"
   ],
   "answers": [
     "The Williams %R value for [TOPIC] is [WILLIAMS_VALUE].\n\nThe condition is [STATE_WILLIAMS], which means [SIGNIFICATO_WILLIAMS].",
@@ -3751,7 +3756,8 @@
     "Show me the Williams level of [TOPIC]",
     "What is the current Williams value of [TOPIC]?",
     "Give me the Williams Percent Range of [TOPIC]",
-    "What is the Williams %R value of [TOPIC]?"
+    "What is the Williams %R value of [TOPIC]?",
+    "Williams of [TOPIC]"
   ],
   "answers": [
     "To view the Williams %R of [TOPIC], a premium or ultra subscription is required. Upgrade to get all benefits! 😄",
