@@ -3640,7 +3640,8 @@
       "Beri saya EMA 10 hari [TOPIC]?",
       "Periksa nilai EMA10 [TOPIC].",
       "Exponential moving average [TOPIC]",
-      "Berapa nilai EMA [TOPIC]?"
+      "Berapa nilai EMA [TOPIC]?",
+      "EMA dari [TOPIC]"
     ],
     "answers": [
       "EMA 10 hari [TOPIC] saat ini adalah [EMA_VALUE].\n\nHarga berada [EMA_UP_DOWN] dibandingkan dengan EMA10, menunjukkan tren [STATE_EMA] untuk aset tersebut.",
@@ -3680,7 +3681,8 @@
       "Beri saya EMA 10 hari [TOPIC]?",
       "Periksa nilai EMA10 [TOPIC]",
       "Exponential moving average [TOPIC]",
-      "Berapa nilai EMA [TOPIC]?"
+      "Berapa nilai EMA [TOPIC]?",
+      "EMA dari [TOPIC]"
     ],
     "answers": [
       "Untuk melihat EMA10 [TOPIC], Anda harus memiliki langganan premium atau ultra. Tingkatkan sekarang untuk mendapatkan semua manfaat! 😄",
@@ -3713,7 +3715,8 @@
       "Berapa CCI [TOPIC] saat ini?",
       "Tunjukkan status CCI [TOPIC]",
       "Saya ingin tahu CCI untuk [TOPIC]",
-      "Berapa nilai CCI [TOPIC]?"
+      "Berapa nilai CCI [TOPIC]?",
+      "CCI dari [TOPIC]"
     ],
     "answers": [
       "CCI [TOPIC] saat ini adalah [CCI_VALUE].\n\nIni menunjukkan kondisi khas [STATE_CCI] dan berarti [SIGNIFICATO_CCI].",
@@ -3754,7 +3757,8 @@
       "Bisakah Anda memberi tahu saya CCI [TOPIC]?",
       "Saya tertarik dengan CCI [TOPIC]",
       "Tunjukkan Commodity Channel Index [TOPIC]",
-      "Berapa nilai CCI [TOPIC]?"
+      "Berapa nilai CCI [TOPIC]?",
+      "CCI dari [TOPIC]"
     ],
     "answers": [
       "Untuk melihat CCI [TOPIC], Anda harus memiliki langganan premium atau ultra. Tingkatkan sekarang untuk mendapatkan semua manfaat! 😄",
@@ -3790,7 +3794,8 @@
       "Tunjukkan level Williams [TOPIC]",
       "Berapa nilai Williams %R [TOPIC] saat ini?",
       "Beri saya Williams Percent Range [TOPIC]",
-      "Berapa nilai Williams [TOPIC]?"
+      "Berapa nilai Williams [TOPIC]?",
+      "Williams dari [TOPIC]"
     ],
     "answers": [
       "Nilai Williams %R untuk [TOPIC] adalah [WILLIAMS_VALUE].\n\nKondisinya adalah [STATE_WILLIAMS], yang berarti [SIGNIFICATO_WILLIAMS].",
@@ -3830,7 +3835,8 @@
       "Tunjukkan level Williams [TOPIC]",
       "Berapa nilai Williams [TOPIC] saat ini?",
       "Beri saya Williams Percent Range [TOPIC]",
-      "Berapa nilai Williams [TOPIC]?"
+      "Berapa nilai Williams [TOPIC]?",
+      "Williams dari [TOPIC]"
     ],
     "answers": [
       "Untuk melihat Williams %R [TOPIC], Anda harus memiliki langganan premium atau ultra. Tingkatkan sekarang untuk mendapatkan semua manfaat! 😄",
