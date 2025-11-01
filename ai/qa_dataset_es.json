@@ -3669,7 +3669,8 @@
     "¿Me das el EMA de 10 días de [TOPIC]?",
     "Comprueba el valor EMA10 de [TOPIC].",
     "Exponential moving average de [TOPIC]",
-    "¿Cuál es el valor de la EMA de [TOPIC]?"
+    "¿Cuál es el valor de la EMA de [TOPIC]?",
+    "EMA de [TOPIC]"
   ],
   "answers": [
     "El EMA de 10 días de [TOPIC] es actualmente [EMA_VALUE].\n\nEl precio se encuentra [EMA_UP_DOWN] respecto al EMA10, indicando una tendencia [STATE_EMA] para el activo.",
@@ -3710,7 +3711,8 @@
     "¿Me das el EMA de 10 días de [TOPIC]?",
     "Comprueba el valor EMA10 de [TOPIC]",
     "Exponential moving average de [TOPIC]",
-    "¿Cuál es el valor de la EMA de [TOPIC]?"
+    "¿Cuál es el valor de la EMA de [TOPIC]?",
+    "EMA de [TOPIC]"
   ],
   "answers": [
     "Para visualizar el EMA10 de [TOPIC] es necesario tener una suscripción premium o ultra. ¡Haz el upgrade para obtener todas las ventajas! 😄",
@@ -3744,7 +3746,8 @@
     "¿Cuál es el CCI actual de [TOPIC]?",
     "Indícame el estado CCI de [TOPIC]",
     "Quisiera conocer el CCI de [TOPIC]",
-    "¿Cuál es el valor del CCI de [TOPIC]?"
+    "¿Cuál es el valor del CCI de [TOPIC]?",
+    "CCI de [TOPIC]"
   ],
   "answers": [
     "El CCI de [TOPIC] es actualmente [CCI_VALUE].\n\nEsto indica una condición típica de [STATE_CCI] y significa [SIGNIFICATO_CCI].",
@@ -3786,7 +3789,8 @@
     "¿Sabes decirme el CCI de [TOPIC]?",
     "Me interesa el CCI de [TOPIC]",
     "Indícame el Commodity Channel Index de [TOPIC]",
-    "¿Cuál es el valor del CCI de [TOPIC]?"
+    "¿Cuál es el valor del CCI de [TOPIC]?",
+    "CCI de [TOPIC]"
   ],
   "answers": [
     "Para visualizar el CCI de [TOPIC] es necesario tener una suscripción premium o ultra. ¡Haz el upgrade para obtener todas las ventajas! 😄",
@@ -3823,7 +3827,8 @@
     "Muéstrame el nivel Williams de [TOPIC]",
     "¿Cuál es el valor actual del Williams %R de [TOPIC]?",
     "Dame el Williams Percent Range de [TOPIC]",
-    "¿Cuál es el valor del Williams de [TOPIC]?"
+    "¿Cuál es el valor del Williams de [TOPIC]?",
+    "Williams de [TOPIC]"
   ],
   "answers": [
     "El valor de Williams %R para [TOPIC] es [WILLIAMS_VALUE].\n\nLa condición es [STATE_WILLIAMS], lo que significa [SIGNIFICATO_WILLIAMS].",
@@ -3864,7 +3869,8 @@
     "Muéstrame el nivel Williams de [TOPIC]",
     "¿Cuál es el valor actual del Williams de [TOPIC]?",
     "Dame el Williams Percent Range de [TOPIC]",
-    "¿Cuál es el valor del Williams de [TOPIC]?"
+    "¿Cuál es el valor del Williams de [TOPIC]?",
+    "Williams de [TOPIC]"
   ],
   "answers": [
     "Para visualizar el Williams %R de [TOPIC] es necesario tener una suscripción premium o ultra. ¡Haz el upgrade para obtener todas las ventajas! 😄",
