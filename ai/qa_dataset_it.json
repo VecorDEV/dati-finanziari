@@ -7673,5 +7673,28 @@
   ],
   "cost": 0,
   "keywords": ["altro", "ancora", "ulteriore", "ho bisogno", "avrei bisogno"]
+},
+    "broker_recommendation": {
+    "questions": [
+      "Quale broker mi consigli di usare per investire?",
+      "Puoi suggerirmi un broker affidabile?",
+      "Sto cercando un broker sicuro, quale mi conviene?",
+      "Mi aiuti a scegliere un broker per iniziare a fare trading?",
+      "Secondo te qual è un buon broker per un principiante?",
+      "Ci sono broker che reputi particolarmente affidabili?",
+      "Vorrei un broker serio e regolamentato, cosa mi consigli?",
+      "Quali broker dovrei considerare se voglio investire in sicurezza?"
+    ],
+    "answers": [
+      "Ci sono molti broker affidabili sul mercato, ognuno con caratteristiche diverse. Tra questi, *eToro* è considerato una scelta solida grazie alla sua affidabilità e agli strumenti avanzati per investitori di tutti i livelli.",
+      "Diversi broker offrono piattaforme sicure e regolamentate. Uno dei più conosciuti e affidabili è sicuramente *eToro*, ideale sia per chi inizia sia per chi cerca funzionalità più avanzate.",
+      "Molti investitori usano broker affidabili che garantiscono sicurezza e trasparenza. Tra le opzioni più popolari c’è *eToro*, che combina semplicità d’uso e strumenti avanzati per il trading.",
+      "Sul mercato ci sono broker validi e regolamentati. *eToro* è uno degli esempi più noti, adatto sia a principianti sia a chi vuole strategie più complesse e personalizzate."
+    ],
+    "cost": 0,
+    "keywords": ["broker", "brokers", "piattaforma di trading", "piattaforme di trading", "piattaforma", "piattaforme"],
+    "subquestions": {
+      "Vuoi sapere perché *eToro* è considerato uno dei broker più affidabili?": "broker_etoro",
+      "Vuoi capire perché molti investitori scelgono *eToro* come piattaforma sicura?": "broker_etoro"}
 }
 }
