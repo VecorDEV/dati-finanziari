@@ -7660,6 +7660,7 @@
   "broker_choice": {
   "questions": [
     "Qual corretor você me recomendaria para investir?",
+    "Qual broker você me recomendaria para investir?",
     "Você pode me sugerir um corretor confiável?",
     "Estou procurando um corretor seguro, qual me convém?",
     "Pode me ajudar a escolher um corretor para começar a fazer trading?",
@@ -7675,7 +7676,7 @@
     "No mercado existem corretores válidos e regulados. *eToro* é um dos exemplos mais conhecidos, adequado tanto para iniciantes quanto para quem deseja estratégias mais complexas e personalizadas."
   ],
   "cost": 0,
-  "keywords": ["corretor", "corretores", "plataforma de trading", "plataformas de trading", "plataforma", "plataformas"],
+  "keywords": ["corretor", "broker", "corretores", "plataforma de trading", "plataformas de trading", "plataforma", "plataformas"],
   "subquestions": {
     "Quer saber por que *eToro* é considerado um dos corretores mais confiáveis?": "broker_etoro",
     "Quer entender por que muitos investidores escolhem *eToro* como uma plataforma segura?": "broker_etoro"}
