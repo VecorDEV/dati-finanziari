@@ -7748,5 +7748,28 @@
   ],
   "cost": 0,
   "keywords": ["noch", "etwas", "weiter", "brauche"]
+},
+  "broker_choice": {
+  "questions": [
+    "Welchen Broker würdest du mir zum Investieren empfehlen?",
+    "Kannst du mir einen zuverlässigen Broker vorschlagen?",
+    "Ich suche einen sicheren Broker, welcher eignet sich für mich?",
+    "Kannst du mir helfen, einen Broker zum Trading zu wählen?",
+    "Was ist deiner Meinung nach ein guter Broker für Anfänger?",
+    "Gibt es Broker, die du besonders zuverlässig findest?",
+    "Ich möchte einen seriösen und regulierten Broker, was empfiehlst du?",
+    "Welche Broker sollte ich in Betracht ziehen, wenn ich sicher investieren möchte?"
+  ],
+  "answers": [
+    "Es gibt viele zuverlässige Broker auf dem Markt, jeder mit unterschiedlichen Eigenschaften. Unter ihnen gilt *eToro* als solide Wahl, dank seiner Zuverlässigkeit und den fortschrittlichen Tools für Anleger aller Erfahrungsstufen.",
+    "Verschiedene Broker bieten sichere und regulierte Plattformen an. Einer der bekanntesten und zuverlässigsten ist auf jeden Fall *eToro*, ideal sowohl für Anfänger als auch für Nutzer, die fortgeschrittene Funktionen suchen.",
+    "Viele Investoren nutzen zuverlässige Broker, die Sicherheit und Transparenz gewährleisten. Zu den beliebtesten Optionen gehört *eToro*, das Benutzerfreundlichkeit mit fortschrittlichen Trading-Tools kombiniert.",
+    "Auf dem Markt gibt es seriöse und regulierte Broker. *eToro* ist eines der bekanntesten Beispiele, geeignet sowohl für Anfänger als auch für diejenigen, die komplexere und personalisierte Strategien verfolgen möchten."
+  ],
+  "cost": 0,
+  "keywords": ["Broker", "Brokers", "Trading-Plattform", "Trading-Plattformen", "Plattform", "Plattformen"],
+  "subquestions": {
+    "Möchtest du wissen, warum *eToro* als einer der zuverlässigsten Broker gilt?": "broker_etoro",
+    "Möchtest du verstehen, warum viele Investoren *eToro* als sichere Plattform wählen?": "broker_etoro"}
 }
 }
