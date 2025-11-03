@@ -7637,7 +7637,7 @@
     "Voulez-vous découvrir quelles fonctionnalités vous auriez avec les différents plans TradeGPT ?": "navigazione_piani",
     "Voulez-vous savoir pourquoi il est intéressant de passer à un plan supérieur ?": "subscription_info"}
 },
-    "ai_altro": {
+  "ai_altro": {
   "questions": [
     "J'ai besoin d'autre chose",
     "Il me faut quelque chose de plus",
@@ -7658,5 +7658,28 @@
   ],
   "cost": 0,
   "keywords": ["autre", "encore", "davantage", "besoin"]
+},
+  "broker_choice": {
+    "questions": [
+      "Quel broker me recommanderiez-vous pour investir ?",
+      "Pouvez-vous me suggérer un broker fiable ?",
+      "Je cherche un broker sûr, lequel devrais-je choisir ?",
+      "Pouvez-vous m'aider à choisir un broker pour commencer à trader ?",
+      "À votre avis, quel est un bon broker pour un débutant ?",
+      "Y a-t-il des brokers que vous considérez particulièrement fiables ?",
+      "Je veux un broker sérieux et réglementé, que me conseillez-vous ?",
+      "Quels brokers devrais-je considérer si je veux investir en toute sécurité ?"
+    ],
+    "answers": [
+      "Il existe de nombreux brokers fiables sur le marché, chacun avec des caractéristiques différentes. Parmi eux, *eToro* est considéré comme un choix solide grâce à sa fiabilité et à ses outils avancés pour les investisseurs de tous niveaux.",
+      "Plusieurs brokers proposent des plateformes sécurisées et réglementées. L'un des plus connus et fiables est sans aucun doute *eToro*, idéal pour les débutants comme pour ceux qui recherchent des fonctionnalités plus avancées.",
+      "De nombreux investisseurs utilisent des brokers fiables garantissant sécurité et transparence. Parmi les options les plus populaires, il y a *eToro*, qui combine facilité d'utilisation et outils de trading avancés.",
+      "Sur le marché, il existe des brokers valables et réglementés. *eToro* est l'un des exemples les plus connus, adapté aussi bien aux débutants qu'à ceux qui souhaitent des stratégies plus complexes et personnalisées."
+    ],
+    "cost": 0,
+    "keywords": ["broker", "brokers", "plateforme de trading", "plateformes de trading", "plateforme", "plateformes"],
+    "subquestions": {
+      "Voulez-vous savoir pourquoi *eToro* est considéré comme l'un des brokers les plus fiables ?": "broker_etoro",
+      "Voulez-vous comprendre pourquoi de nombreux investisseurs choisissent *eToro* comme plateforme sécurisée ?": "broker_etoro"}
 }
 }
