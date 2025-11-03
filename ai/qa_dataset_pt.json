@@ -7656,5 +7656,28 @@
   ],
   "cost": 0,
   "keywords": ["mais", "outra", "ainda", "preciso"]
+},
+  "broker_choice": {
+  "questions": [
+    "Qual corretor você me recomendaria para investir?",
+    "Você pode me sugerir um corretor confiável?",
+    "Estou procurando um corretor seguro, qual me convém?",
+    "Pode me ajudar a escolher um corretor para começar a fazer trading?",
+    "Na sua opinião, qual é um bom corretor para iniciantes?",
+    "Existem corretores que você considera particularmente confiáveis?",
+    "Quero um corretor sério e regulado, o que você recomenda?",
+    "Quais corretores devo considerar se quiser investir com segurança?"
+  ],
+  "answers": [
+    "Existem muitos corretores confiáveis no mercado, cada um com características diferentes. Entre eles, *eToro* é considerado uma escolha sólida devido à sua confiabilidade e às ferramentas avançadas para investidores de todos os níveis.",
+    "Vários corretores oferecem plataformas seguras e reguladas. Um dos mais conhecidos e confiáveis é, sem dúvida, *eToro*, ideal tanto para iniciantes quanto para quem busca funcionalidades mais avançadas.",
+    "Muitos investidores utilizam corretores confiáveis que garantem segurança e transparência. Entre as opções mais populares está *eToro*, que combina facilidade de uso com ferramentas avançadas para trading.",
+    "No mercado existem corretores válidos e regulados. *eToro* é um dos exemplos mais conhecidos, adequado tanto para iniciantes quanto para quem deseja estratégias mais complexas e personalizadas."
+  ],
+  "cost": 0,
+  "keywords": ["corretor", "corretores", "plataforma de trading", "plataformas de trading", "plataforma", "plataformas"],
+  "subquestions": {
+    "Quer saber por que *eToro* é considerado um dos corretores mais confiáveis?": "broker_etoro",
+    "Quer entender por que muitos investidores escolhem *eToro* como uma plataforma segura?": "broker_etoro"}
 }
 }
