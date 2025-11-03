@@ -7577,5 +7577,28 @@
   ],
   "cost": 0,
   "keywords": ["else", "more", "additional", "need"]
+},
+  "broker_choice": {
+  "questions": [
+    "Which broker would you recommend for investing?",
+    "Can you suggest a reliable broker?",
+    "I'm looking for a secure broker, which one should I choose?",
+    "Can you help me choose a broker to start trading?",
+    "In your opinion, what is a good broker for a beginner?",
+    "Are there brokers you consider particularly reliable?",
+    "I want a serious and regulated broker, what do you recommend?",
+    "Which brokers should I consider if I want to invest safely?"
+  ],
+  "answers": [
+    "There are many reliable brokers on the market, each with different features. Among them, *eToro* is considered a solid choice thanks to its reliability and advanced tools for investors of all levels.",
+    "Several brokers offer secure and regulated platforms. One of the most well-known and reliable is definitely *eToro*, ideal for both beginners and those seeking more advanced features.",
+    "Many investors use reliable brokers that guarantee security and transparency. Among the most popular options is *eToro*, which combines ease of use with advanced trading tools.",
+    "There are valid and regulated brokers on the market. *eToro* is one of the most notable examples, suitable for both beginners and those who want more complex and customized strategies."
+  ],
+  "cost": 0,
+  "keywords": ["broker", "brokers", "trading platform", "trading platforms", "platform", "platforms"],
+  "subquestions": {
+    "Do you want to know why *eToro* is considered one of the most reliable brokers?": "broker_etoro",
+    "Do you want to understand why many investors choose *eToro* as a secure platform?": "broker_etoro"}
 }
 }
