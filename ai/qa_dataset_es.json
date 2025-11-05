@@ -7831,5 +7831,36 @@
   "subquestions": {
     "¿Quieres que analice [FAVOURITE] y te diga la previsión?": "sentiment",
     "¿Quieres ver las previsiones de [FAVOURITE]?": "sentiment"}
+},
+  "subscription_issue": {
+  "questions": [
+    "¡Pero si estoy suscrito!",
+    "¡Tengo la versión premium!",
+    "¡Tengo la versión ultra!",
+    "¡Ya estoy suscrito!",
+    "He pagado, así que quiero que funcione.",
+    "No he pagado para esto.",
+    "¡Ya tengo la suscripción activa!",
+    "¡Ya he pagado la suscripción!",
+    "¿Por qué no puedo acceder si tengo la versión premium?",
+    "¿Por qué me dice que no tengo suscripción?",
+    "Tengo la versión de pago, ¿por qué no funciona?",
+    "¡Pero si ya he pagado!",
+    "¿Por qué no reconoce mi suscripción?",
+    "Tengo la versión ultra pero no me deja entrar.",
+    "Tengo la versión premium pero no funciona.",
+    "¿Por qué no puedo acceder al contenido premium si tengo la versión premium?",
+    "Soy premium, pero no puedo acceder.",
+    "Tengo el plan ultra pero no funciona.",
+    "Tengo el plan más completo pero no va."
+  ],
+  "answers": [
+    "Lamento el inconveniente 😔. A veces puede ocurrir que un pequeño retraso de conexión impida verificar tu plan de inmediato. Te recomiendo esperar unos minutos o cerrar y volver a abrir la aplicación. Si el problema persiste, contacta con el soporte por correo electrónico 📩.\n\n👉 vector.devv@gmail.com",
+    "Entiendo, y lamento las molestias 🙏. Puede haber un problema de conexión que cause un retraso temporal en la verificación de tu suscripción. Te sugiero reiniciar la aplicación o esperar un par de minutos. Si el problema continúa, contacta con el soporte por correo electrónico.\n\n👉 vector.devv@gmail.com",
+    "😓 Lamento el inconveniente. Es posible que haya un pequeño retraso de conexión que impida verificar de inmediato tu plan premium. Te recomiendo volver a abrir la aplicación o esperar unos minutos. Si el problema no se resuelve, contacta con el soporte por correo electrónico 📧.\n\n👉 vector.devv@gmail.com",
+    "Entiendo perfectamente tu frustración 😔. A veces hay retrasos de conexión que impiden al sistema verificar correctamente la información de tu suscripción. Te recomiendo esperar unos minutos o reiniciar la aplicación. Si el problema continúa, por favor contacta con el soporte técnico.\n\n👉 vector.devv@gmail.com"
+  ],
+  "cost": 0,
+  "keywords": ["suscripción", "suscrito", "plan", "premium", "ultra", "pagado", "pagar"]
 }
 }
