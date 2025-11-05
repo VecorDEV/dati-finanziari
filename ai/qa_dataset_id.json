@@ -7744,5 +7744,36 @@
   "subquestions": {
     "Apakah kamu ingin saya menganalisis [FAVOURITE] dan memberi tahu perkiraannya?": "sentiment",
     "Apakah kamu ingin melihat prediksi untuk [FAVOURITE]?": "sentiment"}
+},
+  "subscription_issue": {
+  "questions": [
+    "Tapi saya sudah berlangganan!",
+    "Saya punya versi premium!",
+    "Saya punya versi ultra!",
+    "Saya sudah berlangganan!",
+    "Saya sudah membayar, jadi seharusnya berfungsi!",
+    "Saya tidak membayar untuk ini!",
+    "Saya sudah memiliki langganan aktif!",
+    "Saya sudah membayar langganannya!",
+    "Mengapa saya tidak bisa mengakses jika saya punya versi premium?",
+    "Kenapa tertulis saya tidak punya langganan?",
+    "Saya punya versi berbayar, kenapa tidak berfungsi?",
+    "Tapi saya sudah membayar!",
+    "Kenapa langganan saya tidak dikenali?",
+    "Saya punya versi ultra tapi tidak bisa masuk.",
+    "Saya punya versi premium tapi tidak berfungsi.",
+    "Kenapa saya tidak bisa membuka konten premium padahal saya punya versi premium?",
+    "Saya pengguna premium, tapi tidak bisa mengakses.",
+    "Saya punya paket ultra tapi tidak berfungsi.",
+    "Saya punya paket tertinggi tapi tidak berfungsi."
+  ],
+  "answers": [
+    "Maaf atas ketidaknyamanannya 😔. Terkadang ada sedikit keterlambatan koneksi yang membuat sistem tidak dapat memverifikasi paket Anda secara langsung. Silakan tunggu beberapa menit atau tutup dan buka kembali aplikasi. Jika masalah masih berlanjut, silakan hubungi dukungan melalui email 📩.\n\n👉 vector.devv@gmail.com",
+    "Saya mengerti, dan mohon maaf atas ketidaknyamanannya 🙏. Mungkin ada masalah koneksi yang menyebabkan penundaan sementara dalam verifikasi langganan Anda. Coba tutup dan buka kembali aplikasi, atau tunggu beberapa menit. Jika masalah masih terjadi, hubungi dukungan melalui email.\n\n👉 vector.devv@gmail.com",
+    "😓 Maaf atas ketidaknyamanannya! Mungkin ada keterlambatan koneksi yang menghambat verifikasi langsung paket premium Anda. Silakan coba buka kembali aplikasi atau tunggu beberapa menit. Jika masalah tidak teratasi, hubungi dukungan melalui email 📧.\n\n👉 vector.devv@gmail.com",
+    "Saya sepenuhnya memahami frustrasi Anda 😔. Kadang-kadang ada keterlambatan koneksi yang membuat sistem tidak dapat memverifikasi informasi langganan dengan benar. Silakan tunggu beberapa menit atau coba buka ulang aplikasi. Jika masalah tetap terjadi, hubungi dukungan teknis melalui email.\n\n👉 vector.devv@gmail.com"
+  ],
+  "cost": 0,
+  "keywords": ["langganan", "berlangganan", "paket", "premium", "ultra", "sudah bayar", "dibayar", "membayar"]
 }
 }
