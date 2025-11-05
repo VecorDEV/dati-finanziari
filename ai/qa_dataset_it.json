@@ -7720,5 +7720,32 @@
     "Vuoi sapere perché *eToro* è considerato uno dei broker più affidabili?": "broker_etoro",
     "Vuoi sapere perchè *eToro* è un'ottima scelta?": "broker_etoro",
     "Vuoi capire perché molti investitori scelgono *eToro* come piattaforma sicura?": "broker_etoro"}
+},
+  "how_app_works": {
+  "questions": [
+    "Cosa analizza l'app?",
+    "Come fa l'app a fare previsioni?",
+    "Come funziona l'analisi dell'app?",
+    "Su quali dati si basa l'app per fare previsioni?",
+    "Come l'app determina i trend e le previsioni?",
+    "Come fai a calcolare le previsioni?",
+    "Come riesci a calcolare queste cose?",
+    "Quali informazioni considera l'app prima di dare indicazioni?",
+    "Questi risultati su cosa si basano?",
+    "Su che dati ti basi per le previsioni?",
+    "Su quali dati ti basi?",
+    "Che calcoli fai?"
+  ],
+  "answers": [
+    "L'algoritmo di TradeGPT è molto complesso e analizza ciclicamente numerosi dati aggiornati in tempo reale, traendo conclusioni affidabili per guidare le previsioni.",
+    "TradeGPT combina l'analisi di molteplici dati simultaneamente e in tempo reale, utilizzando un algoritmo sofisticato per fornire indicazioni sulle tendenze del mercato.",
+    "L'app esamina costantemente dati aggiornati e diversi indicatori di mercato, grazie a un algoritmo complesso che valuta le informazioni in simultanea per ottenere previsioni accurate.",
+    "Le previsioni dell'app si basano su un algoritmo avanzato che analizza ciclicamente dati real-time e multipli parametri di mercato, permettendo di trarre conclusioni solide."
+  ],
+  "cost": 0,
+  "keywords": ["analisi", "previsioni", "app", "TradeGPT", "dati real-time", "trend di mercato"],
+  "subquestions": {
+    "Vuoi che analizzi [FAVOURITE] e ti dica cosa è previsto?": "sentiment",
+    "Vuoi vedere le previsioni per [FAVOURITE]?": "sentiment"}
 }
 }
