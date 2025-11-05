@@ -7645,5 +7645,36 @@
   "subquestions": {
     "Would you like me to analyze [FAVOURITE] and tell you the forecast?": "sentiment",
     "Do you want to see the predictions for [FAVOURITE]?": "sentiment"}
+},
+  "subscription_issue": {
+  "questions": [
+    "But I'm already subscribed!",
+    "I have the premium version!",
+    "I have the ultra version!",
+    "I'm already a subscriber!",
+    "I paid, so I want it to work.",
+    "I didn't pay for this.",
+    "My subscription is already active!",
+    "I’ve already paid for my subscription!",
+    "Why can’t I access it if I have the premium version?",
+    "Why does it say I don’t have a subscription?",
+    "I have the paid version, why isn’t it working?",
+    "But I’ve already paid!",
+    "Why doesn’t it recognize my subscription?",
+    "I have the ultra version but it won’t let me in.",
+    "I have the premium version but it’s not working.",
+    "Why can’t I access the premium content if I have the premium version?",
+    "I’m premium but can’t access it.",
+    "I have the ultra plan but it’s not working.",
+    "I have the highest plan but it doesn’t work."
+  ],
+  "answers": [
+    "I’m sorry for the inconvenience 😔. Sometimes a short connection delay can prevent your plan from being verified right away. Please wait a few minutes or try closing and reopening the app. If the problem persists, please contact our support team via email 📩.\n\n👉 vector.devv@gmail.com",
+    "I understand, and I apologize for the issue 🙏. There might be a temporary connection problem delaying the verification of your subscription. Try restarting the app or waiting a couple of minutes. If it still doesn’t work, please reach out to support by email.\n\n👉 vector.devv@gmail.com",
+    "😓 I’m sorry for the inconvenience! A short connection delay might be preventing your premium plan from being verified. I recommend reopening the app or waiting a few minutes. If it doesn’t resolve, please contact support via email 📧.\n\n👉 vector.devv@gmail.com",
+    "I completely understand your frustration 😔. Sometimes connection delays can stop the system from verifying your subscription details. Please wait a few minutes or restart the app. If the problem continues, feel free to contact our technical support team.\n\n👉 vector.devv@gmail.com"
+  ],
+  "cost": 0,
+  "keywords": ["already", "yet", "subscribed", "subscription", "plan", "premium", "ultra", "paid", "pay"]
 }
 }
