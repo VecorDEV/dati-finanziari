@@ -7787,5 +7787,34 @@
   "subquestions": {
     "Möchtest du wissen, warum *eToro* als einer der zuverlässigsten Broker gilt?": "broker_etoro",
     "Möchtest du verstehen, warum viele Investoren *eToro* als sichere Plattform wählen?": "broker_etoro"}
+},
+  "how_app_works": {
+  "questions": [
+    "Was analysiert die App?",
+    "Wie erstellt die App Vorhersagen?",
+    "Wie funktioniert die Analyse der App?",
+    "Auf welchen Daten basiert die App, um Vorhersagen zu treffen?",
+    "Wie bestimmt die App Trends und Prognosen?",
+    "Wie berechnest du die Vorhersagen?",
+    "Wie schaffst du es, solche Dinge zu berechnen?",
+    "Welche Informationen berücksichtigt die App, bevor sie Empfehlungen gibt?",
+    "Worauf basieren diese Ergebnisse?",
+    "Auf welchen Daten basieren deine Vorhersagen?",
+    "Auf welchen Daten basierst du?",
+    "Welche Berechnungen führst du durch?",
+    "Wie funktioniert der Algorithmus von TradeGPT?",
+    "Wie funktioniert dein Algorithmus?"
+  ],
+  "answers": [
+    "Der Algorithmus von TradeGPT ist sehr komplex und analysiert fortlaufend zahlreiche Echtzeitdaten, um verlässliche Schlussfolgerungen für Prognosen zu ziehen.",
+    "TradeGPT kombiniert die Analyse vieler Daten gleichzeitig und in Echtzeit, mithilfe eines ausgefeilten Algorithmus, um Einblicke in Markttrends zu liefern.",
+    "Die App untersucht ständig aktualisierte Daten und verschiedene Marktindikatoren mit einem komplexen Algorithmus, der die Informationen gleichzeitig bewertet, um präzise Prognosen zu erstellen.",
+    "Die Prognosen der App basieren auf einem fortschrittlichen Algorithmus, der regelmäßig Echtzeitdaten und mehrere Marktparameter analysiert, um fundierte Schlussfolgerungen zu ziehen."
+  ],
+  "cost": 0,
+  "keywords": ["wie", "was", "daten", "berechnung", "algorithmus", "funktioniert", "informationen", "basiert"],
+  "subquestions": {
+    "Möchtest du, dass ich [FAVOURITE] analysiere und dir die Prognose zeige?": "sentiment",
+    "Willst du die Vorhersagen für [FAVOURITE] sehen?": "sentiment"}
 }
 }
