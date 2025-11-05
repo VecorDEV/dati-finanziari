@@ -7734,7 +7734,9 @@
     "Questi risultati su cosa si basano?",
     "Su che dati ti basi per le previsioni?",
     "Su quali dati ti basi?",
-    "Che calcoli fai?"
+    "Che calcoli fai?",
+    "Come funziona l'algoritmo di TradeGPT?",
+    "Come funziona il tuo algoritmo?"
   ],
   "answers": [
     "L'algoritmo di TradeGPT è molto complesso e analizza ciclicamente numerosi dati aggiornati in tempo reale, traendo conclusioni affidabili per guidare le previsioni.",
@@ -7743,7 +7745,7 @@
     "Le previsioni dell'app si basano su un algoritmo avanzato che analizza ciclicamente dati real-time e multipli parametri di mercato, permettendo di trarre conclusioni solide."
   ],
   "cost": 0,
-  "keywords": ["analisi", "previsioni", "app", "TradeGPT", "dati real-time", "trend di mercato"],
+  "keywords": ["come fai", "come fa", "cosa", "calcoli", "calcolo", "come riesci", "che dati", "quali dati", "ti basi", "si basa", "basano", "basato", "basati", "come funziona", "algoritmo", "che informazioni", "quali informazioni"],
   "subquestions": {
     "Vuoi che analizzi [FAVOURITE] e ti dica cosa è previsto?": "sentiment",
     "Vuoi vedere le previsioni per [FAVOURITE]?": "sentiment"}
