@@ -7696,5 +7696,34 @@
   "subquestions": {
     "Quer saber por que *eToro* é considerado um dos corretores mais confiáveis?": "broker_etoro",
     "Quer entender por que muitos investidores escolhem *eToro* como uma plataforma segura?": "broker_etoro"}
+},
+  "how_app_works": {
+  "questions": [
+    "O que o aplicativo analisa?",
+    "Como o aplicativo faz previsões?",
+    "Como funciona a análise do aplicativo?",
+    "Em quais dados o aplicativo se baseia para fazer previsões?",
+    "Como o aplicativo determina as tendências e previsões?",
+    "Como você calcula as previsões?",
+    "Como você consegue calcular essas coisas?",
+    "Quais informações o aplicativo considera antes de dar indicações?",
+    "Em que se baseiam esses resultados?",
+    "Em quais dados você se baseia para as previsões?",
+    "Em quais dados você se baseia?",
+    "Que cálculos você faz?",
+    "Como funciona o algoritmo do TradeGPT?",
+    "Como o seu algoritmo funciona?"
+  ],
+  "answers": [
+    "O algoritmo do TradeGPT é muito complexo e analisa ciclicamente uma grande quantidade de dados atualizados em tempo real, obtendo conclusões confiáveis para orientar as previsões.",
+    "O TradeGPT combina a análise de múltiplos dados simultaneamente e em tempo real, utilizando um algoritmo sofisticado para fornecer insights sobre as tendências do mercado.",
+    "O aplicativo examina constantemente dados atualizados e diversos indicadores de mercado, por meio de um algoritmo complexo que avalia as informações simultaneamente para gerar previsões precisas.",
+    "As previsões do aplicativo são baseadas em um algoritmo avançado que analisa ciclicamente dados em tempo real e múltiplos parâmetros de mercado, permitindo chegar a conclusões sólidas."
+  ],
+  "cost": 0,
+  "keywords": ["como", "o que", "dados", "cálculos", "baseado", "algoritmo", "funciona", "informações"],
+  "subquestions": {
+    "Quer que eu analise [FAVOURITE] e diga a previsão?": "sentiment",
+    "Quer ver as previsões para [FAVOURITE]?": "sentiment"}
 }
 }
