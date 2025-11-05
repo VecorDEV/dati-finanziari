@@ -7616,5 +7616,34 @@
   "subquestions": {
     "Do you want to know why *eToro* is considered one of the most reliable brokers?": "broker_etoro",
     "Do you want to understand why many investors choose *eToro* as a secure platform?": "broker_etoro"}
+},
+  "how_app_works": {
+  "questions": [
+    "What does the app analyze?",
+    "How does the app make forecasts?",
+    "How does the app's analysis work?",
+    "What data does the app use to make predictions?",
+    "How does the app determine trends and forecasts?",
+    "How do you calculate forecasts?",
+    "How are you able to calculate these things?",
+    "What information does the app consider before giving indications?",
+    "What are these results based on?",
+    "What data do you use for predictions?",
+    "What data are you based on?",
+    "What kind of calculations do you perform?",
+    "How does the TradeGPT algorithm work?",
+    "How does your algorithm work?"
+  ],
+  "answers": [
+    "TradeGPT’s algorithm is highly sophisticated and continuously analyzes a large amount of real-time data to draw reliable conclusions and guide its forecasts.",
+    "TradeGPT combines the analysis of multiple data sources simultaneously and in real time, using an advanced algorithm to provide market trend insights.",
+    "The app constantly examines updated data and several market indicators through a complex algorithm that evaluates information simultaneously to produce accurate forecasts.",
+    "The app’s predictions are based on an advanced algorithm that cyclically analyzes real-time data and multiple market parameters to draw solid conclusions."
+  ],
+  "cost": 0,
+  "keywords": ["how", "what", "calculate", "calculation", "data", "based", "algorithm", "how it works", "information"],
+  "subquestions": {
+    "Would you like me to analyze [FAVOURITE] and tell you the forecast?": "sentiment",
+    "Do you want to see the predictions for [FAVOURITE]?": "sentiment"}
 }
 }
