@@ -7725,5 +7725,36 @@
   "subquestions": {
     "Quer que eu analise [FAVOURITE] e diga a previsão?": "sentiment",
     "Quer ver as previsões para [FAVOURITE]?": "sentiment"}
+},
+  "subscription_issue": {
+  "questions": [
+    "Mas eu sou assinante!",
+    "Eu tenho a versão premium!",
+    "Eu tenho a versão ultra!",
+    "Já sou assinante!",
+    "Paguei, então quero que funcione.",
+    "Não paguei para isso.",
+    "Já tenho a assinatura ativa!",
+    "Já paguei a assinatura!",
+    "Por que não consigo acessar se tenho a versão premium?",
+    "Por que está dizendo que não tenho assinatura?",
+    "Tenho a versão paga, por que não está funcionando?",
+    "Mas eu já paguei!",
+    "Por que não reconhece a minha assinatura?",
+    "Tenho a versão ultra, mas não consigo entrar.",
+    "Tenho a versão premium, mas não funciona.",
+    "Por que não consigo abrir o conteúdo premium se tenho a versão premium?",
+    "Sou premium, mas não consigo acessar.",
+    "Tenho o plano ultra, mas não funciona.",
+    "Tenho o plano mais avançado, mas não está funcionando."
+  ],
+  "answers": [
+    "Peço desculpas pelo inconveniente 😔. Às vezes pode haver um pequeno atraso de conexão que impede a verificação imediata do seu plano. Recomendo aguardar alguns minutos ou fechar e reabrir o aplicativo. Se o problema persistir, entre em contato com o suporte por e-mail 📩.\n\n👉 vector.devv@gmail.com",
+    "Entendo e peço desculpas pelo transtorno 🙏. Pode haver um problema de conexão que cause um atraso momentâneo na verificação da sua assinatura. Sugiro reiniciar o aplicativo ou aguardar alguns minutos. Se o problema continuar, entre em contato com o suporte por e-mail.\n\n👉 vector.devv@gmail.com",
+    "😓 Lamento o inconveniente! Pode haver um pequeno atraso na conexão que impede a verificação imediata do seu plano premium. Tente reabrir o aplicativo ou aguardar alguns minutos. Se o problema não for resolvido, entre em contato com o suporte por e-mail 📧.\n\n👉 vector.devv@gmail.com",
+    "Compreendo perfeitamente a sua frustração 😔. Às vezes há atrasos na conexão que impedem o sistema de verificar corretamente as informações da assinatura. Recomendo esperar alguns minutos ou reiniciar o aplicativo. Se o problema persistir, entre em contato com o suporte técnico.\n\n👉 vector.devv@gmail.com"
+  ],
+  "cost": 0,
+  "keywords": ["assinatura", "assinar", "plano", "premium", "ultra", "pago", "pagar"]
 }
 }
