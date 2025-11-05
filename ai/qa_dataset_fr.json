@@ -7698,6 +7698,35 @@
       "Voulez-vous savoir pourquoi *eToro* est considéré comme l'un des brokers les plus fiables ?": "broker_etoro",
       "Voulez-vous comprendre pourquoi de nombreux investisseurs choisissent *eToro* comme plateforme sécurisée ?": "broker_etoro"}
 },
+  "how_app_works": {
+  "questions": [
+    "Que l’application analyse-t-elle ?",
+    "Comment l’application fait-elle ses prévisions ?",
+    "Comment fonctionne l’analyse de l’application ?",
+    "Sur quelles données l’application se base-t-elle pour faire des prévisions ?",
+    "Comment l’application détermine-t-elle les tendances et les prévisions ?",
+    "Comment calcules-tu les prévisions ?",
+    "Comment arrives-tu à calculer ces éléments ?",
+    "Quelles informations l’application prend-elle en compte avant de donner des indications ?",
+    "Sur quoi reposent ces résultats ?",
+    "Sur quelles données te bases-tu pour les prévisions ?",
+    "Sur quelles données te bases-tu ?",
+    "Quels calculs réalises-tu ?",
+    "Comment fonctionne l’algorithme de TradeGPT ?",
+    "Comment fonctionne ton algorithme ?"
+  ],
+  "answers": [
+    "L’algorithme de TradeGPT est très complexe et analyse en continu de nombreuses données mises à jour en temps réel pour tirer des conclusions fiables et orienter les prévisions.",
+    "TradeGPT combine l’analyse de multiples données simultanément et en temps réel, en utilisant un algorithme sophistiqué pour fournir des indications sur les tendances du marché.",
+    "L’application examine en permanence des données actualisées et plusieurs indicateurs de marché grâce à un algorithme complexe qui évalue simultanément les informations afin d’obtenir des prévisions précises.",
+    "Les prévisions de l’application reposent sur un algorithme avancé qui analyse de manière cyclique des données en temps réel et divers paramètres du marché pour tirer des conclusions solides."
+  ],
+  "cost": 0,
+  "keywords": ["comment", "quoi", "données", "calcul", "base", "algorithme", "fonctionne", "informations", "app", "application"],
+  "subquestions": {
+    "Souhaitez-vous que j’analyse [FAVOURITE] et vous donne la prévision ?": "sentiment",
+    "Voulez-vous voir les prévisions pour [FAVOURITE] ?": "sentiment"}
+},
   "subscription_issue": {
   "questions": [
     "Mais je suis abonné !",
