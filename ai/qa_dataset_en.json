@@ -2839,13 +2839,20 @@
     "Give me also about [TOPIC]",
     "Give me also on [TOPIC]",
     "Give me also for [TOPIC]",
-    "For [TOPIC] too"
+    "For [TOPIC] too",
+    "I also wanted to know about [TOPIC]",
+    "I want to know about [TOPIC] too",
+    "I’d like to know about [TOPIC] as well",
+    "Also about [TOPIC]",
+    "Also for [TOPIC]",
+    "Also on [TOPIC]",
+    "Also [TOPIC]"
   ],
   "answers": [
     "For [TOPIC], instead..."
   ],
   "cost": 2,
-  "keywords": ["instead", "regarding", "about", "tell me that of", "tell me that for", "tell me about", "tell me for", "give me about", "give me for", "also about", "also on", "also for", "too"]
+  "keywords": ["instead", "regarding", "about", "tell me that of", "tell me that for", "tell me about", "tell me for", "give me about", "give me for", "also about", "also on", "also for", "also", "too", "as well"]
 },
   "today": {
   "questions": [
