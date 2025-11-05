@@ -7816,5 +7816,36 @@
   "subquestions": {
     "Möchtest du, dass ich [FAVOURITE] analysiere und dir die Prognose zeige?": "sentiment",
     "Willst du die Vorhersagen für [FAVOURITE] sehen?": "sentiment"}
+},
+  "subscription_issue": {
+  "questions": [
+    "Aber ich habe doch ein Abonnement!",
+    "Ich habe die Premium-Version!",
+    "Ich habe die Ultra-Version!",
+    "Ich bin bereits abonniert!",
+    "Ich habe bezahlt, also sollte es funktionieren!",
+    "Dafür habe ich nicht bezahlt.",
+    "Ich habe bereits ein aktives Abonnement!",
+    "Ich habe das Abonnement bezahlt!",
+    "Warum kann ich nicht zugreifen, wenn ich die Premium-Version habe?",
+    "Warum wird angezeigt, dass ich kein Abonnement habe?",
+    "Ich habe die kostenpflichtige Version, warum funktioniert sie nicht?",
+    "Aber ich habe doch schon bezahlt!",
+    "Warum wird mein Abonnement nicht erkannt?",
+    "Ich habe die Ultra-Version, aber ich kann mich nicht einloggen.",
+    "Ich habe die Premium-Version, aber sie funktioniert nicht.",
+    "Warum kann ich die Premium-Inhalte nicht öffnen, obwohl ich die Premium-Version habe?",
+    "Ich bin Premium, aber ich kann nicht zugreifen.",
+    "Ich habe den Ultra-Plan, aber er funktioniert nicht.",
+    "Ich habe den höchsten Plan, aber er funktioniert nicht."
+  ],
+  "answers": [
+    "Es tut mir leid wegen der Unannehmlichkeiten 😔. Manchmal kann eine kleine Verbindungsverzögerung die sofortige Überprüfung deines Plans verhindern. Bitte warte ein paar Minuten oder starte die App neu. Wenn das Problem weiterhin besteht, kontaktiere bitte den Support per E-Mail 📩.\n\n👉 vector.devv@gmail.com",
+    "Ich verstehe und entschuldige mich für die Unannehmlichkeiten 🙏. Es könnte ein Verbindungsproblem vorliegen, das eine kurzzeitige Verzögerung bei der Überprüfung deines Abonnements verursacht. Ich empfehle, die App neu zu starten oder ein paar Minuten zu warten. Wenn das Problem weiterhin besteht, wende dich bitte per E-Mail an den Support.\n\n👉 vector.devv@gmail.com",
+    "😓 Entschuldige die Unannehmlichkeiten! Es könnte eine Verbindungsverzögerung geben, die verhindert, dass dein Premium-Plan sofort überprüft wird. Bitte versuche, die App neu zu öffnen oder einige Minuten zu warten. Wenn das Problem bestehen bleibt, kontaktiere den Support per E-Mail 📧.\n\n👉 vector.devv@gmail.com",
+    "Ich verstehe deine Frustration vollkommen 😔. Manchmal gibt es Verbindungsverzögerungen, die das System daran hindern, die Abonnementinformationen korrekt zu überprüfen. Bitte warte einige Minuten oder starte die App neu. Wenn das Problem weiterhin besteht, wende dich bitte an den technischen Support.\n\n👉 vector.devv@gmail.com"
+  ],
+  "cost": 0,
+  "keywords": ["abo", "abonnement", "plan", "premium", "ultra", "bezahlt", "zahlung", "zahlen"]
 }
 }
