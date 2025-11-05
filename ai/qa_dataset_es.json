@@ -7802,5 +7802,34 @@
   "subquestions": {
     "¿Quieres saber por qué *eToro* se considera uno de los brokers más confiables?": "broker_etoro",
     "¿Quieres entender por qué muchos inversores eligen *eToro* como plataforma segura?": "broker_etoro"}
+},
+  "how_app_works": {
+  "questions": [
+    "¿Qué analiza la aplicación?",
+    "¿Cómo hace la aplicación las previsiones?",
+    "¿Cómo funciona el análisis de la aplicación?",
+    "¿En qué datos se basa la aplicación para hacer previsiones?",
+    "¿Cómo determina la aplicación las tendencias y las previsiones?",
+    "¿Cómo calculas las previsiones?",
+    "¿Cómo logras calcular estas cosas?",
+    "¿Qué información considera la aplicación antes de dar indicaciones?",
+    "¿En qué se basan estos resultados?",
+    "¿En qué datos te basas para las previsiones?",
+    "¿En qué datos te basas?",
+    "¿Qué cálculos realizas?",
+    "¿Cómo funciona el algoritmo de TradeGPT?",
+    "¿Cómo funciona tu algoritmo?"
+  ],
+  "answers": [
+    "El algoritmo de TradeGPT es muy complejo y analiza continuamente gran cantidad de datos actualizados en tiempo real para obtener conclusiones fiables y orientar las previsiones.",
+    "TradeGPT combina el análisis de múltiples datos simultáneamente y en tiempo real, utilizando un algoritmo avanzado para ofrecer información sobre las tendencias del mercado.",
+    "La aplicación examina constantemente datos actualizados e indicadores de mercado mediante un algoritmo complejo que evalúa la información simultáneamente para obtener previsiones precisas.",
+    "Las previsiones de la aplicación se basan en un algoritmo avanzado que analiza de forma cíclica datos en tiempo real y varios parámetros del mercado para sacar conclusiones sólidas."
+  ],
+  "cost": 0,
+  "keywords": ["cómo", "qué", "datos", "cálculos", "base", "algoritmo", "funciona", "información"],
+  "subquestions": {
+    "¿Quieres que analice [FAVOURITE] y te diga la previsión?": "sentiment",
+    "¿Quieres ver las previsiones de [FAVOURITE]?": "sentiment"}
 }
 }
