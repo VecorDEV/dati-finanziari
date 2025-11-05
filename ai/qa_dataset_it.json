@@ -7749,5 +7749,36 @@
   "subquestions": {
     "Vuoi che analizzi [FAVOURITE] e ti dica cosa è previsto?": "sentiment",
     "Vuoi vedere le previsioni per [FAVOURITE]?": "sentiment"}
+},
+  "subscription_issue": {
+  "questions": [
+    "Ma io sono abbonato!",
+    "Io ho la versione premium!",
+    "Io ho la versione ultra!",
+    "Sono già abbonato!",
+    "Ho pagato quindi voglio che funzioni",
+    "Non ho pagato per questo",
+    "Ho già l’abbonamento attivo!",
+    "Ho pagato l’abbonamento!",
+    "Perché non riesco ad accedere se ho la versione premium?",
+    "Perché mi dice che non ho l’abbonamento?",
+    "Io ho la versione a pagamento, perché non funziona?",
+    "Ma io ho già pagato!",
+    "Perché non riconosce il mio abbonamento?",
+    "Ho la versione ultra ma non mi fa entrare",
+    "Ho la versione premium ma non funziona",
+    "Perché non mi apre i contenuti premium se ho la versione premium?",
+    "Sono premium, ma non riesco ad accedere",
+    "Ho il piano ultra ma non funziona",
+    "Ho il piano più potente ma non va"
+  ],
+  "answers": [
+    "Mi dispiace per l’inconveniente 😔. A volte può capitare che un piccolo ritardo di connessione impedisca la verifica immediata del tuo piano. Ti consiglio di attendere qualche minuto oppure chiudere e riaprire l’app. Se il problema dovesse persistere, ti invito a contattare il supporto via email 📩.\n\n👉 vector.devv@gmail.com",
+    "Capisco, e mi scuso per il disagio 🙏. Potrebbe esserci un problema di connessione che crea un ritardo momentaneo nella verifica del tuo abbonamento. Ti suggerisco di riavviare l’app o attendere un paio di minuti. Se il problema continua, ti invito a contattare il supporto tramite email.\n\n👉 vector.devv@gmail.com",
+    "😓 Mi dispiace per l’inconveniente! Potrebbe esserci un ritardo nella connessione che non consente di verificare subito il tuo piano premium. Ti consiglio di provare a riaprire l’app o attendere qualche minuto. Se la situazione non si risolve, contatta il supporto via mail 📧.\n\n👉 vector.devv@gmail.com",
+    "Capisco perfettamente la tua frustrazione 😔. A volte ci sono ritardi di connessione che impediscono al sistema di verificare le informazioni sull’abbonamento. Ti consiglio di aspettare qualche minuto o in alternativa di riavviare l’app. Se il problema continua, ti invito a scrivere al supporto tecnico.\n\n👉 vector.devv@gmail.com"
+  ],
+  "cost": 0,
+  "keywords": ["già", "abbonato", "abbonamento", "piano", "premium", "ultra", "pagato"]
 }
 }
