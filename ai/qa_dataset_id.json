@@ -7715,5 +7715,34 @@
   "subquestions": {
     "Apakah kamu ingin tahu mengapa *eToro* dianggap sebagai salah satu broker paling terpercaya?": "broker_etoro",
     "Apakah kamu ingin memahami mengapa banyak investor memilih *eToro* sebagai platform yang aman?": "broker_etoro"}
+},
+  "how_app_works": {
+  "questions": [
+    "Apa yang dianalisis oleh aplikasi?",
+    "Bagaimana aplikasi membuat prediksi?",
+    "Bagaimana cara kerja analisis aplikasi?",
+    "Data apa yang digunakan aplikasi untuk membuat prediksi?",
+    "Bagaimana aplikasi menentukan tren dan perkiraan?",
+    "Bagaimana kamu menghitung prediksi?",
+    "Bagaimana kamu bisa menghitung hal-hal seperti ini?",
+    "Informasi apa yang dipertimbangkan aplikasi sebelum memberikan rekomendasi?",
+    "Berdasarkan apa hasil ini?",
+    "Data apa yang kamu gunakan untuk membuat prediksi?",
+    "Data apa yang menjadi dasar analisismu?",
+    "Perhitungan apa yang kamu lakukan?",
+    "Bagaimana cara kerja algoritma TradeGPT?",
+    "Bagaimana algoritmamu bekerja?"
+  ],
+  "answers": [
+    "Algoritma TradeGPT sangat kompleks dan menganalisis banyak data secara berkala serta real-time untuk menghasilkan kesimpulan yang dapat diandalkan dalam membuat prediksi.",
+    "TradeGPT menggabungkan analisis dari berbagai data secara bersamaan dan real-time, menggunakan algoritma canggih untuk memberikan wawasan tentang tren pasar.",
+    "Aplikasi ini terus memeriksa data yang diperbarui dan berbagai indikator pasar melalui algoritma kompleks yang menilai informasi secara simultan untuk menghasilkan prediksi yang akurat.",
+    "Prediksi aplikasi ini didasarkan pada algoritma canggih yang secara berkala menganalisis data real-time dan berbagai parameter pasar untuk menghasilkan kesimpulan yang solid."
+  ],
+  "cost": 0,
+  "keywords": ["bagaimana", "apa", "data", "algoritma", "berdasarkan", "analisis", "fungsi", "informasi"],
+  "subquestions": {
+    "Apakah kamu ingin saya menganalisis [FAVOURITE] dan memberi tahu perkiraannya?": "sentiment",
+    "Apakah kamu ingin melihat prediksi untuk [FAVOURITE]?": "sentiment"}
 }
 }
