@@ -7787,5 +7787,93 @@
   ],
   "cost": 0,
   "keywords": ["già", "abbonato", "abbonamento", "piano", "premium", "ultra", "pagato"]
+},
+  "stop_loss_info": {
+  "questions": [
+    "Cos'è lo stop loss?",
+    "Mi puoi spiegare lo stop loss?",
+    "A cosa serve lo stop loss?",
+    "Come funziona lo stop loss?",
+    "Come si usa lo stop loss nel trading?",
+    "Puoi spiegarmi il concetto di stop loss?",
+    "Spiega il concetto di stop loss",
+    "Spiega cos'è lo stoploss",
+    "Cos'è lo stoploss?",
+    "Cos'è SL?",
+    "Come funziona uno SL?",
+    "Vorrei capire come funziona lo stop loss",
+    "Mi spieghi a cosa serve lo stop loss?",
+    "Che significato ha lo stop loss nel trading?",
+    "Perchè i trader usano lo stop loss?",
+    "Per quale motivo si usano gli stop loss?"
+  ],
+  "answers": [
+    "Lo stop loss è uno strumento utilizzato per limitare le perdite in una posizione aperta. Consente di impostare un livello di prezzo al quale l'operazione verrà chiusa automaticamente, proteggendo il capitale.",
+    "Si tratta di un ordine automatico che chiude una posizione quando il prezzo raggiunge un certo livello sfavorevole, aiutando a gestire il rischio e prevenire perdite eccessive.",
+    "Lo stop loss permette di fissare un limite massimo di perdita su un trade. Viene utilizzato come misura di protezione, per mantenere il controllo sulle operazioni anche in mercati volatili.",
+    "Impostare uno stop loss significa decidere in anticipo a quale prezzo uscire da una posizione se il mercato si muove contro di te, riducendo l'impatto delle fluttuazioni avverse."
+  ],
+  "cost": 0,
+  "keywords": ["stop loss", "stoploss", "sl", "cos'è", "cosa sono", "come funziona", "come funzionano", "spiega", "spieghi", "spiegare", "spiegami", "spiegheresti"],
+  "subquestions": {
+    "Vuoi che ti consiglio uno stop loss per [FAVOURITE]?": "trading_stop_loss_level"}
+},
+  "take_profit_info": {
+  "questions": [
+    "Cos'è il take profit?",
+    "Mi puoi spiegare il take profit?",
+    "A cosa serve il take profit?",
+    "Come funziona il take profit?",
+    "Come si usa il take profit nel trading?",
+    "Puoi spiegarmi il concetto di take profit?",
+    "Spiega il concetto di take profit",
+    "Spiega cos'è il takeprofit",
+    "Cos'è il takeprofit?",
+    "Cos'è TP?",
+    "Come funziona un TP?",
+    "Vorrei capire come funziona il take profit",
+    "Mi spieghi a cosa serve il take profit?",
+    "Che significato ha il take profit nel trading?",
+    "Perchè i trader usano il take profit?",
+    "Per quale motivo si usano i take profit?"
+  ],
+  "answers": [
+    "Il take profit è uno strumento utilizzato per chiudere automaticamente una posizione una volta raggiunto un certo livello di profitto, permettendo di realizzare i guadagni in modo sicuro.",
+    "Si tratta di un ordine automatico che chiude una posizione quando il prezzo raggiunge un livello favorevole predeterminato, aiutando a gestire i profitti.",
+    "Il take profit consente di fissare un obiettivo di guadagno su un trade. Viene usato come misura di gestione per assicurarsi che i profitti vengano realizzati anche in mercati volatili.",
+    "Impostare un take profit significa decidere in anticipo a quale prezzo chiudere una posizione per incassare i guadagni, riducendo il rischio di perdere profitti in caso di inversioni di mercato."
+  ],
+  "cost": 0,
+  "keywords": ["take profit", "tp", "cos'è", "cosa sono", "come funziona", "come funzionano", "spiega", "spieghi", "spiegare", "spiegami", "spiegheresti"],
+  "subquestions": {
+    "Vuoi che ti consigli un take profit per [FAVOURITE]?": "trading_take_profit_level"}
+},
+  "spread_info": {
+  "questions": [
+    "Cos'è lo spread?",
+    "Che cos'è lo spread?",
+    "Puoi spiegarmi lo spread nel trading?",
+    "Spiegami come funziona lo spread",
+    "A cosa serve lo spread?",
+    "Come funziona lo spread?",
+    "Perché è importante lo spread?",
+    "Perché bisogna tenere conto dello spread?",
+    "Come mai si tiene conto dello spread?",
+    "Perché c'è lo spread?",
+    "Che significato ha lo spread?",
+    "Cosa significa lo spread?",
+    "Come influisce lo spread sulle operazioni di trading?",
+    "Come influisce lo spread?",
+    "Cosa significa spread in finanza?",
+    "Puoi spiegare la differenza tra bid e ask?",
+  ],
+  "answers": [
+    "Lo spread è la differenza tra il prezzo di acquisto (ask) e il prezzo di vendita (bid) di un asset. Questo valore rappresenta il costo implicito di ogni operazione di trading: più lo spread è ampio, più dovrà muoversi il prezzo a tuo favore prima che tu possa realizzare un profitto. È un indicatore fondamentale da considerare, perché influisce direttamente sulla redditività e sulla gestione del rischio delle tue posizioni.",
+    "In pratica, lo spread indica quanto costa entrare e uscire da una posizione in un asset. È calcolato come la differenza tra il prezzo più basso a cui puoi vendere (bid) e il prezzo più alto a cui puoi acquistare (ask). Lo spread varia a seconda della liquidità dell’asset e delle condizioni di mercato, ed è essenziale tenerlo in considerazione perché un spread elevato può ridurre i guadagni o aumentare le perdite.",
+    "Lo spread è un concetto centrale nel trading: rappresenta la distanza tra il prezzo di acquisto e quello di vendita di uno strumento finanziario. Non si tratta di una commissione esplicita, ma di un costo implicito che ogni trader paga per aprire e chiudere posizioni. Comprendere come funziona lo spread aiuta a pianificare meglio le operazioni, a valutare la convenienza di un asset e a gestire correttamente il rischio.",
+    "Ogni volta che apri una posizione, il prezzo di entrata effettivo non corrisponde esattamente al prezzo di mercato a causa dello spread, cioè della differenza tra bid e ask. Questo significa che, anche se il mercato si muove subito nella tua direzione, devi compensare prima lo spread per iniziare a realizzare un profitto. Lo spread può variare in base alla volatilità, alla liquidità e all’asset stesso, rendendone la comprensione fondamentale per qualsiasi strategia di trading."
+  ],
+  "cost": 0,
+  "keywords": ["spread", "spred", "ask", "bid", "spiega", "spiegami", "spiegare"]
 }
 }
