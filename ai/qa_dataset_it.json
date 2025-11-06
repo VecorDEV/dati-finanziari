@@ -3662,9 +3662,7 @@
       "Exponential moving average di [TOPIC]",
       "Quanto vale l’EMA di [TOPIC]?",
       "Quanto vale EMA di [TOPIC]?",
-      "EMA di [TOPIC]",
-      "Come funziona l'EMA?",
-      "Voglio capire il funzionamento dell'EMA"
+      "EMA di [TOPIC]"
     ],
     "answers": [
       "L'EMA a 10 giorni di [TOPIC] è attualmente [EMA_VALUE].\n\nIl prezzo si trova [EMA_UP_DOWN] rispetto all’EMA10, indicando un trend [STATE_EMA] per l’asset.",
@@ -3706,9 +3704,7 @@
       "Exponential moving average di [TOPIC]",
       "Quanto vale l’EMA di [TOPIC]?",
       "Quanto vale EMA di [TOPIC]?",
-      "EMA di [TOPIC]",
-      "Come funziona l'EMA?",
-      "Voglio capire il funzionamento dell'EMA"
+      "EMA di [TOPIC]"
     ],
     "answers": [
       "Per visualizzare l'EMA10 di [TOPIC] è necessario avere un abbonamento premium o ultra. Fai l'upgrade per ottenere tutti i vantaggi! 😄",
@@ -3980,7 +3976,9 @@
       "RSI cosa significa?",
       "Cos'è il relative strength index?",
       "Mi spieghi il relative strength index?",
-      "Dimmi cos'è l'RSI di un asset"
+      "Dimmi cos'è l'RSI di un asset",
+      "Come funziona l'RSI?",
+      "Voglio capire il funzionamento dell'RSI"
     ],
     "answers": [
       "L'RSI, o Relative Strength Index, è un indicatore tecnico che misura la forza e la velocità dei movimenti di prezzo. Viene calcolato confrontando la media dei rialzi con la media dei ribassi su un determinato periodo (di solito 14 giorni). Serve a capire se un asset è in ipercomprato o ipervenduto.",
@@ -4015,7 +4013,9 @@
       "Cos'è il moving average convergence divergence?",
       "Dimmi cos'è il MACD di un asset",
       "Perchè si usa il MACD?",
-      "Per cosa si usa il MACD?"
+      "Per cosa si usa il MACD?",
+      "Come funziona il MACD?",
+      "Voglio capire il funzionamento del MACD"
     ],
     "answers": [
       "Il MACD (Moving Average Convergence Divergence) è un indicatore di analisi tecnica che serve a misurare la forza e la direzione del trend. \n\nSi calcola come differenza tra due medie mobili esponenziali (una veloce e una lenta) e include una linea di segnale.\nQuando il MACD è positivo indica prevalenza dei rialzi, quando è negativo prevalenza dei ribassi. L’incrocio con la linea di segnale fornisce possibili segnali di inversione.",
@@ -4048,7 +4048,9 @@
       "Cos'è lo stocastico?",
       "Cos'è lo stocastico nell’analisi tecnica?",
       "Mi puoi chiarire a cosa serve lo stocastico?",
-      "Dimmi cos'è l'oscillatore stocastico di un asset"
+      "Dimmi cos'è l'oscillatore stocastico di un asset",
+      "Come funziona l'oscillatore stocastico?",
+      "Voglio capire il funzionamento dell'oscillatore stocastico"
     ],
     "answers": [
       "L'oscillatore stocastico è un indicatore tecnico usato per capire se un asset è in fase di ipercomprato o ipervenduto. \n\nSi calcola confrontando il prezzo di chiusura più recente con il range dei prezzi (massimi e minimi) di un determinato periodo. \n\nValori sopra 80 indicano tipicamente ipercomprato, sotto 20 ipervenduto, mentre valori intermedi sono considerati neutrali.",
@@ -4082,7 +4084,9 @@
       "Che significato ha l'EMA (10) nell’analisi tecnica?",
       "Cos'è la media mobile esponenziale?",
       "A cosa serve la media mobile esponenziale?",
-      "Dimmi cos'è l'EMA di un asset"
+      "Dimmi cos'è l'EMA di un asset",
+      "Come funziona l'EMA?",
+      "Voglio capire il funzionamento dell'EMA"
     ],
     "answers": [
       "L'EMA (10), cioè la media mobile esponenziale a 10 periodi, è un indicatore tecnico che serve a seguire l'andamento del prezzo in un orizzonte molto breve. \n\nSi calcola facendo una media dei prezzi degli ultimi 10 periodi, ma dando più peso ai valori più recenti. \n\nSe il prezzo si trova sopra l'EMA, il trend è considerato rialzista, mentre sotto l'EMA viene visto come ribassista.",
@@ -4114,7 +4118,9 @@
       "Cos'è l'indicatore Commodity Channel Index?",
       "A cosa serve il CCI nell’analisi tecnica?",
       "Che significato ha il CCI per un asset?",
-      "Dimmi cos'è il CCI di un asset"
+      "Dimmi cos'è il CCI di un asset",
+      "Come funziona il CCI?",
+      "Voglio capire il funzionamento del CCI"
     ],
     "answers": [
       "Il CCI, o Commodity Channel Index, è un indicatore tecnico che misura quanto il prezzo di un asset si discosta dalla sua media statistica. \n\nSi calcola confrontando il prezzo tipico con la sua media mobile e rapportando la differenza alla deviazione media. \n\nValori alti indicano una condizione di ipercomprato, valori bassi una condizione di ipervenduto, mentre valori vicini allo zero segnalano equilibrio.",
@@ -4148,7 +4154,9 @@
       "Che significato ha il Williams %R per un asset?",
       "Mi spieghi cos'è il Williams %R?",
       "Dimmi cos'è il williams di un asset",
-      "Dimmi cos'è il williams %R di un asset"
+      "Dimmi cos'è il williams %R di un asset",
+      "Come funziona il Williams?",
+      "Voglio capire il funzionamento del Williams"
     ],
     "answers": [
       "Il Williams %R è un oscillatore tecnico che misura i livelli di ipercomprato e ipervenduto. \n\nSi calcola confrontando il prezzo di chiusura attuale con il range massimo-minimo di un determinato periodo, di solito 14 giorni. \n\nValori vicini a -20 indicano ipercomprato, valori vicino a -80 ipervenduto.",
@@ -4184,7 +4192,11 @@
       "Dimmi cos'è il Bollinger di un asset",
       "Dimmi cosa sono le Bande di Bollinger di un asset",
       "Cosa sono le Bande di Bollinger?",
-      "Che cosa indicano le Bande di Bollinger?"
+      "Che cosa indicano le Bande di Bollinger?",
+      "Come funziona il Bollinger?",
+      "Voglio capire il funzionamento del Bollinger",
+      "Come funzionano le Bande di Bollinger?",
+      "Voglio capire il funzionamento delle Bande di Bollinger"
     ],
     "answers": [
       "Le Bande di Bollinger sono un indicatore tecnico che misura la volatilità di un asset. \n\nSi calcolano usando una media mobile (tipicamente 20 periodi) e due deviazioni standard per tracciare le bande superiore e inferiore. \n\nSe il prezzo si avvicina alla banda superiore, può indicare ipercomprato, se alla banda inferiore, ipervenduto.",
