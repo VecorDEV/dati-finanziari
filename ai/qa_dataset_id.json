@@ -5721,7 +5721,10 @@
       "Saya ingin membaca berita hari ini tentang [TOPIC]",
       "Apakah Anda tahu berita apa yang beredar sekarang tentang [TOPIC]?",
       "Apa yang terjadi penting untuk [TOPIC]?",
-      "Tunjukkan pembaruan terbaru mengenai [TOPIC]"
+      "Tunjukkan pembaruan terbaru mengenai [TOPIC]",
+      "Cari berita tentang [TOPIC]",
+      "Cari berita",
+      "Mulai pencarian berita"
     ],
     "answers": [
       "Berikut adalah berita terbaru tentang [TOPIC]:",
@@ -5732,7 +5735,7 @@
       "Inilah yang saya temukan tentang [TOPIC]:"
     ],
     "cost": 3,
-    "keywords": ["berita", "berita", "news", "berita mengenai", "news mengenai", "kabar baru"],
+    "keywords": ["berita", "berita", "news", "berita mengenai", "news mengenai", "kabar baru", "cari", "mencari", "pencarian"],
     "tag": "free",
     "subquestions": {
       "Apakah Anda juga ingin tahu berita terbaru tentang [FAVOURITE]?": "asset_news",
