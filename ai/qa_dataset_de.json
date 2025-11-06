@@ -7853,5 +7853,93 @@
   ],
   "cost": 0,
   "keywords": ["abo", "abonnement", "plan", "premium", "ultra", "bezahlt", "zahlung", "zahlen"]
+},
+  "stop_loss_info": {
+  "questions": [
+      "Was ist ein Stop Loss?",
+      "Kannst du mir Stop Loss erklären?",
+      "Wozu dient Stop Loss?",
+      "Wie funktioniert Stop Loss?",
+      "Wie wird Stop Loss im Trading verwendet?",
+      "Kannst du mir das Konzept von Stop Loss erklären?",
+      "Erkläre das Konzept von Stop Loss",
+      "Erkläre, was Stoploss ist",
+      "Was ist Stoploss?",
+      "Was ist SL?",
+      "Wie funktioniert ein SL?",
+      "Ich möchte verstehen, wie Stop Loss funktioniert",
+      "Kannst du mir erklären, wozu Stop Loss dient?",
+      "Welche Bedeutung hat Stop Loss im Trading?",
+      "Warum verwenden Trader Stop Loss?",
+      "Aus welchem Grund werden Stop Loss verwendet?"
+    ],
+    "answers": [
+      "Stop Loss ist ein Werkzeug, das verwendet wird, um Verluste in einer offenen Position zu begrenzen. Es erlaubt, ein Preisniveau festzulegen, bei dem die Position automatisch geschlossen wird, um das Kapital zu schützen.",
+      "Es handelt sich um einen automatischen Auftrag, der eine Position schließt, wenn der Preis ein ungünstiges Niveau erreicht, und hilft, das Risiko zu managen und übermäßige Verluste zu verhindern.",
+      "Stop Loss ermöglicht es, ein maximales Verlustlimit für einen Trade festzulegen. Es wird als Schutzmaßnahme verwendet, um die Kontrolle über die Trades auch in volatilen Märkten zu behalten.",
+      "Ein Stop Loss festzulegen bedeutet, im Voraus zu entscheiden, zu welchem Preis man eine Position verlässt, falls sich der Markt gegen einen bewegt, wodurch die Auswirkungen ungünstiger Schwankungen reduziert werden."
+    ],
+    "cost": 0,
+    "keywords": ["stop loss", "stoploss", "sl", "was ist", "wie funktioniert", "erkläre", "erklär mir", "erklären"],
+    "subquestions": {
+      "Möchtest du, dass ich ein Stop Loss für [FAVOURITE] empfehle?": "trading_stop_loss_level"}
+  },
+  "take_profit_info": {
+    "questions": [
+      "Was ist Take Profit?",
+      "Kannst du mir Take Profit erklären?",
+      "Wozu dient Take Profit?",
+      "Wie funktioniert Take Profit?",
+      "Wie wird Take Profit im Trading verwendet?",
+      "Kannst du mir das Konzept von Take Profit erklären?",
+      "Erkläre das Konzept von Take Profit",
+      "Erkläre, was Takeprofit ist",
+      "Was ist Takeprofit?",
+      "Was ist TP?",
+      "Wie funktioniert ein TP?",
+      "Ich möchte verstehen, wie Take Profit funktioniert",
+      "Kannst du mir erklären, wozu Take Profit dient?",
+      "Welche Bedeutung hat Take Profit im Trading?",
+      "Warum verwenden Trader Take Profit?",
+      "Aus welchem Grund werden Take Profit verwendet?"
+    ],
+    "answers": [
+      "Take Profit ist ein Werkzeug, das verwendet wird, um eine Position automatisch zu schließen, sobald ein bestimmtes Gewinnniveau erreicht ist, und so Gewinne sicherzustellen.",
+      "Es handelt sich um einen automatischen Auftrag, der eine Position schließt, wenn der Preis ein vordefiniertes günstiges Niveau erreicht, um die Gewinne zu verwalten.",
+      "Take Profit ermöglicht es, ein Gewinnziel für einen Trade festzulegen. Es wird als Managementmaßnahme verwendet, um sicherzustellen, dass Gewinne auch in volatilen Märkten realisiert werden.",
+      "Ein Take Profit festzulegen bedeutet, im Voraus zu entscheiden, zu welchem Preis eine Position geschlossen wird, um Gewinne mitzunehmen und das Risiko eines Gewinnverlusts bei Marktumkehrungen zu reduzieren."
+    ],
+    "cost": 0,
+    "keywords": ["take profit", "tp", "was ist", "wie funktioniert", "erkläre", "erklär mir", "erklären"],
+    "subquestions": {
+      "Möchtest du, dass ich ein Take Profit für [FAVOURITE] empfehle?": "trading_take_profit_level"}
+  },
+  "spread_info": {
+    "questions": [
+      "Was ist Spread?",
+      "Was bedeutet Spread?",
+      "Kannst du mir Spread im Trading erklären?",
+      "Erkläre, wie Spread funktioniert",
+      "Wozu dient Spread?",
+      "Wie funktioniert Spread?",
+      "Warum ist Spread wichtig?",
+      "Warum sollte man Spread berücksichtigen?",
+      "Warum wird Spread berücksichtigt?",
+      "Warum gibt es Spread?",
+      "Welche Bedeutung hat Spread?",
+      "Was bedeutet Spread?",
+      "Wie beeinflusst Spread die Trading-Operationen?",
+      "Wie wirkt sich Spread aus?",
+      "Was bedeutet Spread in der Finanzwelt?",
+      "Kannst du den Unterschied zwischen Bid und Ask erklären?"
+    ],
+    "answers": [
+      "Der Spread ist die Differenz zwischen dem Kaufpreis (Ask) und dem Verkaufspreis (Bid) eines Assets. Dieser Wert stellt die impliziten Kosten jeder Handelsoperation dar: Je größer der Spread, desto mehr muss sich der Preis zu Ihren Gunsten bewegen, bevor Sie einen Gewinn erzielen können. Es ist ein wichtiger Indikator, der direkt die Rentabilität und das Risikomanagement Ihrer Positionen beeinflusst.",
+      "In der Praxis zeigt der Spread, wie viel es kostet, eine Position in einem Asset einzugehen und zu verlassen. Er wird als Differenz zwischen dem niedrigsten Preis, zu dem Sie verkaufen können (Bid), und dem höchsten Preis, zu dem Sie kaufen können (Ask), berechnet. Der Spread variiert je nach Liquidität des Assets und Marktbedingungen und sollte berücksichtigt werden, da ein hoher Spread die Gewinne verringern oder die Verluste erhöhen kann.",
+      "Der Spread ist ein zentrales Konzept im Trading: Er zeigt die Distanz zwischen Kauf- und Verkaufspreis eines Finanzinstruments. Es handelt sich nicht um eine explizite Gebühr, sondern um einen impliziten Kostenfaktor, den jeder Trader beim Öffnen und Schließen von Positionen zahlt. Das Verständnis des Spreads hilft, Trades besser zu planen, die Attraktivität eines Assets zu bewerten und das Risiko korrekt zu steuern.",
+      "Jedes Mal, wenn Sie eine Position eröffnen, entspricht der effektive Einstiegspreis nicht genau dem Marktpreis, wegen des Spreads, also der Differenz zwischen Bid und Ask. Das bedeutet, dass Sie zunächst den Spread ausgleichen müssen, bevor Sie beginnen, Gewinn zu erzielen, selbst wenn sich der Markt sofort zu Ihren Gunsten bewegt. Der Spread kann je nach Volatilität, Liquidität und Asset variieren, was das Verständnis für jede Trading-Strategie essenziell macht."
+    ],
+    "cost": 0,
+    "keywords": ["spread", "spred", "ask", "bid", "erkläre", "erklär mir", "erklären"]
 }
 }
