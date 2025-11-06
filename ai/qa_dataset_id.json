@@ -7782,5 +7782,93 @@
   ],
   "cost": 0,
   "keywords": ["langganan", "berlangganan", "paket", "premium", "ultra", "sudah bayar", "dibayar", "membayar"]
+},
+  "stop_loss_info": {
+  "questions": [
+      "Apa itu stop loss?",
+      "Bisakah kamu menjelaskan stop loss?",
+      "Untuk apa stop loss digunakan?",
+      "Bagaimana cara kerja stop loss?",
+      "Bagaimana cara menggunakan stop loss dalam trading?",
+      "Bisakah kamu menjelaskan konsep stop loss?",
+      "Jelaskan konsep stop loss",
+      "Jelaskan apa itu stoploss",
+      "Apa itu stoploss?",
+      "Apa itu SL?",
+      "Bagaimana cara kerja SL?",
+      "Saya ingin memahami cara kerja stop loss",
+      "Bisakah kamu menjelaskan untuk apa stop loss?",
+      "Apa arti stop loss dalam trading?",
+      "Mengapa trader menggunakan stop loss?",
+      "Mengapa stop loss digunakan?"
+    ],
+    "answers": [
+      "Stop loss adalah alat yang digunakan untuk membatasi kerugian pada posisi yang terbuka. Ini memungkinkan Anda menetapkan level harga di mana posisi akan ditutup secara otomatis untuk melindungi modal.",
+      "Ini adalah order otomatis yang menutup posisi ketika harga mencapai level yang tidak menguntungkan, membantu mengelola risiko dan mencegah kerugian berlebihan.",
+      "Stop loss memungkinkan menetapkan batas maksimal kerugian pada suatu trade. Digunakan sebagai langkah perlindungan untuk tetap mengendalikan posisi bahkan di pasar yang volatil.",
+      "Menetapkan stop loss berarti menentukan sebelumnya pada harga berapa Anda akan keluar dari posisi jika pasar bergerak berlawanan, sehingga mengurangi dampak fluktuasi yang merugikan."
+    ],
+    "cost": 0,
+    "keywords": ["stop loss", "stoploss", "sl", "apa itu", "bagaimana cara kerja", "jelaskan", "jelaskan padaku", "menjelaskan"],
+    "subquestions": {
+      "Apakah kamu ingin saya merekomendasikan stop loss untuk [FAVOURITE]?": "trading_stop_loss_level"}
+  },
+  "take_profit_info": {
+    "questions": [
+      "Apa itu take profit?",
+      "Bisakah kamu menjelaskan take profit?",
+      "Untuk apa take profit digunakan?",
+      "Bagaimana cara kerja take profit?",
+      "Bagaimana cara menggunakan take profit dalam trading?",
+      "Bisakah kamu menjelaskan konsep take profit?",
+      "Jelaskan konsep take profit",
+      "Jelaskan apa itu takeprofit",
+      "Apa itu takeprofit?",
+      "Apa itu TP?",
+      "Bagaimana cara kerja TP?",
+      "Saya ingin memahami cara kerja take profit",
+      "Bisakah kamu menjelaskan untuk apa take profit?",
+      "Apa arti take profit dalam trading?",
+      "Mengapa trader menggunakan take profit?",
+      "Mengapa take profit digunakan?"
+    ],
+    "answers": [
+      "Take profit adalah alat yang digunakan untuk menutup posisi secara otomatis ketika mencapai level keuntungan tertentu, memungkinkan untuk mengamankan profit dengan aman.",
+      "Ini adalah order otomatis yang menutup posisi ketika harga mencapai level menguntungkan yang telah ditentukan sebelumnya, membantu mengelola keuntungan.",
+      "Take profit memungkinkan menetapkan target keuntungan pada suatu trade. Digunakan sebagai langkah pengelolaan untuk memastikan keuntungan direalisasikan bahkan di pasar yang volatil.",
+      "Menetapkan take profit berarti menentukan sebelumnya pada harga berapa menutup posisi untuk mengambil keuntungan, mengurangi risiko kehilangan profit jika pasar berbalik."
+    ],
+    "cost": 0,
+    "keywords": ["take profit", "tp", "apa itu", "bagaimana cara kerja", "jelaskan", "jelaskan padaku", "menjelaskan"],
+    "subquestions": {
+      "Apakah kamu ingin saya merekomendasikan take profit untuk [FAVOURITE]?": "trading_take_profit_level"}
+  },
+  "spread_info": {
+    "questions": [
+      "Apa itu spread?",
+      "Apa arti spread?",
+      "Bisakah kamu menjelaskan spread dalam trading?",
+      "Jelaskan bagaimana spread bekerja",
+      "Untuk apa spread digunakan?",
+      "Bagaimana spread bekerja?",
+      "Mengapa spread penting?",
+      "Mengapa spread harus diperhatikan?",
+      "Mengapa spread diperhitungkan?",
+      "Mengapa ada spread?",
+      "Apa arti spread?",
+      "Apa makna spread?",
+      "Bagaimana spread mempengaruhi operasi trading?",
+      "Bagaimana pengaruh spread?",
+      "Apa arti spread dalam keuangan?",
+      "Bisakah kamu menjelaskan perbedaan antara bid dan ask?"
+    ],
+    "answers": [
+      "Spread adalah perbedaan antara harga beli (ask) dan harga jual (bid) suatu aset. Nilai ini mewakili biaya implisit setiap transaksi trading: semakin besar spread, semakin banyak harga harus bergerak ke arahmu sebelum kamu bisa mendapatkan keuntungan. Ini adalah indikator penting karena mempengaruhi langsung profitabilitas dan manajemen risiko posisi Anda.",
+      "Dalam praktiknya, spread menunjukkan biaya masuk dan keluar dari posisi suatu aset. Dihitung sebagai perbedaan antara harga terendah yang bisa kamu jual (bid) dan harga tertinggi yang bisa kamu beli (ask). Spread bervariasi tergantung likuiditas aset dan kondisi pasar, dan penting diperhitungkan karena spread tinggi bisa mengurangi keuntungan atau meningkatkan kerugian.",
+      "Spread adalah konsep penting dalam trading: menunjukkan jarak antara harga beli dan jual suatu instrumen finansial. Ini bukan biaya eksplisit, tetapi biaya implisit yang harus dibayar setiap trader saat membuka dan menutup posisi. Memahami spread membantu merencanakan transaksi lebih baik, menilai kelayakan aset, dan mengelola risiko dengan tepat.",
+      "Setiap kali membuka posisi, harga masuk yang sebenarnya tidak persis sama dengan harga pasar karena spread, yaitu perbedaan antara bid dan ask. Ini berarti, meskipun pasar bergerak sesuai arahmu, kamu harus menutupi spread terlebih dahulu untuk mulai memperoleh keuntungan. Spread dapat bervariasi berdasarkan volatilitas, likuiditas, dan aset itu sendiri, sehingga memahami spread sangat penting untuk setiap strategi trading."
+    ],
+    "cost": 0,
+    "keywords": ["spread", "spred", "ask", "bid", "jelaskan", "jelaskan padaku", "menjelaskan"]
 }
 }
