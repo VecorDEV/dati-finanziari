@@ -7770,5 +7770,37 @@
     ],
     "cost": 0,
     "keywords": ["spread", "spred", "ask", "bid", "explain", "explain to me", "explain it"]
+},
+  "vix_info": {
+  "questions": [
+    "What is the VIX?",
+    "Can you explain the VIX?",
+    "Explain what the VIX is used for",
+    "What is the VIX for?",
+    "How does the VIX work?",
+    "What kind of indicator is the VIX?",
+    "Why is the VIX important?",
+    "What does the VIX indicate?",
+    "How do you interpret the VIX?",
+    "What information does the VIX provide?",
+    "Why do traders look at the VIX?",
+    "Why is the VIX monitored?",
+    "How are VIX values interpreted?",
+    "Can you explain the fear index?",
+    "What is the fear index for?",
+    "Explain what the fear index indicates and how to interpret it",
+    "How can you understand the market by looking at the VIX?",
+    "How can I understand the market by looking at the VIX?",
+    "How can I predict the market by looking at the VIX?",
+    "How is the fear index interpreted?"
+  ],
+  "answers": [
+    "The VIX, also known as the 'fear index', measures the implied volatility of options on the S&P 500. It indicates how much the market expects prices to fluctuate over the next 30 days. High VIX values suggest uncertainty and expectations of strong price movements, while low values indicate more stable markets and investor confidence.",
+    "The VIX is a key indicator to understand market sentiment. When the VIX rises, it means traders expect higher volatility and risk, while lower values indicate calmer markets. This helps in planning trading strategies and managing risk.",
+    "The VIX index is calculated based on S&P 500 option prices, reflecting expected short-term volatility. It can be used to anticipate potential market corrections, assess investor fear levels, and decide on the timing of entering or exiting positions.",
+    "Interpreting the VIX means understanding that very high values indicate strong uncertainty and potential drastic price movements, while very low values suggest market confidence and lower perceived risk. It is a fundamental tool for managing risk and planning trades in volatile markets."
+  ],
+  "cost": 0,
+  "keywords": ["vix", "fear index", "fear"]
 }
 }
