@@ -5631,7 +5631,10 @@
     "I’d like to read today’s news on [TOPIC]",
     "Do you know which news are circulating now on [TOPIC]?",
     "What important things happened for [TOPIC]?",
-    "Show me the latest updates regarding [TOPIC]"
+    "Show me the latest updates regarding [TOPIC]",
+    "Search news on [TOPIC]",
+    "Search news",
+    "Go ahead with the news search"
   ],
   "answers": [
     "Here are the latest news on [TOPIC]:",
@@ -5642,7 +5645,7 @@
     "Here’s what I found on [TOPIC]:"
   ],
   "cost": 3,
-  "keywords": ["news", "news about", "latest news", "updates", "novelties"],
+  "keywords": ["news", "news about", "latest news", "updates", "novelties", "search", "look for", "research"],
   "tag": "free",
   "subquestions": {
     "Do you also want the latest news on [FAVOURITE]?": "asset_news",
