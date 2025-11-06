@@ -5711,7 +5711,10 @@
       "Je voudrais lire les news d'aujourd'hui sur [TOPIC]",
       "Sais-tu quelles actualités circulent maintenant sur [TOPIC] ?",
       "Qu'est-ce qui s'est passé d'important pour [TOPIC] ?",
-      "Montre-moi les mises à jour les plus récentes concernant [TOPIC]"
+      "Montre-moi les mises à jour les plus récentes concernant [TOPIC]",
+      "Rechercher des actualités sur [TOPIC]",
+      "Rechercher des actualités",
+      "Lance la recherche d'actualités"
     ],
     "answers": [
       "Voici les dernières actualités sur [TOPIC] :",
@@ -5722,7 +5725,7 @@
       "Voici ce que j'ai trouvé sur [TOPIC] :"
     ],
     "cost": 3,
-    "keywords": ["actualité", "actualités", "news", "actualités concernant", "news concernant", "nouveauté"],
+    "keywords": ["actualité", "actualités", "news", "actualités concernant", "news concernant", "nouveauté", "chercher", "rechercher", "recherche"],
     "tag": "free",
     "subquestions": {
       "Voulez-vous aussi connaître les dernières news sur [FAVOURITE] ?": "asset_news",
