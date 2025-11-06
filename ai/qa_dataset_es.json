@@ -5798,7 +5798,10 @@
     "Quiero leer las noticias de hoy sobre [TOPIC]",
     "¿Sabes qué noticias están circulando ahora sobre [TOPIC]?",
     "¿Qué ha pasado de importante para [TOPIC]?",
-    "Muéstrame las actualizaciones más recientes sobre [TOPIC]"
+    "Muéstrame las actualizaciones más recientes sobre [TOPIC]",
+    "Busca noticias sobre [TOPIC]",
+    "Busca noticias",
+    "Inicia la búsqueda de noticias"
   ],
   "answers": [
     "Aquí están las últimas noticias de [TOPIC]:",
@@ -5809,7 +5812,7 @@
     "Esto es lo que encontré sobre [TOPIC]:"
   ],
   "cost": 3,
-  "keywords": ["noticia", "noticias", "news", "noticias sobre", "news sobre", "novedades"],
+  "keywords": ["noticia", "noticias", "news", "noticias sobre", "news sobre", "novedades", "busca", "buscar", "búsqueda"],
   "tag": "free",
   "subquestions": {
     "¿Quieres saber también las últimas news sobre [FAVOURITE]?": "asset_news",
