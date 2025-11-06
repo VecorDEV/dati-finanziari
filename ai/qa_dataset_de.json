@@ -1697,7 +1697,11 @@
       "Empfiehl mir ein SL für [TOPIC]",
       "Welches SL soll ich für [TOPIC] setzen?",
       "SL auf [TOPIC]",
-      "SL für [TOPIC]"
+      "SL für [TOPIC]",
+      "Stoploss auf [TOPIC]",
+      "Stoploss für [TOPIC]",
+      "Stop Loss für [TOPIC]",
+      "Empfohlener Stop-Loss für [TOPIC]"
     ],
     "answers": [
       "Ich empfehle, das Stop-Loss für [TOPIC] bei [STOP_LOSS] zu setzen, um dein Kapital zu schützen, falls sich der Markt gegen dich bewegt 🔒.",
@@ -1722,7 +1726,7 @@
       "Für [TOPIC] ist ein gutes Stop-Loss bei [STOP_LOSS] 🔒, basierend auf Unterstützungslevels und der aktuellen technischen Analyse."
     ],
     "cost": 3,
-    "keywords": ["stop loss", "sl"],
+    "keywords": ["stop loss", "stoploss", "stop-loss", "sl"],
     "tag": "premium",
     "subquestions": {
       "Willst du, dass ich dir auch einen angemessenen Take-Profit empfehle?": "trading_take_profit_level",
