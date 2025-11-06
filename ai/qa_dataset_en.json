@@ -1619,6 +1619,7 @@
     "So, stop loss for [TOPIC]?",
     "Where should I set the stop loss?",
     "Stop loss level?",
+    "Stoploss level",
     "Can you advise what stop loss to set for [TOPIC]?",
     "How much stop loss should I set for [TOPIC]?",
     "What stop loss should I use for [TOPIC]?",
@@ -1634,7 +1635,10 @@
     "Recommend an SL for [TOPIC]",
     "What SL should I set for [TOPIC]?",
     "SL for [TOPIC]",
-    "SL on [TOPIC]"
+    "SL on [TOPIC]",
+    "Stop loss for [TOPIC]",
+    "Stoploss on [TOPIC]",
+    "Recommended stop loss for [TOPIC]"
   ],
   "answers": [
     "I recommend setting the stop loss on [TOPIC] at [STOP_LOSS] to protect your capital if the market moves against you 🔒.",
@@ -1659,7 +1663,7 @@
     "For [TOPIC], a good stop loss is placed at [STOP_LOSS] 🔒, based on support levels and current technical analysis."
   ],
   "cost": 3,
-  "keywords": ["stop loss", "sl"],
+  "keywords": ["stop loss", "stoploss", "sl"],
   "tag": "premium",
   "subquestions": {
     "Do you want me to also suggest a reasonable take profit?": "trading_take_profit_level",
