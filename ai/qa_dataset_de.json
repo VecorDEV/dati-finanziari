@@ -5777,7 +5777,10 @@
       "Ich möchte die heutigen News zu [TOPIC] lesen",
       "Weißt du, welche Nachrichten derzeit zu [TOPIC] kursieren?",
       "Was ist Wichtiges zu [TOPIC] passiert?",
-      "Zeig mir die neuesten Updates zu [TOPIC]"
+      "Zeig mir die neuesten Updates zu [TOPIC]",
+      "Suche nach Nachrichten zu [TOPIC]",
+      "Suche nach Nachrichten",
+      "Starte die Nachrichtensuche"
     ],
     "answers": [
       "Hier sind die neuesten Nachrichten zu [TOPIC]:",
@@ -5788,7 +5791,7 @@
       "Das habe ich zu [TOPIC] gefunden:"
     ],
     "cost": 3,
-    "keywords": ["Nachricht", "Nachrichten", "News", "Nachrichten über", "Neuigkeiten", "News über"],
+    "keywords": ["Nachricht", "Nachrichten", "News", "Nachrichten über", "Neuigkeiten", "News über", "suche", "suchen", "Recherche"],
     "tag": "free",
     "subquestions": {
       "Willst du auch die neuesten News zu [FAVOURITE] wissen?": "asset_news",
