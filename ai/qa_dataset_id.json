@@ -1680,8 +1680,13 @@
     "Sarankan saya stop loss untuk [TOPIC]",
     "Sarankan SL untuk [TOPIC]",
     "SL apa yang harus saya pasang untuk [TOPIC]?",
-    "SL di [TOPIC]",
-    "SL untuk [TOPIC]"
+    "SL dari [TOPIC]",
+    "SL untuk [TOPIC]",
+    "Stoploss dari [TOPIC]",
+    "Stoploss untuk [TOPIC]",
+    "Stop loss untuk [TOPIC]",
+    "Stop loss dari [TOPIC]",
+    "Stop loss yang direkomendasikan untuk [TOPIK]"
   ],
   "answers": [
     "Saya sarankan Anda menetapkan stop loss pada [TOPIC] di [STOP_LOSS], untuk melindungi modal jika pasar bergerak melawan Anda 🔒.",
@@ -1706,7 +1711,7 @@
     "Untuk [TOPIC], stop loss yang baik ditempatkan di [STOP_LOSS] 🔒, berdasarkan level support dan analisis teknis saat ini."
   ],
     "cost": 3,
-    "keywords": ["stop loss", "sl"],
+    "keywords": ["stop loss", "stoploss", "sl"],
     "tag": "premium",
     "subquestions": {
       "Apakah Anda ingin saya menyarankan juga take profit yang wajar?": "trading_take_profit_level",
