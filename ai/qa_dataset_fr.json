@@ -5713,6 +5713,7 @@
       "Qu'est-ce qui s'est passé d'important pour [TOPIC] ?",
       "Montre-moi les mises à jour les plus récentes concernant [TOPIC]",
       "Rechercher des actualités sur [TOPIC]",
+      "Cherche des actualités sur [TOPIC]",
       "Rechercher des actualités",
       "Lance la recherche d'actualités"
     ],
@@ -5725,7 +5726,7 @@
       "Voici ce que j'ai trouvé sur [TOPIC] :"
     ],
     "cost": 3,
-    "keywords": ["actualité", "actualités", "news", "actualités concernant", "news concernant", "nouveauté", "chercher", "rechercher", "recherche"],
+    "keywords": ["actualité", "actualités", "news", "actualités concernant", "news concernant", "nouveauté", "chercher", "cherche", "rechercher", "recherche"],
     "tag": "free",
     "subquestions": {
       "Voulez-vous aussi connaître les dernières news sur [FAVOURITE] ?": "asset_news",
