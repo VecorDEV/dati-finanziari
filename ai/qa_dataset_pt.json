@@ -7762,5 +7762,93 @@
   ],
   "cost": 0,
   "keywords": ["assinatura", "assinar", "plano", "premium", "ultra", "pago", "pagar"]
+},
+  "stop_loss_info": {
+  "questions": [
+      "O que é stop loss?",
+      "Você pode me explicar o stop loss?",
+      "Para que serve o stop loss?",
+      "Como funciona o stop loss?",
+      "Como se usa o stop loss no trading?",
+      "Pode me explicar o conceito de stop loss?",
+      "Explique o conceito de stop loss",
+      "Explique o que é stoploss",
+      "O que é stoploss?",
+      "O que é SL?",
+      "Como funciona um SL?",
+      "Gostaria de entender como funciona o stop loss",
+      "Pode me explicar para que serve o stop loss?",
+      "Qual é o significado do stop loss no trading?",
+      "Por que os traders usam o stop loss?",
+      "Por qual motivo se usam os stop loss?"
+    ],
+    "answers": [
+      "O stop loss é uma ferramenta utilizada para limitar perdas em uma posição aberta. Permite definir um nível de preço no qual a operação será fechada automaticamente, protegendo o capital.",
+      "Trata-se de uma ordem automática que fecha uma posição quando o preço atinge um nível desfavorável, ajudando a gerenciar o risco e prevenir perdas excessivas.",
+      "O stop loss permite definir um limite máximo de perda em um trade. É usado como medida de proteção para manter o controle sobre as operações, mesmo em mercados voláteis.",
+      "Definir um stop loss significa decidir antecipadamente a que preço sair de uma posição caso o mercado se mova contra você, reduzindo o impacto das flutuações adversas."
+    ],
+    "cost": 0,
+    "keywords": ["stop loss", "stoploss", "sl", "o que é", "como funciona", "explique", "me explique", "explicar"],
+    "subquestions": {
+      "Quer que eu recomende um stop loss para [FAVOURITE]?": "trading_stop_loss_level"}
+  },
+  "take_profit_info": {
+    "questions": [
+      "O que é take profit?",
+      "Você pode me explicar o take profit?",
+      "Para que serve o take profit?",
+      "Como funciona o take profit?",
+      "Como se usa o take profit no trading?",
+      "Pode me explicar o conceito de take profit?",
+      "Explique o conceito de take profit",
+      "Explique o que é takeprofit",
+      "O que é takeprofit?",
+      "O que é TP?",
+      "Como funciona um TP?",
+      "Gostaria de entender como funciona o take profit",
+      "Pode me explicar para que serve o take profit?",
+      "Qual é o significado do take profit no trading?",
+      "Por que os traders usam o take profit?",
+      "Por qual motivo se usam os take profit?"
+    ],
+    "answers": [
+      "O take profit é uma ferramenta usada para fechar automaticamente uma posição ao atingir um determinado nível de lucro, permitindo garantir os ganhos.",
+      "Trata-se de uma ordem automática que fecha uma posição quando o preço atinge um nível favorável predeterminado, ajudando a gerenciar os lucros.",
+      "O take profit permite definir uma meta de ganho em um trade. É usado como medida de gestão para garantir que os lucros sejam realizados mesmo em mercados voláteis.",
+      "Definir um take profit significa decidir antecipadamente a que preço fechar uma posição para realizar os lucros, reduzindo o risco de perder ganhos caso o mercado se reverta."
+    ],
+    "cost": 0,
+    "keywords": ["take profit", "tp", "o que é", "como funciona", "explique", "me explique", "explicar"],
+    "subquestions": {
+      "Quer que eu recomende um take profit para [FAVOURITE]?": "trading_take_profit_level"}
+  },
+  "spread_info": {
+    "questions": [
+      "O que é spread?",
+      "O que significa spread?",
+      "Você pode me explicar o spread no trading?",
+      "Explique como funciona o spread",
+      "Para que serve o spread?",
+      "Como funciona o spread?",
+      "Por que o spread é importante?",
+      "Por que devemos considerar o spread?",
+      "Por que leva-se em conta o spread?",
+      "Por que existe o spread?",
+      "Qual é o significado do spread?",
+      "O que significa spread?",
+      "Como o spread afeta as operações de trading?",
+      "Como o spread influencia?",
+      "O que significa spread em finanças?",
+      "Pode explicar a diferença entre bid e ask?"
+    ],
+    "answers": [
+      "O spread é a diferença entre o preço de compra (ask) e o preço de venda (bid) de um ativo. Esse valor representa o custo implícito de cada operação de trading: quanto maior o spread, mais o preço precisa se mover a seu favor antes que você possa obter lucro. É um indicador fundamental a considerar, pois afeta diretamente a rentabilidade e a gestão de risco das suas posições.",
+      "Na prática, o spread indica quanto custa entrar e sair de uma posição em um ativo. É calculado como a diferença entre o preço mais baixo pelo qual você pode vender (bid) e o preço mais alto pelo qual pode comprar (ask). O spread varia conforme a liquidez do ativo e as condições de mercado, sendo essencial considerá-lo, pois um spread alto pode reduzir lucros ou aumentar perdas.",
+      "O spread é um conceito central no trading: representa a distância entre o preço de compra e o de venda de um instrumento financeiro. Não é uma comissão explícita, mas um custo implícito que todo trader paga ao abrir e fechar posições. Entender como o spread funciona ajuda a planejar melhor as operações, avaliar a conveniência de um ativo e gerenciar corretamente o risco.",
+      "Cada vez que você abre uma posição, o preço de entrada efetivo não corresponde exatamente ao preço de mercado devido ao spread, ou seja, à diferença entre bid e ask. Isso significa que, mesmo que o mercado se mova imediatamente a seu favor, você precisa compensar o spread antes de começar a lucrar. O spread pode variar de acordo com a volatilidade, liquidez e ativo, tornando seu entendimento fundamental para qualquer estratégia de trading."
+    ],
+    "cost": 0,
+    "keywords": ["spread", "spred", "ask", "bid", "explique", "me explique", "explicar"]
 }
 }
