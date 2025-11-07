@@ -4118,7 +4118,8 @@
       "Jelaskan relative strength index kepada saya?",
       "Beri tahu saya apa itu RSI aset",
       "Bagaimana cara kerja RSI?",
-      "Saya ingin memahami bagaimana RSI bekerja"
+      "Saya ingin memahami bagaimana RSI bekerja",
+      "Apa yang dimaksud dengan RSI?"
     ],
     "answers": [
       "RSI, atau Relative Strength Index, adalah indikator teknis yang mengukur kekuatan dan kecepatan pergerakan harga. Ini dihitung dengan membandingkan rata-rata pergerakan naik dengan rata-rata pergerakan turun selama periode tertentu (biasanya 14 hari). Ini digunakan untuk memahami apakah suatu aset berada dalam kondisi *overbought* (terlalu banyak dibeli) atau *oversold* (terlalu banyak dijual).",
@@ -4155,7 +4156,8 @@
       "Mengapa MACD digunakan?",
       "Untuk apa MACD digunakan?",
       "Bagaimana cara kerja MACD?",
-      "Saya ingin memahami bagaimana MACD bekerja"
+      "Saya ingin memahami bagaimana MACD bekerja",
+      "Apa yang dimaksud dengan MACD?"
     ],
     "answers": [
       "MACD (Moving Average Convergence Divergence) adalah indikator analisis teknis yang digunakan untuk mengukur kekuatan dan arah tren. \n\nIni dihitung sebagai perbedaan antara dua *exponential moving averages* (satu cepat dan satu lambat) dan mencakup garis sinyal.\nKetika MACD positif, itu menunjukkan prevalensi kenaikan, ketika negatif, itu menunjukkan prevalensi penurunan. Persimpangan dengan garis sinyal memberikan kemungkinan sinyal pembalikan.",
@@ -4190,7 +4192,8 @@
       "Bisakah Anda menjelaskan kepada saya untuk apa stokastik digunakan?",
       "Beri tahu saya apa itu osilator stokastik aset",
       "Bagaimana cara kerja Stochastic Oscillator?",
-      "Saya ingin memahami bagaimana Stochastic Oscillator bekerja"
+      "Saya ingin memahami bagaimana Stochastic Oscillator bekerja",
+      "Apa yang dimaksud dengan Oscillator Stokastik?"
     ],
     "answers": [
       "Osilator stokastik adalah indikator teknis yang digunakan untuk memahami apakah suatu aset berada dalam fase *overbought* (terlalu banyak dibeli) atau *oversold* (terlalu banyak dijual). \n\nIni dihitung dengan membandingkan harga penutupan terbaru dengan rentang harga (tinggi dan rendah) dari periode tertentu. \n\nNilai di atas 80 biasanya menunjukkan *overbought*, di bawah 20 *oversold*, sementara nilai menengah dianggap netral.",
@@ -4226,7 +4229,8 @@
       "Untuk apa *exponential moving average* digunakan?",
       "Beri tahu saya apa itu EMA aset",
       "Bagaimana cara kerja EMA?",
-      "Saya ingin memahami bagaimana EMA bekerja"
+      "Saya ingin memahami bagaimana EMA bekerja",
+      "Apa yang dimaksud dengan EMA?"
     ],
     "answers": [
       "EMA (10), yaitu *exponential moving average* 10 periode, adalah indikator teknis yang digunakan untuk mengikuti tren harga dalam jangka waktu yang sangat singkat. \n\nIni dihitung dengan merata-ratakan harga dari 10 periode terakhir, tetapi memberikan bobot lebih pada nilai yang lebih baru. \n\nJika harga berada di atas EMA, tren dianggap naik, sementara di bawah EMA dianggap turun.",
@@ -4260,7 +4264,8 @@
       "Apa arti CCI untuk aset?",
       "Beri tahu saya apa itu CCI aset",
       "Bagaimana cara kerja CCI?",
-      "Saya ingin memahami bagaimana CCI bekerja"
+      "Saya ingin memahami bagaimana CCI bekerja",
+      "Apa yang dimaksud dengan CCI?"
     ],
     "answers": [
       "CCI, atau Commodity Channel Index, adalah indikator teknis yang mengukur seberapa jauh harga suatu aset menyimpang dari rata-rata statistiknya. \n\nIni dihitung dengan membandingkan harga tipikal dengan *moving average*-nya dan menghubungkan perbedaan tersebut dengan deviasi rata-rata. \n\nNilai tinggi menunjukkan kondisi *overbought*, nilai rendah kondisi *oversold*, sementara nilai dekat nol memberi sinyal keseimbangan.",
@@ -4296,7 +4301,8 @@
       "Beri tahu saya apa itu williams aset",
       "Beri tahu saya apa itu williams %R aset",
       "Bagaimana cara kerja Williams %R?",
-      "Saya ingin memahami bagaimana Williams %R bekerja"
+      "Saya ingin memahami bagaimana Williams %R bekerja",
+      "Apa yang dimaksud dengan Williams?"
     ],
     "answers": [
       "Williams %R adalah osilator teknis yang mengukur level *overbought* dan *oversold*. \n\nIni dihitung dengan membandingkan harga penutupan saat ini dengan rentang tertinggi-terendah dari periode tertentu, biasanya 14 hari. \n\nNilai mendekati -20 menunjukkan *overbought*, nilai mendekati -80 *oversold*.",
@@ -4334,7 +4340,9 @@
       "Apa itu Bollinger Bands?",
       "Apa yang ditunjukkan oleh Bollinger Bands?",
       "Bagaimana cara kerja Bollinger Bands?",
-      "Saya ingin memahami bagaimana Bollinger Bands bekerja"
+      "Saya ingin memahami bagaimana Bollinger Bands bekerja",
+      "Apa yang dimaksud dengan Bollinger?",
+      "Apa yang dimaksud dengan Bollinger Bands?"
     ],
     "answers": [
       "Bollinger Bands adalah indikator teknis yang mengukur volatilitas suatu aset. \n\nIni dihitung menggunakan *moving average* (biasanya 20 periode) dan dua deviasi standar untuk menggambar band atas dan bawah. \n\nJika harga mendekati band atas, itu dapat menunjukkan *overbought*, jika mendekati band bawah, *oversold*.",
@@ -4356,42 +4364,43 @@
 },
     "fundamentals_info": {
     "questions": [
-      "Apa itu *key fundamentals*?",
-      "Bisakah Anda memberi tahu saya apa yang dimaksud dengan *key fundamentals*?",
-      "Apa arti *fundamentals* perusahaan?",
-      "Bisakah Anda menjelaskan apa itu *fundamentals*?",
-      "Apa indikator *fundamental* utama?",
-      "Apa yang dianalisis aplikasi ini dalam hal *fundamentals*?",
-      "Apa *fundamentals* yang dapat saya lihat di aplikasi ini?",
-      "Bisakah Anda memberi tahu saya *key fundamentals* apa yang ditawarkan aplikasi?",
-      "Saya ingin memahami *fundamentals* apa yang dapat saya temukan di sini",
-      "Jenis analisis *fundamental* apa yang dapat saya miliki?",
-      "Apa itu *fundamentals* perusahaan?",
-      "Apa itu *key fundamentals* perusahaan?",
-      "Bisakah Anda menjelaskan kepada saya apa artinya menganalisis *fundamentals*?",
-      "Apa yang dimaksud dengan *key fundamentals*?",
-      "Apa itu *key fundamental* suatu saham?",
-      "Bisakah Anda menjelaskan apa itu *fundamentals* dalam keuangan?",
-      "Apa indikator *fundamental* utama?",
-      "Jenis data apa yang termasuk dalam analisis *fundamental*?",
-      "Apa yang dilihat investor ketika berbicara tentang *fundamentals*?",
-      "Bisakah Anda memberi tahu saya untuk apa *fundamentals* digunakan?",
-      "Apa yang dimaksud dengan analisis *fundamental*?",
-      "Apa *fundamentals* yang bisa saya lihat di aplikasi?",
-      "Data *fundamental* apa yang dianalisis aplikasi?",
-      "Data *fundamental* apa yang Anda miliki?",
-      "Bisakah Anda memberi tahu saya *key fundamentals* apa yang Anda pertimbangkan?",
-      "Indikator *fundamental* apa yang saya temukan di aplikasi ini?",
-      "Bisakah Anda menunjukkan indikator *fundamental* yang tersedia?",
-      "*Fundamentals* apa yang Anda tawarkan dalam analisis?",
-      "Berapa banyak *fundamentals* perusahaan yang dievaluasi aplikasi?",
-      "Informasi *fundamentals* apa yang bisa saya miliki?",
-      "Parameter *fundamental* apa yang dianalisis?",
-      "Indikator *fundamental* apa yang ditunjukkan aplikasi Anda kepada saya?",
-      "*Key fundamentals* apa yang bisa Anda berikan kepada saya?",
-      "Apa itu *fundamentals* aset?",
-      "Apa itu *key fundamentals* aset?",
-      "Apa itu *key fundamentals* aset?"
+      "Apa itu key fundamentals?",
+      "Bisakah Anda memberi tahu saya apa yang dimaksud dengan key fundamentals?",
+      "Apa arti fundamentals perusahaan?",
+      "Bisakah Anda menjelaskan apa itu fundamentals?",
+      "Apa indikator fundamental utama?",
+      "Apa yang dianalisis aplikasi ini dalam hal fundamentals?",
+      "Apa fundamentals yang dapat saya lihat di aplikasi ini?",
+      "Bisakah Anda memberi tahu saya key fundamentals apa yang ditawarkan aplikasi?",
+      "Saya ingin memahami fundamentals apa yang dapat saya temukan di sini",
+      "Jenis analisis fundamental apa yang dapat saya miliki?",
+      "Apa itu fundamentals perusahaan?",
+      "Apa itu key fundamentals perusahaan?",
+      "Bisakah Anda menjelaskan kepada saya apa artinya menganalisis fundamentals?",
+      "Apa yang dimaksud dengan key fundamentals?",
+      "Apa itu key fundamental suatu saham?",
+      "Bisakah Anda menjelaskan apa itu fundamentals dalam keuangan?",
+      "Apa indikator fundamental utama?",
+      "Jenis data apa yang termasuk dalam analisis fundamental?",
+      "Apa yang dilihat investor ketika berbicara tentang fundamentals?",
+      "Bisakah Anda memberi tahu saya untuk apa fundamentals digunakan?",
+      "Apa yang dimaksud dengan analisis fundamental?",
+      "Apa fundamentals yang bisa saya lihat di aplikasi?",
+      "Data fundamental apa yang dianalisis aplikasi?",
+      "Data fundamental apa yang Anda miliki?",
+      "Bisakah Anda memberi tahu saya key fundamentals apa yang Anda pertimbangkan?",
+      "Indikator fundamental apa yang saya temukan di aplikasi ini?",
+      "Bisakah Anda menunjukkan indikator fundamental yang tersedia?",
+      "Fundamentals apa yang Anda tawarkan dalam analisis?",
+      "Berapa banyak fundamentals perusahaan yang dievaluasi aplikasi?",
+      "Informasi fundamentals apa yang bisa saya miliki?",
+      "Parameter fundamental apa yang dianalisis?",
+      "Indikator fundamental apa yang ditunjukkan aplikasi Anda kepada saya?",
+      "Key fundamentals apa yang bisa Anda berikan kepada saya?",
+      "Apa itu fundamentals aset?",
+      "Apa itu key fundamentals aset?",
+      "Apa itu key fundamentals aset?",
+      "Apa yang dimaksud dengan Analisis Fundamental?"
     ],
     "answers": [
       "*Key fundamentals* adalah indikator ekonomi dan keuangan yang membantu mengevaluasi kesehatan dan prospek pertumbuhan perusahaan. Ini digunakan oleh investor untuk memahami apakah suatu saham dinilai terlalu tinggi atau terlalu rendah. \n\nDi aplikasi ini Anda dapat melihat indikator seperti: *Trailing P/E*, *Forward P/E*, *EPS Growth (YoY)*, *Revenue Growth (YoY)*, *Profit Margins*, dan *Debt to Equity*.",
