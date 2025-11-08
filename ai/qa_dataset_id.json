@@ -3791,7 +3791,7 @@
       "Indikator stokastik [TOPIC] hanya dapat dilihat dengan langganan premium atau ultra. Jangan lewatkan kesempatan untuk memanfaatkan semua fitur!"
     ],
     "cost": 0,
-    "keywords": ["stocastico", "k e d"],
+    "keywords": ["stokastik", "k dan d"],
     "tag": "only_free",
     "subquestions": {
      "Mau tahu mengapa berlangganan menguntungkan?": "subscription_info",
@@ -3826,7 +3826,7 @@
       "Indikator EMA10 [TOPIC] hari ini adalah [EMA_VALUE].\n\nHarga berada [EMA_UP_DOWN] dibandingkan dengan EMA10, menunjukkan tren [STATE_EMA]."
     ],
     "cost": 4,
-    "keywords": ["ema", "ema10", "ema 10", "ema a 10 giorni", "exponential moving average"],
+    "keywords": ["ema", "ema10", "ema 10", "ema 10 hari", "exponential moving average"],
     "tag": "premium",
     "subquestions": {
       "Apakah Anda juga ingin indikator RSI pada [TOPIC]?": "rsi_premium",
@@ -3867,7 +3867,7 @@
       "Indikator EMA10 [TOPIC] hanya dapat dilihat dengan langganan premium atau ultra. Jangan lewatkan kesempatan untuk memanfaatkan semua fitur! 💎"
     ],
     "cost": 0,
-    "keywords": ["ema", "ema10", "ema 10 ", "ema a dieci giorni", "exponential moving average"],
+    "keywords": ["ema", "ema10", "ema 10 ", "ema 10 hari", "exponential moving average"],
     "tag": "only_free",
     "subquestions": {
      "Mau tahu mengapa berlangganan menguntungkan?": "subscription_info",
@@ -3903,7 +3903,7 @@
       "Analisis terbaru: CCI [TOPIC] mencatat [CCI_VALUE].\n\nIni adalah status [STATE_CCI], yang mewakili [SIGNIFICATO_CCI]."
     ],
     "cost": 4,
-    "keywords": ["cci", "commodity channel index", "attuale", "corrente", "aggiornato"],
+    "keywords": ["cci", "commodity channel index", "aktual", "saat ini", "terbaru"],
     "tag": "premium",
     "subquestions": {
       "Apakah Anda juga ingin indikator RSI pada [TOPIC]?": "rsi_premium",
@@ -3945,7 +3945,7 @@
       "Anda tidak memiliki akses ke CCI [TOPIC] 😅. Tingkatkan ke paket premium atau ultra untuk mendapatkan informasi lengkap!"
     ],
     "cost": 0,
-    "keywords": ["cci", "commodity channel index", "attuale", "corrente", "aggiornato"],
+    "keywords": ["cci", "commodity channel index", "aktual", "saat ini", "terbaru"],
     "tag": "only_free",
     "subquestions": {
      "Mau tahu mengapa berlangganan menguntungkan?": "subscription_info",
@@ -3980,7 +3980,7 @@
       "Pembaruan: Williams %R [TOPIC] = [WILLIAMS_VALUE].\n\nKondisi saat ini: [STATE_WILLIAMS], yang berarti [SIGNIFICATO_WILLIAMS]."
     ],
     "cost": 4,
-    "keywords": ["williams", "williams %r", "attuale", "corrente", "aggiornato"],
+    "keywords": ["williams", "williams %r", "aktual", "saat ini", "terbaru"],
     "tag": "premium",
     "subquestions": {
       "Apakah Anda juga ingin indikator RSI pada [TOPIC]?": "rsi_premium",
@@ -4023,7 +4023,7 @@
       "Untuk melihat Williams %R [TOPIC], diperlukan langganan premium atau ultra. Manfaatkan manfaat peningkatan!"
     ],
     "cost": 0,
-    "keywords": ["williams", "williams %r", "attuale", "corrente", "aggiornato"],
+    "keywords": ["williams", "williams %r", "aktual", "saat ini", "terbaru"],
     "tag": "only_free",
     "subquestions": {
      "Mau tahu mengapa berlangganan menguntungkan?": "subscription_info",
@@ -4058,7 +4058,7 @@
       "Berikut adalah data Bollinger Bands [TOPIC]:\n\n- %B: [BB_VALUE]\n- Volatilitas: [BB_VOLATILITY]\n- Band berada [BB_UP_DOWN]\n\nSituasi: [STATE_BB], yang menunjukkan [SIGNIFICATO_BB]."
     ],
     "cost": 4,
-    "keywords": ["bollinger", "attuale", "corrente", "aggiornato"],
+    "keywords": ["bollinger", "aktual", "saat ini", "terbaru"],
     "tag": "premium",
     "subquestions": {
       "Apakah Anda juga ingin indikator RSI pada [TOPIC]?": "rsi_premium",
@@ -4102,7 +4102,7 @@
       "Ups! Detail Bollinger Bands disediakan untuk pengguna premium atau ultra. Tingkatkan untuk melihatnya."
     ],
     "cost": 0,
-    "keywords": ["bollinger", "attuale", "corrente", "aggiornato"],
+    "keywords": ["bollinger", "aktual", "saat ini", "terbaru"],
     "tag": "only_free",
     "subquestions": {
      "Mau tahu mengapa berlangganan menguntungkan?": "subscription_info",
@@ -4140,7 +4140,7 @@
       "RSI adalah indikator yang menawarkan informasi berharga tentang status suatu aset. Ini dihitung dari perbandingan antara pergerakan naik dan turun, diterjemahkan menjadi nilai antara 0 dan 100. Nilai ini memberi sinyal area di mana harga dapat berbalik arah."
     ],
     "cost": 0,
-    "keywords": ["rsi", "relative strength index", "spieghi", "spiega", "spiegami", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica"],
+    "keywords": ["rsi","relative strength index","menjelaskan","jelaskan","jelaskan padaku","apa itu","fungsi","bekerja","berguna","berarti","maksudnya","mewakili","menunjukkan"],
     "subquestions": {
      "Apakah Anda ingin saya juga menjelaskan indikator MACD?": "macd_info",
      "Jika mau, saya juga bisa memberi tahu Anda untuk apa indikator CCI digunakan. Apakah Anda ingin tahu?": "cci_info"}
@@ -4178,7 +4178,7 @@
       "Moving Average Convergence Divergence digunakan untuk menganalisis dinamika harga dan mengidentifikasi sinyal operasional. \n\nIni dihitung mulai dari dua *exponential moving averages* dengan kecepatan berbeda dan dibandingkan dengan garis sinyal.\nMACD di atas nol menunjukkan fase kekuatan naik, di bawah nol menunjukkan kelemahan turun, sementara persimpangan membantu mengidentifikasi perubahan tren."
     ],
     "cost": 0,
-    "keywords": ["macd", "moving average convergence divergence", "spieghi", "spiega", "spiegami", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica"],
+    "keywords": ["macd","moving average convergence divergence","menjelaskan","jelaskan","jelaskan padaku","apa itu","fungsi","bekerja","berguna","berarti","maksudnya","mewakili","menunjukkan"],
     "subquestions": {
      "Apakah Anda ingin saya juga menjelaskan indikator Williams %R (Percent Range)?": "williams_info",
      "Jika mau, saya juga bisa memberi tahu Anda untuk apa Bollinger Bands digunakan. Apakah Anda ingin tahu?": "bollinger_info"}
@@ -4214,7 +4214,7 @@
       "Stokastik berguna untuk mengukur momentum dan kelebihan pasar. \n\nIni dihitung dengan menganalisis penutupan harga relatif terhadap intervalnya dalam periode yang telah ditetapkan. \n\nUmumnya di atas 80 disebut *overbought*, di bawah 20 *oversold*."
     ],
     "cost": 0,
-    "keywords": ["stocastico", "oscillatore", "spieghi", "spiega", "spiegami", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica"],
+    "keywords": ["stokastik","osilator","menjelaskan","jelaskan","jelaskan padaku","apa itu","fungsi","bekerja","berguna","berarti","maksudnya","mewakili","menunjukkan"],
     "subquestions": {
      "Apakah Anda ingin saya juga menjelaskan indikator EMA (Exponential Moving Average)?": "ema_info",
      "Jika mau, saya juga bisa memberi tahu Anda untuk apa indikator RSI digunakan. Apakah Anda ingin tahu?": "rsi_info"}
@@ -4251,7 +4251,7 @@
       "*Exponential moving average* 10 periode digunakan oleh analis untuk mengikuti pergerakan pasar yang cepat. \n\nIni dihitung dengan memberikan bobot yang menurun pada harga yang lebih lama dan bobot yang lebih besar pada harga yang lebih baru. \n\nHarga di atas EMA 10 memberi sinyal fase kekuatan, harga di bawah fase kelemahan."
     ],
     "cost": 0,
-    "keywords": ["ema", "ema10", "ema 10", "exponential", "media mobile", "spieghi", "spiega", "spiegami", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica"],
+    "keywords": ["ema","ema10","ema 10","eksponensial","moving average","menjelaskan","jelaskan","jelaskan padaku","apa itu","fungsi","bekerja","berguna","berarti","maksudnya","mewakili","menunjukkan"],
     "subquestions": {
      "Apakah Anda ingin saya juga menjelaskan osilator stokastik?": "stochastic_info",
      "Jika mau, saya juga bisa memberi tahu Anda untuk apa indikator CCI digunakan. Apakah Anda ingin tahu?": "cci_info"}
@@ -4286,7 +4286,7 @@
       "CCI adalah osilator teknis yang berosilasi di atas dan di bawah nol. \n\nIni dihitung dengan perbedaan antara harga tipikal dan *moving average*, dibagi dengan deviasi rata-rata. \n\nDi atas +100 adalah *overbought*, di bawah -100 *oversold*, antara -100 dan +100 netral."
     ],
     "cost": 0,
-    "keywords": ["cci", "commodity channel index", "spieghi", "spiega", "spiegami", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica"],
+    "keywords": ["cci","commodity channel index","menjelaskan","jelaskan","jelaskan padaku","apa itu","fungsi","bekerja","berguna","berarti","maksudnya","mewakili","menunjukkan"],
     "subquestions": {
      "Apakah Anda ingin saya juga menjelaskan indikator MACD?": "macd_info",
      "Jika mau, saya juga bisa memberi tahu Anda untuk apa indikator Williams %R (Percent Range) digunakan. Apakah Anda ingin tahu?": "williams_info"}
@@ -4323,7 +4323,7 @@
       "Williams %R mirip dengan stokastik, tetapi diskalakan antara 0 dan -100. \n\nHarga penutupan dibandingkan dengan tertinggi dan terendah dari periode terakhir. \n\nNilai tinggi (menuju -20) menunjukkan *overbought*, nilai rendah (menuju -80) *oversold*."
     ],
     "cost": 0,
-    "keywords": ["williams", "spieghi", "spiega", "spiegami", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica"],
+    "keywords": ["williams","menjelaskan","jelaskan","jelaskan padaku","apa itu","fungsi","bekerja","berguna","berarti","maksudnya","mewakili","menunjukkan"],
     "subquestions": {
      "Apakah Anda ingin saya juga menjelaskan indikator EMA (Exponential Moving Average)?": "ema_info",
      "Jika mau, saya juga bisa memberi tahu Anda untuk apa Bollinger Bands digunakan. Apakah Anda ingin tahu?": "bollinger_info"}
@@ -4363,7 +4363,7 @@
       "Bollinger Bands adalah osilator volatilitas. \n\n*Moving average* sentral dan band atas/bawah, dihitung dengan deviasi standar, membatasi harga. \n\nMenyentuh band atas, pasar *overbought*, menyentuh band bawah, *oversold*."
     ],
     "cost": 0,
-    "keywords": ["bollinger", "spieghi", "spiega", "spiegami", "cosa sono", "cos'è", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica"],
+    "keywords": ["bollinger","menjelaskan","jelaskan","jelaskan padaku","apa saja","apa itu","fungsi","bekerja","berguna","berarti","maksudnya","mewakili","menunjukkan"],
     "subquestions": {
      "Apakah Anda ingin saya juga menjelaskan indikator MACD?": "macd_info",
      "Jika mau, saya juga bisa memberi tahu Anda untuk apa indikator CCI digunakan. Apakah Anda ingin tahu?": "cci_info"}
@@ -4431,7 +4431,7 @@
       "*Key fundamentals* adalah parameter yang memungkinkan untuk memahami kekuatan keuangan perusahaan secara cepat dan ringkas. \n\nDi antara yang tersedia di sini adalah: *Trailing P/E*, *Forward P/E*, *EPS Growth (YoY)*, *Revenue Growth (YoY)*, *Profit Margins*, dan *Debt to Equity*."
     ],
     "cost": 0,
-    "keywords": ["fondamentali", "fundamentals", "spieghi", "spiega", "spiegami", "cos'è", "cosa sono", "funzione", "funziona", "serve", "vuol dire", "significa", "rappresenta", "indica", "intende"],
+    "keywords": ["fundamental","fundamentals","menjelaskan","jelaskan","jelaskan padaku","apa itu","apa saja","fungsi","bekerja","berguna","berarti","maksudnya","mewakili","menunjukkan","dimaksud"],
     "subquestions": {
       "Apakah Anda ingin tahu *fundamentals* [FAVOURITE]?": "key_fundamentals",
       "Apakah Anda ingin tahu apa yang dikatakan analisis fundamental [TOPIC]?": "fundamental_analysis",
@@ -6750,7 +6750,7 @@
       "Tidak, saya tidak perlu",
       "Tidak, saya tidak butuh",
       "Tidak, tidak saat ini",
-      "Non ora",
+      "Tidak sekarang",
       "Tidak, Anda sudah mengatakannya kepada saya",
       "Tidak, Anda sudah menjelaskannya kepada saya",
       "Tidak, saya sudah tahu",
@@ -6842,7 +6842,7 @@
       "Ok, saya akan biarkan saja 😊\n\nTetapi jika Anda ingin melanjutkan atau menambahkan sesuatu nanti, saya di sini untuk Anda!"
     ],
     "cost": 0,
-    "keywords": ["tidak, tidak terima kasih, tidak, sangat ramah, non ora, va bene così, sono a posto, un'altra volta, ho già, negativo, hai già dato, hai già detto, hai già spiegato, basta, stop, lascia stare, lascia perdere, grazie lo stesso, grazie comunque, grazie ugualmente, ad ogni modo grazie"]
+    "keywords": ["tidak","tidak terima kasih","tidak","sangat ramah","tidak sekarang","tidak apa-apa","saya baik-baik saja","lain kali","sudah","negatif","sudah memberikan","sudah mengatakan","sudah menjelaskan","cukup","berhenti","biarkan saja","lupakan saja","terima kasih juga","terima kasih bagaimanapun","terima kasih juga","bagaimanapun terima kasih"]
   },
   "recap": {
     "questions": [
