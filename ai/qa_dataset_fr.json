@@ -710,7 +710,7 @@
       "Veux-tu que je te montre les dernières nouvelles pertinentes sur [TOPIC] ?": "asset_news",
       "Je peux te montrer les corrélations de marché que j'ai trouvées concernant [TOPIC]. Veux-tu que je continue ?": "correlazioni_asset",
       "Je peux te montrer les nouvelles les plus récentes sur [TOPIC]. Veux-tu que je continue ?": "asset_news",
-      "Vuoi un’analisi sulle vendite degli insider di [TOPIC]?": "informative_sells",
+      "Veux-tu une analyse sur les ventes des insiders de [TOPIC] ?": "informative_sells",
       "Pour ton évaluation sur [TOPIC], il pourrait t'aider d'avoir les détails des 'informative sells'. Veux-tu que je te les montre ?": "informative_sells"}
 },
     "sentiment_7": {
@@ -6002,9 +6002,9 @@
     "answers": [
       "Voici les corrélations de [TOPIC] avec les autres actifs. Vous pouvez visualiser toutes les données, y compris le coefficient de *Pearson* et celui de *Spearman*, directement dans l’analyse que j'ai préparée pour vous 📊.",
       "J'ai analysé [TOPIC] pour vous : vous pouvez voir les données complètes sur les corrélations, y compris les coefficients de Pearson et Spearman, directement sur la page d'analyse que je vous ai préparée 🔍.",
-      "Ti ho preparato l’analisi di [TOPIC], dove puoi consultare i valori di correlazione calcolati dal mio algoritmo, come i coefficienti di *Pearson e Spearman* 📈. Basta un click e avrai i dati che ti servono 👍.",
+      "J'ai préparé l'analyse de [TOPIC] pour vous, où vous pouvez consulter les valeurs de corrélation calculées par mon algorithme, comme les coefficients de Pearson et Spearman 📈. Il suffit d'un clic et vous aurez les données dont vous avez besoin 👍.",
       "Vous pouvez visualiser toutes les corrélations de [TOPIC] avec d'autres actifs — y compris les coefficients de *Pearson et Spearman* — directement dans l'analyse de l'actif que je vous ai créée 😇 📊.",
-      "Le correlazioni di [TOPIC], insieme ai coefficienti di *Pearson* e di *Spearman* calcolati dal mio algoritmo, sono disponibili nella sezione di analisi dedicata. Ti ho già preparato tutto, basta un click 👍."
+      "Les corrélations de [TOPIC], ainsi que les coefficients de Pearson et de Spearman calculés par mon algorithme, sont disponibles dans la section d'analyse dédiée. Je vous ai déjà tout préparé, il suffit d'un clic 👍."
     ],
     "cost": 2,
     "keywords": ["corrélations", "spearman de", "pearson de", "cherche", "analyse", "donne-moi", "dis-moi", "corrélations de", "corrélations pour", "corrélations concernant", "corrélations entre", "pearson et spearman de", "spearman et pearson de"],
@@ -6193,7 +6193,7 @@
       "La stratégie de *Swing Trading* vise à capturer les *mouvements intermédiaires* du marché, en restant en position pour une période limitée et en profitant des hausses ou des baisses à court-moyen terme.\nElle se base sur l'analyse technique pour identifier les tendances et les points d'inversion, combinant des indicateurs comme le RSI, le MACD et les moyennes mobiles pour optimiser les entrées et les sorties.",
       "Le *Swing Trading* consiste à acheter et vendre des actifs en fonction des mouvements naturels des prix, en cherchant à *entrer quand une tendance commence et à sortir avant qu'elle ne perde de sa force*.\nC'est une stratégie adaptée à ceux qui ne veulent pas faire de trading journalier mais qui ne veulent pas non plus investir à long terme, offrant un bon équilibre entre temps, risque et rendement.",
       "Avec le *Swing Trading*, on cherche à exploiter les mouvements temporaires des prix sans *faire de trading journalier*, combinant analyse technique et fondamentale pour identifier des points d'entrée et de sortie efficaces.\nC'est une stratégie très répandue car elle permet d'obtenir des rendements constants avec un engagement de temps modéré par rapport au 'day trading'.",
-      "Le *Swing Trading* est une technique qui équilibre temps et rendement, idéale pour ceux qui veulent *operare sui mercati senza monitorarli costantemente* ma seguendo i trend di breve periodo.\n\nGli swing trader approfittano dei cicli naturali di rialzo e ribasso all’interno dei trend più ampi, cercando di prevedere i movimenti futuri attraverso indicatori tecnici e modelli di prezzo."
+      "Le *Swing Trading* est une technique qui équilibre temps et rendement, idéale pour ceux qui veulent *opérer sur les marchés sans les surveiller constamment* mais en suivant les tendances à court terme.\n\nLes swing traders profitent des cycles naturels de hausse et de baisse à l'intérieur des tendances plus larges, cherchant à prévoir les mouvements futurs à travers des indicateurs techniques et des modèles de prix."
     ],
     "cost": 0,
     "keywords": ["swing"],
