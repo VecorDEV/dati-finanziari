@@ -2749,11 +2749,9 @@
     "Do you want to know the 30-day sentiment of [TOP_FIRE]?": "sentiment_30",
     "Do you want to know the 7-day sentiment of [TOP_FIRE]?": "sentiment_7",
     "Do you want to know which assets have the highest growth potential?": "top_gainers",
-    "Maybe you want the list of Top Gainers. Should I provide it?": "top_gainers"
-  }
+    "Maybe you want the list of Top Gainers. Should I provide it?": "top_gainers"}
 },
-
-"ai_sorry": {
+  "ai_sorry": {
   "questions": [
     "I didn’t mean that",
     "I meant something else",
@@ -2801,7 +2799,9 @@
     "Sorry, you’re confusing [TOPIC] with another asset. I want the correct financial data.",
     "I asked for sentiment, not concrete data.",
     "I asked for sentiment, not real data.",
-    "I asked for info on [TOPIC] sentiment, why are you talking about [TOPIC]?"
+    "I asked for info on [TOPIC] sentiment, why are you talking about [TOPIC]?",
+    "No, but I wanted the chart",
+    "No, but I wanted the sentiment"
   ],
   "answers": [
     "You’re right. ",
