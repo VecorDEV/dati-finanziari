@@ -68,7 +68,7 @@ symbol_list = ["AAPL", "MSFT", "GOOGL", "AMZN", "META", "TSLA", "V", "JPM", "JNJ
         "DE", "BDX", "NOW", "SCHW", "LMT", "ADP", "C", "PLD", "NSC", "TMUS",
         "ITW", "FDX", "PNC", "SO", "APD", "ADI", "ICE", "ZTS", "TJX", "CL",
         "MMC", "EL", "GM", "CME", "EW", "AON", "D", "PSA", "AEP", "TROW", 
-        "LNTH", "HE", "BTDR", "NAAS", "SCHL", "TGT", "SYK", "BKNG", "DUK", "USB",
+        "LNTH", "HE", "BTDR", "NAAS", "SCHL", "TGT", "SYK", "BKNG", "DUK", "USB", "ISP.MI", "ENEL.MI", "STLAM.MI", "LDO.MI", 
         "ARM", "BABA", "BIDU", "COIN", "PST.MI", "UCG.MI", "DDOG", "HTZ", "JD", "LCID", "LYFT", "NET", "PDD", #NEW
         "PLTR", "RIVN", "ROKU", "SHOP", "SNOW", "SQ", "TWLO", "UBER", "ZI", "ZM", "DUOL",    #NEW
         "PBR", "VALE", "AMX",
@@ -98,7 +98,7 @@ symbol_list_for_yfinance = [
     "DE", "BDX", "NOW", "SCHW", "LMT", "ADP", "C", "PLD", "NSC", "TMUS",
     "ITW", "FDX", "PNC", "SO", "APD", "ADI", "ICE", "ZTS", "TJX", "CL",
     "MMC", "EL", "GM", "CME", "EW", "AON", "D", "PSA", "AEP", "TROW", 
-    "LNTH", "HE", "BTDR", "NAAS", "SCHL", "TGT", "SYK", "BKNG", "DUK", "USB",
+    "LNTH", "HE", "BTDR", "NAAS", "SCHL", "TGT", "SYK", "BKNG", "DUK", "USB", "ISP.MI", "ENEL.MI", "STLAM.MI", "LDO.MI",
     "ARM", "BABA", "BIDU", "COIN", "PST.MI", "UCG.MI", "DDOG", "HTZ", "JD", "LCID", "LYFT", "NET", "PDD",
     "PLTR", "RIVN", "ROKU", "SHOP", "SNOW", "SQ", "TWLO", "UBER", "ZI", "ZM", "DUOL",
     "PBR", "VALE", "AMX",
@@ -229,6 +229,10 @@ symbol_name_map = {
     "COIN": ["Coinbase", "Coinbase Global", "Coinbase Global Inc."],
     "PST.MI": ["Poste Italiane", "Poste Italiane S.p.A."],
     "UCG.MI": ["Unicredit", "UniCredit", "Unicredit S.p.A.", "UniCredit Bank"],
+    "ISP.MI": ["Intesa Sanpaolo", "Intesa Sanpaolo S.p.A.", "Gruppo Intesa Sanpaolo", "Intesa Sanpaolo Bank],
+    "ENEL.MI": ["Enel", "Enel S.p.A.", "Gruppo Enel"],
+    "STLAM.MI": ["Stellantis", "Stellantis N.V.", "Gruppo Stellantis", "Fiat Chrysler", "FCA", "PSA Group"],
+    "LDO.MI": ["Leonardo", "Leonardo S.p.A.", "Leonardo Finmeccanica", "Gruppo Leonardo"],
     "RIVN": ["Rivian", "Rivian Automotive", "Rivian Automotive Inc."],
     "LCID": ["Lucid", "Lucid Motors", "Lucid Group", "Lucid Group Inc."],
     "DDOG": ["Datadog", "Datadog Inc."],
