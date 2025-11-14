@@ -1823,13 +1823,13 @@
     "keywords": ["où", "judicieux", "placer", "miser", "investir", "sur quoi"],
     "tag": "free",
     "subquestions": {
-      "Voulez-vous savoir s'il est également judicieux d'investir sur [FAVOURITE] ?": "trading_entry_decision",
-      "Je peux également vous donner un conseil si investir ou non sur [FAVOURITE]. Voulez-vous que je le fasse ?": "trading_entry_decision",
-      "Je peux tracer la courbe graphique de [TOP_GAINER] pour vous donner une idée de son comportement récent. Voulez-vous que je la dessine ?": "graph_request",
-      "Il pourrait vous être utile d'observer comment [TOP_GAINER] évolue récemment. Voulez-vous que je trace le graphique ?": "graph_request",
-      "Peut-être qu'une analyse complète sur [TOP_GAINER] pourrait vous être utile. Voulez-vous que je la prépare ?": "asset_analysis_open",
-      "Voulez-vous que je vous prépare l'analyse complète sur [TOP_GAINER] afin d'avoir plus de confirmations ?": "asset_analysis_open",
-      "Si vous avez besoin d'un aperçu plus détaillé sur [TOP_GAINER], je vous conseille de regarder ce que dit l'analyse technique. Voulez-vous que je vous le dise brièvement ?": "ta_general"}
+    "Veux-tu savoir s'il est également judicieux d'investir sur [FAVOURITE] ?": "trading_entry_decision",
+    "Je peux également te donner un conseil pour savoir si investir ou non sur [FAVOURITE]. Veux-tu que je le fasse ?": "trading_entry_decision",
+    "Je peux tracer la courbe graphique de [TOP_GAINER] pour te donner une idée de son comportement récent. Veux-tu que je la dessine ?": "graph_request",
+    "Il pourrait t'être utile d'observer comment [TOP_GAINER] évolue récemment. Veux-tu que je trace le graphique ?": "graph_request",
+    "Peut-être qu'une analyse complète sur [TOP_GAINER] pourrait t'être utile. Veux-tu que je la prépare ?": "asset_analysis_open",
+    "Veux-tu que je te prépare l'analyse complète sur [TOP_GAINER] afin d'avoir plus de confirmations ?": "asset_analysis_open",
+    "Si tu as besoin d'un aperçu plus détaillé sur [TOP_GAINER], je te conseille de regarder ce que dit l'analyse technique. Veux-tu que je te le dise brièvement ?": "ta_general"}
 },
   "trading_stop_loss_level": {
   "questions": [
