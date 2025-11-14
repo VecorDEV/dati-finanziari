@@ -4839,7 +4839,17 @@
       "Montrez-moi le P/E trailing pour [TOPIC]",
       "Je voudrais savoir le P/E trailing actuel de [TOPIC]",
       "Dites-moi le P/E trailing courant de [TOPIC]",
-      "Dites-moi le PE trailing de [TOPIC]"
+      "Dites-moi le PE trailing de [TOPIC]",
+      "Quel est le PER glissant de [TOPIC] ?",
+      "Pouvez-vous me donner le PER glissant de [TOPIC] ?",
+      "Quel PER glissant a [TOPIC] ?",
+      "Me dites-vous la valeur du PER glissant de [TOPIC] ?",
+      "Quel est le ratio cours/bénéfice glissant de [TOPIC] ?",
+      "À combien s'élève le PER glissant de [TOPIC] ?",
+      "Montrez-moi le PER glissant pour [TOPIC]",
+      "Je voudrais savoir le PER glissant actuel de [TOPIC]",
+      "Dites-moi le PER glissant courant de [TOPIC]",
+      "Donnez-moi le ratio prix/bénéfices glissant de [TOPIC]"
     ],
     "answers": [
       "Le P/E trailing de [TOPIC] est actuellement [TRAILING_PE_VALUE].",
@@ -4852,7 +4862,7 @@
       "Le P/E trailing enregistré aujourd'hui pour [TOPIC] est [TRAILING_PE_VALUE]."
     ],
     "cost": 2,
-    "keywords": ["trailing pe", "trailing p/e", "historique", "actuel", "courant", "mis à jour"],
+    "keywords": ["trailing pe", "trailing p/e", "historique", "actuel", "courant", "mis à jour", "per glissant"],
     "tag": "free",
     "subquestions": {
       "Voulez-vous aussi savoir le P/E Forward de [TOPIC]?": "forward_pe",
@@ -4872,7 +4882,17 @@
       "Dites-moi le P/E forward de [TOPIC]",
       "Dites-moi le PE forward de [TOPIC]",
       "Donnez-moi le P/E forward de [TOPIC]",
-      "Donnez-moi le forward de [TOPIC]"
+      "Donnez-moi le forward de [TOPIC]",
+      "Quel est le PER prospectif de [TOPIC] ?",
+      "Pouvez-vous me donner le PER prospectif de [TOPIC] ?",
+      "Quel PER prospectif a [TOPIC] ?",
+      "Me dites-vous la valeur du PER prospectif de [TOPIC] ?",
+      "Quel est le ratio cours/bénéfice prospectif de [TOPIC] ?",
+      "À combien s'élève le PER prospectif de [TOPIC] ?",
+      "Montrez-moi le PER prospectif pour [TOPIC]",
+      "Je voudrais savoir le PER prospectif actuel de [TOPIC]",
+      "Dites-moi le PER prospectif de [TOPIC]",
+      "Donnez-moi le ratio prix/bénéfices prospectif de [TOPIC]"
     ],
     "answers": [
       "Le P/E forward de [TOPIC] est actuellement [FORWARD_PE_VALUE].",
@@ -4885,7 +4905,7 @@
       "Le P/E forward estimé aujourd'hui pour [TOPIC] est [FORWARD_PE_VALUE]."
     ],
     "cost": 2,
-    "keywords": ["forward pe", "forward p/e", "prévu", "actuel", "courant", "mis à jour"],
+    "keywords": ["forward pe", "forward p/e", "prévu", "actuel", "courant", "mis à jour", "per prospectif"],
     "tag": "free",
     "subquestions": {
       "Voulez-vous aussi savoir la Revenue Growth de [TOPIC]?": "revenue_growth",
