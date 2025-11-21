@@ -8,18 +8,108 @@ import time
 import os
 from email.utils import parsedate_to_datetime
 
-# --- SETUP LIBRERIE AI (NLTK VADER) ---
+# --- SETUP AI ---
 import nltk
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
-
-# Scarica il dizionario necessario (solo la prima volta)
 try:
     nltk.data.find('vader_lexicon')
 except LookupError:
-    print("   [Setup] Scaricamento dizionario VADER...")
     nltk.download('vader_lexicon', quiet=True)
 
-# --- 1. IL MODELLO MATEMATICO (Core Logic) ---
+# ==============================================================================
+# 1. LA TUA LISTA COMPLETA (RAW)
+# ==============================================================================
+FULL_ASSET_LIST = [
+    # Stocks USA & Global
+    "AAPL", "MSFT", "GOOGL", "AMZN", "META", "TSLA", "V", "JPM", "JNJ", "WMT",
+    "NVDA", "PYPL", "DIS", "NFLX", "NIO", "NRG", "ADBE", "INTC", "CSCO", "PFE",
+    "KO", "PEP", "MRK", "ABT", "XOM", "CVX", "T", "MCD", "NKE", "HD",
+    "IBM", "CRM", "BMY", "ORCL", "ACN", "LLY", "QCOM", "HON", "COST", "SBUX",
+    "CAT", "LOW", "MS", "GS", "AXP", "INTU", "AMGN", "GE", "FIS", "CVS",
+    "DE", "BDX", "NOW", "SCHW", "LMT", "ADP", "C", "PLD", "NSC", "TMUS",
+    "ITW", "FDX", "PNC", "SO", "APD", "ADI", "ICE", "ZTS", "TJX", "CL",
+    "MMC", "EL", "GM", "CME", "EW", "AON", "D", "PSA", "AEP", "TROW", 
+    "LNTH", "HE", "BTDR", "NAAS", "SCHL", "TGT", "SYK", "BKNG", "DUK", "USB",
+    "ARM", "BABA", "BIDU", "COIN", "DDOG", "HTZ", "JD", "LCID", "LYFT", "NET", 
+    "PDD", "PLTR", "RIVN", "ROKU", "SHOP", "SNOW", "SQ", "TWLO", "UBER", "ZI", 
+    "ZM", "DUOL", "PBR", "VALE", "AMX",
+    
+    # Italia / Europa
+    "ISP.MI", "ENEL.MI", "STLAM.MI", "LDO.MI", "PST.MI", "UCG.MI",
+
+    # Forex
+    "EURUSD=X", "USDJPY=X", "GBPUSD=X", "AUDUSD=X", "USDCAD=X", "USDCHF=X", 
+    "NZDUSD=X", "EURGBP=X", "EURJPY=X", "GBPJPY=X", "AUDJPY=X", "CADJPY=X", 
+    "CHFJPY=X", "EURAUD=X", "EURNZD=X", "EURCAD=X", "EURCHF=X", "GBPCHF=X", 
+    "AUDCAD=X",
+
+    # Indices (Global)
+    "^GSPC", "^DJI", "^NDX", "^IXIC", "^RUT", "^VIX", "^STOXX50E", "FTSEMIB.MI", 
+    "^GDAXI", "^FTSE", "^FCHI", "^N225", "^HSI",
+
+    # Crypto
+    "BTC-USD", "ETH-USD", "LTC-USD", "XRP-USD", "BCH-USD", "EOS-USD", "XLM-USD", 
+    "ADA-USD", "TRX-USD", "NEO-USD", "DASH-USD", "XMR-USD", "ETC-USD", "ZEC-USD", 
+    "BNB-USD", "DOGE-USD", "USDT-USD", "LINK-USD", "ATOM-USD", "XTZ-USD",
+
+    # Commodities
+    "CC=F", "GC=F", "SI=F", "CL=F", "NG=F"
+]
+
+# ==============================================================================
+# 2. AUTO-CATEGORIZZATORE (Distribuisce gli asset nei settori)
+# ==============================================================================
+def categorize_assets(asset_list):
+    sectors = {
+        "CRYPTO": {"benchmark": "BTC-USD", "assets": []},
+        "FOREX": {"benchmark": "DX-Y.NYB", "assets": []},
+        "COMMODITIES": {"benchmark": "^SPGSCI", "assets": []},
+        "ITALY_EU": {"benchmark": "FTSEMIB.MI", "assets": []},
+        "INDICES": {"benchmark": "URTH", "assets": []}, # URTH è ETF World
+        "US_STOCKS": {"benchmark": "^GSPC", "assets": []} # Default fallback
+    }
+    
+    # Lista speciale Tech per assegnare il Nasdaq invece dell'S&P500
+    tech_list = ["AAPL", "MSFT", "GOOGL", "AMZN", "META", "TSLA", "NVDA", "NFLX", 
+                 "AMD", "INTC", "QCOM", "CRM", "ADBE", "PLTR", "COIN", "SHOP", "SQ"]
+
+    for ticker in asset_list:
+        # 1. Crypto
+        if "-USD" in ticker:
+            sectors["CRYPTO"]["assets"].append(ticker)
+        # 2. Forex
+        elif "=X" in ticker:
+            sectors["FOREX"]["assets"].append(ticker)
+        # 3. Commodities
+        elif "=F" in ticker:
+            sectors["COMMODITIES"]["assets"].append(ticker)
+        # 4. Italia
+        elif ".MI" in ticker:
+            # FTSEMIB.MI è sia un asset che un benchmark. 
+            # Lo mettiamo negli INDICES se inizia con ^ o è un indice noto, 
+            # altrimenti in ITALY_EU
+            if ticker == "FTSEMIB.MI": 
+                sectors["INDICES"]["assets"].append(ticker)
+            else:
+                sectors["ITALY_EU"]["assets"].append(ticker)
+        # 5. Indici
+        elif ticker.startswith("^"):
+            sectors["INDICES"]["assets"].append(ticker)
+        # 6. Stocks (Default)
+        else:
+            # Raffinamento Tech vs General
+            if ticker in tech_list:
+                # Creiamo il settore Tech al volo se serve o usiamo US_STOCKS
+                # Per semplicità qui usiamo US_STOCKS ma cambiamo il benchmark a runtime se vuoi
+                sectors["US_STOCKS"]["assets"].append(ticker)
+            else:
+                sectors["US_STOCKS"]["assets"].append(ticker)
+    
+    return sectors
+
+# ==============================================================================
+# 3. ENGINE DI PREVISIONE
+# ==============================================================================
 class HybridScorer:
     def _calculate_rsi(self, series, period=14):
         delta = series.diff(1)
@@ -32,201 +122,163 @@ class HybridScorer:
 
     def _get_technical_score(self, df):
         if len(df) < 200: return 0.0
-        
         close = df['Close']
         sma_200 = close.rolling(window=200).mean().iloc[-1]
         rsi = self._calculate_rsi(close).iloc[-1]
         current_price = close.iloc[-1]
 
         score = 0.0
-        # Trend Following
         if current_price > sma_200: score += 0.5
         else: score -= 0.5
-        
-        # Momentum (RSI)
         if rsi < 30: score += 0.5
         elif rsi > 70: score -= 0.5
-        
         return max(min(score, 1.0), -1.0)
 
-    def calculate_probability(self, df_history, news_sentiment):
+    def calculate_probability(self, df_history, news_sentiment, news_count, leader_score, is_leader):
         s_tech = self._get_technical_score(df_history)
         s_news = news_sentiment
         
-        # Soglia minima per considerare il sentiment "attivo"
-        has_news = abs(s_news) > 0.05 
-
-        if has_news:
-            # SCENARIO A: Ci sono notizie rilevanti
-            # Le news pesano il 60% (perché ora sono analizzate dall'AI)
-            w_news = 0.60 
-            w_tech = 0.40
-            mode = "IBRIDA (Sentiment AI)"
+        # --- GESTIONE LOGICA "CANE CHE SI MORDE LA CODA" ---
+        if is_leader:
+            s_leader = 0.0 # Se sono io il leader, il mio "leader score" esterno è 0
+            # Aggiustiamo i pesi perché manca un fattore
+            if news_count == 0:
+                w_n, w_l, w_t = 0.0, 0.0, 1.0 # Solo Tecnico
+            elif news_count <= 3:
+                w_n, w_l, w_t = 0.30, 0.0, 0.70
+            else:
+                w_n, w_l, w_t = 0.60, 0.0, 0.40
         else:
-            # SCENARIO B: Nessuna notizia (o notizie neutre)
-            w_news = 0.00
-            w_tech = 1.00 
-            mode = "SOLO TECNICA (No News Rilevanti)"
+            s_leader = leader_score
+            # Pesi Standard a 3 Fattori
+            if news_count == 0:
+                w_n, w_l, w_t = 0.0, 0.35, 0.65
+            elif news_count <= 3:
+                w_n, w_l, w_t = 0.25, 0.25, 0.50
+            else:
+                w_n, w_l, w_t = 0.55, 0.15, 0.30
         
-        final_score = (s_news * w_news) + (s_tech * w_tech)
-        
-        # Limita il punteggio tra -1 e 1 per sicurezza
+        final_score = (s_news * w_n) + (s_tech * w_t) + (s_leader * w_l)
         final_score = max(min(final_score, 1.0), -1.0)
         
-        # Converte in percentuale (0-100%)
-        probability = 50 + (final_score * 50)
-
         return {
-            'probability': round(probability, 2),
-            'mode': mode,
-            'details': {'tech': round(s_tech, 2), 'news': round(s_news, 2)}
+            'prob': round(50 + (final_score * 50), 2),
+            'tech': round(s_tech, 2),
+            'news': round(s_news, 2),
+            'leader': round(s_leader, 2)
         }
 
-# --- 2. RECUPERO DATI STORICI (Funzione Reinserita) ---
-
-def get_historical_data(ticker):
-    """Recupera 1 anno di dati storici per calcolare la media mobile."""
+# ==============================================================================
+# 4. FUNZIONI DATA & NEWS
+# ==============================================================================
+def get_data(ticker):
     try:
-        stock = yf.Ticker(ticker)
-        # Scarica dati storici (senza progress bar)
-        df = stock.history(period="1y")
-        return df
-    except Exception as e:
-        print(f"   [Errore Storico] {ticker}: {e}")
-        return pd.DataFrame()
+        return yf.Ticker(ticker).history(period="1y", progress=False)
+    except: return pd.DataFrame()
 
-# --- 3. ANALISI TESTUALE (Il "Cervello") ---
+def get_leader_trend(leader_ticker):
+    try:
+        df = get_data(leader_ticker)
+        if df.empty: return 0.0
+        close = df['Close']
+        sma_50 = close.rolling(window=50).mean().iloc[-1]
+        current = close.iloc[-1]
+        return 0.5 if current > sma_50 else -0.5
+    except: return 0.0
 
-def analyze_sentiment_text(titles):
-    """
-    Analizza una lista di titoli usando VADER + Lessico Finanziario.
-    """
-    sia = SentimentIntensityAnalyzer()
-    
-    # Dizionario finanziario per migliorare la precisione
-    financial_lexicon = {
-        'surge': 4.0, 'jump': 3.5, 'rally': 3.5, 'soar': 4.0, 'bull': 3.0, 'bullish': 3.5,
-        'high': 2.0, 'gain': 2.5, 'profit': 3.0, 'beat': 2.5, 'strong': 2.5, 'growth': 2.0,
-        'plunge': -4.0, 'crash': -4.0, 'drop': -3.0, 'slump': -3.5, 'bear': -3.0, 'bearish': -3.5,
-        'loss': -3.0, 'miss': -2.5, 'weak': -2.5, 'fall': -2.5, 'down': -2.0, 'low': -2.0,
-        'inflation': -1.5, 'recession': -3.0, 'crisis': -4.0, 'risk': -1.5, 'cut': -1.5,
-        'fears': -2.0, 'uncertainty': -1.5, 'warning': -2.0
-    }
-    sia.lexicon.update(financial_lexicon)
-    
-    total_score = 0
-    count = 0
-    
-    print(f"     > Analisi AI su {len(titles)} titoli...")
-    
-    for text in titles:
-        score = sia.polarity_scores(text)['compound']
-        
-        # Stampa di debug per vedere cosa pensa l'AI
-        if abs(score) > 0.1: # Mostra solo se non è neutro
-            icon = "🟢" if score > 0 else "🔴"
-            # Tagliamo il testo se troppo lungo per pulizia log
-            print(f"       {icon} [{score:.2f}] {text[:70]}...")
-        
-        total_score += score
-        count += 1
-        
-    if count == 0: return 0.0
-    
-    return total_score / count
-
-# --- 4. RECUPERO NEWS RSS ---
-
-def get_real_news_analysis(ticker):
-    """Scarica news RSS da Google e le passa all'analizzatore."""
-    # Costruisce l'URL di ricerca specifico per il ticker
-    rss_url = f"https://news.google.com/rss/search?q={ticker}+stock&hl=en-US&gl=US&ceid=US:en"
-    headers = {'User-Agent': 'Mozilla/5.0'}
-    
-    valid_titles = []
-    # Finestra temporale di 48 ore
-    time_window = timedelta(hours=48)
-    now = datetime.now().astimezone()
+def get_news_data(ticker):
+    # Mapping per aiutare la ricerca news
+    clean_ticker = ticker.replace("=F", " futures").replace("=X", " forex").replace("-USD", " crypto")
+    rss_url = f"https://news.google.com/rss/search?q={clean_ticker}+stock&hl=en-US&gl=US&ceid=US:en"
     
     try:
-        print(f"   > Ricerca News RSS per {ticker}...")
-        response = requests.get(rss_url, headers=headers, timeout=10)
-        root = ET.fromstring(response.content)
-        items = root.findall('.//item')
+        resp = requests.get(rss_url, headers={'User-Agent': 'Mozilla/5.0'}, timeout=3)
+        root = ET.fromstring(resp.content)
+        titles = []
+        now = datetime.now().astimezone()
         
-        for item in items:
-            title = item.find('title').text
-            pub_date_str = item.find('pubDate').text
-            
+        for item in root.findall('.//item'):
             try:
-                pub_date = parsedate_to_datetime(pub_date_str)
-                age = now - pub_date
-                
-                if age < time_window:
-                    valid_titles.append(title)
-            except:
-                continue
-
-        if not valid_titles:
-            print(f"   > Nessuna notizia recente (<48h).")
-            return 0.0
+                pd = parsedate_to_datetime(item.find('pubDate').text)
+                if (now - pd) < timedelta(hours=48):
+                    titles.append(item.find('title').text)
+            except: continue
+            
+        count = len(titles)
+        if count == 0: return 0.0, 0
         
-        # Analisi del sentiment reale
-        avg_sentiment = analyze_sentiment_text(valid_titles)
-        print(f"   > Sentiment Medio Calcolato: {avg_sentiment:.4f}")
-        return avg_sentiment
+        sia = SentimentIntensityAnalyzer()
+        lexicon = {
+            'surge': 4.0, 'jump': 2.0, 'rally': 3.5, 'soar': 4.0, 'bull': 3.0, 'beat': 2.5,
+            'plunge': -4.0, 'crash': -4.0, 'drop': -3.0, 'slump': -3.5, 'bear': -3.0,
+            'inflation': -1.5, 'recession': -3.0
+        }
+        sia.lexicon.update(lexicon)
+        total = sum([sia.polarity_scores(t)['compound'] for t in titles])
+        return (total / count), count
+    except: return 0.0, 0
 
-    except Exception as e:
-        print(f"   [Errore RSS] {e}")
-        return 0.0
-
-# --- 5. ESECUZIONE ---
+# ==============================================================================
+# 5. ESECUZIONE
+# ==============================================================================
 
 if __name__ == "__main__":
-    
-    # Gestione Input (GitHub Actions o Default Locale)
-    env_tickers = os.environ.get('TICKER_INPUT')
-    if env_tickers:
-        ASSETS = [t.strip() for t in env_tickers.split(',') if t.strip()]
-    else:
-        # Lista di default per test locale
-        ASSETS = ['AAPL', 'NVDA', 'TSLA', 'BTC-USD']
-    
     scorer = HybridScorer()
     
-    print(f"\n--- TEST PREVISIONALE REALE (VADER AI) ---")
+    # 1. Organizza gli asset automaticamente
+    SECTOR_CONFIG = categorize_assets(FULL_ASSET_LIST)
     
+    print(f"\n--- ANALISI COMPLETA SU {len(FULL_ASSET_LIST)} ASSET ---")
+    
+    results = []
+    leader_cache = {}
 
-    for ticker in ASSETS:
-        print(f"\n📊 Analisi Asset: {ticker}")
-        print("-" * 40)
+    for sector, data in SECTOR_CONFIG.items():
+        leader = data['benchmark']
+        assets = data['assets']
         
-        # 1. Dati Storici
-        df = get_historical_data(ticker)
+        # Calcolo Leader
+        if leader not in leader_cache:
+            leader_cache[leader] = get_leader_trend(leader)
+        leader_score = leader_cache[leader]
         
-        if not df.empty:
-            # Piccolo ritardo per gentilezza verso i server
-            time.sleep(1)
+        print(f"\n📂 SETTORE: {sector} (Leader: {leader} | Trend: {leader_score})")
+
+        for ticker in assets:
+            df = get_data(ticker)
             
-            # 2. News + Analisi
-            sentiment_score = get_real_news_analysis(ticker)
-            
-            # 3. Calcolo Probabilità
-            result = scorer.calculate_probability(df, sentiment_score)
-            
-            # 4. Output Formattato
-            prob = result['probability']
-            if prob >= 60: signal = "🟢 STRONG BUY"
-            elif prob >= 55: signal = "🟢 BUY"
-            elif prob <= 40: signal = "🔴 STRONG SELL"
-            elif prob <= 45: signal = "🔴 SELL"
-            else: signal = "⚪ HOLD"
-            
-            print(f"\n   🎯 RISULTATO:")
-            print(f"   Segnale: {signal} ({prob}%)")
-            print(f"   Modalità: {result['mode']}")
-            print(f"   Dettagli: {result['details']}")
-        else:
-            print("   [!] Dati storici insufficienti o errore download.")
-        
-        print("=" * 40)
+            if not df.empty:
+                sentiment, count = get_news_data(ticker)
+                
+                # Controlla se l'asset è il leader stesso per evitare conteggio doppio
+                is_leader = (ticker == leader)
+                
+                res = scorer.calculate_probability(df, sentiment, count, leader_score, is_leader)
+                
+                sig = "BUY 🟢" if res['prob'] > 55 else "SELL 🔴" if res['prob'] < 45 else "HOLD ⚪"
+                
+                results.append({
+                    "Ticker": ticker,
+                    "Score": res['prob'],
+                    "Signal": sig,
+                    "News": count,
+                    "Sent": res['news'],
+                    "Tech": res['tech']
+                })
+                print(".", end="", flush=True)
+            else:
+                print("x", end="", flush=True)
+            time.sleep(0.1)
+
+    # OUTPUT FINALE
+    df_res = pd.DataFrame(results)
+    df_res = df_res.sort_values(by="Score", ascending=False)
+    
+    print("\n\n" + "="*85)
+    print(f"🏆 CLASSIFICA ASSET (Top Opportunities)")
+    print("="*85)
+    print(f"{'TICKER':<12} | {'SCORE':<6} | {'SIGNAL':<8} | {'NEWS':<4} | {'SENT':<6} | {'TECH':<6}")
+    print("-" * 85)
+    
+    for _, row in df_res.iterrows():
+        print(f"{row['Ticker']:<12} | {row['Score']:<6} | {row['Signal']:<8} | {row['News']:<4} | {row['Sent']:<6} | {row['Tech']:<6}")
