@@ -113,8 +113,8 @@ def get_historical_data(ticker):
 
 def get_recent_news_sentiment(ticker):
     """
-    Recupera news e applica filtro 'Sliding Window' (ultime 24h).
-    Restituisce un sentiment simulato (da sostituire con tua AI).
+    Recupera news con una finestra temporale estesa (90 giorni)
+    e mostra DATA e ORA esatte per debug.
     """
     try:
         stock = yf.Ticker(ticker)
@@ -123,49 +123,49 @@ def get_recent_news_sentiment(ticker):
         valid_news = []
         now = datetime.now()
         
-        # FINESTRA TEMPORALE: 24 Ore
-        # Puoi cambiarlo a 48 o 72 se vuoi includere il weekend
-        time_window = timedelta(hours=24)
+        # --- MODIFICA 1: FINESTRA TEMPORALE ESTESA ---
+        # Impostiamo 90 giorni (circa 3 mesi) per vedere tutto quello che Yahoo ci dà
+        time_window = timedelta(days=90)
         
-        print(f"   > Ricerca notizie ultime 24h per {ticker}...")
+        print(f"   > Ricerca notizie ultimi 3 MESI per {ticker}...")
         
         for news in news_list:
-            # Verifica se c'è il timestamp di pubblicazione
             if 'providerPublishTime' in news:
                 pub_timestamp = news['providerPublishTime']
                 pub_date = datetime.fromtimestamp(pub_timestamp)
                 
-                # Calcola età della notizia
+                # Calcola età
                 age = now - pub_date
                 
-                # --- IL FILTRO ---
+                # --- MODIFICA 2: FORMATTAZIONE DATA ---
+                # Creiamo una stringa leggibile: "2025-11-21 14:30:00"
+                date_str = pub_date.strftime('%Y-%m-%d %H:%M:%S')
+                
+                # Filtriamo
                 if age < time_window:
-                    hours_ago = int(age.total_seconds() // 3600)
                     valid_news.append({
                         'title': news['title'],
-                        'age_str': f"{hours_ago}h fa"
+                        'date': date_str,  # Salviamo la data esatta
+                        'publisher': news.get('publisher', 'N/A') # Utile vedere la fonte
                     })
         
-        # Logica di Ritorno
         if not valid_news:
-            print(f"   > Nessuna notizia trovata nelle ultime 24 ore.")
-            return 0.0 # Sentiment Neutro (attiva modalità SOLO TECNICA)
+            print(f"   > Nessuna notizia trovata negli ultimi 90 giorni (Strano!).")
+            return 0.0 
         else:
-            print(f"   > Trovate {len(valid_news)} notizie recenti:")
+            print(f"   > Trovate {len(valid_news)} notizie:")
             for n in valid_news:
-                print(f"     * [{n['age_str']}] {n['title']}")
+                # --- MODIFICA 3: OUTPUT DETTAGLIATO ---
+                print(f"     📅 [{n['date']}] {n['title']} (Fonte: {n['publisher']})")
             
-            # --- SIMULAZIONE SENTIMENT ---
-            # QUI INTEGRESTI IL TUO MODELLO NLP REALE
-            # Ora generiamo un valore random coerente per testare il modello ibrido
-            # (Es. tra -0.8 e 0.8)
+            # Simulazione sentiment
             simulated_sentiment = round(random.uniform(-0.9, 0.9), 2)
-            print(f"   > (Simulazione) Sentiment Calcolato: {simulated_sentiment}")
             return simulated_sentiment
 
     except Exception as e:
         print(f"   [Errore News] {ticker}: {e}")
         return 0.0
+
 
 # --- 3. ESECUZIONE ---
 
