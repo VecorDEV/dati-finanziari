@@ -103,9 +103,9 @@ class HybridScorer:
 def get_historical_data(ticker):
     """Recupera dati storici (1 anno) per calcolo SMA200."""
     try:
-        # Scarica dati senza mostrare la progress bar di yfinance
+        # CORREZIONE: Rimossa 'progress=False' che causava l'errore
         stock = yf.Ticker(ticker)
-        df = stock.history(period="1y", progress=False) 
+        df = stock.history(period="1y") 
         return df
     except Exception as e:
         print(f"   [Errore Dati Storici] {ticker}: {e}")
@@ -184,7 +184,6 @@ if __name__ == "__main__":
     
     print(f"\n--- AVVIO TEST PREVISIONALE IBRIDO ({datetime.now().strftime('%Y-%m-%d %H:%M')}) ---")
     print(f"Asset in analisi: {ASSETS}\n")
-    
 
     for ticker in ASSETS:
         print(f"📊 Analisi Asset: {ticker}")
@@ -224,5 +223,6 @@ if __name__ == "__main__":
         print(f"   Modalità: {result['mode']}")
         print(f"   Dettagli Pesi: {result['details']['weights']}")
         print("=" * 40 + "\n")
+
 
 
