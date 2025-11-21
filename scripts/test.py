@@ -1,71 +1,162 @@
-from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline
-import torch
+import yfinance as yf
+import pandas as pd
+import numpy as np
+from datetime import datetime, date
+import time
+import random
 
-device = 0 if torch.cuda.is_available() else -1
+# --- 1. IL MODELLO IBRIDO (La "Piramide") ---
+class HybridScorer:
+    def _calculate_rsi(self, series, period=14):
+        delta = series.diff(1)
+        gain = (delta.where(delta > 0, 0)).rolling(window=period).mean()
+        loss = (-delta.where(delta < 0, 0)).rolling(window=period).mean()
+        rs = gain / loss
+        return 100 - (100 / (1 + rs))
 
-model_name = "google/flan-t5-large"
+    def _get_technical_score(self, df):
+        if len(df) < 200: return 0.0
+        
+        close = df['Close']
+        sma_50 = close.rolling(window=50).mean().iloc[-1]
+        sma_200 = close.rolling(window=200).mean().iloc[-1]
+        rsi = self._calculate_rsi(close).iloc[-1]
+        current_price = close.iloc[-1]
 
-tokenizer = AutoTokenizer.from_pretrained(model_name)
-model = AutoModelForSeq2SeqLM.from_pretrained(model_name, torch_dtype=torch.float32)
+        score = 0.0
+        
+        # Logica Tecnica Semplificata
+        if current_price > sma_200: score += 0.5
+        else: score -= 0.5
+        
+        if rsi < 30: score += 0.5
+        elif rsi > 70: score -= 0.5
+        
+        return max(min(score, 1.0), -1.0)
 
-paraphraser = pipeline(
-    "text2text-generation",
-    model=model,
-    tokenizer=tokenizer,
-    device=device
-)
+    def calculate_probability(self, df_history, news_sentiment):
+        s_tech = self._get_technical_score(df_history)
+        s_news = news_sentiment
+        
+        # LOGICA DI PESATURA DINAMICA
+        # Se sentiment è 0.0 (nessuna news OGGI), il peso news diventa 0
+        has_news = abs(s_news) > 0.01 
 
-def migliora_frase(frase: str) -> str:
-    prompt = (
-        "Rewrite the following market update in a fluent, journalistic style, "
-        "using smooth transitions and varied sentence structures. "
-        "Avoid simple lists and any repetition of ideas or words. "
-        "Keep all numbers and company names unchanged.\n\n"
-        f"{frase}\n\nRewrite:"
-    )
-    results = paraphraser(
-        prompt,
-        max_new_tokens=180,
-        num_return_sequences=1,
-        num_beams=8,
-        do_sample=False,
-        early_stopping=True,
-        no_repeat_ngram_size=4,
-        length_penalty=1.2,  # favor longer but coherent outputs
-    )
-    return results[0]['generated_text'].split("Rewrite:")[-1].strip()
+        if has_news:
+            w_news = 0.50
+            w_tech = 0.50
+            mode = "IBRIDA (News + Tech)"
+        else:
+            w_news = 0.00
+            w_tech = 1.00 # Se non ci sono news, il tecnico comanda al 100%
+            mode = "SOLO TECNICA (No News Oggi)"
+        
+        final_score = (s_news * w_news) + (s_tech * w_tech)
+        probability = 50 + (final_score * 50)
 
-def genera_mini_tip_from_summary(summary: str) -> str:
-    prompt = (
-        "You are a financial educator. Based on the market summary below, write ONE concise and practical educational trading tip. "
-        "Focus on well-known indicators like RSI, Bollinger Bands, VIX, moving averages or market behaviors. "
-        "Do NOT mention specific stocks, numbers, or dates.\n\n"
-        f"Market summary: {summary}\n\nTip:"
-    )
-    results = paraphraser(
-        prompt,
-        max_new_tokens=90,
-        num_return_sequences=1,
-        num_beams=4,
-        do_sample=True,
-        temperature=0.7,
-        no_repeat_ngram_size=3,
-        early_stopping=True
-    )
-    return results[0]['generated_text'].split("Tip:")[-1].strip()
+        return {
+            'probability': round(probability, 2),
+            'mode': mode,
+            'details': {'tech_score': round(s_tech, 2), 'news_score': round(s_news, 2)}
+        }
 
-# === Esempio ===
-brief_text = (
-    "A mixed day in the market with gains balanced by some losses. "
-    "Duolingo extended its upward momentum, climbing 23.9%; "
-    "ADP extended its downward momentum, jumping 23.4%; "
-    "Netflix extended its uptrend, climbing 22.8%; "
-    "McDonald's rose by 23.2%, leading the gains today. "
-    "The session closes with a balanced market tone and cautious positioning."
-)
+# --- 2. FUNZIONI DI SUPPORTO ---
 
-brief_text_ai = migliora_frase(brief_text)
-print("Journalistic rewrite:", brief_text_ai)
+def get_historical_data(ticker):
+    """Recupera 1 anno di dati storici."""
+    try:
+        stock = yf.Ticker(ticker)
+        # Scarichiamo 1 anno per calcolare la SMA200
+        df = stock.history(period="1y") 
+        return df
+    except Exception as e:
+        print(f"Errore storico {ticker}: {e}")
+        return pd.DataFrame()
 
-mini_tip = genera_mini_tip_from_summary(brief_text_ai)
-print("Educational tip:", mini_tip)
+def get_todays_news_sentiment(ticker):
+    """
+    Recupera le news e FILTRA SOLO quelle di OGGI.
+    Restituisce un sentiment simulato (tu integrerai il tuo vero NLP qui).
+    """
+    try:
+        stock = yf.Ticker(ticker)
+        news_list = stock.news
+        
+        today_news = []
+        today_date = date.today()
+        
+        print(f"   > Controllo notizie per {ticker}...")
+        
+        for news in news_list:
+            # yfinance restituisce il timestamp in 'providerPublishTime'
+            if 'providerPublishTime' in news:
+                pub_time = news['providerPublishTime']
+                pub_date = datetime.fromtimestamp(pub_time).date()
+                
+                # === IL FILTRO CRUCIALE ===
+                # Teniamo la notizia SOLO se la data è uguale a OGGI
+                if pub_date == today_date:
+                    today_news.append(news['title'])
+                else:
+                    # Debug opzionale per vedere cosa scartiamo
+                    # print(f"     - Scartata notizia vecchia del {pub_date}")
+                    pass
+        
+        # Calcolo Sentiment sulle notizie filtrate
+        if not today_news:
+            print(f"   > Nessuna notizia trovata per OGGI ({today_date}).")
+            return 0.0 # Neutro
+        else:
+            print(f"   > Trovate {len(today_news)} notizie fresche di giornata!")
+            for t in today_news:
+                print(f"     * {t}")
+            
+            # QUI INSERISCI IL TUO ALGORITMO DI SENTIMENT REALE
+            # Per questo test, simulo un valore casuale tra -1 e 1
+            # così vedi come reagisce il modello.
+            simulated_sentiment = round(random.uniform(-0.8, 0.8), 2)
+            return simulated_sentiment
+
+    except Exception as e:
+        print(f"Errore news {ticker}: {e}")
+        return 0.0
+
+# --- 3. ESECUZIONE PRINCIPALE ---
+
+if __name__ == "__main__":
+    
+    # Lista degli asset da testare
+    ASSETS = ['AAPL', 'NVDA', 'UCG.MI', 'TSLA']
+    
+    scorer = HybridScorer()
+    
+    print(f"--- AVVIO TEST PREVISIONALE ({date.today()}) ---")
+    
+
+    for ticker in ASSETS:
+        print(f"\nAnalisi Asset: {ticker}")
+        print("-" * 30)
+        
+        # 1. Dati Storici
+        df = get_historical_data(ticker)
+        if df.empty:
+            print("Dati storici non disponibili.")
+            continue
+            
+        # 2. News Sentiment (Filtrato per Oggi)
+        sentiment_score = get_todays_news_sentiment(ticker)
+        
+        # 3. Calcolo Probabilità (Modello Ibrido)
+        result = scorer.calculate_probability(df, sentiment_score)
+        
+        # 4. Log Risultati
+        prob = result['probability']
+        signal = "COMPRA 🟢" if prob > 55 else "VENDI 🔴" if prob < 45 else "NEUTRO ⚪"
+        
+        print(f"\n   RISULTATO FINALE:")
+        print(f"   Probabilità Rialzo: {prob}%")
+        print(f"   Segnale: {signal}")
+        print(f"   Modalità Usata: {result['mode']}")
+        print(f"   Dettagli Punteggi: Tech {result['details']['tech_score']} | News {result['details']['news_score']}")
+        print("=" * 30)
+
