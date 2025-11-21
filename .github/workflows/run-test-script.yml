@@ -1,57 +1,40 @@
 name: Test
 
+# Questo evento permette l'esecuzione manuale dalla tab "Actions"
 on:
   workflow_dispatch:
+    inputs:
+      ticker_list:
+        description: 'Lista ticker separati da virgola (opzionale, default nel codice)'
+        required: false
+        default: ''
 
 jobs:
-  build-and-run:
+  run-prediction:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+    # 1. Scarica il codice del repository
+    - name: Checkout repository
+      uses: actions/checkout@v3
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
+    # 2. Installa Python
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
 
-      # Cache Hugging Face models (modificato per flan-t5-large)
-      - name: Cache Huggingface models
-        uses: actions/cache@v3
-        with:
-          path: ~/.cache/huggingface
-          key: ${{ runner.os }}-hf-${{ hashFiles('**/requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-hf-
+    # 3. Installa le dipendenze necessarie
+    # (Se hai un requirements.txt è meglio usare quello, altrimenti installiamo al volo)
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pandas numpy yfinance requests beautifulsoup4 lxml
 
-      # Cache pip packages
-      - name: Cache pip
-        uses: actions/cache@v3
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-
+    # 4. Esegue lo script Python
+    # Assicurati che il nome del file qui sotto corrisponda al tuo file reale!
+    - name: Run Prediction Script
+      env:
+        TICKER_INPUT: ${{ github.event.inputs.ticker_list }}
+      run: python scripts/test.py
 
-      - name: Upgrade pip, setuptools, wheel
-        run: python -m pip install --upgrade pip setuptools wheel
-
-      - name: Install Python dependencies
-        run: |
-          python -m pip install --no-cache-dir "numpy<2"
-          python -m pip install --no-cache-dir protobuf==3.20.3
-          python -m pip install --no-cache-dir torch==2.0.1+cpu -f https://download.pytorch.org/whl/torch_stable.html
-          python -m pip install --no-cache-dir transformers==4.33.2 sentencepiece
-
-      # Pre-download e cache del modello google/flan-t5-large
-      - name: Pre-download flan-t5-large model
-        run: |
-          python -c "from transformers import AutoTokenizer, AutoModelForSeq2SeqLM; \
-          AutoTokenizer.from_pretrained('google/flan-t5-large'); \
-          AutoModelForSeq2SeqLM.from_pretrained('google/flan-t5-large')"
-
-      - name: Run prediction script
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python scripts/test.py
