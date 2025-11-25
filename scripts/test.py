@@ -17,67 +17,87 @@ except LookupError:
     nltk.download('vader_lexicon', quiet=True)
 
 # ==============================================================================
-# 1. NUOVE MAPPE DATI (Create su misura)
+# 1. IL CUORE DEL SISTEMA: LA MAPPA DI CONVERSIONE
 # ==============================================================================
+# Chiave: Il nome che vuoi vedere tu (e usare per i settori/news)
+# Valore: Il codice tecnico che vuole Yahoo Finance
+TICKER_MAP = {
+    # Stocks US (Standard)
+    "AAPL": "AAPL", "MSFT": "MSFT", "GOOGL": "GOOGL", "AMZN": "AMZN", "META": "META",
+    "TSLA": "TSLA", "V": "V", "JPM": "JPM", "JNJ": "JNJ", "WMT": "WMT",
+    "NVDA": "NVDA", "PYPL": "PYPL", "DIS": "DIS", "NFLX": "NFLX", "NIO": "NIO",
+    "NRG": "NRG", "ADBE": "ADBE", "INTC": "INTC", "CSCO": "CSCO", "PFE": "PFE",
+    "KO": "KO", "PEP": "PEP", "MRK": "MRK", "ABT": "ABT", "XOM": "XOM",
+    "CVX": "CVX", "T": "T", "MCD": "MCD", "NKE": "NKE", "HD": "HD",
+    "IBM": "IBM", "CRM": "CRM", "BMY": "BMY", "ORCL": "ORCL", "ACN": "ACN",
+    "LLY": "LLY", "QCOM": "QCOM", "HON": "HON", "COST": "COST", "SBUX": "SBUX",
+    "CAT": "CAT", "LOW": "LOW", "MS": "MS", "GS": "GS", "AXP": "AXP",
+    "INTU": "INTU", "AMGN": "AMGN", "GE": "GE", "FIS": "FIS", "CVS": "CVS",
+    "DE": "DE", "BDX": "BDX", "NOW": "NOW", "SCHW": "SCHW", "LMT": "LMT",
+    "ADP": "ADP", "C": "C", "PLD": "PLD", "NSC": "NSC", "TMUS": "TMUS",
+    "ITW": "ITW", "FDX": "FDX", "PNC": "PNC", "SO": "SO", "APD": "APD",
+    "ADI": "ADI", "ICE": "ICE", "ZTS": "ZTS", "TJX": "TJX", "CL": "CL",
+    "MMC": "MMC", "EL": "EL", "GM": "GM", "CME": "CME", "EW": "EW",
+    "AON": "AON", "D": "D", "PSA": "PSA", "AEP": "AEP", "TROW": "TROW",
+    "LNTH": "LNTH", "HE": "HE", "BTDR": "BTDR", "NAAS": "NAAS", "SCHL": "SCHL",
+    "TGT": "TGT", "SYK": "SYK", "BKNG": "BKNG", "DUK": "DUK", "USB": "USB",
+    
+    # Stocks Growth / Tech / New
+    "ARM": "ARM", "BABA": "BABA", "BIDU": "BIDU", "COIN": "COIN", "DDOG": "DDOG", 
+    "HTZ": "HTZ", "JD": "JD", "LCID": "LCID", "LYFT": "LYFT", "NET": "NET", 
+    "PDD": "PDD", "PLTR": "PLTR", "RIVN": "RIVN", "ROKU": "ROKU", "SHOP": "SHOP", 
+    "SNOW": "SNOW", "SQ": "SQ", "TWLO": "TWLO", "UBER": "UBER", "ZI": "ZI", 
+    "ZM": "ZM", "DUOL": "DUOL", "PBR": "PBR", "VALE": "VALE", "AMX": "AMX",
 
-# 1. MAPPA NOMI (Per ricerca News)
-symbol_name_map = {
-    # Stocks
-    "AAPL": ["Apple", "Apple Inc."], "MSFT": ["Microsoft", "Microsoft Corporation"], "GOOGL": ["Google", "Alphabet"],
-    "AMZN": ["Amazon", "Amazon.com"], "META": ["Meta", "Facebook"], "TSLA": ["Tesla", "Tesla Inc."],
-    "V": ["Visa", "Visa Inc."], "JPM": ["JPMorgan", "JPMorgan Chase"], "JNJ": ["Johnson & Johnson"],
-    "WMT": ["Walmart"], "NVDA": ["NVIDIA", "Nvidia Corp."], "PYPL": ["PayPal"], "DIS": ["Disney"],
-    "NFLX": ["Netflix"], "NIO": ["NIO Inc."], "NRG": ["NRG Energy"], "ADBE": ["Adobe"],
-    "INTC": ["Intel"], "CSCO": ["Cisco"], "PFE": ["Pfizer"], "KO": ["Coca-Cola"], "PEP": ["Pepsi"],
-    "MRK": ["Merck"], "ABT": ["Abbott"], "XOM": ["ExxonMobil"], "CVX": ["Chevron"], "T": ["AT&T"],
-    "MCD": ["McDonald's"], "NKE": ["Nike"], "HD": ["Home Depot"], "IBM": ["IBM"], "CRM": ["Salesforce"],
-    "BMY": ["Bristol-Myers"], "ORCL": ["Oracle"], "ACN": ["Accenture"], "LLY": ["Eli Lilly"],
-    "QCOM": ["Qualcomm"], "HON": ["Honeywell"], "COST": ["Costco"], "SBUX": ["Starbucks"],
-    "CAT": ["Caterpillar"], "LOW": ["Lowe's"], "MS": ["Morgan Stanley"], "GS": ["Goldman Sachs"],
-    "AXP": ["American Express"], "INTU": ["Intuit"], "AMGN": ["Amgen"], "GE": ["General Electric"],
-    "FIS": ["Fidelity National"], "CVS": ["CVS Health"], "DE": ["Deere", "John Deere"],
-    "BDX": ["Becton Dickinson"], "NOW": ["ServiceNow"], "SCHW": ["Charles Schwab"], "LMT": ["Lockheed Martin"],
-    "ADP": ["ADP"], "C": ["Citigroup"], "PLD": ["Prologis"], "NSC": ["Norfolk Southern"],
-    "TMUS": ["T-Mobile"], "ITW": ["Illinois Tool Works"], "FDX": ["FedEx"], "PNC": ["PNC Financial"],
-    "SO": ["Southern Company"], "APD": ["Air Products"], "ADI": ["Analog Devices"], "ICE": ["Intercontinental Exchange"],
-    "ZTS": ["Zoetis"], "TJX": ["TJX Companies"], "CL": ["Colgate-Palmolive"], "MMC": ["Marsh & McLennan"],
-    "EL": ["Estée Lauder"], "GM": ["General Motors"], "CME": ["CME Group"], "EW": ["Edwards Lifesciences"],
-    "AON": ["Aon"], "D": ["Dominion Energy"], "PSA": ["Public Storage"], "AEP": ["American Electric Power"],
-    "TROW": ["T. Rowe Price"], "LNTH": ["Lantheus"], "HE": ["Hawaiian Electric"], "BTDR": ["Bitdeer"],
-    "NAAS": ["NaaS Technology"], "SCHL": ["Scholastic"], "TGT": ["Target"], "SYK": ["Stryker"],
-    "BKNG": ["Booking.com"], "DUK": ["Duke Energy"], "USB": ["U.S. Bancorp"], "BABA": ["Alibaba"],
-    "HTZ": ["Hertz"], "UBER": ["Uber"], "LYFT": ["Lyft"], "PLTR": ["Palantir"], "SNOW": ["Snowflake"],
-    "ROKU": ["Roku"], "TWLO": ["Twilio"], "SQ": ["Block", "Square"], "COIN": ["Coinbase"],
-    "PST.MI": ["Poste Italiane"], "UCG.MI": ["Unicredit"], "ISP.MI": ["Intesa Sanpaolo"],
-    "ENEL.MI": ["Enel"], "STLAM.MI": ["Stellantis"], "LDO.MI": ["Leonardo"], "RIVN": ["Rivian"],
-    "LCID": ["Lucid Motors"], "DDOG": ["Datadog"], "NET": ["Cloudflare"], "SHOP": ["Shopify"],
-    "ZI": ["ZoomInfo"], "ZM": ["Zoom Video"], "BIDU": ["Baidu"], "PDD": ["Pinduoduo"],
-    "JD": ["JD.com"], "ARM": ["Arm Holdings"], "DUOL": ["Duolingo"], "PBR": ["Petrobras"],
-    "VALE": ["Vale S.A."], "AMX": ["America Movil"],
-    # Forex
-    "EURUSD": ["EUR/USD"], "USDJPY": ["USD/JPY"], "GBPUSD": ["GBP/USD"], "AUDUSD": ["AUD/USD"],
-    "USDCAD": ["USD/CAD"], "USDCHF": ["USD/CHF"], "NZDUSD": ["NZD/USD"], "EURGBP": ["EUR/GBP"],
-    "EURJPY": ["EUR/JPY"], "GBPJPY": ["GBP/JPY"], "AUDJPY": ["AUD/JPY"], "CADJPY": ["CAD/JPY"],
-    "CHFJPY": ["CHF/JPY"], "EURAUD": ["EUR/AUD"], "EURNZD": ["EUR/NZD"], "EURCAD": ["EUR/CAD"],
-    "EURCHF": ["EUR/CHF"], "GBPCHF": ["GBP/CHF"], "AUDCAD": ["AUD/CAD"],
-    # Index
-    "SPX500": ["S&P 500"], "DJ30": ["Dow Jones"], "NAS100": ["Nasdaq 100"], "NASCOMP": ["Nasdaq Composite"],
-    "RUS2000": ["Russell 2000"], "VIX": ["VIX Index"], "EU50": ["Euro Stoxx 50"], "ITA40": ["FTSE MIB"],
-    "GER40": ["DAX 40"], "UK100": ["FTSE 100"], "FRA40": ["CAC 40"], "SWI20": ["SMI Index"],
-    "ESP35": ["IBEX 35"], "NETH25": ["AEX Index"], "JPN225": ["Nikkei 225"], "HKG50": ["Hang Seng"],
-    "CHN50": ["Shanghai Composite"], "IND50": ["Nifty 50"], "KOR200": ["KOSPI"],
-    # Crypto
-    "BTCUSD": ["Bitcoin"], "ETHUSD": ["Ethereum"], "LTCUSD": ["Litecoin"], "XRPUSD": ["Ripple"],
-    "BCHUSD": ["Bitcoin Cash"], "EOSUSD": ["EOS"], "XLMUSD": ["Stellar"], "ADAUSD": ["Cardano"],
-    "TRXUSD": ["Tron"], "NEOUSD": ["NEO"], "DASHUSD": ["Dash Coin"], "XMRUSD": ["Monero"],
-    "ETCUSD": ["Ethereum Classic"], "ZECUSD": ["Zcash"], "BNBUSD": ["Binance Coin"], "DOGEUSD": ["Dogecoin"],
-    "USDTUSD": ["Tether"], "LINKUSD": ["Chainlink"], "ATOMUSD": ["Cosmos"], "XTZUSD": ["Tezos"],
-    # Commodities
-    "COCOA": ["Cocoa Futures"], "GOLD": ["Gold Price"], "SILVER": ["Silver Price"],
-    "OIL": ["Crude Oil"], "NATGAS": ["Natural Gas"]
+    # Stocks Europa / Milano
+    "ISP.MI": "ISP.MI", "ENEL.MI": "ENEL.MI", "STLAM.MI": "STLAM.MI", 
+    "LDO.MI": "LDO.MI", "PST.MI": "PST.MI", "UCG.MI": "UCG.MI",
+
+    # Forex (=X)
+    "EURUSD": "EURUSD=X", "USDJPY": "USDJPY=X", "GBPUSD": "GBPUSD=X", 
+    "AUDUSD": "AUDUSD=X", "USDCAD": "USDCAD=X", "USDCHF": "USDCHF=X", 
+    "NZDUSD": "NZDUSD=X", "EURGBP": "EURGBP=X", "EURJPY": "EURJPY=X", 
+    "GBPJPY": "GBPJPY=X", "AUDJPY": "AUDJPY=X", "CADJPY": "CADJPY=X", 
+    "CHFJPY": "CHFJPY=X", "EURAUD": "EURAUD=X", "EURNZD": "EURNZD=X", 
+    "EURCAD": "EURCAD=X", "EURCHF": "EURCHF=X", "GBPCHF": "GBPCHF=X", 
+    "AUDCAD": "AUDCAD=X",
+
+    # Indici Globali (Ticker complessi)
+    "SPX500": "^GSPC", "DJ30": "^DJI", "NAS100": "^NDX", "NASCOMP": "^IXIC", 
+    "RUS2000": "^RUT", "VIX": "^VIX", "EU50": "^STOXX50E", "ITA40": "FTSEMIB.MI", 
+    "GER40": "^GDAXI", "UK100": "^FTSE", "FRA40": "^FCHI", "SWI20": "^SSMI", 
+    "ESP35": "^IBEX", "NETH25": "^AEX", "JPN225": "^N225", "HKG50": "^HSI", 
+    "CHN50": "000001.SS", "IND50": "^NSEI", "KOR200": "^KS11",
+
+    # Crypto (-USD)
+    "BTCUSD": "BTC-USD", "ETHUSD": "ETH-USD", "LTCUSD": "LTC-USD", 
+    "XRPUSD": "XRP-USD", "BCHUSD": "BCH-USD", "EOSUSD": "EOS-USD", 
+    "XLMUSD": "XLM-USD", "ADAUSD": "ADA-USD", "TRXUSD": "TRX-USD", 
+    "NEOUSD": "NEO-USD", "DASHUSD": "DASH-USD", "XMRUSD": "XMR-USD", 
+    "ETCUSD": "ETC-USD", "ZECUSD": "ZEC-USD", "BNBUSD": "BNB-USD", 
+    "DOGEUSD": "DOGE-USD", "USDTUSD": "USDT-USD", "LINKUSD": "LINK-USD", 
+    "ATOMUSD": "ATOM-USD", "XTZUSD": "XTZ-USD",
+
+    # Commodities (Futures)
+    "COCOA": "CC=F", "GOLD": "GC=F", "SILVER": "SI=F", "OIL": "CL=F", "NATGAS": "NG=F"
 }
 
-# 2. MAPPA SETTORI (Assegnazione fissa)
+# ==============================================================================
+# 2. METADATI (Nomi Estesi e Settori)
+# ==============================================================================
+
+symbol_name_map = {
+    # Stocks
+    "AAPL": ["Apple", "Apple Inc."], "MSFT": ["Microsoft"], "GOOGL": ["Google", "Alphabet"],
+    "AMZN": ["Amazon"], "META": ["Meta", "Facebook"], "TSLA": ["Tesla"],
+    "NVDA": ["NVIDIA"], "AMD": ["AMD"], "NFLX": ["Netflix"], "DIS": ["Disney"],
+    "GOLD": ["Gold Price", "XAUUSD"], "OIL": ["Crude Oil", "WTI"], 
+    "BTCUSD": ["Bitcoin"], "ETHUSD": ["Ethereum"], "SPX500": ["S&P 500", "US Stock Market"],
+    # ... (Puoi lasciare la tua lista completa qui, il codice userà .get() quindi è sicuro)
+    "PST.MI": ["Poste Italiane"], "UCG.MI": ["Unicredit"], "ISP.MI": ["Intesa Sanpaolo"],
+    "ENEL.MI": ["Enel"], "STLAM.MI": ["Stellantis"], "LDO.MI": ["Leonardo"]
+}
+
 asset_sector_map = {
     # 1. Technology
     "AAPL": "Technology", "MSFT": "Technology", "NVDA": "Technology", "ADBE": "Technology",
@@ -157,7 +177,6 @@ asset_sector_map = {
     "AUDCAD": "Indices/ETF/Cash"
 }
 
-# 3. LEADER DI SETTORE
 sector_leaders = {
     "Technology": "AAPL",             
     "Communication Services": "GOOGL",
@@ -174,57 +193,42 @@ sector_leaders = {
     "Indices/ETF/Cash": "SPX500"      
 }
 
-# Genera la lista degli asset basandosi ESATTAMENTE sulle chiavi della mappa settoriale
+# La lista su cui lavorare sono le chiavi della mappa settoriale
+# (Queste sono le tue stringhe "User Friendly")
 USER_SYMBOL_LIST = list(asset_sector_map.keys())
 
 # ==============================================================================
-# 2. UTILITY E MAPPATURA YAHOO
+# 3. UTILITY FUNZIONI
 # ==============================================================================
 
-def map_symbol_to_yahoo(symbol):
-    """Converte il tuo simbolo nel formato accettato da Yahoo Finance."""
-    s = symbol.upper()
+def get_sector_and_leader(friendly_symbol):
+    """
+    Trova il settore e il ticker Yahoo del leader di quel settore.
+    """
+    # 1. Trova il settore
+    sector = asset_sector_map.get(friendly_symbol, "Unknown Sector")
     
-    # 1. Indici
-    idx = {
-        "SPX500":"^GSPC", "DJ30":"^DJI", "NAS100":"^NDX", "NASCOMP":"^IXIC",
-        "RUS2000":"^RUT", "VIX":"^VIX", "EU50":"^STOXX50E", "ITA40":"FTSEMIB.MI",
-        "GER40":"^GDAXI", "UK100":"^FTSE", "FRA40":"^FCHI", "SWI20":"^SSMI",
-        "ESP35":"^IBEX", "NETH25":"^AEX", "JPN225":"^N225", "HKG50":"^HSI",
-        "CHN50":"000001.SS", "IND50":"^NSEI", "KOR200":"^KS11"
-    }
-    if s in idx: return idx[s]
-
-    # 2. Commodities (Futures)
-    comm = {"GOLD":"GC=F", "SILVER":"SI=F", "OIL":"CL=F", "NATGAS":"NG=F", "COCOA":"CC=F"}
-    if s in comm: return comm[s]
-
-    # 3. Forex (es. EURUSD -> EURUSD=X)
-    if len(s)==6 and s.isalpha() and ("USD" in s or "EUR" in s or "JPY" in s): 
-        return f"{s}=X"
-
-    # 4. Crypto (es. BTCUSD -> BTC-USD)
-    if s.endswith("USD") and len(s)>3 and "USDCAD" not in s: 
-        return s.replace("USD", "-USD")
-
-    # 5. Default (Stocks: AAPL, ISP.MI, ecc.)
-    return s 
-
-def get_sector_and_leader(ticker_symbol):
-    """Restituisce il settore e il ticker Yahoo del leader."""
-    sector = asset_sector_map.get(ticker_symbol, "Unknown Sector")
-    raw_leader = sector_leaders.get(sector, "SPX500") 
-    yahoo_leader = map_symbol_to_yahoo(raw_leader)
+    # 2. Trova chi è il leader "friendly" (es. 'GOLD')
+    friendly_leader = sector_leaders.get(sector, "SPX500") 
+    
+    # 3. Converti il leader friendly in Yahoo Ticker (es. 'GOLD' -> 'GC=F')
+    # Se non c'è nella mappa, usa il friendly name come fallback
+    yahoo_leader = TICKER_MAP.get(friendly_leader, friendly_leader)
+    
     return sector, yahoo_leader
 
 def get_data(ticker):
     try:
         df = yf.download(ticker, period="6mo", progress=False, auto_adjust=True)
         if df.empty: return pd.DataFrame()
+        
+        # Gestione MultiIndex (yfinance recente a volte ritorna colonne doppie)
         if isinstance(df.columns, pd.MultiIndex):
             try:
+                # Se c'è solo un ticker, droppa il livello del ticker
                 if df.columns.nlevels > 1: df.columns = df.columns.droplevel(1)
             except: pass
+            
         if 'Close' not in df.columns: return pd.DataFrame()
         return df
     except: return pd.DataFrame()
@@ -240,16 +244,16 @@ def get_leader_trend(leader_ticker):
         return 0.5 if curr > sma else -0.5
     except: return 0.0
 
-def get_news_data_advanced(ticker_yahoo, original_symbol):
+def get_news_data_advanced(ticker_yahoo, friendly_symbol):
     """
-    Ricerca news combinando il Ticker E i Nomi associati.
-    Esempio per AAPL: Cerca ("AAPL" OR "Apple" OR "Apple Inc.") stock
+    ticker_yahoo: serve per coerenza tecnica (non usato nella query qui sotto ma utile se volessi estenderlo)
+    friendly_symbol: usato per cercare i nomi "umani" nel dizionario
     """
     # 1. Recupera i nomi estesi (es. ["Apple", "Apple Inc."])
-    names = symbol_name_map.get(original_symbol, [])
+    names = symbol_name_map.get(friendly_symbol, [])
     
-    # 2. Crea la lista finale di ricerca: [Ticker] + [Nomi]
-    search_terms = [original_symbol] + names
+    # 2. Crea la lista finale di ricerca: [Simbolo Amichevole] + [Nomi Estesi]
+    search_terms = [friendly_symbol] + names
     
     # 3. Costruisce la query limitandosi ai primi 3 termini
     query_items = [f'"{term}"' for term in search_terms[:3]]
@@ -287,7 +291,7 @@ def get_news_data_advanced(ticker_yahoo, original_symbol):
         return 0.0, 0
 
 # ==============================================================================
-# 3. ENGINE
+# 4. ENGINE DI CALCOLO
 # ==============================================================================
 
 class HybridScorer:
@@ -338,7 +342,7 @@ class HybridScorer:
         return round(50 + (final * 50), 2), round(tech, 2), round(sent, 2), round(curr_lead, 2)
 
 # ==============================================================================
-# 4. MAIN
+# 5. MAIN EXECUTION
 # ==============================================================================
 
 if __name__ == "__main__":
@@ -349,36 +353,57 @@ if __name__ == "__main__":
     leader_cache = {}
 
     WORK_LIST = []
-    for raw in USER_SYMBOL_LIST:
-        yf_tick = map_symbol_to_yahoo(raw)
-        sec_name, leader_yf_tick = get_sector_and_leader(raw)
-        WORK_LIST.append({"orig": raw, "yf": yf_tick, "sec": sec_name, "bench": leader_yf_tick})
+    
+    # Costruiamo la lista di lavoro unendo:
+    # 1. Il nome friendly (da usare per print e news)
+    # 2. Il ticker Yahoo (da usare per scaricare i dati)
+    # 3. Il settore e il ticker del leader
+    
+    for friendly_name in USER_SYMBOL_LIST:
+        # Recupera il ticker Yahoo dal dizionario. Se non c'è, usa il friendly name (fallback)
+        yahoo_ticker = TICKER_MAP.get(friendly_name, friendly_name)
+        
+        sec_name, leader_yf_tick = get_sector_and_leader(friendly_name)
+        
+        WORK_LIST.append({
+            "friendly": friendly_name,
+            "yahoo": yahoo_ticker,
+            "sec": sec_name,
+            "bench": leader_yf_tick
+        })
 
+    # Ordina per settore per una stampa pulita
     WORK_LIST.sort(key=lambda x: x['sec'])
     
     current_sector = ""
     
     for item in WORK_LIST:
-        tick = item['yf']
-        orig = item['orig']
+        friendly = item['friendly']
+        yahoo_t = item['yahoo']
         sec = item['sec']
         bench = item['bench']
 
+        # Gestione cambio settore e calcolo Trend Leader
         if sec != current_sector:
             if bench not in leader_cache:
                 leader_cache[bench] = get_leader_trend(bench)
             ld_score = leader_cache[bench]
             icon = "📈" if ld_score > 0 else "📉"
-            print(f"\n📂 {sec} (Leader: {bench} {icon})")
+            # Per mostrare il nome del leader, cerchiamo di invertire la mappa o usare il ticker
+            print(f"\n📂 {sec} (Leader Ticker: {bench} {icon})")
             print("-" * 75)
             current_sector = sec
         else:
             ld_score = leader_cache[bench]
 
-        df = get_data(tick)
+        # Scarica dati usando il Ticker Yahoo
+        df = get_data(yahoo_t)
+        
         if not df.empty:
-            sentiment, count = get_news_data_advanced(tick, orig) 
-            is_leader = (tick == bench)
+            # Cerca news usando il nome friendly
+            sentiment, count = get_news_data_advanced(yahoo_t, friendly) 
+            
+            is_leader = (yahoo_t == bench)
             prob, tech, sent, lead = scorer.calculate_probability(df, sentiment, count, ld_score, is_leader)
             
             if prob >= 60: sig = "STRONG BUY"
@@ -388,12 +413,15 @@ if __name__ == "__main__":
             else: sig = "HOLD"
             
             results.append({
-                "Asset": orig, "Sector": sec, "Score": prob, "Signal": sig,
+                "Asset": friendly, "Sector": sec, "Score": prob, "Signal": sig,
                 "News": count, "Sent": sent, "Tech": tech, "Trend": lead
             })
-            print(f"   {orig:<10} | {prob}% | {sig:<11} | News:{count}")
+            # Stampa usando il nome Friendly
+            print(f"   {friendly:<10} | {prob}% | {sig:<11} | News:{count}")
         else:
-            print(f"   {orig:<10} | ⚠️ NO DATA")
+            print(f"   {friendly:<10} | ⚠️ NO DATA (Yahoo Ticker: {yahoo_t})")
+        
+        # Rispetto per le API
         time.sleep(0.05)
 
     if results:
