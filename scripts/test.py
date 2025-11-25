@@ -19,11 +19,8 @@ except LookupError:
 # ==============================================================================
 # 1. CONFIGURAZIONE SETTORI COMPLETA (TUTTI I TUOI ASSET)
 # ==============================================================================
-# Ho mappato ogni singolo asset della tua lista originale nel settore corretto.
 
 SECTOR_CONFIG = {
-    
-    # --- 1. BIG TECH & SOFTWARE (Leader: NASDAQ 100) ---
     "US_BIG_TECH": {
         "benchmark": "^NDX",
         "assets": [
@@ -33,17 +30,13 @@ SECTOR_CONFIG = {
             "LYFT", "ROKU", "WDAY", "TEAM"
         ]
     },
-
-    # --- 2. SEMICONDUTTORI & HARDWARE (Leader: SOXX ETF) ---
     "SEMICONDUCTORS": {
         "benchmark": "SOXX",
         "assets": [
             "NVDA", "TSLA", "AMD", "INTC", "QCOM", "CSCO", "ADI", "LMT", "TXN", 
-            "MU", "AVGO", "ARM", "BTDR", "NAAS" # BTDR e NAAS sono tech/hardware related
+            "MU", "AVGO", "ARM", "BTDR", "NAAS"
         ]
     },
-
-    # --- 3. FINANZA & PAGAMENTI (Leader: FINANCIAL SECTOR ETF) ---
     "FINANCE": {
         "benchmark": "XLF",
         "assets": [
@@ -52,8 +45,6 @@ SECTOR_CONFIG = {
             "SPGI", "MCO", "BRK-B"
         ]
     },
-
-    # --- 4. HEALTHCARE & PHARMA (Leader: HEALTHCARE ETF) ---
     "HEALTHCARE": {
         "benchmark": "XLV",
         "assets": [
@@ -61,8 +52,6 @@ SECTOR_CONFIG = {
             "ZTS", "SYK", "EW", "LNTH", "UNH", "ISRG", "TMO", "DHR"
         ]
     },
-
-    # --- 5. CONSUMER & RETAIL (Leader: CONSUMER DISC. ETF) ---
     "CONSUMER_RETAIL": {
         "benchmark": "XLY",
         "assets": [
@@ -71,34 +60,26 @@ SECTOR_CONFIG = {
             "RIVN", "LCID", "NIO", "HTZ", "SCHL"
         ]
     },
-
-    # --- 6. INDUSTRIALE & ENERGIA (Leader: INDUSTRIAL ETF) ---
     "INDUSTRIAL_ENERGY": {
         "benchmark": "XLI",
         "assets": [
             "XOM", "CVX", "GE", "CAT", "DE", "HON", "LMT", "ITW", "FDX", "SO", 
             "APD", "D", "PSA", "AEP", "DUK", "NRG", "HE", "PLD", "NSC", "PBR", 
-            "VALE" # PBR e VALE sono materie prime/energia
+            "VALE"
         ]
     },
-
-    # --- 7. MEDIA & TELECOM (Leader: COMM SERVICES ETF) ---
     "MEDIA_TELECOM": {
         "benchmark": "XLC",
         "assets": [
             "DIS", "NFLX", "T", "TMUS", "VZ", "CMCSA", "CHTR", "WBD", "PARA"
         ]
     },
-
-    # --- 8. CINA & EMERGING (Leader: HANG SENG) ---
     "CHINA_ADR": {
         "benchmark": "^HSI",
         "assets": [
-            "BABA", "BIDU", "JD", "PDD", "NIO", "TCEHY", "AMX" # AMX è messico ma emerging
+            "BABA", "BIDU", "JD", "PDD", "NIO", "TCEHY", "AMX"
         ]
     },
-
-    # --- 9. ITALIA & EUROPA (Leader: FTSE MIB) ---
     "ITALY_EU": {
         "benchmark": "FTSEMIB.MI",
         "assets": [
@@ -106,8 +87,6 @@ SECTOR_CONFIG = {
             "ENI.MI", "RACE.MI", "TIT.MI", "TRN.MI", "SRG.MI", "MONC.MI"
         ]
     },
-
-    # --- 10. CRYPTO ASSETS (Leader: BITCOIN) ---
     "CRYPTO": {
         "benchmark": "BTC-USD",
         "assets": [
@@ -117,8 +96,6 @@ SECTOR_CONFIG = {
             "ATOM-USD", "XTZ-USD"
         ]
     },
-
-    # --- 11. FOREX (Leader: DOLLAR INDEX) ---
     "FOREX": {
         "benchmark": "DX-Y.NYB",
         "assets": [
@@ -128,16 +105,12 @@ SECTOR_CONFIG = {
             "EURCAD=X", "EURCHF=X", "GBPCHF=X", "AUDCAD=X"
         ]
     },
-
-    # --- 12. COMMODITIES (Leader: GSCI INDEX) ---
     "COMMODITIES": {
         "benchmark": "^SPGSCI",
         "assets": [
             "GC=F", "SI=F", "CL=F", "NG=F", "CC=F", "HG=F", "KC=F", "ZC=F"
         ]
     },
-
-    # --- 13. INDICI GLOBALI (Leader: MSCI WORLD) ---
     "INDICES": {
         "benchmark": "URTH",
         "assets": [
@@ -149,7 +122,56 @@ SECTOR_CONFIG = {
 }
 
 # ==============================================================================
-# 2. ENGINE MATEMATICO (Hybrid Scorer)
+# 2. DATA FETCHING ROBUSTO (IL FIX)
+# ==============================================================================
+
+def get_data(ticker):
+    """
+    Scarica dati e corregge il problema 'MultiIndex' di Yahoo Finance.
+    Questa è la parte cruciale per evitare il crash.
+    """
+    try:
+        # Scarichiamo 6 mesi di dati
+        df = yf.download(ticker, period="6mo", progress=False, auto_adjust=True)
+        
+        if df.empty:
+            return pd.DataFrame()
+
+        # FIX: Se ci sono MultiIndex nelle colonne (es. ('Close', 'AAPL')), appiattiscili
+        if isinstance(df.columns, pd.MultiIndex):
+            try:
+                # Se c'è un livello ticker, droppalo per avere solo 'Close'
+                if df.columns.nlevels > 1:
+                    df.columns = df.columns.droplevel(1)
+            except:
+                pass
+        
+        # Verifica finale che 'Close' esista
+        if 'Close' not in df.columns:
+            return pd.DataFrame()
+            
+        return df
+    except Exception:
+        # Silenzia l'errore per continuare con gli altri asset
+        return pd.DataFrame()
+
+def get_leader_trend(leader_ticker):
+    """Calcola trend leader (Benchmark)."""
+    try:
+        df = get_data(leader_ticker)
+        if df.empty or len(df) < 50: return 0.0
+        
+        close = df['Close']
+        
+        # Calcolo sicuro con float nativi
+        sma_50 = float(close.rolling(window=50).mean().iloc[-1])
+        current = float(close.iloc[-1])
+        
+        return 0.5 if current > sma_50 else -0.5
+    except: return 0.0
+
+# ==============================================================================
+# 3. ENGINE MATEMATICO
 # ==============================================================================
 
 class HybridScorer:
@@ -163,31 +185,31 @@ class HybridScorer:
         return 100 - (100 / (1 + rs))
 
     def _get_technical_score(self, df):
-        # Minimo dati necessari
         if len(df) < 30: return 0.0
-        
         close = df['Close']
         
-        # Adattiamo la media mobile alla lunghezza dello storico disponibile
         window = 200 if len(df) >= 200 else 50
-        sma_long = close.rolling(window=window).mean().iloc[-1]
         
-        current_price = close.iloc[-1]
-        
-        # RSI calculation
-        if len(df) > 15:
-            rsi = self._calculate_rsi(close).iloc[-1]
-        else:
-            rsi = 50.0
+        try:
+            sma_long = float(close.rolling(window=window).mean().iloc[-1])
+            current_price = float(close.iloc[-1])
+            
+            if len(df) > 15:
+                rsi = float(self._calculate_rsi(close).iloc[-1])
+            else:
+                rsi = 50.0
+        except:
+            return 0.0
 
         score = 0.0
-        # A. Trend (0.5)
+        
+        # Logica Trend
         if current_price > sma_long: score += 0.5
         else: score -= 0.5
         
-        # B. Momentum (0.5)
-        if rsi < 30: score += 0.5    # Ipervenduto -> Rimbalzo
-        elif rsi > 70: score -= 0.5  # Ipercomprato -> Ritracciamento
+        # Logica Momentum
+        if rsi < 30: score += 0.5
+        elif rsi > 70: score -= 0.5
         
         return max(min(score, 1.0), -1.0)
 
@@ -195,70 +217,30 @@ class HybridScorer:
         s_tech = self._get_technical_score(df_history)
         s_news = news_sentiment
         
-        # Se l'asset è il leader stesso, il suo "Leader Score" esterno è 0 (si autoregola)
-        current_leader_score = 0.0 if is_leader else leader_score
+        current_leader = 0.0 if is_leader else leader_score
         
-        # --- PESI DINAMICI ---
+        # Pesi Dinamici (Confidence Score)
         if is_leader:
-            # Modello a 2 fattori (Tecnico + News)
             if news_count == 0: w_n, w_l, w_t = 0.0, 0.0, 1.0
             elif news_count <= 3: w_n, w_l, w_t = 0.30, 0.0, 0.70
             else: w_n, w_l, w_t = 0.60, 0.0, 0.40
         else:
-            # Modello a 3 fattori (Tecnico + News + Leader)
-            if news_count == 0:
-                # Niente news: comanda il trend tecnico e il settore
-                w_n, w_l, w_t = 0.0, 0.35, 0.65
-            elif news_count <= 3:
-                w_n, w_l, w_t = 0.20, 0.25, 0.55
-            else:
-                # Molte news: il sentiment specifico comanda
-                w_n, w_l, w_t = 0.55, 0.15, 0.30
+            if news_count == 0: w_n, w_l, w_t = 0.0, 0.35, 0.65
+            elif news_count <= 3: w_n, w_l, w_t = 0.20, 0.25, 0.55
+            else: w_n, w_l, w_t = 0.55, 0.15, 0.30
         
-        final_score = (s_news * w_n) + (s_tech * w_t) + (current_leader_score * w_l)
+        final_score = (s_news * w_n) + (s_tech * w_t) + (current_leader * w_l)
         final_score = max(min(final_score, 1.0), -1.0)
         
-        # Trasforma in probabilità (50% base + score)
-        prob = 50 + (final_score * 50)
-        return round(prob, 2), round(s_tech, 2), round(s_news, 2), round(current_leader_score, 2)
+        return round(50 + (final_score * 50), 2), round(s_tech, 2), round(s_news, 2), round(current_leader, 2)
 
 # ==============================================================================
-# 3. DATA FETCHING (Robustezza Yahoo)
+# 4. NEWS FETCHING
 # ==============================================================================
-
-def get_data(ticker):
-    """Scarica dati storici. Gestisce il download robusto."""
-    try:
-        # Scarichiamo 6 mesi di dati per velocità ma sufficienti per trend
-        # auto_adjust=True gestisce dividendi e split
-        df = yf.download(ticker, period="1y", progress=False, auto_adjust=True)
-        if df.empty: return pd.DataFrame()
-        return df
-    except: return pd.DataFrame()
-
-def get_leader_trend(leader_ticker):
-    """Calcola il trend del benchmark di settore."""
-    try:
-        df = get_data(leader_ticker)
-        if df.empty or len(df) < 50: return 0.0
-        
-        close = df['Close']
-        # Gestione MultiIndex se presente
-        if isinstance(close, pd.DataFrame): close = close.iloc[:, 0]
-
-        sma_50 = close.rolling(window=50).mean().iloc[-1]
-        current = close.iloc[-1]
-        
-        return 0.5 if current > sma_50 else -0.5
-    except: return 0.0
 
 def get_news_data(ticker):
-    """Scarica news da Google RSS e analizza il sentiment."""
-    # Pulizia nome per migliorare la ricerca
-    clean_ticker = ticker.replace("=F", " commodity").replace("=X", " forex").replace("-USD", " crypto")
-    
-    # URL Google News RSS Search
-    rss_url = f"https://news.google.com/rss/search?q={clean_ticker}+stock&hl=en-US&gl=US&ceid=US:en"
+    clean = ticker.replace("=F", " commodity").replace("=X", " forex").replace("-USD", " crypto")
+    rss_url = f"https://news.google.com/rss/search?q={clean}+stock&hl=en-US&gl=US&ceid=US:en"
     
     try:
         resp = requests.get(rss_url, headers={'User-Agent': 'Mozilla/5.0'}, timeout=2)
@@ -266,7 +248,6 @@ def get_news_data(ticker):
         titles = []
         now = datetime.now().astimezone()
         
-        # Filtro temporale 48h
         for item in root.findall('.//item'):
             try:
                 pd_date = parsedate_to_datetime(item.find('pubDate').text)
@@ -277,7 +258,6 @@ def get_news_data(ticker):
         count = len(titles)
         if count == 0: return 0.0, 0
         
-        # Analisi VADER
         sia = SentimentIntensityAnalyzer()
         lexicon = {
             'surge': 4.0, 'jump': 2.0, 'rally': 3.5, 'soar': 4.0, 'bull': 3.0, 'beat': 2.5,
@@ -285,98 +265,85 @@ def get_news_data(ticker):
             'inflation': -1.5, 'recession': -3.0
         }
         sia.lexicon.update(lexicon)
-        
         total = sum([sia.polarity_scores(t)['compound'] for t in titles])
         return (total / count), count
     except: return 0.0, 0
 
 # ==============================================================================
-# 4. ESECUZIONE
+# 5. ESECUZIONE
 # ==============================================================================
 
 if __name__ == "__main__":
     scorer = HybridScorer()
-    print(f"\n--- ANALISI COMPLETA PORTAFOGLIO ({datetime.now().strftime('%Y-%m-%d')}) ---")
+    print(f"\n--- ANALISI PORTAFOGLIO SETTORIALE ({datetime.now().strftime('%Y-%m-%d')}) ---")
     
     all_results = []
     leader_cache = {}
 
-    # Iterazione su tutti i settori
-    for sector_name, config in SECTOR_CONFIG.items():
-        leader_ticker = config['benchmark']
-        assets = config['assets']
+    for sector, data in SECTOR_CONFIG.items():
+        leader = data['benchmark']
+        assets = data['assets']
         
-        # 1. Analisi Leader (Cache per non riscaricare se usato più volte)
-        if leader_ticker not in leader_cache:
-            leader_cache[leader_ticker] = get_leader_trend(leader_ticker)
+        # 1. Analisi Leader (Cache)
+        if leader not in leader_cache:
+            leader_cache[leader] = get_leader_trend(leader)
         
-        sector_trend = leader_cache[leader_ticker]
+        sector_trend = leader_cache[leader]
         trend_icon = "📈" if sector_trend > 0 else "📉"
         
-        print(f"\n📂 {sector_name} [Leader: {leader_ticker} {trend_icon}]")
+        print(f"\n📂 {sector} [Leader: {leader} {trend_icon}]")
         print("-" * 60)
 
-        # 2. Analisi Singoli Asset
+        # 2. Analisi Asset
         for ticker in assets:
-            try:
-                df = get_data(ticker)
+            df = get_data(ticker)
+            
+            if not df.empty:
+                sentiment, count = get_news_data(ticker)
+                is_leader = (ticker == leader)
                 
-                if not df.empty:
-                    sentiment, count = get_news_data(ticker)
-                    is_leader = (ticker == leader_ticker)
-                    
-                    prob, tech_s, news_s, lead_s = scorer.calculate_probability(
-                        df, sentiment, count, sector_trend, is_leader
-                    )
-                    
-                    # Segnale testuale
-                    if prob >= 60: sig = "STRONG BUY"
-                    elif prob >= 53: sig = "BUY"
-                    elif prob <= 40: sig = "STRONG SELL"
-                    elif prob <= 47: sig = "SELL"
-                    else: sig = "HOLD"
-                    
-                    all_results.append({
-                        "Ticker": ticker,
-                        "Sector": sector_name,
-                        "Score": prob,
-                        "Signal": sig,
-                        "News": count,
-                        "Sent": news_s,
-                        "Tech": tech_s,
-                        "Trend": lead_s
-                    })
-                    
-                    # Stampa di avanzamento
-                    print(f"   {ticker:<10} | {prob}% | {sig:<10} | News: {count}")
-                else:
-                    print(f"   {ticker:<10} | ⚠️ NO DATA")
+                prob, tech, sent, lead = scorer.calculate_probability(
+                    df, sentiment, count, sector_trend, is_leader
+                )
+                
+                if prob >= 60: sig = "STRONG BUY"
+                elif prob >= 53: sig = "BUY"
+                elif prob <= 40: sig = "STRONG SELL"
+                elif prob <= 47: sig = "SELL"
+                else: sig = "HOLD"
+                
+                all_results.append({
+                    "Ticker": ticker,
+                    "Sector": sector,
+                    "Score": prob,
+                    "Signal": sig,
+                    "News": count,
+                    "Sent": sent,
+                    "Tech": tech,
+                    "Trend": lead
+                })
+                print(f"   {ticker:<10} | {prob}% | {sig:<11} | News:{count}")
+            else:
+                print(f"   {ticker:<10} | ⚠️ NO DATA ({ticker})")
             
-            except Exception as e:
-                print(f"   {ticker:<10} | ❌ ERROR: {e}")
-            
-            # Pausa minima per evitare Rate Limit di Yahoo (importante con 200 asset)
-            time.sleep(0.1)
+            time.sleep(0.05)
 
-    # ==========================================================================
-    # 5. OUTPUT CLASSIFICA FINALE
-    # ==========================================================================
+    # OUTPUT FINALE
     if all_results:
         df_res = pd.DataFrame(all_results)
         df_res = df_res.sort_values(by="Score", ascending=False)
         
-        print("\n\n" + "="*95)
-        print(f"🏆 CLASSIFICA GENERALE (Ordinata per Trend Score Decrescente)")
-        print("="*95)
-        print(f"{'TICKER':<10} | {'SECTOR':<18} | {'SCORE':<6} | {'SIGNAL':<11} | {'NEWS':<4} | {'SENT':<5} | {'TECH':<5} | {'LEAD':<5}")
-        print("-" * 95)
+        print("\n\n" + "="*100)
+        print(f"🏆 CLASSIFICA FINALE (Ordinata per Score)")
+        print("="*100)
+        print(f"{'TICKER':<10} | {'SECTOR':<15} | {'SCORE':<6} | {'SIGNAL':<11} | {'NEWS':<4} | {'SENT':<5} | {'TECH':<5} | {'LEAD':<5}")
+        print("-" * 100)
         
         for _, row in df_res.iterrows():
             icon = "🟢" if "BUY" in row['Signal'] else "🔴" if "SELL" in row['Signal'] else "⚪"
-            print(f"{row['Ticker']:<10} | {row['Sector'][:18]:<18} | {row['Score']:<6} | {icon} {row['Signal']:<9} | {row['News']:<4} | {row['Sent']:<5} | {row['Tech']:<5} | {row['Trend']:<5}")
+            print(f"{row['Ticker']:<10} | {row['Sector'][:15]:<15} | {row['Score']:<6} | {icon} {row['Signal']:<9} | {row['News']:<4} | {row['Sent']:<5} | {row['Tech']:<5} | {row['Trend']:<5}")
             
-        # Salvataggio su file
-        df_res.to_csv("financial_predictions_full.csv", index=False)
-        print("\n✅ Analisi completata. Salvato in 'financial_predictions_full.csv'")
+        df_res.to_csv("predictions_sectors.csv", index=False)
+        print("\n✅ Analisi completata. Salvato in 'predictions_sectors.csv'")
     else:
-        print("\n❌ Nessun risultato generato. Controlla la connessione o i blocchi IP.")
+        print("\n❌ Nessun risultato generato.")
