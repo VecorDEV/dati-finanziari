@@ -318,7 +318,6 @@ class HybridScorer:
 if __name__ == "__main__":
     scorer = HybridScorer()
     print(f"\n--- ANALISI CLUSTERIZZATA AVANZATA ({datetime.now().strftime('%Y-%m-%d')}) ---")
-    [attachment_0](attachment)
     
     results = []
     leader_cache = {}
