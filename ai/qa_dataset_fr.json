@@ -8381,5 +8381,85 @@
     "Souhaites-tu que je te montre aussi les niveaux de support et de résistance pour [TOPIC] ?": "supporto_resistenza",
     "Veux-tu que je prépare aussi l’analyse fondamentale de [TOPIC], pour avoir une vision complète ?": "fundamental_analysis",
     "Je peux te montrer comment [TOP_GAINER] a évolué ces derniers jours pour mieux comprendre le contexte du marché. Veux-tu que je le fasse ?": "graph_request"}
+},
+  "leva_info": {
+    "questions": [
+      "Qu'est-ce que l'effet de levier financier ?",
+      "Qu'est-ce que le levier ?",
+      "Que sont les effets de levier ?",
+      "Comment fonctionne l'effet de levier ?",
+      "Comment fonctionnent les leviers ?",
+      "Que se passe-t-il si j'utilise un effet de levier ?",
+      "Que se passe-t-il si j'utilise des leviers ?",
+      "Peux-tu m'expliquer ce qu'est le levier ?",
+      "Comment fonctionne l'effet de levier dans le trading ?",
+      "Comment utiliser l'effet de levier financier ?",
+      "Qu'est-ce qui change si j'utilise l'effet de levier ?",
+      "Que signifie trader avec un effet de levier ?",
+      "Explique-moi les leviers",
+      "Peux-tu m'expliquer le concept de leverage ?",
+      "Qu'est-ce que le trading sur marge ?",
+      "Comment fonctionne le trading sur marge ?",
+      "C'est quoi le trading avec marge ?",
+      "Que signifie faire du trading sur marge ?",
+      "Quels sont les risques de l'effet de levier ?",
+      "Utiliser des leviers est-il risqué ?",
+      "Est-ce que je risque plus si j'utilise un levier ?",
+      "Comment calculer le levier sur une opération ?",
+      "Peux-tu m'expliquer simplement comment fonctionne le levier ?",
+      "Peux-tu m'expliquer simplement comment fonctionne le leverage ?",
+      "Peux-tu m'expliquer simplement comment fonctionne le trading sur marge ?",
+      "Comment fonctionne l'effet de levier ?",
+      "Qu'implique l'utilisation de l'effet de levier sur [TOPIC] ?",
+      "Peux-tu me donner un exemple pratique de levier ?",
+      "Que veut dire effet de levier ?",
+      "Que veut dire investir sur marge ?",
+      "Qu'est-ce qu'un investissement sur marge ?"
+    ],
+    "answers": [
+      "L'effet de levier financier (trading sur marge) permet d'ouvrir des positions plus importantes que le capital réellement investi. En pratique, le broker t'accorde un prêt temporaire : avec une petite partie du capital (la marge), tu peux contrôler une position plus grande. Cela amplifie les profits, mais il faut faire très attention car cela amplifie également les pertes.",
+      "Je t'explique comment fonctionne le concept de levier (trading sur marge) : supposons un levier de 1:10. Avec 100 € de marge, tu peux contrôler 1 000 € d'actifs. Si la valeur de l'actif augmente de 1 %, tu gagnes 1 % sur 1 000 € (soit 10 €), ce qui correspond à 10 % de ton capital initial. De même, une perte de 1 % sur le prix équivaut à -10 € (soit -10 % du capital).\n\nEn pratique, le broker t'accorde temporairement un prêt : avec un capital moindre, tu peux ouvrir une position plus grande.\n\nToutefois, une précision s'impose : lorsqu'on utilise des leviers, il faut être plus vigilant, car le risque de perdre de grosses sommes augmente. Il est donc préférable d'analyser de manière approfondie l'actif sur lequel on souhaite investir.",
+      "L'effet de levier financier (trading sur marge) te permet de contrôler une position beaucoup plus grande que le capital que tu déposes comme marge. C'est comme utiliser un multiplicateur : un levier de 1:20 signifie qu'avec 100 €, tu contrôles 2 000 €. Cela augmente les profits potentiels, mais aussi les risques potentiels. Si le marché évolue en ta faveur, le gain est amplifié, mais de la même manière, une petite variation négative peut causer des pertes importantes.\n\nC'est pourquoi le levier doit être utilisé avec beaucoup de prudence et seulement après avoir bien analysé le marché.",
+      "Imagine l'effet de levier (trading sur marge) comme un 'amplificateur' d'exposition. Si tu investis 200 € avec un levier de 1:5, tu opères en réalité avec 1 000 €. Si le prix de l'actif monte de 2 %, ton gain est calculé sur les 1 000 € (et non sur les 200 €), tu obtiens donc +20 €. Mais s'il baisse de 2 %, tu perds ces mêmes 20 €. En substance, le broker te prête temporairement de l'argent pour augmenter la taille de ta position. Cet outil n'est ni bon ni mauvais : il ne devient utile que si tu sais bien gérer le risque.",
+      "L'effet de levier (trading sur marge) fonctionne ainsi : tu déposes une marge (capital initial) et le broker multiplie ta capacité d'investissement. Avec un levier de 1:30, tu peux déplacer 30 fois ton capital. Cependant, plus le levier est élevé, plus la marge nécessaire pour maintenir la position est réduite, ce qui augmente le risque d'une clôture forcée (appel de marge) si le marché évolue contre toi. En bref : le levier est puissant, mais nécessite de la discipline, des stop loss et une stratégie claire.",
+      "Lorsque tu utilises l'effet de levier (trading sur marge), tu empruntes essentiellement du capital au broker pour ouvrir des positions plus grandes. Cela te permet d'obtenir des profits même avec de petites variations de prix, mais t'expose aussi à des pertes plus importantes. Par exemple, avec un levier de 1:50, tu contrôles 5 000 € en investissant seulement 100 €. Un mouvement de marché de 1 % équivaut à un gain ou une perte de 50 % de ton capital. C'est pourquoi la gestion du risque devient fondamentale.",
+      "L'effet de levier financier (trading sur marge) est un outil conçu pour amplifier l'exposition sur le marché : avec une petite partie du capital (marge), tu contrôles une position beaucoup plus large. L'effet est simple : les profits et les pertes sont calculés sur la position totale, et non sur la marge. Il est donc nécessaire de surveiller attentivement l'évolution de l'actif, de définir des stop loss et de ne pas utiliser de leviers trop élevés si l'on manque d'expérience.\n\nLe levier peut être utile, mais seulement s'il est intégré dans une stratégie bien structurée."
+    ],
+    "cost": 0,
+    "keywords": ["levier", "effet de levier", "leverage", "trading sur marge", "investir sur marge", "investissement sur marge"],
+    "subquestions": {
+      "Veux-tu savoir aussi comment fonctionne le stop loss ?": "stop_loss_info",
+      "Veux-tu que je t'explique aussi comment fonctionne le take profit ?": "take_profit_info"}
+  },
+  "leva": {
+    "questions": [
+      "Quel levier devrais-je utiliser ?",
+      "Quel levier me conseilles-tu ?",
+      "Quel est le meilleur levier à utiliser ?",
+      "Quel levier est-il préférable d'utiliser pour [TOPIC] ?",
+      "Quel levier utiliser pour [TOPIC] ?",
+      "Quel levier convient-il d'utiliser ?",
+      "Quel levier devrais-je mettre ?",
+      "Me conseilles-tu un levier à utiliser sur [TOPIC] ?",
+      "Quel levier est le plus adapté à [TOPIC] ?",
+      "Pour [TOPIC], quel levier est le mieux ?",
+      "Quel type de levier est idéal ?",
+      "Quel levier devrais-je choisir ?",
+      "Quel levier convient-il de choisir ?",
+      "Selon toi, quel levier est le plus avantageux ?",
+      "Peux-tu me dire quel levier utiliser avec [TOPIC] ?",
+      "Peux-tu me suggérer quel levier utiliser avec [TOPIC] ?",
+      "Quel levier utiliserais-tu ?",
+      "Pour le trading, quel est le bon levier ?"
+    ],
+    "answers": [
+      "Pour le moment, je ne peux pas encore indiquer quel levier spécifique utiliser, mais je peux te donner quelques lignes directrices générales. En général, les *leviers faibles* sont plus adaptés à ceux qui veulent réduire le risque et maintenir une plus grande stabilité sur leur compte. Les *leviers élevés*, en revanche, amplifient à la fois les profits et les pertes, ils sont donc plus adaptés aux traders expérimentés qui ont une stratégie précise et un bon contrôle du risque.",
+      "Pour l'instant, je ne peux pas suggérer un levier spécifique, mais je peux te donner une indication générale : si tu veux une approche plus prudente, mieux vaut un *levier modéré*. Les *leviers élevés* ne devraient être utilisés que lorsqu'on a beaucoup d'expérience et une forte tolérance au risque, car même de petits mouvements de marché peuvent avoir un fort impact.",
+      "Je ne peux pas encore te dire exactement quel levier utiliser, mais je peux te guider de manière générique : le *levier faible* tend à être le choix le plus sûr pour des opérations normales ou pour ceux qui ne veulent pas trop risquer. Les *leviers plus élevés* ne devraient être utilisés que dans des situations très spécifiques et avec une gestion rigoureuse du risque.",
+      "Je ne peux pas fournir pour l'instant une valeur précise de levier, mais je peux expliquer quand il convient d'en utiliser un plus élevé ou plus faible. Les *leviers élevés* peuvent être utiles pour des mouvements très petits et rapides, mais ils augmentent considérablement l'exposition. Les *leviers faibles* sont généralement préférables lorsque l'actif est volatil ou lorsque l'on ne veut pas courir de risques excessifs.",
+      "Pour le moment, je ne peux pas recommander un levier spécifique, mais voici la règle générale : si le marché est stable et que tu sais bien ce que tu fais, un levier plus élevé peut avoir du sens. Si au contraire l'actif est très volatil ou que tu veux mieux protéger ton capital, un *levier faible* est préférable, afin de réduire l'impact des mouvements soudains."
+    ],
+    "cost": 0,
+    "keywords": ["levier", "leverage", "effet de levier"]
 }
 }
