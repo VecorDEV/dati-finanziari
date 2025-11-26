@@ -8463,5 +8463,85 @@
     "Möchtest du auch die Unterstützungs- und Widerstandspunkte für [TOPIC] sehen?": "supporto_resistenza",
     "Soll ich auch die Fundamentalanalyse von [TOPIC] vorbereiten, damit du einen vollständigen Überblick hast?": "fundamental_analysis",
     "Ich kann zeigen, wie sich [TOP_GAINER] in den letzten Tagen entwickelt hat, um den Markt-Kontext besser zu verstehen. Soll ich das machen?": "graph_request"}
+},
+  "leva_info": {
+    "questions": [
+      "Was ist der finanzielle Hebel?",
+      "Was ist der Hebel?",
+      "Was sind Hebel?",
+      "Wie funktioniert der Hebel?",
+      "Wie funktionieren die Hebel?",
+      "Was passiert, wenn ich einen Hebel verwende?",
+      "Was passiert, wenn ich Hebel verwende?",
+      "Kannst du mir erklären, was der Hebel ist?",
+      "Wie funktioniert der Hebel im Trading?",
+      "Wie benutzt man den finanziellen Hebel?",
+      "Was ändert sich, wenn ich den Hebel nutze?",
+      "Was bedeutet es, mit Hebel zu handeln?",
+      "Erkläre mir die Hebel",
+      "Kannst du mir das Konzept von Leverage erklären?",
+      "Was ist Margin-Trading?",
+      "Wie funktioniert Margin-Trading?",
+      "Was ist der Margenhandel?",
+      "Was bedeutet es, mit Margin zu handeln?",
+      "Was sind die Risiken des Hebels?",
+      "Ist die Verwendung von Hebeln riskant?",
+      "Riskiere ich mehr, wenn ich den Hebel benutze?",
+      "Wie berechnet man den Hebel bei einem Trade?",
+      "Kannst du mir einfach erklären, wie der Hebel funktioniert?",
+      "Kannst du mir einfach erklären, wie Leverage funktioniert?",
+      "Kannst du mir einfach erklären, wie Margin-Trading funktioniert?",
+      "Wie funktioniert der Hebeleffekt?",
+      "Was bedeutet es, den Hebel auf [TOPIC] anzuwenden?",
+      "Kannst du mir ein praktisches Beispiel für einen Hebel geben?",
+      "Was bedeutet Hebel?",
+      "Was bedeutet es, auf Margin zu investieren?",
+      "Was ist eine Investition auf Margin?"
+    ],
+    "answers": [
+      "Der finanzielle Hebel (Margin-Trading) ermöglicht es, Positionen zu eröffnen, die größer sind als das tatsächlich investierte Kapital. In der Praxis gewährt dir der Broker einen vorübergehenden Kredit: Mit einem kleinen Teil des Kapitals (der Margin) kannst du eine größere Position kontrollieren. Dies vergrößert die Gewinne, aber man muss sehr vorsichtig sein, da es auch die Verluste vergrößert.",
+      "Ich erkläre dir, wie das Konzept des Hebels (Margin-Trading) funktioniert: Nehmen wir einen Hebel von 1:10 an. Mit 100 € Margin kannst du 1.000 € an Assets kontrollieren. Wenn der Wert des Assets um 1 % steigt, verdienst du 1 % auf 1.000 € (also 10 €), was 10 % deines Anfangskapitals entspricht. Ebenso entspricht ein Verlust von 1 % auf den Preis -10 € (also -10 % des Kapitals).\n\nIn der Praxis gewährt dir der Broker vorübergehend ein Darlehen: Mit weniger Kapital kannst du eine größere Position eröffnen.\n\nEs ist jedoch eine Klarstellung nötig: Wenn man Hebel verwendet, muss man vorsichtiger sein, da das Risiko, große Summen zu verlieren, steigt. Daher ist es besser, das Asset, in das man investieren möchte, gründlich zu analysieren.",
+      "Der finanzielle Hebel (Margin-Trading) ermöglicht es dir, eine Position zu kontrollieren, die viel größer ist als das Kapital, das du als Margin hinterlegst. Es ist wie die Verwendung eines Multiplikators: Ein Hebel von 1:20 bedeutet, dass du mit 100 € 2.000 € kontrollierst. Dies erhöht die potenziellen Gewinne, aber auch die potenziellen Risiken. Wenn sich der Markt zu deinen Gunsten bewegt, wird der Gewinn verstärkt, aber ebenso kann schon eine kleine negative Veränderung zu erheblichen Verlusten führen.\n\nDeshalb sollte der Hebel mit großer Vorsicht und nur nach einer genauen Marktanalyse verwendet werden.",
+      "Stell dir den Hebel (Margin-Trading) als einen 'Verstärker' des Marktengagements vor. Wenn du 200 € mit einem Hebel von 1:5 investierst, handelst du in Wirklichkeit mit 1.000 €. Wenn der Preis des Assets um 2 % steigt, berechnet sich dein Gewinn auf die 1.000 € (nicht auf die 200 €), du erhältst also +20 €. Aber wenn er um 2 % fällt, verlierst du die gleichen 20 €. Im Grunde leiht dir der Broker vorübergehend Geld, um die Größe deiner Position zu erhöhen. Dieses Instrument ist weder gut noch schlecht: Es wird nur nützlich, wenn du das Risiko gut managen kannst.",
+      "Der Hebel (Margin-Trading) funktioniert so: Du hinterlegst eine Margin (Anfangskapital) und der Broker vervielfacht deine Investitionskapazität. Mit einem Hebel von 1:30 kannst du das 30-fache deines Kapitals bewegen. Je höher jedoch der Hebel ist, desto geringer ist die erforderliche Margin, um die Position zu halten, und dies erhöht das Risiko einer Zwangsschließung (Margin Call), wenn sich der Markt gegen dich bewegt. Kurz gesagt: Der Hebel ist mächtig, erfordert aber Disziplin, Stop-Loss und eine klare Strategie.",
+      "Wenn du den Hebel (Margin-Trading) nutzt, leihst du dir im Wesentlichen Kapital vom Broker, um größere Positionen zu eröffnen. Dies ermöglicht es dir, auch bei kleinen Preisschwankungen Gewinne zu erzielen, setzt dich aber auch größeren Verlusten aus. Zum Beispiel kontrollierst du mit einem Hebel von 1:50 5.000 €, indem du nur 100 € investierst. Eine Marktbewegung von 1 % entspricht einem Gewinn oder Verlust von 50 % deines Kapitals. Aus diesem Grund wird das Risikomanagement fundamental.",
+      "Der finanzielle Hebel (Margin-Trading) ist ein Instrument, das dazu gedacht ist, das Engagement am Markt zu verstärken: Mit einem kleinen Teil des Kapitals (Margin) kontrollierst du eine viel größere Position. Der Effekt ist einfach: Gewinne und Verluste werden auf die Gesamtposition berechnet, nicht auf die Margin. Es ist daher notwendig, die Entwicklung des Assets genau zu überwachen, Stop-Loss zu setzen und keine zu hohen Hebel zu verwenden, wenn man keine Erfahrung hat.\n\nDer Hebel kann nützlich sein, aber nur, wenn er Teil einer gut strukturierten Strategie ist."
+    ],
+    "cost": 0,
+    "keywords": ["hebel", "finanzhebel", "leverage", "margin-trading", "margenhandel", "trading mit margin", "investition auf margin"],
+    "subquestions": {
+      "Möchtest du auch wissen, wie ein Stop-Loss funktioniert?": "stop_loss_info",
+      "Möchtest du, dass ich dir auch erkläre, wie der Take-Profit funktioniert?": "take_profit_info"}
+  },
+  "leva": {
+    "questions": [
+      "Welchen Hebel sollte ich verwenden?",
+      "Welchen Hebel empfiehlst du?",
+      "Was ist der beste Hebel?",
+      "Welchen Hebel sollte man am besten für [TOPIC] verwenden?",
+      "Welchen Hebel nehme ich für [TOPIC]?",
+      "Welcher Hebel lohnt sich?",
+      "Welchen Hebel sollte ich einstellen?",
+      "Kannst du mir einen Hebel für [TOPIC] empfehlen?",
+      "Welcher Hebel ist für [TOPIC] am besten geeignet?",
+      "Für [TOPIC], welcher Hebel ist besser?",
+      "Welche Art von Hebel ist ideal?",
+      "Welchen Hebel sollte ich wählen?",
+      "Welchen Hebel lohnt es sich zu wählen?",
+      "Welcher Hebel ist deiner Meinung nach am günstigsten?",
+      "Kannst du mir sagen, welchen Hebel ich bei [TOPIC] verwenden soll?",
+      "Kannst du mir vorschlagen, welchen Hebel ich bei [TOPIC] nutzen soll?",
+      "Welchen Hebel würdest du benutzen?",
+      "Für das Trading, was ist der richtige Hebel?"
+    ],
+    "answers": [
+      "Im Moment kann ich noch keinen spezifischen Hebel nennen, den du verwenden sollst, aber ich kann dir einige allgemeine Richtlinien geben. Generell sind *niedrige Hebel* besser geeignet für diejenigen, die das Risiko reduzieren und eine größere Stabilität im Konto bewahren wollen. *Hohe Hebel* hingegen verstärken sowohl Gewinne als auch Verluste und sind daher eher für erfahrene Trader geeignet, die eine präzise Strategie und eine gute Risikokontrolle haben.",
+      "Vorerst kann ich keinen spezifischen Hebel vorschlagen, aber ich kann dir einen allgemeinen Hinweis geben: Wenn du einen vorsichtigeren Ansatz wünschst, ist ein *moderater Hebel* besser. *Hohe Hebel* sollten nur verwendet werden, wenn man viel Erfahrung und eine hohe Risikotoleranz hat, da selbst kleine Marktbewegungen einen starken Einfluss haben können.",
+      "Ich kann dir noch nicht genau sagen, welchen Hebel du verwenden sollst, aber ich kann dich allgemein anleiten: Ein *niedriger Hebel* ist tendenziell die sicherste Wahl für normale Operationen oder für diejenigen, die nicht zu viel riskieren wollen. *Höhere Hebel* sollten nur in sehr spezifischen Situationen und mit einem strengen Risikomanagement verwendet werden.",
+      "Ich kann vorerst keinen genauen Hebelwert angeben, aber ich kann erklären, wann es sich lohnt, einen höheren oder niedrigeren zu verwenden. *Hohe Hebel* können für sehr kleine und schnelle Bewegungen nützlich sein, erhöhen aber das Engagement erheblich. *Niedrige Hebel* sind im Allgemeinen vorzuziehen, wenn das Asset volatil ist oder wenn man keine übermäßigen Risiken eingehen möchte.",
+      "Im Moment kann ich keinen spezifischen Hebel empfehlen, aber hier ist die allgemeine Regel: Wenn der Markt stabil ist und du genau weißt, was du tust, kann ein höherer Hebel Sinn machen. Wenn das Asset hingegen sehr volatil ist oder du dein Kapital besser schützen möchtest, ist ein *niedriger Hebel* vorzuziehen, um so die Auswirkungen plötzlicher Bewegungen zu reduzieren."
+    ],
+    "cost": 0,
+    "keywords": ["hebel", "leverage", "finanzhebel"]
 }
 }
