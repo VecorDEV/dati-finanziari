@@ -8358,5 +8358,85 @@
     "Quer que eu mostre também os pontos de suporte e resistência para [TOPIC]?": "supporto_resistenza",
     "Quer que eu prepare também a análise fundamental de [TOPIC], para ter uma visão completa?": "fundamental_analysis",
     "Posso mostrar como [TOP_GAINER] se movimentou nos últimos dias para entender melhor o contexto do mercado. Quer que eu faça?": "graph_request"}
+},
+  "leva_info": {
+    "questions": [
+      "O que é a alavancagem financeira?",
+      "O que é a alavancagem?",
+      "O que são alavancagens?",
+      "Como funciona a alavancagem?",
+      "Como funcionam as alavancagens?",
+      "O que acontece se eu usar uma alavancagem?",
+      "O que acontece se eu usar alavancagens?",
+      "Pode me explicar o que é a alavancagem?",
+      "Como funciona a alavancagem no trading?",
+      "Como se usa a alavancagem financeira?",
+      "O que muda se eu usar a alavancagem?",
+      "O que significa operar com alavancagem?",
+      "Me explica as alavancagens",
+      "Pode me explicar o conceito de leverage?",
+      "O que é o margin trading?",
+      "Como funciona o margin trading?",
+      "O que é o trading com margem?",
+      "O que quer dizer fazer trading com margem?",
+      "Quais são os riscos da alavancagem?",
+      "Usar alavancagem é arriscado?",
+      "Se eu usar alavancagem risco mais?",
+      "Como calcular a alavancagem em uma operação?",
+      "Consegue me explicar facilmente como funciona a alavancagem?",
+      "Consegue me explicar facilmente como funciona o leverage?",
+      "Consegue me explicar facilmente como funciona o trading com margem?",
+      "Como funciona o efeito alavancagem?",
+      "O que implica usar alavancagem em [TOPIC]?",
+      "Pode me dar um exemplo prático de alavancagem?",
+      "O que quer dizer alavancagem?",
+      "O que quer dizer investir com margem?",
+      "O que é um investimento com margem?"
+    ],
+    "answers": [
+      "A alavancagem financeira (trading com margem) permite abrir posições de tamanho maior em relação ao capital efetivamente investido. Na prática, a corretora te concede um empréstimo temporário: com uma pequena parte do capital (a margem) você pode controlar uma posição maior. Isso amplifica os lucros, mas é preciso prestar muita atenção porque também amplifica as perdas.",
+      "Vou te explicar como funciona o conceito de alavancagem (trading com margem): suponhamos uma alavancagem de 1:10. Com 100 € de margem, você pode controlar 1.000 € de ativos. Se o valor do ativo sobe 1%, você ganha 1% sobre 1.000 € (ou seja, 10 €), correspondente a 10% do seu capital inicial. Da mesma forma, uma perda de 1% no preço equivale a -10 € (ou seja, -10% do capital).\n\nNa prática, a corretora está te concedendo temporariamente um empréstimo: com um capital menor você pode abrir uma posição maior.\n\nNo entanto, é oportuno fazer uma ressalva: quando se usam alavancagens é preciso ter maior atenção, porque o risco de perder grandes somas aumenta, por isso é melhor analisar profundamente o ativo no qual se deseja investir.",
+      "A alavancagem financeira (trading com margem) permite controlar uma posição muito maior em relação ao capital que você deposita como margem. É como usar um multiplicador: uma alavancagem de 1:20 significa que com 100 € você controla 2.000 €. Isso aumenta os lucros potenciais, mas também os riscos potenciais. Se o mercado se move a seu favor o ganho é amplificado, mas da mesma forma, até uma pequena variação negativa pode causar perdas importantes.\n\nPor isso, a alavancagem deve ser usada com muita prudência e somente após ter analisado bem o mercado.",
+      "Imagine a alavancagem (trading com margem) como um 'amplificador' da exposição. Se você investe 200 € com alavancagem 1:5, na realidade opera com 1.000 €. Se o preço do ativo sobe 2%, seu lucro é calculado sobre os 1.000 € (não sobre os 200 €), portanto você obtém +20 €. Mas se desce 2%, você perde os mesmos 20 €. Em essência, a corretora te empresta dinheiro temporariamente para fazer crescer o tamanho da sua posição. Esta ferramenta não é nem boa nem ruim: torna-se útil apenas se você souber gerenciar bem o risco.",
+      "A alavancagem (trading com margem) funciona assim: você deposita uma margem (capital inicial) e a corretora multiplica sua capacidade de investimento. Com uma alavancagem 1:30 você pode mover 30 vezes o seu capital. No entanto, quanto mais alta a alavancagem, mais reduzida é a margem necessária para manter a posição, e isso aumenta o risco de um fechamento forçado (margin call) se o mercado se mover contra você. Em resumo: a alavancagem é poderosa, mas requer disciplina, stop loss e uma estratégia clara.",
+      "Quando você utiliza a alavancagem (trading com margem), está essencialmente tomando emprestado capital da corretora para abrir posições maiores. Isso permite obter lucros mesmo com pequenas variações de preço, mas também expõe a perdas maiores. Por exemplo, com uma alavancagem 1:50 você controla 5.000 € investindo apenas 100 €. Um movimento do mercado de 1% equivale a um ganho ou uma perda de 50% do seu capital. Por isso, a gestão de risco torna-se fundamental.",
+      "A alavancagem financeira (trading com margem) é uma ferramenta pensada para amplificar a exposição no mercado: com uma pequena parte do capital (margem) você controla uma posição muito mais ampla. O efeito é simples: lucros e perdas são calculados sobre a posição total, não sobre a margem. É, portanto, necessário monitorar atentamente o desempenho do ativo, definir stop loss e não usar alavancagens muito altas se não tiver experiência.\n\nA alavancagem pode ser útil, mas apenas se inserida em uma estratégia bem estruturada."
+    ],
+    "cost": 0,
+    "keywords": ["alavancagem", "alavancagem financeira", "leverage", "margin trading", "trading com margem", "investimento com margem", "investir com margem"],
+    "subquestions": {
+      "Você quer saber também como funciona o stop loss?": "stop_loss_info",
+      "Você quer que eu explique também como funciona o take profit?": "take_profit_info"}
+  },
+  "leva": {
+    "questions": [
+      "Qual alavancagem devo usar?",
+      "Que alavancagem você recomenda?",
+      "Qual é a melhor alavancagem para usar?",
+      "Que alavancagem é melhor usar para [TOPIC]?",
+      "Qual alavancagem uso para [TOPIC]?",
+      "Que alavancagem compensa usar?",
+      "Que alavancagem devo colocar?",
+      "Me recomenda uma alavancagem para usar em [TOPIC]?",
+      "Qual alavancagem é mais adequada para [TOPIC]?",
+      "Para [TOPIC], que alavancagem é melhor?",
+      "Que tipo de alavancagem é ideal?",
+      "Que alavancagem devo escolher?",
+      "Que alavancagem compensa escolher?",
+      "Na sua opinião, que alavancagem é mais conveniente?",
+      "Pode me dizer que alavancagem usar com [TOPIC]?",
+      "Pode me sugerir qual alavancagem usar com [TOPIC]?",
+      "Qual alavancagem você usaria?",
+      "Para o trading, qual é a alavancagem certa?"
+    ],
+    "answers": [
+      "No momento, ainda não posso indicar qual alavancagem específica usar, mas posso te dar algumas diretrizes gerais. Em geral, as *alavancagens baixas* são mais adequadas para quem quer reduzir o risco e manter uma maior estabilidade na conta. As *alavancagens altas*, por outro lado, amplificam tanto lucros quanto perdas, portanto são mais adequadas para traders experientes que têm uma estratégia precisa e um bom controle de risco.",
+      "Por enquanto não posso sugerir uma alavancagem específica, mas posso te dar uma indicação geral: se você quer uma abordagem mais prudente, melhor uma *alavancagem moderada*. As *alavancagens elevadas* deveriam ser usadas apenas quando se tem muita experiência e um forte nível de tolerância ao risco, porque até pequenos movimentos do mercado podem ter um forte impacto.",
+      "Ainda não posso te dizer exatamente qual alavancagem usar, mas posso te guiar de modo genérico: a *alavancagem baixa* tende a ser a escolha mais segura para operações normais ou para quem não quer arriscar muito. As *alavancagens mais altas* deveriam ser utilizadas apenas em situações muito específicas e com uma gestão de risco rigorosa.",
+      "Não posso por enquanto fornecer um valor preciso de alavancagem, mas posso explicar quando compensa usar uma mais alta ou mais baixa. As *alavancagens altas* podem ser úteis para movimentos muito pequenos e rápidos, mas aumentam notavelmente a exposição. As *alavancagens baixas* são geralmente preferíveis quando o ativo é volátil ou quando não se quer correr riscos excessivos.",
+      "No momento não posso recomendar uma alavancagem específica, mas aqui está a regra geral: se o mercado está estável e você sabe bem o que está fazendo, uma alavancagem mais alta pode fazer sentido. Se, ao contrário, o ativo é muito volátil ou você quer proteger melhor o capital, é preferível uma *alavancagem baixa*, para reduzir assim o impacto dos movimentos repentinos."
+    ],
+    "cost": 0,
+    "keywords": ["alavancagem", "leverage"]
 }
 }
