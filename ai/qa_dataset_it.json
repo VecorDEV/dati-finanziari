@@ -8388,5 +8388,86 @@
     "Vuoi che ti mostri anche i punti di supporto e resistenza per [TOPIC]?": "supporto_resistenza",
     "Ti preparo anche l’analisi fondamentale su [TOPIC], così hai un quadro completo?": "fundamental_analysis",
     "Posso mostrarti come si sta muovendo [TOP_GAINER] negli ultimi giorni per capire il contesto del mercato. Vuoi che lo faccia?": "graph_request"}
+},
+  "leva_info": {
+    "questions": [
+      "Cos'è la leva finanziaria?",
+      "Cos'è la leva?",
+      "Cosa sono le leve?",
+      "Come funziona la leva?",
+      "Come funzionano le leve?",
+      "Cosa succede se uso una leva?",
+      "Che succede se uso le leve?",
+      "Mi spieghi cos'è la leva?",
+      "Come funziona la leva nel trading?",
+      "Come si usa la leva finanziaria?",
+      "Cosa cambia se uso la leva?",
+      "Che significa operare con leva?",
+      "Spiegami le leve",
+      "Puoi spiegarmi il concetto di leverage?",
+      "Che cos'è il margin trading?",
+      "Come funziona il margin trading?",
+      "Cos'è il trading con margine?",
+      "Cosa vuol dire fare trading con margine?",
+      "Quali sono i rischi della leva?",
+      "Usare le leve è rischioso?",
+      "Se uso la leva rischio di più?",
+      "Come calcolare la leva su un'operazione?",
+      "Riesci a spiegarmi facilmente come funziona la leva?",
+      "Riesci a spiegarmi facilmente come funziona il leverage?",
+      "Riesci a spiegarmi facilmente come funziona il margin trading?",
+      "Riesci a spiegarmi facilmente come funziona il trading con margine?",
+      "Come funziona l'effetto leva?",
+      "Cosa comporta usare la leva su [TOPIC]?",
+      "Mi fai un esempio pratico di leva?",
+      "Cosa vuol dire leva?",
+      "Che cosa vuol dire investire con margine?",
+      "Cos'è un investimento con margine?"
+    ],
+    "answers": [
+      "La leva finanziaria (trading con margine) permette di aprire posizioni di dimensioni maggiori rispetto al capitale effettivamente investito. In pratica il broker ti concede un prestito temporaneo: con una piccola parte di capitale (il margine) puoi controllare una posizione più grande. Questo amplifica i profitti, ma bisogna prestare molta attenzione perché amplifica anche le perdite.",
+      "Ti spiego come funziona il concetto di leva (trading con margine): supponiamo una leva 1:10. Con 100 € di margine puoi controllare 1.000 € di asset. Se il valore dell'asset sale del 1% guadagni l'1% su 1.000 € (cioè 10 €), corrispondente al 10% del tuo capitale iniziale. Allo stesso modo, una perdita dell'1% sul prezzo equivale a -10 € (cioè -10% del capitale).\n\nIn pratica il broker ti sta temporaneamente concedendo un prestito: con un capitale minore puoi aprire una posizione più grande.\n\nTuttavia è opportuno fare una precisazione: quando si usano le leve bisogna prestare maggiore attenzione, perché il rischio di perdere grosse somme aumenta, per cui è meglio analizzare in maniera approfondita l'asset su cui si vuole investire.",
+      "La leva finanziaria (trading con margine) ti permette di controllare una posizione molto più grande rispetto al capitale che depositi come margine. È come usare un moltiplicatore: una leva 1:20 significa che con 100 € controlli 2.000 €. Questo aumenta i potenziali profitti, ma anche i potenziali rischi. Se il mercato si muove a tuo favore il guadagno è amplificato, ma allo stesso modo anche una piccola variazione negativa può causare perdite importanti.\n\nPer questo la leva va usata con molta prudenza e solo dopo aver analizzato bene il mercato.",
+      "Immagina la leva (trading con margine) come un 'amplificatore' dell’esposizione. Se investi 200 € con leva 1:5, in realtà operi con 1.000 €. Se il prezzo dell’asset sale del 2%, il tuo guadagno si calcola sui 1.000 € (non sui 200 €), quindi ottieni un +20 €. Ma se scende del 2%, perdi gli stessi 20 €. In sostanza il broker ti presta temporaneamente denaro per far crescere la dimensione della tua posizione. Questo strumento non è né buono né cattivo: diventa utile solo se sai gestire bene il rischio.",
+      "La leva (trading con margine) funziona così: depositi un margine (capitale iniziale) e il broker moltiplica la tua capacità di investimento. Con una leva 1:30 puoi muovere 30 volte il tuo capitale. Tuttavia, più è alta la leva, più è ridotto il margine necessario per mantenere la posizione, e questo aumenta il rischio di una chiusura forzata (margin call) se il mercato si muove contro di te. In breve: la leva è potente, ma richiede disciplina, stop loss e una strategia chiara.",
+      "Quando utilizzi la leva (trading con margine), stai essenzialmente prendendo in prestito capitale dal broker per aprire posizioni più grandi. Questo ti permette di ottenere profitti anche con piccole variazioni di prezzo, ma espone anche a perdite maggiori. Per esempio, con una leva 1:50 controlli 5.000 € investendo solo 100 €. Un movimento del mercato dell’1% equivale a un guadagno o una perdita del 50% del tuo capitale. Per questo la gestione del rischio diventa fondamentale.",
+      "La leva finanziaria (trading con margine) è uno strumento pensato per amplificare l’esposizione sul mercato: con una piccola parte del capitale (margine) controlli una posizione molto più ampia. L’effetto è semplice: profitti e perdite vengono calcolati sulla posizione totale, non sul margine. È quindi necessario monitorare attentamente l’andamento dell’asset, impostare stop loss e non usare leve troppo alte se non si ha esperienza.\n\nLa leva può essere utile, ma solo se inserita in una strategia ben strutturata."
+    ],
+    "cost": 0,
+    "keywords": ["leva", "leva finanziaria", "leverage", "margin trading", "trading con margine", "investimento con margine", "investire con margine"],
+    "subquestions": {
+      "Vuoi sapere anche come funziona lo stop loss?": "stop_loss_info",
+      "Vuoi che ti spiego anche come funziona il take profit?": "take_profit_info"}
+},
+  "leva": {
+    "questions": [
+      "Quale leva dovrei usare?",
+      "Che leva mi consigli?",
+      "Qual è la leva migliore da usare?",
+      "Che leva è meglio usare per [TOPIC]?",
+      "Quale leva uso per [TOPIC]?",
+      "Che leva conviene usare?",
+      "Che leva dovrei mettere?",
+      "Mi consigli una leva da usare su [TOPIC]?",
+      "Quale leva è più adatta a [TOPIC]?",
+      "Per [TOPIC], che leva è meglio?",
+      "Che tipo di leva è ideale?",
+      "Che leva dovrei scegliere?",
+      "Che leva conviene scegliere?",
+      "Secondo te che leva è più conveniente?",
+      "Mi puoi dire che leva usare con [TOPIC]?",
+      "Mi suggerisci quale leva usare con [TOPIC]?",
+      "Quale leva useresti tu?",
+      "Per il trading, qual è la leva giusta?"
+    ],
+    "answers": [
+      "Al momento non posso ancora indicare quale leva specifica usare, ma posso darti qualche linea guida generale. In genere le **leve basse** sono più adatte per chi vuole ridurre il rischio e mantenere una maggiore stabilità nel conto. Le **leve alte**, invece, amplificano sia profitti che perdite, quindi sono più adatte a trader esperti che hanno una strategia precisa e un buon controllo del rischio.",
+      "Per ora non posso suggerire una leva specifica, però posso darti un’indicazione generale: se vuoi un approccio più prudente, meglio una **leva contenuta**. Le leve elevate andrebbero usate solo quando si ha molta esperienza e un forte livello di tolleranza al rischio, perché anche piccoli movimenti del mercato possono avere un forte impatto.",
+      "Non posso ancora dirti quale leva usare esattamente, ma posso guidarti in modo generico: la **leva bassa** tende a essere la scelta più sicura per operazioni normali o per chi non vuole rischiare troppo. Le leve più alte andrebbero utilizzate solo in situazioni molto specifiche e con una gestione del rischio rigorosa.",
+      "Non posso per ora fornire un valore preciso di leva, ma posso spiegare quando conviene usarne una più alta o più bassa. Le **leve alte** possono essere utili per movimenti molto piccoli e rapidi, ma aumentano notevolmente l’esposizione. Le **leve basse** sono generalmente preferibili quando l’asset è volatile o quando non si vuole correre rischi eccessivi.",
+      "Al momento non posso raccomandare una leva specifica, però ecco la regola generale: se il mercato è stabile e sai bene cosa stai facendo, una leva più alta può avere senso. Se invece l’asset è molto volatile o vuoi proteggere meglio il capitale, è preferibile una **leva bassa**, così da ridurre l’impatto dei movimenti improvvisi."
+    ],
+    "cost": 0,
+    "keywords": ["leva", "leverage"]
 }
 }
