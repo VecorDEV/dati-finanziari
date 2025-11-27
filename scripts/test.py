@@ -359,7 +359,7 @@ symbol_name_map = {
     "RUS2000": ["Russell 2000", "RUT"],
     "VIX": ["VIX", "Volatility Index"],
     "EU50": ["Euro Stoxx 50"],
-    "ITA40": ["FTSE MIB", "Milan Index"],
+    "ITA40": ["FTSE MIB", "Milan Index", "Piazza affari", "Borsa Milano"],
     "GER40": ["DAX 40", "German DAX"],
     "UK100": ["FTSE 100"],
     "FRA40": ["CAC 40"],
