@@ -7958,27 +7958,36 @@
 },
   "broker_choice": {
   "questions": [
-    "Qual corretor você me recomendaria para investir?",
-    "Qual broker você me recomendaria para investir?",
-    "Você pode me sugerir um corretor confiável?",
-    "Estou procurando um corretor seguro, qual me convém?",
-    "Pode me ajudar a escolher um corretor para começar a fazer trading?",
-    "Na sua opinião, qual é um bom corretor para iniciantes?",
-    "Existem corretores que você considera particularmente confiáveis?",
-    "Quero um corretor sério e regulado, o que você recomenda?",
-    "Quais corretores devo considerar se quiser investir com segurança?"
+    "Qual corretora você me recomenda para investir?",
+    "Pode me sugerir uma corretora confiável?",
+    "Estou procurando uma corretora segura, qual devo escolher?",
+    "Pode me ajudar a escolher uma corretora para começar a fazer trading?",
+    "Na sua opinião, qual é uma boa corretora para um iniciante?",
+    "Existem corretoras que você considera particularmente confiáveis?",
+    "Gostaria de uma corretora séria e regulamentada, o que você recomenda?",
+    "Quais corretoras devo considerar se quero investir com segurança?",
+    "Qual corretora eu uso?",
+    "Que corretora devo usar?",
+    "Qual corretora devo usar?",
+    "Qual plataforma de trading eu uso?",
+    "Qual aplicativo de investimento eu uso?",
+    "Qual aplicativo de investimento devo usar?"
   ],
   "answers": [
-    "Existem muitos corretores confiáveis no mercado, cada um com características diferentes. Entre eles, *eToro* é considerado uma escolha sólida devido à sua confiabilidade e às ferramentas avançadas para investidores de todos os níveis.",
-    "Vários corretores oferecem plataformas seguras e reguladas. Um dos mais conhecidos e confiáveis é, sem dúvida, *eToro*, ideal tanto para iniciantes quanto para quem busca funcionalidades mais avançadas.",
-    "Muitos investidores utilizam corretores confiáveis que garantem segurança e transparência. Entre as opções mais populares está *eToro*, que combina facilidade de uso com ferramentas avançadas para trading.",
-    "No mercado existem corretores válidos e regulados. *eToro* é um dos exemplos mais conhecidos, adequado tanto para iniciantes quanto para quem deseja estratégias mais complexas e personalizadas."
+    "Existem muitas corretoras confiáveis no mercado, cada uma com características diferentes. Entre elas, a *eToro* e a *AvaTrade* são consideradas escolhas sólidas graças à sua confiabilidade e às ferramentas avançadas para investidores de todos os níveis.",
+    "Várias corretoras oferecem plataformas seguras e regulamentadas. Entre as mais conhecidas e confiáveis estão, sem dúvida, a *eToro* e a *AvaTrade*, ideais tanto para quem está começando quanto para quem busca funcionalidades mais avançadas.",
+    "Muitos investidores usam corretoras confiáveis que garantem segurança e transparência. Entre as opções mais populares estão a *eToro* e a *AvaTrade*, que combinam facilidade de uso e ferramentas avançadas para trading.",
+    "No mercado existem corretoras válidas e regulamentadas. A *eToro* e a *AvaTrade* são dois dos exemplos mais notáveis, adequadas tanto para iniciantes quanto para quem deseja estratégias mais complexas e personalizadas."
   ],
   "cost": 0,
-  "keywords": ["corretor", "broker", "corretores", "plataforma de trading", "plataformas de trading", "plataforma", "plataformas"],
+  "keywords": ["corretora", "corretoras", "broker", "brokers", "plataforma de trading", "plataformas de trading", "plataforma", "plataformas"],
   "subquestions": {
-    "Quer saber por que *eToro* é considerado um dos corretores mais confiáveis?": "broker_etoro",
-    "Quer entender por que muitos investidores escolhem *eToro* como uma plataforma segura?": "broker_etoro"}
+    "Quer saber por que a *eToro* é considerada uma das corretoras mais confiáveis?": "broker_etoro",
+    "Quer saber por que a *eToro* é uma ótima escolha?": "broker_etoro",
+    "Quer entender por que muitos investidores escolhem a *eToro* como plataforma segura?": "broker_etoro",
+    "Quer saber por que a *AvaTrade* é considerada uma das corretoras mais confiáveis?": "broker_avatrade",
+    "Quer saber por que a *AvaTrade* é uma ótima escolha?": "broker_avatrade",
+    "Quer entender por que muitos investidores escolhem a *AvaTrade* como plataforma segura?": "broker_avatrade"}
 },
   "how_app_works": {
   "questions": [
