@@ -17,7 +17,7 @@ except LookupError:
     nltk.download('vader_lexicon', quiet=True)
 
 # ==============================================================================
-# 1. IL CUORE DEL SISTEMA: LA MAPPA DI CONVERSIONE (TICKER_MAP)
+# 1. MAPPA DI CONVERSIONE (TICKER_MAP) - COMPLETA
 # ==============================================================================
 TICKER_MAP = {
     # --- US Stocks (Tech & General) ---
@@ -82,7 +82,7 @@ TICKER_MAP = {
 }
 
 # ==============================================================================
-# 2. CONFIGURAZIONE SETTORI E LEADER
+# 2. CONFIGURAZIONE SETTORI E LEADER - COMPLETA
 # ==============================================================================
 
 sector_leaders = {
@@ -228,6 +228,7 @@ asset_sector_map = {
     "ATOMUSD": "14. Crypto Assets", "XTZUSD": "14. Crypto Assets",
 }
 
+# MAPPA NOMI ESTESI AGGIORNATA E COMPLETA
 symbol_name_map = {
     # Stocks
     "AAPL": ["Apple", "Apple Inc."],
@@ -449,44 +450,14 @@ def get_leader_trend(leader_ticker):
         return 0.5 if curr > sma else -0.5
     except: return 0.0
 
-def get_news_data_advanced(ticker_yahoo, friendly_symbol, sector):
-    """
-    Versione corretta che usa il SETTORE per decidere cosa cercare su Google.
-    Esempio:
-    - Bitcoin (Crypto Assets) -> cerca "Bitcoin crypto"
-    - EURUSD (Forex) -> cerca "EURUSD forex"
-    - Apple (Tech) -> cerca "Apple stock"
-    """
-    # 1. Recupera nomi extra
-    extra_names = symbol_name_map.get(friendly_symbol, [])
-    
-    # 2. Logica condizionale per il suffisso di ricerca
-    if "Crypto" in sector:
-        suffix = "crypto"
-    elif "Forex" in sector:
-        suffix = "forex"
-    elif "Indices" in sector:
-        suffix = "market index"
-    elif "Commodities" in sector or "Energy" in sector or "Metals" in sector:
-        suffix = "price"
-    else:
-        suffix = "stock" # Default per le azioni
-
-    # 3. Costruisce la query: ("Simbolo" OR "Nome") AND suffisso
-    search_terms = [friendly_symbol] + extra_names
-    query_items = [f'"{term}"' for term in search_terms[:2]] 
-    base_query = " OR ".join(query_items)
-    
-    final_query = f"({base_query}) {suffix}"
-    
-    rss_url = f"https://news.google.com/rss/search?q={final_query}&hl=en-US&gl=US&ceid=US:en"
-    
+def fetch_rss(url):
+    """Funzione helper per scaricare e parsare RSS"""
+    titles = []
     try:
-        resp = requests.get(rss_url, headers={'User-Agent': 'Mozilla/5.0'}, timeout=2)
+        resp = requests.get(url, headers={'User-Agent': 'Mozilla/5.0'}, timeout=2)
+        if resp.status_code != 200: return []
         root = ET.fromstring(resp.content)
-        titles = []
         now = datetime.now().astimezone()
-        
         for item in root.findall('.//item'):
             try:
                 pub_txt = item.find('pubDate').text
@@ -495,24 +466,77 @@ def get_news_data_advanced(ticker_yahoo, friendly_symbol, sector):
                 if (now - pd_date) < timedelta(hours=48): 
                     titles.append(item.find('title').text)
             except: continue
+    except:
+        pass
+    return titles
+
+def get_news_data_super_charged(ticker_yahoo, friendly_symbol, sector):
+    """
+    Esegue 2 ricerche diverse e unisce i risultati per massimizzare le news.
+    """
+    names = symbol_name_map.get(friendly_symbol, [friendly_symbol])
+    # Assicurati che il simbolo stesso sia nella lista (es. AAPL)
+    if friendly_symbol not in names:
+        names.append(friendly_symbol)
         
-        count = len(titles)
-        if count == 0: return 0.0, 0
-        
-        sia = SentimentIntensityAnalyzer()
-        lexicon = {
-            'surge': 4.0, 'jump': 2.0, 'rally': 3.5, 'soar': 4.0, 'bull': 3.0, 'buy': 2.0,
-            'plunge': -4.0, 'crash': -4.0, 'drop': -3.0, 'bear': -3.0, 'sell': -2.0,
-            'miss': -2.0, 'beat': 2.0, 'strong': 1.5, 'weak': -1.5, 'record': 2.0,
-            'high': 1.0, 'low': -1.0, 'gain': 2.0, 'loss': -2.0
-        }
-        sia.lexicon.update(lexicon)
-        
-        total = sum([sia.polarity_scores(t)['compound'] for t in titles])
-        return (total / count), count
-        
-    except Exception as e:
-        return 0.0, 0
+    # Set di titoli unici per evitare duplicati
+    unique_titles = set()
+    
+    # --- CONFIGURAZIONE KEYWORDS ---
+    if "Crypto" in sector:
+        keywords_pass1 = "crypto"
+        keywords_pass2 = "price prediction OR market OR news"
+    elif "Forex" in sector:
+        keywords_pass1 = "forex"
+        keywords_pass2 = "exchange rate OR forecast"
+    elif "Indices" in sector:
+        keywords_pass1 = "market index"
+        keywords_pass2 = "stock market OR analysis"
+    elif "Commodities" in sector or "Energy" in sector or "Metals" in sector:
+        keywords_pass1 = "price"
+        keywords_pass2 = "futures OR commodities"
+    else:
+        # Stock
+        keywords_pass1 = "stock"
+        keywords_pass2 = "earnings OR shares OR analysis"
+
+    # Preparazione termini ricerca (limitati a 2 per query per non confondere Google)
+    search_terms = [f'"{n}"' for n in names[:2]]
+    base_query = " OR ".join(search_terms)
+
+    # --- QUERY 1: Specifica (es. "Bitcoin" crypto) ---
+    q1 = f"({base_query}) {keywords_pass1}"
+    url1 = f"https://news.google.com/rss/search?q={q1}&hl=en-US&gl=US&ceid=US:en"
+    
+    # --- QUERY 2: Ampia (es. "Bitcoin" news OR price) ---
+    q2 = f"({base_query}) ({keywords_pass2})"
+    url2 = f"https://news.google.com/rss/search?q={q2}&hl=en-US&gl=US&ceid=US:en"
+    
+    # Esecuzione
+    titles1 = fetch_rss(url1)
+    titles2 = fetch_rss(url2)
+    
+    # Unione risultati
+    for t in titles1: unique_titles.add(t)
+    for t in titles2: unique_titles.add(t)
+    
+    final_titles = list(unique_titles)
+    count = len(final_titles)
+    
+    if count == 0: return 0.0, 0
+    
+    # Analisi Sentiment
+    sia = SentimentIntensityAnalyzer()
+    lexicon = {
+        'surge': 4.0, 'jump': 2.0, 'rally': 3.5, 'soar': 4.0, 'bull': 3.0, 'buy': 2.0,
+        'plunge': -4.0, 'crash': -4.0, 'drop': -3.0, 'bear': -3.0, 'sell': -2.0,
+        'miss': -2.0, 'beat': 2.0, 'strong': 1.5, 'weak': -1.5, 'record': 2.0,
+        'high': 1.0, 'low': -1.0, 'gain': 2.0, 'loss': -2.0, 'up': 1.0, 'down': -1.0
+    }
+    sia.lexicon.update(lexicon)
+    
+    total = sum([sia.polarity_scores(t)['compound'] for t in final_titles])
+    return (total / count), count
 
 # ==============================================================================
 # 4. ENGINE DI CALCOLO
@@ -552,6 +576,7 @@ class HybridScorer:
         tech = self._get_technical_score(df)
         curr_lead = 0.0 if is_lead else lead
         
+        # Logica Pesi
         if is_lead:
             if news_n == 0: w_n, w_l, w_t = 0.0, 0.0, 1.0
             elif news_n <= 3: w_n, w_l, w_t = 0.30, 0.0, 0.70
@@ -577,21 +602,15 @@ if __name__ == "__main__":
     leader_cache = {}
     WORK_LIST = []
     
-    # Prepara la lista di lavoro
     for friendly_name in USER_SYMBOL_LIST:
         yahoo_ticker = TICKER_MAP.get(friendly_name, friendly_name)
         sec_name, leader_yf_tick = get_sector_and_leader(friendly_name)
-        
         WORK_LIST.append({
-            "friendly": friendly_name,
-            "yahoo": yahoo_ticker,
-            "sec": sec_name,
-            "bench": leader_yf_tick
+            "friendly": friendly_name, "yahoo": yahoo_ticker,
+            "sec": sec_name, "bench": leader_yf_tick
         })
 
-    # Ordina per settore per una stampa pulita
     WORK_LIST.sort(key=lambda x: x['sec'])
-    
     current_sector = ""
     
     for item in WORK_LIST:
@@ -600,26 +619,23 @@ if __name__ == "__main__":
         sec = item['sec']
         bench = item['bench']
 
-        # Stampa intestazione settore
         if sec != current_sector:
             if bench not in leader_cache:
                 leader_cache[bench] = get_leader_trend(bench)
-            
             ld_score = leader_cache[bench]
             icon = "🟢 UP" if ld_score > 0 else "🔴 DOWN"
             print(f"\n📂 {sec}")
             print(f"   👑 LEADER TREND ({bench}): {icon}")
-            print("-" * 80)
+            print("-" * 85)
             current_sector = sec
         else:
             ld_score = leader_cache[bench]
 
-        # Scarica dati
         df = get_data(yahoo_t)
         
         if not df.empty:
-            # --- MODIFICA CHIAVE: Passiamo 'sec' per la ricerca intelligente ---
-            sentiment, count = get_news_data_advanced(yahoo_t, friendly, sec) 
+            # USIAMO LA NUOVA FUNZIONE SUPER CHARGED
+            sentiment, count = get_news_data_super_charged(yahoo_t, friendly, sec)
             
             is_leader = (yahoo_t == bench)
             prob, tech, sent, lead = scorer.calculate_probability(df, sentiment, count, ld_score, is_leader)
@@ -636,11 +652,12 @@ if __name__ == "__main__":
             })
             
             lead_mark = "👑" if is_leader else ""
-            print(f"   {friendly:<10} {lead_mark:<2} | {prob}% | {sig:<11} | News:{count}")
+            print(f"   {friendly:<10} {lead_mark:<2} | {prob}% | {sig:<11} | News:{count:<3} | Sent:{sent}")
         else:
             print(f"   {friendly:<10}    | ⚠️ DATA ERROR ({yahoo_t})")
         
-        time.sleep(0.05)
+        # Leggera pausa per evitare blocco IP Google
+        time.sleep(0.1) 
 
     if results:
         df_res = pd.DataFrame(results)
@@ -648,8 +665,8 @@ if __name__ == "__main__":
         print("\n\n" + "="*100)
         print(f"🏆 TOP OPPORTUNITIES (GLOBAL RANKING)")
         print("="*100)
-        print(f"{'ASSET':<12} | {'SECTOR':<25} | {'SCORE':<6} | {'SIGNAL':<11} | {'NEWS':<4}")
+        print(f"{'ASSET':<12} | {'SECTOR':<25} | {'SCORE':<6} | {'SIGNAL':<11} | {'NEWS':<4} | {'SENT'}")
         print("-" * 100)
         for _, row in df_res.iterrows():
             icon = "🟢" if "BUY" in row['Signal'] else "🔴" if "SELL" in row['Signal'] else "⚪"
-            print(f"{row['Asset']:<12} | {row['Sector'][:25]:<25} | {row['Score']:<6} | {icon} {row['Signal']:<9} | {row['News']:<4}")
+            print(f"{row['Asset']:<12} | {row['Sector'][:25]:<25} | {row['Score']:<6} | {icon} {row['Signal']:<9} | {row['News']:<4} | {row['Sent']}")
