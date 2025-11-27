@@ -8065,26 +8065,36 @@
 },
   "broker_choice": {
   "questions": [
-    "Welchen Broker würdest du mir zum Investieren empfehlen?",
+    "Welchen Broker empfiehlst du mir für meine Investments?",
     "Kannst du mir einen zuverlässigen Broker vorschlagen?",
-    "Ich suche einen sicheren Broker, welcher eignet sich für mich?",
-    "Kannst du mir helfen, einen Broker zum Trading zu wählen?",
-    "Was ist deiner Meinung nach ein guter Broker für Anfänger?",
-    "Gibt es Broker, die du besonders zuverlässig findest?",
-    "Ich möchte einen seriösen und regulierten Broker, was empfiehlst du?",
-    "Welche Broker sollte ich in Betracht ziehen, wenn ich sicher investieren möchte?"
+    "Ich suche einen sicheren Broker, welcher ist empfehlenswert?",
+    "Kannst du mir helfen, einen Broker für den Einstieg ins Trading zu wählen?",
+    "Welcher ist deiner Meinung nach ein guter Broker für Anfänger?",
+    "Gibt es Broker, die du für besonders zuverlässig hältst?",
+    "Ich möchte einen seriösen und regulierten Broker, was rätst du mir?",
+    "Welche Broker sollte ich in Betracht ziehen, wenn ich sicher investieren will?",
+    "Welchen Broker nutze ich?",
+    "Welchen Broker soll ich nutzen?",
+    "Welchen Broker soll ich verwenden?",
+    "Welche Trading-Plattform soll ich nutzen?",
+    "Welche Investment-App soll ich nutzen?",
+    "Welche Investment-App muss ich verwenden?"
   ],
   "answers": [
-    "Es gibt viele zuverlässige Broker auf dem Markt, jeder mit unterschiedlichen Eigenschaften. Unter ihnen gilt *eToro* als solide Wahl, dank seiner Zuverlässigkeit und den fortschrittlichen Tools für Anleger aller Erfahrungsstufen.",
-    "Verschiedene Broker bieten sichere und regulierte Plattformen an. Einer der bekanntesten und zuverlässigsten ist auf jeden Fall *eToro*, ideal sowohl für Anfänger als auch für Nutzer, die fortgeschrittene Funktionen suchen.",
-    "Viele Investoren nutzen zuverlässige Broker, die Sicherheit und Transparenz gewährleisten. Zu den beliebtesten Optionen gehört *eToro*, das Benutzerfreundlichkeit mit fortschrittlichen Trading-Tools kombiniert.",
-    "Auf dem Markt gibt es seriöse und regulierte Broker. *eToro* ist eines der bekanntesten Beispiele, geeignet sowohl für Anfänger als auch für diejenigen, die komplexere und personalisierte Strategien verfolgen möchten."
+    "Es gibt viele zuverlässige Broker auf dem Markt, jeder mit unterschiedlichen Eigenschaften. Zu den solidesten Optionen gehören *eToro* und *AvaTrade*, dank ihrer Zuverlässigkeit und fortschrittlichen Tools für Investoren aller Niveaus.",
+    "Mehrere Broker bieten sichere und regulierte Plattformen an. Zu den bekanntesten und zuverlässigsten zählen *eToro* und *AvaTrade*, die sowohl für Anfänger als auch für diejenigen ideal sind, die fortgeschrittene Funktionen suchen.",
+    "Viele Investoren nutzen zuverlässige Broker, die Sicherheit und Transparenz garantieren. Zu den beliebtesten Optionen gehören *eToro* und *AvaTrade*, die Benutzerfreundlichkeit mit fortschrittlichen Trading-Tools verbinden.",
+    "Auf dem Markt gibt es valide und regulierte Broker. *eToro* und *AvaTrade* sind zwei der nennenswertesten Beispiele, geeignet sowohl für Einsteiger als auch für diejenigen, die komplexere und personalisierte Strategien wünschen."
   ],
   "cost": 0,
-  "keywords": ["Broker", "Brokers", "Trading-Plattform", "Trading-Plattformen", "Plattform", "Plattformen"],
+  "keywords": ["broker", "brokers", "trading-plattform", "trading-plattformen", "handelsplattform", "handelsplattformen", "plattform", "plattformen"],
   "subquestions": {
     "Möchtest du wissen, warum *eToro* als einer der zuverlässigsten Broker gilt?": "broker_etoro",
-    "Möchtest du verstehen, warum viele Investoren *eToro* als sichere Plattform wählen?": "broker_etoro"}
+    "Möchtest du wissen, warum *eToro* eine ausgezeichnete Wahl ist?": "broker_etoro",
+    "Möchtest du verstehen, warum viele Investoren *eToro* als sichere Plattform wählen?": "broker_etoro",
+    "Möchtest du wissen, warum *AvaTrade* als einer der zuverlässigsten Broker gilt?": "broker_avatrade",
+    "Möchtest du wissen, warum *AvaTrade* eine ausgezeichnete Wahl ist?": "broker_avatrade",
+    "Möchtest du verstehen, warum viele Investoren *AvaTrade* als sichere Plattform wählen?": "broker_avatrade"}
 },
   "how_app_works": {
   "questions": [
