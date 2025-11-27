@@ -7979,26 +7979,36 @@
 },
   "broker_choice": {
   "questions": [
-    "Broker mana yang kamu sarankan untuk saya gunakan untuk berinvestasi?",
-    "Bisakah kamu menyarankan broker yang terpercaya?",
-    "Saya mencari broker yang aman, broker mana yang sebaiknya saya pilih?",
-    "Bisakah kamu membantu saya memilih broker untuk mulai trading?",
-    "Menurutmu, broker mana yang bagus untuk pemula?",
-    "Adakah broker yang kamu anggap sangat dapat diandalkan?",
-    "Saya ingin broker yang serius dan teregulasi, apa yang kamu sarankan?",
-    "Broker mana yang harus saya pertimbangkan jika ingin berinvestasi dengan aman?"
+    "Broker mana yang Anda sarankan untuk berinvestasi?",
+    "Bisakah Anda menyarankan broker terpercaya?",
+    "Saya mencari broker yang aman, mana yang sebaiknya saya pilih?",
+    "Bisakah Anda membantu saya memilih broker untuk mulai trading?",
+    "Menurut pendapat Anda, apa broker yang bagus untuk pemula?",
+    "Apakah ada broker yang menurut Anda sangat terpercaya?",
+    "Saya ingin broker yang serius dan teregulasi, apa saran Anda?",
+    "Broker mana yang harus saya pertimbangkan jika ingin berinvestasi dengan aman?",
+    "Broker mana yang saya gunakan?",
+    "Broker mana yang harus saya gunakan?",
+    "Broker apa yang harus saya pakai?",
+    "Platform trading mana yang harus saya gunakan?",
+    "Aplikasi investasi mana yang saya gunakan?",
+    "Aplikasi investasi mana yang harus saya gunakan?"
   ],
   "answers": [
-    "Ada banyak broker terpercaya di pasar, masing-masing dengan karakteristik berbeda. Di antara mereka, *eToro* dianggap sebagai pilihan yang solid karena keandalannya dan alat canggih untuk investor dari semua level.",
-    "Berbagai broker menawarkan platform yang aman dan teregulasi. Salah satu yang paling terkenal dan terpercaya tentu saja *eToro*, ideal untuk pemula maupun mereka yang mencari fitur yang lebih maju.",
-    "Banyak investor menggunakan broker terpercaya yang menjamin keamanan dan transparansi. Di antara opsi yang populer adalah *eToro*, yang menggabungkan kemudahan penggunaan dengan alat trading canggih.",
-    "Di pasar ada broker yang valid dan teregulasi. *eToro* adalah salah satu contoh paling terkenal, cocok baik untuk pemula maupun bagi mereka yang ingin strategi lebih kompleks dan personal."
+    "Ada banyak broker terpercaya di pasar, masing-masing dengan fitur berbeda. Di antaranya, *eToro* dan *AvaTrade* dianggap sebagai pilihan yang solid berkat keandalan dan alat canggih mereka untuk investor di semua tingkatan.",
+    "Beberapa broker menawarkan platform yang aman dan teregulasi. Di antara yang paling terkenal dan terpercaya pastinya adalah *eToro* dan *AvaTrade*, ideal baik bagi pemula maupun mereka yang mencari fitur lebih canggih.",
+    "Banyak investor menggunakan broker terpercaya yang menjamin keamanan dan transparansi. Di antara pilihan paling populer adalah *eToro* dan *AvaTrade*, yang menggabungkan kemudahan penggunaan dengan alat trading canggih.",
+    "Di pasar terdapat broker yang valid dan teregulasi. *eToro* dan *AvaTrade* adalah dua contoh paling terkenal, cocok untuk pemula maupun mereka yang menginginkan strategi yang lebih kompleks dan personal."
   ],
   "cost": 0,
-  "keywords": ["broker", "brokers", "platform trading", "platforms trading", "platform", "platforms"],
+  "keywords": ["broker", "pialang", "platform trading", "platform perdagangan", "platform", "aplikasi"],
   "subquestions": {
-    "Apakah kamu ingin tahu mengapa *eToro* dianggap sebagai salah satu broker paling terpercaya?": "broker_etoro",
-    "Apakah kamu ingin memahami mengapa banyak investor memilih *eToro* sebagai platform yang aman?": "broker_etoro"}
+    "Apakah Anda ingin tahu mengapa *eToro* dianggap sebagai salah satu broker paling terpercaya?": "broker_etoro",
+    "Apakah Anda ingin tahu mengapa *eToro* adalah pilihan yang sangat baik?": "broker_etoro",
+    "Apakah Anda ingin memahami mengapa banyak investor memilih *eToro* sebagai platform yang aman?": "broker_etoro",
+    "Apakah Anda ingin tahu mengapa *AvaTrade* dianggap sebagai salah satu broker paling terpercaya?": "broker_avatrade",
+    "Apakah Anda ingin tahu mengapa *AvaTrade* adalah pilihan yang sangat baik?": "broker_avatrade",
+    "Apakah Anda ingin memahami mengapa banyak investor memilih *AvaTrade* sebagai platform yang aman?": "broker_avatrade"}
 },
   "how_app_works": {
   "questions": [
