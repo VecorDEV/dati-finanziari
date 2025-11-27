@@ -17,10 +17,10 @@ except LookupError:
     nltk.download('vader_lexicon', quiet=True)
 
 # ==============================================================================
-# 1. MAPPA DI CONVERSIONE (TICKER_MAP) - COMPLETA
+# 1. MAPPA TICKER (Logica Tecnica)
 # ==============================================================================
 TICKER_MAP = {
-    # --- US Stocks (Tech & General) ---
+    # --- US Stocks ---
     "AAPL": "AAPL", "MSFT": "MSFT", "GOOGL": "GOOGL", "AMZN": "AMZN", "META": "META",
     "TSLA": "TSLA", "V": "V", "JPM": "JPM", "JNJ": "JNJ", "WMT": "WMT",
     "NVDA": "NVDA", "PYPL": "PYPL", "DIS": "DIS", "NFLX": "NFLX", "NIO": "NIO",
@@ -41,7 +41,7 @@ TICKER_MAP = {
     "TGT": "TGT", "SYK": "SYK", "BKNG": "BKNG", "DUK": "DUK", "USB": "USB",
     "CHTR": "CHTR", 
 
-    # --- Growth / New Tech ---
+    # --- Growth / New ---
     "ARM": "ARM", "BABA": "BABA", "BIDU": "BIDU", "COIN": "COIN", "DDOG": "DDOG", 
     "HTZ": "HTZ", "JD": "JD", "LCID": "LCID", "LYFT": "LYFT", "NET": "NET", 
     "PDD": "PDD", "PLTR": "PLTR", "RIVN": "RIVN", "ROKU": "ROKU", "SHOP": "SHOP", 
@@ -52,7 +52,7 @@ TICKER_MAP = {
     "ISP.MI": "ISP.MI", "ENEL.MI": "ENEL.MI", "STLAM.MI": "STLAM.MI", 
     "LDO.MI": "LDO.MI", "PST.MI": "PST.MI", "UCG.MI": "UCG.MI",
 
-    # --- Forex (Markets) ---
+    # --- Forex ---
     "EURUSD": "EURUSD=X", "USDJPY": "USDJPY=X", "GBPUSD": "GBPUSD=X", 
     "AUDUSD": "AUDUSD=X", "USDCAD": "USDCAD=X", "USDCHF": "USDCHF=X", 
     "NZDUSD": "NZDUSD=X", "EURGBP": "EURGBP=X", "EURJPY": "EURJPY=X", 
@@ -77,12 +77,12 @@ TICKER_MAP = {
     "DOGEUSD": "DOGE-USD", "USDTUSD": "USDT-USD", "LINKUSD": "LINK-USD", 
     "ATOMUSD": "ATOM-USD", "XTZUSD": "XTZ-USD",
 
-    # --- Commodities / Leaders ---
+    # --- Commodities ---
     "COCOA": "CC=F", "GOLD": "GC=F", "SILVER": "SI=F", "OIL": "CL=F", "NATGAS": "NG=F"
 }
 
 # ==============================================================================
-# 2. CONFIGURAZIONE SETTORI E LEADER - COMPLETA
+# 2. SETTORI E LEADERS
 # ==============================================================================
 
 sector_leaders = {
@@ -103,7 +103,7 @@ sector_leaders = {
 }
 
 asset_sector_map = {
-    # --- 1. Big Tech, Software & Internet ---
+    # 1. Tech
     "AAPL": "1. Big Tech, Software & Internet", "MSFT": "1. Big Tech, Software & Internet", 
     "GOOGL": "1. Big Tech, Software & Internet", "AMZN": "1. Big Tech, Software & Internet",
     "META": "1. Big Tech, Software & Internet", "ADBE": "1. Big Tech, Software & Internet",
@@ -117,14 +117,12 @@ asset_sector_map = {
     "DUOL": "1. Big Tech, Software & Internet", "JD": "1. Big Tech, Software & Internet",
     "NET": "1. Big Tech, Software & Internet", "PDD": "1. Big Tech, Software & Internet",
     "BTDR": "1. Big Tech, Software & Internet", "DDOG": "1. Big Tech, Software & Internet",
-
-    # --- 2. Semiconductors & AI ---
+    # 2. Semi
     "NVDA": "2. Semiconductors & AI", "INTC": "2. Semiconductors & AI",
     "QCOM": "2. Semiconductors & AI", "ADI": "2. Semiconductors & AI",
     "ARM": "2. Semiconductors & AI", "CSCO": "2. Semiconductors & AI",
     "ACN": "2. Semiconductors & AI", "FIS": "2. Semiconductors & AI",
-
-    # --- 3. Financial Services ---
+    # 3. Fin
     "JPM": "3. Financial Services", "V": "3. Financial Services", 
     "PYPL": "3. Financial Services", "MS": "3. Financial Services",
     "GS": "3. Financial Services", "AXP": "3. Financial Services",
@@ -136,15 +134,13 @@ asset_sector_map = {
     "PSA": "3. Financial Services", "COIN": "3. Financial Services",
     "SQ": "3. Financial Services", "ISP.MI": "3. Financial Services",
     "UCG.MI": "3. Financial Services", "PST.MI": "3. Financial Services",
-
-    # --- 4. Automotive & Mobility ---
+    # 4. Auto
     "TSLA": "4. Automotive & Mobility", "GM": "4. Automotive & Mobility",
     "NIO": "4. Automotive & Mobility", "STLAM.MI": "4. Automotive & Mobility",
     "HTZ": "4. Automotive & Mobility", "LCID": "4. Automotive & Mobility",
     "RIVN": "4. Automotive & Mobility", "UBER": "4. Automotive & Mobility",
     "LYFT": "4. Automotive & Mobility", "NAAS": "4. Automotive & Mobility",
-
-    # --- 5. Healthcare & Pharma ---
+    # 5. Health
     "LLY": "5. Healthcare & Pharma", "JNJ": "5. Healthcare & Pharma",
     "PFE": "5. Healthcare & Pharma", "MRK": "5. Healthcare & Pharma",
     "ABT": "5. Healthcare & Pharma", "BMY": "5. Healthcare & Pharma",
@@ -152,8 +148,7 @@ asset_sector_map = {
     "BDX": "5. Healthcare & Pharma", "ZTS": "5. Healthcare & Pharma",
     "EW": "5. Healthcare & Pharma", "LNTH": "5. Healthcare & Pharma",
     "SYK": "5. Healthcare & Pharma",
-
-    # --- 6. Consumer Goods & Retail ---
+    # 6. Consumer
     "WMT": "6. Consumer Goods & Retail", "KO": "6. Consumer Goods & Retail",
     "PEP": "6. Consumer Goods & Retail", "MCD": "6. Consumer Goods & Retail",
     "NKE": "6. Consumer Goods & Retail", "HD": "6. Consumer Goods & Retail",
@@ -162,36 +157,30 @@ asset_sector_map = {
     "TJX": "6. Consumer Goods & Retail", "CL": "6. Consumer Goods & Retail",
     "EL": "6. Consumer Goods & Retail", "SCHL": "6. Consumer Goods & Retail",
     "COCOA": "6. Consumer Goods & Retail",
-
-    # --- 7. Industrials & Defense ---
+    # 7. Ind
     "CAT": "7. Industrials & Defense", "LMT": "7. Industrials & Defense",
     "ITW": "7. Industrials & Defense", "FDX": "7. Industrials & Defense",
     "NSC": "7. Industrials & Defense", "GE": "7. Industrials & Defense",
     "HON": "7. Industrials & Defense", "DE": "7. Industrials & Defense",
     "LDO.MI": "7. Industrials & Defense", "BKNG": "7. Industrials & Defense",
-
-    # --- 8. Energy ---
+    # 8. Energy
     "OIL": "8. Energy (Oil & Gas)", "NATGAS": "8. Energy (Oil & Gas)",
     "XOM": "8. Energy (Oil & Gas)", "CVX": "8. Energy (Oil & Gas)",
     "PBR": "8. Energy (Oil & Gas)", "NRG": "8. Energy (Oil & Gas)",
-
-    # --- 9. Utilities & Green ---
+    # 9. Util
     "SO": "9. Utilities & Green", "ENEL.MI": "9. Utilities & Green",
     "DUK": "9. Utilities & Green", "AEP": "9. Utilities & Green",
     "D": "9. Utilities & Green", "HE": "9. Utilities & Green",
     "APD": "9. Utilities & Green",
-
-    # --- 10. Precious Metals & Materials ---
+    # 10. Metal
     "GOLD": "10. Precious Metals & Materials", "SILVER": "10. Precious Metals & Materials",
     "VALE": "10. Precious Metals & Materials",
-
-    # --- 11. Media & Telecom ---
+    # 11. Media
     "NFLX": "11. Media & Telecom", "DIS": "11. Media & Telecom",
     "T": "11. Media & Telecom", "TMUS": "11. Media & Telecom",
     "AMX": "11. Media & Telecom", "ROKU": "11. Media & Telecom",
     "CHTR": "11. Media & Telecom", 
-
-    # --- 12. Indices ---
+    # 12. Indices
     "SPX500": "12. Indices (Global)", "DJ30": "12. Indices (Global)",
     "NAS100": "12. Indices (Global)", "NASCOMP": "12. Indices (Global)",
     "RUS2000": "12. Indices (Global)", "VIX": "12. Indices (Global)",
@@ -202,8 +191,7 @@ asset_sector_map = {
     "JPN225": "12. Indices (Global)", "HKG50": "12. Indices (Global)",
     "CHN50": "12. Indices (Global)", "IND50": "12. Indices (Global)",
     "KOR200": "12. Indices (Global)",
-
-    # --- 13. Forex ---
+    # 13. Forex
     "EURUSD": "13. Forex (Currencies)", "USDJPY": "13. Forex (Currencies)",
     "GBPUSD": "13. Forex (Currencies)", "AUDUSD": "13. Forex (Currencies)",
     "USDCAD": "13. Forex (Currencies)", "USDCHF": "13. Forex (Currencies)",
@@ -214,8 +202,7 @@ asset_sector_map = {
     "EURNZD": "13. Forex (Currencies)", "EURCAD": "13. Forex (Currencies)",
     "EURCHF": "13. Forex (Currencies)", "GBPCHF": "13. Forex (Currencies)",
     "AUDCAD": "13. Forex (Currencies)",
-
-    # --- 14. Crypto ---
+    # 14. Crypto
     "BTCUSD": "14. Crypto Assets", "ETHUSD": "14. Crypto Assets",
     "LTCUSD": "14. Crypto Assets", "XRPUSD": "14. Crypto Assets",
     "BCHUSD": "14. Crypto Assets", "EOSUSD": "14. Crypto Assets",
@@ -228,7 +215,7 @@ asset_sector_map = {
     "ATOMUSD": "14. Crypto Assets", "XTZUSD": "14. Crypto Assets",
 }
 
-# MAPPA NOMI ESTESI AGGIORNATA E COMPLETA
+# MAPPA NOMI ESTESI (COMPLETA E DETTAGLIATA)
 symbol_name_map = {
     # Stocks
     "AAPL": ["Apple", "Apple Inc."],
@@ -473,16 +460,35 @@ def fetch_rss(url):
 def get_news_data_super_charged(ticker_yahoo, friendly_symbol, sector):
     """
     Esegue 2 ricerche diverse e unisce i risultati per massimizzare le news.
+    Usa TUTTI gli identificativi disponibili: Ticker Friendly, Ticker Yahoo e Nomi Estesi.
     """
-    names = symbol_name_map.get(friendly_symbol, [friendly_symbol])
-    # Assicurati che il simbolo stesso sia nella lista (es. AAPL)
-    if friendly_symbol not in names:
-        names.append(friendly_symbol)
+    
+    # --- 1. COSTRUZIONE CANDIDATI RICERCA ---
+    candidates = []
+    
+    # A. Simbolo User Friendly (es. "SPX500")
+    candidates.append(friendly_symbol)
+    
+    # B. Ticker Yahoo (Pulito) - Utile per titoli italiani (es. "ISP.MI")
+    # Escludiamo ticker con simboli strani se non strettamente necessari
+    clean_yahoo = ticker_yahoo.replace("=X", "").replace("^", "")
+    if clean_yahoo != friendly_symbol:
+        candidates.append(clean_yahoo)
         
-    # Set di titoli unici per evitare duplicati
+    # C. Nomi Estesi (es. "Intesa Sanpaolo")
+    mapped_names = symbol_name_map.get(friendly_symbol, [])
+    candidates.extend(mapped_names)
+    
+    # Rimuovi duplicati e stringhe vuote
+    names = []
+    for c in candidates:
+        if c and c not in names:
+            names.append(c)
+            
+    # Set di titoli unici per evitare duplicati nei risultati
     unique_titles = set()
     
-    # --- CONFIGURAZIONE KEYWORDS ---
+    # --- 2. CONFIGURAZIONE KEYWORDS PER SETTORE ---
     if "Crypto" in sector:
         keywords_pass1 = "crypto"
         keywords_pass2 = "price prediction OR market OR news"
@@ -500,15 +506,17 @@ def get_news_data_super_charged(ticker_yahoo, friendly_symbol, sector):
         keywords_pass1 = "stock"
         keywords_pass2 = "earnings OR shares OR analysis"
 
-    # Preparazione termini ricerca (limitati a 2 per query per non confondere Google)
-    search_terms = [f'"{n}"' for n in names[:2]]
+    # Preparazione termini ricerca (limitati a 3 per query per evitare errori URL troppo lunghi)
+    search_terms = [f'"{n}"' for n in names[:3]]
     base_query = " OR ".join(search_terms)
 
-    # --- QUERY 1: Specifica (es. "Bitcoin" crypto) ---
+    # --- 3. ESECUZIONE QUERY ---
+    
+    # QUERY A: Specifica (es. "Bitcoin" crypto)
     q1 = f"({base_query}) {keywords_pass1}"
     url1 = f"https://news.google.com/rss/search?q={q1}&hl=en-US&gl=US&ceid=US:en"
     
-    # --- QUERY 2: Ampia (es. "Bitcoin" news OR price) ---
+    # QUERY B: Ampia (es. "Bitcoin" news OR price)
     q2 = f"({base_query}) ({keywords_pass2})"
     url2 = f"https://news.google.com/rss/search?q={q2}&hl=en-US&gl=US&ceid=US:en"
     
@@ -576,7 +584,7 @@ class HybridScorer:
         tech = self._get_technical_score(df)
         curr_lead = 0.0 if is_lead else lead
         
-        # Logica Pesi
+        # Logica Pesi: Più news ho, più il sentiment pesa. Se ho 0 news, mi fido del tecnico/leader.
         if is_lead:
             if news_n == 0: w_n, w_l, w_t = 0.0, 0.0, 1.0
             elif news_n <= 3: w_n, w_l, w_t = 0.30, 0.0, 0.70
