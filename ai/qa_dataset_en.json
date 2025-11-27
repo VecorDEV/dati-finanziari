@@ -7880,26 +7880,36 @@
 },
   "broker_choice": {
   "questions": [
-    "Which broker would you recommend for investing?",
+    "Which broker do you recommend for investing?",
     "Can you suggest a reliable broker?",
-    "I'm looking for a secure broker, which one should I choose?",
+    "I am looking for a safe broker, which one should I use?",
     "Can you help me choose a broker to start trading?",
     "In your opinion, what is a good broker for a beginner?",
-    "Are there brokers you consider particularly reliable?",
-    "I want a serious and regulated broker, what do you recommend?",
-    "Which brokers should I consider if I want to invest safely?"
+    "Are there any brokers you consider particularly reliable?",
+    "I would like a serious and regulated broker, what do you recommend?",
+    "Which brokers should I consider if I want to invest safely?",
+    "Which broker should I use?",
+    "What broker do I need to use?",
+    "What broker do I use?",
+    "Which trading platform should I use?",
+    "Which investment app should I use?",
+    "Which investment app do I need to use?"
   ],
   "answers": [
-    "There are many reliable brokers on the market, each with different features. Among them, *eToro* is considered a solid choice thanks to its reliability and advanced tools for investors of all levels.",
-    "Several brokers offer secure and regulated platforms. One of the most well-known and reliable is definitely *eToro*, ideal for both beginners and those seeking more advanced features.",
-    "Many investors use reliable brokers that guarantee security and transparency. Among the most popular options is *eToro*, which combines ease of use with advanced trading tools.",
-    "There are valid and regulated brokers on the market. *eToro* is one of the most notable examples, suitable for both beginners and those who want more complex and customized strategies."
+    "There are many reliable brokers on the market, each with different features. Among them, *eToro* and *AvaTrade* are considered solid choices thanks to their reliability and advanced tools for investors of all levels.",
+    "Several brokers offer secure and regulated platforms. Among the most well-known and reliable are *eToro* and *AvaTrade*, ideal for both beginners and those looking for more advanced features.",
+    "Many investors use reliable brokers that guarantee security and transparency. Among the most popular options are *eToro* and *AvaTrade*, which combine ease of use with advanced trading tools.",
+    "There are valid and regulated brokers on the market. *eToro* and *AvaTrade* are two of the most notable examples, suitable for both beginners and those who want more complex and personalized strategies."
   ],
   "cost": 0,
   "keywords": ["broker", "brokers", "trading platform", "trading platforms", "platform", "platforms"],
   "subquestions": {
     "Do you want to know why *eToro* is considered one of the most reliable brokers?": "broker_etoro",
-    "Do you want to understand why many investors choose *eToro* as a secure platform?": "broker_etoro"}
+    "Do you want to know why *eToro* is an excellent choice?": "broker_etoro",
+    "Do you want to understand why many investors choose *eToro* as a secure platform?": "broker_etoro",
+    "Do you want to know why *AvaTrade* is considered one of the most reliable brokers?": "broker_avatrade",
+    "Do you want to know why *AvaTrade* is an excellent choice?": "broker_avatrade",
+    "Do you want to understand why many investors choose *AvaTrade* as a secure platform?": "broker_avatrade"}
 },
   "how_app_works": {
   "questions": [
