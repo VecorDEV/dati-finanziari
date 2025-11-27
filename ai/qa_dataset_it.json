@@ -7989,7 +7989,13 @@
     "Secondo te qual è un buon broker per un principiante?",
     "Ci sono broker che reputi particolarmente affidabili?",
     "Vorrei un broker serio e regolamentato, cosa mi consigli?",
-    "Quali broker dovrei considerare se voglio investire in sicurezza?"
+    "Quali broker dovrei considerare se voglio investire in sicurezza?",
+    "Che broker uso?",
+    "Che broker devo usare?",
+    "Quale broker uso?",
+    "Quale piattaforma di trading uso?",
+    "Quale app di investimento uso?",
+    "Quale app di investimento devo usare?",
   ],
   "answers": [
     "Ci sono molti broker affidabili sul mercato, ognuno con caratteristiche diverse. Tra questi, *eToro* e *AvaTrade* sono considerati scelte solide grazie alla loro affidabilità e agli strumenti avanzati per investitori di tutti i livelli.",
@@ -8001,8 +8007,11 @@
   "keywords": ["broker", "brokers", "piattaforma di trading", "piattaforme di trading", "piattaforma", "piattaforme"],
   "subquestions": {
     "Vuoi sapere perché *eToro* è considerato uno dei broker più affidabili?": "broker_etoro",
-    "Vuoi sapere perchè *eToro* è un'ottima scelta?": "broker_etoro",
-    "Vuoi capire perché molti investitori scelgono *eToro* come piattaforma sicura?": "broker_etoro"}
+    "Vuoi sapere perché *eToro* è un'ottima scelta?": "broker_etoro",
+    "Vuoi capire perché molti investitori scelgono *eToro* come piattaforma sicura?": "broker_etoro",
+    "Vuoi sapere perché *AvaTrade* è considerato uno dei broker più affidabili?": "broker_avatrade",
+    "Vuoi sapere perché *AvaTrade* è un'ottima scelta?": "broker_avatrade",
+    "Vuoi capire perché molti investitori scelgono *AvaTrade* come piattaforma sicura?": "broker_avatrade"}
 },
   "how_app_works": {
   "questions": [
