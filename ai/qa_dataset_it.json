@@ -8787,5 +8787,128 @@
     "subquestions": {
       "Posso spiegarti le diverse strategie di investimento. Vuoi che procedo?": "trading_strategy_choice",
       "Vuoi sapere chi ha la probabilità più alta di crescere in questo momento?": "top_gainers"}
+},
+    "market_history": {
+    "questions": [
+      "Quando è nato il mercato azionario?",
+      "In che anno è nato il mercato azionario?",
+      "Da quando esiste il mercato azionario?",
+      "Quando sono nate le prime borse?",
+      "Quando è comparso il primo mercato delle azioni?",
+      "Qual è l'origine del mercato azionario?",
+      "Da dove nasce il mercato azionario?",
+      "Qual è la storia della nascita del mercato azionario?",
+      "Quando ha iniziato a esistere il trading di azioni?",
+      "Quando è stato creato il primo scambio azionario?",
+      "Che origini ha il mercato azionario?",
+      "Quali origini ha la borsa finanziaria?",
+      "Da dove origina il mercato finanziario?"
+    ],
+    "answers": [
+      "Il mercato azionario nasce nel XVII secolo. La prima vera borsa valori organizzata fu fondata ad Amsterdam nel 1602, quando la Compagnia Olandese delle Indie Orientali iniziò a emettere e scambiare azioni. Questo evento viene considerato l'inizio ufficiale del mercato azionario moderno.\n\n*Esempio pratico:* un mercante poteva acquistare una parte della compagnia per finanziare i viaggi commerciali. In cambio, otteneva una quota dei profitti: esattamente come oggi un investitore compra un’azione per partecipare agli utili di un’azienda.\n\nAl momento TradeGPT non può fornire analisi storiche personalizzate sui tuoi investimenti, ma può spiegarti i concetti generali.",
+      "Il mercato azionario, come lo conosciamo oggi, ha origine nel 1602 con la Borsa di Amsterdam. Qui vennero scambiate le prime azioni della Compagnia Olandese delle Indie Orientali, rivoluzionando il modo di finanziare le imprese.\n\n*Esempio pratico:* invece di cercare pochi finanziatori ricchi, un'azienda poteva raccogliere capitali da moltissimi piccoli investitori. Questo è lo stesso principio usato dalle aziende quotate oggi.\n\nTradeGPT per ora non è in grado di incorporare questo tipo di dati storici nelle tue analisi personalizzate.",
+      "La nascita del mercato azionario risale al 1602, quando venne fondata la prima borsa valori ad Amsterdam. Prima di allora esistevano forme primitive di scambio commerciale, ma non una struttura organizzata per la compravendita di azioni.\n\n*Esempio pratico:* così come oggi puoi comprare un'azione Apple tramite un broker, i commercianti dell’epoca potevano comprare quote della Compagnia delle Indie per finanziare le spedizioni in Asia.\n\nTradeGPT non può utilizzare dati storici personalizzati per i tuoi investimenti, ma può aiutarti con spiegazioni generali.",
+      "La prima borsa valori nasce nel 1602 ad Amsterdam: è in quel momento che appare il concetto moderno di azione, cioè una quota di proprietà di una società. Questo segnò l'inizio del mercato azionario.\n\n*Esempio pratico:* immagina decine di investitori che acquistavano piccole quote delle navi mercantili. In caso di viaggio riuscito, tutti guadagnavano. Se andava male, condividevano le perdite: lo stesso meccanismo del rischio di un'azione oggi.\n\nPer ora TradeGPT non è in grado di calcolare come questa storia si riflette sui tuoi investimenti personali.",
+      "La storia del mercato azionario inizia ufficialmente nel 1602 con la creazione della Borsa di Amsterdam e la vendita delle prime azioni della Compagnia Olandese delle Indie Orientali. Fu la prima volta che il pubblico poté acquistare quote di una società.\n\n*Esempio pratico:* proprio come oggi un investitore può comprare una parte di Tesla o Microsoft, nel 1600 poteva acquistare una parte di un viaggio commerciale verso l’Indonesia.\n\nTradeGPT al momento non può utilizzare questo tipo di indicatori storici per analisi personalizzate."
+    ],
+    "cost": 0,
+    "keywords": ["quando", "storia", "mercato", "quando è nato", "fondato"],
+    "subquestions": {
+      "Vuoi sapere anche cosa è successo nella crisi del 2008?": "crisi_2008_info"}
+},
+    "crisi_2008_info": {
+    "questions": [
+      "Cos'è successo durante la crisi del 2008?",
+      "Puoi spiegarmi la crisi del 2008?",
+      "Cosa è accaduto nel 2008 ai mercati?",
+      "Cos'è successo nel 2008?",
+      "Perché c'è stata la crisi finanziaria del 2008?",
+      "Che cosa ha causato il crollo del 2008?",
+      "Cosa ha causato la crisi del 2008?",
+      "Qual è stata la causa della crisi del 2008?",
+      "Crisi del 2008: spiegazione semplice",
+      "Spiegami il motivo del crollo nel 2008",
+      "Mi spieghi le cause della crisi del 2008?",
+      "Come è iniziata la crisi economica del 2008?",
+      "Mi spieghi la crisi dei mutui subprime del 2008?",
+      "Cosa è successo nel crollo finanziario del 2008?",
+      "Come si è sviluppata la crisi del 2008?"
+    ],
+    "answers": [
+      "La crisi del 2008 è stata una delle più grandi crisi finanziarie della storia moderna e ha avuto origine negli Stati Uniti. Tutto è iniziato con i cosiddetti *mutui subprime*, prestiti concessi a persone con basso reddito e alto rischio di insolvenza. Le banche impacchettavano questi mutui in prodotti finanziari venduti come strumenti sicuri. Quando molti mutuatari iniziarono a non pagare le rate, l'intero sistema crollò, causando fallimenti bancari e un’ondata di panico globale.\n\n*Esempio pratico:* immagina che una banca presti soldi a persone che probabilmente non riusciranno a ripagare. Se una sola persona non paga, non è grave. Ma se migliaia smettono di pagare contemporaneamente, la banca rischia di fallire e trascinare con sé tutto il mercato.",
+      "La crisi del 2008 è nata dal crollo del mercato immobiliare americano. Le case venivano acquistate con mutui rischiosi e concessi troppo facilmente. Le banche, convinte che il valore degli immobili sarebbe salito per sempre, accumularono enormi quantità di questi mutui. Quando i prezzi delle case iniziarono a scendere, milioni di persone non riuscirono più a pagare i mutui e i titoli legati a essi persero completamente valore. Questo creò un effetto domino su tutto il sistema finanziario mondiale.\n\n*Esempio pratico:* è come se un’intera città costruisse case su fondamenta instabili: quando una crolla, anche le altre iniziano a cedere.",
+      "Il cuore della crisi del 2008 è stato l'eccessivo utilizzo di mutui ad alto rischio (subprime) e strumenti finanziari complessi. Quando i prezzi delle case crollarono, le insolvenze esplosero e molte banche si trovarono con titoli che non valevano più nulla. Il panico si diffuse rapidamente, causando fallimenti storici come quello di Lehman Brothers e costringendo i governi a intervenire per salvare l'economia mondiale.\n\n*Esempio pratico:* pensa a comprare un biglietto della lotteria che ti dicono essere quasi sicuro, ma poi scopri che non vale niente e tutti quelli che l’hanno comprato insieme a te lo scoprono nello stesso momento.",
+      "Durante la crisi del 2008, molte istituzioni finanziarie globali entrarono in difficoltà perché avevano investito in prodotti collegati ai mutui rischiosi americani. Quando questi mutui iniziarono a non essere ripagati, il valore di tali prodotti crollò. Questo provocò una perdita di fiducia mondiale, congelò il credito e generò una recessione economica profonda.\n\nEcco un *esempio pratico:* è come se improvvisamente nessuno si fidasse più di prestare soldi a nessuno, bloccando l’intera economia.",
+      "La crisi finanziaria del 2008 fu causata da anni di prestiti rischiosi, speculazioni immobiliari e prodotti finanziari basati su mutui che in realtà non erano solidi. Quando il mercato immobiliare collassò, tutto il sistema bancario mondiale ne fu colpito. Questo generò una catena di fallimenti, salvataggi governativi e un forte rallentamento economico globale.\n\nTe lo spiego con un *esempio pratico:* immagina un castello di carte molto grande: basta togliere una carta alla base perché tutto cada."
+    ],
+    "cost": 0,
+    "keywords": ["crisi", "2008", "mutui subprime", "crollo", "fallimento", "recessione"],
+    "subquestions": {
+      "Vuoi conoscere anche le cause della crisi del 1929?": "crisi_wall_street"}
+},
+  "crisi_wall_street": {
+  "questions": [
+    "Cosa ha causato il crollo di Wall Street?",
+    "Perché è crollata Wall Street nel 1929?",
+    "Quali sono state le cause del crollo del 1929?",
+    "Per quale motivo è avvenuto il crash di Wall Street del 1929?",
+    "Cos'ha provocato il crash del ’29?",
+    "Cosa ha portato al crollo della borsa americana nel 1929?",
+    "Perché ci fu il crollo di Wall Street?",
+    "Quali eventi hanno scatenato il crash di Wall Street?",
+    "Come mai la borsa americana è crollata nel 1929?",
+    "Che cosa ha innescato il grande crollo di Wall Street?",
+    "Cosa è successo prima del crollo del 1929?",
+    "Che cosa ha fatto esplodere la crisi del ’29?",
+    "Cause della grande crisi",
+    "Cause della grande depressione"
+  ],
+  "answers": [
+    "Il crollo di Wall Street del 1929 fu causato da una combinazione letale di *speculazione estrema*, *uso eccessivo della leva finanziaria* e un clima di *fiducia irrealistica* nei mercati. Per anni gli investitori comprarono azioni prendendo denaro in prestito, gonfiando artificialmente i prezzi. Quando la fiducia iniziò a vacillare, molti cercarono di vendere contemporaneamente, innescando il panico.\n\nTi faccio un *esempio visivo:* immagina una bolla in cui tutti comprano azioni perché 'salgono sempre'. Molti lo fanno a credito. Quando i prezzi scendono anche solo un po’, le vendite forzate amplificano il crollo, trascinando tutti verso perdite enormi.",
+    "Le cause principali del crash di Wall Street furono una *bolla speculativa enorme*, l’uso massiccio di *margine* (si compravano azioni con soldi presi in prestito) e un’economia più fragile di quanto apparisse. L’accumulo di debiti eccessivi portò a un mercato instabile, che crollò quando gli investitori iniziarono a dubitare della sostenibilità dei prezzi.\n\n*Esempio pratico:* è come comprare una casa con un mutuo gigante sperando che il suo valore salga. Se improvvisamente tutti iniziano a venderle e il valore crolla, rimani con un debito enorme e un bene che vale molto meno.",
+    "Il crash del 1929 avvenne perché i prezzi delle azioni erano saliti a livelli insostenibili rispetto all’economia reale. La gente comprava azioni a credito, aspettandosi profitti facili. Quando arrivarono i primi segnali negativi, il panico si diffuse rapidamente e la vendita di massa fece precipitare il mercato.\n\nTe lo spiego meglio con un esempio: pensa a un castello di carte molto alto. Finché tutti ci credono, resta in piedi. Ma basta che qualcuno tocchi un punto debole per far crollare tutto in pochi secondi.",
+    "Il crollo di Wall Street fu la conseguenza di anni di *euforia finanziaria*, valutazioni eccessive e un uso pericoloso del credito. Quando gli investitori capirono che i prezzi erano troppo alti, iniziarono a vendere. La vendita di massa divenne incontrollabile, facendo crollare l’intero mercato.\n\nTi spiego meglio: è simile a un teatro affollato dove improvvisamente qualcuno urla «fuoco!». Anche se non c’è un incendio, il panico può causare una fuga disordinata e danni enormi.",
+    "Il crash del 1929 nacque da un mix di *sovravalutazione*, eccesso di *speculazione* e insufficiente regolamentazione dei mercati. Gli investitori acquistavano azioni con aspettative irrealistiche, spesso utilizzando denaro preso in prestito. La brusca perdita di fiducia generò vendite a catena e un crollo generale.\n\n*Esempio pratico:* immagina che tutti prendano in prestito soldi per comprare lo stesso bene, convinti che il suo valore salirà. Se il prezzo scende anche solo un po’, molti non riescono più a ripagare i debiti e il mercato collassa."
+  ],
+  "cost": 0,
+  "keywords": ["1929", "wall street", "crollo", "crisi", "grande crisi", "grande depressione"],
+  "subquestions": {
+    "Vuoi conoscere anche le cause della crisi del 2008?": "crisi_2008_info",
+    "Ti interessa sapere anche quando è nato il mercato finanziario?": "market_history"}
+},
+  "crypto_crashes_history": {
+  "questions": [
+    "Quali sono stati i principali crash delle criptovalute?",
+    "Quali sono i crolli più famosi del mercato crypto?",
+    "Mi puoi dire i crash più importanti delle criptovalute?",
+    "Quali sono stati i peggiori crash nella storia delle crypto?",
+    "Cosa è successo nei più grandi crolli del mercato crypto?",
+    "Quali criptovalute sono crollate di più nella storia?",
+    "Le criptovalute hanno avuto crolli importanti negli ultimi anni?",
+    "Le crypto hanno avuto crolli importanti negli ultimi anni?",
+    "Puoi spiegarmi i principali crash delle crypto?",
+    "Dimmi i principali crolli del mercato crypto",
+    "Quando ci sono stati i crash più gravi delle criptovalute?",
+    "Quali eventi hanno segnato i peggiori crolli del mercato crypto?",
+    "Parlami dei crash più importanti del settore crypto",
+    "Ci sono stati crolli delle criptovalute?",
+    "Ci sono stati crolli delle crypto?",
+    "Ci sono stati crolli nel mercato crypto?",
+    "Ci sono stati crolli nel mercato delle criptovalute?",
+    "Parlami delle crisi del mercato crypto",
+    "Parliamo delle crisi del mercato delle criptovalute"
+  ],
+  "answers": [
+    "Nella storia delle criptovalute ci sono stati diversi crash significativi che hanno segnato il settore. Eccone alcuni tra i più importanti:\n\n*Crash del 2013–2014*: Bitcoin passò da oltre 1.000$ a circa 200$ dopo problemi con l'exchange Mt.Gox, che all'epoca gestiva una grande fetta delle transazioni globali.\n\n*Crash del 2018*: dopo il boom del 2017, l’intero mercato crypto perse oltre l’80% del suo valore, con Bitcoin che crollò da 20.000$ a circa 3.000$.\n\n*Crash di maggio 2021*: varie criptovalute persero il 40–60% a causa del divieto cinese al mining e delle preoccupazioni ambientali sollevate da Elon Musk.\n\n*Crisi Terra/LUNA del 2022*: uno dei peggiori crolli della storia crypto. LUNA perse il 99,9% del valore in pochi giorni dopo che la stablecoin UST perse il peg con il dollaro.\n\n*Crisi FTX del 2022*: il fallimento dell’exchange provocò un nuovo crollo generalizzato, con BTC ed ETH in forte ribasso e molte altcoin quasi azzerate.",
+    "La storia delle crypto è caratterizzata da diversi crash importanti. I più noti includono:\n\n*Mt.Gox 2014*: uno dei più devastanti, con Bitcoin che crollò dopo l’hack dell’exchange.\n\n*Bear market del 2018*: l’intero mercato perse oltre l’80% dopo la fine della bolla delle ICO.\n\n*Maggio 2021*: forti vendite successive alle restrizioni cinesi sul mining.\n\n*LUNA/UST 2022*: un collasso improvviso che spazzò via decine di miliardi dal mercato.\n\n*Fallimento FTX*: un evento che ha minato profondamente la fiducia nel settore crypto.",
+    "I principali crash delle criptovalute includono episodi celebri come:\n\n• *Il crollo di Mt.Gox (2014)*\n• *Il grande bear market del 2018*\n• *La correzione del 2021*\n• *Il collasso di Terra/LUNA*\n• *Il fallimento di FTX*\n\nQuesti eventi hanno evidenziato la volatilità del settore e l’importanza della gestione del rischio.",
+    "Nel mercato crypto si sono verificati crash molto noti, tra cui:\n\n*Mt.Gox 2014*: Bitcoin crollò dopo che l’exchange perse circa 850.000 BTC.\n\n*Crash del 2018*: dopo il boom del 2017, il mercato entrò in un lungo inverno crypto.\n\n*Caso LUNA/UST*: una delle cadute più rapide e gravi del settore.\n\n*Crisi FTX*: ha avuto un impatto enorme sugli investitori e sull’intero ecosistema.",
+    "I crash più importanti del mercato crypto includono:\n\n• *Il crollo di Mt.Gox (2014)* 📉\n• *Il bear market del 2018* ❄️\n• *La correzione del 2021* 🔻\n• *La caduta di Terra/LUNA nel 2022* 🌙\n• *Il fallimento di FTX* ⚠️\n\nOgnuno di questi eventi ha rappresentato un momento chiave per la maturazione del settore."
+  ],
+  "cost": 0,
+  "keywords": ["crypto", "cripto", "criptovalute", "criptovaluta", "crash", "crollo", "crisi", "storia"],
+  "subquestions": {
+    "Ti interessa anche sapere le cause della crisi del 2008?": "crisi_2008_info",
+    "Ti interessa sapere il valore attuale di Bitcoin?": "asset_last_price"}
 }
 }
