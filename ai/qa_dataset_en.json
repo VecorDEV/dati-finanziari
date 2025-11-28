@@ -8489,5 +8489,320 @@
     ],
     "cost": 0,
     "keywords": ["give me", "tell me", "show me", "but", "though", "this", "that", "these", "info"]
+},
+  "candlestick_chart": {
+    "questions": [
+      "How do you read a candlestick chart?",
+      "Explain the Japanese candlestick chart to me",
+      "How do I interpret a candlestick chart?",
+      "Can you show me how to read a candle chart?",
+      "How does a candlestick chart work?",
+      "Candlestick chart: how is it read?",
+      "How do you read Japanese candles?",
+      "Can you explain the basics of a candlestick chart?",
+      "How to understand a candlestick chart?",
+      "How is a Japanese candlestick chart interpreted?",
+      "How are candlestick charts used in trading?",
+      "Can you teach me to read a candlestick chart?",
+      "Candlestick chart: how to interpret it correctly?",
+      "How do you analyze a candle chart?",
+      "I would like to understand candlestick charts",
+      "What does a candle chart indicate?"
+    ],
+    "answers": [
+      "A candlestick chart (or Japanese candlestick chart) is a fundamental tool for analyzing an asset's trend over time. Each candle represents price movement over a specific period (e.g., 1 day, 1 hour, 5 minutes).\n\n*Structure of a candle:*\n- The body shows the difference between the opening and closing price.\n- The color indicates if the price went up (green or white candle) or down (red or black candle).\n- The thin lines above and below the body are the shadows (or wicks), representing the maximum and minimum prices reached.\n\nReading a candlestick chart means observing sequences of candles, recurring patterns, and relationships between neighboring candles to intuit the future direction of the market. These patterns can indicate trend reversals, continuations, or moments of indecision.",
+      "To read a candlestick chart, you must first understand the main information of each candle:\n\n- *Open*: starting price of the period\n- *Close*: final price of the period\n- *High* and *Low*: extreme values reached\n\nThe color of the body indicates the direction: bullish or bearish. By analyzing sequences of candles and comparing them with volume and technical indicators, you can gain insights into market sentiment and possible future movements.",
+      "A candlestick chart visually shows you price movements. Each candle is composed of a body and shadows (wicks). The body indicates the variation between open and close, while the shadows represent highs and lows.\n\nBy observing multiple candles together, you can identify patterns like the *hammer*, *shooting star*, *engulfing*, *doji*, and many others, which are useful for anticipating trend reversals or continuations.",
+      "To interpret a Japanese candlestick chart, consider:\n\n1. *Body color and size*: a long body indicates strong bullish or bearish pressure; a small one signals indecision.\n2. *Upper and lower shadows*: measure the volatility of the period.\n3. *Multi-candle patterns*: combinations like '*engulfing*', '*doji*', or '*harami*' indicate potential reversal or continuation signals.\n\nCombined analysis with support, resistance, and technical indicators increases the reliability of predictions.",
+      "Reading a candlestick chart means interpreting price through bodies and shadows. Candle sequences form recognizable patterns that help understand market psychology.\n\nExample:\n- A '*doji*' indicates indecision\n- A '*hammer*' may indicate a bullish reversal\n- A '*shooting star*' signals a possible bearish reversal\n\nBy combining multiple candles and observing the general context, you can make more informed predictions."
+    ],
+    "cost": 0,
+    "keywords": ["candlestick", "candles", "candle", "candlestick chart", "japanese candles", "japanese candlestick"],
+    "subquestions": {
+      "Do you want me to show you the chart trend of [TOPIC]?": "graph_request",
+      "I can provide the chart trend of [FAVOURITE]. Shall I proceed?": "graph_request",
+      "Do you want me to explain what volatility is?": "volatility_info"}
+  },
+  "azioni_info": {
+    "questions": [
+      "What are stocks?",
+      "Explain stocks to me",
+      "What are stocks used for?",
+      "How do stocks work?",
+      "What is a stock?",
+      "Can you give me information about stocks?",
+      "I would like to know what stocks are",
+      "How do stocks work in the stock market?",
+      "Stocks: explain what they are for",
+      "Can you explain the basics of stocks?"
+    ],
+    "answers": [
+      "Stocks represent ownership shares of a company. Whoever owns a stock becomes a partial owner of the company and can benefit from its profits, usually through dividends, as well as participate in the value of the shares which can increase or decrease on the market.",
+      "Investing in stocks means buying a part of a listed company. This allows you to participate in the company's earnings and, at the same time, take on the risk that the share price might fall.",
+      "Stocks are financial instruments that give the right to a share of ownership in a company. They serve to raise capital for businesses and allow investors to earn through price appreciation or dividends.",
+      "When you buy stocks, you are purchasing a small part of a company. Their value can vary based on the company's results, market trends, and investor perception.",
+      "A stock is a security that represents ownership of a fraction of a corporation. Owning stocks means having a right to a portion of the profits and, in some cases, participating in corporate decisions through voting at shareholder meetings."
+    ],
+    "cost": 0,
+    "keywords": ["stocks", "stock", "shares", "equity", "equities"],
+    "subquestions": {
+      "Do you want me to explain what bonds are as well?": "obbligazioni_info",
+      "Are you interested in knowing the difference between stocks and bonds?": "azioni_obbligazioni"}
+  },
+  "tecnica_fondamentale": {
+    "questions": [
+      "What is the difference between technical and fundamental analysis?",
+      "Technical analysis vs fundamental analysis",
+      "Explain the differences between technical and fundamental analysis",
+      "How do technical and fundamental analysis differ?",
+      "Can you tell me how technical and fundamental analysis differ?",
+      "What is the difference between technical analysis and fundamental analysis?",
+      "Fundamental or technical analysis: what is the difference?",
+      "I would like to understand the difference between technical and fundamental analysis",
+      "Difference between technical analysis and fundamental analysis",
+      "Fundamental vs technical analysis",
+      "Technical vs fundamental analysis"
+    ],
+    "answers": [
+      "Technical analysis is based on observing historical prices and market indicators, such as moving averages, RSI, and MACD, to predict future movements. Fundamental analysis, on the other hand, looks at the company's real financial data, such as trailing P/E, forward P/E, balance sheets, and revenue growth, available only for stocks. In short, technical analysis studies price patterns, while fundamental analysis evaluates the intrinsic value of the asset.",
+      "Technical analysis uses charts and indicators to identify trends and entry/exit signals. Fundamental analysis focuses on the company's real numbers, such as earnings, historical P/E, and forward P/E, to understand if a stock is undervalued or overvalued. Both analyses are complementary and offer different perspectives on the market.",
+      "In short, technical analysis analyzes price movements and market indicators to predict future behavior, while fundamental analysis studies concrete financial data available for stocks, such as trailing and forward P/E, to determine the asset's real value. Using them together can give a more complete picture.",
+      "Technical analysis focuses on charts and indicators to identify trends and trading signals. Fundamental analysis, available only for stocks, evaluates the company's economic and financial data to estimate its intrinsic value. Combining both analyses helps in making more informed decisions.",
+      "Technical and fundamental analysis offer two different viewpoints: the former observes price patterns and indicators, the latter evaluates concrete corporate data like earnings, trailing P/E, and forward P/E (only for stocks). Using both allows for a more comprehensive view of both the market and the asset's value."
+    ],
+    "cost": 0,
+    "keywords": ["technical analysis", "fundamental analysis", "difference", "vs", "technical", "fundamental"],
+    "subquestions": {
+      "Do you want to know what the fundamentals say about [TOPIC]?": "fundamental_analysis",
+      "Do you want the technical analysis of [FAVOURITE]?": "ta_general"}
+  },
+  "portfolio_diversification": {
+    "questions": [
+      "What does diversifying the portfolio mean?",
+      "Explain portfolio diversification",
+      "Why is it important to diversify?",
+      "Portfolio diversification: what does it mean?",
+      "How do you diversify a portfolio?",
+      "Why should I diversify my investments?",
+      "What is diversification in finance?",
+      "How does portfolio diversification work?",
+      "Can you explain investment diversification?",
+      "Diversification: what does it mean in practice?",
+      "Tell me about diversification",
+      "What does it mean to diversify the portfolio?",
+      "What is meant by portfolio diversification?",
+      "Can you explain the distribution of investments?",
+      "Capital distribution: what does it mean in practice?",
+      "Tell me about capital distribution",
+      "What does capital distribution mean?",
+      "What is meant by distribution of one's capital?",
+      "What is meant by distribution of invested money?",
+      "What is meant by distribution of investments?"
+    ],
+    "answers": [
+      "Diversifying the portfolio means distributing your investments across multiple financial instruments or assets, such as stocks, bonds, ETFs, or commodities. The goal is to reduce risk: if one investment goes poorly, others can offset the losses, making the portfolio more stable over time.",
+      "Diversification consists of not concentrating all capital in a single asset or sector. For example, investing only in a single stock is risky; by distributing funds across multiple companies or financial instruments, the overall risk decreases.",
+      "In practice, diversifying means balancing the portfolio between assets with different behaviors: some riskier, others more stable. This approach can reduce volatility and protect capital from unforeseen market events.",
+      "Diversifying the portfolio means combining different investments strategically. It's not just about quantity, but quality: choosing assets that react differently to market events reduces overall risk.",
+      "Diversification is a risk management technique that involves investing in multiple different instruments or sectors. In this way, even if some investments suffer losses, others can generate gains, protecting the portfolio."
+    ],
+    "cost": 0,
+    "keywords": ["diversification", "distribution", "portfolio", "portfolios", "investments", "distribute", "diversify"],
+    "subquestions": {
+      "Do you want to know what is worth investing in?": "top_gainers",
+      "I can explain the most common investment strategies. Shall I proceed?": "trading_strategy_choice"}
+  },
+  "capital_management": {
+    "questions": [
+      "Why is capital management important?",
+      "Capital management: why is it fundamental?",
+      "Explain the importance of capital management",
+      "Why must I manage my capital well?",
+      "Can I do more if I manage capital well?",
+      "If I manage my capital well, do I make more money?",
+      "If I manage my capital well, do I earn more money?",
+      "What is capital management and why is it needed?",
+      "Capital management: what is it for?",
+      "What is the purpose of capital management?",
+      "Why is it useful to manage capital correctly?",
+      "Why do I have to manage capital well?",
+      "What is the importance of capital management in investments?",
+      "Why is capital management crucial?",
+      "How crucial is capital management?",
+      "How important is capital management?",
+      "Why should I pay attention to capital management?"
+    ],
+    "answers": [
+      "Capital management is fundamental because it helps you control risk and protect your investment. It means deciding how much money to allocate to each operation and how to balance risk against potential return, avoiding excessive losses.",
+      "Managing capital correctly allows you to maintain control over investments, face market volatility, and maximize the chances of obtaining sustainable returns over time.",
+      "Capital management serves to distribute resources in a balanced way, avoiding investing too much in a single asset or operation. This approach reduces the risk of large losses and helps protect overall wealth.",
+      "In practice, good capital management means defining risk limits, diversifying investments, and establishing clear strategies to grow gradually without exposing the portfolio to unforeseen losses.",
+      "Managing capital is essential for any investor: it allows you to face volatile markets, make more informed decisions, and preserve capital for future opportunities."
+    ],
+    "cost": 0,
+    "keywords": ["management", "manage", "capital", "investment", "investments"],
+    "subquestions": {
+      "Do you also want to know how portfolio diversification works?": "portfolio_diversification",
+      "Do you want to know the most common investment strategies?": "trading_strategy_choice"}
+  },
+  "drawdown_info": {
+    "questions": [
+      "What is drawdown?",
+      "What is Max DD?",
+      "What is DD?",
+      "What is meant by DD?",
+      "What does Max DD mean?",
+      "Explain drawdown",
+      "Che cos'è un drawdown?",
+      "Drawdown: what does it mean?",
+      "Can you tell me what drawdown is?",
+      "Drawdown in investments: explanation",
+      "What does drawdown indicate?",
+      "Can you tell me what DD is?",
+      "Explain Max DD in investments",
+      "What does DD indicate?",
+      "How is drawdown defined?",
+      "Why is drawdown discussed in trading?",
+      "Drawdown: what is it for?",
+      "What is drawdown used for?",
+      "What is DD used for?",
+      "What is Max DD used for?"
+    ],
+    "answers": [
+      "Drawdown is the measure of the largest loss an investment has suffered compared to its previous peak value. Essentially, it tells you how much your portfolio or investment dropped before recovering. For example, if your investment was worth €10,000 and then drops to €8,000, the drawdown is 20%.\n\nAt the moment, TradeGPT is unable to monitor or calculate the specific drawdown of your investments, so it cannot provide personalized data on this indicator.",
+      "Drawdown: used to understand how much risk is involved in an investment. If a stock rises to €5,000 and then drops to €4,000, the drawdown is 20%. This helps you understand how much you could lose in the worst moments.\n\nNote: TradeGPT is not yet able to take this data into account in its analyses.",
+      "Drawdown shows the depth of temporary losses. For example, if a fund reaches €50,000 and then drops to €40,000, the drawdown is 20%. It serves to evaluate if you are ready to withstand similar downturns.\n\nUnfortunately, TradeGPT cannot yet calculate the actual drawdown of your investments.",
+      "It helps understand how volatile your investment is. If your portfolio goes from €20,000 to €16,000, the drawdown is 20%. Knowing this helps you make safer decisions and plan risk management strategies.\n\nFor the time being, TradeGPT can explain the concept but cannot yet account for this data in analyses.",
+      "Drawdown tells you how much an investment has fallen from its peak. For instance, if an ETF reaches €12,000 and then falls to €9,000, the drawdown is 25%. This way you can see how much you might lose during a negative market phase.\n\nUnfortunately, TradeGPT does not yet have access to this data, so it cannot provide a drawdown in the analyses."
+    ],
+    "cost": 0,
+    "keywords": ["drawdown", "dd", "max dd"],
+    "subquestions": {
+      "I can explain the different investment strategies. Shall I proceed?": "trading_strategy_choice",
+      "Do you want to know who has the highest probability of growth right now?": "top_gainers"}
+  },
+  "market_history": {
+    "questions": [
+      "When was the stock market born?",
+      "In what year was the stock market born?",
+      "Since when has the stock market existed?",
+      "When were the first stock exchanges born?",
+      "When did the first stock market appear?",
+      "What is the origin of the stock market?",
+      "Where does the stock market originate?",
+      "What is the history of the birth of the stock market?",
+      "When did stock trading begin to exist?",
+      "When was the first stock exchange created?",
+      "What origins does the stock market have?",
+      "What origins does the financial stock exchange have?",
+      "Where does the financial market originate?",
+      "How was the market born?"
+    ],
+    "answers": [
+      "The stock market was born in the 17th century. The first true organized stock exchange was founded in Amsterdam in 1602, when the Dutch East India Company began issuing and trading shares. This event is considered the official beginning of the modern stock market.\n\n*Practical example:* a merchant could purchase a part of the company to finance trade voyages. In exchange, they obtained a share of the profits: exactly like today an investor buys a stock to participate in a company’s earnings.\n\nAt the moment TradeGPT cannot provide personalized historical analyses on your investments, but it can explain general concepts.",
+      "The stock market, as we know it today, originated in 1602 with the Amsterdam Stock Exchange. Here the first shares of the Dutch East India Company were traded, revolutionizing the way companies were financed.\n\n*Practical example:* instead of seeking a few wealthy financiers, a company could raise capital from many small investors. This is the same principle used by listed companies today.\n\nTradeGPT is currently unable to incorporate this type of historical data into your personalized analyses.",
+      "The birth of the stock market dates back to 1602, when the first stock exchange was founded in Amsterdam. Before then, primitive forms of commercial exchange existed, but not an organized structure for the buying and selling of shares.\n\n*Practical example:* just as today you can buy an Apple stock through a broker, merchants of the time could buy shares of the East India Company to finance expeditions to Asia.\n\nTradeGPT cannot use personalized historical data for your investments, but it can help you with general explanations.",
+      "The first stock exchange was born in 1602 in Amsterdam: it was at that moment that the modern concept of a stock appeared, that is, a share of ownership of a company. This marked the beginning of the stock market.\n\n*Practical example:* imagine dozens of investors purchasing small shares of merchant ships. In the event of a successful voyage, everyone earned. If it went badly, they shared the losses: the same mechanism as stock risk today.\n\nFor now, TradeGPT is not able to calculate how this history reflects on your personal investments.",
+      "The history of the stock market officially begins in 1602 with the creation of the Amsterdam Stock Exchange and the sale of the first shares of the Dutch East India Company. It was the first time the public could purchase shares of a company.\n\n*Practical example:* just as today an investor can buy a part of Tesla or Microsoft, in 1600 they could purchase a part of a trade voyage to Indonesia.\n\nTradeGPT currently cannot use this type of historical indicators for personalized analyses."
+    ],
+    "cost": 0,
+    "keywords": ["when", "history", "market", "when was it born", "founded"],
+    "subquestions": {
+      "Do you also want to know what happened in the 2008 crisis?": "crisi_2008_info"}
+  },
+  "crisi_2008_info": {
+    "questions": [
+      "What happened during the 2008 crisis?",
+      "Can you explain the 2008 crisis?",
+      "What happened to the markets in 2008?",
+      "What happened in 2008?",
+      "Why was there the financial crisis of 2008?",
+      "What caused the 2008 crash?",
+      "What caused the 2008 crisis?",
+      "What was the cause of the 2008 crisis?",
+      "2008 crisis: simple explanation",
+      "Explain the reason for the crash in 2008",
+      "Can you explain the causes of the 2008 crisis?",
+      "How did the economic crisis of 2008 start?",
+      "Can you explain the subprime mortgage crisis of 2008?",
+      "What happened in the financial crash of 2008?",
+      "How did the 2008 crisis develop?"
+    ],
+    "answers": [
+      "The 2008 crisis was one of the largest financial crises in modern history and originated in the United States. It all started with so-called *subprime mortgages*, loans granted to people with low income and high risk of default. Banks packaged these mortgages into financial products sold as safe instruments. When many borrowers began not paying their installments, the entire system collapsed, causing bank failures and a wave of global panic.\n\n*Practical example:* imagine a bank lending money to people who probably won't be able to pay it back. If only one person doesn't pay, it's not serious. But if thousands stop paying simultaneously, the bank risks failing and dragging the whole market down with it.",
+      "The 2008 crisis was born from the collapse of the American housing market. Houses were purchased with risky mortgages granted too easily. Banks, convinced that real estate values would rise forever, accumulated huge amounts of these mortgages. When housing prices began to fall, millions of people could no longer pay their mortgages and the securities linked to them lost value completely. This created a domino effect on the entire global financial system.\n\n*Practical example:* it is as if an entire city built houses on unstable foundations: when one collapses, the others start to give way too.",
+      "The heart of the 2008 crisis was the excessive use of high-risk mortgages (subprime) and complex financial instruments. When housing prices collapsed, defaults exploded and many banks found themselves with securities that were worth nothing. Panic spread quickly, causing historic failures like that of Lehman Brothers and forcing governments to intervene to save the world economy.\n\n*Practical example:* think of buying a lottery ticket that you are told is almost a sure win, but then you discover it's worth nothing and everyone who bought it with you discovers it at the same moment.",
+      "During the 2008 crisis, many global financial institutions got into trouble because they had invested in products linked to risky American mortgages. When these mortgages began not being repaid, the value of such products collapsed. This provoked a worldwide loss of confidence, froze credit, and generated a deep economic recession.\n\nHere is a *practical example:* it's as if suddenly no one trusted lending money to anyone anymore, blocking the entire economy.",
+      "The financial crisis of 2008 was caused by years of risky loans, real estate speculation, and financial products based on mortgages that were not actually solid. When the real estate market collapsed, the entire world banking system was hit. This generated a chain of failures, government bailouts, and a strong global economic slowdown.\n\nI'll explain it with a *practical example:* imagine a very large house of cards: just remove one card at the base for everything to fall."
+    ],
+    "cost": 0,
+    "keywords": ["crisis", "2008", "subprime mortgages", "crash", "failure", "recession"],
+    "subquestions": {
+      "Do you also want to know the causes of the 1929 crisis?": "crisi_wall_street"}
+  },
+  "crisi_wall_street": {
+    "questions": [
+      "What caused the Wall Street crash?",
+      "Why did Wall Street crash in 1929?",
+      "What were the causes of the 1929 crash?",
+      "For what reason did the Wall Street crash of 1929 happen?",
+      "What provoked the crash of '29?",
+      "What led to the collapse of the American stock market in 1929?",
+      "Why was there the Wall Street crash?",
+      "Which events triggered the Wall Street crash?",
+      "How come the American stock market crashed in 1929?",
+      "What triggered the great Wall Street crash?",
+      "What happened before the 1929 crash?",
+      "What made the crisis of '29 explode?",
+      "Causes of the great crisis",
+      "Causes of the great depression"
+    ],
+    "answers": [
+      "The Wall Street crash of 1929 was caused by a lethal combination of *extreme speculation*, *excessive use of leverage*, and a climate of *unrealistic confidence* in the markets. For years investors bought stocks by borrowing money, artificially inflating prices. When confidence began to waver, many tried to sell simultaneously, triggering panic.\n\nI'll give you a *visual example:* imagine a bubble where everyone buys stocks because 'they always go up'. Many do it on credit. When prices drop even just a little, forced sales amplify the crash, dragging everyone towards huge losses.",
+      "The main causes of the Wall Street crash were a *huge speculative bubble*, the massive use of *margin* (buying stocks with borrowed money), and an economy more fragile than it appeared. The accumulation of excessive debt led to an unstable market, which collapsed when investors began to doubt the sustainability of prices.\n\n*Practical example:* it's like buying a house with a giant mortgage hoping its value rises. If suddenly everyone starts selling them and the value collapses, you remain with a huge debt and an asset that is worth much less.",
+      "The crash of 1929 happened because stock prices had risen to unsustainable levels compared to the real economy. People bought stocks on credit, expecting easy profits. When the first negative signals arrived, panic spread quickly and mass selling caused the market to plummet.\n\nI'll explain it better with an example: think of a very high house of cards. As long as everyone believes in it, it stays standing. But it's enough for someone to touch a weak point to make everything collapse in a few seconds.",
+      "The Wall Street crash was the consequence of years of *financial euphoria*, excessive valuations, and dangerous use of credit. When investors understood that prices were too high, they started to sell. Mass selling became uncontrollable, causing the entire market to collapse.\n\nI'll explain better: it is similar to a crowded theater where suddenly someone screams 'fire!'. Even if there is no fire, panic can cause a disorderly escape and enormous damage.",
+      "The crash of 1929 was born from a mix of *overvaluation*, excess *speculation*, and insufficient market regulation. Investors purchased stocks with unrealistic expectations, often using borrowed money. The abrupt loss of confidence generated chain sales and a general collapse.\n\n*Practical example:* imagine everyone borrows money to buy the same asset, convinced its value will rise. If the price drops even slightly, many can no longer repay debts and the market collapses."
+    ],
+    "cost": 0,
+    "keywords": ["1929", "wall street", "crash", "crisis", "great crisis", "great depression"],
+    "subquestions": {
+      "Do you also want to know the causes of the 2008 crisis?": "crisi_2008_info",
+      "Are you interested in also knowing when the financial market was born?": "market_history"}
+  },
+  "crypto_crashes_history": {
+    "questions": [
+      "What were the main cryptocurrency crashes?",
+      "What are the most famous crashes of the crypto market?",
+      "Can you tell me the most important cryptocurrency crashes?",
+      "What were the worst crashes in crypto history?",
+      "What happened in the biggest crypto market crashes?",
+      "Which cryptocurrencies crashed the most in history?",
+      "Have cryptocurrencies had major crashes in recent years?",
+      "Have cryptos had major crashes in recent years?",
+      "Can you explain the main crypto crashes?",
+      "Tell me the main crashes of the crypto market",
+      "When were there the most serious cryptocurrency crashes?",
+      "Which events marked the worst crashes of the crypto market?",
+      "Tell me about the most important crashes of the crypto sector",
+      "Have there been cryptocurrency crashes?",
+      "Have there been crypto crashes?",
+      "Have there been crashes in the crypto market?",
+      "Have there been crashes in the cryptocurrency market?",
+      "Tell me about the crypto market crises",
+      "Let's talk about the crises of the cryptocurrency market"
+    ],
+    "answers": [
+      "In the history of cryptocurrencies, there have been several significant crashes that marked the sector. Here are some of the most important:\n\n*2013–2014 Crash*: Bitcoin went from over $1,000 to about $200 after problems with the Mt.Gox exchange, which at the time handled a large chunk of global transactions.\n\n*2018 Crash*: after the 2017 boom, the entire crypto market lost over 80% of its value, with Bitcoin collapsing from $20,000 to about $3,000.\n\n*May 2021 Crash*: various cryptocurrencies lost 40–60% due to the Chinese ban on mining and environmental concerns raised by Elon Musk.\n\n*Terra/LUNA Crisis of 2022*: one of the worst crashes in crypto history. LUNA lost 99.9% of its value in a few days after the UST stablecoin lost its peg to the dollar.\n\n*FTX Crisis of 2022*: the failure of the exchange caused a new generalized collapse, with BTC and ETH sharply down and many altcoins almost zeroed out.",
+      "The history of crypto is characterized by several important crashes. The most known include:\n\n*Mt.Gox 2014*: one of the most devastating, with Bitcoin collapsing after the exchange hack.\n\n*Bear market of 2018*: the entire market lost over 80% after the end of the ICO bubble.\n\n*May 2021*: strong sales following Chinese restrictions on mining.\n\n*LUNA/UST 2022*: a sudden collapse that wiped out tens of billions from the market.\n\n*FTX Failure*: an event that deeply undermined confidence in the crypto sector.",
+      "The main cryptocurrency crashes include famous episodes like:\n\n• *The Mt.Gox collapse (2014)*\n• *The great bear market of 2018*\n• *The correction of 2021*\n• *The fall of Terra/LUNA in 2022*\n• *The failure of FTX*\n\nThese events highlighted the sector's volatility and the importance of risk management.",
+      "In the crypto market, very well-known crashes have occurred, including:\n\n*Mt.Gox 2014*: Bitcoin collapsed after the exchange lost about 850,000 BTC.\n\n*Crash of 2018*: after the 2017 boom, the market entered a long crypto winter.\n\n*LUNA/UST Case*: one of the fastest and most severe falls in the sector.\n\n*FTX Crisis*: had a huge impact on investors and the entire ecosystem.",
+      "The most important crashes of the crypto market include:\n\n• *The collapse of Mt.Gox (2014)* 📉\n• *The bear market of 2018* ❄️\n• *The correction of 2021* 🔻\n• *The fall of Terra/LUNA in 2022* 🌙\n• *The failure of FTX* ⚠️\n\nEach of these events represented a key moment for the maturation of the sector."
+    ],
+    "cost": 0,
+    "keywords": ["crypto", "cryptos", "cryptocurrencies", "cryptocurrency", "crash", "collapse", "crisis", "history"],
+    "subquestions": {
+      "Are you also interested in knowing the causes of the 2008 crisis?": "crisi_2008_info",
+      "Are you interested in knowing the current value of Bitcoin?": "asset_last_price"}
 }
 }
