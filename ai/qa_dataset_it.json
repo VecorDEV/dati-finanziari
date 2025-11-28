@@ -8628,5 +8628,58 @@
       "Vuoi che ti mostri l'andamento grafico di [TOPIC]?": "graph_request",
       "Ti posso fornire l'andamento grafico di [FAVOURITE]. Procedo?": "graph_request",
       "Vuoi che ti spieghi anche cos'è la volatilità?": "volatility_info"}
+},
+    "azioni_info": {
+    "questions": [
+      "Cosa sono le azioni?",
+      "Spiegami le azioni",
+      "A cosa servono le azioni?",
+      "Come funzionano le azioni?",
+      "Che cos’è un’azione?",
+      "Mi puoi dare informazioni sulle azioni?",
+      "Vorrei sapere cosa sono le azioni",
+      "Come funzionano le azioni in borsa?",
+      "Azioni: spiegami a cosa servono",
+      "Mi spieghi le basi delle azioni?"
+    ],
+    "answers": [
+      "Le azioni rappresentano quote di proprietà di una società. Chi possiede un’azione diventa parzialmente proprietario dell’azienda e può beneficiare dei suoi profitti, solitamente tramite dividendi, oltre a partecipare al valore delle azioni che può aumentare o diminuire sul mercato.",
+      "Investire in azioni significa acquistare una parte di una società quotata. Questo ti permette di partecipare agli utili della società e, allo stesso tempo, di assumerti il rischio che il prezzo delle azioni possa scendere.",
+      "Le azioni sono strumenti finanziari che danno diritto a una quota di proprietà di un’azienda. Servono a raccogliere capitale per le imprese e permettono agli investitori di guadagnare tramite apprezzamento del prezzo o dividendi.",
+      "Quando compri azioni, stai acquistando una piccola parte di una società. Il loro valore può variare in base ai risultati dell’azienda, all’andamento del mercato e alla percezione degli investitori.",
+      "Un’azione è un titolo che rappresenta la proprietà di una parte di una società. Possedere azioni significa avere diritto a una parte dei profitti e, in alcuni casi, partecipare alle decisioni aziendali tramite il voto in assemblea."
+    ],
+    "cost": 0,
+    "keywords": ["azioni", "azione", "titoli azionari", "titolo azionario", "azionario"],
+    "subquestions": {
+      "Vuoi che ti spieghi anche cosa sono le obbligazioni?": "obbligazioni_info",
+      "Ti interessa sapere la differenza tra azioni e obbligazioni?": "azioni_obbligazioni"}
+},
+    "tecnica_fondamentale": {
+    "questions": [
+      "Qual è la differenza tra analisi tecnica e fondamentale?",
+      "Analisi tecnica vs analisi fondamentale",
+      "Spiegami le differenze tra analisi tecnica e fondamentale",
+      "Come si differenziano analisi tecnica e fondamentale?",
+      "Mi puoi dire in cosa differiscono analisi tecnica e fondamentale?",
+      "Che differenza c’è tra analisi tecnica e analisi fondamentale?",
+      "Analisi fondamentale o tecnica: qual è la differenza?",
+      "Vorrei capire la differenza tra analisi tecnica e fondamentale",
+      "Differenza tra analisi tecnica e analisi fondamentale",
+      "Analisi fondamentale vs tecnica",
+      "Analisi tecnica vs fondamentale"
+    ],
+    "answers": [
+      "L’analisi tecnica si basa sull’osservazione dei prezzi storici e degli indicatori di mercato, come medie mobili, RSI e MACD, per prevedere i movimenti futuri. L’analisi fondamentale, invece, guarda ai dati finanziari reali dell’azienda, come trailing P/E, forward P/E, bilanci e crescita dei ricavi, disponibili solo per le azioni. In sintesi, la tecnica studia i pattern di prezzo, la fondamentale valuta il valore intrinseco dell’asset.",
+      "L’analisi tecnica utilizza grafici e indicatori per identificare trend e segnali di ingresso/uscita. L’analisi fondamentale si concentra sui numeri reali dell’azienda, come utili, P/E storico e P/E prospettico, per capire se un titolo azionario è sottovalutato o sopravvalutato. Entrambe le analisi sono complementari e offrono prospettive diverse sul mercato.",
+      "In breve, l’analisi tecnica analizza i movimenti dei prezzi e indicatori di mercato per prevedere comportamenti futuri, mentre l’analisi fondamentale studia dati finanziari concreti disponibili per le azioni, come il trailing e forward P/E, per determinare il valore reale dell’asset. Utilizzarle insieme può dare un quadro più completo.",
+      "L’analisi tecnica si concentra sui grafici e sugli indicatori per individuare trend e segnali di trading. L’analisi fondamentale, disponibile solo per gli stock, valuta dati economici e finanziari dell’azienda per stimarne il valore intrinseco. Combinare entrambe le analisi aiuta a prendere decisioni più consapevoli.",
+      "Analisi tecnica e fondamentale offrono due punti di vista differenti: la prima osserva pattern di prezzo e indicatori, la seconda valuta i dati aziendali concreti come utili, P/E trailing e forward (solo per azioni). Usare entrambe permette di avere un quadro più completo sia del mercato sia del valore dell’asset."
+    ],
+    "cost": 0,
+    "keywords": ["analisi tecnica", "analisi fondamentale", "differenza", "vs", "tecnica", "fondamentale"],
+    "subquestions": {
+      "Vuoi sapere cosa dicono i fondamentali di [TOPIC]?": "fundamental_analysis",
+      "Vuoi l’analisi tecnica di [FAVOURITE]?": "ta_general"}
 }
 }
