@@ -8751,5 +8751,41 @@
     "subquestions": {
       "Vuoi sapere anche come funziona la diversificazione del portafoglio?": "portfolio_diversification",
       "Vuoi conoscere le strategie più comuni di investimento?": "trading_strategy_choice"}
+},
+    "drawdown_info": {
+    "questions": [
+      "Cos'è il drawdown?",
+      "Cos'è il Max DD?",
+      "Cos'è il DD?",
+      "Cosa si intende con DD?",
+      "Cosa vuol dire Max DD?",
+      "Spiegami il drawdown",
+      "Che cos'è un drawdown?",
+      "Drawdown: cosa significa?",
+      "Mi puoi dire cosa è il drawdown?",
+      "Drawdown negli investimenti: spiegazione",
+      "Cosa indica il drawdown?",
+      "Mi puoi dire cosa è il DD?",
+      "Spiegami il Max DD negli investimenti",
+      "Cosa indica il DD?",
+      "Come si definisce il drawdown?",
+      "Perché si parla di drawdown nel trading?",
+      "Drawdown: a cosa serve?",
+      "A che cosa serve il drawdown?",
+      "A che cosa serve il DD?",
+      "A che serve il Max DD?"
+    ],
+    "answers": [
+      "Il drawdown è la misura della perdita più grande che un investimento ha subito rispetto al suo valore massimo precedente. In pratica, ti dice quanto il tuo portafoglio o il tuo investimento è sceso prima di risalire. Ad esempio, se il tuo investimento valeva 10.000 € e poi scende a 8.000 €, il drawdown è del 20%.\n\nAl momento, TradeGPT non è in grado di monitorare o calcolare il drawdown specifico dei tuoi investimenti, quindi non può fornirti dati personalizzati su questo indicatore.",
+      "Drawdown: si usa per capire quanto rischio si corre in un investimento. Se un titolo sale fino a 5.000 € e poi scende a 4.000 €, il drawdown è del 20%. Questo ti fa capire quanto potresti perdere nei momenti peggiori.\n\nAttenzione: TradeGPT non è ancora in grado di tenere conto di questo dato nelle analisi.",
+      "Il drawdown mostra la profondità delle perdite temporanee. Per esempio, se un fondo raggiunge 50.000 € e poi scende a 40.000 €, il drawdown è del 20%. Serve a valutare se sei pronto a sopportare flessioni simili.\n\nPurtroppo TradeGPT non può ancora calcolare il drawdown effettivo dei tuoi investimenti.",
+      "Aiuta a capire quanto è volatile il tuo investimento. Se il tuo portafoglio passa da 20.000 € a 16.000 €, il drawdown è del 20%. Sapere questo ti aiuta a prendere decisioni più sicure e a pianificare strategie di gestione del rischio.\n\nPer il momento, TradeGPT può spiegare il concetto ma non può ancora tenere conto di questo dato nelle analisi.",
+      "Il drawdown ti dice quanto un investimento è sceso dal suo massimo. Ad esempio, se un ETF arriva a 12.000 € e poi scende a 9.000 €, il drawdown è del 25%. In questo modo puoi vedere quanto potresti perdere durante una fase negativa del mercato.\n\nPurtroppo TradeGPT non ha ancora accesso a questo dato, quindi non può fornire un drawdown nelle analisi."
+    ],
+    "cost": 0,
+    "keywords": ["drawdown", "dd", "max dd"],
+    "subquestions": {
+      "Posso spiegarti le diverse strategie di investimento. Vuoi che procedo?": "trading_strategy_choice",
+      "Vuoi sapere chi ha la probabilità più alta di crescere in questo momento?": "top_gainers"}
 }
 }
