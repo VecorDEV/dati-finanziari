@@ -8590,5 +8590,38 @@
     ],
     "cost": 0,
     "keywords": ["dammelo", "dimmi", "dammi", "dimmelo", "però", "ma", "questo", "questa", "queste", "questi"]
+},
+    "candlestick_chart": {
+    "questions": [
+      "Come si legge un grafico candlestick?",
+      "Spiegami il grafico a candele giapponesi",
+      "Come interpreto un grafico candlestick?",
+      "Mi puoi mostrare come leggere un grafico a candele?",
+      "Come funziona un grafico candlestick?",
+      "Grafico a candele: come si legge?",
+      "Come si leggono le candele giapponesi?",
+      "Puoi spiegarmi le basi del candlestick chart?",
+      "Come capire un grafico candlestick?",
+      "Come si interpreta un grafico a candele giapponesi?",
+      "Come si usano i grafici candlestick nel trading?",
+      "Puoi insegnarmi a leggere un grafico candlestick?",
+      "Grafico candlestick: come interpretarlo correttamente?",
+      "Come si analizza un grafico a candele?",
+      "Vorrei capire i grafici candlestick",
+      "Che cosa indica un grafico a candele?"
+    ],
+    "answers": [
+      "Un grafico candlestick (o a candele giapponesi) è uno strumento fondamentale per analizzare l’andamento di un asset nel tempo. Ogni candela rappresenta il movimento dei prezzi in un periodo specifico (es. 1 giorno, 1 ora, 5 minuti).\n\n*Struttura di una candela:*\n- Il corpo mostra la differenza tra prezzo di apertura e chiusura.\n- Il colore indica se il prezzo è salito (candela verde o bianca) o sceso (candela rossa o nera).\n- Le linee sottili sopra e sotto il corpo sono le ombre, che rappresentano i prezzi massimi e minimi raggiunti.\n\nLeggere un grafico candlestick significa osservare sequenze di candele, pattern ricorrenti e relazioni tra candele vicine per intuire la direzione futura del mercato. Questi pattern possono indicare inversioni di trend, continuazioni o momenti di indecisione.",
+      "Per leggere un grafico a candele, devi prima comprendere le informazioni principali di ogni candela:\n\n- *Apertura (Open)*: prezzo iniziale del periodo\n- *Chiusura (Close)*: prezzo finale del periodo\n- *Massimo (High)* e *Minimo (Low)*: valori estremi raggiunti\n\nIl colore del corpo indica la direzione: rialzo o ribasso. Analizzando sequenze di candele e confrontandole con il volume e indicatori tecnici, puoi ottenere indicazioni sul sentiment del mercato e possibili movimenti futuri.",
+      "Un grafico candlestick ti mostra visivamente i movimenti dei prezzi. Ogni candela è composta da un corpo e da ombre (wick/shadow). Il corpo indica la variazione tra apertura e chiusura, mentre le ombre rappresentano massimi e minimi.\n\nOsservando più candele insieme puoi individuare pattern come il *martello*, la *stella cadente*, *engulfing*, *doji* e molti altri, utili per anticipare inversioni o continuazioni di trend.",
+      "Per interpretare un grafico a candele giapponesi, considera:\n\n1. *Colore e dimensione del corpo*: un corpo lungo indica forte pressione rialzista o ribassista; uno piccolo segnala indecisione.\n2. *Ombre superiori e inferiori*: misurano la volatilità del periodo.\n3. *Pattern di più candele*: combinazioni come '*engulfing*', '*doji*' o '*harami*' indicano potenziali segnali di inversione o continuazione.\n\nL’analisi combinata con supporti, resistenze e indicatori tecnici aumenta l’affidabilità delle previsioni.",
+      "Leggere un candlestick chart significa interpretare il prezzo attraverso corpi e ombre. Le sequenze di candele formano pattern riconoscibili che aiutano a capire la psicologia del mercato.\n\nEsempio:\n- Un '*doji*' indica indecisione\n- Un '*hammer*' o '*martello*' può indicare inversione rialzista\n- Un '*shooting star*' segnala possibile inversione ribassista\n\nCombinando più candele e osservando il contesto generale puoi fare previsioni più informate."
+    ],
+    "cost": 0,
+    "keywords": ["candlestick", "candele", "candela", "grafico a candele", "candele giapponesi", "candela giapponese"],
+    "subquestions": {
+      "Vuoi che ti mostri l'andamento grafico di [TOPIC]?": "graph_request",
+      "Ti posso fornire l'andamento grafico di [FAVOURITE]. Procedo?": "graph_request",
+      "Vuoi che ti spieghi anche cos'è la volatilità?": "volatility_info"}
 }
 }
