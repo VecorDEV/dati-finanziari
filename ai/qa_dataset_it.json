@@ -8682,5 +8682,41 @@
     "subquestions": {
       "Vuoi sapere cosa dicono i fondamentali di [TOPIC]?": "fundamental_analysis",
       "Vuoi l’analisi tecnica di [FAVOURITE]?": "ta_general"}
+},
+  "portfolio_diversification": {
+    "questions": [
+      "Cosa significa diversificare il portafoglio?",
+      "Spiegami la diversificazione del portafoglio",
+      "Perché è importante diversificare?",
+      "Diversificazione del portafoglio: cosa vuol dire?",
+      "Come si fa a diversificare un portafoglio?",
+      "Perché dovrei diversificare i miei investimenti?",
+      "Che cos’è la diversificazione in finanza?",
+      "Come funziona la diversificazione del portafoglio?",
+      "Mi puoi spiegare la diversificazione degli investimenti?",
+      "Diversificazione: che cosa significa in pratica?",
+      "Parlami della diversificazione",
+      "Cosa vuol dire diversificare il portafoglio?",
+      "Cosa si intende per diversificazione del portafoglio?",
+      "Mi puoi spiegare la distribuzione degli investimenti?",
+      "Distribuzione del capitale: che cosa significa in pratica?",
+      "Parlami della distribuzione del capitale",
+      "Cosa vuol dire distribuzione del capitale?",
+      "Cosa si intende per distribuzione del proprio capitale?",
+      "Cosa si intende per distribuzione dei soldi investiti?",
+      "Cosa si intende per distribuzione degli investimenti?",
+    ],
+    "answers": [
+      "Diversificare il portafoglio significa distribuire i tuoi investimenti su più strumenti finanziari o asset, come azioni, obbligazioni, ETF o materie prime. L'obiettivo è ridurre il rischio: se un investimento va male, altri possono compensare le perdite, rendendo il portafoglio più stabile nel tempo.",
+      "La diversificazione consiste nel non concentrare tutti i capitali in un unico asset o settore. Ad esempio, investire solo in una singola azione è rischioso; distribuendo i fondi su più aziende o strumenti finanziari, il rischio complessivo diminuisce.",
+      "In pratica, diversificare significa bilanciare il portafoglio tra asset con comportamenti diversi: alcuni più rischiosi, altri più stabili. Questo approccio può ridurre la volatilità e proteggere il capitale dagli imprevisti di mercato.",
+      "Diversificare il portafoglio vuol dire combinare investimenti differenti in modo strategico. Non si tratta solo di quantità, ma di qualità: scegliere asset che reagiscono in modi diversi agli eventi di mercato riduce il rischio complessivo.",
+      "La diversificazione è una tecnica di gestione del rischio che prevede di investire in più strumenti o settori diversi. In questo modo, anche se alcuni investimenti subiscono perdite, altri possono generare guadagni, proteggendo il portafoglio."
+    ],
+    "cost": 0,
+    "keywords": ["diversificazione", "distribuzione", "portafoglio", "portafogli", "investimenti", "distribuire", "diversificare"],
+    "subquestions": {
+      "Vuoi sapere su cosa conviene investire?": "top_gainers",
+      "Posso spiegarti le strategie di investimento più comuni. Vuoi che procedo?": "trading_strategy_choice"}
 }
 }
