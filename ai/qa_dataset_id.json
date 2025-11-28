@@ -8587,5 +8587,320 @@
     ],
     "cost": 0,
     "keywords": ["kasih", "minta", "berikan", "tapi", "mau", "ingin", "ini", "itu", "data"]
+},
+    "candlestick_chart": {
+    "questions": [
+      "Bagaimana cara membaca grafik candlestick?",
+      "Jelaskan grafik lilin Jepang padaku",
+      "Bagaimana cara menginterpretasikan grafik candlestick?",
+      "Bisakah kamu tunjukkan cara membaca grafik lilin?",
+      "Bagaimana cara kerja grafik candlestick?",
+      "Grafik candlestick: bagaimana cara membacanya?",
+      "Bagaimana cara membaca lilin Jepang?",
+      "Bisakah kamu jelaskan dasar-dasar candlestick chart?",
+      "Bagaimana memahami grafik candlestick?",
+      "Bagaimana grafik lilin Jepang diinterpretasikan?",
+      "Bagaimana cara menggunakan grafik candlestick dalam trading?",
+      "Bisakah kamu mengajariku membaca grafik candlestick?",
+      "Grafik candlestick: bagaimana menginterpretasikannya dengan benar?",
+      "Bagaimana cara menganalisis grafik lilin?",
+      "Saya ingin mengerti grafik candlestick",
+      "Apa yang ditunjukkan oleh grafik lilin?"
+    ],
+    "answers": [
+      "Grafik candlestick (atau lilin Jepang) adalah alat fundamental untuk menganalisis pergerakan aset dari waktu ke waktu. Setiap lilin mewakili pergerakan harga dalam periode tertentu (misal: 1 hari, 1 jam, 5 menit).\n\n*Struktur lilin:*\n- Badan (body) menunjukkan perbedaan antara harga pembukaan dan penutupan.\n- Warna menunjukkan apakah harga naik (lilin hijau atau putih) atau turun (lilin merah atau hitam).\n- Garis tipis di atas dan di bawah badan adalah sumbu (atau bayangan), yang mewakili harga tertinggi dan terendah yang dicapai.\n\nMembaca grafik candlestick berarti mengamati urutan lilin, pola berulang, dan hubungan antara lilin yang berdekatan untuk memprediksi arah pasar di masa depan. Pola-pola ini dapat mengindikasikan pembalikan tren, kelanjutan, atau momen keragu-raguan.",
+      "Untuk membaca grafik lilin, kamu harus terlebih dahulu memahami informasi utama dari setiap lilin:\n\n- *Pembukaan (Open)*: harga awal periode\n- *Penutupan (Close)*: harga akhir periode\n- *Tertinggi (High)* dan *Terendah (Low)*: nilai ekstrem yang dicapai\n\nWarna badan menunjukkan arah: bullish (naik) atau bearish (turun). Dengan menganalisis urutan lilin dan membandingkannya dengan volume serta indikator teknikal, kamu bisa mendapatkan petunjuk tentang sentimen pasar dan kemungkinan pergerakan di masa depan.",
+      "Grafik candlestick menunjukkan pergerakan harga secara visual. Setiap lilin terdiri dari badan dan sumbu (wick/shadow). Badan menunjukkan variasi antara pembukaan dan penutupan, sedangkan sumbu mewakili harga tertinggi dan terendah.\n\nDengan mengamati beberapa lilin bersama-sama, kamu bisa mengidentifikasi pola seperti *hammer*, *shooting star*, *engulfing*, *doji*, dan banyak lainnya, yang berguna untuk mengantisipasi pembalikan atau kelanjutan tren.",
+      "Untuk menginterpretasikan grafik lilin Jepang, perhatikan:\n\n1. *Warna dan ukuran badan*: badan yang panjang menunjukkan tekanan beli atau jual yang kuat; badan yang kecil menandakan keragu-raguan.\n2. *Sumbu atas dan bawah*: mengukur volatilitas periode tersebut.\n3. *Pola multi-lilin*: kombinasi seperti '*engulfing*', '*doji*', atau '*harami*' menunjukkan potensi sinyal pembalikan atau kelanjutan.\n\nAnalisis gabungan dengan support, resistance, dan indikator teknikal meningkatkan keandalan prediksi.",
+      "Membaca candlestick chart berarti menginterpretasikan harga melalui badan dan sumbu. Urutan lilin membentuk pola yang dapat dikenali yang membantu memahami psikologi pasar.\n\nContoh:\n- Sebuah '*doji*' menunjukkan keragu-raguan\n- Sebuah '*hammer*' (palu) bisa menunjukkan pembalikan naik (bullish)\n- Sebuah '*shooting star*' menandakan kemungkinan pembalikan turun (bearish)\n\nDengan menggabungkan lebih banyak lilin dan mengamati konteks umum, kamu bisa membuat prediksi yang lebih matang."
+    ],
+    "cost": 0,
+    "keywords": ["candlestick", "lilin", "candle", "grafik lilin", "lilin jepang", "candlestick chart"],
+    "subquestions": {
+      "Apakah kamu ingin aku tunjukkan tren grafik dari [TOPIC]?": "graph_request",
+      "Aku bisa memberikan tren grafik dari [FAVOURITE]. Lanjut?": "graph_request",
+      "Apakah kamu ingin aku jelaskan juga apa itu volatilitas?": "volatility_info"}
+  },
+  "azioni_info": {
+    "questions": [
+      "Apa itu saham?",
+      "Jelaskan padaku tentang saham",
+      "Untuk apa saham itu?",
+      "Bagaimana cara kerja saham?",
+      "Apa sebenarnya saham itu?",
+      "Bisakah kamu memberiku info tentang saham?",
+      "Saya ingin tahu apa itu saham",
+      "Bagaimana cara kerja saham di bursa?",
+      "Saham: jelaskan kegunaannya",
+      "Bisakah kamu jelaskan dasar-dasar saham?"
+    ],
+    "answers": [
+      "Saham mewakili bagian kepemilikan dari sebuah perusahaan. Siapa pun yang memiliki saham menjadi pemilik sebagian dari perusahaan tersebut dan bisa mendapatkan keuntungan dari labanya, biasanya melalui dividen, serta berpartisipasi dalam nilai saham yang bisa naik atau turun di pasar.",
+      "Berinvestasi saham berarti membeli sebagian dari perusahaan terbuka (Tbk). Ini memungkingkanmu untuk berpartisipasi dalam keuntungan perusahaan dan, pada saat yang sama, menanggung risiko bahwa harga saham mungkin turun.",
+      "Saham adalah instrumen keuangan yang memberikan hak atas sebagian kepemilikan perusahaan. Saham berfungsi untuk menggalang modal bagi perusahaan dan memungkinkan investor memperoleh keuntungan melalui kenaikan harga (capital gain) atau dividen.",
+      "Ketika kamu membeli saham, kamu sedang membeli bagian kecil dari sebuah perusahaan. Nilainya bisa bervariasi berdasarkan hasil kinerja perusahaan, tren pasar, dan persepsi investor.",
+      "Saham adalah surat berharga yang mewakili kepemilikan sebagian kecil dari sebuah perseroan. Memiliki saham berarti memiliki hak atas sebagian keuntungan dan, dalam beberapa kasus, berpartisipasi dalam keputusan perusahaan melalui pemungutan suara dalam rapat umum pemegang saham (RUPS)."
+    ],
+    "cost": 0,
+    "keywords": ["saham", "efek", "bursa", "pasar saham", "investasi"],
+    "subquestions": {
+      "Apakah kamu ingin aku jelaskan juga apa itu obligasi?": "obbligazioni_info",
+      "Apakah kamu tertarik mengetahui perbedaan antara saham dan obligasi?": "azioni_obbligazioni"}
+  },
+  "tecnica_fondamentale": {
+    "questions": [
+      "Apa perbedaan antara analisis teknikal dan fundamental?",
+      "Analisis teknikal vs analisis fundamental",
+      "Jelaskan perbedaan antara analisis teknikal dan fundamental",
+      "Bagaimana analisis teknikal dan fundamental berbeda?",
+      "Bisakah kamu beritahu perbedaannya analisis teknikal dan fundamental?",
+      "Apa bedanya analisis teknikal dan analisis fundamental?",
+      "Analisis fundamental atau teknikal: apa bedanya?",
+      "Saya ingin mengerti perbedaan antara analisis teknikal dan fundamental",
+      "Perbedaan antara analisis teknikal dan analisis fundamental",
+      "Analisis fundamental vs teknikal",
+      "Analisis teknikal vs fundamental"
+    ],
+    "answers": [
+      "Analisis teknikal didasarkan pada pengamatan harga historis dan indikator pasar, seperti moving average, RSI, dan MACD, untuk memprediksi pergerakan di masa depan. Analisis fundamental, di sisi lain, melihat data keuangan riil perusahaan, seperti trailing P/E, forward P/E, neraca, dan pertumbuhan pendapatan (hanya tersedia untuk saham). Singkatnya, teknikal mempelajari pola harga, fundamental mengevaluasi nilai intrinsik aset.",
+      "Analisis teknikal menggunakan grafik dan indikator untuk mengidentifikasi tren dan sinyal masuk/keluar. Analisis fundamental berfokus pada angka riil perusahaan, seperti laba, P/E historis, dan prospek P/E, untuk memahami apakah saham tersebut undervalued (murah) atau overvalued (mahal). Kedua analisis ini saling melengkapi dan menawarkan perspektif berbeda tentang pasar.",
+      "Singkatnya, analisis teknikal menganalisis pergerakan harga dan indikator pasar untuk memprediksi perilaku masa depan, sedangkan analisis fundamental mempelajari data keuangan konkret yang tersedia untuk saham, seperti trailing dan forward P/E, untuk menentukan nilai nyata aset tersebut. Menggunakannya bersama-sama dapat memberikan gambaran yang lebih lengkap.",
+      "Analisis teknikal berfokus pada grafik dan indikator untuk menemukan tren dan sinyal trading. Analisis fundamental, yang hanya tersedia untuk saham, mengevaluasi data ekonomi dan keuangan perusahaan untuk memperkirakan nilai intrinsiknya. Menggabungkan kedua analisis membantu dalam mengambil keputusan yang lebih sadar.",
+      "Analisis teknikal dan fundamental menawarkan dua sudut pandang berbeda: yang pertama mengamati pola harga dan indikator, yang kedua mengevaluasi data perusahaan konkret seperti laba, P/E trailing dan forward (hanya untuk saham). Menggunakan keduanya memungkinkanmu memiliki pandangan yang lebih lengkap baik tentang pasar maupun nilai aset."
+    ],
+    "cost": 0,
+    "keywords": ["analisis teknikal", "analisis fundamental", "perbedaan", "vs", "teknikal", "fundamental"],
+    "subquestions": {
+      "Apakah kamu ingin tahu apa kata fundamental tentang [TOPIC]?": "fundamental_analysis",
+      "Apakah kamu ingin analisis teknikal dari [FAVOURITE]?": "ta_general"}
+  },
+  "portfolio_diversification": {
+    "questions": [
+      "Apa artinya diversifikasi portofolio?",
+      "Jelaskan diversifikasi portofolio",
+      "Mengapa diversifikasi itu penting?",
+      "Diversifikasi portofolio: apa maksudnya?",
+      "Bagaimana cara melakukan diversifikasi portofolio?",
+      "Mengapa saya harus mendiversifikasi investasi saya?",
+      "Apa itu diversifikasi dalam keuangan?",
+      "Bagaimana cara kerja diversifikasi portofolio?",
+      "Bisakah kamu jelaskan diversifikasi investasi?",
+      "Diversifikasi: apa artinya dalam praktik?",
+      "Ceritakan tentang diversifikasi",
+      "Apa artinya mendiversifikasi portofolio?",
+      "Apa yang dimaksud dengan diversifikasi portofolio?",
+      "Bisakah kamu jelaskan distribusi investasi?",
+      "Distribusi modal: apa artinya secara konkret?",
+      "Ceritakan tentang distribusi modal",
+      "Apa arti distribusi modal?",
+      "Apa yang dimaksud dengan distribusi modal sendiri?",
+      "Apa yang dimaksud dengan distribusi uang yang diinvestasikan?",
+      "Apa yang dimaksud dengan distribusi investasi?"
+    ],
+    "answers": [
+      "Mendiversifikasi portofolio berarti menyebarkan investasimu ke berbagai instrumen keuangan atau aset, seperti saham, obligasi, ETF, atau komoditas. Tujuannya adalah mengurangi risiko: jika satu investasi berkinerja buruk, yang lain dapat menutupi kerugian, membuat portofolio lebih stabil dari waktu ke waktu.",
+      "Diversifikasi berarti tidak memusatkan semua modal pada satu aset atau sektor saja. Misalnya, berinvestasi hanya pada satu saham itu berisiko; dengan menyebarkan dana ke lebih banyak perusahaan atau instrumen keuangan, risiko keseluruhan akan berkurang.",
+      "Dalam praktiknya, diversifikasi berarti menyeimbangkan portofolio antara aset dengan perilaku berbeda: beberapa lebih berisiko, yang lain lebih stabil. Pendekatan ini dapat mengurangi volatilitas dan melindungi modal dari kejadian pasar yang tidak terduga.",
+      "Mendiversifikasi portofolio berarti menggabungkan investasi yang berbeda secara strategis. Ini bukan hanya soal kuantitas, tapi kualitas: memilih aset yang bereaksi berbeda terhadap peristiwa pasar akan mengurangi risiko keseluruhan.",
+      "Diversifikasi adalah teknik manajemen risiko yang melibatkan investasi di berbagai instrumen atau sektor berbeda. Dengan cara ini, meskipun beberapa investasi mengalami kerugian, yang lain dapat menghasilkan keuntungan, sehingga melindungi portofolio."
+    ],
+    "cost": 0,
+    "keywords": ["diversifikasi", "distribusi", "portofolio", "investasi", "sebar", "bagi"],
+    "subquestions": {
+      "Apakah kamu ingin tahu apa yang layak diinvestasikan?": "top_gainers",
+      "Aku bisa jelaskan strategi investasi yang paling umum. Mau lanjut?": "trading_strategy_choice"}
+  },
+  "capital_management": {
+    "questions": [
+      "Mengapa manajemen modal itu penting?",
+      "Manajemen modal: mengapa itu fundamental?",
+      "Jelaskan pentingnya manajemen modal",
+      "Mengapa saya harus mengelola modal saya dengan baik?",
+      "Jika saya mengelola modal dengan baik, bisakah saya melakukan lebih?",
+      "Jika saya mengelola modal dengan baik, apakah saya menghasilkan lebih banyak uang?",
+      "Apakah saya dapat untung lebih jika mengelola modal dengan baik?",
+      "Apa itu manajemen modal dan untuk apa?",
+      "Manajemen modal: untuk apa gunanya?",
+      "Apa tujuan manajemen modal?",
+      "Mengapa berguna untuk mengelola modal dengan benar?",
+      "Mengapa saya harus mengelola modal dengan baik?",
+      "Apa pentingnya manajemen modal dalam investasi?",
+      "Mengapa manajemen modal sangat krusial?",
+      "Seberapa krusial manajemen modal?",
+      "Seberapa penting manajemen modal?",
+      "Mengapa saya harus memperhatikan manajemen modal?"
+    ],
+    "answers": [
+      "Manajemen modal sangat fundamental karena membantumu mengendalikan risiko dan melindungi investasimu. Ini berarti memutuskan berapa banyak uang yang dialokasikan untuk setiap operasi dan bagaimana menyeimbangkan risiko terhadap potensi keuntungan, demi menghindari kerugian yang berlebihan.",
+      "Mengelola modal dengan benar memungkinkanmu mempertahankan kendali atas investasi, menghadapi volatilitas pasar, dan memaksimalkan peluang mendapatkan keuntungan berkelanjutan dari waktu ke waktu.",
+      "Manajemen modal berfungsi untuk mendistribusikan sumber daya secara seimbang, menghindari investasi terlalu banyak dalam satu aset atau operasi. Pendekatan ini mengurangi risiko kerugian besar dan membantu melindungi kekayaan secara keseluruhan.",
+      "Dalam praktiknya, manajemen modal yang baik berarti menetapkan batas risiko, mendiversifikasi investasi, dan menetapkan strategi yang jelas untuk tumbuh secara bertahap tanpa mengekspos portofolio pada kerugian tak terduga.",
+      "Mengelola modal sangat penting bagi investor mana pun: ini memungkinkan untuk menghadapi pasar yang fluktuatif, mengambil keputusan yang lebih sadar, dan menjaga modal untuk peluang di masa depan."
+    ],
+    "cost": 0,
+    "keywords": ["manajemen", "mengelola", "modal", "investasi", "money management"],
+    "subquestions": {
+      "Apakah kamu ingin tahu juga cara kerja diversifikasi portofolio?": "portfolio_diversification",
+      "Apakah kamu ingin tahu strategi investasi yang paling umum?": "trading_strategy_choice"}
+  },
+  "drawdown_info": {
+    "questions": [
+      "Apa itu drawdown?",
+      "Apa itu Max DD?",
+      "Apa itu DD?",
+      "Apa yang dimaksud dengan DD?",
+      "Apa arti Max DD?",
+      "Jelaskan drawdown padaku",
+      "Apa itu sebuah drawdown?",
+      "Drawdown: apa artinya?",
+      "Bisakah kamu memberitahuku apa itu drawdown?",
+      "Drawdown dalam investasi: penjelasan",
+      "Apa yang ditunjukkan oleh drawdown?",
+      "Bisakah kamu memberitahuku apa itu DD?",
+      "Jelaskan Max DD dalam investasi",
+      "Apa yang diindikasikan oleh DD?",
+      "Bagaimana drawdown didefinisikan?",
+      "Mengapa orang berbicara tentang drawdown dalam trading?",
+      "Drawdown: untuk apa gunanya?",
+      "Untuk apa drawdown digunakan?",
+      "Untuk apa DD digunakan?",
+      "Untuk apa Max DD digunakan?"
+    ],
+    "answers": [
+      "Drawdown adalah ukuran kerugian terbesar yang dialami suatu investasi dibandingkan dengan nilai puncak sebelumnya. Praktisnya, ini memberitahumu seberapa besar portofolio atau investasimu turun sebelum naik kembali. Contohnya, jika investasimu bernilai Rp 100.000.000 lalu turun menjadi Rp 80.000.000, drawdown-nya adalah 20%.\n\nSaat ini, TradeGPT belum dapat memantau atau menghitung drawdown spesifik dari investasimu, jadi tidak dapat memberikan data personal tentang indikator ini.",
+      "Drawdown: digunakan untuk memahami seberapa besar risiko yang dihadapi dalam sebuah investasi. Jika sebuah aset naik hingga Rp 50.000.000 lalu turun menjadi Rp 40.000.000, drawdown-nya adalah 20%. Ini membantumu memahami seberapa banyak kamu bisa rugi di saat-saat terburuk.\n\nPerhatian: TradeGPT belum dapat memperhitungkan data ini dalam analisisnya.",
+      "Drawdown menunjukkan kedalaman kerugian sementara. Misalnya, jika sebuah reksa dana mencapai Rp 500.000.000 lalu turun menjadi Rp 400.000.000, drawdown-nya adalah 20%. Ini berfungsi untuk mengevaluasi apakah kamu siap menahan penurunan serupa.\n\nSayangnya, TradeGPT belum bisa menghitung drawdown aktual dari investasimu.",
+      "Ini membantu memahami seberapa volatil investasimu. Jika portofoliomu berubah dari Rp 200.000.000 menjadi Rp 160.000.000, drawdown-nya adalah 20%. Mengetahui hal ini membantumu mengambil keputusan yang lebih aman dan merencanakan strategi manajemen risiko.\n\nUntuk saat ini, TradeGPT dapat menjelaskan konsepnya tetapi belum dapat memasukkan data ini dalam analisis.",
+      "Drawdown memberitahumu seberapa besar investasi turun dari puncaknya. Misalnya, jika sebuah ETF mencapai Rp 120.000.000 lalu turun menjadi Rp 90.000.000, drawdown-nya adalah 25%. Dengan cara ini kamu bisa melihat seberapa banyak kamu mungkin rugi selama fase pasar negatif.\n\nSayangnya TradeGPT belum memiliki akses ke data ini, sehingga tidak dapat memberikan drawdown dalam analisis."
+    ],
+    "cost": 0,
+    "keywords": ["drawdown", "dd", "max dd", "kerugian maksimal"],
+    "subquestions": {
+      "Aku bisa menjelaskan berbagai strategi investasi. Mau lanjut?": "trading_strategy_choice",
+      "Apakah kamu ingin tahu siapa yang memiliki probabilitas pertumbuhan tertinggi saat ini?": "top_gainers"}
+  },
+  "market_history": {
+    "questions": [
+      "Kapan pasar saham lahir?",
+      "Tahun berapa pasar saham lahir?",
+      "Sejak kapan pasar saham ada?",
+      "Kapan bursa pertama lahir?",
+      "Kapan pasar saham pertama kali muncul?",
+      "Apa asal-usul pasar saham?",
+      "Dari mana pasar saham berasal?",
+      "Bagaimana sejarah kelahiran pasar saham?",
+      "Kapan perdagangan saham mulai ada?",
+      "Kapan bursa efek pertama kali dibuat?",
+      "Apa asal-usul pasar saham?",
+      "Apa asal-usul bursa keuangan?",
+      "Dari mana pasar keuangan berasal?",
+      "Bagaimana pasar terbentuk?"
+    ],
+    "answers": [
+      "Pasar saham lahir pada abad ke-17. Bursa efek terorganisir pertama yang sesungguhnya didirikan di Amsterdam pada tahun 1602, ketika Perusahaan Hindia Timur Belanda (VOC) mulai menerbitkan dan memperdagangkan saham. Peristiwa ini dianggap sebagai awal resmi pasar saham modern.\n\n*Contoh praktis:* seorang pedagang bisa membeli bagian dari perusahaan untuk membiayai perjalanan dagang. Sebagai imbalannya, ia mendapatkan bagian dari keuntungan: persis seperti hari ini seorang investor membeli saham untuk berpartisipasi dalam laba perusahaan.\n\nSaat ini TradeGPT tidak dapat memberikan analisis sejarah yang dipersonalisasi tentang investasimu, tetapi dapat menjelaskan konsep umumnya.",
+      "Pasar saham, seperti yang kita kenal sekarang, bermula pada tahun 1602 dengan Bursa Amsterdam. Di sinilah saham pertama Perusahaan Hindia Timur Belanda (VOC) diperdagangkan, merevolusi cara pendanaan perusahaan.\n\n*Contoh praktis:* alih-alih mencari beberapa penyandang dana kaya, sebuah perusahaan bisa mengumpulkan modal dari banyak investor kecil. Ini adalah prinsip yang sama yang digunakan oleh perusahaan terbuka (Tbk) saat ini.\n\nTradeGPT saat ini belum dapat memasukkan jenis data historis ini ke dalam analisis personalmu.",
+      "Kelahiran pasar saham dimulai pada tahun 1602, ketika bursa efek pertama didirikan di Amsterdam. Sebelum itu ada bentuk pertukaran komersial primitif, tetapi tidak ada struktur terorganisir untuk jual beli saham.\n\n*Contoh praktis:* sama seperti hari ini kamu bisa membeli saham Apple melalui broker, para pedagang zaman itu bisa membeli saham VOC untuk membiayai ekspedisi ke Asia (termasuk ke Indonesia).\n\nTradeGPT tidak dapat menggunakan data historis yang dipersonalisasi untuk investasimu, tetapi dapat membantumu dengan penjelasan umum.",
+      "Bursa efek pertama lahir pada tahun 1602 di Amsterdam: pada saat itulah konsep saham modern muncul, yaitu bagian kepemilikan dari sebuah perusahaan. Ini menandai awal pasar saham.\n\n*Contoh praktis:* bayangkan puluhan investor membeli bagian kecil dari kapal dagang. Jika perjalanan sukses, semua orang untung. Jika gagal, mereka berbagi kerugian: mekanisme risiko yang sama dengan saham hari ini.\n\nUntuk saat ini, TradeGPT belum dapat menghitung bagaimana sejarah ini tercermin dalam investasi pribadimu.",
+      "Sejarah pasar saham dimulai secara resmi pada tahun 1602 dengan pembentukan Bursa Amsterdam dan penjualan saham pertama Perusahaan Hindia Timur Belanda (VOC). Itu adalah pertama kalinya publik bisa membeli bagian dari sebuah perusahaan.\n\n*Contoh praktis:* persis seperti hari ini investor bisa membeli bagian dari Tesla atau Microsoft, pada tahun 1600 orang bisa membeli bagian dari perjalanan dagang ke Indonesia.\n\nTradeGPT saat ini tidak dapat menggunakan indikator historis semacam ini untuk analisis yang dipersonalisasi."
+    ],
+    "cost": 0,
+    "keywords": ["kapan", "sejarah", "pasar", "kapan lahir", "didirikan", "bursa"],
+    "subquestions": {
+      "Apakah kamu ingin tahu juga apa yang terjadi pada krisis 2008?": "crisi_2008_info"}
+  },
+  "crisi_2008_info": {
+    "questions": [
+      "Apa yang terjadi selama krisis 2008?",
+      "Bisakah kamu jelaskan krisis 2008?",
+      "Apa yang terjadi pada pasar di tahun 2008?",
+      "Ada kejadian apa di tahun 2008?",
+      "Mengapa terjadi krisis keuangan 2008?",
+      "Apa yang menyebabkan keruntuhan 2008?",
+      "Apa penyebab krisis 2008?",
+      "Apa penyebab utama krisis 2008?",
+      "Krisis 2008: penjelasan sederhana",
+      "Jelaskan alasan keruntuhan di tahun 2008",
+      "Bisakah kamu jelaskan penyebab krisis 2008?",
+      "Bagaimana krisis ekonomi 2008 bermula?",
+      "Bisakah kamu jelaskan krisis hipotek subprime 2008?",
+      "Apa yang terjadi pada keruntuhan finansial 2008?",
+      "Bagaimana krisis 2008 berkembang?"
+    ],
+    "answers": [
+      "Krisis 2008 adalah salah satu krisis keuangan terbesar dalam sejarah modern dan bermula di Amerika Serikat. Semuanya dimulai dengan apa yang disebut *hipotek subprime*, pinjaman yang diberikan kepada orang-orang dengan pendapatan rendah dan risiko gagal bayar tinggi. Bank mengemas hipotek ini menjadi produk keuangan yang dijual sebagai instrumen aman. Ketika banyak peminjam mulai tidak membayar cicilan, seluruh sistem runtuh, menyebabkan kebangkrutan bank dan gelombang kepanikan global.\n\n*Contoh praktis:* bayangkan sebuah bank meminjamkan uang kepada orang-orang yang mungkin tidak akan bisa membayarnya kembali. Jika hanya satu orang tidak membayar, itu tidak masalah. Tapi jika ribuan orang berhenti membayar secara bersamaan, bank berisiko bangkrut dan menyeret seluruh pasar bersamanya.",
+      "Krisis 2008 lahir dari runtuhnya pasar properti Amerika. Rumah dibeli dengan hipotek berisiko yang diberikan terlalu mudah. Bank, yakin bahwa nilai properti akan naik selamanya, menimbun hipotek ini dalam jumlah besar. Ketika harga rumah mulai turun, jutaan orang tidak bisa lagi membayar hipotek dan surat berharga yang terkait dengannya kehilangan nilai sepenuhnya. Ini menciptakan efek domino pada seluruh sistem keuangan dunia.\n\n*Contoh praktis:* ini seperti seluruh kota membangun rumah di atas fondasi yang tidak stabil: ketika satu runtuh, yang lain juga mulai ambruk.",
+      "Inti dari krisis 2008 adalah penggunaan berlebihan hipotek berisiko tinggi (subprime) dan instrumen keuangan yang kompleks. Ketika harga rumah jatuh, gagal bayar meledak dan banyak bank mendapati diri mereka memegang surat berharga yang tidak bernilai apa-apa lagi. Kepanikan menyebar dengan cepat, menyebabkan kebangkrutan bersejarah seperti Lehman Brothers dan memaksa pemerintah turun tangan untuk menyelamatkan ekonomi dunia.\n\n*Contoh praktis:* pikirkan tentang membeli tiket lotre yang katanya hampir pasti menang, tapi kemudian kamu tahu itu tidak berharga dan semua orang yang membelinya bersamamu mengetahuinya pada saat yang sama.",
+      "Selama krisis 2008, banyak lembaga keuangan global mengalami kesulitan karena mereka telah berinvestasi dalam produk yang terkait dengan hipotek berisiko Amerika. Ketika hipotek ini mulai macet, nilai produk tersebut runtuh. Ini memicu hilangnya kepercayaan global, pembekuan kredit, dan menghasilkan resesi ekonomi yang dalam.\n\nIni *contoh praktisnya:* seolah-olah tiba-tiba tidak ada yang percaya untuk meminjamkan uang kepada siapa pun lagi, memblokir seluruh ekonomi.",
+      "Krisis keuangan 2008 disebabkan oleh bertahun-tahun pinjaman berisiko, spekulasi properti, dan produk keuangan berbasis hipotek yang sebenarnya tidak solid. Ketika pasar properti runtuh, seluruh sistem perbankan dunia terkena dampaknya. Ini menghasilkan rantai kebangkrutan, dana talangan (bailout) pemerintah, dan perlambatan ekonomi global yang kuat.\n\nAku jelaskan dengan *contoh praktis:* bayangkan sebuah rumah kartu yang sangat besar: cukup ambil satu kartu di bagian bawah agar semuanya jatuh."
+    ],
+    "cost": 0,
+    "keywords": ["krisis", "2008", "hipotek subprime", "keruntuhan", "kebangkrutan", "resesi"],
+    "subquestions": {
+      "Apakah kamu ingin tahu juga penyebab krisis 1929?": "crisi_wall_street"}
+  },
+  "crisi_wall_street": {
+    "questions": [
+      "Apa yang menyebabkan keruntuhan Wall Street?",
+      "Mengapa Wall Street runtuh pada tahun 1929?",
+      "Apa penyebab keruntuhan tahun 1929?",
+      "Apa alasan terjadinya crash Wall Street 1929?",
+      "Apa yang memicu crash tahun '29?",
+      "Apa yang menyebabkan runtuhnya bursa saham Amerika pada tahun 1929?",
+      "Mengapa terjadi keruntuhan Wall Street?",
+      "Peristiwa apa yang memicu crash Wall Street?",
+      "Kenapa bursa saham Amerika runtuh pada tahun 1929?",
+      "Apa yang memicu keruntuhan besar Wall Street?",
+      "Apa yang terjadi sebelum keruntuhan 1929?",
+      "Apa yang membuat krisis '29 meledak?",
+      "Penyebab krisis besar",
+      "Penyebab depresi besar"
+    ],
+    "answers": [
+      "Keruntuhan Wall Street 1929 disebabkan oleh kombinasi mematikan dari *spekulasi ekstrem*, *penggunaan leverage (utang) berlebihan*, dan iklim *kepercayaan yang tidak realistis* di pasar. Selama bertahun-tahun investor membeli saham dengan meminjam uang, secara artifisial menggelembungkan harga. Ketika kepercayaan mulai goyah, banyak yang mencoba menjual secara bersamaan, memicu kepanikan.\n\nAku beri *contoh visual:* bayangkan sebuah gelembung di mana semua orang membeli saham karena 'selalu naik'. Banyak yang melakukannya dengan kredit. Ketika harga turun sedikit saja, penjualan paksa memperbesar keruntuhan, menyeret semua orang menuju kerugian besar.",
+      "Penyebab utama crash Wall Street adalah *gelembung spekulatif yang sangat besar*, penggunaan *margin* secara masif (membeli saham dengan uang pinjaman), dan ekonomi yang lebih rapuh daripada yang terlihat. Penumpukan utang yang berlebihan menyebabkan pasar yang tidak stabil, yang runtuh ketika investor mulai meragukan keberlanjutan harga.\n\n*Contoh praktis:* ini seperti membeli rumah dengan hipotek raksasa dengan harapan nilainya naik. Jika tiba-tiba semua orang mulai menjualnya dan nilainya jatuh, kamu tertinggal dengan utang besar dan aset yang nilainya jauh lebih rendah.",
+      "Crash 1929 terjadi karena harga saham telah naik ke tingkat yang tidak berkelanjutan dibandingkan dengan ekonomi riil. Orang-orang membeli saham secara kredit, mengharapkan keuntungan mudah. Ketika sinyal negatif pertama datang, kepanikan menyebar dengan cepat dan penjualan massal membuat pasar terjun bebas.\n\nAku jelaskan lebih baik dengan contoh: pikirkan sebuah rumah kartu yang sangat tinggi. Selama semua orang percaya padanya, itu tetap berdiri. Tapi cukup seseorang menyentuh titik lemah untuk meruntuhkan semuanya dalam beberapa detik.",
+      "Keruntuhan Wall Street adalah konsekuensi dari bertahun-tahun *euforia finansial*, penilaian berlebihan, dan penggunaan kredit yang berbahaya. Ketika investor sadar bahwa harga terlalu tinggi, mereka mulai menjual. Penjualan massal menjadi tidak terkendali, menyebabkan seluruh pasar runtuh.\n\nAku jelaskan lebih baik: ini mirip dengan teater yang penuh sesak di mana tiba-tiba seseorang berteriak «kebakaran!». Meskipun tidak ada api, kepanikan dapat menyebabkan pelarian yang kacau dan kerusakan besar.",
+      "Crash 1929 lahir dari campuran *overvaluasi*, kelebihan *spekulasi*, dan regulasi pasar yang tidak memadai. Investor membeli saham dengan ekspektasi yang tidak realistis, sering kali menggunakan uang pinjaman. Hilangnya kepercayaan secara tiba-tiba menghasilkan penjualan berantai dan keruntuhan umum.\n\n*Contoh praktis:* bayangkan semua orang meminjam uang untuk membeli barang yang sama, yakin nilainya akan naik. Jika harganya turun sedikit saja, banyak yang tidak bisa lagi membayar utang dan pasar pun kolaps."
+    ],
+    "cost": 0,
+    "keywords": ["1929", "29", "'29", "wall street", "runtuh", "krisis", "krisis besar", "depresi besar", "crash"],
+    "subquestions": {
+      "Apakah kamu ingin tahu juga penyebab krisis 2008?": "crisi_2008_info",
+      "Apakah kamu tertarik mengetahui kapan pasar keuangan lahir?": "market_history"}
+  },
+  "crypto_crashes_history": {
+    "questions": [
+      "Apa saja crash utama mata uang kripto?",
+      "Apa saja keruntuhan paling terkenal di pasar kripto?",
+      "Bisakah kamu memberitahuku crash kripto yang paling penting?",
+      "Apa saja crash terburuk dalam sejarah kripto?",
+      "Apa yang terjadi pada keruntuhan terbesar pasar kripto?",
+      "Kripto mana yang paling hancur dalam sejarah?",
+      "Apakah kripto mengalami crash besar dalam beberapa tahun terakhir?",
+      "Apakah kripto mengalami keruntuhan besar baru-baru ini?",
+      "Bisakah kamu jelaskan crash utama kripto?",
+      "Sebutkan keruntuhan utama pasar kripto",
+      "Kapan terjadi crash kripto yang paling parah?",
+      "Peristiwa apa yang menandai keruntuhan terburuk pasar kripto?",
+      "Ceritakan tentang crash paling penting di sektor kripto",
+      "Apakah pernah ada keruntuhan kripto?",
+      "Apakah ada crash kripto?",
+      "Apakah ada keruntuhan di pasar kripto?",
+      "Apakah ada keruntuhan di pasar mata uang kripto?",
+      "Ceritakan tentang krisis pasar kripto",
+      "Mari bicara tentang krisis pasar kripto"
+    ],
+    "answers": [
+      "Dalam sejarah mata uang kripto, ada beberapa crash signifikan yang menandai sektor ini. Berikut adalah beberapa yang paling penting:\n\n*Crash 2013–2014*: Bitcoin turun dari lebih dari $1.000 menjadi sekitar $200 setelah masalah dengan bursa Mt.Gox, yang saat itu menangani sebagian besar transaksi global.\n\n*Crash 2018*: setelah *boom* 2017, seluruh pasar kripto kehilangan lebih dari 80% nilainya, dengan Bitcoin yang runtuh dari $20.000 menjadi sekitar $3.000.\n\n*Crash Mei 2021*: berbagai kripto kehilangan 40–60% karena larangan penambangan (mining) oleh China dan kekhawatiran lingkungan yang diangkat oleh Elon Musk.\n\n*Krisis Terra/LUNA 2022*: salah satu keruntuhan terburuk dalam sejarah kripto. LUNA kehilangan 99,9% nilainya dalam beberapa hari setelah stablecoin UST kehilangan patokannya (peg) terhadap dolar.\n\n*Krisis FTX 2022*: kebangkrutan bursa ini memicu keruntuhan umum baru, dengan BTC dan ETH turun tajam dan banyak altcoin hampir menjadi nol.",
+      "Sejarah kripto ditandai oleh beberapa crash penting. Yang paling terkenal meliputi:\n\n*Mt.Gox 2014*: salah satu yang paling menghancurkan, dengan Bitcoin runtuh setelah peretasan bursa tersebut.\n\n*Bear market 2018*: seluruh pasar kehilangan lebih dari 80% setelah berakhirnya gelembung ICO.\n\n*Mei 2021*: penjualan kuat menyusul pembatasan China terhadap penambangan.\n\n*LUNA/UST 2022*: keruntuhan mendadak yang menyapu puluhan miliar dolar dari pasar.\n\n*Kebangkrutan FTX*: peristiwa yang sangat merusak kepercayaan pada sektor kripto.",
+      "Crash utama mata uang kripto mencakup episode terkenal seperti:\n\n• *Keruntuhan Mt.Gox (2014)*\n• *Bear market besar 2018*\n• *Koreksi 2021*\n• *Jatuhnya Terra/LUNA pada 2022*\n• *Kebangkrutan FTX*\n\nPeristiwa-peristiwa ini menyoroti volatilitas sektor ini dan pentingnya manajemen risiko.",
+      "Di pasar kripto terjadi crash yang sangat terkenal, di antaranya:\n\n*Mt.Gox 2014*: Bitcoin runtuh setelah bursa tersebut kehilangan sekitar 850.000 BTC.\n\n*Crash 2018*: setelah *boom* 2017, pasar memasuki musim dingin kripto (crypto winter) yang panjang.\n\n*Kasus LUNA/UST*: salah satu kejatuhan tercepat dan terparah di sektor ini.\n\n*Krisis FTX*: berdampak besar pada investor dan seluruh ekosistem.",
+      "Crash paling penting di pasar kripto meliputi:\n\n• *Keruntuhan Mt.Gox (2014)* 📉\n• *Bear market 2018* ❄️\n• *Koreksi 2021* 🔻\n• *Jatuhnya Terra/LUNA pada 2022* 🌙\n• *Kebangkrutan FTX* ⚠️\n\nSetiap peristiwa ini merupakan momen kunci bagi pendewasaan sektor ini."
+    ],
+    "cost": 0,
+    "keywords": ["kripto", "crypto", "mata uang kripto", "cryptocurrency", "crash", "keruntuhan", "krisis", "sejarah"],
+    "subquestions": {
+      "Apakah kamu tertarik juga mengetahui penyebab krisis 2008?": "crisi_2008_info",
+      "Apakah kamu tertarik mengetahui nilai Bitcoin saat ini?": "asset_last_price"}
 }
 }
