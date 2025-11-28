@@ -8568,5 +8568,320 @@
     ],
     "cost": 0,
     "keywords": ["me dá", "me diz", "me fala", "mas", "porém", "isso", "isto", "esse", "essa", "este", "esta"]
+},
+  "candlestick_chart": {
+    "questions": [
+      "Como se lê um gráfico de velas?",
+      "Me explica o gráfico de velas japonesas",
+      "Como interpreto um gráfico candlestick?",
+      "Pode me mostrar como ler um gráfico de velas?",
+      "Como funciona um gráfico candlestick?",
+      "Gráfico de velas: como se lê?",
+      "Como se leem as velas japonesas?",
+      "Pode me explicar o básico do candlestick chart?",
+      "Como entender um gráfico de velas?",
+      "Como se interpreta um gráfico de velas japonesas?",
+      "Como se usam os gráficos candlestick no trading?",
+      "Pode me ensinar a ler um gráfico candlestick?",
+      "Gráfico candlestick: como interpretar corretamente?",
+      "Como se analisa um gráfico de velas?",
+      "Eu gostaria de entender os gráficos de velas",
+      "O que indica um gráfico de velas?"
+    ],
+    "answers": [
+      "Um gráfico candlestick (ou de velas japonesas) é uma ferramenta fundamental para analisar a evolução de um ativo ao longo do tempo. Cada vela representa o movimento dos preços em um período específico (ex: 1 dia, 1 hora, 5 minutos).\n\n*Estrutura de uma vela:*\n- O corpo mostra a diferença entre o preço de abertura e o de fechamento.\n- A cor indica se o preço subiu (vela verde ou branca) ou desceu (vela vermelha ou preta).\n- As linhas finas acima e abaixo do corpo são as sombras (ou pavios), que representam os preços máximos e mínimos atingidos.\n\nLer um gráfico candlestick significa observar sequências de velas, padrões recorrentes e relações entre velas vizinhas para intuir a direção futura do mercado. Esses padrões podem indicar inversões de tendência, continuações ou momentos de indecisão.",
+      "Para ler um gráfico de velas, você deve primeiro compreender as informações principais de cada vela:\n\n- *Abertura (Open)*: preço inicial do período\n- *Fechamento (Close)*: preço final do período\n- *Máxima (High)* e *Mínima (Low)*: valores extremos atingidos\n\nA cor do corpo indica a direção: alta ou baixa. Analisando sequências de velas e comparando-as com o volume e indicadores técnicos, você pode obter indicações sobre o sentimento do mercado e possíveis movimentos futuros.",
+      "Um gráfico candlestick mostra visualmente os movimentos dos preços. Cada vela é composta por um corpo e sombras (wick/shadow). O corpo indica a variação entre a abertura e o fechamento, enquanto as sombras representam as máximas e mínimas.\n\nObservando várias velas juntas, você pode identificar padrões como o *martelo*, a *estrela cadente*, *engulfing*, *doji* e muitos outros, úteis para antecipar inversões ou continuações de tendência.",
+      "Para interpretar um gráfico de velas japonesas, considere:\n\n1. *Cor e tamanho do corpo*: um corpo longo indica forte pressão de alta ou baixa; um pequeno sinaliza indecisão.\n2. *Sombras superiores e inferiores*: medem a volatilidade do período.\n3. *Padrões de várias velas*: combinações como '*engulfing*', '*doji*' ou '*harami*' indicam potenciais sinais de inversão ou continuação.\n\nA análise combinada com suportes, resistências e indicadores técnicos aumenta a confiabilidade das previsões.",
+      "Ler um candlestick chart significa interpretar o preço através de corpos e sombras. As sequências de velas formam padrões reconhecíveis que ajudam a entender a psicologia do mercado.\n\nExemplo:\n- Um '*doji*' indica indecisão\n- Um '*hammer*' ou '*martelo*' pode indicar inversão de alta\n- Uma '*shooting star*' sinaliza possível inversão de baixa\n\nCombinando mais velas e observando o contexto geral, você pode fazer previsões mais informadas."
+    ],
+    "cost": 0,
+    "keywords": ["candlestick", "velas", "vela", "gráfico de velas", "velas japonesas", "vela japonesa"],
+    "subquestions": {
+      "Quer que eu mostre a evolução gráfica de [TOPIC]?": "graph_request",
+      "Posso fornecer a evolução gráfica de [FAVOURITE]. Vamos lá?": "graph_request",
+      "Quer que eu explique também o que é a volatilidade?": "volatility_info"}
+  },
+  "azioni_info": {
+    "questions": [
+      "O que são ações?",
+      "Me explica as ações",
+      "Para que servem as ações?",
+      "Como funcionam as ações?",
+      "O que é uma ação?",
+      "Pode me dar informações sobre as ações?",
+      "Gostaria de saber o que são ações",
+      "Como funcionam as ações na bolsa?",
+      "Ações: me explica para que servem",
+      "Me explica o básico das ações?"
+    ],
+    "answers": [
+      "As ações representam partes da propriedade de uma empresa. Quem possui uma ação torna-se parcialmente proprietário da companhia e pode se beneficiar de seus lucros, geralmente através de dividendos, além de participar do valor dos títulos que pode aumentar ou diminuir no mercado.",
+      "Investir em ações significa comprar uma parte de uma empresa listada. Isso permite que você participe dos lucros da empresa e, ao mesmo tempo, assuma o risco de que o preço da ação possa cair.",
+      "As ações são instrumentos financeiros que dão direito a uma cota de propriedade de uma empresa. Servem para levantar capital para as empresas e permitem aos investidores ganhar através da valorização do preço ou dividendos.",
+      "Quando você compra ações, está adquirindo uma pequena parte de uma sociedade. Seu valor pode variar com base nos resultados da empresa, na tendência do mercado e na percepção dos investidores.",
+      "Uma ação é um título que representa a propriedade de uma fração de uma sociedade anônima. Possuir ações significa ter direito a uma parte dos lucros e, em alguns casos, participar das decisões empresariais através do voto em assembleia."
+    ],
+    "cost": 0,
+    "keywords": ["ações", "ação", "títulos", "bolsa", "mercado de ações"],
+    "subquestions": {
+      "Quer que eu explique também o que são títulos (renda fixa)?": "obbligazioni_info",
+      "Te interessa saber a diferença entre ações e títulos?": "azioni_obbligazioni"}
+  },
+  "tecnica_fondamentale": {
+    "questions": [
+      "Qual é a diferença entre análise técnica e fundamentalista?",
+      "Análise técnica vs análise fundamentalista",
+      "Me explica as diferenças entre análise técnica e fundamentalista",
+      "Em que se diferenciam a análise técnica e a fundamentalista?",
+      "Pode me dizer em que diferem a análise técnica e a fundamentalista?",
+      "Que diferença existe entre análise técnica e análise fundamentalista?",
+      "Análise fundamentalista ou técnica: qual é a diferença?",
+      "Gostaria de entender a diferença entre análise técnica e fundamentalista",
+      "Diferença entre análise técnica e análise fundamentalista",
+      "Análise fundamentalista vs técnica",
+      "Análise técnica vs fundamentalista"
+    ],
+    "answers": [
+      "A análise técnica baseia-se na observação dos preços históricos e dos indicadores de mercado, como médias móveis, RSI e MACD, para prever os movimentos futuros. A análise fundamentalista, por outro lado, olha para os dados financeiros reais da empresa, como trailing P/E, forward P/E, balanços e crescimento das receitas, disponíveis apenas para as ações. Em resumo, a técnica estuda os padrões de preço, a fundamentalista avalia o valor intrínseco do ativo.",
+      "A análise técnica utiliza gráficos e indicadores para identificar tendências e sinais de entrada/saída. A análise fundamentalista concentra-se nos números reais da empresa, como lucros, P/E histórico e P/E projetado, para entender se uma ação está subvalorizada ou supervalorizada. Ambas as análises são complementares e oferecem perspectivas diferentes sobre o mercado.",
+      "Em suma, a análise técnica analisa os movimentos dos preços e indicadores de mercado para prever comportamentos futuros, enquanto a análise fundamentalista estuda dados financeiros concretos disponíveis para as ações, como o trailing e forward P/E, para determinar o valor real do ativo. Usá-las em conjunto pode dar um quadro mais completo.",
+      "A análise técnica foca nos gráficos e nos indicadores para identificar tendências e sinais de trading. A análise fundamentalista, disponível apenas para ações, avalia dados econômicos e financeiros da empresa para estimar seu valor intrínseco. Combinar ambas as análises ajuda a tomar decisões mais conscientes.",
+      "Análise técnica e fundamentalista oferecem dois pontos de vista diferentes: a primeira observa padrões de preço e indicadores, a segunda avalia os dados empresariais concretos como lucros, P/E trailing e forward (apenas para ações). Usar ambas permite ter uma visão mais completa tanto do mercado quanto do valor do ativo."
+    ],
+    "cost": 0,
+    "keywords": ["análise técnica", "análise fundamentalista", "diferença", "vs", "técnica", "fundamentalista"],
+    "subquestions": {
+      "Quer saber o que dizem os fundamentos de [TOPIC]?": "fundamental_analysis",
+      "Quer a análise técnica de [FAVOURITE]?": "ta_general"}
+  },
+  "portfolio_diversification": {
+    "questions": [
+      "O que significa diversificar o portfólio?",
+      "Me explica a diversificação do portfólio",
+      "Por que é importante diversificar?",
+      "Diversificação do portfólio: o que quer dizer?",
+      "Como se faz para diversificar um portfólio?",
+      "Por que eu deveria diversificar meus investimentos?",
+      "O que é a diversificação em finanças?",
+      "Como funciona a diversificação do portfólio?",
+      "Pode me explicar a diversificação dos investimentos?",
+      "Diversificação: o que significa na prática?",
+      "Me fala sobre a diversificação",
+      "O que quer dizer diversificar o portfólio?",
+      "O que se entende por diversificação do portfólio?",
+      "Pode me explicar a distribuição dos investimentos?",
+      "Distribuição do capital: o que significa na prática?",
+      "Me fala sobre a distribuição do capital",
+      "O que quer dizer distribuição do capital?",
+      "O que se entende por distribuição do próprio capital?",
+      "O que se entende por distribuição do dinheiro investido?",
+      "O que se entende por distribuição dos investimentos?"
+    ],
+    "answers": [
+      "Diversificar o portfólio significa distribuir seus investimentos em múltiplos instrumentos financeiros ou ativos, como ações, títulos, ETFs ou commodities. O objetivo é reduzir o risco: se um investimento for mal, outros podem compensar as perdas, tornando o portfólio mais estável ao longo do tempo.",
+      "A diversificação consiste em não concentrar todo o capital em um único ativo ou setor. Por exemplo, investir apenas em uma única ação é arriscado; distribuindo os fundos em mais empresas ou instrumentos financeiros, o risco total diminui.",
+      "Na prática, diversificar significa equilibrar o portfólio entre ativos com comportamentos diferentes: alguns mais arriscados, outros mais estáveis. Essa abordagem pode reduzir a volatilidade e proteger o capital dos imprevistos do mercado.",
+      "Diversificar o portfólio quer dizer combinar investimentos diferentes de maneira estratégica. Não se trata apenas de quantidade, mas de qualidade: escolher ativos que reagem de modos diferentes aos eventos de mercado reduz o risco total.",
+      "A diversificação é uma técnica de gestão de risco que prevê investir em mais instrumentos ou setores diferentes. Dessa forma, mesmo que alguns investimentos sofram perdas, outros podem gerar ganhos, protegendo o portfólio."
+    ],
+    "cost": 0,
+    "keywords": ["diversificação", "distribuição", "portfólio", "carteira", "investimentos", "distribuir", "diversificar"],
+    "subquestions": {
+      "Quer saber no que vale a pena investir?": "top_gainers",
+      "Posso explicar as estratégias de investimento mais comuns. Vamos continuar?": "trading_strategy_choice"}
+  },
+  "capital_management": {
+    "questions": [
+      "Por que a gestão de capital é importante?",
+      "Gestão de capital: por que é fundamental?",
+      "Me explica a importância da gestão de capital",
+      "Por que devo gerenciar bem meu capital?",
+      "Gerenciando bem o capital posso fazer mais?",
+      "Se eu gerenciar bem meu capital faço mais dinheiro?",
+      "Se eu gerenciar bem meu capital ganho mais dinheiro?",
+      "O que é a gestão de capital e para que serve?",
+      "Gestão de capital: para que serve?",
+      "Para que serve a gestão de capital?",
+      "Por que é útil gerenciar corretamente o capital?",
+      "Por que tenho que gerenciar bem o capital?",
+      "Qual é a importância da gestão de capital nos investimentos?",
+      "Por que a gestão de capital é crucial?",
+      "Quão crucial é a gestão de capital?",
+      "Quão importante é a gestão de capital?",
+      "Por que eu deveria prestar atenção à gestão de capital?"
+    ],
+    "answers": [
+      "A gestão de capital é fundamental porque ajuda você a controlar o risco e a proteger seu investimento. Significa decidir quanto dinheiro alocar em cada operação e como equilibrar o risco em relação ao retorno potencial, evitando perdas excessivas.",
+      "Gerenciar corretamente o capital permite que você mantenha o controle sobre os investimentos, enfrente a volatilidade do mercado e maximize as probabilidades de obter retornos sustentáveis ao longo do tempo.",
+      "A gestão de capital serve para distribuir os recursos de modo equilibrado, evitando investir demais em um único ativo ou operação. Essa abordagem reduz o risco de grandes perdas e ajuda a proteger o patrimônio total.",
+      "Na prática, uma boa gestão de capital significa definir limites de risco, diversificar os investimentos e estabelecer estratégias claras para crescer gradualmente sem expor o portfólio a perdas imprevistas.",
+      "Gerenciar o capital é essencial para qualquer investidor: permite enfrentar mercados voláteis, tomar decisões mais conscientes e preservar o capital para oportunidades futuras."
+    ],
+    "cost": 0,
+    "keywords": ["gestão", "gerenciar", "capital", "investimento", "investimentos", "management"],
+    "subquestions": {
+      "Quer saber também como funciona a diversificação do portfólio?": "portfolio_diversification",
+      "Quer conhecer as estratégias de investimento mais comuns?": "trading_strategy_choice"}
+  },
+  "drawdown_info": {
+    "questions": [
+      "O que é o drawdown?",
+      "O que é o Max DD?",
+      "O que é o DD?",
+      "O que se entende por DD?",
+      "O que quer dizer Max DD?",
+      "Me explica o drawdown",
+      "O que é um drawdown?",
+      "Drawdown: o que significa?",
+      "Pode me dizer o que é o drawdown?",
+      "Drawdown nos investimentos: explicação",
+      "O que indica o drawdown?",
+      "Pode me dizer o que é o DD?",
+      "Me explica o Max DD nos investimentos",
+      "O que indica o DD?",
+      "Como se define o drawdown?",
+      "Por que se fala de drawdown no trading?",
+      "Drawdown: para que serve?",
+      "Para que serve o drawdown?",
+      "Para que serve o DD?",
+      "Para que serve o Max DD?"
+    ],
+    "answers": [
+      "O drawdown é a medida da maior perda que um investimento sofreu em relação ao seu valor máximo anterior. Na prática, diz quanto o seu portfólio ou investimento caiu antes de voltar a subir. Por exemplo, se o seu investimento valia $10.000 e depois cai para $8.000, o drawdown é de 20%.\n\nNo momento, o TradeGPT não é capaz de monitorar ou calcular o drawdown específico dos seus investimentos, por isso não pode fornecer dados personalizados sobre este indicador.",
+      "Drawdown: usa-se para entender quanto risco se corre em um investimento. Se um título sobe até $5.000 e depois desce para $4.000, o drawdown é de 20%. Isso faz você entender quanto poderia perder nos piores momentos.\n\nAtenção: O TradeGPT ainda não é capaz de levar em conta este dado em suas análises.",
+      "O drawdown mostra a profundidade das perdas temporárias. Por exemplo, se um fundo atinge $50.000 e depois desce para $40.000, o drawdown é de 20%. Serve para avaliar se você está pronto para suportar quedas semelhantes.\n\nInfelizmente, o TradeGPT ainda não pode calcular o drawdown real dos seus investimentos.",
+      "Ajuda a entender quão volátil é o seu investimento. Se o seu portfólio passa de $20.000 para $16.000, o drawdown é de 20%. Saber isso ajuda você a tomar decisões mais seguras e a planejar estratégias de gestão de risco.\n\nPor enquanto, o TradeGPT pode explicar o conceito, mas ainda não pode considerar este dado nas análises.",
+      "O drawdown diz quanto um investimento caiu desde o seu máximo. Por exemplo, se um ETF chega a $12.000 e depois desce para $9.000, o drawdown é de 25%. Dessa forma, você pode ver quanto poderia perder durante uma fase negativa do mercado.\n\nInfelizmente o TradeGPT ainda não tem acesso a este dado, por isso não pode fornecer um drawdown nas análises."
+    ],
+    "cost": 0,
+    "keywords": ["drawdown", "dd", "max dd", "perda máxima"],
+    "subquestions": {
+      "Posso explicar as diferentes estratégias de investimento. Vamos continuar?": "trading_strategy_choice",
+      "Quer saber quem tem a maior probabilidade de crescimento neste momento?": "top_gainers"}
+  },
+  "market_history": {
+    "questions": [
+      "Quando nasceu o mercado de ações?",
+      "Em que ano nasceu o mercado de ações?",
+      "Desde quando existe o mercado de ações?",
+      "Quando nasceram as primeiras bolsas?",
+      "Quando apareceu o primeiro mercado de ações?",
+      "Qual é a origem do mercado de ações?",
+      "De onde nasce o mercado de ações?",
+      "Qual é a história do nascimento do mercado de ações?",
+      "Quando começou a existir o trading de ações?",
+      "Quando foi criado o primeiro intercâmbio de ações?",
+      "Que origens tem o mercado de ações?",
+      "Que origens tem a bolsa financeira?",
+      "De onde se origina o mercado financeiro?",
+      "Como nasceu o mercado?"
+    ],
+    "answers": [
+      "O mercado de ações nasceu no século XVII. A primeira verdadeira bolsa de valores organizada foi fundada em Amsterdã em 1602, quando a Companhia Holandesa das Índias Orientais começou a emitir e negociar ações. Este evento é considerado o início oficial do mercado de ações moderno.\n\n*Exemplo prático:* um comerciante podia comprar uma parte da companhia para financiar as viagens comerciais. Em troca, obtinha uma parte dos lucros: exatamente como hoje um investidor compra uma ação para participar dos lucros de uma empresa.\n\nNo momento, o TradeGPT não pode fornecer análises históricas personalizadas sobre seus investimentos, mas pode explicar os conceitos gerais.",
+      "O mercado de ações, como o conhecemos hoje, tem origem em 1602 com a Bolsa de Amsterdã. Aqui foram negociadas as primeiras ações da Companhia Holandesa das Índias Orientais, revolucionando o modo de financiar as empresas.\n\n*Exemplo prático:* em vez de buscar poucos financiadores ricos, uma empresa podia levantar capital de muitíssimos pequenos investidores. Este é o mesmo princípio usado pelas empresas listadas hoje.\n\nO TradeGPT por enquanto não é capaz de incorporar esse tipo de dados históricos em suas análises personalizadas.",
+      "O nascimento do mercado de ações remonta a 1602, quando foi fundada a primeira bolsa de valores em Amsterdã. Antes disso existiam formas primitivas de troca comercial, mas não uma estrutura organizada para a compra e venda de ações.\n\n*Exemplo prático:* assim como hoje você pode comprar uma ação da Apple através de um corretor, os comerciantes da época podiam comprar cotas da Companhia das Índias para financiar as expedições à Ásia.\n\nO TradeGPT não pode utilizar dados históricos personalizados para seus investimentos, mas pode ajudar com explicações gerais.",
+      "A primeira bolsa de valores nasce em 1602 em Amsterdã: é nesse momento que aparece o conceito moderno de ação, ou seja, uma cota de propriedade de uma sociedade. Isso marcou o início do mercado de ações.\n\n*Exemplo prático:* imagine dezenas de investidores que compravam pequenas cotas dos navios mercantes. Em caso de viagem bem-sucedida, todos ganhavam. Se desse errado, compartilhavam as perdas: o mesmo mecanismo de risco de uma ação hoje.\n\nPor enquanto o TradeGPT não é capaz de calcular como essa história se reflete em seus investimentos pessoais.",
+      "A história do mercado de ações começa oficialmente em 1602 com a criação da Bolsa de Amsterdã e a venda das primeiras ações da Companhia Holandesa das Índias Orientais. Foi a primeira vez que o público pôde comprar cotas de uma sociedade.\n\n*Exemplo prático:* exatamente como hoje um investidor pode comprar uma parte da Tesla ou Microsoft, em 1600 podia adquirir uma parte de uma viagem comercial para a Indonésia.\n\nO TradeGPT no momento não pode utilizar esse tipo de indicadores históricos para análises personalizadas."
+    ],
+    "cost": 0,
+    "keywords": ["quando", "história", "mercado", "quando nasceu", "fundado", "bolsa"],
+    "subquestions": {
+      "Quer saber também o que aconteceu na crise de 2008?": "crisi_2008_info"}
+  },
+  "crisi_2008_info": {
+    "questions": [
+      "O que aconteceu durante a crise de 2008?",
+      "Pode me explicar a crise de 2008?",
+      "O que ocorreu em 2008 nos mercados?",
+      "O que aconteceu em 2008?",
+      "Por que houve a crise financeira de 2008?",
+      "O que causou o colapso de 2008?",
+      "O que causou a crise de 2008?",
+      "Qual foi a causa da crise de 2008?",
+      "Crise de 2008: explicação simples",
+      "Me explica o motivo do colapso em 2008",
+      "Me explica as causas da crise de 2008?",
+      "Como começou a crise econômica de 2008?",
+      "Me explica a crise das hipotecas subprime de 2008?",
+      "O que aconteceu no colapso financeiro de 2008?",
+      "Como se desenvolveu a crise de 2008?"
+    ],
+    "answers": [
+      "A crise de 2008 foi uma das maiores crises financeiras da história moderna e teve origem nos Estados Unidos. Tudo começou com as chamadas *hipotecas subprime*, empréstimos concedidos a pessoas com baixa renda e alto risco de inadimplência. Os bancos empacotavam essas hipotecas em produtos financeiros vendidos como instrumentos seguros. Quando muitos mutuários começaram a não pagar as parcelas, todo o sistema colapsou, causando falências bancárias e uma onda de pânico global.\n\n*Exemplo prático:* imagine que um banco empresta dinheiro a pessoas que provavelmente não conseguirão pagar de volta. Se apenas uma pessoa não paga, não é grave. Mas se milhares deixam de pagar simultaneamente, o banco corre o risco de falir e arrastar consigo todo o mercado.",
+      "A crise de 2008 nasceu do colapso do mercado imobiliário americano. As casas eram compradas com hipotecas arriscadas e concedidas muito facilmente. Os bancos, convencidos de que o valor dos imóveis subiria para sempre, acumularam enormes quantidades dessas hipotecas. Quando os preços das casas começaram a cair, milhões de pessoas já não conseguiam pagar as hipotecas e os títulos ligados a elas perderam completamente o valor. Isso criou um efeito dominó em todo o sistema financeiro mundial.\n\n*Exemplo prático:* é como se uma cidade inteira construísse casas sobre fundações instáveis: quando uma desmorona, as outras também começam a ceder.",
+      "O coração da crise de 2008 foi o uso excessivo de hipotecas de alto risco (subprime) e instrumentos financeiros complexos. Quando os preços das casas colapsaram, a inadimplência explodiu e muitos bancos se viram com títulos que já não valiam nada. O pânico se espalhou rapidamente, causando falências históricas como a do Lehman Brothers e obrigando os governos a intervir para salvar a economia mundial.\n\n*Exemplo prático:* pense em comprar um bilhete de loteria que dizem ser quase certeza de ganhar, mas depois você descobre que não vale nada e todos que compraram com você descobrem no mesmo momento.",
+      "Durante a crise de 2008, muitas instituições financeiras globais entraram em dificuldades porque haviam investido em produtos ligados às hipotecas arriscadas americanas. Quando essas hipotecas começaram a não ser pagas, o valor de tais produtos colapsou. Isso provocou uma perda de confiança mundial, congelou o crédito e gerou uma recessão econômica profunda.\n\nAqui está um *exemplo prático:* é como se de repente ninguém mais confiasse em emprestar dinheiro a ninguém, bloqueando a economia inteira.",
+      "A crise financeira de 2008 foi causada por anos de empréstimos arriscados, especulações imobiliárias e produtos financeiros baseados em hipotecas que na realidade não eram sólidas. Quando o mercado imobiliário colapsou, todo o sistema bancário mundial foi afetado. Isso gerou uma cadeia de falências, resgates governamentais e uma forte desaceleração econômica global.\n\nVou explicar com um *exemplo prático:* imagine um castelo de cartas muito grande: basta tirar uma carta da base para que tudo caia."
+    ],
+    "cost": 0,
+    "keywords": ["crise", "2008", "hipotecas subprime", "colapso", "falência", "recessão"],
+    "subquestions": {
+      "Quer conhecer também as causas da crise de 1929?": "crisi_wall_street"}
+  },
+  "crisi_wall_street": {
+    "questions": [
+      "O que causou o colapso de Wall Street?",
+      "Por que Wall Street colapsou em 1929?",
+      "Quais foram as causas do colapso de 1929?",
+      "Por que motivo ocorreu o crash de Wall Street de 1929?",
+      "O que provocou o crash de 29?",
+      "O que levou ao colapso da bolsa americana em 1929?",
+      "Por que houve o colapso de Wall Street?",
+      "Que eventos desencadearam o crash de Wall Street?",
+      "Como é que a bolsa americana colapsou em 1929?",
+      "O que desencadeou o grande colapso de Wall Street?",
+      "O que aconteceu antes do colapso de 1929?",
+      "O que fez explodir a crise de 29?",
+      "Causas da grande crise",
+      "Causas da grande depressão"
+    ],
+    "answers": [
+      "O colapso de Wall Street de 1929 foi causado por uma combinação letal de *especulação extrema*, *uso excessivo de alavancagem financeira* e um clima de *confiança irrealista* nos mercados. Durante anos os investidores compraram ações pedindo dinheiro emprestado, inflando artificialmente os preços. Quando a confiança começou a vacilar, muitos tentaram vender simultaneamente, desencadeando o pânico.\n\nVou dar um *exemplo visual:* imagine uma bolha onde todos compram ações porque 'sempre sobem'. Muitos fazem isso a crédito. Quando os preços caem mesmo que um pouco, as vendas forçadas amplificam o colapso, arrastando todos para perdas enormes.",
+      "As causas principais do crash de Wall Street foram uma *bolha especulativa enorme*, o uso massivo de *margem* (compravam-se ações com dinheiro emprestado) e uma economia mais frágil do que parecia. O acúmulo de dívidas excessivas levou a um mercado instável, que colapsou quando os investidores começaram a duvidar da sustentabilidade dos preços.\n\n*Exemplo prático:* é como comprar uma casa com uma hipoteca gigante esperando que seu valor suba. Se de repente todos começam a vendê-las e o valor colapsa, você fica com uma dívida enorme e um bem que vale muito menos.",
+      "O crash de 1929 ocorreu porque os preços das ações haviam subido a níveis insustentáveis em relação à economia real. As pessoas compravam ações a crédito, esperando lucros fáceis. Quando chegaram os primeiros sinais negativos, o pânico se espalhou rapidamente e a venda em massa fez o mercado despencar.\n\nVou explicar melhor com um exemplo: pense em um castelo de cartas muito alto. Enquanto todos acreditam nele, ele fica de pé. Mas basta que alguém toque um ponto fraco para fazer tudo colapsar em poucos segundos.",
+      "O colapso de Wall Street foi a consequência de anos de *euforia financeira*, avaliações excessivas e um uso perigoso do crédito. Quando os investidores entenderam que os preços estavam muito altos, começaram a vender. A venda em massa tornou-se incontrolável, fazendo colapsar o mercado inteiro.\n\nVou explicar melhor: é semelhante a um teatro lotado onde de repente alguém grita «fogo!». Mesmo que não haja um incêndio, o pânico pode causar uma fuga desordenada e danos enormes.",
+      "O crash de 1929 nasceu de uma mistura de *superavaliação*, excesso de *especulação* e insuficiente regulação dos mercados. Os investidores adquiriam ações com expectativas irrealistas, frequentemente utilizando dinheiro emprestado. A brusca perda de confiança gerou vendas em cadeia e um colapso geral.\n\n*Exemplo prático:* imagine que todos pedem dinheiro emprestado para comprar o mesmo bem, convencidos de que seu valor subirá. Se o preço cai mesmo que um pouco, muitos já não conseguem pagar as dívidas e o mercado colapsa."
+    ],
+    "cost": 0,
+    "keywords": ["1929", "29", "wall street", "colapso", "crise", "grande crise", "grande depressão", "crash"],
+    "subquestions": {
+      "Quer conhecer também as causas da crise de 2008?": "crisi_2008_info",
+      "Te interessa saber também quando nasceu o mercado financeiro?": "market_history"}
+  },
+  "crypto_crashes_history": {
+    "questions": [
+      "Quais foram os principais crash das criptomoedas?",
+      "Quais são os colapsos mais famosos do mercado cripto?",
+      "Pode me dizer os crash mais importantes das criptomoedas?",
+      "Quais foram os piores crash na história das cripto?",
+      "O que aconteceu nos maiores colapsos do mercado cripto?",
+      "Quais criptomoedas colapsaram mais na história?",
+      "As criptomoedas tiveram colapsos importantes nos últimos anos?",
+      "As cripto tiveram colapsos importantes nos últimos anos?",
+      "Pode me explicar os principais crash das cripto?",
+      "Me fala os principais colapsos do mercado cripto",
+      "Quando houve os crash mais graves das criptomoedas?",
+      "Que eventos marcaram os piores colapsos do mercado cripto?",
+      "Me fala dos crash mais importantes do setor cripto",
+      "Houve colapsos das criptomoedas?",
+      "Houve crash cripto?",
+      "Houve colapsos no mercado cripto?",
+      "Houve colapsos no mercado das criptomoedas?",
+      "Me fala das crises do mercado cripto",
+      "Vamos falar das crises do mercado das criptomoedas"
+    ],
+    "answers": [
+      "Na história das criptomoedas houve vários crash significativos que marcaram o setor. Aqui estão alguns dos mais importantes:\n\n*Crash de 2013–2014*: O Bitcoin passou de mais de $1.000 para cerca de $200 após problemas com a exchange Mt.Gox, que na época gerenciava uma grande parte das transações globais.\n\n*Crash de 2018*: após o boom de 2017, todo o mercado cripto perdeu mais de 80% do seu valor, com o Bitcoin que colapsou de $20.000 para cerca de $3.000.\n\n*Crash de maio de 2021*: várias criptomoedas perderam 40–60% devido à proibição chinesa à mineração e às preocupações ambientais levantadas por Elon Musk.\n\n*Crise Terra/LUNA de 2022*: um dos piores colapsos da história cripto. LUNA perdeu 99,9% do valor em poucos dias após a stablecoin UST perder sua paridade com o dólar.\n\n*Crise FTX de 2022*: a falência da exchange provocou um novo colapso generalizado, com BTC e ETH em forte baixa e muitas altcoins quase reduzidas a zero.",
+      "A história das cripto é caracterizada por vários crash importantes. Os mais conhecidos incluem:\n\n*Mt.Gox 2014*: um dos mais devastadores, com o Bitcoin colapsando após o hack da exchange.\n\n*Bear market de 2018*: o mercado inteiro perdeu mais de 80% após o fim da bolha das ICOs.\n\n*Maio de 2021*: fortes vendas posteriores às restrições chinesas à mineração.\n\n*LUNA/UST 2022*: um colapso repentino que varreu dezenas de bilhões do mercado.\n\n*Falência da FTX*: um evento que minou profundamente a confiança no setor cripto.",
+      "Os principais crash das criptomoedas incluem episódios célebres como:\n\n• *O colapso da Mt.Gox (2014)*\n• *O grande bear market de 2018*\n• *A correção de 2021*\n• *A queda de Terra/LUNA em 2022*\n• *A falência da FTX*\n\nEsses eventos evidenciaram a volatilidade do setor e a importância da gestão de risco.",
+      "No mercado cripto ocorreram crash muito conhecidos, entre eles:\n\n*Mt.Gox 2014*: O Bitcoin colapsou depois que a exchange perdeu cerca de 850.000 BTC.\n\n*Crash de 2018*: após o boom de 2017, o mercado entrou em um longo inverno cripto.\n\n*Caso LUNA/UST*: uma das quedas mais rápidas e graves do setor.\n\n*Crise FTX*: teve um impacto enorme nos investidores e em todo o ecossistema.",
+      "Os crash mais importantes do mercado cripto incluem:\n\n• *O colapso da Mt.Gox (2014)* 📉\n• *O bear market de 2018* ❄️\n• *A correção de 2021* 🔻\n• *A queda de Terra/LUNA em 2022* 🌙\n• *A falência da FTX* ⚠️\n\nCada um desses eventos representou um momento chave para o amadurecimento do setor."
+    ],
+    "cost": 0,
+    "keywords": ["cripto", "crypto", "criptomoedas", "criptomoeda", "crash", "colapso", "crise", "história"],
+    "subquestions": {
+      "Te interessa também saber as causas da crise de 2008?": "crisi_2008_info",
+      "Te interessa saber o valor atual do Bitcoin?": "asset_last_price"}
 }
 }
