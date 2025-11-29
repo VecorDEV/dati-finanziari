@@ -8902,5 +8902,241 @@
     "subquestions": {
       "Apakah kamu tertarik juga mengetahui penyebab krisis 2008?": "crisi_2008_info",
       "Apakah kamu tertarik mengetahui nilai Bitcoin saat ini?": "asset_last_price"}
-}
+},
+  "opzioni_finanza": {
+    "questions": [
+      "Apa itu opsi dalam keuangan?",
+      "Apa itu opsi?",
+      "Apa yang dimaksud dengan options?",
+      "Jelaskan padaku tentang opsi",
+      "Beritahu aku cara kerja opsi",
+      "Beri aku informasi tentang opsi",
+      "Beri aku penjelasan mudah tentang apa itu opsi",
+      "Jelaskan cara kerja opsi keuangan",
+      "Jelaskan cara kerja opsi call",
+      "Jelaskan cara kerja opsi put",
+      "Jelaskan cara kerja call option",
+      "Jelaskan cara kerja put option",
+      "Apa itu opsi keuangan?",
+      "Bagaimana cara kerja opsi?",
+      "Apa artinya trading dengan opsi?",
+      "Untuk apa opsi digunakan?",
+      "Untuk apa opsi call digunakan?",
+      "Apa kegunaan opsi put?",
+      "Apa kegunaan sebuah option?",
+      "Untuk apa options itu?",
+      "Bisa jelaskan padaku apa itu opsi?",
+      "Aku ingin mengerti apa itu opsi keuangan",
+      "Aku ingin paham cara kerja opsi",
+      "Aku ingin kamu menjelaskan cara kerja opsi",
+      "Apa artinya membeli opsi?",
+      "Apa artinya menjual opsi?",
+      "Apa isi opsi dalam trading?",
+      "Jenis opsi apa saja yang ada?",
+      "Perbedaan antara call dan put",
+      "Apa yang dimaksud dengan call dan put?",
+      "Apa yang dimaksud dengan opsi call?",
+      "Apa yang dimaksud dengan opsi put?",
+      "Beritahu aku perbedaan antara call option dan put option",
+      "Beritahu aku perbedaan antara opsi call dan put",
+      "Apa arti opsi call atau put?"
+    ],
+    "answers": [
+      "*Opsi* adalah instrumen keuangan derivatif yang memberikan *hak*, tetapi bukan kewajiban, untuk membeli atau menjual aset (seperti saham atau komoditas) pada harga yang ditetapkan sebelum tanggal tertentu.\n\nAda dua jenis utama:\n• *Call*: memberikan hak untuk membeli.\n• *Put*: memberikan hak untuk menjual.\n\nContoh praktis: jika kamu membeli opsi call dengan harga pelaksanaan (strike price) 100 dan saham naik ke 120, kamu bisa membeli di harga 100 alih-alih 120, berpotensi mendapatkan keuntungan. Sebaliknya, jika harga turun, kamu bisa membiarkan opsi tersebut kedaluwarsa, dan hanya kehilangan premi yang dibayarkan.\n\nOpsi adalah instrumen yang kompleks dan memerlukan pengalaman yang baik: instrumen ini bisa memperbesar keuntungan maupun kerugian, jadi harus digunakan dengan hati-hati.\n\nSaat ini TradeGPT tidak dapat menawarkan analisis, saran, atau perhitungan spesifik mengenai opsi.",
+      "Dalam keuangan, *opsi* adalah kontrak yang memungkinkan kamu untuk membeli (call) atau menjual (put) aset pada harga yang telah ditentukan sebelum tanggal tertentu. Kamu tidak wajib melakukannya: kamu hanya memiliki haknya.\n\nContoh praktis: kamu membayar 5€ untuk memiliki kemungkinan membeli saham seharga 50€. Jika harga naik ke 60€, kamu bisa menggunakan kontrak tersebut dan mendapatkan keuntungan. Jika harga turun, kamu hanya kehilangan 5€ dari premi.\n\nIni adalah instrumen yang berguna tapi tingkat lanjut: pengelolaannya memerlukan pengetahuan yang kuat karena risikonya bisa tinggi.\n\nTradeGPT untuk saat ini belum dapat menyediakan alat operasional atau analisis spesifik mengenai opsi.",
+      "Opsi bekerja seperti asuransi: kamu membayar premi untuk memiliki hak di masa depan. Sebuah *call* melindungimu jika kamu berpikir harga akan naik, sebuah *put* jika kamu berpikir harga akan turun.\n\nContoh praktis: kamu membayar premi untuk melindungi diri dari kemungkinan jatuhnya harga saham yang kamu miliki. Jika turun, kamu gunakan put; jika tidak turun, kamu hanya kehilangan premi.\n\nKarena kerumitannya, opsi tidak selalu cocok untuk pemula: memerlukan pemahaman tentang risiko dan volatilitas.\n\nSaat ini TradeGPT belum mendukung operasional atau analisis terapan pada opsi."
+    ],
+    "cost": 0,
+    "keywords": ["opsi", "opsi call", "opsi put", "option", "options", "call", "put"],
+    "subquestions": {
+      "Apakah kamu ingin tahu juga apa itu obligasi?": "obbligazioni_info",
+      "Apakah kamu ingin aku jelaskan juga apa itu ETF?": "etf_info"}
+  },
+  "bias_fomo": {
+    "questions": [
+      "Apa itu FOMO dalam trading?",
+      "Apa arti FOMO?",
+      "Apa maksud dari FOMO?",
+      "Kenapa dalam trading orang bicara tentang FOMO?",
+      "Apa yang dimaksud dengan FOMO?",
+      "Apa itu fear of missing out dalam trading?",
+      "Apa arti fear of missing out?",
+      "Apa maksud dari fear of missing out?",
+      "Kenapa dalam trading dibahas tentang fear of missing out?",
+      "Apa yang dimaksud dengan fear of missing out?",
+      "Apa yang dimaksud ketika bicara soal FOMO?",
+      "Bisa jelaskan padaku FOMO dalam investasi?",
+      "Jelaskan padaku efek FOMO",
+      "Bisa jelaskan padaku apa isi efek FOMO?",
+      "Apa isi efek FOMO?",
+      "Apa artinya terkena FOMO saat berinvestasi?",
+      "Kenapa FOMO bikin rugi?",
+      "Apa artinya terkena fear of missing out saat berinvestasi?",
+      "Kenapa fear of missing out bikin rugi?",
+      "Apa artinya takut ketinggalan saat berinvestasi?",
+      "Kenapa takut ketinggalan bisa bikin rugi?",
+      "Apa artinya takut ketinggalan dalam trading?",
+      "Kenapa takut kehilangan kesempatan bisa bikin rugi?",
+      "Apa artinya takut kehilangan kesempatan dalam trading?",
+      "Kenapa takut ketinggalan bisa menyebabkan kerugian?",
+      "Apakah FOMO bikin kehilangan uang?",
+      "Bagaimana cara kerja FOMO di pasar?",
+      "Apa efek FOMO dalam keuangan?",
+      "Apa efek FOMO di pasar?",
+      "Apa dampak FOMO di pasar?",
+      "Kenapa banyak investor jatuh dalam FOMO?",
+      "Bagaimana FOMO memengaruhi trading?",
+      "Bagaimana FOMO memengaruhi pasar",
+      "Apa peran rasa takut di pasar?",
+      "Seberapa besar pengaruh rasa takut dalam trading?",
+      "Beri aku contoh bagaimana psikologi memengaruhi trading"
+    ],
+    "answers": [
+      "*FOMO* (*Fear Of Missing Out*, atau takut ketinggalan) adalah *bias psikologis* yang mendorong investor membuka posisi hanya karena takut kehilangan kesempatan. Ini sering terjadi ketika aset naik dengan cepat: orang takut ketinggalan 'kereta' dan masuk ke pasar tanpa analisis, seringkali terlambat.\n\nEfeknya bisa negatif, karena aset dibeli saat harga sudah terlalu tinggi (over-extension), meningkatkan risiko kerugian.\n\nAku beri contoh untuk menjelaskan konsepnya:\nJika Bitcoin naik 10% dalam beberapa jam, banyak investor masuk di saat-saat terakhir hanya karena takut kehilangan kesempatan, tepat ketika koreksi harga mungkin akan dimulai.",
+      "*FOMO* adalah *rasa takut kehilangan peluang* dan membuat investor mengikuti pasar tanpa strategi. Ini adalah salah satu penyebab utama masuk pasar secara impulsif.\n\n*Contoh praktis:*\nSebuah saham naik cepat karena semua orang membicarakannya: investor membeli tanpa analisis akurat, padahal harga sudah mencapai puncak dan kemudian turun.",
+      "Dalam trading, *FOMO* (takut kehilangan kesempatan) mendorong pengambilan keputusan berdasarkan emosi, bukan data. Ini muncul terutama saat pergerakan pasar yang kuat atau hype media.\n\nContohnya, seorang pengguna melihat semua orang membeli saham tertentu di media sosial dan forum, jadi dia ikut membelinya juga, seringkali tepat di dekat harga puncak."
+    ],
+    "cost": 0,
+    "keywords": ["fomo", "fear of missing out", "bias", "takut", "ketakutan"],
+    "subquestions": {
+      "Sebagai dukungan tambahan, aku bisa tunjukkan analisis teknikal [TOPIC].": "ta_general",
+      "Kamu mau tips untuk mengelola emosi dengan lebih baik dalam investasi?": "gestione_emozioni",
+      "Aku bisa jelaskan juga apa itu overtrading. Lanjut?": "bias_overtrading",
+      "Aku bisa berikan gambaran data fundamental [TOPIC] untuk membantumu mengambil keputusan yang lebih sadar. Kamu mau aku melakukannya?": "fundamental_analysis"}
+  },
+  "bias_overtrading": {
+    "questions": [
+      "Apa itu overtrading?",
+      "Apa arti overtrading dalam trading?",
+      "Kenapa overtrading itu berbahaya?",
+      "Bisa jelaskan overtrading padaku?",
+      "Jelaskan overtrading",
+      "Apa isi overtrading?",
+      "Apa yang dimaksud dengan overtrading?",
+      "Kenapa investor melakukan overtrading?",
+      "Kapan overtrading terjadi?",
+      "Bagaimana cara kerja overtrading?",
+      "Bagaimana cara menghindari overtrading?",
+      "Apakah melakukan overtrading berbahaya?",
+      "Apakah melakukan overtrading berisiko?",
+      "Apa risiko dari overtrading?",
+      "Aku ingin tahu arti overtrading",
+      "Aku ingin kamu menjelaskan overtrading",
+      "Apa yang terjadi jika aku berinvestasi secara impulsif?",
+      "Apa yang terjadi jika aku impulsif?",
+      "Apa yang terjadi ketika ada kepercayaan diri berlebihan?",
+      "Beri aku contoh bagaimana psikologi memengaruhi trading"
+    ],
+    "answers": [
+      "*Overtrading* (atau trading berlebihan) adalah kecenderungan untuk melakukan terlalu banyak operasi, seringkali tanpa strategi, didorong oleh emosi, kebosanan, atau keinginan untuk memulihkan kerugian dengan cepat. Perilaku ini meningkatkan risiko dan seringkali mengarah pada hasil negatif.\n\n*Contoh praktis:* seorang investor merugi dalam satu posisi dan untuk 'balik modal', dia langsung membuka tiga operasi impulsif lainnya, yang justru memperburuk keadaan.",
+      "Dalam trading, *overtrading* terjadi ketika seseorang beroperasi terlalu sering, seringkali mengabaikan strateginya sendiri. Ini adalah perilaku khas orang yang ingin memaksakan pasar.\nMisalnya, jika seorang trader membuka 20 posisi dalam sehari tanpa alasan nyata, dia meningkatkan biaya, stres, dan terutama risiko.",
+      "*Overtrading* lahir dari kebutuhan untuk selalu berada di pasar, seringkali karena takut kehilangan kesempatan atau untuk memulihkan kerugian, tetapi mengarah pada pilihan impulsif.\n\nMisalnya, melihat pergerakan kecil pada grafik dan langsung membuka posisi tanpa mengevaluasi tren umum atau melakukan analisis mendetail adalah perilaku berbahaya, yang membuka jalan bagi banyak risiko."
+    ],
+    "cost": 0,
+    "keywords": ["overtrading", "bias", "trading berlebihan"],
+    "subquestions": {
+      "Aku bisa jelaskan juga apa itu FOMO. Kamu tertarik?": "bias_fomo",
+      "Kamu mau aku analisis aset secara teknikal supaya kamu paham apakah layak trading?": "ta_general"}
+  },
+  "bias_confirmation": {
+    "questions": [
+      "Apa itu confirmation bias?",
+      "Apa itu bias konfirmasi?",
+      "Apa itu bias konfirmatori?",
+      "Apa arti confirmation bias dalam trading?",
+      "Kenapa bias konfirmasi berbahaya?",
+      "Bisa jelaskan bias konfirmasi padaku?",
+      "Jelaskan bias konfirmasi",
+      "Apa efek bias konfirmasi dalam trading?",
+      "Kenapa trader jatuh dalam bias konfirmasi?",
+      "Bagaimana cara kerja bias konfirmasi?",
+      "Apa itu bias konfirmasi dalam investasi?",
+      "Apakah bias konfirmasi berbahaya?",
+      "Bisakah bias konfirmatori berbahaya?",
+      "Bisakah confirmation bias merugikan?"
+    ],
+    "answers": [
+      "*Bias konfirmasi* (confirmation bias) adalah prasangka kognitif yang mendorong orang untuk mencari, menafsirkan, dan mengingat informasi yang membenarkan keyakinan mereka sendiri, sambil mengabaikan yang bertentangan. Dalam trading, perilaku ini berbahaya karena mengarah pada keputusan bias yang didasarkan pada pandangan parsial terhadap realitas, seperti investor yang hanya mencari berita positif tentang sebuah saham, mengabaikan tanda bahaya, dan akhirnya kehilangan uang.\n\n*Cara kerjanya*\nBias konfirmasi muncul melalui berbagai mekanisme. Pertama, *pencarian selektif* mendorong untuk mencari secara aktif dan memberi bobot lebih pada informasi yang membenarkan keyakinan awal, misalnya harapan bahwa saham akan naik nilainya. Kedua, *penafsiran bias* membuat informasi yang tidak sesuai dengan keyakinan sendiri diminimalkan, dibuang, atau ditafsirkan ulang untuk memperkuat prasangka yang ada. *Ingatan selektif* juga membuat seseorang cenderung lebih mudah mengingat data yang konsisten dengan hipotesis awal saat melihat ke belakang. Terakhir, *filter sosial* dan *media sosial* menampilkan konten yang mencerminkan preferensi individu, menciptakan 'gelembung informasi' yang memperkuat bias konfirmasi dan menjauhkan dari realitas objektif.",
+      "*Bias konfirmasi* (atau confirmation bias) adalah prasangka kognitif di mana seseorang mencari, menafsirkan, dan mengingat informasi yang mendukung keyakinan yang sudah ada sebelumnya, serta mengabaikan atau meremehkan yang bertentangan. Efek ini, yang juga muncul dalam ingatan selektif, membuat investor fokus pada berita dan grafik yang membenarkan ide mereka bahwa sebuah saham sedang undervalued (murah), sambil mengabaikan indikator teknikal yang menunjukkan tren turun (bearish). Penyebabnya ada pada jalan pintas mental yang diambil otak untuk mengelola informasi secara lebih efisien dan mengurangi disonansi kognitif, serta kebutuhan untuk menjaga rasa identitas diri.\n\n*Cara mengatasi bias konfirmasi*\n-Cari informasi yang bertentangan secara aktif 🔍: jelajahi opini yang berlawanan atau alternatif dari yang kamu anggap benar.\n-Tantang hipotesismu 🤺: ajukan pertanyaan tentang apa yang kamu yakini dan cari bukti objektif yang mendukungnya.\n-Konsultasikan berbagai sumber 📚: andalkan sumber informasi yang beragam untuk mendapatkan pandangan yang lebih seimbang dan lengkap.\n-Miliki pikiran terbuka 🧠: bersedialah mengubah pendapat berdasarkan bukti baru.",
+      "*Bias konfirmasi* dalam trading adalah distorsi kognitif yang mengarah pada pengabaian informasi negatif dan hanya fokus pada apa yang membenarkan ide yang sudah ada sebelumnya, yang mengarah pada keputusan tidak seimbang dan analisis tidak lengkap.\nContoh praktisnya adalah investor yang, setelah membaca artikel positif tentang aset, mengabaikan laporan fundamental negatif, dan akhirnya menilai aset tersebut terlalu tinggi.\n\n*Cara menghindari bias konfirmasi dalam trading*\n-Kembangkan pendekatan kritis 🧠: analisis secara aktif baik data yang mendukung tesis kamu maupun yang menentangnya.\n-Lakukan riset skenario alternatif 🔍: evaluasi apa yang akan terjadi jika hipotesismu tidak benar.\n-Perhatikan data negatif ⚠️: jangan membuang informasi negatif secara otomatis, tapi cobalah pahami mengapa itu ada dan dampak apa yang mungkin ditimbulkannya.\n-Cari opini yang bertentangan 🤔: baca analisis orang yang memiliki pandangan berbeda darimu untuk mendapatkan perspektif yang lebih seimbang."
+    ],
+    "cost": 0,
+    "keywords": ["konfirmasi", "konfirmatori", "bias konfirmasi", "bias", "confirmation"],
+    "subquestions": {
+      "Apakah kamu mau analisis netral dan objektif tentang [TOPIC] yang dibuat oleh algoritma terpercaya TradeGPT?": "asset_analysis_open",
+      "Kamu mau tahu apa kata data fundamental tentang [TOPIC]?": "fundamental_analysis",
+      "Aku bisa jelaskan juga efek kawanan (herd effect). Kamu mau aku lanjut?": "effetto_gregge"}
+  },
+  "effetto_gregge": {
+    "questions": [
+      "Apa itu efek kawanan dalam investasi?",
+      "Apa arti efek kawanan?",
+      "Kenapa investor mengikuti massa?",
+      "Bisa jelaskan efek kawanan padaku?",
+      "Apa artinya mengikuti kawanan dalam keuangan?",
+      "Kenapa begitu banyak orang membeli atau menjual hanya karena orang lain melakukannya?",
+      "Bagaimana cara kerja efek kawanan di pasar?",
+      "Kenapa trader mengikuti kerumunan?",
+      "Kenapa trader mengikuti massa?",
+      "Kenapa trader mengikuti orang lain?",
+      "Apa itu perilaku kawanan?",
+      "Kenapa dibilang di pasar ada efek kawanan?",
+      "Kenapa investor meniru orang lain?",
+      "Apa risiko mengikuti kawanan?",
+      "Bagaimana cara menghindari perilaku kawanan?",
+      "Jelaskan efek kawanan dalam investasi",
+      "Jelaskan padaku apa itu herd behavior",
+      "Apa isi herd behavior?",
+      "Ceritakan padaku tentang herd behavior",
+      "Ceritakan padaku tentang efek kawanan"
+    ],
+    "answers": [
+      "*Efek kawanan* (herd effect) adalah fenomena psikologis di mana investor cenderung meniru tindakan kelompok, membeli atau menjual aset hanya karena orang lain melakukannya, tanpa analisis independen dan rasional. Perilaku ini bisa menyebabkan gelembung spekulatif dan kejatuhan tiba-tiba, seperti euforia terhadap suatu saham yang menaikkan harga, diikuti oleh kejatuhan saat antusiasme menghilang. Untuk menghindarinya, sangat penting mendasarkan keputusan pada analisis mendalam, memiliki strategi yang jelas, dan menjaga disiplin, tanpa terpengaruh oleh tren sesaat atau tekanan massa.\n\nCara kerja efek kawanan:\nMengikuti massa: Investor merasa lebih aman mengikuti perilaku mayoritas, seringkali didorong oleh rasa takut ketinggalan (FOMO) atau perasaan 'kalau semua orang melakukannya, pasti benar'.\nMengganti analisis dengan emosi: Alih-alih mendasarkan keputusan pada data dan fundamental aset, mereka mengikuti tren pasar atau sentimen umum, yang memperbesar fluktuasi harga.\nKonsekuensi negatif: Ini bisa mengarah pada fenomena seperti gelembung spekulatif, di mana harga naik ke tingkat irasional, atau 'panic selling' selama fase penurunan, di mana orang menjual sembarangan karena takut rugi lebih besar.\n\n*Cara menghindari efek kawanan*: harus berinvestasi secara mandiri, sebaiknya dengan strategi jangka panjang dan diversifikasi portofolio.",
+      "*Efek kawanan* adalah kecenderungan investor untuk meniru tindakan massa tanpa melakukan evaluasi pribadi dan independen, seringkali dipandu oleh rasa takut atau euforia, dan bisa menyebabkan gelembung spekulatif atau kejatuhan pasar. Untuk menghindarinya, sangat penting memiliki strategi investasi yang jelas, menganalisis fundamental aset secara mandiri, mengelola emosi sendiri, dan tidak terlalu terpengaruh oleh media atau kepanikan kolektif.\n\n*Cara menghindarinya*\n-Miliki strategi yang jelas 🔮: Tetapkan tujuan keuangan jangka panjang dan patuhi strategi investasi yang ditentukan, hindari keputusan impulsif.\n-Lakukan analisis independen 📊: Dasarkan keputusan sendiri pada riset dan analisis data fundamental aset, daripada mengikuti tren pasar atau saran orang lain.\n-Kendalikan emosi ☑️: Sadari dampak emosi seperti ketakutan dan keserakahan, serta jangan bereaksi impulsif terhadap berita atau fluktuasi pasar.\n-Diversifikasi portofolio 💰: Jangan memusatkan semua investasi pada satu aktivitas atau sektor saja untuk mengurangi risiko.\n-Abaikan 'kebisingan' (noise) 🎧: Batasi paparan terhadap berita utama yang sensasional dan opini bertentangan yang bisa memengaruhi keputusan investasi."
+    ],
+    "cost": 0,
+    "keywords": ["efek kawanan", "herd behavior", "kawanan", "gregarious", "ikut-ikutan"],
+    "subquestions": {
+      "Kamu mau tahu juga apa itu FOMO?": "bias_fomo",
+      "Kamu mau paham juga apa itu overtrading?": "bias_overtrading",
+      "Apakah kamu tertarik mengetahui bias konfirmasi?": "bias_confirmation"}
+  },
+  "gestione_emozioni": {
+    "questions": [
+      "Bagaimana cara mengelola emosi dalam trading?",
+      "Kenapa penting mengelola emosi saat berinvestasi?",
+      "Kenapa penting mengelola emosi dalam trading?",
+      "Bagaimana aku bisa mengontrol emosi saat trading?",
+      "Kenapa emosi memengaruhi investasi?",
+      "Bagaimana cara menghindari emosi merusak operasiku?",
+      "Apa dampak emosi dalam trading?",
+      "Cara tetap tenang dalam trading",
+      "Cara mengontrol emosi dalam trading",
+      "Kenapa disiplin emosional itu mendasar dalam investasi?",
+      "Bagaimana caranya agar tidak dikuasai kecemasan saat berinvestasi?",
+      "Bagaimana cara mengontrol rasa takut atau euforia selama trading?",
+      "Kenapa manajemen emosi begitu penting di pasar keuangan?",
+      "Kenapa mengelola emosi itu mendasar dalam trading?",
+      "Bagaimana cara menghindari keputusan impulsif saat trading?",
+      "Bagaimana cara tetap jernih saat berinvestasi?",
+      "Kenapa penting untuk tidak terpengaruh oleh emosi?",
+      "Apa akibat manajemen emosi yang buruk dalam investasi?",
+      "Apa yang terjadi jika aku salah mengelola emosi dalam trading?",
+      "Apa yang terjadi jika aku membiarkan rasa takut mengambil alih?",
+      "Apa yang terjadi jika aku membiarkan euforia mengambil alih?",
+      "Bagaimana cara meningkatkan disiplin emosional dalam trading?",
+      "Bagaimana aku bisa menjadi lebih rasional dalam pilihan tradingku?",
+      "Mari bicara tentang psikologi dalam trading",
+      "Apa hubungan psikologi dengan investasi?"
+    ],
+    "answers": [
+      "Pengelolaan emosi sangat krusial dalam trading karena perasaan seperti ketakutan dan keserakahan (greed) bisa mengarah pada keputusan impulsif dan irasional, yang membahayakan profitabilitas. Untuk mengelolanya, perlu menerapkan strategi seperti rencana trading yang telah ditentukan dengan stop loss dan target yang jelas, serta disiplin ketat untuk mengikuti aturan sendiri bahkan saat volatilitas pasar tinggi.\n\n*Kenapa ini penting*\nMengelola emosi sangat krusial untuk keputusan yang lebih baik, menghindari kesalahan umum, dan menjaga konsistensi dalam strategi investasi.\n\n*Cara mengelolanya*\n-Rencana Trading 📈: Memiliki rencana trading yang telah ditentukan, mencakup level masuk, stop loss, dan take profit, membantu mengambil keputusan sebelum dipengaruhi secara emosional.\n-Stop Loss ✋: Menetapkan stop loss yang telah ditentukan melindungi dari kerugian berlebihan dan mencegah reaksi penjualan impulsif.\n-Disiplin 📚: Menghormati aturan sendiri terlepas dari emosi adalah hal mendasar. Ini termasuk menerima kerugian sebagai bagian dari permainan.\n-Pemantauan 🔍: Menyadari suasana hati sendiri dan bagaimana pengalaman masa lalu (seperti pernah kehilangan uang) memengaruhi keputusan bisa membantu untuk bertindak sebelum emosi mengambil alih.",
+      "Mengelola emosi sangat krusial dalam trading, karena ketakutan, stres, dan euforia bisa mengganggu penilaian dan mengarah pada keputusan yang salah, seperti overtrading, pembelian impulsif, atau panik. Untuk mengelolanya secara efektif, sangat penting memiliki rencana operasional yang jelas, menetapkan batas risiko, membuat rutinitas analisis, dan mengambil jeda di saat-saat paling stres, seperti misalnya masuk ke operasi karena takut kehilangan kesempatan.\n\n*Kenapa ini penting*\nEmosi seperti ketakutan dan keserakahan mendistorsi persepsi risiko, mengarah pada keputusan yang tidak optimal. Tanpa kontrol emosional, ada risiko overtrading, tindakan impulsif dan panik, atau terpengaruh oleh fluktuasi pasar.\n\n*Cara mengelolanya*\n- Memiliki rencana operasional yang telah ditentukan menghindari keputusan impulsif.\n- Menetapkan batas risiko mencegah kerugian berlebihan.\n- Rutinitas analisis yang konstan menjaga perspektif yang objektif.\n- Mengambil jeda saat momen stres membantu menjaga kejernihan pikiran.\n\n*Contoh praktis*: jika harga naik drastis, euforia mungkin mendorongmu untuk masuk ke operasi terlambat. Rencana yang telah ditentukan, yang menetapkan dengan jelas titik masuk dan keluar, membantumu menghindari keputusan impulsif yang didikte oleh ketergesaan."
+    ],
+    "cost": 0,
+    "keywords": ["emosi", "emosional", "manajemen emosi", "psikologi", "mengontrol", "disiplin emosional"],
+    "subquestions": {
+      "Kamu mau tahu juga apa isi FOMO dalam trading?": "bias_fomo",
+      "Kamu mau aku jelaskan apa itu efek kawanan dan bagaimana pengaruhnya pada investor?": "effetto_gregge"}
+  }
 }
