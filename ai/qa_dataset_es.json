@@ -8992,5 +8992,241 @@
     "subquestions": {
       "¿Te interesa también saber las causas de la crisis de 2008?": "crisi_2008_info",
       "¿Te interesa saber el valor actual de Bitcoin?": "asset_last_price"}
-}
+},
+  "opzioni_finanza": {
+    "questions": [
+      "¿Qué son las opciones en finanzas?",
+      "¿Qué es una opción?",
+      "¿Qué son las opciones?",
+      "Explícame las opciones",
+      "Dime cómo funcionan las opciones",
+      "Dame información sobre las opciones",
+      "Dame una explicación fácil sobre qué son las opciones",
+      "Explica cómo funciona una opción financiera",
+      "Explica cómo funciona una opción call",
+      "Explica cómo funciona una opción put",
+      "Explica cómo funciona una call option",
+      "Explica cómo funciona una put option",
+      "¿Qué es una opción financiera?",
+      "¿Cómo funcionan las opciones?",
+      "¿Qué significa hacer trading con opciones?",
+      "¿Para qué sirven las opciones?",
+      "¿Para qué sirven las opciones call?",
+      "¿Para qué sirve la opción put?",
+      "¿Para qué sirve una option?",
+      "¿Para qué sirven las options?",
+      "¿Me explicas qué son las opciones?",
+      "Me gustaría entender qué son las opciones financieras",
+      "Quiero entender cómo funcionan las opciones",
+      "Quiero que me expliques cómo funcionan las opciones",
+      "¿Qué quiere decir comprar una opción?",
+      "¿Qué quiere decir vender una opción?",
+      "¿En qué consisten las opciones en el trading?",
+      "¿Qué tipos de opciones existen?",
+      "Diferencia entre call y put",
+      "¿Qué se entiende por call y put?",
+      "¿Qué se entiende por opción call?",
+      "¿Qué se entiende por opción put?",
+      "Dime qué diferencia hay entre call option y put option",
+      "Dime la diferencia entre opción call y put",
+      "¿Qué significa opción call o put?"
+    ],
+    "answers": [
+      "Las *opciones* son instrumentos financieros derivados que dan el *derecho*, pero no la obligación, de comprar o vender un activo (como una acción o una materia prima) a un precio establecido antes de una fecha determinada.\n\nExisten dos tipos principales:\n• *Call* (opción de compra): da el derecho a comprar.\n• *Put* (opción de venta): da el derecho a vender.\n\nEjemplo práctico: si compras una opción call con precio de ejercicio a 100 y el título sube a 120, puedes comprar a 100 en lugar de a 120, obteniendo potencialmente un beneficio. Si, en cambio, el precio baja, puedes simplemente dejar expirar la opción, perdiendo solo la prima pagada.\n\nLas opciones son instrumentos complejos y requieren una buena experiencia: pueden amplificar tanto los beneficios como las pérdidas, por lo que deben usarse con precaución.\n\nPor el momento, TradeGPT no puede ofrecer análisis, consejos o cálculos específicos sobre las opciones.",
+      "En finanzas, las *opciones* son contratos que te permiten comprar (call) o vender (put) un activo a un precio preestablecido antes de una fecha determinada. No estás obligado a hacerlo: solo tienes el derecho.\n\nEjemplo práctico: pagas 5€ para tener la posibilidad de comprar una acción a 50€. Si el precio sube a 60€, puedes ejercer el contrato y obtienes una ventaja. Si el precio baja, pierdes solo los 5€ de la prima.\n\nSon instrumentos útiles pero avanzados: su gestión requiere conocimientos sólidos porque los riesgos pueden ser elevados.\n\nTradeGPT por el momento no es capaz de proporcionar herramientas operativas o análisis específicos sobre las opciones.",
+      "Las opciones funcionan como un seguro: pagas una prima para tener un derecho futuro. Una *call* te protege si piensas que el precio subirá, una *put* si piensas que bajará.\n\nEjemplo práctico: pagas una prima para protegerte de un posible desplome de una acción que posees. Si baja, ejerces la put; si no baja, pierdes solo la prima.\n\nDebido a su complejidad, las opciones no siempre son adecuadas para principiantes: requieren comprensión de los riesgos y de la volatilidad.\n\nPor el momento, TradeGPT aún no soporta operativa o análisis aplicados a las opciones."
+    ],
+    "cost": 0,
+    "keywords": ["opciones", "opción", "opción call", "opción put", "option", "options", "call", "put"],
+    "subquestions": {
+      "¿Quieres saber también qué son los bonos?": "obbligazioni_info",
+      "¿Quieres que te explique también qué son los ETF?": "etf_info"}
+  },
+  "bias_fomo": {
+    "questions": [
+      "¿Qué es el FOMO en el trading?",
+      "¿Qué quiere decir FOMO?",
+      "¿Qué significa FOMO?",
+      "¿Por qué en el trading se habla de FOMO?",
+      "¿Qué se entiende por FOMO?",
+      "¿Qué es la fear of missing out en el trading?",
+      "¿Qué quiere decir fear of missing out?",
+      "¿Qué significa fear of missing out?",
+      "¿Por qué en el trading se habla de fear of missing out?",
+      "¿Qué se entiende por fear of missing out?",
+      "¿Qué se entiende cuando se habla de FOMO?",
+      "¿Me explicas el FOMO en las inversiones?",
+      "Explícame el efecto FOMO",
+      "¿Me explicas en qué consiste el efecto FOMO?",
+      "¿En qué consiste el efecto FOMO?",
+      "¿Qué quiere decir tener FOMO cuando se invierte?",
+      "¿Por qué el FOMO hace perder dinero?",
+      "¿Qué quiere decir tener fear of missing out cuando se invierte?",
+      "¿Por qué la fear of missing out hace perder dinero?",
+      "¿Qué quiere decir tener miedo de quedarse fuera cuando se invierte?",
+      "¿Por qué el miedo de quedarse fuera hace perder dinero?",
+      "¿Qué quiere decir tener miedo de quedarse fuera en el trading?",
+      "¿Por qué el miedo de perder la ocasión hace perder dinero?",
+      "¿Qué quiere decir tener miedo de perder una ocasión en el trading?",
+      "¿Por qué el miedo de quedarse fuera puede hacer perder dinero?",
+      "¿El FOMO hace perder dinero?",
+      "¿Cómo funciona el FOMO en los mercados?",
+      "¿Qué efecto tiene el FOMO en las finanzas?",
+      "¿Qué efecto tiene el FOMO en el mercado?",
+      "¿Qué impacto tiene el FOMO en el mercado?",
+      "¿Por qué muchos inversores caen en el FOMO?",
+      "¿De qué manera el FOMO influye en el trading?",
+      "Cómo el FOMO influye en el mercado",
+      "¿Qué papel juega el miedo en el mercado?",
+      "¿Cuánto cuenta el miedo en el trading?",
+      "Ponme un ejemplo de cómo la psicología influye en el trading"
+    ],
+    "answers": [
+      "El *FOMO* (*Fear Of Missing Out*, o miedo a perderse algo) es un *sesgo psicológico* que lleva al inversor a abrir posiciones solo por miedo a perder una ocasión. Sucede a menudo cuando un activo está subiendo rápidamente: se teme quedarse fuera del 'tren' y se entra en el mercado sin análisis, a menudo tarde.\n\nLos efectos pueden ser negativos, porque se compran activos en hiperextensión, aumentando el riesgo de pérdidas.\n\nTe pongo un ejemplo para explicarte el concepto:\nSi Bitcoin sube un 10% en pocas horas, muchos inversores entran en el último momento solo por miedo a perder la ocasión, justo cuando podría empezar una corrección.",
+      "El *FOMO* es el *miedo a perder una oportunidad* y lleva al inversor a seguir al mercado sin una estrategia. Es una de las principales causas de entradas impulsivas.\n\n*Ejemplo práctico:*\nUna acción sube rápidamente porque todos hablan de ella: el inversor compra sin un análisis preciso, pero el precio ya había alcanzado un máximo y luego baja.",
+      "En el trading, el *FOMO* (miedo a perder la ocasión) empuja a tomar decisiones basadas en la emotividad, no en los datos. Se presenta sobre todo durante fuertes movimientos de mercado o hype mediático.\n\nPor ejemplo, un usuario ve que todos están comprando un cierto título en redes sociales y foros, así que lo compra él también, a menudo justo cerca del pico."
+    ],
+    "cost": 0,
+    "keywords": ["fomo", "fear of missing out", "sesgo", "miedo"],
+    "subquestions": {
+      "Como apoyo adicional, puedo mostrarte el análisis técnico de [TOPIC].": "ta_general",
+      "¿Quieres consejos para gestionar mejor las emociones en las inversiones?": "gestione_emozioni",
+      "Puedo explicarte también en qué consiste el overtrading. ¿Procedo?": "bias_overtrading",
+      "Puedo proporcionarte una visión general de los datos fundamentales de [TOPIC] para ayudarte a tomar decisiones más conscientes. ¿Quieres que lo haga?": "fundamental_analysis"}
+  },
+  "bias_overtrading": {
+    "questions": [
+      "¿Qué es el overtrading?",
+      "¿Qué significa overtrading en el trading?",
+      "¿Por qué el overtrading es peligroso?",
+      "¿Me explicas el overtrading?",
+      "Explica el overtrading",
+      "¿En qué consiste el overtrading?",
+      "¿Qué se entiende por overtrading?",
+      "¿Por qué los inversores hacen overtrading?",
+      "¿Cuándo se hace overtrading?",
+      "¿Cómo funciona el overtrading?",
+      "¿Cómo evitar el overtrading?",
+      "¿Hacer overtrading es peligroso?",
+      "¿Hacer overtrading es arriesgado?",
+      "¿Cuál es el riesgo del overtrading?",
+      "Quiero saber el significado de overtrading",
+      "Quiero que me expliques el overtrading",
+      "¿Qué pasa si invierto de manera impulsiva?",
+      "¿Qué pasa si soy impulsivo?",
+      "¿Qué pasa cuando hay excesiva confianza?",
+      "Ponme un ejemplo de cómo la psicología influye en el trading"
+    ],
+    "answers": [
+      "El *overtrading* (u operar en exceso) es la tendencia a hacer demasiadas operaciones, a menudo sin una estrategia, empujados por la emotividad, el aburrimiento o el deseo de recuperar rápidamente las pérdidas. Este comportamiento aumenta el riesgo y lleva a menudo a resultados negativos.\n\n*Ejemplo práctico:* un inversor pierde una posición y para 'recuperarse' abre enseguida otras tres operaciones impulsivas, empeorando la situación.",
+      "En el trading, el *overtrading* se verifica cuando se opera demasiado frecuentemente, a menudo ignorando la propia estrategia. Es un comportamiento típico de quien quiere forzar al mercado.\nPor ejemplo, si un trader abre 20 operaciones en un día sin un motivo real, está aumentando costes, estrés y sobre todo riesgo.",
+      "El *overtrading* nace de la necesidad de estar siempre en el mercado, a menudo por miedo a perder ocasiones o para recuperar pérdidas, pero lleva a elecciones impulsivas.\n\nPor ejemplo, ver un pequeño movimiento en el gráfico y abrir enseguida una posición sin evaluar la tendencia general o efectuar análisis detallados es un comportamiento peligroso, que abre el camino a muchos riesgos."
+    ],
+    "cost": 0,
+    "keywords": ["overtrading", "sesgo", "sobreoperar"],
+    "subquestions": {
+      "Puedo explicarte también en qué consiste el FOMO. ¿Te interesa?": "bias_fomo",
+      "¿Quieres que analice técnicamente un activo para que entiendas si conviene operar?": "ta_general"}
+  },
+  "bias_confirmation": {
+    "questions": [
+      "¿Qué es el confirmation bias?",
+      "¿Qué es el sesgo de confirmación?",
+      "¿Qué es el sesgo confirmatorio?",
+      "¿Qué significa confirmation bias en el trading?",
+      "¿Por qué el sesgo de confirmación es peligroso?",
+      "¿Me explicas el sesgo de confirmación?",
+      "Explícame el sesgo de confirmación",
+      "¿Qué efecto tiene el sesgo de confirmación en el trading?",
+      "¿Por qué los traders caen en el sesgo de confirmación?",
+      "¿Cómo funciona el sesgo de confirmación?",
+      "¿Qué es el sesgo de confirmación en las inversiones?",
+      "¿El sesgo de confirmación es peligroso?",
+      "¿El sesgo confirmatorio puede ser peligroso?",
+      "¿El confirmation bias puede ser dañino?"
+    ],
+    "answers": [
+      "El *sesgo de confirmación* (o confirmation bias) es un prejuicio cognitivo que empuja a las personas a buscar, interpretar y recordar información que confirma sus propias convicciones, ignorando las contrarias. En el trading, este comportamiento es peligroso porque lleva a decisiones distorsionadas basadas en una visión parcial de la realidad, como el inversor que busca solo noticias positivas sobre un título, ignorando las señales de alarma, y termina perdiendo dinero.\n\n*Cómo funciona*\nEl sesgo de confirmación se manifiesta a través de diferentes mecanismos. Primero, la *búsqueda selectiva* lleva a buscar activamente y a dar mayor peso a la información que confirma las convicciones iniciales, como por ejemplo la expectativa de que un título aumentará de valor. En segundo lugar, la *interpretación distorsionada* hace que la información en desacuerdo con las propias convicciones sea minimizada, descartada o reinterpretada para reforzar los prejuicios existentes. La *memoria selectiva*, además, hace que, cuando se mira atrás, se tienda a recordar más fácilmente los datos coherentes con la hipótesis de partida. Finalmente, los *filtros sociales* y las *redes sociales* muestran contenidos que reflejan las preferencias individuales, creando una 'burbuja informativa' que refuerza el sesgo de confirmación y aleja de la realidad objetiva.",
+      "El *sesgo de confirmación* es un prejuicio cognitivo por el cual se busca, interpreta y recuerda información que apoya las propias convicciones preexistentes, ignorando o disminuyendo las contrarias. Este efecto, que se manifiesta también en la memoria selectiva, lleva a los inversores a concentrarse en noticias y gráficos que confirman su idea de que una acción está infravalorada, dejando de lado indicadores técnicos que indican una tendencia bajista. Sus causas hay que buscarlas en el atajo mental que el cerebro adopta para gestionar la información de manera más eficiente y para reducir la disonancia cognitiva, y en la necesidad de preservar el propio sentido de identidad.\n\n*Cómo superar el sesgo de confirmación*\n-Busca activamente información contraria 🔍: explora opiniones opuestas o alternativas a las que consideras verdaderas.\n-Desafía tus hipótesis 🤺: hazte preguntas sobre aquello en lo que crees y busca pruebas objetivas que lo apoyen.\n-Consulta fuentes diversas 📚: confía en fuentes de información heterogéneas para obtener una visión más equilibrada y completa.\n-Adopta una mentalidad abierta 🧠: estate dispuesto a cambiar de idea en base a nuevas pruebas.",
+      "El *sesgo de confirmación* en el trading es una distorsión cognitiva que lleva a ignorar la información negativa y a focalizarse solo en la que confirma una idea preexistente, llevando a decisiones desequilibradas y análisis incompletos.\nUn ejemplo práctico es un inversor que, después de haber leído artículos positivos sobre un activo, ignora un informe fundamental negativo, terminando por sobrevalorar el activo mismo.\n\n*Cómo evitar el sesgo de confirmación en el trading*\n-Desarrolla un enfoque crítico 🧠: analiza activamente tanto los datos que apoyan tu tesis como los que la contradicen.\n-Haz investigaciones sobre escenarios alternativos 🔍: evalúa qué pasaría si tus hipótesis no fueran correctas.\n-Pon atención a los datos negativos ⚠️: no descartes automáticamente la información negativa, intenta entender por qué existe y qué impacto podría tener.\n-Busca opiniones contrastantes 🤔: lee el análisis de personas que tienen una visión diferente de la tuya para tener una perspectiva más equilibrada."
+    ],
+    "cost": 0,
+    "keywords": ["confirmación", "confirmatorio", "sesgo de confirmación", "sesgo", "confirmation"],
+    "subquestions": {
+      "¿Quieres un análisis neutral y objetivo de [TOPIC] creado por el algoritmo fiable de TradeGPT?": "asset_analysis_open",
+      "¿Quieres saber qué dicen los fundamentales de [TOPIC]?": "fundamental_analysis",
+      "Puedo explicarte también el efecto manada. ¿Quieres que proceda?": "effetto_gregge"}
+  },
+  "effetto_gregge": {
+    "questions": [
+      "¿Qué es el efecto manada en las inversiones?",
+      "¿Qué significa efecto manada?",
+      "¿Por qué los inversores siguen a la masa?",
+      "¿Puedes explicarme el efecto manada?",
+      "¿Qué quiere decir seguir al rebaño en finanzas?",
+      "¿Por qué tanta gente compra o vende solo porque lo hacen los otros?",
+      "¿Cómo funciona el efecto manada en los mercados?",
+      "¿Por qué los traders siguen a la multitud?",
+      "¿Por qué los traders siguen a la masa?",
+      "¿Por qué los traders siguen a los demás?",
+      "¿Qué es el comportamiento gregario?",
+      "¿Por qué se dice que en los mercados hay efecto manada?",
+      "¿Por qué los inversores imitan a los otros?",
+      "¿Qué riesgos hay al seguir a la manada?",
+      "¿Cómo evitar el comportamiento gregario?",
+      "Explícame el efecto manada en las inversiones",
+      "Explícame qué es el herd behavior",
+      "¿En qué consiste el herd behavior?",
+      "Háblame del herd behavior",
+      "Háblame del efecto manada"
+    ],
+    "answers": [
+      "El *efecto manada* es un fenómeno psicológico por el cual los inversores tienden a imitar las acciones del grupo, comprando o vendiendo un activo solo porque lo están haciendo los demás, sin un análisis independiente y racional. Este comportamiento puede llevar a burbujas especulativas y desplomes repentinos, como la euforia por una acción que hace subir el precio, seguido de un desplome cuando el entusiasmo se desvanece. Para evitarlo, es fundamental basar las decisiones en análisis profundos, tener una estrategia clara y mantener la disciplina, sin dejarse influenciar por las modas del momento o por la presión de la masa.\n\nCómo funciona el efecto manada:\nSeguir a la masa: Los inversores se sienten más seguros siguiendo el comportamiento de la mayoría, a menudo empujados por el miedo a perder una ocasión (FOMO) o por la sensación de que 'si lo hacen todos, debe ser correcto'.\nSustituir el análisis con la emoción: En lugar de basar las decisiones en los datos y en los fundamentales de un activo, se siguen las tendencias del mercado o el sentimiento general, amplificando las oscilaciones de los precios.\nConsecuencias negativas: Esto puede llevar a fenómenos como las burbujas especulativas, donde los precios suben a niveles irracionales, o el 'panic selling' durante las fases de bajada, donde se vende indiscriminadamente por miedo a pérdidas mayores.\n\n*Cómo evitar el efecto manada*: hay que invertir de manera independiente, preferiblemente con una estrategia a largo plazo y diversificando la cartera.",
+      "El *efecto manada* es la tendencia de los inversores a imitar las acciones de la masa sin hacer una evaluación personal e independiente, a menudo guiada por el miedo o la euforia, y puede llevar a burbujas especulativas o desplomes de mercado. Para evitarlo, es fundamental tener una estrategia de inversión clara, analizar los fundamentales de los activos de manera independiente, gestionar las propias emociones y no dejarse influenciar excesivamente por los medios o por el pánico colectivo.\n\n*Cómo puede ser evitado*\n-Tener una estrategia clara 🔮: Establecer objetivos financieros a largo plazo y atenerse a una estrategia de inversión definida, evitando decisiones impulsivas.\n-Hacer análisis independientes 📊: Basar las propias decisiones en la investigación y en el análisis de los datos fundamentales de un activo, en lugar de seguir las tendencias del mercado o los consejos de los demás.\n-Controlar las emociones ☑️: Ser conscientes del impacto de emociones como miedo y codicia y no reaccionar impulsivamente a las noticias o a las oscilaciones de mercado.\n-Diversificar la cartera 💰: No concentrar todas las inversiones en una única actividad o sector para reducir el riesgo.\n-Ignorar el 'ruido' 🎧: Limitar la exposición a titulares sensacionalistas y opiniones contrastantes que pueden influenciar las decisiones de inversión."
+    ],
+    "cost": 0,
+    "keywords": ["efecto manada", "herd behavior", "manada", "gregario", "rebaño"],
+    "subquestions": {
+      "¿Quieres saber también qué es el FOMO?": "bias_fomo",
+      "¿Quieres entender también qué es el overtrading?": "bias_overtrading",
+      "¿Te interesa conocer el sesgo de confirmación?": "bias_confirmation"}
+  },
+  "gestione_emozioni": {
+    "questions": [
+      "¿Cómo se gestionan las emociones en el trading?",
+      "¿Por qué es importante gestionar las emociones cuando se invierte?",
+      "¿Por qué es importante gestionar las emociones en el trading?",
+      "¿Cómo puedo controlar las emociones mientras hago trading?",
+      "¿Por qué las emociones influyen en las inversiones?",
+      "¿Cómo evitar que las emociones arruinen mis operaciones?",
+      "¿Qué impacto tienen las emociones en el trading?",
+      "Cómo mantener la calma en el trading",
+      "Cómo controlar las emociones en el trading",
+      "¿Por qué es fundamental tener disciplina emocional en las inversiones?",
+      "¿Cómo se hace para no dejarse llevar por la ansiedad cuando se invierte?",
+      "¿Cómo se controla el miedo o la euforia durante el trading?",
+      "¿Por qué la gestión emocional es tan importante en los mercados financieros?",
+      "¿Por qué gestionar las emociones es fundamental en el trading?",
+      "¿Cómo evitar decisiones impulsivas cuando hago trading?",
+      "¿Cómo se mantiene uno lúcido mientras invierte?",
+      "¿Por qué es importante no dejarse influenciar por las emociones?",
+      "¿Qué conlleva una mala gestión emocional en las inversiones?",
+      "¿Qué pasa si gestiono mal las emociones en el trading?",
+      "¿Qué pasa si me dejo llevar por el miedo?",
+      "¿Qué pasa si me dejo llevar por la euforia?",
+      "¿Cómo mejorar la propia disciplina emocional en el trading?",
+      "¿Cómo puedo volverme más racional en mis elecciones de trading?",
+      "Hablemos de la psicología en el trading",
+      "¿Qué tiene que ver la psicología con las inversiones?"
+    ],
+    "answers": [
+      "La gestión de las emociones es crucial en el trading porque sentimientos como miedo y codicia pueden llevar a decisiones impulsivas e irracionales, comprometiendo la rentabilidad. Para gestionarlas, es necesario adoptar estrategias como un plan de trading predefinido con stop loss y objetivos claros, además de una disciplina rigurosa para seguir las propias reglas incluso en presencia de alta volatilidad del mercado.\n\n*Por qué es importante*\nGestionar las emociones es crucial para mejores decisiones, evitar errores comunes y mantener la coherencia en la estrategia de inversión.\n\n*Cómo gestionarlas*\n-Plan de trading 📈: Tener un plan de trading predefinido, que incluya niveles de entrada, stop loss y take profit, ayuda a tomar decisiones antes de ser influenciados emocionalmente.\n-Stop loss ✋: Establecer stop loss predefinidos protege de pérdidas excesivas y previene reacciones impulsivas de venta.\n-Disciplina 📚: Respetar las propias reglas independientemente de la emotividad es fundamental. Esto incluye la aceptación de las pérdidas como parte del juego.\n-Monitorización 🔍: Ser conscientes de los propios estados de ánimo y de cómo las experiencias pasadas (como haber perdido dinero) influyen en las decisiones puede ayudar a intervenir antes de que la emoción tome el control.",
+      "Gestionar las emociones es crucial en el trading, ya que miedo, estrés y euforia pueden comprometer el juicio y llevar a decisiones equivocadas, como el overtrading, compras impulsivas o pánico. Para gestionarlas eficazmente, es esencial tener planes operativos claros, definir límites de riesgo, establecer rutinas de análisis y hacer pausas en los momentos de mayor estrés, como por ejemplo entrar en una operación por miedo a perder una oportunidad.\n\n*Por qué es importante*\nEmociones como miedo y codicia distorsionan la percepción del riesgo, llevando a decisiones no óptimas. Sin control emocional, se arriesga overtrading, acciones impulsivas y pánico, o dejarse influenciar por las fluctuaciones de mercado.\n\n*Cómo gestionarlas*\n- Tener un plan operativo predefinido evita decisiones impulsivas.\n- Establecer límites de riesgo previene pérdidas excesivas.\n- Una rutina de análisis constante mantiene una perspectiva objetiva.\n- Tomar pausas durante momentos de estrés ayuda a mantener la lucidez.\n\n*Ejemplo práctico*: si el precio sube como un cohete, la euforia podría llevarte a entrar en la operación demasiado tarde. Un plan predefinido, que establece claramente los puntos de entrada y salida, te ayuda a evitar decisiones impulsivas dictadas por la prisa."
+    ],
+    "cost": 0,
+    "keywords": ["emociones", "emocional", "gestión emocional", "psicología", "controlar", "disciplina emocional"],
+    "subquestions": {
+      "¿Quieres saber también en qué consiste el FOMO en el trading?": "bias_fomo",
+      "¿Quieres que te explique qué es el efecto manada y cómo influye en los inversores?": "effetto_gregge"}
+  }
 }
