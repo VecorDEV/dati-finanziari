@@ -8911,5 +8911,54 @@
   "subquestions": {
     "Ti interessa anche sapere le cause della crisi del 2008?": "crisi_2008_info",
     "Ti interessa sapere il valore attuale di Bitcoin?": "asset_last_price"}
+},
+  "opzioni_finanza": {
+    "questions": [
+      "Cosa sono le opzioni in finanza?",
+      "Cos'è un'opzione?",
+      "Cosa sono le options?",
+      "Spiegami le opzioni",
+      "Dimmi come funzionano le opzioni",
+      "Dammi informazioni sulle opzioni",
+      "Dammi una spiegazione facile su cosa sono le opzioni",
+      "Spiega come funziona un'opzione finanziaria",
+      "Spiega come funziona un'opzione call",
+      "Spiega come funziona un'opzione put",
+      "Spiega come funziona una call option",
+      "Spiega come funziona una put option",
+      "Che cosa è un'opzione finanziaria?",
+      "Come funzionano le opzioni?",
+      "Cosa significa fare trading con le opzioni?",
+      "A che cosa servono le opzioni?",
+      "A che cosa servono le opzioni call?",
+      "A che serve l'opzione put?",
+      "A cosa serve una option?",
+      "A che servono le options?",
+      "Mi spieghi cosa sono le opzioni?",
+      "Vorrei capire cosa sono le opzioni finanziarie",
+      "Voglio capire come funzionano le opzioni",
+      "Voglio che mi spieghi come funzionano le opzioni",
+      "Cosa vuol dire comprare un'opzione?",
+      "Cosa vuol dire vendere un'opzione?",
+      "In cosa consistono le opzioni nel trading?",
+      "Quali tipi di opzioni esistono?",
+      "Differenza tra call e put",
+      "Cosa si intende con call e put?",
+      "Cosa si intende con opzione call?",
+      "Cosa si intende con opzione put?",
+      "Dimmi che differenza c'è tra call option e put option",
+      "Dimmi la differenza tra opzione call e put",
+      "Che significa opzione call o put?"
+    ],
+    "answers": [
+      "Le *opzioni* sono strumenti finanziari derivati che danno il *diritto*, ma non l’obbligo, di comprare o vendere un asset (come un’azione o una materia prima) a un prezzo stabilito entro una certa data.\n\nEsistono due tipi principali:\n• *Call*: dà il diritto di comprare.\n• *Put*: dà il diritto di vendere.\n\nEsempio pratico: se compri un'opzione call con prezzo di esercizio a 100 e il titolo sale a 120, puoi comprare a 100 invece che a 120, ottenendo potenzialmente un profitto. Se invece il prezzo scende, puoi semplicemente lasciare scadere l’opzione, perdendo solo il premio pagato.\n\nLe opzioni sono strumenti complessi e richiedono una buona esperienza: possono amplificare sia i profitti che le perdite, quindi vanno usate con cautela.\n\nAl momento TradeGPT non può offrire analisi, consigli o calcoli specifici sulle opzioni.",
+      "In finanza, le *opzioni* sono contratti che ti permettono di comprare (call) o vendere (put) un asset a un prezzo prestabilito entro una certa data. Non sei obbligato a farlo: hai solo il diritto.\n\nEsempio pratico: paghi 5€ per avere la possibilità di comprare un'azione a 50€. Se il prezzo sale a 60€, puoi esercitare il contratto e ottieni un vantaggio. Se il prezzo scende, perdi solo i 5€ del premio.\n\nSono strumenti utili ma avanzati: la loro gestione richiede conoscenze solide perché i rischi possono essere elevati.\n\nTradeGPT per il momento non è ancora in grado di fornire strumenti operativi o analisi specifiche sulle opzioni.",
+      "Le opzioni funzionano come un’assicurazione: paghi un premio per avere un diritto futuro. Una *call* ti tutela se pensi che il prezzo salirà, una *put* se pensi che scenderà.\n\nEsempio pratico: paghi un premio per proteggerti da un possibile crollo di un’azione che possiedi. Se scende, eserciti la put; se non scende, perdi solo il premio.\n\nA causa della loro complessità, le opzioni non sono sempre adatte ai principianti: richiedono comprensione dei rischi e della volatilità.\n\nAl momento TradeGPT non supporta ancora operatività o analisi applicate sulle opzioni."
+    ],
+    "cost": 0,
+    "keywords": ["opzioni", "opzione", "opzione call", "opzione put", "option", "options", "call", "put"],
+    "subquestions": {
+      "Vuoi anche sapere cosa sono le obbligazioni?": "obbligazioni_info",
+      "Vuoi che ti spieghi anche cosa sono gli ETF?": "etf_info"}
 }
 }
