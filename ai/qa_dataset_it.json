@@ -9148,7 +9148,7 @@
     "Vuoi sapere anche in cosa consiste la FOMO nel trading?": "bias_fomo",
     "Vuoi che ti spieghi cos’è l’effetto gregge e come influenza gli investitori?": "effetto_gregge"}
 },
-  "signals_guide": {
+    "signals_guide": {
     "questions": [
       "Cosa significano i segnali buy, hold e sell?",
       "Puoi spiegarmi cosa vogliono dire i segnali di trading?",
@@ -9224,6 +9224,49 @@
       "I segnali *buy/hold/sell* rappresentano una valutazione sintetica dell’andamento previsto dell’asset 📈.\n\n• *Buy*: indica potenziale rialzista.\n• *Hold*: indica neutralità o assenza di direzione chiara.\n• *Sell*: indica potenziale ribassista.\n\nUsali come punto di partenza per capire il sentiment generale, ma affiancali sempre ad analisi più dettagliate."
     ],
     "cost": 0,
-    "keywords": ["segnali", "segnali", "signal", "signals", "buy", "sell", "hold", "vendere", "vendi", "tenere", "tieni", "mantenere", "mantieni", "comprare", "compra"]
-}
+    "keywords": ["segnali", "segnali", "signal", "signals", "buy", "sell", "hold", "vendere", "vendi", "tenere", "tieni", "mantenere", "mantieni", "comprare", "compra"],
+    "subquestions": {
+      "Posso fornirti un'analisi completa su [TOPIC], vuoi che te la creo?": "asset_analysis_open",
+      "Posso generarti un'analisi completa su [TOPIC], così da avere tutte le informazioni necessarie. Vuoi che procedo?": "asset_analysis_open",
+      "Vuoi che ti dica quale segnale viene assegnato oggi su [TOPIC]?": "segnale",
+      "Vuoi sapere il segnale di oggi per [TOPIC]?": "segnale"}
+},
+    "cash_is_king": {
+    "questions": [
+      "Cosa significa 'cash is king'?",
+      "Spiegami il significato di 'cash is king'",
+      "Che vuol dire quando dicono 'cash is king'?",
+      "Perché si dice che il contante è re?",
+      "Perché si dice 'cash is king'?",
+      "Come mai si dice 'cash is king'?",
+      "Per quale motivo si dice 'cash is king'?",
+      "Per quale ragione si dice 'cash is king'?",
+      "Cosa intendono gli investitori con 'cash is king'?",
+      "Perché nelle crisi tutti dicono 'cash is king'?",
+      "Mi spieghi il concetto di cash is king?",
+      "Perché è importante avere liquidità?",
+      "Perché in finanza dicono che la liquidità è importante?",
+      "Cosa vuol dire che la liquidità ha il ruolo principale?",
+      "Che cosa vuol dire 'cash is king'?",
+      "Cosa si intende con 'cash is king'?",
+      "Spiega l'espressione 'cash is king'",
+      "Spiegami l'espressione 'il contante è il re'",
+      "Spiega il termine 'il contante è il re'",
+      "Spiegami il significato dell'espressione 'il contante è il re'",
+    ],
+    "answers": [
+      "L'espressione *cash is king* significa che, in certi contesti di mercato, avere liquidità è più vantaggioso che essere completamente investiti. La liquidità permette di affrontare imprevisti, evitare vendite forzate durante i ribassi e sfruttare opportunità quando i prezzi scendono.\nDurante un forte crollo di mercato, chi ha liquidità può acquistare asset a prezzi molto più bassi, mentre chi è completamente investito non può farlo senza vendere in perdita.",
+      "Quando si dice *cash is king*, si intende che il contante ha un valore strategico, soprattutto nei periodi di incertezza o alta volatilità. Avere liquidità dà flessibilità, riduce il rischio e permette di prendere decisioni senza pressione.\n\n*Nella pratica:* se un investitore mantiene una parte del portafoglio in liquidità, può entrare su asset in forte sconto senza doversi liberare di altri investimenti nel momento sbagliato.",
+      "*Cash is king* sottolinea l'importanza di mantenere una quota di liquidità nel portafoglio, soprattutto quando i mercati sono instabili. Il contante permette di proteggersi e di effettuare movimenti strategici al momento più opportuno.\n\n*Nella pratica:* durante una recessione, molte azioni subiscono cali importanti; chi ha liquidità può approfittarne e costruire posizioni solide a prezzi molto più bassi.",
+      "In finanza, la frase *cash is king* evidenzia che la liquidità rappresenta sicurezza e opportunità. Nel breve termine può avere più valore di investimenti difficili da liquidare rapidamente.\n\nTi faccio un esempio pratico: un’azienda con molta liquidità può superare periodi difficili senza indebitarsi, mentre un investitore privato può cogliere buone occasioni di acquisto quando il mercato corregge.",
+      "L’espressione *cash is king* viene usata soprattutto nei momenti di crisi: significa che avere liquidità permette di controllare meglio il portafoglio e agire senza fretta.\n\nTi faccio un esempio pratico: se un mercato crolla e un investitore ha liquidità disponibile, può comprare gradualmente asset sottovalutati, costruendo ottime posizioni per il futuro."
+    ],
+    "cost": 0,
+    "keywords": ["cash is king", "cash", "is king", "liquidità", "contante", "il re"],
+    "subquestions": {
+      "Vuoi che ti fornisca una breve guida su come interpretare i segnali di trading?": "signals_guide",
+      "Posso fornirti una breve guida su come interpretare i segnali di investimento. Vuoi che lo faccio?": "signals_guide",
+      "Vuoi sapere quale segnale viene stimato dall'algoritmo su [TOPIC]?": "segnale"
+      "Vuoi conoscere il segnale stimato per [TOPIC]?": "segnale"}
+  }
 }
