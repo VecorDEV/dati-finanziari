@@ -550,10 +550,18 @@ def get_news_data_advanced(ticker_yahoo, friendly_symbol, sector):
 
 
 class HistoryManager:
-    def __init__(self, filename="sentiment_history.json"):
+    # Modifica qui: Specifica il percorso con la cartella
+    def __init__(self, filename="delta_history/sentiment_history.json"):
         self.filename = filename
+        
+        # --- NOVITÀ: Crea la cartella se non esiste ---
+        folder = os.path.dirname(self.filename)
+        if not os.path.exists(folder):
+            os.makedirs(folder)
+        # ----------------------------------------------
+
         self.data = self._load_data()
-        self._clean_old_data() # Pulisce dati > 15 gg
+        self._clean_old_data() 
 
     def _load_data(self):
         if os.path.exists(self.filename):
@@ -613,7 +621,6 @@ class HistoryManager:
         avg_count = sum(past_counts) / len(past_counts)
         if avg_count == 0: avg_count = 1
         
-        # Calcolo Momentum
         vol_ratio = current_count / avg_count
         vol_score = min(vol_ratio, 3.0) / 3.0
         sent_diff = current_sent - avg_sent
@@ -625,6 +632,7 @@ class HistoryManager:
         
         final_delta = 50 + (raw_delta * multiplier)
         return max(min(final_delta, 100), 0)
+
 
 
 # ==============================================================================
