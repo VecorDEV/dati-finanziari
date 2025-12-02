@@ -1,40 +1,51 @@
 name: Test
 
-# Questo evento permette l'esecuzione manuale dalla tab "Actions"
 on:
   workflow_dispatch:
     inputs:
       ticker_list:
-        description: 'Lista ticker separati da virgola (opzionale, default nel codice)'
+        description: 'Lista ticker separati da virgola'
         required: false
         default: ''
+  # Se vuoi che parta in automatico ogni giorno (es: lun-ven alle 8:00), scommenta qui sotto:
+  # schedule:
+  #   - cron: '0 8 * * 1-5'
+
+# PERMESSI NECESSARI PER SALVARE LO STORICO
+permissions:
+  contents: write
 
 jobs:
   run-prediction:
     runs-on: ubuntu-latest
 
     steps:
-    # 1. Scarica il codice del repository
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    # 2. Installa Python
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
         python-version: '3.9'
 
-    # 3. Installa le dipendenze necessarie
-    # (Se hai un requirements.txt è meglio usare quello, altrimenti installiamo al volo)
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install pandas numpy yfinance requests beautifulsoup4 lxml nltk
 
-    # 4. Esegue lo script Python
-    # Assicurati che il nome del file qui sotto corrisponda al tuo file reale!
     - name: Run Prediction Script
       env:
         TICKER_INPUT: ${{ github.event.inputs.ticker_list }}
       run: python scripts/test.py
 
+    # --- STEP FONDAMENTALE PER SALVARE IL JSON ---
+    - name: Commit and Push History
+      run: |
+        git config --global user.name 'GitHub Actions Bot'
+        git config --global user.email 'actions@github.com'
+        
+        # Aggiunge la cartella delta_history (se esiste e ha file nuovi)
+        git add delta_history/sentiment_history.json
+        
+        # Se ci sono cambiamenti, fa il commit e il push
+        git diff-index --quiet HEAD || (git commit -m "Update Delta History [skip ci]" && git push)
