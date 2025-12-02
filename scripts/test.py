@@ -6,6 +6,7 @@ import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta
 import time
 import os
+import json
 from email.utils import parsedate_to_datetime
 
 # --- SETUP AI ---
@@ -546,6 +547,86 @@ def get_news_data_super_charged(ticker_yahoo, friendly_symbol, sector):
     total = sum([sia.polarity_scores(t)['compound'] for t in final_titles])
     return (total / count), count
 
+
+
+class HistoryManager:
+    def __init__(self, filename="sentiment_history.json"):
+        self.filename = filename
+        self.data = self._load_data()
+        self._clean_old_data() # Pulisce dati > 15 gg
+
+    def _load_data(self):
+        if os.path.exists(self.filename):
+            try:
+                with open(self.filename, 'r') as f:
+                    return json.load(f)
+            except: return {}
+        return {}
+
+    def _save_data(self):
+        with open(self.filename, 'w') as f:
+            json.dump(self.data, f, indent=4)
+
+    def _clean_old_data(self):
+        limit_date = datetime.now() - timedelta(days=15)
+        changed = False
+        for ticker in list(self.data.keys()):
+            dates = list(self.data[ticker].keys())
+            for d in dates:
+                try:
+                    entry_date = datetime.strptime(d, "%Y-%m-%d")
+                    if entry_date < limit_date:
+                        del self.data[ticker][d]
+                        changed = True
+                except: pass
+        if changed: self._save_data()
+
+    def update_history(self, ticker, sentiment, news_count):
+        today = datetime.now().strftime("%Y-%m-%d")
+        if ticker not in self.data:
+            self.data[ticker] = {}
+        self.data[ticker][today] = {
+            "sentiment": float(sentiment),
+            "news_count": int(news_count)
+        }
+        self._save_data()
+
+    def calculate_delta_score(self, ticker, current_sent, current_count):
+        if ticker not in self.data:
+            return 50.0 
+        
+        history = self.data[ticker]
+        today = datetime.now().strftime("%Y-%m-%d")
+        
+        past_sentiments = []
+        past_counts = []
+        
+        for date_str, values in history.items():
+            if date_str != today:
+                past_sentiments.append(values['sentiment'])
+                past_counts.append(values['news_count'])
+        
+        if not past_sentiments:
+            return 50.0 
+            
+        avg_sent = sum(past_sentiments) / len(past_sentiments)
+        avg_count = sum(past_counts) / len(past_counts)
+        if avg_count == 0: avg_count = 1
+        
+        # Calcolo Momentum
+        vol_ratio = current_count / avg_count
+        vol_score = min(vol_ratio, 3.0) / 3.0
+        sent_diff = current_sent - avg_sent
+        
+        raw_delta = (sent_diff * 100)
+        multiplier = 1.0
+        if vol_ratio > 1.5: multiplier = 1.5
+        if vol_ratio > 2.5: multiplier = 2.0
+        
+        final_delta = 50 + (raw_delta * multiplier)
+        return max(min(final_delta, 100), 0)
+
+
 # ==============================================================================
 # 4. ENGINE DI CALCOLO
 # ==============================================================================
@@ -580,23 +661,36 @@ class HybridScorer:
         elif rsi > 70: score -= 0.5 
         return max(min(score, 1.0), -1.0)
 
-    def calculate_probability(self, df, sent, news_n, lead, is_lead):
+    def calculate_probability(self, df, sent, news_n, lead, is_lead, delta_score):
         tech = self._get_technical_score(df)
         curr_lead = 0.0 if is_lead else lead
         
-        # Logica Pesi: Più news ho, più il sentiment pesa. Se ho 0 news, mi fido del tecnico/leader.
-        if is_lead:
-            if news_n == 0: w_n, w_l, w_t = 0.0, 0.0, 1.0
-            elif news_n <= 3: w_n, w_l, w_t = 0.30, 0.0, 0.70
-            else: w_n, w_l, w_t = 0.60, 0.0, 0.40
-        else:
-            if news_n == 0: w_n, w_l, w_t = 0.0, 0.35, 0.65
-            elif news_n <= 3: w_n, w_l, w_t = 0.20, 0.25, 0.55
-            else: w_n, w_l, w_t = 0.55, 0.15, 0.30
+        # Mappatura del Delta (0-100) in un range (-1 a +1)
+        delta_factor = (delta_score - 50) / 50.0 
         
-        final = (sent * w_n) + (tech * w_t) + (curr_lead * w_l)
+        # Nuovi Pesi dinamici (aggiunto w_d per il delta)
+        if is_lead:
+            if news_n == 0: 
+                w_n, w_l, w_t, w_d = 0.0, 0.0, 0.9, 0.1
+            elif news_n <= 3: 
+                w_n, w_l, w_t, w_d = 0.25, 0.0, 0.60, 0.15
+            else: 
+                w_n, w_l, w_t, w_d = 0.50, 0.0, 0.30, 0.20
+        else:
+            if news_n == 0: 
+                w_n, w_l, w_t, w_d = 0.0, 0.30, 0.60, 0.10
+            elif news_n <= 3: 
+                w_n, w_l, w_t, w_d = 0.15, 0.25, 0.50, 0.10
+            else: 
+                w_n, w_l, w_t, w_d = 0.45, 0.15, 0.25, 0.15
+        
+        # Formula finale aggiornata
+        final = (sent * w_n) + (tech * w_t) + (curr_lead * w_l) + (delta_factor * w_d)
         final = max(min(final, 1.0), -1.0)
-        return round(50 + (final * 50), 2), round(tech, 2), round(sent, 2), round(curr_lead, 2)
+        
+        # Restituisce anche il delta per poterlo stampare
+        return round(50 + (final * 50), 2), round(tech, 2), round(sent, 2), round(curr_lead, 2), round(delta_score, 1)
+
 
 # ==============================================================================
 # 5. MAIN EXECUTION
@@ -604,6 +698,8 @@ class HybridScorer:
 
 if __name__ == "__main__":
     scorer = HybridScorer()
+    history_mgr = HistoryManager()
+
     print(f"\n--- ANALISI PORTAFOGLIO SETTORIALE ({datetime.now().strftime('%Y-%m-%d')}) ---")
     
     results = []
@@ -642,25 +738,36 @@ if __name__ == "__main__":
         df = get_data(yahoo_t)
         
         if not df.empty:
-            # USIAMO LA NUOVA FUNZIONE SUPER CHARGED
-            sentiment, count = get_news_data_super_charged(yahoo_t, friendly, sec)
+            # 1. Recupera News e Sentiment attuali
+            sentiment, count = get_news_data_advanced(tick)
             
-            is_leader = (yahoo_t == bench)
-            prob, tech, sent, lead = scorer.calculate_probability(df, sentiment, count, ld_score, is_leader)
+            # 2. NUOVO: Aggiorna storico e Calcola Delta
+            history_mgr.update_history(tick, sentiment, count)
+            delta_val = history_mgr.calculate_delta_score(tick, sentiment, count)
             
+            # 3. Calcolo Score Finale (passando delta_val)
+            is_leader = (tick == leader_tick)
+            prob, tech, sent, lead, delta = scorer.calculate_probability(
+                df, sentiment, count, ld_score, is_leader, delta_val
+            )
+            
+            # ... (logica Signal STRONG BUY/SELL invariata) ...
             if prob >= 60: sig = "STRONG BUY"
             elif prob >= 53: sig = "BUY"
             elif prob <= 40: sig = "STRONG SELL"
             elif prob <= 47: sig = "SELL"
             else: sig = "HOLD"
             
+            # Aggiorna append risultati
             results.append({
-                "Asset": friendly, "Sector": sec, "Score": prob, "Signal": sig,
-                "News": count, "Sent": sent, "Tech": tech, "Trend": lead
+                "Asset": tick, "Sector": sec, "Score": prob, "Signal": sig,
+                "News": count, "Sent": sent, "Tech": tech, "Trend": lead, "Delta": delta
             })
             
-            lead_mark = "👑" if is_leader else ""
-            print(f"   {friendly:<10} {lead_mark:<2} | {prob}% | {sig:<11} | News:{count:<3} | Sent:{sent}")
+            # Stampa aggiornata con Delta
+            d_icon = "🔥" if delta > 65 else "❄️" if delta < 35 else "-"
+            print(f"   {tick:<12} | {prob}% | {sig:<11} | News:{count:<2} | Delta: {delta}{d_icon}")
+
         else:
             print(f"   {friendly:<10}    | ⚠️ DATA ERROR ({yahoo_t})")
         
