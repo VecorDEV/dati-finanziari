@@ -458,7 +458,7 @@ def fetch_rss(url):
         pass
     return titles
 
-def get_news_data_super_charged(ticker_yahoo, friendly_symbol, sector):
+def get_news_data_advanced(ticker_yahoo, friendly_symbol, sector):
     """
     Esegue 2 ricerche diverse e unisce i risultati per massimizzare le news.
     Usa TUTTI gli identificativi disponibili: Ticker Friendly, Ticker Yahoo e Nomi Estesi.
@@ -739,14 +739,16 @@ if __name__ == "__main__":
         
         if not df.empty:
             # 1. Recupera News e Sentiment attuali
-            sentiment, count = get_news_data_advanced(tick)
+            # Passiamo yahoo_t, friendly e sec alla funzione advanced
+            sentiment, count = get_news_data_advanced(yahoo_t, friendly, sec)
             
             # 2. NUOVO: Aggiorna storico e Calcola Delta
-            history_mgr.update_history(tick, sentiment, count)
-            delta_val = history_mgr.calculate_delta_score(tick, sentiment, count)
+            # Usiamo yahoo_t come chiave univoca per lo storico
+            history_mgr.update_history(yahoo_t, sentiment, count)
+            delta_val = history_mgr.calculate_delta_score(yahoo_t, sentiment, count)
             
             # 3. Calcolo Score Finale (passando delta_val)
-            is_leader = (tick == leader_tick)
+            is_leader = (yahoo_t == bench)
             prob, tech, sent, lead, delta = scorer.calculate_probability(
                 df, sentiment, count, ld_score, is_leader, delta_val
             )
@@ -760,13 +762,13 @@ if __name__ == "__main__":
             
             # Aggiorna append risultati
             results.append({
-                "Asset": tick, "Sector": sec, "Score": prob, "Signal": sig,
+                "Asset": friendly, "Sector": sec, "Score": prob, "Signal": sig,
                 "News": count, "Sent": sent, "Tech": tech, "Trend": lead, "Delta": delta
             })
             
             # Stampa aggiornata con Delta
             d_icon = "🔥" if delta > 65 else "❄️" if delta < 35 else "-"
-            print(f"   {tick:<12} | {prob}% | {sig:<11} | News:{count:<2} | Delta: {delta}{d_icon}")
+            print(f"   {friendly:<12} | {prob}% | {sig:<11} | News:{count:<2} | Delta: {delta}{d_icon}")
 
         else:
             print(f"   {friendly:<10}    | ⚠️ DATA ERROR ({yahoo_t})")
