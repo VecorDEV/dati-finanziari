@@ -9267,5 +9267,41 @@
       "Je peux te fournir un petit guide sur comment interpréter les signaux d'investissement. Tu veux que je le fasse ?": "signals_guide",
       "Tu veux savoir quel signal est estimé par l'algorithme sur [TOPIC] ?": "segnale",
       "Tu veux connaître le signal estimé pour [TOPIC] ?": "segnale"}
+  },
+    "chart_patterns": {
+    "questions": [
+      "Est-ce que tu vois des patterns sur ce graphique ?",
+      "Peux-tu repérer des patterns ici ?",
+      "Arrives-tu à identifier des patterns ?",
+      "Peux-tu trouver des figures ?",
+      "Y a-t-il des patterns reconnaissables sur ce graphique ?",
+      "Reconnais-tu une figure sur le graphique ?",
+      "Reconnais-tu des patterns dans le graphique ?",
+      "Dis-moi s'il y a des patterns",
+      "Peux-tu analyser les patterns de ce graphique ?",
+      "Analyse les patterns de ce graphique",
+      "Analyse le graphique et trouve les patterns",
+      "Vois-tu des patterns importants ?",
+      "Y a-t-il des signaux de patterns ici ?",
+      "Peux-tu identifier des figures sur le graphique ?",
+      "Y a-t-il des formes particulières sur le graphique ?",
+      "Trouve les patterns",
+      "Y a-t-il un pattern ?",
+      "Y a-t-il une figure ?",
+      "Dis-moi s'il y a des patterns"
+    ],
+    "answers": [
+      "Je ne peux pas détecter directement les patterns graphiques dans le chat, mais l'algorithme de TradeGPT prend en compte les patterns les plus significatifs dans les analyses qu'il propose.",
+      "Je ne suis pas en mesure de repérer des patterns en temps réel dans le chat, mais le système de TradeGPT considère les figures les plus importantes lorsqu'il génère des prévisions et des signaux.",
+      "Dans le chat, je ne peux pas t'indiquer directement les patterns, mais je peux te garantir que les analyses de TradeGPT intègrent les principaux patterns pour fournir des insights plus complets.",
+      "Il ne m'est pas possible de détecter les patterns du graphique ici, cependant l'algorithme de TradeGPT inclut les figures techniques pertinentes dans ses analyses.",
+      "Je ne peux pas identifier les patterns directement dans le chat, mais les patterns les plus significatifs sont pris en compte dans les rapports et les prévisions de TradeGPT."
+    ],
+    "cost": 0,
+    "keywords": ["pattern", "patterns", "figure", "figures", "graphique", "chandeliers", "bougies", "formations", "chartiste"],
+    "subquestions": {
+      "Si tu veux, je peux te donner un aperçu de la tendance de [TOPIC] d'un point de vue technique. Tu veux que je procède ?": "ta_general",
+      "Je peux te dire ce que suggère l'analyse fondamentale. Tu veux que je le fasse ?": "fundamental_analysis",
+      "Tu veux que je prépare l'analyse complète de [TOPIC] pour voir ce que suggère l'algorithme ?": "asset_analysis_open"}
   }
 }
