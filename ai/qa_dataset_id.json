@@ -9261,5 +9261,41 @@
       "Aku bisa kasih panduan singkat tentang cara menafsirkan sinyal investasi. Kamu mau aku buatkan?": "signals_guide",
       "Mau tahu sinyal apa yang diperkirakan algoritma untuk [TOPIC]?": "segnale",
       "Mau tahu perkiraan sinyal untuk [TOPIC]?": "segnale"}
+  },
+    "chart_patterns": {
+    "questions": [
+      "Bisa lihat pola di grafik ini?",
+      "Bisa deteksi pola di sini?",
+      "Apa kamu bisa identifikasi pola?",
+      "Bisa temukan pola gambar?",
+      "Ada pola yang bisa dikenali di grafik ini?",
+      "Kamu kenal bentuk tertentu di grafik?",
+      "Kamu mengenali pola di chart?",
+      "Kasih tahu dong kalau ada pola?",
+      "Bisa analisis pola di grafik ini?",
+      "Analisis pola di grafik ini",
+      "Analisis grafiknya dan temukan polanya",
+      "Lihat pola penting nggak?",
+      "Ada sinyal pola di sini?",
+      "Bisa identifikasi bentuk di grafik?",
+      "Ada bentuk khusus di grafik?",
+      "Temukan polanya",
+      "Ada pola nggak?",
+      "Ada bentuk gambar tertentu?",
+      "Bilang sama aku kalau ada pola"
+    ],
+    "answers": [
+      "Aku nggak bisa deteksi pola grafik secara langsung di chat, tapi algoritma TradeGPT memperhitungkan pola-pola paling penting dalam analisis yang ditawarkannya.",
+      "Aku belum bisa identifikasi pola secara real-time di chat, tapi sistem TradeGPT mempertimbangkan bentuk-bentuk terpenting saat membuat prediksi dan sinyal.",
+      "Di chat aku nggak bisa tunjukkan pola secara langsung, tapi aku jamin analisis TradeGPT mengintegrasikan pola utama untuk memberikan insight yang lebih lengkap.",
+      "Aku nggak bisa deteksi pola grafik di sini, tapi algoritma TradeGPT menyertakan bentuk teknikal yang relevan dalam analisisnya.",
+      "Aku nggak bisa identifikasi pola langsung di chat, tapi pola yang paling signifikan sudah dipertimbangkan dalam laporan dan prediksi TradeGPT."
+    ],
+    "cost": 0,
+    "keywords": ["pola", "pattern", "patterns", "bentuk", "gambar", "grafik", "chart", "candlestick", "formasi"],
+    "subquestions": {
+      "Kalau mau, aku bisa kasih gambaran tren [TOPIC] dari sisi teknikal. Mau aku lanjutkan?": "ta_general",
+      "Aku bisa kasih tahu apa saran dari analisis fundamental. Mau aku buatkan?": "fundamental_analysis",
+      "Mau aku siapkan analisis lengkap [TOPIC] buat lihat apa saran algoritmanya?": "asset_analysis_open"}
   }
 }
