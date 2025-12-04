@@ -9351,5 +9351,41 @@
       "Ich kann dir eine kurze Anleitung geben, wie man Investitionssignale interpretiert. Soll ich das tun?": "signals_guide",
       "Möchtest du wissen, welches Signal vom Algorithmus für [TOPIC] geschätzt wird?": "segnale",
       "Möchtest du das geschätzte Signal für [TOPIC] kennen?": "segnale"}
+  },
+    "chart_patterns": {
+    "questions": [
+      "Kannst du Muster in diesem Chart sehen?",
+      "Kannst du hier Muster erkennen?",
+      "Kannst du Pattern identifizieren?",
+      "Kannst du Figuren finden?",
+      "Gibt es erkennbare Muster in diesem Chart?",
+      "Erkennst du eine Figur im Chart?",
+      "Erkennst du Pattern im Chart?",
+      "Sag mir, ob es Muster gibt",
+      "Kannst du die Muster dieses Charts analysieren?",
+      "Analysiere die Muster dieses Charts",
+      "Analysiere den Chart und finde die Muster",
+      "Siehst du wichtige Muster?",
+      "Gibt es hier Signale für Muster?",
+      "Kannst du Figuren im Chart identifizieren?",
+      "Gibt es besondere Formen im Chart?",
+      "Finde die Muster",
+      "Gibt es irgendein Muster?",
+      "Gibt es irgendeine Figur?",
+      "Sag mir, ob Muster vorhanden sind"
+    ],
+    "answers": [
+      "Ich kann Chartmuster im Chat nicht direkt erkennen, aber der Algorithmus von TradeGPT berücksichtigt die wichtigsten Muster in den angebotenen Analysen.",
+      "Ich bin nicht in der Lage, Muster in Echtzeit im Chat zu identifizieren, aber das System von TradeGPT berücksichtigt die wichtigsten Figuren bei der Erstellung von Prognosen und Signalen.",
+      "Im Chat kann ich dir Muster nicht direkt anzeigen, aber ich kann dir versichern, dass die Analysen von TradeGPT die wichtigsten Muster integrieren, um umfassendere Einblicke zu geben.",
+      "Es ist mir hier nicht möglich, Chartmuster zu erkennen, jedoch bezieht der Algorithmus von TradeGPT relevante technische Figuren in seine Analysen ein.",
+      "Ich kann Muster nicht direkt im Chat identifizieren, aber die signifikantesten Muster werden in den Berichten und Prognosen von TradeGPT berücksichtigt."
+    ],
+    "cost": 0,
+    "keywords": ["pattern", "patterns", "muster", "chartmuster", "figur", "figuren", "chart", "grafik", "candlestick", "formationen"],
+    "subquestions": {
+      "Wenn du willst, kann ich dir einen Überblick über den Trend von [TOPIC] aus technischer Sicht geben. Soll ich fortfahren?": "ta_general",
+      "Ich kann dir sagen, was die Fundamentalanalyse nahelegt. Soll ich das tun?": "fundamental_analysis",
+      "Möchtest du, dass ich die vollständige Analyse zu [TOPIC] vorbereite, um zu sehen, was der Algorithmus vorschlägt?": "asset_analysis_open"}
   }
 }
