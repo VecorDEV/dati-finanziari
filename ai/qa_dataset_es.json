@@ -9353,5 +9353,41 @@
       "Puedo darte una guía rápida sobre cómo interpretar las señales de inversión. ¿Quieres que lo haga?": "signals_guide",
       "¿Quieres saber qué señal estima el algoritmo sobre [TOPIC]?": "segnale",
       "¿Quieres conocer la señal estimada para [TOPIC]?": "segnale"}
+  },
+    "chart_patterns": {
+    "questions": [
+      "¿Logras ver patrones en este gráfico?",
+      "¿Puedes identificar patrones aquí?",
+      "¿Puedes detectar patrones?",
+      "¿Puedes encontrar figuras?",
+      "¿Hay patrones reconocibles en este gráfico?",
+      "¿Reconoces alguna figura en el gráfico?",
+      "¿Reconoces patrones en el gráfico?",
+      "¿Me dices si hay patrones?",
+      "¿Puedes analizar los patrones de este gráfico?",
+      "Analiza los patrones de este gráfico",
+      "Analiza el gráfico y encuentra los patrones",
+      "¿Ves patrones importantes?",
+      "¿Hay señales de patrones aquí?",
+      "¿Puedes identificar figuras en el gráfico?",
+      "¿Hay formas particulares en el gráfico?",
+      "Encuentra los patrones",
+      "¿Hay algún patrón?",
+      "¿Hay alguna figura?",
+      "Dime si hay patrones"
+    ],
+    "answers": [
+      "No puedo detectar directamente los patrones de los gráficos en el chat, pero el algoritmo de TradeGPT tiene en cuenta los patrones más significativos en los análisis que ofrece.",
+      "No soy capaz de identificar patrones en tiempo real en el chat, pero el sistema de TradeGPT considera las figuras más importantes cuando genera las previsiones y las señales.",
+      "En el chat no puedo señalarte directamente los patrones, pero te puedo garantizar que los análisis de TradeGPT integran los patrones principales para ofrecer insights más completos.",
+      "No me es posible detectar los patrones del gráfico aquí, sin embargo el algoritmo de TradeGPT incluye las figuras técnicas relevantes en sus análisis.",
+      "No puedo identificar patrones directamente en el chat, pero los patrones más significativos se tienen en cuenta en los reportes y en las previsiones de TradeGPT."
+    ],
+    "cost": 0,
+    "keywords": ["patrón", "patrones", "pattern", "figura", "figuras", "gráfico", "velas", "candlestick", "formaciones", "chartismo"],
+    "subquestions": {
+      "Si quieres puedo darte un panorama de la tendencia de [TOPIC] desde el punto de vista técnico. ¿Quieres que proceda?": "ta_general",
+      "Te puedo decir qué sugiere el análisis fundamental. ¿Quieres que lo haga?": "fundamental_analysis",
+      "¿Quieres que te prepare el análisis completo de [TOPIC] para ver qué sugiere el algoritmo?": "asset_analysis_open"}
   }
 }
