@@ -9242,5 +9242,41 @@
       "Posso te fornecer um guia rápido sobre como interpretar os sinais de investimento. Quer que eu faça isso?": "signals_guide",
       "Quer saber qual sinal é estimado pelo algoritmo sobre [TOPIC]?": "segnale",
       "Quer conhecer o sinal estimado para [TOPIC]?": "segnale"}
+  },
+    "chart_patterns": {
+    "questions": [
+      "Você consegue ver padrões neste gráfico?",
+      "Pode identificar padrões aqui?",
+      "Consegue identificar padrões?",
+      "Consegue encontrar figuras?",
+      "Existem padrões reconhecíveis neste gráfico?",
+      "Você reconhece alguma figura no gráfico?",
+      "Reconhece padrões no gráfico?",
+      "Me diz se tem padrões?",
+      "Pode analisar os padrões deste gráfico?",
+      "Analise os padrões deste gráfico",
+      "Analise o gráfico e encontre os padrões",
+      "Vê padrões importantes?",
+      "Tem sinais de padrões aqui?",
+      "Consegue identificar figuras no gráfico?",
+      "Tem formas particulares no gráfico?",
+      "Encontre os padrões",
+      "Tem algum padrão?",
+      "Tem alguma figura?",
+      "Me diga se existem padrões"
+    ],
+    "answers": [
+      "Não posso detectar diretamente os padrões dos gráficos no chat, mas o algoritmo do TradeGPT leva em conta os padrões mais significativos nas análises que oferece.",
+      "Não sou capaz de identificar padrões em tempo real no chat, mas o sistema do TradeGPT considera as figuras mais importantes quando gera as previsões e os sinais.",
+      "No chat não posso te indicar diretamente os padrões, mas posso te garantir que as análises do TradeGPT integram os principais padrões para fornecer insights mais completos.",
+      "Não é possível para mim detectar os padrões do gráfico aqui, no entanto o algoritmo do TradeGPT inclui as figuras técnicas relevantes em suas análises.",
+      "Não posso identificar padrões diretamente no chat, mas os padrões mais significativos são levados em consideração nos relatórios e nas previsões do TradeGPT."
+    ],
+    "cost": 0,
+    "keywords": ["padrão", "padrões", "pattern", "patterns", "figura", "figuras", "gráfico", "candlestick", "formações", "velas"],
+    "subquestions": {
+      "Se quiser, posso te dar uma visão geral da tendência de [TOPIC] do ponto de vista técnico. Quer que eu proceda?": "ta_general",
+      "Posso te dizer o que a análise fundamentalista sugere. Quer que eu faça isso?": "fundamental_analysis",
+      "Quer que eu prepare a análise completa de [TOPIC] para ver o que o algoritmo sugere?": "asset_analysis_open"}
   }
 }
