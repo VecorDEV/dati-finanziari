@@ -1611,12 +1611,11 @@ def get_sentiment_for_all_symbols(symbol_list):
     percentuali_combine = {}
     all_news_entries = []
     crescita_settimanale = {}
-    dati_storici_all = {}   # 🔹 nuovo: raccolta dati storici di tutti gli asset
+    dati_storici_all = {}
 
     for symbol, adjusted_symbol in zip(symbol_list, symbol_list_for_yfinance):
-        news_data = get_stock_news(symbol)  # Ottieni le notizie divise per periodo
+        news_data = get_stock_news(symbol)
 
-        # Calcola il sentiment per ciascun intervallo di tempo
         sentiment_90_days = calculate_sentiment(news_data["last_90_days"])  
         sentiment_30_days = calculate_sentiment(news_data["last_30_days"])  
         sentiment_7_days = calculate_sentiment(news_data["last_7_days"])  
@@ -1631,7 +1630,7 @@ def get_sentiment_for_all_symbols(symbol_list):
         dati_storici_html = None
         tabella_fondamentali = None
         percentuale = None
-        sells_data = None  # 🔹 nuovo: dati Informative Sells
+        sells_data = None 
 
         try:
             ticker = str(adjusted_symbol).strip().upper()
@@ -1650,10 +1649,8 @@ def get_sentiment_for_all_symbols(symbol_list):
             high  = data['High']
             low   = data['Low']
 
-            # Salvo i dati storici completi
             dati_storici_all[symbol] = data.copy()
 
-            # Crescita settimanale
             from datetime import timedelta
             try:
                 latest_date = close.index[-1]
@@ -1665,7 +1662,6 @@ def get_sentiment_for_all_symbols(symbol_list):
             except Exception:
                 crescita_settimanale[symbol] = None
 
-            # Indicatori tecnici
             rsi = RSIIndicator(close).rsi().iloc[-1]
             macd = MACD(close)
             macd_line = macd.macd().iloc[-1]
@@ -1699,7 +1695,6 @@ def get_sentiment_for_all_symbols(symbol_list):
             tabella_indicatori = pd.DataFrame(indicators.items(), columns=["Indicatore", "Valore"]).to_html(index=False, border=0)
             percentuale = calcola_punteggio(indicators, close.iloc[-1], bb_upper, bb_lower)
 
-            # Dati fondamentali
             ticker_obj = yf.Ticker(adjusted_symbol)
             try:
                 info = ticker_obj.info or {}
@@ -1728,7 +1723,6 @@ def get_sentiment_for_all_symbols(symbol_list):
 
             percentuali_tecniche[symbol] = percentuale
 
-            # Tabella ultimi 90 giorni
             dati_storici = data.tail(90).copy()
             dati_storici['Date'] = dati_storici.index.strftime('%Y-%m-%d')
             dati_storici_html = dati_storici[['Date', 'Close', 'High', 'Low', 'Open', 'Volume']].to_html(index=False, border=1)
@@ -1736,7 +1730,7 @@ def get_sentiment_for_all_symbols(symbol_list):
             indicator_data[symbol] = indicators
             fundamental_data[symbol] = fondamentali
 
-            # 🔹 Recupero Informative Sells
+            # 🔹 Sezione Informative Sells Aggiornata
             try:
                 url = f"http://openinsider.com/screener?s={symbol}&o=&cnt=1000"
                 tables = pd.read_html(url)
@@ -1752,13 +1746,22 @@ def get_sentiment_for_all_symbols(symbol_list):
                 percent_of_max = (last_value / max_daily * 100) if max_daily != 0 else 0
                 num_sells_last_day = len(sells[sells['Trade Date'] == last_day]) if last_day is not None else 0
 
+                # 🔹 NUOVO: Calcolo Variazione rispetto al giorno di vendita precedente
+                variance = 0
+                if len(daily_sells) >= 2:
+                    # Prende il penultimo valore (il giorno di vendita precedente all'ultimo)
+                    prev_val = daily_sells.iloc[-2]
+                    if prev_val > 0:
+                        variance = ((last_value - prev_val) / prev_val) * 100
+
                 sells_data = {
                     'daily_sells': daily_sells,
                     'Last Day': last_day,
                     'Last Day Total Sells ($)': last_value,
                     'Max Daily Sell ($)': max_daily,
                     'Last vs Max (%)': percent_of_max,
-                    'Number of Sells Last Day': num_sells_last_day
+                    'Number of Sells Last Day': num_sells_last_day,
+                    'Variance': variance  # 🔹 Salviamo la variazione
                 }
             except Exception:
                 sells_data = None
@@ -1766,7 +1769,6 @@ def get_sentiment_for_all_symbols(symbol_list):
         except Exception as e:
             print(f"Errore durante l'analisi di {symbol}: {e}")
 
-        # Costruzione HTML identico a prima + sezione Informative Sells
         file_path = f"results/{symbol.upper()}_RESULT.html"
         html_content = [
             f"<html><head><title>Previsione per {symbol}</title></head><body>",
@@ -1800,14 +1802,16 @@ def get_sentiment_for_all_symbols(symbol_list):
         else:
             html_content.append("<p>Nessun dato fondamentale disponibile.</p>")
 
-        # 🔹 Aggiunta sezione Informative Sells
         html_content.append("<h2>Informative Sells</h2>")
         if sells_data is not None:
+            # 🔹 NUOVO: Aggiunte le righe "Transazioni recenti" e "Variazione" con i tag esatti
+            # che Java si aspetta di parsare.
             html_content += [
                 f"<p><strong>Ultimo giorno registrato:</strong> {sells_data['Last Day']}</p>",
                 f"<p><strong>Totale vendite ultimo giorno ($):</strong> {sells_data['Last Day Total Sells ($)']}</p>",
-                f"<p><strong>Numero transazioni ultimo giorno:</strong> {sells_data['Number of Sells Last Day']}</p>",
-                f"<p><strong>% rispetto al massimo storico giornaliero:</strong> {sells_data['Last vs Max (%)']:.2f}%</p>"
+                f"<p><strong>% rispetto al massimo storico giornaliero:</strong> {sells_data['Last vs Max (%)']:.2f}%</p>",
+                f"<p><strong>Transazioni recenti:</strong> {sells_data['Number of Sells Last Day']}</p>",
+                f"<p><strong>Variazione:</strong> {sells_data['Variance']:.2f}%</p>"
             ]
         else:
             html_content.append("<p>Informative Sells non disponibili.</p>")
@@ -1822,7 +1826,6 @@ def get_sentiment_for_all_symbols(symbol_list):
             html_content.append("<p>No historical data available.</p>")
             html_content.append("</body></html>")
 
-        # Salvataggio file su repo
         try:
             contents = repo.get_contents(file_path)
             repo.update_file(contents.path, f"Updated probability for {symbol}", "\n".join(html_content), contents.sha)
@@ -1833,7 +1836,6 @@ def get_sentiment_for_all_symbols(symbol_list):
             title_sentiment = calculate_sentiment([(title, news_date)])
             all_news_entries.append((symbol, title, title_sentiment, link, source, image))
 
-    # Media ponderata (uguale)
     w7, w30, w90 = 0.5, 0.3, 0.2
     for symbol in sentiment_results:
         if symbol in percentuali_tecniche:
@@ -1847,6 +1849,7 @@ def get_sentiment_for_all_symbols(symbol_list):
 
     return (sentiment_results, percentuali_combine, all_news_entries, 
             indicator_data, fundamental_data, crescita_settimanale, dati_storici_all)
+
     
 
 
