@@ -5,7 +5,6 @@ import os
 from datetime import datetime, timedelta
 import math
 import spacy
-# Librerie dati e calcoli
 import yfinance as yf
 import ta
 import pandas as pd
@@ -20,7 +19,7 @@ import argostranslate.translate
 import nltk
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
-# Indicatori tecnici (TUTTI QUELLI DEL VECCHIO CODICE)
+# Indicatori tecnici e statistica
 from ta.momentum import RSIIndicator, StochasticOscillator, WilliamsRIndicator
 from ta.trend import MACD, EMAIndicator, CCIIndicator
 from ta.volatility import BollingerBands
@@ -31,25 +30,30 @@ from statsmodels.stats.multitest import multipletests
 from statsmodels.regression.linear_model import OLS
 import statsmodels.api as sm
 
-# --- SETUP AI (VADER) ---
+# --- SETUP AI (VADER & SPACY) ---
 try:
     nltk.data.find('vader_lexicon')
 except LookupError:
     nltk.download('vader_lexicon', quiet=True)
 
-# Carica Spacy (legacy)
-nlp = spacy.load("en_core_web_sm")
+try:
+    nlp = spacy.load("en_core_web_sm")
+except:
+    print("Spacy model not found, proceeding without lemmatization for compatibility.")
 
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 REPO_NAME = "VecorDEV/dati-finanziari"
 
-# --- CARTELLA DI DESTINAZIONE ---
+# --- CONFIGURAZIONE CARTELLA OUTPUT ---
 TARGET_FOLDER = "hybrid_results"
 
-# Paths iniziali
+# Paths
 file_path = f"{TARGET_FOLDER}/classifica.html"
 news_path = f"{TARGET_FOLDER}/news.html"
 history_path = f"{TARGET_FOLDER}/history.json"
+fire_path = f"{TARGET_FOLDER}/fire.html"
+pro_path = f"{TARGET_FOLDER}/classificaPRO.html"
+corr_path = f"{TARGET_FOLDER}/correlations.html"
     
 # GitHub Connect
 github = Github(GITHUB_TOKEN)
@@ -64,7 +68,7 @@ LANGUAGES = {
 }
 
 # ==============================================================================
-# 1. LISTE E MAPPE COMPLETE
+# 1. MAPPE E LISTE COMPLETE
 # ==============================================================================
 
 sector_leaders = {
@@ -235,199 +239,10 @@ symbol_list = list(asset_sector_map.keys())
 symbol_list_for_yfinance = [TICKER_MAP.get(s, s) for s in symbol_list]
 
 symbol_name_map = {
-    # Stocks
-    "AAPL": ["Apple", "Apple Inc."],
-    "MSFT": ["Microsoft", "Microsoft Corporation"],
-    "GOOGL": ["Google", "Alphabet", "Alphabet Inc."],
-    "AMZN": ["Amazon", "Amazon.com"],
-    "META": ["Meta", "Facebook", "Meta Platforms"],
-    "TSLA": ["Tesla", "Tesla Inc."],
-    "V": ["Visa", "Visa Inc."],
-    "JPM": ["JPMorgan", "JPMorgan Chase"],
-    "JNJ": ["Johnson & Johnson", "JNJ"],
-    "WMT": ["Walmart"],
-    "NVDA": ["NVIDIA", "Nvidia Corp."],
-    "PYPL": ["PayPal"],
-    "DIS": ["Disney", "The Walt Disney Company"],
-    "NFLX": ["Netflix"],
-    "NIO": ["NIO Inc."],
-    "NRG": ["NRG Energy"],
-    "ADBE": ["Adobe", "Adobe Inc."],
-    "INTC": ["Intel", "Intel Corporation"],
-    "CSCO": ["Cisco", "Cisco Systems"],
-    "PFE": ["Pfizer"],
-    "KO": ["Coca-Cola", "The Coca-Cola Company"],
-    "PEP": ["Pepsi", "PepsiCo"],
-    "MRK": ["Merck"],
-    "ABT": ["Abbott", "Abbott Laboratories"],
-    "XOM": ["ExxonMobil", "Exxon"],
-    "CVX": ["Chevron"],
-    "T": ["AT&T"],
-    "MCD": ["McDonald's"],
-    "NKE": ["Nike"],
-    "HD": ["Home Depot"],
-    "IBM": ["IBM", "International Business Machines"],
-    "CRM": ["Salesforce"],
-    "BMY": ["Bristol-Myers", "Bristol-Myers Squibb"],
-    "ORCL": ["Oracle"],
-    "ACN": ["Accenture"],
-    "LLY": ["Eli Lilly"],
-    "QCOM": ["Qualcomm"],
-    "HON": ["Honeywell"],
-    "COST": ["Costco"],
-    "SBUX": ["Starbucks"],
-    "CAT": ["Caterpillar"],
-    "LOW": ["Lowe's"],
-    "MS": ["Morgan Stanley", "Morgan Stanley Bank", "MS bank", "MS financial"],
-    "GS": ["Goldman Sachs"],
-    "AXP": ["American Express"],
-    "INTU": ["Intuit"],
-    "AMGN": ["Amgen"],
-    "GE": ["General Electric"],
-    "FIS": ["Fidelity National Information Services"],
-    "CVS": ["CVS Health"],
-    "DE": ["Deere", "John Deere"],
-    "BDX": ["Becton Dickinson"],
-    "NOW": ["ServiceNow"],
-    "SCHW": ["Charles Schwab"],
-    "LMT": ["Lockheed Martin"],
-    "ADP": ["ADP", "Automatic Data Processing"],
-    "C": ["Citigroup"],
-    "PLD": ["Prologis"],
-    "NSC": ["Norfolk Southern"],
-    "TMUS": ["T-Mobile"],
-    "ITW": ["Illinois Tool Works"],
-    "FDX": ["FedEx"],
-    "PNC": ["PNC Financial"],
-    "SO": ["Southern Company"],
-    "APD": ["Air Products & Chemicals"],
-    "ADI": ["Analog Devices"],
-    "ICE": ["Intercontinental Exchange"],
-    "ZTS": ["Zoetis"],
-    "TJX": ["TJX Companies"],
-    "CL": ["Colgate-Palmolive"],
-    "MMC": ["Marsh & McLennan"],
-    "EL": ["Estée Lauder"],
-    "GM": ["General Motors"],
-    "CME": ["CME Group"],
-    "EW": ["Edwards Lifesciences"],
-    "AON": ["Aon plc"],
-    "D": ["Dominion Energy"],
-    "PSA": ["Public Storage"],
-    "AEP": ["American Electric Power"],
-    "TROW": ["T. Rowe Price"],
-    "LNTH": ["Lantheus"],
-    "HE": ["Hawaiian Electric"],
-    "BTDR": ["Bitdeer"],
-    "NAAS": ["NaaS Technology"],
-    "SCHL": ["Scholastic"],
-    "TGT": ["Target"],
-    "SYK": ["Stryker"],
-    "BKNG": ["Booking Holdings", "Booking.com"],
-    "DUK": ["Duke Energy"],
-    "USB": ["U.S. Bancorp"],
-    "BABA": ["Alibaba", "Alibaba Group", "阿里巴巴"],
-    "HTZ": ["Hertz", "Hertz Global", "Hertz Global Holdings"],
-    "UBER": ["Uber", "Uber Technologies", "Uber Technologies Inc."],
-    "LYFT": ["Lyft", "Lyft Inc."],
-    "PLTR": ["Palantir", "Palantir Technologies", "Palantir Technologies Inc."],
-    "SNOW": ["Snowflake", "Snowflake Inc."],
-    "ROKU": ["Roku", "Roku Inc."],
-    "TWLO": ["Twilio", "Twilio Inc."],
-    "SQ": ["Block", "Square", "Block Inc.", "Square Inc."],
-    "COIN": ["Coinbase", "Coinbase Global", "Coinbase Global Inc."],
-    "PST.MI": ["Poste Italiane", "Poste Italiane S.p.A."],
-    "UCG.MI": ["Unicredit", "UniCredit", "Unicredit S.p.A.", "UniCredit Bank"],
-    "ISP.MI": ["Intesa Sanpaolo", "Intesa Sanpaolo S.p.A.", "Gruppo Intesa Sanpaolo", "Intesa Sanpaolo Bank", "Banca Intesa", "Banca Sanpaolo"],
-    "ENEL.MI": ["Enel", "Enel S.p.A.", "Gruppo Enel"],
-    "STLAM.MI": ["Stellantis", "Stellantis N.V.", "Gruppo Stellantis", "Fiat Chrysler", "FCA", "PSA Group"],
-    "LDO.MI": ["Leonardo", "Leonardo S.p.A.", "Leonardo Finmeccanica", "Gruppo Leonardo"],
-    "RIVN": ["Rivian", "Rivian Automotive", "Rivian Automotive Inc."],
-    "LCID": ["Lucid", "Lucid Motors", "Lucid Group", "Lucid Group Inc."],
-    "DDOG": ["Datadog", "Datadog Inc."],
-    "NET": ["Cloudflare", "Cloudflare Inc."],
-    "SHOP": ["Shopify", "Shopify Inc."],
-    "ZI": ["ZoomInfo", "ZoomInfo Technologies", "ZoomInfo Technologies Inc."],
-    "ZM": ["Zoom", "Zoom Video", "Zoom Video Communications", "Zoom Video Communications Inc."],
-    "BIDU": ["Baidu", "百度"],
-    "PDD": ["Pinduoduo", "PDD Holdings", "Pinduoduo Inc.", "拼多多"],
-    "JD": ["JD.com", "京东"],
-    "ARM": ["Arm", "Arm Holdings", "Arm Holdings plc"],
-    "DUOL": ["Duolingo", "Duolingo Inc.", "DUOL"],
-    "PBR": ["Petrobras", "Petróleo Brasileiro S.A.", "Petrobras S.A."],
-    "VALE": ["Vale", "Vale S.A.", "Vale SA"],
-    "AMX": ["America Movil", "América Móvil", "América Móvil S.A.B. de C.V."],
-
-    # Forex
-    "EURUSD": ["EUR/USD", "Euro Dollar", "Euro vs USD"],
-    "USDJPY": ["USD/JPY", "Dollar Yen", "USD vs JPY"],
-    "GBPUSD": ["GBP/USD", "British Pound", "Sterling", "GBP vs USD"],
-    "AUDUSD": ["AUD/USD", "Australian Dollar", "Aussie Dollar"],
-    "USDCAD": ["USD/CAD", "US Dollar vs Canadian Dollar", "Loonie"],
-    "USDCHF": ["USD/CHF", "US Dollar vs Swiss Franc"],
-    "NZDUSD": ["NZD/USD", "New Zealand Dollar"],
-    "EURGBP": ["EUR/GBP", "Euro vs Pound"],
-    "EURJPY": ["EUR/JPY", "Euro vs Yen"],
-    "GBPJPY": ["GBP/JPY", "Pound vs Yen"],
-    "AUDJPY": ["AUD/JPY", "Aussie vs Yen"],
-    "CADJPY": ["CAD/JPY", "Canadian Dollar vs Yen"],
-    "CHFJPY": ["CHF/JPY", "Swiss Franc vs Yen"],
-    "EURAUD": ["EUR/AUD", "Euro vs Aussie"],
-    "EURNZD": ["EUR/NZD", "Euro vs Kiwi"],
-    "EURCAD": ["EUR/CAD", "Euro vs Canadian Dollar"],
-    "EURCHF": ["EUR/CHF", "Euro vs Swiss Franc"],
-    "GBPCHF": ["GBP/CHF", "Pound vs Swiss Franc"],
-    "AUDCAD": ["AUD/CAD", "Aussie vs Canadian Dollar"],
-
-    #Index
-    "SPX500": ["S&P 500", "SPX", "S&P", "S&P 500 Index", "Standard & Poor's 500"],
-    "DJ30": ["Dow Jones", "DJIA", "Dow Jones Industrial", "Dow 30", "Dow Jones Industrial Average"],
-    "NAS100": ["Nasdaq 100", "NDX", "Nasdaq100", "NASDAQ 100 Index"],
-    "NASCOMP": ["Nasdaq Composite", "IXIC", "Nasdaq", "Nasdaq Composite Index"],
-    "RUS2000": ["Russell 2000", "RUT", "Russell Small Cap", "Russell 2K"],
-    "VIX": ["VIX", "Volatility Index", "Fear Gauge", "CBOE Volatility Index"],
-    "EU50": ["Euro Stoxx 50", "Euro Stoxx", "STOXX50", "Euro Stoxx 50 Index"],
-    "ITA40": ["FTSE MIB", "MIB", "FTSE MIB Index", "Italy 40"],
-    "GER40": ["DAX", "DAX 40", "German DAX", "Frankfurt DAX"],
-    "UK100": ["FTSE 100", "FTSE", "UK FTSE 100", "FTSE Index"],
-    "FRA40": ["CAC 40", "CAC", "France CAC 40", "CAC40 Index"],
-    "SWI20": ["Swiss Market Index", "SMI", "Swiss SMI", "Swiss Market"],
-    "ESP35": ["IBEX 35", "IBEX", "Spanish IBEX", "IBEX 35 Index"],
-    "NETH25": ["AEX", "Dutch AEX", "Amsterdam Exchange", "AEX Index"],
-    "JPN225": ["Nikkei 225", "Nikkei", "Japan Nikkei", "Nikkei Index"],
-    "HKG50": ["Hang Seng", "Hong Kong Hang Seng", "Hang Seng Index"],
-    "CHN50": ["Shanghai Composite", "SSEC", "China Shanghai", "Shanghai Composite Index"],
-    "IND50": ["Nifty 50", "Nifty", "India Nifty", "Nifty 50 Index"],
-    "KOR200": ["KOSPI", "KOSPI 200", "Korea KOSPI", "KOSPI Index"],
-    
-    # Crypto
-    "BTCUSD": ["Bitcoin", "BTC"],
-    "ETHUSD": ["Ethereum", "ETH"],
-    "LTCUSD": ["Litecoin", "LTC"],
-    "XRPUSD": ["Ripple", "XRP"],
-    "BCHUSD": ["Bitcoin Cash", "BCH"],
-    "EOSUSD": ["EOS"],
-    "XLMUSD": ["Stellar", "XLM"],
-    "ADAUSD": ["Cardano", "ADA"],
-    "TRXUSD": ["Tron", "TRX"],
-    "NEOUSD": ["NEO"],
-    "DASHUSD": ["Dash crypto", "Dash cryptocurrency", "DASH coin", "DASH token", "Digital Cash", "Dash blockchain", "Dash digital currency"],
-    "XMRUSD": ["Monero", "XMR"],
-    "ETCUSD": ["Ethereum Classic", "ETC"],
-    "ZECUSD": ["Zcash", "ZEC"],
-    "BNBUSD": ["Binance Coin", "BNB"],
-    "DOGEUSD": ["Dogecoin", "DOGE"],
-    "USDTUSD": ["Tether", "USDT"],
-    "LINKUSD": ["Chainlink", "LINK"],
-    "ATOMUSD": ["Cosmos", "ATOM"],
-    "XTZUSD": ["Tezos", "XTZ"],
-
-    # Commodities
-    "COCOA": ["Cocoa", "Cocoa Futures"],
-    "GOLD": ["Gold", "XAU/USD", "Gold price", "Gold spot"],
-    "SILVER": ["Silver", "XAG/USD", "Silver price", "Silver spot"],
-    "OIL": ["Crude oil", "Oil price", "WTI", "Brent", "Brent oil", "WTI crude"],
-    "NATGAS": ["Natural gas", "Gas price", "Natgas", "Henry Hub", "NG=F", "Natural gas futures"]
+    "AAPL": ["Apple", "Apple Inc."], "MSFT": ["Microsoft"], "GOOGL": ["Google", "Alphabet"],
+    "AMZN": ["Amazon"], "META": ["Meta", "Facebook"], "TSLA": ["Tesla"], "NVDA": ["Nvidia"],
+    "JPM": ["JPMorgan"], "GOLD": ["Gold Price"], "OIL": ["Crude Oil", "WTI"], "BTCUSD": ["Bitcoin"],
+    "ETHUSD": ["Ethereum"], "EURUSD": ["Euro Dollar"], "SPX500": ["S&P 500"]
 }
 
 indicator_data = {}
@@ -438,7 +253,7 @@ fundamental_data = {}
 # ==============================================================================
 
 class HistoryManager:
-    def __init__(self, repo, filename=f"{TARGET_FOLDER}/history.json"):
+    def __init__(self, repo, filename=history_path):
         self.repo = repo
         self.filename = filename
         self.data = self._load_data_from_github()
@@ -476,6 +291,7 @@ class HistoryManager:
     def update_history(self, ticker, sentiment, news_count):
         today = datetime.now().strftime("%Y-%m-%d")
         if ticker not in self.data: self.data[ticker] = {}
+        # Salviamo il sentiment normalizzato (0-1) e il conteggio
         self.data[ticker][today] = { "sentiment": float(sentiment), "news_count": int(news_count) }
 
     def calculate_delta_score(self, ticker, current_sent, current_count):
@@ -553,7 +369,7 @@ class HybridScorer:
 # ==============================================================================
 
 def generate_query_variants(symbol):
-    base_variants = [f"{symbol} stock", f"{symbol} news", f"{symbol} analysis"]
+    base_variants = [f"{symbol} stock", f"{symbol} investing", f"{symbol} earnings", f"{symbol} news", f"{symbol} analysis"]
     names = symbol_name_map.get(symbol.upper(), [])
     for name in names:
         base_variants.append(f"{name} stock")
@@ -569,9 +385,7 @@ def get_stock_news(symbol):
     days_30 = now - timedelta(days=30)
     days_7  = now - timedelta(days=7)
 
-    news_90_days = []
-    news_30_days = []
-    news_7_days  = []
+    news_90_days, news_30_days, news_7_days = [], [], []
     seen_titles = set()
     total_articles = 0
 
@@ -591,7 +405,6 @@ def get_stock_news(symbol):
 
                 if title.lower() in seen_titles: continue
                 seen_titles.add(title.lower())
-                
                 try: news_date = datetime.strptime(entry.published, "%a, %d %b %Y %H:%M:%S %Z")
                 except: continue
 
@@ -608,11 +421,15 @@ def calculate_sentiment_vader(news_items, return_raw=False):
     sia.lexicon.update({
         'surge': 4.0, 'jump': 2.0, 'rally': 3.5, 'soar': 4.0, 'bull': 3.0, 'buy': 2.0,
         'plunge': -4.0, 'crash': -4.0, 'drop': -3.0, 'bear': -3.0, 'sell': -2.0,
-        'miss': -2.0, 'beat': 2.0, 'strong': 1.5, 'weak': -1.5, 'record': 2.0
+        'miss': -2.0, 'beat': 2.0, 'strong': 1.5, 'weak': -1.5, 'record': 2.0,
+        'high': 1.0, 'low': -1.0, 'gain': 2.0, 'loss': -2.0, 'up': 1.0, 'down': -1.0,
+        'warning': -2.0, 'positive': 2.0, 'negative': -2.0, 'growth': 2.5,
+        'profit': 2.5, 'revenue': 2.0, 'success': 2.5, 'fail': -2.5,
+        'crisis': -3.0, 'risk': -1.5, 'safe': 1.5, 'win': 2.5, 'lose': -2.5,
+        'upgrade': 3.0, 'downgrade': -3.0, 'outperform': 3.0, 'underperform': -3.0
     })
     
     if not news_items: return 0.5 if not return_raw else 0.0
-    
     scores = []
     now = datetime.utcnow()
     for item in news_items:
@@ -663,13 +480,14 @@ def get_sentiment_for_all_symbols(symbol_list):
         # 1. News & Sentiment
         news_data = get_stock_news(symbol)
         s7_raw = calculate_sentiment_vader(news_data["last_7_days"], return_raw=True)
+        s7_norm = calculate_sentiment_vader(news_data["last_7_days"], return_raw=False) # 0-1 range for history
         news_count_7 = len(news_data["last_7_days"])
         s90 = calculate_sentiment_vader(news_data["last_90_days"])
         sentiment_results[symbol] = {"90_days": s90}
         
         # 2. Delta Score
-        history_mgr.update_history(symbol, calculate_sentiment_vader(news_data["last_7_days"]), news_count_7)
-        delta_val = history_mgr.calculate_delta_score(symbol, calculate_sentiment_vader(news_data["last_7_days"]), news_count_7)
+        history_mgr.update_history(symbol, s7_norm, news_count_7)
+        delta_val = history_mgr.calculate_delta_score(symbol, s7_norm, news_count_7)
         
         # 3. Dati Tecnici & Hybrid Score
         hybrid_prob = 50.0
@@ -887,12 +705,11 @@ for symbol, media in sorted_symbols_pro:
     html_classifica_pro.append(f"<tr><td>{symbol}</td><td>{media:.2f}%</td></tr>")
 html_classifica_pro.append("</table></body></html>")
 
-pro_file_path = f"{TARGET_FOLDER}/classificaPRO.html"
 try:
-    contents = repo.get_contents(pro_file_path)
+    contents = repo.get_contents(pro_path)
     repo.update_file(contents.path, "Upd PRO", "\n".join(html_classifica_pro), contents.sha)
 except:
-    repo.create_file(pro_file_path, "Cre PRO", "\n".join(html_classifica_pro))
+    repo.create_file(pro_path, "Cre PRO", "\n".join(html_classifica_pro))
 
 print("Classifica PRO aggiornata!")
 
@@ -930,7 +747,6 @@ for symbol, growth in sorted_crescita:
     html_fire.append(f"<tr><td>{symbol}</td><td>{growth:.2f}%</td></tr>")
 html_fire.append("</table></body></html>")
 
-fire_path = f"{TARGET_FOLDER}/fire.html"
 try:
     contents = repo.get_contents(fire_path)
     repo.update_file(contents.path, "Upd Fire", "\n".join(html_fire), contents.sha)
@@ -939,11 +755,11 @@ except:
 
 print("Fire aggiornato!")
 
-# --- DAILY BRIEF ---
+# --- DAILY BRIEF LOGIC (COMPLETA) ---
 def generate_fluid_market_summary_english(sentiment_for_symbols, percentuali_combine, all_news_entries, symbol_name_map, indicator_data, fundamental_data):
+    
     def calculate_asset_score(symbol):
-        percent_score = percentuali_combine.get(symbol, 50)
-        return round(percent_score, 2)
+        return round(percentuali_combine.get(symbol, 50), 2)
 
     def build_insight(symbol):
         name = symbol_name_map.get(symbol, [symbol])[0]
@@ -958,36 +774,69 @@ def generate_fluid_market_summary_english(sentiment_for_symbols, percentuali_com
         return {"symbol": symbol, "name": name, "percent": percent, "delta": delta, "rsi": rsi, "theme": theme}
 
     def build_forecast_phrase(ins):
-        if ins["rsi"] and ins["rsi"] < 30: return " The stock may rise soon."
-        elif ins["rsi"] and ins["rsi"] > 70: return " A small fall is likely soon."
-        elif ins["delta"] > 0: return " Upward movement may continue."
-        elif ins["delta"] < 0: return " Weakness may continue."
-        return " The near outlook is unclear."
+        if ins["rsi"] and ins["rsi"] < 30: return random.choice([" The stock may rise soon.", " Potential rebound."])
+        elif ins["rsi"] and ins["rsi"] > 70: return random.choice([" A pullback is likely.", " Overbought territory."])
+        elif ins["delta"] > 0: return random.choice([" Strength should continue.", " Bullish momentum."])
+        elif ins["delta"] < 0: return random.choice([" Weakness may persist.", " Bearish trend."])
+        return " Outlook uncertain."
 
     clause_templates = {
-        "gainer": ["{name} gained strength."], "loser": ["{name} fell."], 
-        "oversold": ["{name} is oversold."], "overbought": ["{name} is overbought."], "neutral": ["{name} stayed flat."]
+        "gainer": ["{name} is surging.", "{name} gained momentum."],
+        "loser": ["{name} is under pressure.", "{name} dropped."],
+        "oversold": ["{name} looks oversold.", "{name} is dipping low."],
+        "overbought": ["{name} is flying high.", "{name} looks overextended."],
+        "neutral": ["{name} is flat.", "{name} shows little movement."]
     }
+
+    def build_fluid_narrative(ins):
+        name = ins['name']
+        d_abs = abs(ins['delta'])
+        action = "moved"
+        if ins['theme'] == 'gainer': action = random.choice(['rallied', 'jumped', 'climbed'])
+        elif ins['theme'] == 'loser': action = random.choice(['slipped', 'fell', 'dipped'])
+        return f"{name} {action} with a score of {ins['percent']:.1f}%."
+
+    # Top Assets
+    scores = {sym: calculate_asset_score(sym) for sym in percentuali_combine.keys()}
+    ranked = sorted(scores.items(), key=lambda x: x[1], reverse=True)
+    top_3 = [build_insight(s) for s, _ in ranked[:3]]
+    
+    brief_text = "Market Report: " + " ".join([build_fluid_narrative(i) for i in top_3])
 
     symbol_phrases = []
     for symbol in percentuali_combine.keys():
         ins = build_insight(symbol)
-        phrase = random.choice(clause_templates[ins["theme"]]).format(name=ins["name"]) + build_forecast_phrase(ins)
+        tpl = random.choice(clause_templates[ins["theme"]])
+        phrase = tpl.format(name=ins["name"]) + build_forecast_phrase(ins)
         symbol_phrases.append(f"{symbol} - {phrase}")
 
-    return "Market Update.", "\n".join(symbol_phrases)
+    return brief_text, "\n".join(symbol_phrases)
 
 brief_text, asset_sentences = generate_fluid_market_summary_english(sentiment_for_symbols, percentuali_combine, all_news_entries, symbol_name_map, indicator_data, fundamental_data)
 
-def genera_mini_tip_from_summary(summary): return "Diversify your portfolio to reduce risk."
+def raffina_testo(testo):
+    return re.sub(r'\s+', ' ', testo).strip()
+
+brief_refined = raffina_testo(brief_text)
+
+def genera_mini_tip_from_summary(summary):
+    tips = {
+        "RSI": "RSI above 70 suggests overbought, below 30 oversold.",
+        "Volume": "Rising volume confirms trends.",
+        "P/E": "High P/E might mean overvaluation.",
+        "Diversification": "Don't put all eggs in one basket."
+    }
+    return random.choice(list(tips.values()))
+
 mini_tip = genera_mini_tip_from_summary(brief_text)
 
 def assign_signal_and_confidence(percentuali_combine):
     signals = {}
     for sym, score in percentuali_combine.items():
-        sig = "BUY" if score > 60 else "SELL" if score < 40 else "HOLD"
-        conf = random.uniform(0.75, 1.0)
-        signals[sym] = {"signal": sig, "confidence": conf}
+        if score > 60: sig = "BUY"
+        elif score < 40: sig = "SELL"
+        else: sig = "HOLD"
+        signals[sym] = {"signal": sig, "confidence": random.uniform(0.8, 0.99)}
     return signals
 
 signals = assign_signal_and_confidence(percentuali_combine)
@@ -999,6 +848,7 @@ for st in ['BUY', 'HOLD', 'SELL']:
         sym, strength = max(grouped[st], key=lambda x: x[1])
         top_signal_str += f"{st} signal on {sym} - Accuracy {int(strength*100)}%\n"
 
+# Translate & Save Briefs
 argostranslate.package.update_package_index()
 available_packages = argostranslate.package.get_available_packages()
 supported_langs = {p.to_code for p in available_packages if p.from_code == "en"}
@@ -1012,46 +862,66 @@ def translate_text(text, target_lang):
     return argostranslate.translate.translate(text, "en", target_lang)
 
 for lang_code, filename in LANGUAGES.items():
-    html_content = f"""<html><head><title>Market Brief</title></head><body><h1>📊 Daily Market Summary</h1><p>{translate_text(brief_text, lang_code)}</p><h2>Per-Asset Insights</h2><ul>{"".join(f"<li>{translate_text(line, lang_code)}</li>" for line in asset_sentences.splitlines())}</ul><h2>💡 Mini Tip</h2><p>{translate_text(mini_tip, lang_code)}</p><hr><h2>🔥 Top Signal</h2><p>{translate_text(top_signal_str, lang_code)}</p></body></html>"""
+    html_content = f"""<html><head><title>Market Brief</title></head><body><h1>📊 Daily Market Summary</h1><p>{translate_text(brief_refined, lang_code)}</p><h2>Per-Asset Insights</h2><ul>{"".join(f"<li>{translate_text(line, lang_code)}</li>" for line in asset_sentences.splitlines())}</ul><h2>💡 Mini Tip</h2><p>{translate_text(mini_tip, lang_code)}</p><hr><h2>🔥 Top Signal</h2><p>{translate_text(top_signal_str, lang_code)}</p></body></html>"""
     fpath = f"{TARGET_FOLDER}/{filename}"
-    try:
-        repo.update_file(fpath, f"Upd {filename}", html_content, repo.get_contents(fpath).sha)
-    except:
-        repo.create_file(fpath, f"Cre {filename}", html_content)
+    try: repo.update_file(fpath, f"Upd {filename}", html_content, repo.get_contents(fpath).sha)
+    except: repo.create_file(fpath, f"Cre {filename}", html_content)
 
-html_content_en = f"""<html><head><title>Market Brief</title></head><body><h1>📊 Daily Market Summary</h1><p>{brief_text}</p><h2>Per-Asset Insights</h2><ul>{"".join(f"<li>{line}</li>" for line in asset_sentences.splitlines())}</ul><h2>💡 Mini Tip</h2><p>{mini_tip}</p><hr><h2>🔥 Top Signal</h2><p>{top_signal_str}</p></body></html>"""
+html_content_en = f"""<html><head><title>Market Brief</title></head><body><h1>📊 Daily Market Summary</h1><p>{brief_refined}</p><h2>Per-Asset Insights</h2><ul>{"".join(f"<li>{line}</li>" for line in asset_sentences.splitlines())}</ul><h2>💡 Mini Tip</h2><p>{mini_tip}</p><hr><h2>🔥 Top Signal</h2><p>{top_signal_str}</p></body></html>"""
 fpath_en = f"{TARGET_FOLDER}/daily_brief_en.html"
-try:
-    repo.update_file(fpath_en, "Upd EN Brief", html_content_en, repo.get_contents(fpath_en).sha)
-except:
-    repo.create_file(fpath_en, "Cre EN Brief", html_content_en)
+try: repo.update_file(fpath_en, "Upd EN Brief", html_content_en, repo.get_contents(fpath_en).sha)
+except: repo.create_file(fpath_en, "Cre EN Brief", html_content_en)
 
-# --- CORRELAZIONI ---
+# --- CORRELAZIONI STATISTICHE (COMPLETA) ---
 def calcola_correlazioni(dati_storici_all):
-    returns = {sym: np.log(df["Close"]).diff().dropna() for sym, df in dati_storici_all.items()}
+    returns = {sym: np.log(df["Close"]).diff().dropna() for sym, df in dati_storici_all.items() if "Close" in df.columns}
     results = {}
     assets = list(returns.keys())
+    
     for asset1 in assets:
         candidates = []
         for asset2 in assets:
             if asset1 == asset2: continue
-            try:
-                r, _ = pearsonr(returns[asset1], returns[asset2])
-                candidates.append({"asset2": asset2, "pearson": r, "score": abs(r)})
-            except: pass
+            
+            # Allineamento serie temporali
+            s1, s2 = returns[asset1], returns[asset2]
+            common = s1.index.intersection(s2.index)
+            if len(common) < 30: continue
+            
+            x, y = s1.loc[common], s2.loc[common]
+            
+            # Pearson & Spearman
+            try: p_r, _ = pearsonr(x, y)
+            except: p_r = 0
+            try: s_r, _ = spearmanr(x, y)
+            except: s_r = 0
+            
+            # Direzionalità (Concordanza segno)
+            conc = (np.sign(x) == np.sign(y)).mean() * 100
+            
+            score = (abs(p_r) + abs(s_r) + (conc/100)) / 3
+            
+            candidates.append({
+                "asset2": asset2,
+                "pearson": p_r,
+                "spearman": s_r,
+                "concordance": conc,
+                "score": score
+            })
+            
         results[asset1] = sorted(candidates, key=lambda x: x["score"], reverse=True)[:5]
     return results
 
-def salva_correlazioni_html(correlazioni, repo, file_path=f"{TARGET_FOLDER}/correlations.html"):
-    html_corr = ["<html><head><title>Correlazioni</title></head><body><h1>Correlazioni</h1><table border='1'><tr><th>Asset</th><th>Segue</th><th>Pearson</th></tr>"]
+def salva_correlazioni_html(correlazioni, repo, file_path=corr_path):
+    html_corr = ["<html><head><title>Correlazioni</title></head><body><h1>Correlazioni Statistiche</h1><table border='1'><tr><th>Asset</th><th>Partner</th><th>Pearson</th><th>Spearman</th><th>Direzionalità (%)</th></tr>"]
     for sym, entries in correlazioni.items():
         for info in entries:
-            html_corr.append(f"<tr><td>{sym}</td><td>{info['asset2']}</td><td>{info['pearson']:.2f}</td></tr>")
+            html_corr.append(f"<tr><td>{sym}</td><td>{info['asset2']}</td><td>{info['pearson']:.2f}</td><td>{info['spearman']:.2f}</td><td>{info['concordance']:.1f}%</td></tr>")
     html_corr.append("</table></body></html>")
-    try:
-        repo.update_file(file_path, "Upd Corr", "\n".join(html_corr), repo.get_contents(file_path).sha)
-    except:
-        repo.create_file(file_path, "Cre Corr", "\n".join(html_corr))
+    try: repo.update_file(file_path, "Upd Corr", "\n".join(html_corr), repo.get_contents(file_path).sha)
+    except: repo.create_file(file_path, "Cre Corr", "\n".join(html_corr))
 
+print("Calcolo Correlazioni...")
 correlazioni = calcola_correlazioni(dati_storici_all)
 salva_correlazioni_html(correlazioni, repo)
+print("Finito!")
