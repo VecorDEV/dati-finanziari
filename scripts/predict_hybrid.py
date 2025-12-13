@@ -714,11 +714,27 @@ def get_sentiment_for_all_symbols(symbol_list):
 
                 # Crescita Settimanale
                 try:
-                    last = close.iloc[-1]
-                    prev_week = close.iloc[-6]
-                    growth = ((last - prev_week) / prev_week) * 100
+                    # 1. Prezzo Attuale
+                    last_price = close.iloc[-1]
+                    last_date = close.index[-1]
+
+                    # 2. Data Target: Esattamente 7 giorni fa
+                    target_date = last_date - timedelta(days=7)
+
+                    # 3. Trova il prezzo in quella data (o il giorno di borsa aperta precedente)
+                    # 'asof' cerca il valore all'indice specificato o quello immediatamente precedente
+                    prev_price = close.asof(target_date)
+
+                    # Se non trova nulla (es. storico troppo breve), usa un fallback a 5 candele fa
+                    if pd.isna(prev_price):
+                        idx = max(0, len(close) - 6)
+                        prev_price = close.iloc[idx]
+
+                    # 4. Calcolo Variazione
+                    growth = ((last_price - prev_price) / prev_price) * 100
                     crescita_settimanale[symbol] = round(growth, 2)
-                except: crescita_settimanale[symbol] = 0.0
+                except: 
+                    crescita_settimanale[symbol] = 0.0
 
                 # --- INDICATORI TECNICI COMPLETI ---
                 rsi = RSIIndicator(close).rsi().iloc[-1]
