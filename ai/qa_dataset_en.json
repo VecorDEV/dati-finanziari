@@ -130,6 +130,36 @@
     "cost": 0,
     "keywords": ["hi", "hey", "hello", "greetings", "good morning", "morning", "good afternoon", "good evening"]
   },
+    "casual_conversation": {
+  "questions": [
+    "Do you want to converse?",
+    "Do you feel like chatting?",
+    "Can we talk for a bit?",
+    "Do you feel like chatting?",
+    "Do you want to talk?",
+    "Do you feel like making conversation?",
+    "Do you feel like talking for a moment?",
+    "Do you want to exchange a few words?",
+    "Do you want to have a quick chat?",
+    "Can we talk about something?",
+    "I feel like chatting for a bit",
+    "I feel like talking a little",
+    "Do you feel like chatting a little?",
+    "How about we chat for a bit?"
+  ],
+  "answers": [
+    "Sure! 😊 What do you feel like talking about?",
+    "Gladly! Tell me, I'm here 👋",
+    "Yes, of course! What topic do you want to chat about?",
+    "Absolutely yes 😊\nTell me where we should start",
+    "Sure! We can talk about whatever you want",
+    "Sure 😊 Do you want to talk about markets, investments, or something else?",
+    "With pleasure! What do you want to discuss?",
+    "Yes, that's what I'm here for 😄"
+  ],
+    "cost": 0,
+    "keywords": ["chat", "chatting", "talk", "conversation", "words"]
+},
     "presentations": {
     "questions": [
       "Hi, I am",
