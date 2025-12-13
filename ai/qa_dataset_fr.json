@@ -130,6 +130,36 @@
     "cost": 0,
     "keywords": ["salut", "hey", "bonjour", "bonsoir", "coucou", "yo", "bon après-midi"]
 },
+    "casual_conversation": {
+  "questions": [
+    "Ça te dit de converser ?",
+    "Ça te dit de discuter un peu ?",
+    "Pouvons-nous parler un peu ?",
+    "Tu as envie de bavarder ?",
+    "Ça te dit de parler ?",
+    "Ça te dit de faire la conversation ?",
+    "Tu as envie de parler un instant ?",
+    "Ça te dit d'échanger quelques mots ?",
+    "Ça te dit de discuter rapidement ?",
+    "Pouvons-nous parler de quelque chose ?",
+    "J'ai envie de discuter un peu",
+    "J'ai envie de parler un peu",
+    "Ça te dit de bavarder un peu ?",
+    "Que dirais-tu de discuter un peu ?"
+  ],
+  "answers": [
+    "Bien sûr ! 😊 De quoi as-tu envie de parler ?",
+    "Volontiers ! Dis-moi tout, je suis là 👋",
+    "Oui, bien sûr ! De quel sujet veux-tu bavarder ?",
+    "Absolument oui 😊\nDis-moi par où commencer",
+    "Bien sûr ! Nous pouvons parler de ce que tu veux",
+    "Bien sûr 😊 Tu veux parler des marchés, des investissements ou d'autre chose ?",
+    "Avec plaisir ! De quoi veux-tu discuter ?",
+    "Oui, je suis là pour ça 😄"
+  ],
+    "cost": 0,
+    "keywords": ["bavarder", "discuter", "parler", "conversation", "mots"]
+},
     "presentations": {
     "questions": [
       "Salut, moi c'est",
