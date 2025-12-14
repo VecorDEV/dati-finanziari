@@ -465,7 +465,11 @@ class HistoryManager:
             self.repo.create_file(self.filename, "Create history data", json_content)
 
     def _clean_old_data(self):
-        limit_date = datetime.now() - timedelta(days=15)
+        # SETUP REATTIVO:
+        # Teniamo solo 21 giorni (circa 1 mese di borsa). 
+        # Questo rende la "media" molto più sensibile ai cambiamenti recenti.
+        limit_date = datetime.now() - timedelta(days=21)
+        
         changed = False
         for ticker in list(self.data.keys()):
             dates = list(self.data[ticker].keys())
@@ -485,22 +489,54 @@ class HistoryManager:
 
     def calculate_delta_score(self, ticker, current_sent, current_count):
         if ticker not in self.data: return 50.0 
+        
         history = self.data[ticker]
         today = datetime.now().strftime("%Y-%m-%d")
+        
         past_sentiments = [v['sentiment'] for k, v in history.items() if k != today]
         past_counts = [v['news_count'] for k, v in history.items() if k != today]
         
         if not past_sentiments: return 50.0 
-        avg_sent = sum(past_sentiments) / len(past_sentiments)
-        avg_count = sum(past_counts) / len(past_counts) if past_counts else 1
-        if avg_count == 0: avg_count = 1
         
-        vol_ratio = current_count / avg_count
+        # 1. Calcolo Sentiment
+        avg_sent = sum(past_sentiments) / len(past_sentiments)
         sent_diff = current_sent - avg_sent
         raw_delta = (sent_diff * 100)
+        
+        # --- LOGICA REATTIVA (FAST MOMENTUM) ---
         multiplier = 1.0
-        if vol_ratio > 1.5: multiplier = 1.5
-        if vol_ratio > 2.5: multiplier = 2.0
+        
+        # SOGLIA BASSA: Basta poco per attivare l'analisi (3 news)
+        MIN_NEWS_FLOOR = 3  
+        
+        # Bastano 2 giorni di storico per iniziare a calcolare (molto aggressivo)
+        if len(past_counts) >= 2 and current_count >= MIN_NEWS_FLOOR:
+            
+            avg_count = np.mean(past_counts)
+            std_dev = np.std(past_counts)
+            
+            # Deviazione standard minima più bassa per essere più sensibili
+            if std_dev < 0.2: std_dev = 0.2
+            
+            z_score = (current_count - avg_count) / std_dev
+            
+            # TRIGGER PIÙ FACILI DA RAGGIUNGERE
+            # Z=2.0 (Top 5%) invece di 3.0 (Top 0.3%) per il massimo boost
+            if z_score >= 2.0:      
+                multiplier = 2.0    # Massimo Boost
+            elif z_score >= 1.5:    
+                multiplier = 1.75   # Boost Alto
+            elif z_score >= 1.0:    
+                multiplier = 1.25   # Boost Medio (basta essere 1 sigma sopra la media)
+                
+        else:
+            # Fallback Aggressivo per nuovi asset o pochissimi dati
+            # Se le news sono il doppio della media semplice, spingiamo già.
+            avg_simple = sum(past_counts)/len(past_counts) if past_counts else 0
+            # Se oggi ho più di 5 news e sono il doppio della media -> Boost
+            if current_count >= 5 and current_count >= (avg_simple * 2):
+                multiplier = 1.5
+
         final_delta = 50 + (raw_delta * multiplier)
         return max(min(final_delta, 100), 0)
 
