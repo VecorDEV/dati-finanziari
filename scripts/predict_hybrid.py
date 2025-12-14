@@ -54,6 +54,7 @@ history_path = f"{TARGET_FOLDER}/history.json"
 fire_path = f"{TARGET_FOLDER}/fire.html"
 pro_path = f"{TARGET_FOLDER}/classificaPRO.html"
 corr_path = f"{TARGET_FOLDER}/correlations.html"
+mom_path = f"{TARGET_FOLDER}/classifica_momentum.html"
     
 # GitHub Connect
 github = Github(GITHUB_TOKEN)
@@ -684,6 +685,7 @@ def get_sentiment_for_all_symbols(symbol_list):
     dati_storici_all = {}
     indicator_data = {}
     fundamental_data = {}
+    momentum_results = {}
     
     # Pre-calcolo Leaders
     leader_trends = {}
@@ -713,6 +715,9 @@ def get_sentiment_for_all_symbols(symbol_list):
         # 2. Delta Score
         history_mgr.update_history(symbol, s7_norm, news_count_7)
         delta_val = history_mgr.calculate_delta_score(symbol, s7_norm, news_count_7)
+        
+        # SALVIAMO IL VALORE NEL DIZIONARIO
+        momentum_results[symbol] = delta_val
         
         # 3. Dati Tecnici & Hybrid Score
         hybrid_prob = 50.0
@@ -908,14 +913,14 @@ def get_sentiment_for_all_symbols(symbol_list):
             
     history_mgr.save_data_to_github()
     return (sentiment_results, percentuali_combine, all_news_entries, 
-            indicator_data, fundamental_data, crescita_settimanale, dati_storici_all)
+            indicator_data, fundamental_data, crescita_settimanale, dati_storici_all, momentum_results)
 
 
 # ==============================================================================
 # 5. ESECUZIONE
 # ==============================================================================
 
-sentiment_for_symbols, percentuali_combine, all_news_entries, indicator_data, fundamental_data, crescita_settimanale, dati_storici_all = get_sentiment_for_all_symbols(symbol_list)
+sentiment_for_symbols, percentuali_combine, all_news_entries, indicator_data, fundamental_data, crescita_settimanale, dati_storici_all, momentum_results = get_sentiment_for_all_symbols(symbol_list)
 
 # --- CLASSIFICA PRINCIPALE (BASATA SU HYBRID SCORE) ---
 sorted_symbols = sorted(percentuali_combine.items(), key=lambda x: x[1], reverse=True)
@@ -937,6 +942,7 @@ except GithubException:
 
 print("Classifica aggiornata con successo!")
 
+
 # --- CLASSIFICA PRO ---
 sorted_symbols_pro = sorted(percentuali_combine.items(), key=lambda x: x[1], reverse=True)
 html_classifica_pro = ["<html><head><title>Classifica Combinata</title></head><body>",
@@ -953,6 +959,55 @@ except:
     repo.create_file(pro_path, "Cre PRO", "\n".join(html_classifica_pro))
 
 print("Classifica PRO aggiornata!")
+
+
+# --- CLASSIFICA MOMENTUM ---
+print("Generazione Classifica Momentum...")
+
+# Ordina dal più alto al più basso
+sorted_momentum = sorted(momentum_results.items(), key=lambda x: x[1], reverse=True)
+
+html_mom = [
+    "<html><head><title>Classifica Momentum</title>",
+    "<style>",
+    "table {border-collapse: collapse; width: 100%; font-family: Arial, sans-serif;}",
+    "th, td {border: 1px solid #ddd; padding: 8px; text-align: center;}",
+    "th {background-color: #f2f2f2;}",
+    ".high {color: green; font-weight: bold;}",
+    ".low {color: red; font-weight: bold;}",
+    ".neutral {color: black;}",
+    "</style>",
+    "</head><body>",
+    "<h1>🔥 Classifica Momentum (Delta Score)</h1>",
+    "<p>Indica l'accelerazione del sentiment e delle notizie rispetto alla media storica.</p>",
+    "<table><tr><th>Simbolo</th><th>Momentum Score (0-100)</th><th>Stato</th></tr>"
+]
+
+for symbol, score in sorted_momentum:
+    # Definizione colore e stato
+    if score >= 60:
+        color_class = "high"
+        status = "HYPE / ACCELERAZIONE"
+    elif score <= 40:
+        color_class = "low"
+        status = "DEPRESSIONE / CALO"
+    else:
+        color_class = "neutral"
+        status = "Normale"
+
+    html_mom.append(f"<tr><td><b>{symbol}</b></td><td class='{color_class}'>{score:.2f}</td><td>{status}</td></tr>")
+
+html_mom.append("</table></body></html>")
+
+# Salvataggio su GitHub
+try:
+    contents = repo.get_contents(mom_path)
+    repo.update_file(contents.path, "Upd Momentum Rank", "\n".join(html_mom), contents.sha)
+except:
+    repo.create_file(mom_path, "Cre Momentum Rank", "\n".join(html_mom))
+
+print("Classifica Momentum creata con successo!")
+
 
 # --- NEWS HTML ---
 html_news = ["<html><head><title>Notizie e Sentiment</title></head><body>",
