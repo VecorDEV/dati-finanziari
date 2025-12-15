@@ -9382,5 +9382,68 @@
       "Si tu veux, je peux te donner un aperçu de la tendance de [TOPIC] d'un point de vue technique. Tu veux que je procède ?": "ta_general",
       "Je peux te dire ce que suggère l'analyse fondamentale. Tu veux que je le fasse ?": "fundamental_analysis",
       "Tu veux que je prépare l'analyse complète de [TOPIC] pour voir ce que suggère l'algorithme ?": "asset_analysis_open"}
-  }
+  },
+    "trust_and_reliability": {
+    "questions": [
+      "Puis-je faire confiance à vos réponses ?",
+      "Puis-je vous faire confiance ?",
+      "Êtes-vous fiable ?",
+      "Quel est le niveau de fiabilité de vos analyses ?",
+      "Les informations que vous fournissez sont-elles crédibles ?",
+      "Puis-je me baser sur vos réponses ?",
+      "Quel est le niveau de précision de vos prévisions ?",
+      "Vos analyses sont-elles sûres ?",
+      "Êtes-vous une source fiable pour le trading ?",
+      "Pourquoi devrais-je faire confiance à TradeGPT ?",
+      "Comment garantissez-vous votre fiabilité ?",
+      "Vos réponses sont-elles basées sur des données réelles ?",
+      "Vos analyses sont-elles objectives ?",
+      "Comment assurez-vous la fiabilité des réponses ?",
+      "Vos réponses sont-elles aléatoires ou calculées ?",
+      "Sur quoi sont basées vos évaluations ?",
+      "Pourquoi vos réponses devraient-elles être correctes ?",
+      "Ce que vous dites est-il correct ?"
+    ],
+    "answers": [
+      "Mes réponses sont basées sur des *calculs mathématiques*, des *modèles statistiques* et le *traitement de données de marché réelles*. Elles ne sont pas aléatoires, mais dérivent de l'analyse structurée des informations disponibles 📊.\n\nEn pratique, les données sont analysées pour identifier des tendances, des relations et des signaux qui aident à mieux comprendre le contexte de marché.",
+      "Mon algorithme fournit des réponses fiables car il utilise des *données de marché réelles* et les traite à l'aide de modèles mathématiques et logiques. Cela permet d'offrir des analyses cohérentes et basées sur des chiffres, et non sur des opinions personnelles.\n\nPar exemple, les indicateurs techniques et les métriques financières sont calculés en suivant des formules précises.",
+      "La fiabilité de mes réponses découle du fait que mon algorithme analyse des informations objectives, telles que les prix historiques, les indicateurs techniques et les données fondamentales, en appliquant des méthodes de calcul standard également utilisées dans le monde financier professionnel.\n\nCette approche réduit la subjectivité et augmente la cohérence des analyses.",
+      "Mon algorithme est très fiable : chaque réponse est le résultat du *traitement de données* et de *règles mathématiques*. L'objectif est de fournir une vision rationnelle et structurée du marché, utile pour soutenir les décisions.\n\nPar exemple, les tendances et les signaux sont évalués sur la base de données mesurables et reproductibles.",
+      "Les analyses que je vous propose sont fiables car elles se fondent sur des données réelles et sur des modèles d'interprétation du marché. L'algorithme de TradeGPT agrège et interprète les informations pour vous restituer un tableau clair et compréhensible.\n\nCela signifie que les réponses suivent une logique cohérente, basée sur des chiffres et des données observables.",
+      "L'algorithme que j'utilise est basé sur des données concrètes et les traite avec des outils mathématiques et statistiques. Cela permet de fournir des réponses cohérentes dans le temps et alignées sur l'évolution réelle des marchés.\n\nEn d'autres termes, il ne s'agit pas d'intuitions, mais d'analyses basées sur des données mesurables.",
+      "La fiabilité de mon algorithme naît de l'utilisation combinée de données réelles, de modèles mathématiques et de logiques d'analyse financière. Chaque réponse est construite pour être informative, claire et basée sur des éléments vérifiables.\n\nCela aide l'utilisateur à mieux comprendre le marché et à prendre des décisions plus éclairées."
+    ],
+    "cost": 0,
+    "keywords": ["confiance", "fiable", "fiabilité", "sûr", "crédible", "faire confiance", "précision", "exactitude", "objectivité", "objectif", "objective", "objectifs", "objectives"],
+    "subquestions": {
+      "Je peux vous dire objectivement ce que mon algorithme mathématique dit sur les données techniques de [TOPIC]. De cette manière, vous auriez des données concrètes et fiables. Voulez-vous que je procède ?": "ta_general",
+      "Je peux vous dire ce que suggère l'analyse fondamentale sur [TOPIC]. Il s'agirait d'un traitement mathématique de toutes les données fondamentales à ma disposition concernant [TOPIC]. Voulez-vous que je le fasse ?": "fundamental_analysis",
+      "Voulez-vous que je prépare l'analyse complète de [TOPIC] pour voir ce que suggère l'algorithme ? Ainsi, vous pouvez voir en un coup d'œil toutes les données principales que mon modèle mathématique a traitées sur [TOPIC]. Je procède ?": "asset_analysis_open"}
+  },
+  "financial_trust": {
+  "questions": [
+    "Qu'est-ce qu'un trust financier ?",
+    "Qu'est-ce qu'un trust ?",
+    "Comment fonctionne un trust financier ?",
+    "Pouvez-vous m'expliquer ce qu'est un trust ?",
+    "Qu'est-ce qu'un trust en finance ?",
+    "À quoi sert un trust financier ?",
+    "Comment utilise-t-on un trust pour investir ?",
+    "Comment fonctionne un trust d'investissement ?",
+    "M'expliquez-vous le fonctionnement d'un trust ?",
+    "Qu'est-ce qu'un trust patrimonial ?",
+    "Qu'est-ce qu'un trust et à quoi sert-il ?",
+    "Comment fonctionne un trust pour la gestion de patrimoine ?",
+    "Pouvez-vous m'expliquer simplement ce qu'est un trust financier ?"
+  ],
+  "answers": [
+    "Un trust financier est un accord légal par lequel un constituant transfère des biens (argent, titres, parts ou autres actifs) à un trustee, souvent une institution financière ou un professionnel qualifié, afin qu'il les gère dans l'intérêt d'un ou plusieurs bénéficiaires. Le patrimoine transféré au trust devient séparé du patrimoine personnel du constituant et du trustee, dans le but de protéger les biens et d'atteindre des objectifs financiers ou patrimoniaux spécifiques.\n\nComment cela fonctionne :\n\n* Institution : Le constituant crée le trust par un acte constitutif, dans lequel il définit le but du trust, les biens à transférer, les bénéficiaires, les règles de gestion et la loi applicable.\n* Transfert : Les biens sont transférés au trust, formant un patrimoine autonome et séparé de celui du constituant.\n* Gestion : Le trustee administre et investit les biens selon les règles établies dans l'acte constitutif, avec l'obligation d'agir dans l'intérêt des bénéficiaires.\n* Bénéficiaires : Ce sont les personnes qui bénéficient du trust, recevant des revenus, des rendements ou le capital selon ce qui est prévu.\n\nTypes et objectifs principaux :\n\n* Protection patrimoniale : Le trust permet d'isoler les biens des risques personnels, entrepreneuriaux ou d'éventuels créanciers.\n* Planification successorale : Il permet de gérer la transmission intergénérationnelle du patrimoine de manière flexible et contrôlée.\n* Investissements : Il peut être utilisé pour participer à des projets financiers ou immobiliers, gérant les capitaux de manière structurée.\n* Trust vivant (Living Trust) : Il permet au constituant de bénéficier des rendements de son vivant, avec des formules révocables ou irrévocables.",
+    "Un trust financier est un accord légal par lequel un constituant transfère des biens (argent, titres, parts) à un trustee (souvent une institution financière), qui les gère dans l'intérêt de bénéficiaires spécifiques. Cela crée un patrimoine séparé, protégeant les biens et permettant d'atteindre des objectifs financiers ou successoraux définis, comme investir dans des projets, protéger le patrimoine des créanciers ou gérer la succession de personnes vulnérables.\n\nComment cela fonctionne :\n\n1. Institution : Le constituant crée le trust par un acte constitutif, définissant les objectifs, les biens et les bénéficiaires, choisissant une loi applicable (souvent non française) et nommant un trustee.\n\n2. Transfert : Le constituant transfère des biens spécifiques (argent, actions, immeubles) dans le trust. Ces biens deviennent un patrimoine autonome, séparé de celui du constituant et du trustee.\n\n3. Gestion : Le trustee administre les biens selon les instructions de l'acte constitutif, les protégeant et les faisant fructifier pour les bénéficiaires.\n\n4. Bénéficiaires : Il peut s'agir de personnes physiques (enfants, personnes vulnérables), mais aussi d'entités, avec des droits spécifiques sur les rendements ou le capital.\n\nTypes et Objectifs :\n\n* Protection Patrimoniale : Ségréger les biens des risques économiques ou des créanciers.\n* Planification Successorale : Gérer l'héritage de manière flexible, en particulier pour les familles complexes ou les sujets vulnérables (ex. trust 'après nous').\n* Investissements : Permettre la participation à des projets complexes (ex. immobiliers, exportations) par le biais de titres de dette ou de parts fiduciaires.\n* Trust Vivant (Living Trust) : Le constituant peut bénéficier des rendements de son vivant, avec des options révocables ou irrévocables."
+  ],
+  "cost": 0,
+  "keywords": ["trust", "trust financier", "trust patrimonial", "gestion patrimoine", "trust investissement"],
+  "subquestions": {
+    "Voulez-vous aussi savoir comment fonctionne l'effet de groupe dans le trading ?": "effetto_gregge",
+    "Voulez-vous que je vous explique aussi comment fonctionnent les obligations ?": "obbligazioni_info"}
+}
 }
