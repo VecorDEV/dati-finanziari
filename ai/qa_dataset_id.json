@@ -9381,5 +9381,68 @@
       "Kalau mau, aku bisa kasih gambaran tren [TOPIC] dari sisi teknikal. Mau aku lanjutkan?": "ta_general",
       "Aku bisa kasih tahu apa saran dari analisis fundamental. Mau aku buatkan?": "fundamental_analysis",
       "Mau aku siapkan analisis lengkap [TOPIC] buat lihat apa saran algoritmanya?": "asset_analysis_open"}
-  }
+  },
+    "trust_and_reliability": {
+    "questions": [
+      "Bisakah saya memercayai jawaban Anda?",
+      "Bisakah saya percaya pada Anda?",
+      "Apakah Anda dapat diandalkan?",
+      "Seberapa andal analisis Anda?",
+      "Apakah informasi yang Anda berikan dapat dipercaya?",
+      "Bisakah saya mengandalkan jawaban Anda?",
+      "Seberapa tepat prediksi Anda?",
+      "Apakah analisis Anda pasti/aman?",
+      "Apakah Anda sumber yang dapat diandalkan untuk trading?",
+      "Mengapa saya harus memercayai TradeGPT?",
+      "Bagaimana Anda bisa dapat diandalkan?",
+      "Apakah jawaban Anda didasarkan pada data nyata?",
+      "Apakah analisis Anda objektif?",
+      "Bagaimana Anda menjamin keandalan jawaban?",
+      "Apakah jawaban Anda acak atau terhitung?",
+      "Apa dasar dari evaluasi Anda?",
+      "Mengapa jawaban Anda harus benar?",
+      "Apakah yang Anda katakan benar?"
+    ],
+    "answers": [
+      "Jawaban saya didasarkan pada *perhitungan matematis*, *model statistik*, dan *pemrosesan data pasar nyata*. Jawaban ini tidak acak, tetapi berasal dari analisis terstruktur dari informasi yang tersedia 📊.\n\nSecara praktis, data dianalisis untuk mengidentifikasi tren, hubungan, dan sinyal yang membantu memahami konteks pasar dengan lebih baik.",
+      "Algoritma saya memberikan jawaban yang dapat diandalkan karena menggunakan *data pasar nyata* dan memprosesnya melalui model matematis dan logis. Ini memungkinkan untuk menawarkan analisis yang konsisten dan didasarkan pada angka, bukan pada pendapat pribadi.\n\nMisalnya, indikator teknis dan metrik keuangan dihitung mengikuti formula yang tepat.",
+      "Keandalan jawaban saya berasal dari fakta bahwa algoritma saya menganalisis informasi objektif, seperti harga historis, indikator teknis, dan data fundamental, dengan menerapkan metode perhitungan standar yang juga digunakan dalam dunia keuangan profesional.\n\nPendekatan ini mengurangi subjektivitas dan meningkatkan konsistensi analisis.",
+      "Algoritma saya sangat dapat diandalkan: setiap jawaban adalah hasil dari *pemrosesan data* dan *aturan matematis*. Tujuannya adalah untuk memberikan pandangan yang rasional dan terstruktur tentang pasar, berguna untuk mendukung keputusan.\n\nSebagai contoh, tren dan sinyal dievaluasi berdasarkan data yang dapat diukur dan diulang.",
+      "Analisis yang saya tawarkan kepada Anda dapat diandalkan karena didasarkan pada data nyata dan model interpretasi pasar. Algoritma TradeGPT menggabungkan dan menafsirkan informasi untuk mengembalikan gambaran yang jelas dan mudah dipahami.\n\nIni berarti jawaban mengikuti logika yang konsisten, berdasarkan angka dan data yang dapat diamati.",
+      "Algoritma yang saya gunakan didasarkan pada data konkret dan memprosesnya dengan alat matematis dan statistik. Ini memungkinkan untuk memberikan jawaban yang konsisten dari waktu ke waktu dan selaras dengan pergerakan pasar yang sebenarnya.\n\nDengan kata lain, ini bukan intuisi, tetapi analisis berdasarkan data yang dapat diukur.",
+      "Keandalan algoritma saya muncul dari penggunaan gabungan data nyata, model matematis, dan logika analisis keuangan. Setiap jawaban dibangun agar informatif, jelas, dan didasarkan pada elemen yang dapat diverifikasi.\n\nIni membantu pengguna untuk lebih memahami pasar dan mengambil keputusan yang lebih sadar."
+    ],
+    "cost": 0,
+    "keywords": ["kepercayaan", "andal", "keandalan", "aman", "terpercaya", "percaya", "presisi", "akurasi", "objektivitas", "objektif", "objektiva", "objektivi", "objektive"],
+    "subquestions": {
+      "Saya dapat memberi tahu Anda secara objektif apa yang dikatakan algoritma matematika saya tentang data teknis dari [TOPIC]. Dengan cara ini, Anda akan memiliki data konkret dan andal. Apakah Anda ingin saya melanjutkan?": "ta_general",
+      "Saya dapat memberi tahu Anda apa yang disarankan oleh analisis fundamental tentang [TOPIC]. Ini akan menjadi pemrosesan matematis dari semua data fundamental yang saya miliki mengenai [TOPIC]. Apakah Anda ingin saya melakukannya?": "fundamental_analysis",
+      "Apakah Anda ingin saya menyiapkan analisis lengkap dari [TOPIC] untuk melihat apa yang disarankan oleh algoritma? Dengan begitu, Anda dapat melihat sekilas semua data utama yang telah diproses oleh model matematika saya tentang [TOPIC]. Saya lanjutkan?": "asset_analysis_open"}
+  },
+  "financial_trust": {
+  "questions": [
+    "Apa itu trust keuangan?",
+    "Apa itu trust?",
+    "Bagaimana cara kerja trust keuangan?",
+    "Bisakah Anda menjelaskan apa itu trust?",
+    "Apa itu trust dalam keuangan?",
+    "Apa fungsi trust keuangan?",
+    "Bagaimana trust digunakan untuk investasi?",
+    "Bagaimana cara kerja trust investasi?",
+    "Bisakah Anda jelaskan cara kerja trust?",
+    "Apa itu trust patrimonial?",
+    "Apa itu trust dan apa fungsinya?",
+    "Bagaimana cara kerja trust untuk pengelolaan aset?",
+    "Bisakah Anda menjelaskan secara sederhana apa itu trust keuangan?"
+  ],
+  "answers": [
+    "Trust keuangan adalah perjanjian hukum di mana seorang pendiri (settlor) mentransfer aset (uang, sekuritas, saham, atau aset lainnya) kepada seorang wali amanat (trustee), yang seringkali merupakan entitas keuangan atau profesional yang memenuhi syarat, untuk mengelolanya demi kepentingan satu atau lebih penerima manfaat (beneficiaries). Aset yang diserahkan ke trust menjadi terpisah dari aset pribadi pendiri dan wali amanat, dengan tujuan melindungi aset dan mencapai tujuan keuangan atau patrimonial tertentu.\n\nCara Kerjanya:\n\n* Pendirian: Pendiri menciptakan trust melalui akta pendirian, di mana ia mendefinisikan tujuan trust, aset yang akan diserahkan, penerima manfaat, aturan pengelolaan, dan hukum yang berlaku.\n* Transfer: Aset ditransfer ke trust, membentuk kekayaan otonom yang terpisah dari kekayaan pribadi pendiri.\n* Pengelolaan: Wali amanat mengelola dan menginvestasikan aset sesuai dengan aturan yang ditetapkan dalam akta pendirian, dengan kewajiban bertindak demi kepentingan penerima manfaat.\n* Penerima Manfaat: Mereka adalah subjek yang memperoleh keuntungan dari trust, menerima pendapatan, hasil, atau modal sesuai dengan ketentuan.\n\nJenis dan Tujuan Utama:\n\n* Perlindungan Patrimonial: Trust memungkinkan aset diisolasi dari risiko pribadi, bisnis, atau dari kreditur potensial.\n* Perencanaan Warisan: Memungkinkan pengelolaan transisi generasi kekayaan secara fleksibel dan terkontrol.\n* Investasi: Dapat digunakan untuk berpartisipasi dalam proyek keuangan atau real estat, mengelola modal secara terstruktur.\n* Trust Hidup (Living Trust): Memungkinkan pendiri untuk mendapatkan manfaat dari hasil selama hidupnya, dengan formula yang dapat dibatalkan (revocable) atau tidak dapat dibatalkan (irrevocable).",
+    "Trust keuangan adalah perjanjian hukum di mana seorang pendiri mentransfer aset (uang, sekuritas, saham) kepada seorang wali amanat (seringkali entitas keuangan), yang mengelolanya demi kepentingan penerima manfaat tertentu. Ini menciptakan kekayaan yang terpisah, melindungi aset dan memungkinkan tercapainya tujuan keuangan atau suksesi yang ditentukan, seperti berinvestasi dalam proyek, melindungi patrimoni dari kreditor, atau mengelola suksesi untuk individu yang rentan.\n\nCara Kerjanya:\n\n1. Pendirian: Pendiri menciptakan trust melalui akta pendirian, mendefinisikan tujuan, aset, dan penerima manfaat, memilih hukum yang berlaku (seringkali bukan hukum Indonesia) dan menunjuk wali amanat.\n\n2. Transfer: Pendiri mentransfer aset spesifik (uang, saham, properti) ke dalam trust. Aset ini menjadi kekayaan otonom, terpisah dari kekayaan pendiri dan wali amanat.\n\n3. Pengelolaan: Wali amanat mengelola aset sesuai dengan instruksi akta pendirian, melindunginya dan membuatnya menghasilkan bagi penerima manfaat.\n\n4. Penerima Manfaat: Dapat berupa individu (anak-anak, subjek rentan), tetapi juga entitas, dengan hak spesifik atas hasil atau modal.\n\nJenis dan Tujuan:\n\n* Perlindungan Patrimonial: Memisahkan aset dari risiko ekonomi atau kreditor.\n* Perencanaan Warisan: Mengelola warisan secara fleksibel, terutama untuk keluarga yang kompleks atau subjek yang rentan (misalnya, trust 'setelah kita').\n* Investasi: Memungkinkan partisipasi dalam proyek-proyek kompleks (misalnya real estat, ekspor) melalui surat utang atau saham fidusiari.\n* Trust Hidup (Living Trust): Pendiri dapat memperoleh manfaat dari hasil selama hidupnya, dengan opsi yang dapat dibatalkan atau tidak dapat dibatalkan."
+  ],
+  "cost": 0,
+  "keywords": ["trust", "trust keuangan", "trust patrimonial", "pengelolaan aset", "trust investasi"],
+  "subquestions": {
+    "Apakah Anda juga ingin tahu bagaimana efek kawanan (herd effect) bekerja dalam trading?": "effetto_gregge",
+    "Apakah Anda ingin saya jelaskan juga bagaimana obligasi bekerja?": "obbligazioni_info"}
+}
 }
