@@ -9415,9 +9415,35 @@
     ],
     "cost": 0,
     "keywords": ["fiducia", "affidabile", "affidabilità", "sicuro", "attendibile", "fidarsi", "precisione", "accuratezza", "oggettività", "oggettivo", "oggettiva", "oggettivi", "oggettive"],
-        "subquestions": {
+    "subquestions": {
       "Ti posso dire oggettivamente cosa dice il mio algoritmo matematico sui dati tecnici di [TOPIC]. In questo modo avresti dati concreti e affidabili. Vuoi che procedo?": "ta_general",
       "Ti posso dire cosa suggerisce l'analisi dei fondamentali su [TOPIC]. Si tratterebbe di un'elaborazione matematica di tutti i dati fondamentali a mia disposizione che riguardano [TOPIC]. Vuoi che lo faccio?": "fundamental_analysis",
       "Vuoi che ti preparo l'analisi completa di [TOPIC] per vedere cosa suggerisce l'algoritmo? Così puoi vedere a colpo d'occhio tutti i dati principali che il mio modello matematico ha elaborato su [TOPIC]. Procedo?": "asset_analysis_open"}
-  }
+  },
+  "financial_trust": {
+  "questions": [
+    "Cos'è un trust finanziario?",
+    "Che cos'è un trust?",
+    "Come funziona un trust finanziario?",
+    "Puoi spiegarmi cos'è un trust?",
+    "Cos'è un trust in finanza?",
+    "A cosa serve un trust finanziario?",
+    "Come si utilizza un trust per investire?",
+    "Come funziona un trust di investimento?",
+    "Mi spieghi il funzionamento di un trust?",
+    "Cos'è un trust patrimoniale?",
+    "Cos'è un trust e a cosa serve?",
+    "Come funziona un trust per la gestione del patrimonio?",
+    "Puoi spiegarmi in modo semplice cos'è un trust finanziario?"
+  ],
+  "answers": [
+    "Un trust finanziario è un accordo legale in cui un disponente trasferisce beni (denaro, titoli, quote o altri asset) a un trustee, spesso un ente finanziario o un professionista qualificato, affinché li gestisca nell’interesse di uno o più beneficiari. Il patrimonio conferito al trust diventa separato da quello personale del disponente e del trustee, con l’obiettivo di proteggere i beni e raggiungere specifici scopi finanziari o patrimoniali.\n\nCome funziona:\n\n* Istituzione: Il disponente crea il trust tramite un atto istitutivo, nel quale definisce lo scopo del trust, i beni da conferire, i beneficiari, le regole di gestione e la legge applicabile.\n* Trasferimento: I beni vengono trasferiti al trust, formando un patrimonio autonomo e separato da quello personale del disponente.\n* Gestione: Il trustee amministra e investe i beni secondo le regole stabilite nell’atto istitutivo, con l’obbligo di agire nell’interesse dei beneficiari.\n* Beneficiari: Sono i soggetti che traggono vantaggio dal trust, ricevendo redditi, rendimenti o il capitale secondo quanto previsto.\n\nTipologie e scopi principali:\n\n* Protezione patrimoniale: Il trust consente di isolare i beni da rischi personali, imprenditoriali o da eventuali creditori.\n* Pianificazione successoria: Permette di gestire il passaggio generazionale del patrimonio in modo flessibile e controllato.\n* Investimenti: Può essere utilizzato per partecipare a progetti finanziari o immobiliari, gestendo capitali in modo strutturato.\n* Trust vivente (Living Trust): Consente al disponente di beneficiare dei rendimenti durante la propria vita, con formule revocabili o irrevocabili.",
+    "Un trust finanziario è un accordo legale in cui un disponente trasferisce beni (denaro, titoli, quote) a un trustee (spesso un ente finanziario), che li gestisce nell’interesse di specifici beneficiari. Questo crea un patrimonio separato, proteggendo i beni e consentendo di raggiungere obiettivi finanziari o successori definiti, come investire in progetti, proteggere patrimoni da creditori o gestire la successione di persone fragili.\n\nCome funziona:\n\n1. Istituzione: Il disponente crea il trust tramite un atto istitutivo, definendo scopi, beni e beneficiari, scegliendo una legge applicabile (spesso non italiana) e nominando un trustee.\n\n2. Trasferimento: Il disponente trasferisce beni specifici (denaro, azioni, immobili) nel trust. Questi beni diventano un patrimonio autonomo, separato da quello del disponente e del trustee.\n\n3. Gestione: Il trustee amministra i beni secondo le istruzioni dell’atto istitutivo, proteggendoli e facendoli fruttare per i beneficiari.\n\n4. Beneficiari: Possono essere persone fisiche (figli, soggetti deboli), ma anche enti, con diritti specifici sui rendimenti o sul capitale.\n\nTipologie e Scopi:\n\n* Protezione Patrimoniale: Segregare i beni da rischi economici o creditori.\n* Pianificazione Successoria: Gestire l’eredità in modo flessibile, specialmente per famiglie complesse o soggetti fragili (es. trust “dopo di noi”).\n* Investimenti: Consentire la partecipazione a progetti complessi (es. immobiliari, esportazioni) attraverso titoli di debito o quote fiduciarie.\n* Trust Vivente (Living Trust): Il disponente può beneficiare dei rendimenti durante la vita, con opzioni revocabili o irrevocabili."
+  ],
+  "cost": 0,
+  "keywords": ["trust", "trust finanziario", "trust patrimoniale", "gestione patrimonio", "trust investimento"],
+  "subquestions": {
+    "Vuoi sapere anche come funziona l'effetto gregge nel trading?": "effetto_gregge",
+    "Vuoi che ti spiego anche come funzionano le obbligazioni?": "obbligazioni_info"}
+}
 }
