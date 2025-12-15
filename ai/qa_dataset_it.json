@@ -9382,5 +9382,42 @@
       "Se vuoi posso darti una panoramica dell'andamento di [TOPIC] dal punto di vista tecnico. Vuoi che procedo?": "ta_general",
       "Ti posso dire cosa suggerisce l'analisi dei fondamentali. Vuoi che lo faccio?": "fundamental_analysis",
       "Vuoi che ti preparo l'analisi completa di [TOPIC] per vedere cosa suggerisce l'algoritmo?": "asset_analysis_open"}
+  },
+    "trust_and_reliability": {
+    "questions": [
+      "Posso fidarmi delle tue risposte?",
+      "Mi posso fidare?",
+      "Sei affidabile?",
+      "Quanto sono affidabili le tue analisi?",
+      "Le informazioni che dai sono attendibili?",
+      "Posso basarmi sulle tue risposte?",
+      "Quanto sono precise le tue previsioni?",
+      "Le tue analisi sono sicure?",
+      "Sei una fonte affidabile per il trading?",
+      "Perché dovrei fidarmi di TradeGPT?",
+      "Come fai a essere affidabile?",
+      "Le tue risposte sono basate su dati reali?",
+      "Le tue analisi sono oggettive?",
+      "Come garantisci l'affidabilità delle risposte?",
+      "Le tue risposte sono casuali o calcolate?",
+      "Su cosa si basano le tue valutazioni?",
+      "Perché le tue risposte dovrebbero essere corrette?",
+      "Quello che dici è corretto?"
+    ],
+    "answers": [
+      "Le mie risposte si basano su *calcoli matematici*, *modelli statistici* ed *elaborazione di dati reali di mercato*. Non sono casuali, ma derivano dall’analisi strutturata delle informazioni disponibili 📊.\n\nIn pratica, i dati vengono analizzati per individuare trend, relazioni e segnali che aiutano a comprendere meglio il contesto di mercato.",
+      "Il mio algoritmo fornisce risposte affidabili perché utilizza *dati di mercato reali* e li elabora attraverso modelli matematici e logici. Questo consente di offrire analisi coerenti e basate su numeri, non su opinioni personali.\n\nAd esempio, indicatori tecnici e metriche finanziarie vengono calcolati seguendo formule precise.",
+      "L’affidabilità delle mie risposte deriva dal fatto che il mio algoritmo analizza informazioni oggettive, come prezzi storici, indicatori tecnici e dati fondamentali, applicando metodi di calcolo standard utilizzati anche nel mondo finanziario professionale.\n\nQuesto approccio riduce la soggettività e aumenta la coerenza delle analisi.",
+      "Il mio algoritmo è molto affidabile: ogni risposta è il risultato di *elaborazione di dati* e *regole matematiche*. L’obiettivo è fornire una visione razionale e strutturata del mercato, utile per supportare le decisioni.\n\nPer esempio, trend e segnali vengono valutati sulla base di dati misurabili e ripetibili.",
+      "Le analisi che ti offro sono affidabili perché si fondano su dati reali e su modelli di interpretazione del mercato. L'algoritmo di TradeGPT aggrega e interpreta le informazioni per restituire un quadro chiaro e comprensibile.\n\nQuesto significa che le risposte seguono una logica consistente, basata su numeri e dati osservabili.",
+      "L'algoritmo che uso si basa su dati concreti e li elabora con strumenti matematici e statistici. Questo permette di fornire risposte coerenti nel tempo e allineate all’andamento reale dei mercati.\n\nIn altre parole, non si tratta di intuizioni, ma di analisi basate su dati misurabili.",
+      "L’affidabilità del mio algoritmo nasce dall’uso combinato di dati reali, modelli matematici e logiche di analisi finanziaria. Ogni risposta è costruita per essere informativa, chiara e basata su elementi verificabili.\n\nQuesto aiuta l’utente a comprendere meglio il mercato e a prendere decisioni più consapevoli."
+    ],
+    "cost": 0,
+    "keywords": ["fiducia", "affidabile", "affidabilità", "sicuro", "attendibile", "fidarsi", "precisione", "accuratezza", "oggettività", "oggettivo", "oggettiva", "oggettivi", "oggettive"],
+        "subquestions": {
+      "Ti posso dire oggettivamente cosa dice il mio algoritmo matematico sui dati tecnici di [TOPIC]. In questo modo avresti dati concreti e affidabili. Vuoi che procedo?": "ta_general",
+      "Ti posso dire cosa suggerisce l'analisi dei fondamentali su [TOPIC]. Si tratterebbe di un'elaborazione matematica di tutti i dati fondamentali a mia disposizione che riguardano [TOPIC]. Vuoi che lo faccio?": "fundamental_analysis",
+      "Vuoi che ti preparo l'analisi completa di [TOPIC] per vedere cosa suggerisce l'algoritmo? Così puoi vedere a colpo d'occhio tutti i dati principali che il mio modello matematico ha elaborato su [TOPIC]. Procedo?": "asset_analysis_open"}
   }
 }
