@@ -9278,5 +9278,68 @@
       "If you want, I can give you an overview of the technical trend of [TOPIC]. Do you want me to proceed?": "ta_general",
       "I can tell you what the fundamental analysis suggests. Do you want me to do that?": "fundamental_analysis",
       "Do you want me to prepare a complete analysis of [TOPIC] to see what the algorithm suggests?": "asset_analysis_open"}
-  }
+  },
+    "trust_and_reliability": {
+    "questions": [
+      "Can I trust your answers?",
+      "Can I rely on you?",
+      "Are you reliable?",
+      "How reliable are your analyses?",
+      "Is the information you provide trustworthy?",
+      "Can I base my decisions on your answers?",
+      "How accurate are your predictions?",
+      "Are your analyses safe?",
+      "Are you a reliable source for trading?",
+      "Why should I trust TradeGPT?",
+      "How are you so reliable?",
+      "Are your answers based on real data?",
+      "Are your analyses objective?",
+      "How do you ensure the reliability of the answers?",
+      "Are your answers random or calculated?",
+      "What are your assessments based on?",
+      "Why should your answers be correct?",
+      "Is what you say correct?"
+    ],
+    "answers": [
+      "My answers are based on *mathematical calculations*, *statistical models*, and *processing of real market data*. They are not random, but derive from the structured analysis of available information 📊.\n\nIn practice, the data is analyzed to identify trends, relationships, and signals that help to better understand the market context.",
+      "My algorithm provides reliable answers because it uses *real market data* and processes it through mathematical and logical models. This allows me to offer analyses that are consistent and based on numbers, not on personal opinions.\n\nFor example, technical indicators and financial metrics are calculated following precise formulas.",
+      "The reliability of my answers stems from the fact that my algorithm analyzes objective information, such as historical prices, technical indicators, and fundamental data, applying standard calculation methods also used in the professional financial world.\n\nThis approach reduces subjectivity and increases the consistency of the analyses.",
+      "My algorithm is very reliable: every answer is the result of *data processing* and *mathematical rules*. The goal is to provide a rational and structured view of the market, useful for supporting decisions.\n\nFor instance, trends and signals are evaluated based on measurable and repeatable data.",
+      "The analyses I offer you are reliable because they are based on real data and market interpretation models. The TradeGPT algorithm aggregates and interprets information to provide a clear and understandable picture.\n\nThis means that the answers follow a consistent logic, based on numbers and observable data.",
+      "The algorithm I use is based on concrete data and processes it with mathematical and statistical tools. This allows me to provide answers that are consistent over time and aligned with the real market trends.\n\nIn other words, these are not intuitions, but analyses based on measurable data.",
+      "The reliability of my algorithm arises from the combined use of real data, mathematical models, and financial analysis logic. Every answer is constructed to be informative, clear, and based on verifiable elements.\n\nThis helps the user to better understand the market and make more conscious decisions."
+    ],
+    "cost": 0,
+    "keywords": ["trust", "reliable", "reliability", "safe", "trustworthy", "rely", "precision", "accuracy", "objectivity", "objective"],
+    "subquestions": {
+      "I can objectively tell you what my mathematical algorithm says about the technical data of [TOPIC]. This way you would have concrete and reliable data. Do you want me to proceed?": "ta_general",
+      "I can tell you what the fundamental analysis suggests about [TOPIC]. This would involve a mathematical processing of all the fundamental data at my disposal concerning [TOPIC]. Do you want me to do it?": "fundamental_analysis",
+      "Do you want me to prepare the complete analysis of [TOPIC] for you to see what the algorithm suggests? This way you can see at a glance all the main data that my mathematical model has processed on [TOPIC]. Should I proceed?": "asset_analysis_open"}
+  },
+  "financial_trust": {
+  "questions": [
+    "What is a financial trust?",
+    "What is a trust?",
+    "How does a financial trust work?",
+    "Can you explain what a trust is?",
+    "What is a trust in finance?",
+    "What is the purpose of a financial trust?",
+    "How is a trust used for investing?",
+    "How does an investment trust work?",
+    "Can you explain the functioning of a trust?",
+    "What is an asset protection trust?",
+    "What is a trust and what is its purpose?",
+    "How does a trust work for asset management?",
+    "Can you explain simply what a financial trust is?"
+  ],
+  "answers": [
+    "A *financial trust* is a legal agreement where a settlor transfers assets (money, securities, shares, or other assets) to a trustee, often a financial institution or a qualified professional, to manage them in the interest of one or more beneficiaries. The assets transferred to the trust become separate from the personal assets of the settlor and the trustee, with the aim of protecting the assets and achieving specific financial or estate purposes.\n\nHow it works:\n\n* Establishment: The settlor creates the trust through a deed of trust, in which they define the purpose of the trust, the assets to be transferred, the beneficiaries, the management rules, and the applicable law.\n* Transfer: The assets are transferred to the trust, forming an autonomous pool of assets separate from the personal assets of the settlor.\n* Management: The trustee administers and invests the assets according to the rules established in the deed of trust, with the obligation to act in the best interest of the beneficiaries.\n* Beneficiaries: These are the parties who benefit from the trust, receiving income, returns, or the capital as provided.\n\nMain types and purposes:\n\n* Asset protection: The trust allows assets to be isolated from personal or business risks, or from potential creditors.\n* Succession planning: It allows for the flexible and controlled management of generational wealth transfer.\n* Investments: It can be used to participate in financial or real estate projects, managing capital in a structured way.\n* Living Trust: Allows the settlor to benefit from the returns during their lifetime, with revocable or irrevocable formulas.",
+    "A *financial trust* is a legal agreement where a settlor transfers assets (money, securities, shares) to a trustee (often a financial institution), who manages them in the interest of specific beneficiaries. This creates a segregated estate, protecting the assets and allowing for the achievement of defined financial or succession goals, such as investing in projects, protecting assets from creditors, or managing the succession for vulnerable persons.\n\nHow it works:\n\n1. Establishment: The settlor creates the trust through a deed of trust, defining the purposes, assets, and beneficiaries, choosing an applicable law, and appointing a trustee.\n\n2. Transfer: The settlor transfers specific assets (money, shares, real estate) into the trust. These assets become an autonomous estate, separate from those of the settlor and the trustee.\n\n3. Management: The trustee administers the assets according to the instructions in the deed of trust, protecting them and making them profitable for the beneficiaries.\n\n4. Beneficiaries: These can be individuals (children, vulnerable subjects), but also entities, with specific rights to returns or capital.\n\nTypes and Purposes:\n\n* Asset Protection: Segregating assets from economic risks or creditors.\n* Succession Planning: Managing the inheritance flexibly, especially for complex families or vulnerable subjects (e.g., 'after us' trust).\n* Investments: Allowing participation in complex projects (e.g., real estate, exports) through debt securities or fiduciary quotas.\n* Living Trust: The settlor can benefit from the returns during their lifetime, with revocable or irrevocable options."
+  ],
+  "cost": 0,
+  "keywords": ["trust", "financial trust", "asset protection trust", "asset management", "investment trust"],
+  "subquestions": {
+    "Do you also want to know how the herd effect works in trading?": "effetto_gregge",
+    "Do you also want me to explain how bonds work?": "obbligazioni_info"}
+}
 }
