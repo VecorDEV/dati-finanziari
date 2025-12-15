@@ -55,6 +55,8 @@ fire_path = f"{TARGET_FOLDER}/fire.html"
 pro_path = f"{TARGET_FOLDER}/classificaPRO.html"
 corr_path = f"{TARGET_FOLDER}/correlations.html"
 mom_path = f"{TARGET_FOLDER}/classifica_momentum.html"
+sector_path = f"{TARGET_FOLDER}/classifica_settori.html"
+
     
 # GitHub Connect
 github = Github(GITHUB_TOKEN)
@@ -1007,6 +1009,80 @@ except:
     repo.create_file(mom_path, "Cre Momentum Rank", "\n".join(html_mom))
 
 print("Classifica Momentum creata con successo!")
+
+
+# --- CLASSIFICA SETTORI ---
+print("Generazione Classifica Settori...")
+
+# 1. Aggregazione dei punteggi per settore
+sector_scores = defaultdict(list)
+
+for symbol, score in percentuali_combine.items():
+    # Recupera il settore dalla mappa, se non c'è usa "Altro"
+    sec = asset_sector_map.get(symbol, "Altro")
+    sector_scores[sec].append(score)
+
+# 2. Calcolo della media per ogni settore
+sector_averages = []
+for sec, scores in sector_scores.items():
+    avg_score = sum(scores) / len(scores)
+    sector_averages.append((sec, avg_score, len(scores))) # Salviamo anche quanti asset ci sono
+
+# 3. Ordinamento dal migliore al peggiore
+sorted_sectors = sorted(sector_averages, key=lambda x: x[1], reverse=True)
+
+# 4. Generazione HTML
+html_sector = [
+    "<html><head><title>Classifica Settori</title>",
+    "<style>",
+    "table {border-collapse: collapse; width: 100%; font-family: Arial, sans-serif;}",
+    "th, td {border: 1px solid #ddd; padding: 12px; text-align: left;}",
+    "th {background-color: #f2f2f2;}",
+    ".bull {color: green; font-weight: bold;}",
+    ".bear {color: red; font-weight: bold;}",
+    ".neutral {color: #333;}",
+    "</style>",
+    "</head><body>",
+    "<h1>📊 Classifica Performance Settoriale</h1>",
+    "<p>Media degli Hybrid Score di tutti gli asset appartenenti al settore.</p>",
+    "<table><tr><th>Pos</th><th>Settore</th><th>Score Medio</th><th>Asset Inclusi</th><th>Trend</th></tr>"
+]
+
+for idx, (sec, avg, count) in enumerate(sorted_sectors, 1):
+    # Definizione stile
+    if avg >= 53:
+        style_class = "bull"
+        trend_label = "RIALZISTA"
+    elif avg <= 47:
+        style_class = "bear"
+        trend_label = "RIBASSISTA"
+    else:
+        style_class = "neutral"
+        trend_label = "Neutrale"
+    
+    # Pulizia nome settore (rimuove il numero iniziale es. "1. " per estetica, se vuoi)
+    clean_name = sec # oppure sec.split('. ', 1)[-1] se vuoi togliere il numero
+    
+    html_sector.append(
+        f"<tr>"
+        f"<td>{idx}</td>"
+        f"<td><b>{clean_name}</b></td>"
+        f"<td class='{style_class}'>{avg:.2f}%</td>"
+        f"<td>{count}</td>"
+        f"<td class='{style_class}'>{trend_label}</td>"
+        f"</tr>"
+    )
+
+html_sector.append("</table></body></html>")
+
+# 5. Salvataggio su GitHub
+try:
+    contents = repo.get_contents(sector_path)
+    repo.update_file(contents.path, "Upd Sector Rank", "\n".join(html_sector), contents.sha)
+except:
+    repo.create_file(sector_path, "Cre Sector Rank", "\n".join(html_sector))
+
+print("Classifica Settori creata con successo!")
 
 
 # --- NEWS HTML ---
