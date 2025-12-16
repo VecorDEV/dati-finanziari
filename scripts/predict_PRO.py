@@ -70,7 +70,7 @@ symbol_list = ["AAPL", "MSFT", "GOOGL", "AMZN", "META", "TSLA", "V", "JPM", "JNJ
         "MMC", "EL", "GM", "CME", "EW", "AON", "D", "PSA", "AEP", "TROW", 
         "LNTH", "HE", "BTDR", "NAAS", "SCHL", "TGT", "SYK", "BKNG", "DUK", "USB", "ISP.MI", "ENEL.MI", "STLAM.MI", "LDO.MI", 
         "ARM", "BABA", "BIDU", "COIN", "PST.MI", "UCG.MI", "DDOG", "HTZ", "JD", "LCID", "LYFT", "NET", "PDD", #NEW
-        "PLTR", "RIVN", "ROKU", "SHOP", "SNOW", "SQ", "TWLO", "UBER", "ZI", "ZM", "DUOL",    #NEW
+        "PLTR", "RIVN", "ROKU", "SHOP", "SNOW", "TWLO", "UBER", "ZM", "DUOL",    #NEW
         "PBR", "VALE", "AMX",
         
         "EURUSD", "USDJPY", "GBPUSD", "AUDUSD", "USDCAD", "USDCHF", "NZDUSD", "EURGBP", "EURJPY", "GBPJPY",
@@ -100,7 +100,7 @@ symbol_list_for_yfinance = [
     "MMC", "EL", "GM", "CME", "EW", "AON", "D", "PSA", "AEP", "TROW", 
     "LNTH", "HE", "BTDR", "NAAS", "SCHL", "TGT", "SYK", "BKNG", "DUK", "USB", "ISP.MI", "ENEL.MI", "STLAM.MI", "LDO.MI",
     "ARM", "BABA", "BIDU", "COIN", "PST.MI", "UCG.MI", "DDOG", "HTZ", "JD", "LCID", "LYFT", "NET", "PDD",
-    "PLTR", "RIVN", "ROKU", "SHOP", "SNOW", "SQ", "TWLO", "UBER", "ZI", "ZM", "DUOL",
+    "PLTR", "RIVN", "ROKU", "SHOP", "SNOW", "TWLO", "UBER", "ZM", "DUOL",
     "PBR", "VALE", "AMX",
 
     # Forex (with =X)
@@ -225,7 +225,6 @@ symbol_name_map = {
     "SNOW": ["Snowflake", "Snowflake Inc."],
     "ROKU": ["Roku", "Roku Inc."],
     "TWLO": ["Twilio", "Twilio Inc."],
-    "SQ": ["Block", "Square", "Block Inc.", "Square Inc."],
     "COIN": ["Coinbase", "Coinbase Global", "Coinbase Global Inc."],
     "PST.MI": ["Poste Italiane", "Poste Italiane S.p.A."],
     "UCG.MI": ["Unicredit", "UniCredit", "Unicredit S.p.A.", "UniCredit Bank"],
@@ -238,7 +237,6 @@ symbol_name_map = {
     "DDOG": ["Datadog", "Datadog Inc."],
     "NET": ["Cloudflare", "Cloudflare Inc."],
     "SHOP": ["Shopify", "Shopify Inc."],
-    "ZI": ["ZoomInfo", "ZoomInfo Technologies", "ZoomInfo Technologies Inc."],
     "ZM": ["Zoom", "Zoom Video", "Zoom Video Communications", "Zoom Video Communications Inc."],
     "BIDU": ["Baidu", "百度"],
     "PDD": ["Pinduoduo", "PDD Holdings", "Pinduoduo Inc.", "拼多多"],
