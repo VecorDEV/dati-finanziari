@@ -1011,25 +1011,73 @@ except:
 print("Classifica Momentum creata con successo!")
 
 
-# --- CLASSIFICA SETTORI ---
-print("Generazione Classifica Settori...")
+# --- CLASSIFICA SETTORI (LIQUIDITY WEIGHTED) ---
+print("Generazione Classifica Settori (Liquidity Weighted)...")
 
-# 1. Aggregazione dei punteggi per settore
-sector_scores = defaultdict(list)
+# 1. Raccogliamo i dati grezzi per calcolare i pesi relativi
+# Struttura: sector_assets[settore] = [ (score, dollar_volume), ... ]
+sector_assets = defaultdict(list)
 
 for symbol, score in percentuali_combine.items():
-    # Recupera il settore dalla mappa, se non c'è usa "Altro"
     sec = asset_sector_map.get(symbol, "Altro")
-    sector_scores[sec].append(score)
+    
+    # Calcolo della "Importanza" (Dollar Volume medio ultimi 30gg)
+    # Usiamo i dati storici che abbiamo già scaricato!
+    avg_liquidity = 0.0
+    
+    if symbol in dati_storici_all:
+        df = dati_storici_all[symbol]
+        try:
+            # Prendiamo gli ultimi 20 giorni (1 mese di trading)
+            last_month = df.tail(20).copy()
+            # Calcolo: Prezzo * Volume
+            # Nota: yfinance a volte ha volumi 0 o NaN, gestiamo con fillna
+            liquidity_series = (last_month['Close'] * last_month['Volume']).fillna(0)
+            avg_liquidity = liquidity_series.mean()
+        except:
+            avg_liquidity = 0.0
+    
+    # Se il calcolo fallisce (es. dati mancanti), diamo un peso minimo simbolico (es. 1000$)
+    # per non escluderlo dalla media, ma contarlo pochissimo.
+    if avg_liquidity <= 0 or pd.isna(avg_liquidity):
+        avg_liquidity = 1000.0 
+        
+    sector_assets[sec].append({
+        'symbol': symbol,
+        'score': score,
+        'liquidity': avg_liquidity
+    })
 
-# 2. Calcolo della media per ogni settore
-sector_averages = []
-for sec, scores in sector_scores.items():
-    avg_score = sum(scores) / len(scores)
-    sector_averages.append((sec, avg_score, len(scores))) # Salviamo anche quanti asset ci sono
+# 2. Calcolo Score Ponderato per Settore
+sector_final_scores = []
 
-# 3. Ordinamento dal migliore al peggiore
-sorted_sectors = sorted(sector_averages, key=lambda x: x[1], reverse=True)
+for sec, assets in sector_assets.items():
+    # Somma totale della liquidità del settore (Il "Market Cap" del nostro paniere)
+    total_sector_liquidity = sum(a['liquidity'] for a in assets)
+    
+    weighted_score_sum = 0.0
+    asset_count = len(assets)
+    
+    # Trova il leader per liquidità (il più grosso del gruppo)
+    top_asset = max(assets, key=lambda x: x['liquidity'])
+    leader_name = top_asset['symbol']
+    
+    for asset in assets:
+        # Il peso è la percentuale di liquidità dell'asset rispetto al totale del settore
+        # Esempio: Se MSFT muove 8Mld e il settore muove 10Mld, MSFT pesa 0.8 (80%)
+        weight = asset['liquidity'] / total_sector_liquidity
+        
+        weighted_score_sum += (asset['score'] * weight)
+        
+    sector_final_scores.append({
+        'sector': sec,
+        'avg': weighted_score_sum, # Questo è ora il Weighted Average reale
+        'count': asset_count,
+        'leader': leader_name
+    })
+
+# 3. Ordinamento
+sorted_sectors = sorted(sector_final_scores, key=lambda x: x['avg'], reverse=True)
 
 # 4. Generazione HTML
 html_sector = [
@@ -1043,46 +1091,52 @@ html_sector = [
     ".neutral {color: #333;}",
     "</style>",
     "</head><body>",
-    "<h1>📊 Classifica Performance Settoriale</h1>",
-    "<p>Media degli Hybrid Score di tutti gli asset appartenenti al settore.</p>",
-    "<table><tr><th>Pos</th><th>Settore</th><th>Score Medio</th><th>Asset Inclusi</th><th>Trend</th></tr>"
+    "<h1>📊 Performance Settoriale (Volume Weighted)</h1>",
+    "<p>Classifica ponderata sulla <b>Liquidità (Dollar Volume)</b>. Gli asset che muovono più denaro influenzano maggiormente il punteggio del settore.</p>",
+    "<table><tr><th>Pos</th><th>Settore</th><th>Dominant Asset</th><th>Score Ponderato</th><th>Asset</th><th>Trend</th></tr>"
 ]
 
-for idx, (sec, avg, count) in enumerate(sorted_sectors, 1):
-    # Definizione stile
-    if avg >= 53:
+for idx, item in enumerate(sorted_sectors, 1):
+    avg = item['avg']
+    
+    if avg >= 55:
         style_class = "bull"
-        trend_label = "RIALZISTA"
-    elif avg <= 47:
+        trend_label = "FORTE"
+    elif avg >= 50:
+        style_class = "bull"
+        trend_label = "POSITIVO"
+    elif avg <= 45:
         style_class = "bear"
-        trend_label = "RIBASSISTA"
+        trend_label = "DEBOLE"
+    elif avg <= 40:
+        style_class = "bear"
+        trend_label = "CRITICO"
     else:
         style_class = "neutral"
         trend_label = "Neutrale"
     
-    # Pulizia nome settore (rimuove il numero iniziale es. "1. " per estetica, se vuoi)
-    clean_name = sec # oppure sec.split('. ', 1)[-1] se vuoi togliere il numero
-    
     html_sector.append(
         f"<tr>"
         f"<td>{idx}</td>"
-        f"<td><b>{clean_name}</b></td>"
+        f"<td><b>{item['sector']}</b></td>"
+        f"<td>{item['leader']}</td>"
         f"<td class='{style_class}'>{avg:.2f}%</td>"
-        f"<td>{count}</td>"
+        f"<td>{item['count']}</td>"
         f"<td class='{style_class}'>{trend_label}</td>"
         f"</tr>"
     )
 
 html_sector.append("</table></body></html>")
 
-# 5. Salvataggio su GitHub
+# 5. Salvataggio
 try:
     contents = repo.get_contents(sector_path)
-    repo.update_file(contents.path, "Upd Sector Rank", "\n".join(html_sector), contents.sha)
+    repo.update_file(contents.path, "Upd Sector Rank Liquidity", "\n".join(html_sector), contents.sha)
 except:
-    repo.create_file(sector_path, "Cre Sector Rank", "\n".join(html_sector))
+    repo.create_file(sector_path, "Cre Sector Rank Liquidity", "\n".join(html_sector))
 
-print("Classifica Settori creata con successo!")
+print("Classifica Settori (Liquidity) creata con successo!")
+
 
 
 # --- NEWS HTML ---
