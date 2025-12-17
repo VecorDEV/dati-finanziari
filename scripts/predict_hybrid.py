@@ -1096,19 +1096,19 @@ for idx, item in enumerate(sorted_sectors, 1):
     
     if avg >= 55:
         style_class = "bull"
-        trend_label = "FORTE"
+        trend_label = "STRONG"
     elif avg >= 50:
         style_class = "bull"
-        trend_label = "POSITIVO"
+        trend_label = "POSITIVE"
     elif avg <= 45:
         style_class = "bear"
-        trend_label = "DEBOLE"
+        trend_label = "WEAK"
     elif avg <= 40:
         style_class = "bear"
-        trend_label = "CRITICO"
+        trend_label = "CRITICAL"
     else:
         style_class = "neutral"
-        trend_label = "Neutrale"
+        trend_label = "NEUTRAL"
     
     html_sector.append(
         f"<tr>"
