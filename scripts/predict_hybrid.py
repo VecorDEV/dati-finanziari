@@ -882,7 +882,6 @@ def get_sentiment_for_all_symbols(symbol_list):
             "<h2>Informative Sells</h2>"
         ]
         
-        html_content.append("<h2>Informative Sells</h2>")
         if sells_data:
             html_content += [
                 f"<p><strong>Ultimo giorno registrato:</strong> {sells_data['Last Day']}</p>",
