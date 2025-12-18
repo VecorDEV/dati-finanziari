@@ -845,19 +845,22 @@ def get_sentiment_for_all_symbols(symbol_list):
                     percent_of_max = (last_value / max_daily * 100) if max_daily != 0 else 0
                     num_sells_last_day = len(sells[sells['Trade Date'] == last_day]) if last_day is not None else 0
 
+                    # Calcolo Variazione rispetto al giorno di vendita precedente (come nel secondo codice)
                     variance = 0
                     if len(daily_sells) >= 2:
                         prev_val = daily_sells.iloc[-2]
-                        if prev_val > 0: variance = ((last_value - prev_val) / prev_val) * 100
+                        if prev_val > 0:
+                            variance = ((last_value - prev_val) / prev_val) * 100
 
                     sells_data = {
-                        'Last Day': last_day,
-                        'Last Day Total Sells ($)': last_value,
+                        'Last Day': last_day.strftime('%Y-%m-%d') if last_day else "N/A",
+                        'Last Day Total Sells ($)': f"{last_value:,.2f}",
                         'Last vs Max (%)': percent_of_max,
                         'Number of Sells Last Day': num_sells_last_day,
                         'Variance': variance 
                     }
-                except: sells_data = None
+                except Exception:
+                    sells_data = None
 
         except Exception as e: print(f"Err {symbol}: {e}")
         
@@ -879,6 +882,7 @@ def get_sentiment_for_all_symbols(symbol_list):
             "<h2>Informative Sells</h2>"
         ]
         
+        html_content.append("<h2>Informative Sells</h2>")
         if sells_data:
             html_content += [
                 f"<p><strong>Ultimo giorno registrato:</strong> {sells_data['Last Day']}</p>",
@@ -887,7 +891,8 @@ def get_sentiment_for_all_symbols(symbol_list):
                 f"<p><strong>Transazioni recenti:</strong> {sells_data['Number of Sells Last Day']}</p>",
                 f"<p><strong>Variazione:</strong> {sells_data['Variance']:.2f}%</p>"
             ]
-        else: html_content.append("<p>Informative Sells non disponibili.</p>")
+        else:
+            html_content.append("<p>Informative Sells non disponibili.</p>")
             
         html_content.append("<h2>Dati Storici (ultimi 90 giorni)</h2>")
         html_content.append(dati_storici_html if dati_storici_html else "<p>N/A</p>")
