@@ -9445,5 +9445,49 @@
   "subquestions": {
     "Vuoi sapere anche come funziona l'effetto gregge nel trading?": "effetto_gregge",
     "Vuoi che ti spiego anche come funzionano le obbligazioni?": "obbligazioni_info"}
+},
+  "settore": {
+  "questions": [
+    "A quale settore appartiene [TOPIC]?",
+    "In che settore opera [TOPIC]?",
+    "Qual è il settore di [TOPIC]?",
+    "Che settore è quello di [TOPIC]?",
+    "[TOPIC] a che settore appartiene?",
+    "Puoi dirmi il settore di [TOPIC]?",
+    "In quale settore rientra [TOPIC]?",
+    "Di che settore fa parte [TOPIC]?",
+    "Che tipo di settore è [TOPIC]?",
+    "Come viene classificato [TOPIC] per settore?",
+    "Come possiamo classificare [TOPIC]?",
+    "Classifica [TOPIC]",
+    "Settore di appartenenza di [TOPIC]",
+    "[TOPIC] fa parte di quale settore?",
+    "In che ambito opera [TOPIC]?",
+    "Qual è il settore economico di [TOPIC]?",
+    "Mi dici il settore industriale di [TOPIC]?",
+    "In cosa rientra [TOPIC]?",
+    "Dove rientra [TOPIC]?",
+    "In cosa opera [TOPIC]?",
+    "Che tipo di industria è [TOPIC]?",
+    "Che tipo di genere è l'attività di [TOPIC]?",
+    "In che settore è attivo [TOPIC]?"
+  ],
+  "answers": [
+    "[TOPIC] appartiene al settore *[SECTOR]*.",
+    "[TOPIC] opera principalmente nel settore *[SECTOR]*.",
+    "Il settore di riferimento per [TOPIC] è *[SECTOR]*.",
+    "[TOPIC] rientra nel settore *[SECTOR]*.",
+    "[TOPIC] viene classificato all’interno del settore *[SECTOR]*.",
+    "Dal punto di vista economico, [TOPIC] fa parte del settore *[SECTOR]*.",
+    "[TOPIC] è considerato parte del settore *[SECTOR]*.",
+    "Il settore di appartenenza di [TOPIC] è *[SECTOR]*.",
+    "Direi che [TOPIC] appartiene al settore *[SECTOR]*.",
+    "[TOPIC] può essere classificato nel settore *[SECTOR]*",
+    "Possiamo classificare [TOPIC] come parte del settore *[SECTOR]*"
+  ],
+  "cost": 0,
+  "keywords": ["settore", "industria", "attività", "appartenenza", "appartiene", "ambito", "categoria", "classificazione"],
+  "subquestions": {
+    "Vuoi conoscere il sentiment generale sul settore [SECTOR]?": "sector"}
 }
 }
