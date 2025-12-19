@@ -9470,7 +9470,8 @@
     "In cosa opera [TOPIC]?",
     "Che tipo di industria è [TOPIC]?",
     "Che tipo di genere è l'attività di [TOPIC]?",
-    "In che settore è attivo [TOPIC]?"
+    "In che settore è attivo [TOPIC]?",
+    "A quale macro settore fa capo [TOPIC]?"
   ],
   "answers": [
     "[TOPIC] appartiene al settore *[SECTOR]*.",
@@ -9488,6 +9489,42 @@
   "cost": 0,
   "keywords": ["settore", "industria", "attività", "appartenenza", "appartiene", "ambito", "categoria", "classificazione"],
   "subquestions": {
-    "Vuoi conoscere il sentiment generale sul settore [SECTOR]?": "sector"}
+    "Vuoi conoscere anche il settore di appartenenza di [FAVOURITE]?": "sector"}
+},
+"sector_big_tech": {
+  "questions": [
+    "Come va il settore big tech?",
+    "Come sta andando il settore big tech?",
+    "Qual è il sentiment del settore big tech?",
+    "Che aria tira nel settore big tech?",
+    "Come procede il settore delle big tech?",
+    "Come stanno andando le big tech?",
+    "Dimmi il sentiment delle big tech",
+    "Qual è l’andamento del settore tecnologico big tech?",
+    "Come va il settore software e Internet?",
+    "Come sta andando il comparto big tech?",
+    "Che prospettive ha il settore big tech?",
+    "Come vedi il settore big tech in questo periodo?",
+    "Com’è il sentiment generale delle big tech?",
+    "Il settore big tech è in crescita?",
+    "Il settore big tech è in difficoltà?",
+    "Che trend c’è nel settore big tech?",
+    "Aggiornamento sul settore big tech",
+    "Fammi un’analisi del settore big tech",
+    "Analisi sentiment big tech",
+    "Outlook settore big tech"
+  ],
+  "answers": [
+    "Il settore *big tech (software e internet)* mostra attualmente un sentiment complessivo pari a *[BIGTECH_SCORE]*. Questo valore riflette l’andamento generale del comparto, considerando dati di mercato, trend recenti e comportamento degli investitori.",
+    "In questo periodo, il settore *big tech (software e internet)* presenta un sentiment stimato intorno a *[BIGTECH_SCORE]*. Il dato fornisce una visione sintetica della percezione del mercato sul comparto nel suo insieme.",
+    "Il sentiment generale del settore *big tech (software e internet)* è pari a *[BIGTECH_SCORE]*. Questo indicatore aiuta a comprendere se il mercato sta mostrando un orientamento più positivo, neutro o prudente verso il settore.",
+    "Analizzando il settore *big tech (software e internet)*, emerge un sentiment complessivo di *[BIGTECH_SCORE]*. Il valore tiene conto di diversi fattori, tra cui performance recenti, volatilità e flussi di capitale.",
+    "Attualmente il settore *big tech (software e internet)* evidenzia un livello di sentiment pari a *[BIGTECH_SCORE]*. Si tratta di una misura utile per avere un quadro generale dell’umore del mercato sul comparto.",
+    "Il comparto *big tech (software e internet)* registra un sentiment aggregato di *[BIGTECH_SCORE]*. Questo dato offre un’indicazione sintetica su come il mercato sta valutando il settore nel suo complesso.",
+    "Secondo le analisi disponibili, il settore *big tech (software e internet)* mostra un sentiment complessivo di *[BIGTECH_SCORE]*. È un valore che riassume la tendenza generale osservata nel mercato.",
+    "Il settore *big tech (software e internet)* presenta al momento un sentiment stimato di *[BIGTECH_SCORE]*, fornendo una panoramica chiara dell’orientamento del mercato verso questo comparto."
+  ],
+  "cost": 3,
+  "keywords": ["big tech", "settore", "software", "internet", "tecnologia", "tech", "tecnologia", "tecnologico", "tecnologica", "tecnologici", "tecnologiche"]
 }
 }
