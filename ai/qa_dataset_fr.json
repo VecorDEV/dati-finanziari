@@ -9634,5 +9634,194 @@
     "subquestions": {
       "Veux-tu aussi connaître le sentiment du secteur de la consommation et du retail ?": "sector_consumer",
       "Es-tu aussi intéressé par le sentiment général sur le secteur de la santé et du pharma ?": "sector_healthcare_pharma"}
+  },
+  "sector_healthcare_pharma": {
+    "questions": [
+      "Comment va le secteur healthcare & pharma ?",
+      "Comment va le secteur biotech ?",
+      "Comment se porte le secteur de la santé et de la pharmacie ?",
+      "Quel est le sentiment du secteur de la santé ?",
+      "Quelle est l'ambiance dans le secteur pharmaceutique ?",
+      "Quelle est l'ambiance dans la biotech ?",
+      "Comment évolue le secteur de la santé et du pharma ?",
+      "Comment progresse le secteur des biotechnologies ?",
+      "Comment va le domaine biotechnologique ?",
+      "Comment se portent les entreprises big pharma ?",
+      "Comment vont les laboratoires pharmaceutiques ?",
+      "Donne-moi le sentiment du secteur healthcare",
+      "Quelle est la tendance du secteur pharma ?",
+      "Comment va le secteur santé et pharmacie ?",
+      "Comment se porte le compartiment sanitaire et pharmaceutique ?",
+      "Quelles sont les perspectives du secteur médico-pharmaceutique ?",
+      "Comment vois-tu le secteur de la santé en ce moment ?",
+      "Quel est le sentiment général de la pharmacie ?",
+      "Le secteur de la santé est-il en croissance ?",
+      "Le secteur pharma est-il en difficulté ?",
+      "Quelle est la tendance dans le secteur pharmaceutique ?",
+      "Mise à jour sur le secteur de la santé",
+      "Fais-moi une analyse du secteur santé et pharma",
+      "Analyse du sentiment pharma",
+      "Outlook secteur santé",
+      "Comment est le secteur de la médecine ?",
+      "Comment vont les entreprises dans le domaine médical ?",
+      "Les entreprises du secteur médico-sanitaire progressent-elles bien ?"
+    ],
+    "answers": [
+      "Le secteur *Healthcare & Pharma* affiche actuellement un sentiment global de *[HEALTHCARE_SCORE]*. Cette valeur reflète la tendance générale du compartiment, compte tenu des données de marché, des tendances récentes et du comportement des investisseurs.",
+      "En cette période, le secteur *Healthcare & Pharma* présente un sentiment estimé autour de *[HEALTHCARE_SCORE]*. Cette donnée fournit une vision synthétique de la perception du marché sur l'ensemble du compartiment.",
+      "Le sentiment général du secteur *Healthcare & Pharma* est de *[HEALTHCARE_SCORE]*. Cet indicateur aide à comprendre si le marché montre une orientation plutôt positive, neutre ou prudente envers le secteur.",
+      "En analysant le secteur *Healthcare & Pharma*, il ressort un sentiment global de *[HEALTHCARE_SCORE]*. La valeur tient compte de plusieurs facteurs, dont les performances récentes, la volatilidad et les flux de capitaux.",
+      "Actuellement, le secteur *Healthcare & Pharma* met en évidence un niveau de sentiment de *[HEALTHCARE_SCORE]*. C'est une mesure utile pour avoir un aperçu général de l'humeur du marché sur le compartiment.",
+      "Le compartiment *Healthcare & Pharma* enregistre un sentiment agrégé de *[HEALTHCARE_SCORE]*. Cette donnée offre une indication synthétique sur la manière dont le marché évalue le secteur dans son ensemble.",
+      "Selon les analyses disponibles, le secteur *Healthcare & Pharma* affiche un sentiment global de *[HEALTHCARE_SCORE]*. C'est une valeur qui résume la tendance générale observée sur le marché.",
+      "Le secteur *Healthcare & Pharma* présente pour le moment un sentiment estimé de *[HEALTHCARE_SCORE]*, offrant un aperçu clair de l'orientation du marché vers ce compartiment."
+    ],
+    "cost": 3,
+    "keywords": ["secteur", "healthcare", "santé", "pharma", "pharmaceutique", "pharmacie", "biotech", "biotechnologies", "biotechnologique", "médecine", "médical", "sanitaire"],
+    "subquestions": {
+      "Veux-tu aussi connaître le sentiment du secteur des biens de consommation (grands magasins, supermarchés, e-commerce) ?": "sector_consumer",
+      "Es-tu aussi intéressé par le sentiment général sur le secteur du bâtiment ?": "sector_industrials_defense"
+    }
+  },
+  "sector_consumer": {
+    "questions": [
+      "Comment va le secteur consumer goods & retail ?",
+      "Comment va le secteur des biens de consommation ?",
+      "Comment va le secteur du retail ?",
+      "Comment va le secteur de la vente au détail ?",
+      "Comment se porte le secteur consumer goods & retail ?",
+      "Comment vont les grands magasins ?",
+      "Quel est le sentiment du secteur consumer goods & retail ?",
+      "Quel est le sentiment du secteur des grands supermarchés ?",
+      "Quelle est l'ambiance dans la consommation et le retail ?",
+      "Comment progresse le secteur des biens de consommation ?",
+      "Comment vont les entreprises du retail et des biens de consommation ?",
+      "Donne-moi le sentiment du secteur retail",
+      "Donne-moi le sentiment du secteur e-commerce",
+      "Quelle est la tendance du secteur des ventes numériques ?",
+      "Comment vont les entreprises de vente en ligne ?",
+      "Quelles sont les perspectives du secteur consumer goods & retail ?",
+      "Le secteur de la consommation est-il en croissance ?",
+      "Quelle est la tendance dans le secteur retail ?",
+      "Mise à jour sur le secteur consumer goods & retail",
+      "Analyse sentiment supermarchés, e-commerce, grands magasins",
+      "Outlook secteur consumer goods & retail"
+    ],
+    "answers": [
+      "Le secteur *Consumer Goods & Retail* affiche actuellement un sentiment global de *[CONSUMER_SCORE]*. Cette valeur reflète la tendance générale du compartiment.",
+      "En cette période, le secteur *Consumer Goods & Retail* présente un sentiment estimé autour de *[CONSUMER_SCORE]*.",
+      "Le sentiment général du secteur *Consumer Goods & Retail* est de *[CONSUMER_SCORE]*.",
+      "En analysant le secteur *Consumer Goods & Retail*, il ressort un sentiment global de *[CONSUMER_SCORE]*.",
+      "Actuellement, le secteur *Consumer Goods & Retail* met en évidence un niveau de sentiment de *[CONSUMER_SCORE]*.",
+      "Le compartiment *Consumer Goods & Retail* enregistre un sentiment agrégé de *[CONSUMER_SCORE]*.",
+      "Selon les analyses disponibles, le secteur *Consumer Goods & Retail* affiche un sentiment global de *[CONSUMER_SCORE]*.",
+      "Le secteur *Consumer Goods & Retail* présente pour le moment un sentiment estimé de *[CONSUMER_SCORE]*."
+    ],
+    "cost": 3,
+    "keywords": ["consumer goods", "biens de consommation", "retail", "e-commerce", "ecommerce", "vente au détail", "magasins", "supermarchés", "ventes", "vente", "en ligne"],
+    "subquestions": {
+      "Veux-tu aussi connaître le sentiment du secteur de l'énergie ?": "sector_energy",
+      "Es-tu aussi intéressé par le sentiment général sur le secteur de la défense ?": "sector_industrials_defense"
+    }
+  },
+  "sector_industrials_defense": {
+    "questions": [
+      "Comment va le secteur industrials & defense ?",
+      "Comment se porte le secteur industriel ?",
+      "Quel est le sentiment du secteur de l'industrie et de la défense ?",
+      "Quelle est l'ambiance dans l'industrie et la défense ?",
+      "Comment progresse le secteur de la défense ?",
+      "Comment se porte le secteur de la construction ?",
+      "Comment vont les entreprises industrielles ?",
+      "Donne-moi le sentiment du secteur industriel",
+      "Quelle est la tendance du secteur défense ?",
+      "Comment va le secteur du bâtiment ?",
+      "Quelles sont les perspectives du secteur industrials & defense ?",
+      "Le secteur de la défense est-il en croissance ?",
+      "Le secteur du bâtiment est-il en difficulté ?",
+      "Mise à jour sur le secteur industrials & defense",
+      "Analyse des entreprises de construction",
+      "Aperçu des principales entreprises du bâtiment",
+      "Outlook secteur industriel"
+    ],
+    "answers": [
+      "Le secteur *Industrials & Defense* affiche actuellement un sentiment global de *[INDUSTRIALS_SCORE]*. Cette valeur reflète la tendance générale du compartiment.",
+      "En cette période, le secteur *Industrials & Defense* présente un sentiment estimé autour de *[INDUSTRIALS_SCORE]*.",
+      "Le sentiment général du secteur *Industrials & Defense* est de *[INDUSTRIALS_SCORE]*.",
+      "En analysant le secteur *Industrials & Defense*, il ressort un sentiment global de *[INDUSTRIALS_SCORE]*.",
+      "Actuellement, le secteur *Industrials & Defense* met en évidence un niveau de sentiment de *[INDUSTRIALS_SCORE]*.",
+      "Le compartiment *Industrials & Defense* enregistre un sentiment agrégé de *[INDUSTRIALS_SCORE]*.",
+      "Selon les analyses disponibles, le secteur *Industrials & Defense* affiche un sentiment global de *[INDUSTRIALS_SCORE]*.",
+      "Le secteur *Industrials & Defense* présente pour le moment un sentiment estimé de *[INDUSTRIALS_SCORE]*."
+    ],
+    "cost": 3,
+    "keywords": ["secteur", "industrials", "defense", "industriel", "défense", "construction", "bâtiment", "travaux publics", "mines", "mines et métaux"],
+    "subquestions": {
+      "Veux-tu aussi connaître le sentiment du secteur de l'énergie ?": "sector_energy",
+      "Es-tu aussi intéressé par le sentiment général sur le secteur des énergies renouvelables ?": "sector_utilities_green"
+    }
+  },
+  "sector_energy": {
+    "questions": [
+      "Comment va le secteur de l'énergie ?",
+      "Comment se porte le secteur Energy (Oil & Gas) ?",
+      "Quel est le sentiment du secteur énergétique ?",
+      "Quelle est l'ambiance dans le pétrole et le gaz ?",
+      "Comment progresse le secteur du pétrole ?",
+      "Donne-moi le sentiment du secteur pétrolier",
+      "Quelle est la tendance des entreprises liées au gaz ?",
+      "Le compartiment pétrolier est-il en croissance ?",
+      "Mise à jour sur le secteur Energy (Oil & Gas)",
+      "Analyse des principales entreprises énergétiques",
+      "Analyse du sentiment énergie",
+      "Outlook secteur énergétique (pétrole et gaz)"
+    ],
+    "answers": [
+      "Le secteur *Energy (Oil & Gas)* affiche actuellement un sentiment global de *[ENERGY_SCORE]*. Cette valeur reflète la tendance générale du compartiment.",
+      "En cette période, le secteur *Energy (Oil & Gas)* présente un sentiment estimé autour de *[ENERGY_SCORE]*.",
+      "Le sentiment général du secteur *Energy (Oil & Gas)* est de *[ENERGY_SCORE]*.",
+      "En analysant le secteur *Energy (Oil & Gas)*, il ressort un sentiment global de *[ENERGY_SCORE]*.",
+      "Actuellement, le secteur *Energy (Oil & Gas)* met en évidence un niveau de sentiment de *[ENERGY_SCORE]*.",
+      "Le compartiment *Energy (Oil & Gas)* enregistre un sentiment agrégé de *[ENERGY_SCORE]*.",
+      "Selon les analyses disponibles, le secteur *Energy (Oil & Gas)* affiche un sentiment global de *[ENERGY_SCORE]*.",
+      "Le secteur *Energy (Oil & Gas)* présente pour le moment un sentiment estimé de *[ENERGY_SCORE]*."
+    ],
+    "cost": 3,
+    "keywords": ["secteur", "energy", "énergie", "oil", "gas", "énergétique", "pétrole", "pétrolier", "énergies fossiles"],
+    "subquestions": {
+      "Veux-tu aussi connaître le sentiment du secteur des métaux précieux et des matériaux ?": "sector_metals_materials",
+      "Es-tu aussi intéressé par le sentiment général sur le secteur des énergies renouvelables ?": "sector_utilities_green"
+    }
+  },
+  "sector_utilities_green": {
+    "questions": [
+      "Comment va le secteur Utilities & Green ?",
+      "Comment vont les entreprises vertes ?",
+      "Comment se porte le secteur du renouvelable ?",
+      "Quel est le sentiment du secteur des énergies renouvelables ?",
+      "Quelle est l'ambiance dans la distribution d'énergie ?",
+      "Comment progresse le secteur des énergies propres ?",
+      "Donne-moi le sentiment du secteur Utilities & Green",
+      "Le secteur de l'énergie renouvelable est-il en expansion ?",
+      "Quelle est la tendance dans le secteur utilities et green ?",
+      "Mise à jour sur le secteur Utilities & Green",
+      "Analyse du sentiment Utilities & Green",
+      "Outlook secteur Utilities & Green"
+    ],
+    "answers": [
+      "Le secteur *Utilities & Green* affiche actuellement un sentiment global de *[UTILITIES_SCORE]*. Cette valeur reflète la tendance générale du compartiment.",
+      "En cette période, le secteur *Utilities & Green* présente un sentiment estimé autour de *[UTILITIES_SCORE]*.",
+      "Le sentiment général du secteur *Utilities & Green* est de *[UTILITIES_SCORE]*.",
+      "En analysant le secteur *Utilities & Green*, il ressort un sentiment global de *[UTILITIES_SCORE]*.",
+      "Actuellement, le secteur *Utilities & Green* met en évidence un niveau de sentiment de *[UTILITIES_SCORE]*.",
+      "Le compartiment *Utilities & Green* enregistre un sentiment agrégé de *[UTILITIES_SCORE]*.",
+      "Selon les analyses disponibles, le secteur *Utilities & Green* affiche un sentiment global de *[UTILITIES_SCORE]*.",
+      "Le secteur *Utilities & Green* présente pour le moment un sentiment estimé de *[UTILITIES_SCORE]*."
+    ],
+    "cost": 3,
+    "keywords": ["secteur", "utilities", "green", "énergies", "énergie", "renouvelables", "renouvelable", "propres", "distribution", "durable", "écoresponsable"],
+    "subquestions": {
+      "Veux-tu aussi connaître le sentiment du secteur des métaux précieux et des matériaux ?": "sector_metals_materials",
+      "Es-tu aussi intéressé par le sentiment général sur le secteur des télécommunications ?": "sector_media"}
   }
 }
