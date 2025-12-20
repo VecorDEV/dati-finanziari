@@ -9444,5 +9444,190 @@
   "subquestions": {
     "Apakah Anda juga ingin tahu bagaimana efek kawanan (herd effect) bekerja dalam trading?": "effetto_gregge",
     "Apakah Anda ingin saya jelaskan juga bagaimana obligasi bekerja?": "obbligazioni_info"}
-}
+},
+  "settore": {
+    "questions": [
+      "Termasuk dalam sektor apa [TOPIC]?",
+      "Di sektor mana [TOPIC] beroperasi?",
+      "Apa sektor dari [TOPIC]?",
+      "Sektor apa yang digeluti [TOPIC]?",
+      "[TOPIC] termasuk dalam sektor apa?",
+      "Bisakah Anda memberi tahu saya sektor dari [TOPIC]?",
+      "Dalam sektor apa [TOPIC] diklasifikasikan?",
+      "Bagian dari sektor apa [TOPIC] itu?",
+      "Jenis sektor apa [TOPIC] itu?",
+      "Bagaimana klasifikasi [TOPIC] berdasarkan sektor?",
+      "Bagaimana kita bisa mengklasifikasikan [TOPIC]?",
+      "Klasifikasikan [TOPIC]",
+      "Sektor asal [TOPIC]",
+      "[TOPIC] adalah bagian dari sektor mana?",
+      "Dalam bidang apa [TOPIC] beroperasi?",
+      "Apa sektor ekonomi dari [TOPIC]?",
+      "Bisa beri tahu saya sektor industri dari [TOPIC]?",
+      "Masuk ke dalam kategori apa [TOPIC]?",
+      "Di mana posisi [TOPIC] dalam klasifikasi?",
+      "Dalam hal apa [TOPIC] beroperasi?",
+      "Apa jenis industri dari [TOPIC]?",
+      "Apa jenis aktivitas bisnis [TOPIC]?",
+      "Di sektor mana [TOPIC] aktif?",
+      "Sektor makro mana yang menaungi [TOPIC]?"
+    ],
+    "answers": [
+      "[TOPIC] termasuk dalam sektor *[SECTOR]*.",
+      "[TOPIC] beroperasi terutama di sektor *[SECTOR]*.",
+      "Sektor referensi untuk [TOPIC] adalah *[SECTOR]*.",
+      "[TOPIC] masuk dalam sektor *[SECTOR]*.",
+      "[TOPIC] diklasifikasikan ke dalam sektor *[SECTOR]*.",
+      "Dari sudut pandang ekonomi, [TOPIC] adalah bagian dari sektor *[SECTOR]*.",
+      "[TOPIC] dianggap sebagai bagian dari sektor *[SECTOR]*.",
+      "Sektor asal [TOPIC] adalah *[SECTOR]*.",
+      "Menurut saya [TOPIC] termasuk dalam sektor *[SECTOR]*.",
+      "[TOPIC] dapat diklasifikasikan dalam sektor *[SECTOR]*",
+      "Kita dapat mengklasifikasikan [TOPIC] sebagai bagian dari sektor *[SECTOR]*"
+    ],
+    "cost": 0,
+    "keywords": ["sektor", "industri", "aktivitas", "keanggotaan", "termasuk", "bidang", "kategori", "klasifikasi"],
+    "subquestions": {
+      "Apakah Anda juga ingin tahu sektor asal [FAVOURITE]?": "settore"
+    }
+  },
+  "sector_big_tech": {
+    "questions": [
+      "Bagaimana kondisi sektor big tech?",
+      "Bagaimana kinerja sektor big tech?",
+      "Apa sentimen untuk sektor big tech?",
+      "Bagaimana suasana di sektor big tech?",
+      "Bagaimana perkembangan sektor big tech?",
+      "Bagaimana kabar perusahaan big tech?",
+      "Beri tahu saya sentimen big tech",
+      "Apa tren sektor teknologi big tech?",
+      "Bagaimana kondisi sektor perangkat lunak dan Internet?",
+      "Bagaimana kinerja segmen big tech?",
+      "Apa prospek sektor big tech?",
+      "Bagaimana Anda melihat sektor big tech periode ini?",
+      "Bagaimana sentimen umum terhadap big tech?",
+      "Apakah sektor big tech sedang tumbuh?",
+      "Apakah sektor big tech sedang kesulitan?",
+      "Tren apa yang ada di sektor big tech?",
+      "Pembaruan tentang sektor big tech",
+      "Beri saya analisis sektor big tech",
+      "Analisis sentimen big tech",
+      "Outlook sektor big tech"
+    ],
+    "answers": [
+      "Sektor *big tech (perangkat lunak dan internet)* saat ini menunjukkan sentimen keseluruhan sebesar *[BIGTECH_SCORE]*. Nilai ini mencerminkan tren umum segmen tersebut, dengan mempertimbangkan data pasar, tren terkini, dan perilaku investor.",
+      "Pada periode ini, sektor *big tech (perangkat lunak dan internet)* memiliki perkiraan sentimen sekitar *[BIGTECH_SCORE]*. Data ini memberikan gambaran ringkas tentang persepsi pasar terhadap segmen tersebut secara keseluruhan.",
+      "Sentimen umum sektor *big tech (perangkat lunak dan internet)* adalah *[BIGTECH_SCORE]*. Indikator ini membantu memahami apakah pasar menunjukkan orientasi yang lebih positif, netral, atau hati-hati terhadap sektor ini.",
+      "Menganalisis sektor *big tech (perangkat lunak dan internet)*, muncul sentimen keseluruhan sebesar *[BIGTECH_SCORE]*. Nilai tersebut memperhitungkan berbagai faktor, termasuk kinerja terkini, volatilitas, dan aliran modal.",
+      "Saat ini sektor *big tech (perangkat lunak dan internet)* menunjukkan tingkat sentimen sebesar *[BIGTECH_SCORE]*. Ini adalah ukuran yang berguna untuk mendapatkan gambaran umum suasana pasar pada segmen tersebut.",
+      "Segmen *big tech (perangkat lunak dan internet)* mencatat sentimen agregat sebesar *[BIGTECH_SCORE]*. Angka ini memberikan indikasi ringkas tentang bagaimana pasar mengevaluasi sektor tersebut secara keseluruhan.",
+      "Menurut analisis yang tersedia, sektor *big tech (perangkat lunak dan internet)* menunjukkan sentimen keseluruhan sebesar *[BIGTECH_SCORE]*. Ini adalah nilai yang merangkum tren umum yang diamati di pasar.",
+      "Sektor *big tech (perangkat lunak dan internet)* saat ini menyajikan perkiraan sentimen sebesar *[BIGTECH_SCORE]*, memberikan gambaran yang jelas tentang orientasi pasar terhadap segmen ini."
+    ],
+    "cost": 3,
+    "keywords": ["big tech", "sektor", "perangkat lunak", "internet", "teknologi", "tech", "industri", "prospek", "sentimen", "tren"],
+    "subquestions": {
+      "Apakah Anda juga ingin tahu sentimen sektor kecerdasan buatan (AI)?": "sector_semiconductors",
+      "Apakah Anda juga tertarik dengan sentimen umum sektor keuangan?": "sector_financial_services"
+    }
+  },
+  "sector_semiconductors": {
+    "questions": [
+      "Bagaimana kondisi sektor semikonduktor dan AI?",
+      "Bagaimana kondisi sektor AI?",
+      "Bagaimana kondisi sektor kecerdasan buatan?",
+      "Bagaimana kabar sektor chip?",
+      "Bagaimana perkembangan sektor mikrochip?",
+      "Apa sentimen sektor semikonduktor dan AI?",
+      "Apa sentimen sektor kecerdasan buatan?",
+      "Apa sentimen sektor mikrochip?",
+      "Bagaimana kinerja semikonduktor dan AI?",
+      "Beri tahu saya sentimen semikonduktor dan AI",
+      "Apa tren sektor semikonduktor dan AI?",
+      "Apa prospek sektor semikonduktor dan AI?",
+      "Apakah sektor semikonduktor dan AI sedang tumbuh?",
+      "Pembaruan tentang sektor semikonduktor dan AI",
+      "Mari kita analisis sektor perangkat keras (hardware)"
+    ],
+    "answers": [
+      "Sektor *Semikonduktor & AI* saat ini menunjukkan sentimen keseluruhan sebesar *[SEMICONDUCTORS_SCORE]*. Nilai ini mencerminkan tren umum segmen tersebut berdasarkan data pasar dan perilaku investor.",
+      "Saat ini, sektor *Semikonduktor & AI* memiliki estimasi sentimen sekitar *[SEMICONDUCTORS_SCORE]*. Data ini memberikan pandangan ringkas tentang persepsi pasar.",
+      "Sentimen umum sektor *Semikonduktor & AI* adalah *[SEMICONDUCTORS_SCORE]*. Indikator ini membantu memahami orientasi pasar apakah positif, netral, atau hati-hati.",
+      "Menganalisis sektor *Semikonduktor & AI*, muncul sentimen keseluruhan sebesar *[SEMICONDUCTORS_SCORE]*, dengan mempertimbangkan volatilitas dan aliran modal.",
+      "Saat ini, sektor *Semikonduktor & AI* menunjukkan tingkat sentimen *[SEMICONDUCTORS_SCORE]*, berguna untuk memahami suasana pasar.",
+      "Segmen *Semikonduktor & AI* mencatat sentimen agregat sebesar *[SEMICONDUCTORS_SCORE]*.",
+      "Menurut analisis, sektor *Semikonduktor & AI* menunjukkan sentimen keseluruhan sebesar *[SEMICONDUCTORS_SCORE]*.",
+      "Sektor *Semikonduktor & AI* saat ini menyajikan estimasi sentimen sebesar *[SEMICONDUCTORS_SCORE]*."
+    ],
+    "cost": 3,
+    "keywords": ["sektor", "semikonduktor", "AI", "kecerdasan", "buatan", "chip", "mikrochip", "teknologi", "tech", "hardware"],
+    "subquestions": {
+      "Apakah Anda juga ingin tahu sentimen sektor otomotif?": "sector_automotive",
+      "Apakah Anda juga tertarik dengan sentimen umum sektor keuangan?": "sector_financial_services"
+    }
+  },
+  "sector_financial_services": {
+    "questions": [
+      "Bagaimana kondisi sektor jasa keuangan?",
+      "Apa sentimen sektor jasa keuangan?",
+      "Bagaimana suasana di jasa keuangan?",
+      "Bagaimana perkembangan sektor perbankan dan keuangan?",
+      "Bagaimana kinerja jasa keuangan?",
+      "Apa prospek sektor jasa keuangan?",
+      "Bagaimana Anda melihat sektor perbankan?",
+      "Bagaimana kondisi sektor investasi keuangan?",
+      "Apakah sektor jasa keuangan sedang tumbuh?",
+      "Apakah sektor keuangan sedang kesulitan?",
+      "Pembaruan tentang sektor jasa keuangan",
+      "Bagaimana kondisi sektor asuransi?",
+      "Bagaimana kabar perusahaan asuransi?",
+      "Bagaimana kondisi sektor perasuransian?"
+    ],
+    "answers": [
+      "Sektor *Jasa Keuangan* saat ini menunjukkan sentimen keseluruhan sebesar *[FINANCIAL_SCORE]*. Nilai ini mencerminkan perkembangan umum segmen tersebut.",
+      "Pada periode ini, sektor *Jasa Keuangan* menyajikan estimasi sentimen sekitar *[FINANCIAL_SCORE]*.",
+      "Sentimen umum sektor *Jasa Keuangan* adalah *[FINANCIAL_SCORE]*.",
+      "Menganalisis sektor *Jasa Keuangan*, muncul sentimen keseluruhan sebesar *[FINANCIAL_SCORE]*.",
+      "Saat ini, sektor *Jasa Keuangan* menunjukkan tingkat sentimen *[FINANCIAL_SCORE]*.",
+      "Segmen *Jasa Keuangan* mencatat sentimen agregat sebesar *[FINANCIAL_SCORE]*.",
+      "Menurut analisis, sektor *Jasa Keuangan* menunjukkan sentimen keseluruhan sebesar *[FINANCIAL_SCORE]*.",
+      "Sektor *Jasa Keuangan* saat ini menyajikan estimasi sentimen sebesar *[FINANCIAL_SCORE]*."
+    ],
+    "cost": 3,
+    "keywords": ["sektor", "jasa keuangan", "bank", "perbankan", "asuransi", "finansial", "investasi", "keuangan", "pasar", "ekonomi"],
+    "subquestions": {
+      "Apakah Anda juga ingin tahu sentimen sektor otomotif?": "sector_automotive",
+      "Apakah Anda juga tertarik dengan sentimen umum sektor kesehatan-farmasi?": "sector_healthcare_pharma"}
+  },
+  "sector_automotive": {
+    "questions": [
+      "Bagaimana kondisi sektor otomotif & mobilitas?",
+      "Bagaimana kondisi industri mobil?",
+      "Bagaimana kinerja sektor mobilitas?",
+      "Apa sentimen sektor otomotif?",
+      "Bagaimana perkembangan perusahaan mobil?",
+      "Bagaimana kinerja industri otomotif?",
+      "Apa prospek sektor otomotif & mobilitas?",
+      "Apakah sektor otomotif & mobilitas sedang tumbuh?",
+      "Apa tren sektor transportasi?",
+      "Pembaruan sektor otomotif & mobilitas",
+      "Bagaimana kondisi sektor mobil?",
+      "Bagaimana kinerja sektor transportasi?"
+    ],
+    "answers": [
+      "Sektor *Otomotif & Mobilitas* saat ini menunjukkan sentimen keseluruhan sebesar *[AUTOMOTIVE_SCORE]*. Nilai ini mencerminkan tren umum segmen tersebut.",
+      "Pada periode ini, sektor *Otomotif & Mobilitas* menyajikan estimasi sentimen sekitar *[AUTOMOTIVE_SCORE]*.",
+      "Sentimen umum sektor *Otomotif & Mobilitas* adalah *[AUTOMOTIVE_SCORE]*.",
+      "Menganalisis sektor *Otomotif & Mobilitas*, muncul sentimen keseluruhan sebesar *[AUTOMOTIVE_SCORE]*.",
+      "Saat ini, sektor *Otomotif & Mobilitas* menunjukkan tingkat sentimen sebesar *[AUTOMOTIVE_SCORE]*.",
+      "Segmen *Otomotif & Mobilitas* mencatat sentimen agregat sebesar *[AUTOMOTIVE_SCORE]*.",
+      "Menurut analisis, sektor *Otomotif & Mobilitas* menunjukkan sentimen keseluruhan sebesar *[AUTOMOTIVE_SCORE]*.",
+      "Sektor *Otomotif & Mobilitas* saat ini menyajikan estimasi sentimen sebesar *[AUTOMOTIVE_SCORE]*."
+    ],
+    "cost": 3,
+    "keywords": ["sektor", "otomotif", "mobil", "mobilitas", "transportasi", "kendaraan", "industri", "transport", "bisnis"],
+    "subquestions": {
+      "Apakah Anda juga ingin tahu sentimen sektor konsumsi dan ritel?": "sector_consumer",
+      "Apakah Anda juga tertarik dengan sentimen umum sektor kesehatan-farmasi?": "sector_healthcare_pharma"}
+  }
 }
