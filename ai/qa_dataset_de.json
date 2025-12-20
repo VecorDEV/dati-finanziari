@@ -9531,5 +9531,180 @@
   "subquestions": {
     "Möchten Sie auch wissen, wie der Herden-Effekt im Trading funktioniert?": "effetto_gregge",
     "Möchten Sie, dass ich Ihnen auch erkläre, wie Anleihen (Obligationen) funktionieren?": "obbligazioni_info"}
-}
+},
+  "settore": {
+    "questions": [
+      "Welchem Sektor gehört [TOPIC] an?",
+      "In welchem Sektor ist [TOPIC] tätig?",
+      "Was ist der Sektor von [TOPIC]?",
+      "In welcher Branche ist [TOPIC] angesiedelt?",
+      "Zu welchem Sektor gehört [TOPIC]?",
+      "Kannst du mir den Sektor von [TOPIC] nennen?",
+      "In welchen Bereich fällt [TOPIC]?",
+      "Zu welcher Branche gehört [TOPIC]?",
+      "Welche Art von Sektor ist [TOPIC]?",
+      "Wie wird [TOPIC] nach Sektoren klassifiziert?",
+      "Wie können wir [TOPIC] einordnen?",
+      "Klassifiziere [TOPIC]",
+      "Zugehöriger Sektor von [TOPIC]",
+      "[TOPIC] ist Teil welches Sektors?",
+      "In welchem Bereich operiert [TOPIC]?",
+      "Was ist der Wirtschaftssektor von [TOPIC]?",
+      "Nennst du mir den Industriesektor von [TOPIC]?",
+      "Worunter fällt [TOPIC]?",
+      "Wo ordnet sich [TOPIC] ein?",
+      "In was ist [TOPIC] tätig?",
+      "Welche Art von Industrie ist [TOPIC]?",
+      "Welcher Art ist die Geschäftstätigkeit von [TOPIC]?",
+      "In welchem Sektor ist [TOPIC] aktiv?",
+      "Welchem Makrosektor ist [TOPIC] untergeordnet?"
+    ],
+    "answers": [
+      "[TOPIC] gehört zum Sektor *[SECTOR]*.",
+      "[TOPIC] ist hauptsächlich im Sektor *[SECTOR]* tätig.",
+      "Der Referenzsektor für [TOPIC] ist *[SECTOR]*.",
+      "[TOPIC] fällt in den Sektor *[SECTOR]*.",
+      "[TOPIC] wird innerhalb des Sektors *[SECTOR]* klassifiziert.",
+      "Aus wirtschaftlicher Sicht ist [TOPIC] Teil des Sektors *[SECTOR]*.",
+      "[TOPIC] wird als Teil des Sektors *[SECTOR]* betrachtet.",
+      "Der Sektor, dem [TOPIC] angehört, ist *[SECTOR]*.",
+      "Ich würde sagen, dass [TOPIC] zum Sektor *[SECTOR]* gehört.",
+      "[TOPIC] kann in den Sektor *[SECTOR]* eingeordnet werden.",
+      "Wir können [TOPIC] als Teil des Sektors *[SECTOR]* klassifizieren."
+    ],
+    "cost": 0,
+    "keywords": ["Sektor", "Industrie", "Tätigkeit", "Zugehörigkeit", "gehört", "Bereich", "Kategorie", "Klassifizierung"],
+    "subquestions": {
+      "Möchtest du auch den Sektor von [FAVOURITE] wissen?": "settore"
+    }
+  },
+  "sector_big_tech": {
+    "questions": [
+      "Wie läuft es im Big-Tech-Sektor?",
+      "Wie entwickelt sich der Big-Tech-Sektor?",
+      "Wie ist das Sentiment im Big-Tech-Sektor?",
+      "Wie ist die Stimmung im Bereich Big Tech?",
+      "Wie schreitet der Big-Tech-Sektor voran?",
+      "Wie geht es den Big-Tech-Unternehmen?",
+      "Nenne mir das Sentiment für Big Tech",
+      "Was ist der Trend im Big-Tech-Technologie-Sektor?",
+      "Wie läuft es im Software- und Internetsektor?",
+      "Wie entwickelt sich das Big-Tech-Segment?",
+      "Welche Aussichten hat der Big-Tech-Sektor?",
+      "Wie siehst du den Big-Tech-Sektor aktuell?",
+      "Wie ist das allgemeine Sentiment für Big Tech?",
+      "Wächst der Big-Tech-Sektor?",
+      "Steckt der Big-Tech-Sektor in Schwierigkeiten?",
+      "Welcher Trend zeichnet sich bei Big Tech ab?",
+      "Update zum Big-Tech-Sektor",
+      "Erstelle mir eine Analyse des Big-Tech-Sektors",
+      "Sentiment-Analyse Big Tech",
+      "Outlook Big-Tech-Sektor"
+    ],
+    "answers": [
+      "Der Sektor *Big Tech (Software und Internet)* zeigt aktuell ein Gesamt-Sentiment von *[BIGTECH_SCORE]*. Dieser Wert spiegelt die allgemeine Entwicklung wider, basierend auf Marktdaten, aktuellen Trends und dem Anlegerverhalten.",
+      "In diesem Zeitraum weist der Sektor *Big Tech (Software und Internet)* ein geschätztes Sentiment von etwa *[BIGTECH_SCORE]* auf. Dieser Datenpunkt bietet einen zusammenfassenden Überblick über die Marktwahrnehmung des gesamten Segments.",
+      "Das allgemeine Sentiment für den Sektor *Big Tech (Software und Internet)* liegt bei *[BIGTECH_SCORE]*. Dieser Indikator hilft zu verstehen, ob der Markt eher positiv, neutral oder vorsichtig gegenüber dem Sektor eingestellt ist.",
+      "Bei der Analyse des Sektors *Big Tech (Software und Internet)* ergibt sich ein Gesamt-Sentiment von *[BIGTECH_SCORE]*. Der Wert berücksichtigt Faktoren wie die jüngste Performance, Volatilität und Kapitalflüsse.",
+      "Aktuell zeigt der Sektor *Big Tech (Software und Internet)* ein Sentiment-Niveau von *[BIGTECH_SCORE]*. Dies ist ein nützliches Maß für das allgemeine Marktstimmungsbild in diesem Bereich.",
+      "Das Segment *Big Tech (Software und Internet)* verzeichnet ein aggregiertes Sentiment von *[BIGTECH_SCORE]*. Diese Kennzahl bietet einen Überblick darüber, wie der Markt den Sektor als Ganzes bewertet.",
+      "Laut den verfügbaren Analysen zeigt der Sektor *Big Tech (Software und Internet)* ein Gesamt-Sentiment von *[BIGTECH_SCORE]*. Es ist ein Wert, der den im Markt beobachteten allgemeinen Trend zusammenfasst.",
+      "Der Sektor *Big Tech (Software und Internet)* weist derzeit ein geschätztes Sentiment von *[BIGTECH_SCORE]* auf und bietet damit einen klaren Überblick über die Marktorientierung in diesem Bereich."
+    ],
+    "cost": 3,
+    "keywords": ["Big Tech", "Sektor", "Software", "Internet", "Technologie", "Tech", "technologisch", "Industrie", "Ausblick", "Sentiment"],
+    "subquestions": {
+      "Möchtest du auch das Sentiment für den Bereich Künstliche Intelligenz wissen?": "sector_semiconductors",
+      "Interessiert dich auch das allgemeine Sentiment für den Finanzsektor?": "sector_financial_services"
+    }
+  },
+  "sector_semiconductors": {
+    "questions": [
+      "Wie läuft es im Halbleiter- und KI-Sektor?",
+      "Wie läuft es im KI-Sektor?",
+      "Wie steht es um den Bereich Künstliche Intelligenz?",
+      "Wie läuft es im Chip-Sektor?",
+      "Wie entwickelt sich die Mikrochip-Industrie?",
+      "Wie ist das Sentiment bei Halbleitern und KI?",
+      "Wie ist die Stimmung im KI-Bereich?",
+      "Welcher Trend zeichnet sich bei Halbleitern und KI ab?",
+      "Wie geht es den Halbleiter- und KI-Unternehmen?",
+      "Update zum Sektor Halbleiter und KI",
+      "Analysieren wir den Hardware-Sektor"
+    ],
+    "answers": [
+      "Der Sektor *Semiconductors & AI* zeigt aktuell ein Gesamt-Sentiment von *[SEMICONDUCTORS_SCORE]*. Dieser Wert spiegelt die allgemeine Branchenentwicklung unter Berücksichtigung von Marktdaten und Anlegerverhalten wider.",
+      "Aktuell weist der Sektor *Semiconductors & AI* ein geschätztes Sentiment von etwa *[SEMICONDUCTORS_SCORE]* auf.",
+      "Das allgemeine Sentiment für den Sektor *Semiconductors & AI* liegt bei *[SEMICONDUCTORS_SCORE]*.",
+      "Die Analyse des Sektors *Semiconductors & AI* ergibt ein Gesamt-Sentiment von *[SEMICONDUCTORS_SCORE]*, basierend auf Volatilität und Kapitalflüssen.",
+      "Der Bereich *Semiconductors & AI* zeigt derzeit ein Sentiment-Niveau von *[SEMICONDUCTORS_SCORE]*.",
+      "Das Segment *Semiconductors & AI* verzeichnet ein aggregiertes Sentiment von *[SEMICONDUCTORS_SCORE]*.",
+      "Laut Analysen zeigt der Sektor *Semiconductors & AI* ein Gesamt-Sentiment von *[SEMICONDUCTORS_SCORE]*.",
+      "Der Sektor *Semiconductors & AI* präsentiert derzeit ein geschätztes Sentiment von *[SEMICONDUCTORS_SCORE]*."
+    ],
+    "cost": 3,
+    "keywords": ["Sektor", "Halbleiter", "KI", "Intelligenz", "künstliche", "Chips", "Mikrochips", "Technologie", "Tech", "Hardware"],
+    "subquestions": {
+      "Möchtest du auch das Sentiment für den Automobilsektor wissen?": "sector_automotive",
+      "Interessiert dich auch das allgemeine Sentiment für den Finanzsektor?": "sector_financial_services"
+    }
+  },
+  "sector_financial_services": {
+    "questions": [
+      "Wie läuft der Finanzdienstleistungssektor?",
+      "Wie ist das Sentiment bei Finanzdienstleistungen?",
+      "Wie entwickelt sich der Banken- und Finanzsektor?",
+      "Wie geht es den Finanzdienstleistern?",
+      "Wie siehst du den Bankensektor aktuell?",
+      "Wie ist der Bereich Finanzinvestitionen?",
+      "Wie läuft es im Versicherungssektor?",
+      "Wie geht es den Versicherungsgesellschaften?",
+      "Wie läuft die Versicherungsbranche?"
+    ],
+    "answers": [
+      "Der Sektor *Financial Services* zeigt aktuell ein Gesamt-Sentiment von *[FINANCIAL_SCORE]*. Dieser Wert spiegelt die allgemeine Entwicklung des Segments wider.",
+      "Aktuell weist der Sektor *Financial Services* ein geschätztes Sentiment von etwa *[FINANCIAL_SCORE]* auf.",
+      "Das allgemeine Sentiment für den Sektor *Financial Services* liegt bei *[FINANCIAL_SCORE]*.",
+      "Die Analyse des Sektors *Financial Services* ergibt ein Gesamt-Sentiment von *[FINANCIAL_SCORE]*.",
+      "Der Sektor *Financial Services* zeigt derzeit ein Sentiment von *[FINANCIAL_SCORE]*.",
+      "Das Segment *Financial Services* verzeichnet ein aggregiertes Sentiment von *[FINANCIAL_SCORE]*.",
+      "Laut Marktanalysen zeigt der Sektor *Financial Services* ein Gesamt-Sentiment von *[FINANCIAL_SCORE]*.",
+      "Der Sektor *Financial Services* weist derzeit ein geschätztes Sentiment von *[FINANCIAL_SCORE]* auf."
+    ],
+    "cost": 3,
+    "keywords": ["Sektor", "Finanzdienstleistungen", "Banken", "Bankwesen", "Versicherungen", "Versicherungssektor", "Finanzen", "Investitionen", "finanziell", "Markt"],
+    "subquestions": {
+      "Möchtest du auch das Sentiment für den Automobilsektor wissen?": "sector_automotive",
+      "Interessiert dich auch das allgemeine Sentiment für den Gesundheits- und Pharmasektor?": "sector_healthcare_pharma"
+    }
+  },
+  "sector_automotive": {
+    "questions": [
+      "Wie läuft es im Sektor Automotive & Mobility?",
+      "Wie geht es der Automobilindustrie?",
+      "Wie entwickelt sich der Mobilitätssektor?",
+      "Wie ist das Sentiment im Automobilsektor?",
+      "Wie läuft es bei den Automobilunternehmen?",
+      "Was sind die Aussichten für Automotive & Mobility?",
+      "Wächst der Automobilsektor?",
+      "Wie ist der Trend im Transportwesen?",
+      "Update zum Automotive-Sektor",
+      "Wie läuft die Autobranche?"
+    ],
+    "answers": [
+      "Der Sektor *Automotive & Mobility* zeigt aktuell ein Gesamt-Sentiment von *[AUTOMOTIVE_SCORE]*. Dieser Wert spiegelt die allgemeine Tendenz des Segments wider.",
+      "Aktuell weist der Sektor *Automotive & Mobility* ein geschätztes Sentiment von etwa *[AUTOMOTIVE_SCORE]* auf.",
+      "Das allgemeine Sentiment für den Sektor *Automotive & Mobility* liegt bei *[AUTOMOTIVE_SCORE]*.",
+      "Die Analyse des Sektors *Automotive & Mobility* ergibt ein Gesamt-Sentiment von *[AUTOMOTIVE_SCORE]*.",
+      "Der Bereich *Automotive & Mobility* zeigt derzeit ein Sentiment von *[AUTOMOTIVE_SCORE]*.",
+      "Das Segment *Automotive & Mobility* verzeichnet ein aggregiertes Sentiment von *[AUTOMOTIVE_SCORE]*.",
+      "Laut Marktanalysen zeigt der Sektor *Automotive & Mobility* ein Gesamt-Sentiment von *[AUTOMOTIVE_SCORE]*.",
+      "Der Sektor *Automotive & Mobility* weist derzeit ein geschätztes Sentiment von *[AUTOMOTIVE_SCORE]* auf."
+    ],
+    "cost": 3,
+    "keywords": ["Sektor", "Automotive", "Automobil", "Autos", "Mobilität", "Fahrzeuge", "Transport", "Verkehr", "Industrie", "Transportwesen"],
+    "subquestions": {
+      "Möchtest du auch das Sentiment für den Konsum- und Einzelhandelssektor wissen?": "sector_consumer",
+      "Interessiert dich auch das allgemeine Sentiment für den Gesundheits- und Pharmasektor?": "sector_healthcare_pharma"}
+  }
 }
