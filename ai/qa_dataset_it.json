@@ -10087,5 +10087,20 @@
   "subquestions": {
     "Vuoi sapere anche il sentiment generale del settore dell'AI?": "sector_semiconductors",
     "Ti interessa anche il sentiment generale sul settore dei colossi della tecnologia?": "sector_big_tech"}
+},
+  "sector_general": {
+  "questions": [
+    "Come procede quel settore?",
+    "Come sta andando questo settore?",
+    "Qual è il sentiment sul suo settore?",
+    "Come va il settore?",
+    "Come va il suo settore?"
+  ],
+  "answers": [
+    "Il sentiment generale calcolato per il settore [LAST_SECTOR] risulta [LAST_SECTOR_SCORE]. Questo dato è stato ottenuto prendendo in analisi dati di mercato, trend recenti e comportamento degli investitori.",
+    "Per quanto riguarda il settore [LAST_SECTOR], il sentiment complessivo risulta pari a [LAST_SECTOR_SCORE].\nPer darti questo dato ho valutato diverse variabili, come dati di mercato, trend recenti e comportamento degli investitori."
+  ],
+  "cost": 3,
+  "keywords": ["settore", "come", "sentiment"]
 }
 }
