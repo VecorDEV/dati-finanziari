@@ -9823,5 +9823,205 @@
     "subquestions": {
       "Veux-tu aussi connaître le sentiment du secteur des métaux précieux et des matériaux ?": "sector_metals_materials",
       "Es-tu aussi intéressé par le sentiment général sur le secteur des télécommunications ?": "sector_media"}
+  },
+    "sector_metals_materials": {
+    "questions": [
+      "Comment va le secteur Precious Metals & Materials ?",
+      "Comment se porte le secteur des métaux précieux et des matériaux ?",
+      "Comment va le secteur des métaux précieux ?",
+      "Quel est le sentiment du secteur des matériaux précieux ?",
+      "Quelle est l'ambiance dans le secteur des matériaux ?",
+      "Comment évolue le secteur de l'or et de l'argent ?",
+      "Comment se porte le compartiment Precious Metals & Materials ?",
+      "Comment va le segment des métaux ?",
+      "Donne-moi le sentiment du secteur Precious Metals & Materials",
+      "Donne-moi le sentiment du secteur des matériaux et des métaux",
+      "Quelle est la tendance du secteur des métaux précieux ?",
+      "Comment va le secteur des métaux précieux ?",
+      "Comment se porte le secteur des matériaux industriels ?",
+      "Le compartiment des métaux précieux est-il en croissance ?",
+      "Comment progresse le secteur des matériaux ?",
+      "Quelle est la tendance dans le secteur des métaux et matériaux ?",
+      "Mise à jour sur le secteur des métaux précieux",
+      "Fais-moi une analyse du secteur Precious Metals & Materials",
+      "Analyse du sentiment sur les matériaux industriels",
+      "Outlook secteur matériaux et métaux précieux",
+      "Comment va le secteur des matières premières ?",
+      "Comment se porte le marché des matières premières ?",
+      "Comment vont les matières premières ?"
+    ],
+    "answers": [
+      "Le secteur *Precious Metals & Materials* affiche actuellement un sentiment global de *[METALS_SCORE]*. Cette valeur reflète la tendance générale du compartiment, compte tenu des données de marché, des tendances récentes et du comportement des investisseurs.",
+      "En cette période, le secteur *Precious Metals & Materials* présente un sentiment estimé autour de *[METALS_SCORE]*. Cette donnée fournit une vision synthétique de la perception du marché sur l'ensemble du compartiment.",
+      "Le sentiment général du secteur *Precious Metals & Materials* est de *[METALS_SCORE]*. Cet indicateur aide à comprendre si le marché montre une orientation plutôt positive, neutre ou prudente envers le secteur.",
+      "En analysant le secteur *Precious Metals & Materials*, il ressort un sentiment global de *[METALS_SCORE]*. La valeur tient compte de plusieurs facteurs, dont les performances récentes, la volatilité et les flux de capitaux.",
+      "Actuellement, le secteur *Precious Metals & Materials* met en évidence un niveau de sentiment de *[METALS_SCORE]*. C'est une mesure utile pour avoir un aperçu général de l'humeur du marché sur le compartiment.",
+      "Le compartiment *Precious Metals & Materials* enregistre un sentiment agrégé de *[METALS_SCORE]*. Cette donnée offre une indication synthétique sur la manière dont le marché évalue le secteur dans son ensemble.",
+      "Selon les analyses disponibles, le secteur *Precious Metals & Materials* affiche un sentiment global de *[METALS_SCORE]*. C'est une valeur qui résume la tendance générale observée sur le marché.",
+      "Le secteur *Precious Metals & Materials* présente pour le moment un sentiment estimé de *[METALS_SCORE]*, offrant un aperçu clair de l'orientation du marché vers ce compartiment."
+    ],
+    "cost": 3,
+    "keywords": ["métaux précieux", "precious metals", "matériaux", "or", "argent", "platine", "métaux", "commodities", "matières premières", "matière première", "brut"],
+    "subquestions": {
+      "Veux-tu aussi connaître le sentiment général des indices mondiaux ?": "sector_indices",
+      "Es-tu aussi intéressé par le sentiment général sur le secteur des télécommunications ?": "sector_media"
+    }
+  },
+  "sector_media": {
+    "questions": [
+      "Comment va le secteur Media & Telecom ?",
+      "Comment va le secteur des médias et des télécommunications ?",
+      "Comment se porte le secteur multimédia ?",
+      "Quel est le sentiment du secteur du streaming ?",
+      "Quelle est l'ambiance dans le secteur du divertissement ?",
+      "Comment évolue le secteur des télécommunications ?",
+      "Comment se porte le compartiment médias et communication ?",
+      "Donne-moi le sentiment du secteur des communications et du streaming",
+      "Quelle est la tendance du secteur des télécommunications ?",
+      "Comment va le secteur du streaming ?",
+      "Le compartiment streaming et télécommunications est-il en croissance ?",
+      "Quelle est la tendance dans le secteur du divertissement ?",
+      "Mise à jour sur le secteur Media et Telecom",
+      "Fais-moi une analyse du secteur des télécommunications",
+      "Analyse du sentiment des entreprises de télécommunication",
+      "Outlook secteur Media & Telecom"
+    ],
+    "answers": [
+      "Le secteur *Media & Telecom* affiche actuellement un sentiment global de *[MEDIA_SCORE]*. Cette valeur reflète la tendance générale du compartiment, compte tenu des données de marché, des tendances récentes et du comportement des investisseurs.",
+      "En cette période, le secteur *Media & Telecom* présente un sentiment estimé autour de *[MEDIA_SCORE]*. Cette donnée fournit une vision synthétique de la perception du marché sur l'ensemble du compartiment.",
+      "Le sentiment général du secteur *Media & Telecom* est de *[MEDIA_SCORE]*. Cet indicateur aide à comprendre si le marché montre une orientation plutôt positive, neutre ou prudente envers le secteur.",
+      "En analysant le secteur *Media & Telecom*, il ressort un sentiment global de *[MEDIA_SCORE]*. La valeur tient compte de plusieurs facteurs, dont les performances récentes, la volatilité et les flux de capitaux.",
+      "Actuellement, le secteur *Media & Telecom* met en évidence un niveau de sentiment de *[MEDIA_SCORE]*. C'est une mesure utile pour avoir un aperçu général de l'humeur du marché sur le compartiment.",
+      "Le compartiment *Media & Telecom* enregistre un sentiment agrégé de *[MEDIA_SCORE]*. Cette donnée offre une indication synthétique sur la manière dont le marché évalue le secteur dans son ensemble.",
+      "Selon les analyses disponibles, le secteur *Media & Telecom* affiche un sentiment global de *[MEDIA_SCORE]*. C'est une valeur qui résume la tendance générale observée sur le marché.",
+      "Le secteur *Media & Telecom* présente pour le moment un sentiment estimé de *[MEDIA_SCORE]*, offrant un aperçu clair de l'orientation du marché vers ce compartiment."
+    ],
+    "cost": 3,
+    "keywords": ["secteur", "média", "télécommunications", "télécommunication", "télécom", "streaming", "communications", "multimédia", "divertissement"],
+    "subquestions": {
+      "Veux-tu aussi connaître le sentiment général des indices mondiaux ?": "sector_indices",
+      "Es-tu aussi intéressé par le sentiment général sur les devises (FOREX) ?": "sector_forex"
+    }
+  },
+  "sector_indices": {
+    "questions": [
+      "Comment va le secteur Indices ?",
+      "Comment va le secteur des indices ?",
+      "Comment se portent les indices mondiaux ?",
+      "Quel est le sentiment général des indices ?",
+      "Quelle est l'ambiance sur les principaux indices mondiaux ?",
+      "Comment évolue le marché des indices ?",
+      "Comment se portent les principaux indices boursiers ?",
+      "Donne-moi le sentiment des indices mondiaux",
+      "Quelle est la tendance des indices ?",
+      "Mise à jour sur les indices mondiaux",
+      "Fais-moi une analyse du marché des indices",
+      "Analyse du sentiment indices",
+      "Outlook indices mondiaux",
+      "Quelle est la situation des principaux indices ?",
+      "Quelle est la tendance sur le marché des indices ?"
+    ],
+    "answers": [
+      "Le secteur *Indices* affiche actuellement un sentiment global de *[INDICES_SCORE]*. Cette valeur reflète la tendance générale des indices mondiaux, compte tenu des données de marché, des tendances récentes et du comportement des investisseurs.",
+      "En cette période, le secteur *Indices* présente un sentiment estimé autour de *[INDICES_SCORE]*. Cette donnée fournit une vision synthétique de la perception du marché sur l'ensemble du compartiment.",
+      "Le sentiment général du secteur *Indices* est de *[INDICES_SCORE]*. Cet indicateur aide à comprendre si le marché montre une orientation plutôt positive, neutre ou prudente envers les indices mondiaux.",
+      "En analysant le secteur *Indices*, il ressort un sentiment global de *[INDICES_SCORE]*. La valeur tient compte de plusieurs facteurs, dont les performances récentes, la volatilité et les flux de capitaux.",
+      "Actuellement, le secteur *Indices* met en évidence un niveau de sentiment de *[INDICES_SCORE]*. C'est une mesure utile pour avoir un aperçu général de l'humeur du marché sur le compartiment.",
+      "Le compartiment *Indices* enregistre un sentiment agrégé de *[INDICES_SCORE]*. Cette donnée offre une indication synthétique sur la manière dont le marché évalue les indices mondiaux dans leur ensemble.",
+      "Selon les analyses disponibles, le secteur *Indices* affiche un sentiment global de *[INDICES_SCORE]*. C'est une valeur qui résume la tendance générale observée sur le marché.",
+      "Le secteur *Indices* présente pour le moment un sentiment estimé de *[INDICES_SCORE]*, offrant un aperçu clair de l'orientation du marché vers les indices mondiaux."
+    ],
+    "cost": 3,
+    "keywords": ["secteur", "indices", "indices boursiers", "mondiaux", "actions", "bourse"],
+    "subquestions": {
+      "Veux-tu aussi connaître le sentiment général du secteur crypto ?": "sector_crypto",
+      "Es-tu aussi intéressé par le sentiment général sur les devises ?": "sector_forex"
+    }
+  },
+  "sector_forex": {
+    "questions": [
+      "Comment va le marché Forex ?",
+      "Comment se portent les principales devises ?",
+      "Quel est le sentiment du Forex ?",
+      "Quelle est l'ambiance sur le marché des changes ?",
+      "Comment évolue le marché Forex ?",
+      "Comment se porte le marché des devises ?",
+      "Donne-moi le sentiment du Forex",
+      "Donne-moi le sentiment général sur les devises",
+      "Quelle est la tendance des principales devises ?",
+      "Mise à jour sur le Forex",
+      "Fais-moi une analyse du marché des devises",
+      "Analyse du sentiment Forex",
+      "Outlook Forex",
+      "Sentiment devises",
+      "Quelle est la situation du marché des devises ?",
+      "Quelle tendance sur le Forex ?"
+    ],
+    "answers": [
+      "Le secteur *Forex* affiche actuellement un sentiment global de *[FOREX_SCORE]*. Cette valeur reflète la tendance générale du marché des devises, compte tenu des données de marché, des tendances récentes et du comportement des investisseurs.",
+      "En cette période, le secteur *Forex* présente un sentiment estimé autour de *[FOREX_SCORE]*. Cette donnée fournit une vision synthétique de la perception du marché sur l'ensemble du compartiment.",
+      "Le sentiment général du secteur *Forex* est de *[FOREX_SCORE]*. Cet indicateur aide à comprendre si le marché des changes montre une orientation plutôt positive, neutre ou prudente envers les devises.",
+      "En analysant le secteur *Forex*, il ressort un sentiment global de *[FOREX_SCORE]*. La valeur tient compte de plusieurs facteurs, dont les performances récentes, la volatilité et les flux de capitaux.",
+      "Actuellement, le secteur *Forex* met en évidence un niveau de sentiment de *[FOREX_SCORE]*. C'est une mesure utile pour avoir un aperçu général de l'humeur du marché sur le compartiment.",
+      "Le compartiment *Forex* enregistre un sentiment agrégé de *[FOREX_SCORE]*. Cette donnée offre une indication synthétique sur la manière dont le marché évalue les principales devises dans leur ensemble.",
+      "Selon les analyses disponibles, le secteur *Forex* affiche un sentiment global de *[FOREX_SCORE]*. C'est une valeur qui résume la tendance générale observée sur le marché des changes.",
+      "Le secteur *Forex* présente pour le moment un sentiment estimé de *[FOREX_SCORE]*, offrant un aperçu clair de l'orientation du marché vers les devises principales."
+    ],
+    "cost": 3,
+    "keywords": ["secteur", "forex", "devises", "devise", "marché des changes", "monnaie"],
+    "subquestions": {
+      "Veux-tu aussi connaître le sentiment général du secteur crypto ?": "sector_crypto",
+      "Es-tu aussi intéressé par le sentiment général sur le secteur big tech ?": "sector_big_tech"
+    }
+  },
+  "sector_crypto": {
+    "questions": [
+      "Comment va le secteur des cryptomonnaies ?",
+      "Comment se porte le secteur des cryptos ?",
+      "Quel est le sentiment sur le secteur des cryptomonnaies ?",
+      "Quelle est l'ambiance dans le domaine des cryptos ?",
+      "Comment évolue le marché des cryptomonnaies ?",
+      "Comment va le secteur crypto ?",
+      "Donne-moi le sentiment général des cryptos",
+      "Quelle est la tendance générale des cryptomonnaies ?",
+      "Comment va le marché général des monnaies numériques ?",
+      "Mise à jour du sentiment sur le marché crypto",
+      "Fais-moi une analyse du sentiment global des cryptomonnaies",
+      "Analyse du sentiment crypto",
+      "Outlook général cryptomonnaies",
+      "Quelle est la situation du secteur des cryptos ?",
+      "Quelle est la tendance dans le secteur des cryptomonnaies ?"
+    ],
+    "answers": [
+      "Le secteur *Cryptocurrencies* affiche actuellement un sentiment global de *[CRYPTO_SCORE]*. Cette valeur reflète la tendance générale du marché crypto, compte tenu des données de marché, des tendances récentes et du comportement des investisseurs.",
+      "En cette période, le secteur *Cryptocurrencies* présente un sentiment estimé autour de *[CRYPTO_SCORE]*. Cette donnée fournit une vision synthétique de la perception du marché sur l'ensemble du compartiment.",
+      "Le sentiment général du secteur *Cryptocurrencies* est de *[CRYPTO_SCORE]*. Cet indicateur aide à comprendre si le marché des cryptomonnaies montre une orientation plutôt positive, neutre ou prudente envers les cryptos.",
+      "En analysant le secteur *Cryptocurrencies*, il ressort un sentiment global de *[CRYPTO_SCORE]*. La valeur tient compte de plusieurs facteurs, dont les performances récentes, la volatilité et les flux de capitaux.",
+      "Actuellement, le secteur *Cryptocurrencies* met en évidence un niveau de sentiment de *[CRYPTO_SCORE]*. C'est une mesure utile pour avoir un aperçu général de l'humeur du marché sur le compartiment.",
+      "Le compartiment *Cryptocurrencies* enregistre un sentiment agrégé de *[CRYPTO_SCORE]*. Cette donnée offre une indication synthétique sur la manière dont le marché évalue les principales cryptos dans leur ensemble.",
+      "Selon les analyses disponibles, le secteur *Cryptocurrencies* affiche un sentiment global de *[CRYPTO_SCORE]*. C'est une valeur qui résume la tendance générale observée sur le marché des monnaies numériques.",
+      "Le secteur *Cryptocurrencies* présente pour le moment un sentiment estimé de *[CRYPTO_SCORE]*, offrant un aperçu clair de l'orientation du marché vers les cryptos principales."
+    ],
+    "cost": 3,
+    "keywords": ["secteur", "cryptomonnaies", "cryptomonnaie", "crypto", "monnaie numérique", "monnaies numériques", "blockchain"],
+    "subquestions": {
+      "Veux-tu aussi connaître le sentiment général du secteur de l'IA ?": "sector_semiconductors",
+      "Es-tu aussi intéressé par le sentiment général sur le secteur des géants de la technologie ?": "sector_big_tech"
+    }
+  },
+  "sector_general": {
+    "questions": [
+      "Comment évolue ce secteur ?",
+      "Comment se porte ce secteur ?",
+      "Quel est le sentiment sur son secteur ?",
+      "Comment va le secteur ?",
+      "Comment va son secteur ?"
+    ],
+    "answers": [
+      "Le sentiment général calculé pour le secteur [LAST_SECTOR] est de [LAST_SECTOR_SCORE]. Cette donnée a été obtenue en analysant les données de marché, les tendances récentes et le comportement des investisseurs.",
+      "En ce qui concerne le secteur [LAST_SECTOR], le sentiment global est de [LAST_SECTOR_SCORE]. Pour vous fournir cette donnée, j'ai évalué différentes variables telles que les données de marché, les tendances récentes et le comportement des investisseurs."
+    ],
+    "cost": 3,
+    "keywords": ["secteur", "comment", "sentiment"]
   }
 }
