@@ -10092,5 +10092,103 @@
     ],
     "cost": 3,
     "keywords": ["Sektor", "wie", "Sentiment"]
+  },
+    "asset_sector_score": {
+    "questions": [
+      "Wie entwickelt sich der Sektor von [TOPIC]?",
+      "Wie läuft es im Sektor von [TOPIC]?",
+      "Wie ist das Sentiment im Sektor von [TOPIC]?",
+      "Sag mir, wie es dem Sektor geht, in dem [TOPIC] liegt",
+      "Wie schreitet der Sektor voran, zu dem [TOPIC] gehört?",
+      "Wie läuft der Sektor, dem [TOPIC] angehört?",
+      "In welchen Sektor fällt [TOPIC] und wie läuft dieser?",
+      "Welchen Trend hat der Sektor von [TOPIC]?",
+      "Wie ist der Sektor, in dem [TOPIC] tätig ist?",
+      "Wie läuft der Referenzmarkt von [TOPIC]?",
+      "Läuft der Sektor von [TOPIC] gut?"
+    ],
+    "answers": [
+      "Nach den Berechnungen meines Algorithmus hat der Sektor [SECTOR] aktuell ein Gesamt-Sentiment von [SECTOR_SCORE]",
+      "Soweit ich weiß, liegt das allgemeine Sentiment für [SECTOR] bei [SECTOR_SCORE]",
+      "Der Sektor [SECTOR] weist ein Gesamt-Sentiment von [SECTOR_SCORE] auf",
+      "Hier ist das allgemeine Sentiment für den Sektor [SECTOR]: [SECTOR_SCORE]"
+    ],
+    "cost": 3,
+    "keywords": ["Sektor", "Bereich", "Sentiment", "Stimmung"],
+    "subquestions": {
+      "Möchtest du auch das allgemeine Sentiment des Sektors von [FAVOURITE] wissen?": "asset_sector_score",
+      "Interessiert dich auch das allgemeine Sentiment für den Sektor von [FAVOURITE]?": "asset_sector_score",
+      "Soll ich dir auch sagen, wie der Sektor von [FAVOURITE] läuft?": "asset_sector_score"
+    }
+  },
+  "momentum": {
+    "questions": [
+      "Wie hoch ist das Momentum von [TOPIC]?",
+      "Wie ist das aktuelle Momentum von [TOPIC]?",
+      "Wie hoch ist das berechnete Momentum für [TOPIC]?",
+      "Momentum [TOPIC]",
+      "Gib mir das Momentum von [TOPIC]",
+      "Kannst du mir das Momentum für [TOPIC] nennen?",
+      "Kannst du mir die Stärke deiner Vorhersage für [TOPIC] nennen?",
+      "Wie stark ist deine Vorhersage für [TOPIC]?",
+      "Wie stark ist das für [TOPIC] berechnete Sentiment?",
+      "Wie zuverlässig ist deine Vorhersage für [TOPIC]?",
+      "Wie sehr kann ich dieser Vorhersage vertrauen?"
+    ],
+    "answers": [
+      "Das aktuelle Momentum von [TOPIC] beträgt *[MOMENTUM]* 📊.\n\nDas Momentum repräsentiert die *Gesamtstärke der Vorhersage*. Es wird berechnet, indem Markttrends, historische Daten, Indikatoren und das jüngste Preisverhalten kombiniert werden. Ein höherer Wert deutet auf eine solidere Vorhersage hin, die mit den verfügbaren Daten übereinstimmt.\nEs ist jedoch wichtig zu bedenken, dass selbst ein hohes Momentum *niemals ein zu 100 % sicheres Ergebnis garantiert*, sondern lediglich einen Hinweis auf die Wahrscheinlichkeit und Qualität des Signals gibt.",
+      "Für [TOPIC] liegt das geschätzte Momentum bei *[MOMENTUM]*.\n\nDieser Wert misst, wie stark die Vorhersage durch Marktdaten gestützt wird: Je höher das Momentum, desto größer sind die Signalstärke und die Übereinstimmung der analysierten Indikatoren.\n⚠️ Ich erinnere dich jedoch daran, dass das Momentum *keine absolute Gewissheit* ist, sondern ein Instrument zur Entscheidungsunterstützung, das immer zusammen mit einem korrekten Risikomanagement verwendet werden sollte.",
+      "Das Momentum-Niveau von [TOPIC] beträgt *[MOMENTUM]* 🔍.\n\nDas Momentum gibt das *statistische Vertrauen in die Vorhersage* an, basierend auf mathematischen Modellen und realen Datenanalysen. Höhere Werte deuten auf eine stabilere Vorhersage hin, während niedrigere Werte auf größere Unsicherheit hinweisen.\n✋ Dennoch empfehle ich dir, auch bei gutem Momentum immer den Marktkontext zu berücksichtigen und dich nicht nur auf einen einzelnen Indikator zu verlassen.",
+      "Aktuell weist [TOPIC] ein Momentum von *[MOMENTUM]* auf.\n\nDieser Parameter drückt die *Stärke des Sentiments und der Vorhersage* aus, unter Berücksichtigung von Trends, Volatilität und technischen Bestätigungen. Ein hohes Momentum signalisiert eine aus Datensicht überzeugendere Vorhersage.\n‼️ Es bleibt jedoch fundamental zu wissen, dass Momentum *das Risiko nicht zu 100 % eliminiert*, aber hilft, die Qualität des Signals besser einzuschätzen.",
+      "Das mit [TOPIC] verbundene Momentum ist *[MOMENTUM]*.\n\nIn der Praxis dient das Momentum dazu, zu verstehen, *wie stark und zuverlässig eine Vorhersage ist*. Je höher es ist, desto mehr wird die Vorhersage gestützt.\n✋ Um jedoch ehrlich zu sein: Man muss bedenken, dass *kein Momentum-Wert eine absolute Garantie darstellt*. Es ist immer ein probabilistisches Werkzeug und keine Gewissheit."
+    ],
+    "cost": 3,
+    "keywords": ["Momentum", "Stärke", "stark", "zuverlässig", "vertrauen", "Vorhersage"],
+    "subquestions": {
+      "Möchtest du auch das allgemeine Sentiment des Sektors von [TOPIC] wissen?": "asset_sector_score",
+      "Interessiert dich auch das Momentum von [FAVOURITE]?": "momentum",
+      "Interessiert dich auch die HV90-Volatilität von [TOPIC]?": "volatility",
+      "Für einen umfassenderen Überblick kann ich dir sagen, wie der Sektor von [TOPIC] läuft. Soll ich?": "asset_sector_score",
+      "Wenn du mehr Daten analysieren möchtest, kann ich dich zur vollständigen Analyse von [TOPIC] führen. Möchtest du fortfahren?": "asset_analysis_open"
+    }
+  },
+  "volatility": {
+    "questions": [
+      "Wie hoch ist die HV90-Volatilität von [TOPIC]?",
+      "Wie ist die Volatilität von [TOPIC]?",
+      "Wie hoch ist die berechnete Volatilität für [TOPIC]?",
+      "Volatilität HV90 [TOPIC]",
+      "Historische 90-Tage-Volatilität für [TOPIC]",
+      "Historical Volatility 90 von [TOPIC]",
+      "Gib mir die Volatilität von [TOPIC]",
+      "Gib mir den HV90-Wert von [TOPIC]",
+      "HV90 für [TOPIC]",
+      "Kannst du mir die Volatilität für [TOPIC] nennen?",
+      "Wie volatil ist [TOPIC]?",
+      "Ist [TOPIC] zu volatil?",
+      "Wie riskant ist eine Investition in [TOPIC]?",
+      "Wie hoch ist das Risiko bei [TOPIC]?",
+      "Risiko bei einer Investition in [TOPIC]?",
+      "Gib mir das berechnete Risiko für [TOPIC]",
+      "Sag mir, wie riskant [TOPIC] gerade ist",
+      "Wie instabil ist [TOPIC] im Moment?",
+      "Wie instabil ist die Vorhersage?",
+      "Schwankt [TOPIC] stark?",
+      "Ist [TOPIC] gerade starken Schwankungen unterworfen?"
+    ],
+    "answers": [
+      "Die Volatilität von [TOPIC] beträgt *[VOLATILITY]*.\n\nIm Allgemeinen deutet eine höhere Volatilität auf größere Preisbewegungen und somit auf ein potenziell höheres Risiko hin.\n⚠️ Ich möchte dich jedoch daran erinnern, dass eine niedrige Volatilität kein Nullrisiko bedeutet.",
+      "Aktuell zeigt [TOPIC] eine Volatilität von *[VOLATILITY]*.\n\nHohe Werte deuten auf größere Instabilität hin, während niedrigere Werte auf geringere Bewegungen schließen lassen.\n‼️ Bitte beachte, dass eine geringere Volatilität das Risiko nicht eliminiert: Unvorhergesehene Ereignisse können den Preis dennoch beeinflussen.",
+      "Das Volatilitätsniveau von [TOPIC] wird auf etwa *[VOLATILITY]* geschätzt.\n\nEs ist ein nützliches Instrument zur Bewertung des Gesamtrisikoprofils, aber du musst immer bedenken, dass *Risiko niemals gleich null ist*, auch bei geringer Volatilität. Es muss immer im Kontext der Strategie betrachtet werden.",
+      "Für [TOPIC] beträgt die aktuelle Volatilität *[VOLATILITY]*.\n\nDieser Datenwert hilft, das Ausmaß der Preisschwankungen zu verstehen: Je höher er ist, desto schneller kann sich der Asset in beide Richtungen bewegen.\n⚠️ Denke jedoch immer daran, dass auch wenig volatile Assets plötzlichen Bewegungen unterliegen können.",
+      "Die für [TOPIC] registrierte Volatilität beträgt *[VOLATILITY]*.\n\nAllgemein bietet die HV90-Volatilität Hinweise auf das damit verbundene Risiko, indem sie die Preisschwankungen misst.\n⚠️ Bedenke jedoch, dass *eine niedrige Volatilität keine totale Sicherheit garantiert* und immer im Kontext gesehen werden muss."
+    ],
+    "cost": 3,
+    "keywords": ["Volatilität", "volatility", "volatil", "hv90", "instabil", "Instabilität", "schwankt", "Schwankung", "Risiko", "riskant"],
+    "subquestions": {
+      "Soll ich dir auch das allgemeine Sentiment des Sektors von [TOPIC] nennen?": "asset_sector_score",
+      "Interessiert es dich, auch das Momentum von [TOPIC] zu erfahren?": "momentum",
+      "Interessiert dich auch die HV90-Volatilität von [FAVOURITE]?": "volatility",
+      "Für einen breiteren Überblick kann ich die vollständige Analyse von [TOPIC] erstellen. Soll ich fortfahren?": "asset_analysis_open"}
   }
 }
