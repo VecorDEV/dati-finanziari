@@ -10245,5 +10245,35 @@
     "keywords": ["hv90", "hv", "90", "volatilità storica"],
     "subquestions": {
       "Vuoi sapere anche cosa si intende con momentum di un asset?": "momentum_info"}
+  },
+  "momentum_ranking": {
+    "questions": [
+      "Qual è la classifica dei momentum?",
+      "Chi ha il momentum più alto?",
+      "Quali asset hanno il momentum più forte?",
+      "Mostrami la classifica dei momentum",
+      "Quali sono i momentum più alti?",
+      "Chi sono i top momentum?",
+      "Asset con momentum più elevato",
+      "Chi guida il momentum in questo momento?",
+      "Dove posso vedere la classifica del momentum?",
+      "Qual è il ranking dei momentum?",
+      "Chi sono i top per momentum?",
+      "Quali sono i migliori momentum oggi?",
+      "Fammi vedere i momentum più forti",
+      "Dammi il top momentum",
+      "Qual è l'asset con momentum più alto?"
+    ],
+    "answers": [
+      "Puoi trovare la *classifica dei momentum* direttamente nel pannello in alto nella *home page* 🏠.\nAll’interno del pannello in cui vedi *Top Gainers* e *Top Losers*, premi sull’icona della freccia ⬆️ per visualizzare gli asset con il momentum più alto.",
+      "La classifica dei momentum è disponibile nel pannello superiore della *home page*.\nBasta cliccare sulla freccia ⬆️ nel pannello dedicato a *Top Gainers* e *Top Losers* per vedere quali asset mostrano il momentum più alto.",
+      "Per scoprire chi ha il momentum più elevato, puoi consultare il pannello in alto nella *home page*, dedicato a *top gainers* e *top losers*.\nUsa il simbolo della freccia ⬆️ per accedere alla classifica dei momentum e confrontare rapidamente gli asset.",
+      "Il ranking dei momentum non viene mostrato direttamente in chat, ma è facilmente consultabile dalla *home page*.\nConsulta il pannello *Top Gainers / Top Losers* e premi sulla freccia ⬆️ per visualizzare la classifica completa dei momentum."
+    ],
+    "cost": 0,
+    "keywords": ["momentum", "classifica", "ranking", "top momentum"],
+    "subquestions": {
+      "Se vuoi ti posso dire subito il momentum di [TOPIC]?": "momentum",
+      "Se vuoi posso darti subito il momentum di [FAVOURITE]?": "momentum"}
   }
 }
