@@ -10151,5 +10151,35 @@
     "keywords": ["hv90", "hv", "90", "volatilidade histórica", "volatilidade"],
     "subquestions": {
       "Queres saber também o que se entende por momentum de um ativo?": "momentum_info"}
+  },
+    "momentum_ranking": {
+    "questions": [
+      "Qual é a classificação do momentum?",
+      "Quem tem o momentum mais alto?",
+      "Quais ativos têm o momentum mais forte?",
+      "Mostre-me a classificação dos momentum",
+      "Quais são os momentum mais altos?",
+      "Quem são os top momentum?",
+      "Ativos com momentum mais elevado",
+      "Quem lidera o momentum neste momento?",
+      "Onde posso ver a classificação do momentum?",
+      "Qual é o ranking dos momentum?",
+      "Quem são os melhores por momentum?",
+      "Quais são os melhores momentum hoje?",
+      "Deixe-me ver os momentum mais fortes",
+      "Dê-me o top momentum",
+      "Qual é o ativo com momentum mais alto?"
+    ],
+    "answers": [
+      "Pode encontrar a *classificação do momentum* diretamente no painel superior na *home page* 🏠.\nDentro do painel onde vê *Top Gainers* e *Top Losers*, prima no ícone da seta ⬆️ para visualizar os ativos com o momentum mais alto.",
+      "A classificação do momentum está disponível no painel superior da *home page*.\nBasta clicar na seta ⬆️ no painel dedicado a *Top Gainers* e *Top Losers* para ver quais ativos apresentam o momentum mais alto.",
+      "Para descobrir quem tem o momentum mais elevado, pode consultar o painel no topo da *home page*, dedicado a *top gainers* e *top losers*.\nUse o símbolo da seta ⬆️ para aceder à classificação do momentum e comparar rapidamente os ativos.",
+      "O ranking do momentum não é mostrado diretamente no chat, mas é facilmente consultável na *home page*.\nConsulte o painel *Top Gainers / Top Losers* e prima a seta ⬆️ para visualizar a classificação completa do momentum."
+    ],
+    "cost": 0,
+    "keywords": ["momentum", "classificação", "ranking", "top momentum", "liderança"],
+    "subquestions": {
+      "Se quiser, posso dizer-lhe agora mesmo o momentum de [TOPIC]?": "momentum",
+      "Se preferir, posso dar-lhe já o momentum de [FAVOURITE]?": "momentum"}
   }
 }
