@@ -9861,5 +9861,210 @@
     "subquestions": {
       "Apakah Anda juga ingin tahu sentimen sektor logam mulia dan material?": "sector_metals_materials",
       "Apakah Anda juga tertarik dengan sentimen umum sektor telekomunikasi?": "sector_media"}
+  },
+    "sector_metals_materials": {
+    "questions": [
+      "Bagaimana kondisi sektor Precious Metals & Materials?",
+      "Bagaimana kondisi sektor logam mulia dan material?",
+      "Bagaimana kinerja sektor logam mulia?",
+      "Apa sentimen untuk sektor material berharga?",
+      "Bagaimana suasana di sektor material?",
+      "Bagaimana perkembangan sektor emas dan perak?",
+      "Bagaimana kinerja segmen Precious Metals & Materials?",
+      "Bagaimana kinerja segmen logam?",
+      "Beri tahu saya sentimen sektor Precious Metals & Materials",
+      "Beri tahu saya sentimen sektor material dan logam",
+      "Apa tren di sektor logam mulia?",
+      "Bagaimana kondisi industri logam mulia?",
+      "Bagaimana kinerja sektor material industri?",
+      "Apakah segmen logam mulia sedang tumbuh?",
+      "Bagaimana perkembangan sektor material?",
+      "Tren apa yang ada di sektor logam dan material?",
+      "Pembaruan tentang sektor logam mulia",
+      "Beri saya analisis sektor Precious Metals & Materials",
+      "Analisis sentimen material industri",
+      "Outlook sektor material dan logam mulia",
+      "Bagaimana kondisi sektor komoditas?",
+      "Bagaimana kinerja sektor bahan baku?",
+      "Bagaimana kondisi pasar bahan baku?",
+      "Bagaimana kabar komoditas mentah?"
+    ],
+    "answers": [
+      "Sektor *Precious Metals & Materials* saat ini menunjukkan sentimen keseluruhan sebesar *[METALS_SCORE]*. Nilai ini mencerminkan tren umum segmen tersebut, dengan mempertimbangkan data pasar, tren terkini, dan perilaku investor.",
+      "Pada periode ini, sektor *Precious Metals & Materials* memiliki perkiraan sentimen sekitar *[METALS_SCORE]*. Data ini memberikan gambaran ringkas tentang persepsi pasar terhadap segmen tersebut secara keseluruhan.",
+      "Sentimen umum sektor *Precious Metals & Materials* adalah *[METALS_SCORE]*. Indikator ini membantu memahami apakah pasar menunjukkan orientasi yang lebih positif, netral, atau hatihati terhadap sektor ini.",
+      "Menganalisis sektor *Precious Metals & Materials*, muncul sentimen keseluruhan sebesar *[METALS_SCORE]*. Nilai tersebut memperhitungkan berbagai faktor, termasuk kinerja terkini, volatilitas, dan aliran modal.",
+      "Saat ini sektor *Precious Metals & Materials* menunjukkan tingkat sentimen sebesar *[METALS_SCORE]*. Ini adalah ukuran yang berguna untuk mendapatkan gambaran umum suasana pasar pada segmen tersebut.",
+      "Segmen *Precious Metals & Materials* mencatat sentimen agregat sebesar *[METALS_SCORE]*. Angka ini memberikan indikasi ringkas tentang bagaimana pasar mengevaluasi sektor tersebut secara keseluruhan.",
+      "Menurut analisis yang tersedia, sektor *Precious Metals & Materials* menunjukkan sentimen keseluruhan sebesar *[METALS_SCORE]*. Ini adalah nilai yang merangkum tren umum yang diamati di pasar.",
+      "Sektor *Precious Metals & Materials* saat ini menyajikan perkiraan sentimen sebesar *[METALS_SCORE]*, memberikan gambaran yang jelas tentang orientasi pasar terhadap segmen ini."
+    ],
+    "cost": 3,
+    "keywords": ["logam mulia", "precious metals", "material", "emas", "perak", "platina", "logam", "komoditas", "bahan baku", "mentah", "komoditi"],
+    "subquestions": {
+      "Apakah Anda juga ingin tahu sentimen umum indeks global?": "sector_indices",
+      "Apakah Anda juga tertarik dengan sentimen umum sektor telekomunikasi?": "sector_media"
+    }
+  },
+  "sector_media": {
+    "questions": [
+      "Bagaimana kondisi sektor Media & Telecom?",
+      "Bagaimana kondisi sektor media dan telekomunikasi?",
+      "Bagaimana kinerja sektor multimedia?",
+      "Apa sentimen untuk sektor streaming?",
+      "Bagaimana suasana di sektor hiburan?",
+      "Bagaimana perkembangan sektor telekomunikasi?",
+      "Bagaimana kinerja segmen media dan komunikasi?",
+      "Beri tahu saya sentimen sektor komunikasi dan streaming",
+      "Apa tren di sektor telekomunikasi?",
+      "Bagaimana kondisi sektor streaming?",
+      "Bagaimana kinerja industri telekomunikasi?",
+      "Apakah segmen streaming dan telekomunikasi sedang tumbuh?",
+      "Bagaimana perkembangan industri telekomunikasi?",
+      "Tren apa yang ada di sektor hiburan?",
+      "Pembaruan tentang sektor Media dan Telecom",
+      "Beri saya analisis sektor telekomunikasi",
+      "Analisis sentimen perusahaan telekomunikasi",
+      "Outlook sektor Media & Telecom"
+    ],
+    "answers": [
+      "Sektor *Media & Telecom* saat ini menunjukkan sentimen keseluruhan sebesar *[MEDIA_SCORE]*. Nilai ini mencerminkan tren umum segmen tersebut, dengan mempertimbangkan data pasar, tren terkini, dan perilaku investor.",
+      "Pada periode ini, sektor *Media & Telecom* memiliki perkiraan sentimen sekitar *[MEDIA_SCORE]*. Data ini memberikan gambaran ringkas tentang persepsi pasar terhadap segmen tersebut secara keseluruhan.",
+      "Sentimen umum sektor *Media & Telecom* adalah *[MEDIA_SCORE]*. Indikator ini membantu memahami apakah pasar menunjukkan orientasi yang lebih positif, netral, atau hatihati terhadap sektor ini.",
+      "Menganalisis sektor *Media & Telecom*, muncul sentimen keseluruhan sebesar *[MEDIA_SCORE]*. Nilai tersebut memperhitungkan berbagai faktor, termasuk kinerja terkini, volatilitas, dan aliran modal.",
+      "Saat ini sektor *Media & Telecom* menunjukkan tingkat sentimen sebesar *[MEDIA_SCORE]*. Ini adalah ukuran yang berguna untuk mendapatkan gambaran umum suasana pasar pada segmen tersebut.",
+      "Segmen *Media & Telecom* mencatat sentimen agregat sebesar *[MEDIA_SCORE]*. Angka ini memberikan indikasi ringkas tentang bagaimana pasar mengevaluasi sektor tersebut secara keseluruhan.",
+      "Menurut analisis yang tersedia, sektor *Media & Telecom* menunjukkan sentimen keseluruhan sebesar *[MEDIA_SCORE]*. Ini adalah nilai yang merangkum tren umum yang diamati di pasar.",
+      "Sektor *Media & Telecom* saat ini menyajikan perkiraan sentimen sebesar *[MEDIA_SCORE]*, memberikan gambaran yang jelas tentang orientasi pasar terhadap segmen ini."
+    ],
+    "cost": 3,
+    "keywords": ["sektor", "media", "telekomunikasi", "telekom", "streaming", "komunikasi", "multimedia", "hiburan", "entertainment"],
+    "subquestions": {
+      "Apakah Anda juga ingin tahu sentimen umum indeks global?": "sector_indices",
+      "Apakah Anda juga tertarik dengan sentimen umum pada mata uang (FOREX)?": "sector_forex"
+    }
+  },
+  "sector_indices": {
+    "questions": [
+      "Bagaimana kondisi sektor Indices?",
+      "Bagaimana kondisi sektor indeks?",
+      "Bagaimana kinerja indeks global?",
+      "Apa sentimen umum untuk indeks?",
+      "Bagaimana suasana di indeks global utama?",
+      "Bagaimana perkembangan pasar indeks?",
+      "Bagaimana kinerja indeks saham utama?",
+      "Beri tahu saya sentimen indeks global",
+      "Apa tren dari indeks tersebut?",
+      "Bagaimana kondisi pasar indeks?",
+      "Pembaruan tentang indeks global",
+      "Beri saya analisis pasar indeks",
+      "Analisis sentimen indeks",
+      "Outlook indeks global",
+      "Bagaimana situasi indeks-indeks utama?",
+      "Tren apa yang ada di pasar indeks?"
+    ],
+    "answers": [
+      "Sektor *Indices* saat ini menunjukkan sentimen keseluruhan sebesar *[INDICES_SCORE]*. Nilai ini mencerminkan tren umum indeks global, dengan mempertimbangkan data pasar, tren terkini, dan perilaku investor.",
+      "Pada periode ini, sektor *Indices* memiliki perkiraan sentimen sekitar *[INDICES_SCORE]*. Data ini memberikan gambaran ringkas tentang persepsi pasar terhadap segmen tersebut secara keseluruhan.",
+      "Sentimen umum sektor *Indices* adalah *[INDICES_SCORE]*. Indikator ini membantu memahami apakah pasar menunjukkan orientasi yang lebih positif, netral, atau hatihati terhadap indeks global.",
+      "Menganalisis sektor *Indices*, muncul sentimen keseluruhan sebesar *[INDICES_SCORE]*. Nilai tersebut memperhitungkan berbagai faktor, termasuk kinerja terkini, volatilitas, dan aliran modal.",
+      "Saat ini sektor *Indices* menunjukkan tingkat sentimen sebesar *[INDICES_SCORE]*. Ini adalah ukuran yang berguna untuk mendapatkan gambaran umum suasana pasar pada segmen tersebut.",
+      "Segmen *Indices* mencatat sentimen agregat sebesar *[INDICES_SCORE]*. Angka ini memberikan indikasi ringkas tentang bagaimana pasar mengevaluasi indeks global secara keseluruhan.",
+      "Menurut analisis yang tersedia, sektor *Indices* menunjukkan sentimen keseluruhan sebesar *[INDICES_SCORE]*. Ini adalah nilai yang merangkum tren umum yang diamati di pasar.",
+      "Sektor *Indices* saat ini menyajikan perkiraan sentimen sebesar *[INDICES_SCORE]*, memberikan gambaran yang jelas tentang orientasi pasar terhadap indeks global."
+    ],
+    "cost": 3,
+    "keywords": ["sektor", "indeks", "indices", "global", "saham", "bursa", "pasar saham"],
+    "subquestions": {
+      "Apakah Anda juga ingin tahu sentimen umum sektor crypto?": "sector_crypto",
+      "Apakah Anda juga tertarik dengan sentimen umum pada mata uang?": "sector_forex"
+    }
+  },
+  "sector_forex": {
+    "questions": [
+      "Bagaimana kondisi pasar Forex?",
+      "Bagaimana kinerja mata uang utama?",
+      "Apa sentimen untuk Forex?",
+      "Bagaimana suasana di pasar mata uang?",
+      "Bagaimana perkembangan pasar Forex?",
+      "Bagaimana kondisi pasar valas?",
+      "Beri tahu saya sentimen Forex",
+      "Beri tahu saya sentimen umum pada mata uang",
+      "Apa tren dari mata uang utama?",
+      "Bagaimana kinerja pasar nilai tukar?",
+      "Pembaruan tentang Forex",
+      "Beri saya analisis pasar mata uang",
+      "Analisis sentimen Forex",
+      "Outlook Forex",
+      "Sentimen valuta asing",
+      "Bagaimana situasi pasar mata uang?",
+      "Tren apa yang ada di Forex?"
+    ],
+    "answers": [
+      "Sektor *Forex* saat ini menunjukkan sentimen keseluruhan sebesar *[FOREX_SCORE]*. Nilai ini mencerminkan tren umum pasar mata uang, dengan mempertimbangkan data pasar, tren terkini, dan perilaku investor.",
+      "Pada periode ini, sektor *Forex* memiliki perkiraan sentimen sekitar *[FOREX_SCORE]*. Data ini memberikan gambaran ringkas tentang persepsi pasar terhadap segmen tersebut secara keseluruhan.",
+      "Sentimen umum sektor *Forex* adalah *[FOREX_SCORE]*. Indikator ini membantu memahami apakah pasar mata uang menunjukkan orientasi yang lebih positif, netral, atau hatihati terhadap mata uang.",
+      "Menganalisis sektor *Forex*, muncul sentimen keseluruhan sebesar *[FOREX_SCORE]*. Nilai tersebut memperhitungkan berbagai faktor, termasuk kinerja terkini, volatilitas, dan aliran modal.",
+      "Saat ini sektor *Forex* menunjukkan tingkat sentimen sebesar *[FOREX_SCORE]*. Ini adalah ukuran yang berguna untuk mendapatkan gambaran umum suasana pasar pada segmen tersebut.",
+      "Segmen *Forex* mencatat sentimen agregat sebesar *[FOREX_SCORE]*. Angka ini memberikan indikasi ringkas tentang bagaimana pasar mengevaluasi mata uang utama secara keseluruhan.",
+      "Menurut analisis yang tersedia, sektor *Forex* menunjukkan sentimen keseluruhan sebesar *[FOREX_SCORE]*. Ini adalah nilai yang merangkum tren umum yang diamati di pasar mata uang.",
+      "Sektor *Forex* saat ini menyajikan perkiraan sentimen sebesar *[FOREX_SCORE]*, memberikan gambaran yang jelas tentang orientasi pasar terhadap mata uang utama."
+    ],
+    "cost": 3,
+    "keywords": ["sektor", "forex", "valas", "mata uang", "valuta", "nilai tukar", "pasar uang"],
+    "subquestions": {
+      "Apakah Anda juga ingin tahu sentimen umum sektor crypto?": "sector_crypto",
+      "Apakah Anda juga tertarik dengan sentimen umum sektor big tech?": "sector_big_tech"
+    }
+  },
+  "sector_crypto": {
+    "questions": [
+      "Bagaimana kondisi sektor mata uang kripto?",
+      "Bagaimana kinerja sektor crypto?",
+      "Apa sentimen pada sektor mata uang kripto?",
+      "Bagaimana suasana di bidang crypto?",
+      "Bagaimana perkembangan pasar mata uang kripto?",
+      "Bagaimana kondisi pasar kripto?",
+      "Beri tahu saya sentimen umum crypto",
+      "Apa tren umum mata uang kripto?",
+      "Bagaimana kondisi pasar umum mata uang digital?",
+      "Pembaruan sentimen pada pasar kripto",
+      "Beri saya analisis tentang sentimen keseluruhan mata uang kripto",
+      "Analisis sentimen crypto",
+      "Outlook umum mata uang kripto",
+      "Bagaimana situasi di sektor crypto?",
+      "Tren apa yang ada di sektor mata uang kripto?"
+    ],
+    "answers": [
+      "Sektor *Cryptocurrencies* saat ini menunjukkan sentimen keseluruhan sebesar *[CRYPTO_SCORE]*. Nilai ini mencerminkan tren umum pasar kripto, dengan mempertimbangkan data pasar, tren terkini, dan perilaku investor.",
+      "Pada periode ini, sektor *Cryptocurrencies* memiliki perkiraan sentimen sekitar *[CRYPTO_SCORE]*. Data ini memberikan gambaran ringkas tentang persepsi pasar terhadap segmen tersebut secara keseluruhan.",
+      "Sentimen umum sektor *Cryptocurrencies* adalah *[CRYPTO_SCORE]*. Indikator ini membantu memahami apakah pasar mata uang kripto menunjukkan orientasi yang lebih positif, netral, atau hatihati terhadap crypto.",
+      "Menganalisis sektor *Cryptocurrencies*, muncul sentimen keseluruhan sebesar *[CRYPTO_SCORE]*. Nilai tersebut memperhitungkan berbagai faktor, termasuk kinerja terkini, volatilitas, dan aliran modal.",
+      "Saat ini sektor *Cryptocurrencies* menunjukkan tingkat sentimen sebesar *[CRYPTO_SCORE]*. Ini adalah ukuran yang berguna untuk mendapatkan gambaran umum suasana pasar pada segmen tersebut.",
+      "Segmen *Cryptocurrencies* mencatat sentimen agregat sebesar *[CRYPTO_SCORE]*. Angka ini memberikan indikasi ringkas tentang bagaimana pasar mengevaluasi kripto utama secara keseluruhan.",
+      "Menurut analisis yang tersedia, sektor *Cryptocurrencies* menunjukkan sentimen keseluruhan sebesar *[CRYPTO_SCORE]*. Ini adalah nilai yang merangkum tren umum yang diamati di pasar mata uang digital.",
+      "Sektor *Cryptocurrencies* saat ini menyajikan perkiraan sentimen sebesar *[CRYPTO_SCORE]*, memberikan gambaran yang jelas tentang orientasi pasar terhadap kripto utama."
+    ],
+    "cost": 3,
+    "keywords": ["sektor", "kripto", "mata uang kripto", "cryptocurrency", "crypto", "mata uang digital", "blockchain"],
+    "subquestions": {
+      "Apakah Anda juga ingin tahu sentimen umum sektor AI?": "sector_semiconductors",
+      "Apakah Anda juga tertarik dengan sentimen umum sektor raksasa teknologi?": "sector_big_tech"
+    }
+  },
+  "sector_general": {
+    "questions": [
+      "Bagaimana perkembangan sektor itu?",
+      "Bagaimana kinerja sektor ini?",
+      "Apa sentimen untuk sektor tersebut?",
+      "Bagaimana kondisi sektornya?",
+      "Bagaimana kinerja sektor Anda?"
+    ],
+    "answers": [
+      "Sentimen umum yang dihitung untuk sektor [LAST_SECTOR] adalah [LAST_SECTOR_SCORE]. Data ini diperoleh dengan menganalisis data pasar, tren terkini, dan perilaku investor.",
+      "Mengenai sektor [LAST_SECTOR], sentimen keseluruhan adalah [LAST_SECTOR_SCORE]. Untuk memberikan data ini, saya mengevaluasi berbagai variabel seperti data pasar, tren terkini, dan perilaku investor."
+    ],
+    "cost": 3,
+    "keywords": ["sektor", "bagaimana", "sentimen"]
   }
 }
