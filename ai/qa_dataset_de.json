@@ -9893,5 +9893,204 @@
     "subquestions": {
       "Möchtest du auch das Sentiment für den Bereich Edelmetalle und Materialien wissen?": "sector_metals_materials",
       "Interessiert dich auch das allgemeine Sentiment für den Telekommunikationssektor?": "sector_media"}
+  },
+    "sector_metals_materials": {
+    "questions": [
+      "Wie läuft es im Sektor Precious Metals & Materials?",
+      "Wie entwickelt sich der Sektor für Edelmetalle und Materialien?",
+      "Wie läuft es im Edelmetallsektor?",
+      "Wie ist das Sentiment im Bereich wertvolle Materialien?",
+      "Wie ist die Stimmung im Materialsektor?",
+      "Wie schreitet der Gold- und Silbersektor voran?",
+      "Wie entwickelt sich das Segment Precious Metals & Materials?",
+      "Wie läuft es im Metallsegment?",
+      "Nenne mir das Sentiment für den Sektor Precious Metals & Materials",
+      "Nenne mir das Sentiment für den Material- und Metallsektor",
+      "Was ist der Trend im Edelmetallsektor?",
+      "Wie läuft der Sektor für Industriematerialien?",
+      "Wächst das Edelmetall-Segment?",
+      "Wie schreitet der Rohstoffsektor voran?",
+      "Welcher Trend zeichnet sich bei Metallen und Materialien ab?",
+      "Update zum Edelmetallsektor",
+      "Erstelle mir eine Analyse des Sektors Precious Metals & Materials",
+      "Sentiment-Analyse Industriematerialien",
+      "Outlook Sektor Materialien und Edelmetalle",
+      "Wie läuft der Rohstoffsektor?",
+      "Wie entwickelt sich der Bereich Primärrohstoffe?",
+      "Wie läuft der Rohstoffmarkt?",
+      "Wie steht es um die Rohmaterialien?"
+    ],
+    "answers": [
+      "Der Sektor *Precious Metals & Materials* zeigt aktuell ein Gesamt-Sentiment von *[METALS_SCORE]*. Dieser Wert spiegelt die allgemeine Entwicklung des Segments wider, basierend auf Marktdaten, aktuellen Trends und dem Anlegerverhalten.",
+      "In diesem Zeitraum weist der Sektor *Precious Metals & Materials* ein geschätztes Sentiment von etwa *[METALS_SCORE]* auf. Dieser Datenpunkt bietet einen zusammenfassenden Überblick über die Marktwahrnehmung des gesamten Bereichs.",
+      "Das allgemeine Sentiment für den Sektor *Precious Metals & Materials* liegt bei *[METALS_SCORE]*. Dieser Indikator hilft zu verstehen, ob der Markt eher positiv, neutral oder vorsichtig gegenüber dem Sektor eingestellt ist.",
+      "Bei der Analyse des Sektors *Precious Metals & Materials* ergibt sich ein Gesamt-Sentiment von *[METALS_SCORE]*. Der Wert berücksichtigt Faktoren wie die jüngste Performance, Volatilität und Kapitalflüsse.",
+      "Aktuell zeigt der Sektor *Precious Metals & Materials* ein Sentiment-Niveau von *[METALS_SCORE]*. Dies ist ein nützliches Maß für das allgemeine Marktstimmungsbild in diesem Bereich.",
+      "Das Segment *Precious Metals & Materials* verzeichnet ein aggregiertes Sentiment von *[METALS_SCORE]*. Diese Kennzahl bietet einen Überblick darüber, wie der Markt den Sektor als Ganzes bewertet.",
+      "Laut den verfügbaren Analysen zeigt der Sektor *Precious Metals & Materials* ein Gesamt-Sentiment von *[METALS_SCORE]*. Es ist ein Wert, der den im Markt beobachteten allgemeinen Trend zusammenfasst.",
+      "Der Sektor *Precious Metals & Materials* weist derzeit ein geschätztes Sentiment von *[METALS_SCORE]* auf und bietet damit einen klaren Überblick über die Marktorientierung in diesem Bereich."
+    ],
+    "cost": 3,
+    "keywords": ["Edelmetalle", "Precious Metals", "Materialien", "Gold", "Silber", "Platin", "Metalle", "Commodities", "Rohstoffe", "Rohmaterial", "Primärrohstoffe"],
+    "subquestions": {
+      "Möchtest du auch das allgemeine Sentiment der globalen Indizes wissen?": "sector_indices",
+      "Interessiert dich auch das allgemeine Sentiment für den Telekommunikationssektor?": "sector_media"
+    }
+  },
+  "sector_media": {
+    "questions": [
+      "Wie läuft es im Sektor Media & Telecom?",
+      "Wie entwickelt sich der Medien- und Telekommunikationssektor?",
+      "Wie läuft der Multimedia-Sektor?",
+      "Wie ist das Sentiment im Streaming-Sektor?",
+      "Wie ist die Stimmung im Unterhaltungssektor?",
+      "Wie schreitet der Telekommunikationssektor voran?",
+      "Wie entwickelt sich das Segment Medien und Kommunikation?",
+      "Nenne mir das Sentiment für den Bereich Kommunikation und Streaming",
+      "Was ist der Trend im Telekommunikationssektor?",
+      "Wie läuft es im Streaming-Bereich?",
+      "Wächst das Segment Streaming und Telekommunikation?",
+      "Welcher Trend zeichnet sich im Unterhaltungssektor ab?",
+      "Update zum Sektor Media und Telecom",
+      "Erstelle mir eine Analyse des Telekommunikationssektors",
+      "Sentiment-Analyse Telekommunikationsunternehmen",
+      "Outlook Sektor Media & Telecom"
+    ],
+    "answers": [
+      "Der Sektor *Media & Telecom* zeigt aktuell ein Gesamt-Sentiment von *[MEDIA_SCORE]*. Dieser Wert spiegelt die allgemeine Entwicklung des Segments wider, basierend auf Marktdaten, aktuellen Trends und dem Anlegerverhalten.",
+      "In diesem Zeitraum weist der Sektor *Media & Telecom* ein geschätztes Sentiment von etwa *[MEDIA_SCORE]* auf. Dieser Datenpunkt bietet einen zusammenfassenden Überblick über die Marktwahrnehmung des gesamten Bereichs.",
+      "Das allgemeine Sentiment für den Sektor *Media & Telecom* liegt bei *[MEDIA_SCORE]*. Dieser Indikator hilft zu verstehen, ob der Markt eher positiv, neutral oder vorsichtig gegenüber dem Sektor eingestellt ist.",
+      "Bei der Analyse des Sektors *Media & Telecom* ergibt sich ein Gesamt-Sentiment von *[MEDIA_SCORE]*. Der Wert berücksichtigt Faktoren wie die jüngste Performance, Volatilität und Kapitalflüsse.",
+      "Aktuell zeigt der Sektor *Media & Telecom* ein Sentiment-Niveau von *[MEDIA_SCORE]*. Dies ist ein nützliches Maß für das allgemeine Marktstimmungsbild in diesem Bereich.",
+      "Das Segment *Media & Telecom* verzeichnet ein aggregiertes Sentiment von *[MEDIA_SCORE]*. Diese Kennzahl bietet einen Überblick darüber, wie der Markt den Sektor als Ganzes bewertet.",
+      "Laut den verfügbaren Analysen zeigt der Sektor *Media & Telecom* ein Gesamt-Sentiment von *[MEDIA_SCORE]*. Es ist ein Wert, der den im Markt beobachteten allgemeinen Trend zusammenfasst.",
+      "Der Sektor *Media & Telecom* weist derzeit ein geschätztes Sentiment von *[MEDIA_SCORE]* auf und bietet damit einen klaren Überblick über die Marktorientierung in diesem Bereich."
+    ],
+    "cost": 3,
+    "keywords": ["Sektor", "Media", "Telekommunikation", "Telekom", "Streaming", "Kommunikation", "Multimedia", "Entertainment", "Unterhaltung"],
+    "subquestions": {
+      "Möchtest du auch das allgemeine Sentiment der globalen Indizes wissen?": "sector_indices",
+      "Interessiert dich auch das allgemeine Sentiment für den Devisenmarkt (FOREX)?": "sector_forex"
+    }
+  },
+  "sector_indices": {
+    "questions": [
+      "Wie läuft der Sektor Indices?",
+      "Wie entwickelt sich der Index-Sektor?",
+      "Wie laufen die globalen Indizes?",
+      "Wie ist das allgemeine Sentiment für Indizes?",
+      "Wie ist die Stimmung bei den wichtigsten globalen Indizes?",
+      "Wie entwickelt sich der Index-Markt?",
+      "Wie laufen die wichtigsten Aktienindizes?",
+      "Nenne mir das Sentiment für globale Indizes",
+      "Was ist der Trend bei den Indizes?",
+      "Update zu den globalen Indizes",
+      "Erstelle mir eine Analyse des Index-Marktes",
+      "Sentiment-Analyse Indizes",
+      "Outlook globale Indizes",
+      "Wie ist die Situation der wichtigsten Indizes?",
+      "Welcher Trend zeichnet sich am Index-Markt ab?"
+    ],
+    "answers": [
+      "Der Sektor *Indices* zeigt aktuell ein Gesamt-Sentiment von *[INDICES_SCORE]*. Dieser Wert spiegelt die allgemeine Entwicklung der globalen Indizes wider.",
+      "In diesem Zeitraum weist der Sektor *Indices* ein geschätztes Sentiment von etwa *[INDICES_SCORE]* auf.",
+      "Das allgemeine Sentiment für den Sektor *Indices* liegt bei *[INDICES_SCORE]*.",
+      "Bei der Analyse des Sektors *Indices* ergibt sich ein Gesamt-Sentiment von *[INDICES_SCORE]*.",
+      "Aktuell zeigt der Sektor *Indices* ein Sentiment-Niveau von *[INDICES_SCORE]*.",
+      "Das Segment *Indices* verzeichnet ein aggregiertes Sentiment von *[INDICES_SCORE]*.",
+      "Laut Analysen zeigt der Sektor *Indices* ein Gesamt-Sentiment von *[INDICES_SCORE]*.",
+      "Der Sektor *Indices* weist derzeit ein geschätztes Sentiment von *[INDICES_SCORE]* auf."
+    ],
+    "cost": 3,
+    "keywords": ["Sektor", "Indizes", "Indices", "global", "Aktienindizes", "Börse", "Aktienmarkt"],
+    "subquestions": {
+      "Möchtest du auch das allgemeine Sentiment des Krypto-Sektors wissen?": "sector_crypto",
+      "Interessiert dich auch das allgemeine Sentiment für Devisen?": "sector_forex"
+    }
+  },
+  "sector_forex": {
+    "questions": [
+      "Wie läuft der Forex-Markt?",
+      "Wie entwickeln sich die wichtigsten Währungen?",
+      "Wie ist das Sentiment für Forex?",
+      "Wie ist die Stimmung am Devisenmarkt?",
+      "Wie entwickelt sich der Währungsmarkt?",
+      "Nenne mir das Sentiment für Forex",
+      "Nenne mir das allgemeine Sentiment für Währungen",
+      "Was ist der Trend bei den Hauptwährungen?",
+      "Update zu Forex",
+      "Erstelle mir eine Analyse des Devisenmarktes",
+      "Sentiment-Analyse Forex",
+      "Outlook Forex",
+      "Währungs-Sentiment",
+      "Wie ist die Situation am Währungsmarkt?",
+      "Welcher Trend zeichnet sich bei Forex ab?"
+    ],
+    "answers": [
+      "Der Sektor *Forex* zeigt aktuell ein Gesamt-Sentiment von *[FOREX_SCORE]*. Dieser Wert spiegelt die allgemeine Entwicklung des Devisenmarktes wider.",
+      "In diesem Zeitraum weist der Sektor *Forex* ein geschätztes Sentiment von etwa *[FOREX_SCORE]* auf.",
+      "Das allgemeine Sentiment für den Sektor *Forex* liegt bei *[FOREX_SCORE]*.",
+      "Bei der Analyse des Sektors *Forex* ergibt sich ein Gesamt-Sentiment von *[FOREX_SCORE]*.",
+      "Aktuell zeigt der Sektor *Forex* ein Sentiment-Niveau von *[FOREX_SCORE]*.",
+      "Das Segment *Forex* verzeichnet ein aggregiertes Sentiment von *[FOREX_SCORE]*.",
+      "Laut Analysen zeigt der Sektor *Forex* ein Gesamt-Sentiment von *[FOREX_SCORE]*.",
+      "Der Sektor *Forex* weist derzeit ein geschätztes Sentiment von *[FOREX_SCORE]* auf."
+    ],
+    "cost": 3,
+    "keywords": ["Sektor", "Forex", "Währungen", "Währung", "Devisenmarkt", "FX", "Devisen"],
+    "subquestions": {
+      "Möchtest du auch das allgemeine Sentiment des Krypto-Sektors wissen?": "sector_crypto",
+      "Interessiert dich auch das allgemeine Sentiment für den Big-Tech-Sektor?": "sector_big_tech"
+    }
+  },
+  "sector_crypto": {
+    "questions": [
+      "Wie läuft der Kryptowährungssektor?",
+      "Wie entwickelt sich der Krypto-Bereich?",
+      "Wie ist das Sentiment im Kryptowährungssektor?",
+      "Wie ist die Stimmung im Krypto-Feld?",
+      "Wie schreitet der Kryptomarkt voran?",
+      "Wie läuft der Krypto-Sektor?",
+      "Nenne mir das allgemeine Sentiment für Kryptos",
+      "Was ist der allgemeine Trend bei Kryptowährungen?",
+      "Wie läuft der allgemeine Markt für digitale Währungen?",
+      "Update zum Sentiment am Kryptomarkt",
+      "Erstelle mir eine Analyse zum Gesamt-Sentiment der Kryptowährungen",
+      "Sentiment-Analyse Krypto",
+      "Allgemeiner Outlook Kryptowährungen",
+      "Wie ist die Situation im Krypto-Sektor?",
+      "Welcher Trend zeichnet sich im Kryptowährungssektor ab?"
+    ],
+    "answers": [
+      "Der Sektor *Cryptocurrencies* zeigt aktuell ein Gesamt-Sentiment von *[CRYPTO_SCORE]*. Dieser Wert spiegelt die allgemeine Entwicklung des Kryptomarktes wider.",
+      "In diesem Zeitraum weist der Sektor *Cryptocurrencies* ein geschätztes Sentiment von etwa *[CRYPTO_SCORE]* auf.",
+      "Das allgemeine Sentiment für den Sektor *Cryptocurrencies* liegt bei *[CRYPTO_SCORE]*.",
+      "Bei der Analyse des Sektors *Cryptocurrencies* ergibt sich ein Gesamt-Sentiment von *[CRYPTO_SCORE]*.",
+      "Aktuell zeigt der Sektor *Cryptocurrencies* ein Sentiment-Niveau von *[CRYPTO_SCORE]*.",
+      "Das Segment *Cryptocurrencies* verzeichnet ein aggregiertes Sentiment von *[CRYPTO_SCORE]*.",
+      "Laut Analysen zeigt der Sektor *Cryptocurrencies* ein Gesamt-Sentiment von *[CRYPTO_SCORE]*.",
+      "Der Sektor *Cryptocurrencies* weist derzeit ein geschätztes Sentiment von *[CRYPTO_SCORE]* auf."
+    ],
+    "cost": 3,
+    "keywords": ["Sektor", "Kryptowährungen", "Kryptowährung", "Krypto", "digitale Währung", "digitale Währungen", "Blockchain"],
+    "subquestions": {
+      "Möchtest du auch das allgemeine Sentiment des KI-Sektors wissen?": "sector_semiconductors",
+      "Interessiert dich auch das allgemeine Sentiment für den Sektor der Tech-Giganten?": "sector_big_tech"
+    }
+  },
+  "sector_general": {
+    "questions": [
+      "Wie entwickelt sich dieser Sektor?",
+      "Wie läuft dieser Sektor?",
+      "Wie ist das Sentiment für seinen Sektor?",
+      "Wie geht es dem Sektor?",
+      "Wie läuft dein Sektor?"
+    ],
+    "answers": [
+      "Das für den Sektor [LAST_SECTOR] berechnete allgemeine Sentiment liegt bei [LAST_SECTOR_SCORE]. Dieser Datenpunkt wurde durch die Analyse von Marktdaten, aktuellen Trends und Anlegerverhalten ermittelt.",
+      "Was den Sektor [LAST_SECTOR] betrifft, so liegt das Gesamt-Sentiment bei [LAST_SECTOR_SCORE]. Um diesen Wert zu ermitteln, habe ich verschiedene Variablen wie Marktdaten, aktuelle Trends und das Verhalten der Anleger bewertet."
+    ],
+    "cost": 3,
+    "keywords": ["Sektor", "wie", "Sentiment"]
   }
 }
