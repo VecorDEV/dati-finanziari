@@ -10211,5 +10211,35 @@
     "keywords": ["hv90", "hv", "90", "volatilitas historis", "volatilitas"],
     "subquestions": {
       "Apakah Anda juga ingin tahu apa yang dimaksud dengan momentum aset?": "momentum_info"}
+  },
+    "momentum_classifica": {
+    "questions": [
+      "Apa klasifikasi momentumnya?",
+      "Siapa yang memiliki momentum tertinggi?",
+      "Aset mana yang memiliki momentum terkuat?",
+      "Tunjukkan klasifikasi momentum kepada saya",
+      "Apa saja nilai momentum tertingginya?",
+      "Siapa saja aset top momentum?",
+      "Aset dengan momentum paling tinggi",
+      "Siapa yang memimpin momentum saat ini?",
+      "Di mana saya bisa melihat klasifikasi momentum?",
+      "Apa peringkat momentumnya?",
+      "Siapa yang terbaik berdasarkan momentum?",
+      "Apa momentum terbaik hari ini?",
+      "Tunjukkan momentum yang paling kuat",
+      "Berikan saya top momentum",
+      "Aset apa yang memiliki momentum tertinggi?"
+    ],
+    "answers": [
+      "Anda dapat menemukan *klasifikasi momentum* langsung di panel atas pada *halaman utama* (home page) 🏠.\nDi dalam panel tempat Anda melihat *Top Gainers* dan *Top Losers*, tekan ikon panah ⬆️ untuk melihat aset dengan momentum tertinggi.",
+      "Klasifikasi momentum tersedia di panel atas *halaman utama*.\nCukup klik tanda panah ⬆️ pada panel yang didedikasikan untuk *Top Gainers* dan *Top Losers* untuk melihat aset mana yang menunjukkan momentum tertinggi.",
+      "Untuk mengetahui siapa yang memiliki momentum tertinggi, Anda dapat melihat panel di bagian atas *halaman utama*, yang didedikasikan untuk *top gainers* dan *top losers*.\nGunakan simbol panah ⬆️ untuk mengakses klasifikasi momentum dan membandingkan aset dengan cepat.",
+      "Peringkat momentum tidak ditampilkan langsung di chat, tetapi dapat dengan mudah dilihat dari *halaman utama*.\nLihat panel *Top Gainers / Top Losers* dan tekan panah ⬆️ untuk melihat klasifikasi momentum lengkap."
+    ],
+    "cost": 0,
+    "keywords": ["momentum", "klasifikasi", "peringkat", "ranking", "top momentum"],
+    "subquestions": {
+      "Jika mau, saya bisa langsung memberi tahu Anda momentum dari [TOPIC]?": "momentum",
+      "Jika Anda mau, saya bisa segera memberikan momentum dari [FAVOURITE]?": "momentum"}
   }
 }
