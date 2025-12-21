@@ -10167,5 +10167,35 @@
     "keywords": ["hv90", "hv", "90", "volatilité historique", "volatilité"],
     "subquestions": {
       "Veux-tu aussi savoir ce qu'on entend par momentum d'un actif ?": "momentum_info"}
+  },
+    "momentum_classifica": {
+    "questions": [
+      "Quel est le classement des momentums ?",
+      "Qui a le momentum le plus élevé ?",
+      "Quels actifs ont le momentum le plus fort ?",
+      "Montre-moi le classement des momentums",
+      "Quels sont les momentums les plus hauts ?",
+      "Quels sont les tops momentum ?",
+      "Actifs avec le momentum le plus élevé",
+      "Qui mène le momentum en ce moment ?",
+      "Où puis-je voir le classement du momentum ?",
+      "Quel est le ranking des momentums ?",
+      "Qui sont les meilleurs par momentum ?",
+      "Quels sont les meilleurs momentums aujourd'hui ?",
+      "Fais-moi voir les momentums les plus forts",
+      "Donne-moi le top momentum",
+      "Quel est l'actif avec le momentum le plus élevé ?"
+    ],
+    "answers": [
+      "Vous pouvez trouver le *classement des momentums* directement dans le panneau supérieur de la *page d'accueil* 🏠.\nDans le panneau où vous voyez les *Top Gainers* et *Top Losers*, appuyez sur l'icône de la flèche ⬆️ pour visualiser les actifs ayant le momentum le plus élevé.",
+      "Le classement des momentums est disponible dans le panneau supérieur de la *page d'accueil*.\nIl suffit de cliquer sur la flèche ⬆️ dans le panneau dédié aux *Top Gainers* et *Top Losers* pour voir quels actifs affichent le momentum le plus élevé.",
+      "Pour découvrir qui a le momentum le plus élevé, vous pouvez consulter le panneau en haut de la *page d'accueil*, dédié aux *top gainers* et *top losers*.\nUtilisez le symbole de la flèche ⬆️ pour accéder au classement des momentums et comparer rapidement les actifs.",
+      "Le classement des momentums n'est pas affiché directement dans le chat, mais il est facilement consultable depuis la *page d'accueil*.\nConsultez le panneau *Top Gainers / Top Losers* et appuyez sur la flèche ⬆️ pour afficher le classement complet des momentums."
+    ],
+    "cost": 0,
+    "keywords": ["momentum", "classement", "ranking", "top momentum", "leaderboard"],
+    "subquestions": {
+      "Si tu veux, je peux te donner immédiatement le momentum de [TOPIC] ?": "momentum",
+      "Si tu le souhaites, je peux te donner tout de suite le momentum de [FAVOURITE] ?": "momentum"}
   }
 }
