@@ -9799,5 +9799,210 @@
     "subquestions": {
       "Would you also like to know the sentiment for the precious metals and materials sector?": "sector_metals_materials",
       "Are you also interested in the general sentiment of the telecommunications sector?": "sector_media"}
+  },
+    "sector_metals_materials": {
+    "questions": [
+      "How is the Precious Metals & Materials sector doing?",
+      "How is the precious metals and materials sector performing?",
+      "How is the precious metals sector going?",
+      "What is the sentiment for the precious materials sector?",
+      "What's the mood in the materials sector?",
+      "How is the gold and silver sector progressing?",
+      "How is the Precious Metals & Materials segment performing?",
+      "How is the metals segment doing?",
+      "Tell me the sentiment of the Precious Metals & Materials sector",
+      "Tell me the sentiment of the materials and metals sector",
+      "What is the trend in the precious metals sector?",
+      "How is the precious metals industry?",
+      "How is the industrial materials sector performing?",
+      "Is the precious metals segment growing?",
+      "How is the materials sector progressing?",
+      "What trend is there in the metals and materials sector?",
+      "Update on the precious metals sector",
+      "Give me an analysis of the Precious Metals & Materials sector",
+      "Industrial materials sentiment analysis",
+      "Outlook for the materials and precious metals sector",
+      "How is the commodities sector?",
+      "How is the raw materials sector doing?",
+      "How is the raw materials market?",
+      "How are raw materials performing?"
+    ],
+    "answers": [
+      "The *Precious Metals & Materials* sector currently shows an overall sentiment of *[METALS_SCORE]*. This value reflects the general performance of the industry, considering market data, recent trends, and investor behavior.",
+      "Currently, the *Precious Metals & Materials* sector has an estimated sentiment of around *[METALS_SCORE]*. This data provides a concise view of market perception for the industry as a whole.",
+      "The general sentiment for the *Precious Metals & Materials* sector is *[METALS_SCORE]*. This indicator helps to understand if the market is showing a more positive, neutral, or cautious stance toward the sector.",
+      "Analyzing the *Precious Metals & Materials* sector, an overall sentiment of *[METALS_SCORE]* emerges. The value takes into account various factors, including recent performance, volatility, and capital flows.",
+      "The *Precious Metals & Materials* sector currently highlights a sentiment level of *[METALS_SCORE]*. This is a useful measure to get an overview of the market mood regarding the segment.",
+      "The *Precious Metals & Materials* segment records an aggregate sentiment of *[METALS_SCORE]*. This figure offers a summary indication of how the market is evaluating the sector overall.",
+      "According to available analyses, the *Precious Metals & Materials* sector shows an overall sentiment of *[METALS_SCORE]*. It is a value that summarizes the general trend observed in the market.",
+      "The *Precious Metals & Materials* sector currently presents an estimated sentiment of *[METALS_SCORE]*, providing a clear overview of the market's orientation toward this segment."
+    ],
+    "cost": 3,
+    "keywords": ["precious metals", "materials", "gold", "silver", "platinum", "metals", "commodities", "raw materials", "raw", "industrial materials"],
+    "subquestions": {
+      "Would you also like to know the general sentiment of global indices?": "sector_indices",
+      "Are you also interested in the general sentiment of the telecommunications sector?": "sector_media"
+    }
+  },
+  "sector_media": {
+    "questions": [
+      "How is the Media & Telecom sector doing?",
+      "How is the media and telecommunications sector performing?",
+      "How is the multimedia sector going?",
+      "What is the sentiment for the streaming sector?",
+      "What's the mood in the entertainment sector?",
+      "How is the telecommunications sector progressing?",
+      "How is the media and communications segment performing?",
+      "Tell me the sentiment of the communications and streaming sector",
+      "What is the trend in the telecommunications sector?",
+      "How is the streaming sector doing?",
+      "How is the telecom industry performing?",
+      "Is the streaming and telecommunications segment growing?",
+      "How is the telecommunications industry progressing?",
+      "What trend is there in the entertainment sector?",
+      "Update on the Media and Telecom sector",
+      "Give me an analysis of the telecommunications sector",
+      "Telecommunications companies sentiment analysis",
+      "Outlook for the Media & Telecom sector"
+    ],
+    "answers": [
+      "The *Media & Telecom* sector currently shows an overall sentiment of *[MEDIA_SCORE]*. This value reflects the general performance of the industry, considering market data, recent trends, and investor behavior.",
+      "Currently, the *Media & Telecom* sector has an estimated sentiment of around *[MEDIA_SCORE]*. This data provides a concise view of market perception for the industry as a whole.",
+      "The general sentiment for the *Media & Telecom* sector is *[MEDIA_SCORE]*. This indicator helps to understand if the market is showing a more positive, neutral, or cautious stance toward the sector.",
+      "Analyzing the *Media & Telecom* sector, an overall sentiment of *[MEDIA_SCORE]* emerges. The value takes into account various factors, including recent performance, volatility, and capital flows.",
+      "The *Media & Telecom* sector currently highlights a sentiment level of *[MEDIA_SCORE]*. This is a useful measure to get an overview of the market mood regarding the segment.",
+      "The *Media & Telecom* segment records an aggregate sentiment of *[MEDIA_SCORE]*. This figure offers a summary indication of how the market is evaluating the sector overall.",
+      "According to available analyses, the *Media & Telecom* sector shows an overall sentiment of *[MEDIA_SCORE]*. It is a value that summarizes the general trend observed in the market.",
+      "The *Media & Telecom* sector currently presents an estimated sentiment of *[MEDIA_SCORE]*, providing a clear overview of the market's orientation toward this segment."
+    ],
+    "cost": 3,
+    "keywords": ["sector", "media", "telecommunications", "telecommunication", "telecom", "streaming", "communications", "multimedia", "entertainment"],
+    "subquestions": {
+      "Would you also like to know the general sentiment of global indices?": "sector_indices",
+      "Are you also interested in the general sentiment of currencies (FOREX)?": "sector_forex"
+    }
+  },
+  "sector_indices": {
+    "questions": [
+      "How is the Indices sector doing?",
+      "How is the indices sector performing?",
+      "How are global indices going?",
+      "What is the general sentiment for indices?",
+      "What's the mood in the main global indices?",
+      "How is the indices market progressing?",
+      "How are the main stock indices performing?",
+      "Tell me the sentiment of global indices",
+      "What is the trend of the indices?",
+      "How is the indices market doing?",
+      "Update on global indices",
+      "Give me an analysis of the indices market",
+      "Indices sentiment analysis",
+      "Global indices outlook",
+      "What is the situation of the main indices?",
+      "What trend is there in the indices market?"
+    ],
+    "answers": [
+      "The *Indices* sector currently shows an overall sentiment of *[INDICES_SCORE]*. This value reflects the general trend of global indices, considering market data, recent trends, and investor behavior.",
+      "Currently, the *Indices* sector has an estimated sentiment of around *[INDICES_SCORE]*. This data provides a concise view of market perception for the industry as a whole.",
+      "The general sentiment for the *Indices* sector is *[INDICES_SCORE]*. This indicator helps to understand if the market is showing a more positive, neutral, or cautious stance toward global indices.",
+      "Analyzing the *Indices* sector, an overall sentiment of *[INDICES_SCORE]* emerges. The value takes into account various factors, including recent performance, volatility, and capital flows.",
+      "The *Indices* sector currently highlights a sentiment level of *[INDICES_SCORE]*. This is a useful measure to get an overview of the market mood regarding the segment.",
+      "The *Indices* segment records an aggregate sentiment of *[INDICES_SCORE]*. This figure offers a summary indication of how the market evaluates global indices as a whole.",
+      "According to available analyses, the *Indices* sector shows an overall sentiment of *[INDICES_SCORE]*. It is a value that summarizes the general trend observed in the market.",
+      "The *Indices* sector currently presents an estimated sentiment of *[INDICES_SCORE]*, providing a clear overview of the market's orientation toward global indices."
+    ],
+    "cost": 3,
+    "keywords": ["sector", "indices", "global", "stock market", "stock indices", "equity"],
+    "subquestions": {
+      "Would you also like to know the general sentiment of the crypto sector?": "sector_crypto",
+      "Are you also interested in the general sentiment of currencies?": "sector_forex"
+    }
+  },
+  "sector_forex": {
+    "questions": [
+      "How is the Forex market doing?",
+      "How are the main currencies performing?",
+      "What is the sentiment for Forex?",
+      "What's the mood in the currency market?",
+      "How is the Forex market progressing?",
+      "How is the currency market doing?",
+      "Tell me the sentiment of Forex",
+      "Tell me the general sentiment for currencies",
+      "What is the trend of the main currencies?",
+      "How is the currency market performing?",
+      "Update on Forex",
+      "Give me an analysis of the currency market",
+      "Forex sentiment analysis",
+      "Forex outlook",
+      "Currency sentiment",
+      "What is the situation in the currency market?",
+      "What trend is there in Forex?"
+    ],
+    "answers": [
+      "The *Forex* sector currently shows an overall sentiment of *[FOREX_SCORE]*. This value reflects the general performance of the currency market, considering market data, recent trends, and investor behavior.",
+      "Currently, the *Forex* sector has an estimated sentiment of around *[FOREX_SCORE]*. This data provides a concise view of market perception for the industry as a whole.",
+      "The general sentiment for the *Forex* sector is *[FOREX_SCORE]*. This indicator helps to understand if the currency market is showing a more positive, neutral, or cautious stance toward currencies.",
+      "Analyzing the *Forex* sector, an overall sentiment of *[FOREX_SCORE]* emerges. The value takes into account various factors, including recent performance, volatility, and capital flows.",
+      "The *Forex* sector currently highlights a sentiment level of *[FOREX_SCORE]*. This is a useful measure to get an overview of the market mood regarding the segment.",
+      "The *Forex* segment records an aggregate sentiment of *[FOREX_SCORE]*. This figure offers a summary indication of how the market evaluates major currencies as a whole.",
+      "According to available analyses, the *Forex* sector shows an overall sentiment of *[FOREX_SCORE]*. It is a value that summarizes the general trend observed in the currency market.",
+      "The *Forex* sector currently presents an estimated sentiment of *[FOREX_SCORE]*, providing a clear overview of the market's orientation toward major currencies."
+    ],
+    "cost": 3,
+    "keywords": ["sector", "forex", "currencies", "currency", "currency market", "fx"],
+    "subquestions": {
+      "Would you also like to know the general sentiment of the crypto sector?": "sector_crypto",
+      "Are you also interested in the general sentiment of the big tech sector?": "sector_big_tech"
+    }
+  },
+  "sector_crypto": {
+    "questions": [
+      "How is the cryptocurrency sector doing?",
+      "How is the crypto sector performing?",
+      "What is the sentiment on the cryptocurrency sector?",
+      "What's the mood in the crypto field?",
+      "How is the cryptocurrency market progressing?",
+      "How is the crypto market doing?",
+      "Tell me the general sentiment for crypto",
+      "What is the general trend of cryptocurrencies?",
+      "How is the general digital currency market doing?",
+      "Crypto market sentiment update",
+      "Give me an analysis of the overall sentiment of cryptocurrencies",
+      "Crypto sentiment analysis",
+      "General cryptocurrency outlook",
+      "What is the situation in the crypto sector?",
+      "What trend is there in the cryptocurrency sector?"
+    ],
+    "answers": [
+      "The *Cryptocurrencies* sector currently shows an overall sentiment of *[CRYPTO_SCORE]*. This value reflects the general trend of the crypto market, considering market data, recent trends, and investor behavior.",
+      "Currently, the *Cryptocurrencies* sector has an estimated sentiment of around *[CRYPTO_SCORE]*. This data provides a concise view of market perception for the industry as a whole.",
+      "The general sentiment for the *Cryptocurrencies* sector is *[CRYPTO_SCORE]*. This indicator helps to understand if the cryptocurrency market is showing a more positive, neutral, or cautious stance toward crypto.",
+      "Analyzing the *Cryptocurrencies* sector, an overall sentiment of *[CRYPTO_SCORE]* emerges. The value takes into account various factors, including recent performance, volatility, and capital flows.",
+      "The *Cryptocurrencies* sector currently highlights a sentiment level of *[CRYPTO_SCORE]*. This is a useful measure to get an overview of the market mood regarding the segment.",
+      "The *Cryptocurrencies* segment records an aggregate sentiment of *[CRYPTO_SCORE]*. This figure offers a summary indication of how the market evaluates major cryptos as a whole.",
+      "According to available analyses, the *Cryptocurrencies* sector shows an overall sentiment of *[CRYPTO_SCORE]*. It is a value that summarizes the general trend observed in the digital currency market.",
+      "The *Cryptocurrencies* sector currently presents an estimated sentiment of *[CRYPTO_SCORE]*, providing a clear overview of the market's orientation toward major cryptos."
+    ],
+    "cost": 3,
+    "keywords": ["sector", "cryptocurrencies", "cryptocurrency", "crypto", "digital currency", "digital currencies", "blockchain"],
+    "subquestions": {
+      "Would you also like to know the general sentiment of the AI sector?": "sector_semiconductors",
+      "Are you also interested in the general sentiment of the tech giants sector?": "sector_big_tech"
+    }
+  },
+  "sector_general": {
+    "questions": [
+      "How is that sector progressing?",
+      "How is this sector doing?",
+      "What is the sentiment for its sector?",
+      "How is the sector?",
+      "How is your sector doing?"
+    ],
+    "answers": [
+      "The general sentiment calculated for the [LAST_SECTOR] sector is [LAST_SECTOR_SCORE]. This data was obtained by analyzing market data, recent trends, and investor behavior.",
+      "Regarding the [LAST_SECTOR] sector, the overall sentiment is [LAST_SECTOR_SCORE]. To provide this data, I evaluated various variables such as market data, recent trends, and investor behavior."
+    ],
+    "cost": 3,
+    "keywords": ["sector", "how", "sentiment"]
   }
 }
