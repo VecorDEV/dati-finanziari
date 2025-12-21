@@ -10236,5 +10236,35 @@
     "keywords": ["hv90", "hv", "90", "historische Volatilität", "Volatilität"],
     "subquestions": {
       "Möchtest du auch wissen, was man unter dem Momentum eines Assets versteht?": "momentum_info"}
+  },
+    "momentum_ranking": {
+    "questions": [
+      "Wie sieht das Momentum-Ranking aus?",
+      "Wer hat das höchste Momentum?",
+      "Welche Assets haben das stärkste Momentum?",
+      "Zeig mir die Momentum-Rangliste",
+      "Was sind die höchsten Momentum-Werte?",
+      "Wer sind die Top-Momentum-Assets?",
+      "Assets mit dem höchsten Momentum",
+      "Wer führt das Momentum gerade an?",
+      "Wo kann ich das Momentum-Ranking sehen?",
+      "Wie ist das Ranking der Momenta?",
+      "Wer sind die Besten beim Momentum?",
+      "Was sind die besten Momentum-Werte heute?",
+      "Lass mich die stärksten Momenta sehen",
+      "Gib mir das Top-Momentum",
+      "Welches Asset hat das höchste Momentum?"
+    ],
+    "answers": [
+      "Du findest das *Momentum-Ranking* direkt im oberen Bereich der *Startseite* 🏠.\nKlicke in dem Feld, in dem du *Top Gainers* und *Top Losers* siehst, auf das Pfeilsymbol ⬆️, um die Assets mit dem höchsten Momentum anzuzeigen.",
+      "Die Momentum-Rangliste ist im oberen Bereich der *Startseite* verfügbar.\nKlicke einfach auf den Pfeil ⬆️ im Bereich für *Top Gainers* und *Top Losers*, um zu sehen, welche Assets das höchste Momentum aufweisen.",
+      "Um herauszufinden, wer das höchste Momentum hat, kannst du das Feld oben auf der *Startseite* für *Top Gainers* und *Top Losers* nutzen.\nVerwende das Pfeilsymbol ⬆️, um auf das Momentum-Ranking zuzugreifen und Assets schnell zu vergleichen.",
+      "Das Momentum-Ranking wird nicht direkt im Chat angezeigt, kann aber leicht auf der *Startseite* eingesehen werden.\nSchau im Bereich *Top Gainers / Top Losers* nach und drücke auf den Pfeil ⬆️, um die vollständige Momentum-Rangliste anzuzeigen."
+    ],
+    "cost": 0,
+    "keywords": ["Momentum", "Klassifizierung", "Rangliste", "Ranking", "Top Momentum"],
+    "subquestions": {
+      "Wenn du möchtest, kann ich dir sofort das Momentum von [TOPIC] nennen?": "momentum",
+      "Soll ich dir direkt das Momentum von [FAVOURITE] geben?": "momentum"}
   }
 }
