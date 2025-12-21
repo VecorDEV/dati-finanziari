@@ -10149,5 +10149,35 @@
     "keywords": ["hv90", "hv", "90", "historical volatility", "volatility"],
     "subquestions": {
       "Would you also like to know what is meant by an asset's momentum?": "momentum_info"}
+  },
+    "momentum_classifica": {
+    "questions": [
+      "What is the momentum ranking?",
+      "Who has the highest momentum?",
+      "Which assets have the strongest momentum?",
+      "Show me the momentum leaderboard",
+      "What are the highest momentum values?",
+      "Who are the top momentum assets?",
+      "Assets with the highest momentum",
+      "Who is leading the momentum right now?",
+      "Where can I see the momentum ranking?",
+      "What is the momentum leaderboard?",
+      "Who are the top performers by momentum?",
+      "What are today's best momentum values?",
+      "Show me the strongest momentum assets",
+      "Give me the top momentum",
+      "Which asset has the highest momentum?"
+    ],
+    "answers": [
+      "You can find the *momentum ranking* directly in the top panel of the *home page* 🏠.\nWithin the panel where you see *Top Gainers* and *Top Losers*, tap on the arrow icon ⬆️ to view the assets with the highest momentum.",
+      "The momentum ranking is available in the upper panel of the *home page*.\nJust click on the arrow ⬆️ in the panel dedicated to *Top Gainers* and *Top Losers* to see which assets show the highest momentum.",
+      "To find out who has the highest momentum, you can check the top panel on the *home page*, dedicated to *top gainers* and *top losers*.\nUse the arrow symbol ⬆️ to access the momentum ranking and quickly compare assets.",
+      "The momentum ranking is not shown directly in the chat, but it can be easily consulted from the *home page*.\nCheck the *Top Gainers / Top Losers* panel and press the arrow ⬆️ to view the full momentum ranking."
+    ],
+    "cost": 0,
+    "keywords": ["momentum", "leaderboard", "ranking", "top momentum", "classification"],
+    "subquestions": {
+      "If you'd like, I can tell you the momentum of [TOPIC] right away?": "momentum",
+      "If you want, I can give you the momentum of [FAVOURITE] now?": "momentum"}
   }
 }
