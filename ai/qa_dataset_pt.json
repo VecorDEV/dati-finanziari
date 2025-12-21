@@ -9804,5 +9804,206 @@
     "subquestions": {
       "Você quer saber também o sentiment do setor de metais preciosos e materiais?": "sector_metals_materials",
       "Interessa-lhe também o sentiment geral sobre o setor de telecomunicações?": "sector_media"}
+  },
+    "sector_metals_materials": {
+    "questions": [
+      "Como vai o setor Precious Metals & Materials?",
+      "Como vai o setor de metais preciosos e materiais?",
+      "Como está indo o setor dos metais preciosos?",
+      "Qual é o sentiment do setor de materiais preciosos?",
+      "Como está o clima no setor dos materiais?",
+      "Como procede o setor do ouro e da prata?",
+      "Como está indo o compartimento Precious Metals & Materials?",
+      "Como está indo o segmento dos metais?",
+      "Diga-me o sentiment do setor Precious Metals & Materials",
+      "Diga-me o sentiment do setor dos materiais e dos metais",
+      "Qual é a tendência do setor dos metais preciosos?",
+      "Como vai o setor dos metais preciosos?",
+      "Como está o desempenho do setor de materiais industriais?",
+      "O segmento de metais preciosos está em crescimento?",
+      "Como progride o setor dos materiais?",
+      "Qual é a tendência no setor de metais e materiais?",
+      "Atualização sobre o setor de metais preciosos",
+      "Faça-me uma análise do setor Precious Metals & Materials",
+      "Análise de sentiment de materiais industriais",
+      "Outlook do setor de materiais e metais preciosos",
+      "Como vai o setor das commodities?",
+      "Como está indo o setor das matérias-primas?",
+      "Como está o mercado das matérias-primas?",
+      "Como vão as matérias-primas?"
+    ],
+    "answers": [
+      "O setor *Precious Metals & Materials* mostra atualmente um sentiment geral de *[METALS_SCORE]*. Este valor reflete o desempenho geral do compartimento, considerando dados de mercado, tendências recentes e comportamento dos investidores.",
+      "Neste período, o setor *Precious Metals & Materials* apresenta um sentiment estimado em torno de *[METALS_SCORE]*. O dado fornece uma visão sintética da perceção do mercado sobre o compartimento como um todo.",
+      "O sentiment geral do setor *Precious Metals & Materials* é de *[METALS_SCORE]*. Este indicador ajuda a compreender se o mercado está a mostrar uma orientação mais positiva, neutra ou prudente em relação ao setor.",
+      "Analisando o setor *Precious Metals & Materials*, emerge um sentiment global de *[METALS_SCORE]*. O valor leva em conta diversos fatores, incluindo performance recente, volatilidade e fluxos de capital.",
+      "Atualmente, o setor *Precious Metals & Materials* evidencia um nível de sentiment de *[METALS_SCORE]*. Trata-se de uma medida útil para ter um quadro geral do humor do mercado sobre o segmento.",
+      "O compartimento *Precious Metals & Materials* regista um sentiment agregado de *[METALS_SCORE]*. Este dado oferece uma indicação sintética de como o mercado está a avaliar o setor no seu conjunto.",
+      "Segundo as análises disponíveis, o setor *Precious Metals & Materials* mostra um sentiment geral de *[METALS_SCORE]*. É um valor que resume a tendência geral observada no mercado.",
+      "O setor *Precious Metals & Materials* apresenta no momento um sentiment estimado de *[METALS_SCORE]*, fornecendo uma visão clara da orientação do mercado para este compartimento."
+    ],
+    "cost": 3,
+    "keywords": ["metais preciosos", "precious metals", "materiais", "ouro", "prata", "platina", "metais", "commodities", "matérias-primas", "matéria-prima", "bruto"],
+    "subquestions": {
+      "Quer saber também o sentiment geral dos índices globais?": "sector_indices",
+      "Interessa-lhe também o sentiment geral sobre o setor das telecomunicações?": "sector_media"
+    }
+  },
+  "sector_media": {
+    "questions": [
+      "Como vai o setor Media & Telecom?",
+      "Como vai o setor de media e telecomunicações?",
+      "Como está indo o setor multimédia?",
+      "Qual é o sentiment do setor de streaming?",
+      "Como está o clima no setor do entretenimento?",
+      "Como procede o setor das telecomunicações?",
+      "Como está indo o compartimento de media e comunicação?",
+      "Diga-me o sentiment do setor das comunicações e streaming",
+      "Qual é a tendência do setor das telecomunicações?",
+      "Como vai o setor do streaming?",
+      "O segmento de streaming e telecomunicações está em crescimento?",
+      "Que tendência existe no setor do entretenimento?",
+      "Atualização sobre o setor Media e Telecom",
+      "Faça-me uma análise do setor de telecomunicações",
+      "Análise de sentiment de empresas de telecomunicação",
+      "Outlook do setor Media & Telecom"
+    ],
+    "answers": [
+      "O setor *Media & Telecom* mostra atualmente um sentiment geral de *[MEDIA_SCORE]*. Este valor reflete o desempenho geral do compartimento, considerando dados de mercado, tendências recentes e comportamento dos investidores.",
+      "Neste período, o setor *Media & Telecom* apresenta um sentiment estimado em torno de *[MEDIA_SCORE]*. O dado fornece uma visão sintética da perceção do mercado sobre o compartimento como um todo.",
+      "O sentiment geral do setor *Media & Telecom* é de *[MEDIA_SCORE]*. Este indicador ajuda a compreender se o mercado está a mostrar uma orientação mais positiva, neutra ou prudente em relação ao setor.",
+      "Analisando o setor *Media & Telecom*, emerge um sentiment global de *[MEDIA_SCORE]*. O valor leva em conta diversos fatores, incluindo performance recente, volatilidade e fluxos de capital.",
+      "Atualmente, o setor *Media & Telecom* evidencia um nível de sentiment de *[MEDIA_SCORE]*. Trata-se de uma medida útil para ter um quadro geral do humor do mercado sobre o segmento.",
+      "O compartimento *Media & Telecom* regista um sentiment agregado de *[MEDIA_SCORE]*. Este dado oferece uma indicação sintética de como o mercado está a avaliar o setor no seu conjunto.",
+      "Segundo as análises disponíveis, o setor *Media & Telecom* mostra um sentiment geral de *[MEDIA_SCORE]*. É um valor que resume a tendência geral observada no mercado.",
+      "O setor *Media & Telecom* apresenta no momento um sentiment estimado de *[MEDIA_SCORE]*, fornecendo uma visão clara da orientação do mercado para este compartimento."
+    ],
+    "cost": 3,
+    "keywords": ["setor", "media", "telecomunicações", "telecomunicação", "telecom", "streaming", "comunicações", "multimédia", "entretenimento"],
+    "subquestions": {
+      "Quer saber também o sentiment geral dos índices globais?": "sector_indices",
+      "Interessa-lhe também o sentiment geral sobre as moedas (FOREX)?": "sector_forex"
+    }
+  },
+  "sector_indices": {
+    "questions": [
+      "Como vai o setor Indices?",
+      "Como vai o setor dos índices?",
+      "Como estão indo os índices globais?",
+      "Qual é o sentiment geral dos índices?",
+      "Como está o clima nos principais índices globais?",
+      "Como procede o mercado dos índices?",
+      "Como estão os principais índices acionários?",
+      "Diga-me o sentiment dos índices globais",
+      "Qual é a tendência dos índices?",
+      "Atualização sobre os índices globais",
+      "Faça-me uma análise do mercado dos índices",
+      "Análise de sentiment de índices",
+      "Outlook de índices globais",
+      "Como está a situação dos principais índices?",
+      "Que tendência existe no mercado dos índices?"
+    ],
+    "answers": [
+      "O setor *Indices* mostra atualmente um sentiment geral de *[INDICES_SCORE]*. Este valor reflete a tendência geral dos índices globais, considerando dados de mercado, tendências recentes e comportamento dos investidores.",
+      "Neste período, o setor *Indices* apresenta um sentiment estimado em torno de *[INDICES_SCORE]*. O dado fornece uma visão sintética da perceção do mercado sobre o compartimento como um todo.",
+      "O sentiment geral do setor *Indices* é de *[INDICES_SCORE]*. Este indicador ajuda a compreender se o mercado está a mostrar uma orientação mais positiva, neutra ou prudente em relação aos índices globais.",
+      "Analisando o setor *Indices*, emerge um sentiment global de *[INDICES_SCORE]*. O valor leva em conta diversos fatores, incluindo performance recente, volatilidade e fluxos de capital.",
+      "Atualmente, o setor *Indices* evidencia um nível de sentiment de *[INDICES_SCORE]*. Trata-se de uma medida útil para ter um quadro geral do humor do mercado sobre o segmento.",
+      "O compartimento *Indices* regista um sentiment agregado de *[INDICES_SCORE]*. Este dado oferece uma indicação sintética de como o mercado está a avaliar os índices globais no seu conjunto.",
+      "Segundo as análises disponíveis, o setor *Indices* mostra um sentiment geral de *[INDICES_SCORE]*. É um valor que resume a tendência geral observada no mercado.",
+      "O setor *Indices* apresenta no momento um sentiment estimado de *[INDICES_SCORE]*, fornecendo uma visão clara da orientação do mercado para os índices globais."
+    ],
+    "cost": 3,
+    "keywords": ["setor", "índices", "indices", "globais", "acionários", "bolsa", "mercado"],
+    "subquestions": {
+      "Quer saber também o sentiment geral do setor crypto?": "sector_crypto",
+      "Interessa-lhe também o sentiment geral sobre as moedas?": "sector_forex"
+    }
+  },
+  "sector_forex": {
+    "questions": [
+      "Como vai o mercado Forex?",
+      "Como estão indo as principais moedas?",
+      "Qual é o sentiment do Forex?",
+      "Como está o clima no mercado das moedas?",
+      "Como procede o mercado Forex?",
+      "Como está indo o mercado cambial?",
+      "Diga-me o sentiment do Forex",
+      "Diga-me o sentiment geral sobre as moedas",
+      "Qual é a tendência das principais moedas?",
+      "Atualização sobre o Forex",
+      "Faça-me uma análise do mercado das moedas",
+      "Análise de sentiment do Forex",
+      "Outlook do Forex",
+      "Sentiment de moedas",
+      "Como está a situação do mercado das moedas?",
+      "Que tendência existe no Forex?"
+    ],
+    "answers": [
+      "O setor *Forex* mostra atualmente um sentiment geral de *[FOREX_SCORE]*. Este valor reflete o desempenho geral do mercado cambial, considerando dados de mercado, tendências recentes e comportamento dos investidores.",
+      "Neste período, o setor *Forex* apresenta um sentiment estimado em torno de *[FOREX_SCORE]*. O dado fornece uma visão sintética da perceção do mercado sobre o compartimento como um todo.",
+      "O sentiment geral do setor *Forex* é de *[FOREX_SCORE]*. Este indicador ajuda a compreender se o mercado cambial está a mostrar uma orientação mais positiva, neutra ou prudente em relação às moedas.",
+      "Analisando o setor *Forex*, emerge um sentiment global de *[FOREX_SCORE]*. O valor leva em conta diversos fatores, incluindo performance recente, volatilidade e fluxos de capital.",
+      "Atualmente, o setor *Forex* evidencia um nível de sentiment de *[FOREX_SCORE]*. Trata-se de uma medida útil para ter um quadro geral do humor do mercado sobre o segmento.",
+      "O compartimento *Forex* regista um sentiment agregado de *[FOREX_SCORE]*. Este dado oferece uma indicação sintética de como o mercado avalia as principais moedas no seu conjunto.",
+      "Segundo as análises disponíveis, o setor *Forex* mostra um sentiment geral de *[FOREX_SCORE]*. É um valor que resume a tendência geral observada no mercado cambial.",
+      "O setor *Forex* apresenta no momento um sentiment estimado de *[FOREX_SCORE]*, fornecendo uma visão clara da orientação do mercado para as moedas principais."
+    ],
+    "cost": 3,
+    "keywords": ["setor", "forex", "moedas", "moeda", "cambial", "mercado cambial", "divisas"],
+    "subquestions": {
+      "Quer saber também o sentiment geral do setor crypto?": "sector_crypto",
+      "Interessa-lhe também o sentiment geral sobre o setor big tech?": "sector_big_tech"
+    }
+  },
+  "sector_crypto": {
+    "questions": [
+      "Como vai o setor das criptomoedas?",
+      "Como está indo o setor das cryptos?",
+      "Qual é o sentiment sobre o setor das criptomoedas?",
+      "Como está o clima no campo das cryptos?",
+      "Como procede o mercado das criptomoedas?",
+      "Como está indo o setor crypto?",
+      "Diga-me o sentiment geral das cryptos",
+      "Qual é a tendência geral das criptomoedas?",
+      "Como vai o mercado geral das moedas digitais?",
+      "Atualização de sentiment sobre o mercado crypto",
+      "Faça-me uma análise sobre o sentiment global das criptomoedas",
+      "Análise de sentiment de crypto",
+      "Outlook geral de criptomoedas",
+      "Como está a situação do setor das cryptos?",
+      "Que tendência existe no setor das criptomoedas?"
+    ],
+    "answers": [
+      "O setor *Cryptocurrencies* mostra atualmente um sentiment geral de *[CRYPTO_SCORE]*. Este valor reflete a tendência geral do mercado crypto, considerando dados de mercado, tendências recentes e comportamento dos investidores.",
+      "Neste período, o setor *Cryptocurrencies* apresenta um sentiment estimado em torno de *[CRYPTO_SCORE]*. O dado fornece uma visão sintética da perceção do mercado sobre o compartimento como um todo.",
+      "O sentiment geral do setor *Cryptocurrencies* é de *[CRYPTO_SCORE]*. Este indicador ajuda a compreender se o mercado das criptomoedas está a mostrar uma orientação mais positiva, neutra ou prudente em relação às cryptos.",
+      "Analisando o setor *Cryptocurrencies*, emerge um sentiment global de *[CRYPTO_SCORE]*. O valor leva em conta diversos fatores, incluindo performance recente, volatilidade e fluxos de capital.",
+      "Atualmente, o setor *Cryptocurrencies* evidencia um nível de sentiment de *[CRYPTO_SCORE]*. Trata-se de uma medida útil para ter um quadro geral do humor do mercado sobre o segmento.",
+      "O compartimento *Cryptocurrencies* regista um sentiment agregado de *[CRYPTO_SCORE]*. Este dado oferece uma indicação sintética de como o mercado avalia as principais cryptos no seu conjunto.",
+      "Segundo as análises disponíveis, o setor *Cryptocurrencies* mostra um sentiment geral de *[CRYPTO_SCORE]*. É um valor que resume a tendência geral observada no mercado das moedas digitais.",
+      "O setor *Cryptocurrencies* apresenta no momento um sentiment estimado de *[CRYPTO_SCORE]*, fornecendo uma visão clara da orientação do mercado para as cryptos principais."
+    ],
+    "cost": 3,
+    "keywords": ["setor", "criptomoedas", "criptomoeda", "crypto", "cripto", "moeda digital", "moedas digitais", "blockchain"],
+    "subquestions": {
+      "Quer saber também o sentiment geral do setor de IA?": "sector_semiconductors",
+      "Interessa-lhe também o sentiment geral sobre o setor dos colossos da tecnologia?": "sector_big_tech"
+    }
+  },
+  "sector_general": {
+    "questions": [
+      "Como progride esse setor?",
+      "Como está indo este setor?",
+      "Qual é o sentiment sobre o seu setor?",
+      "Como vai o setor?",
+      "Como vai o seu setor?"
+    ],
+    "answers": [
+      "O sentiment geral calculado para o setor [LAST_SECTOR] resulta em [LAST_SECTOR_SCORE]. Este dado foi obtido através da análise de dados de mercado, tendências recentes e comportamento dos investidores.",
+      "Relativamente ao setor [LAST_SECTOR], o sentiment geral resulta em [LAST_SECTOR_SCORE]. Para lhe fornecer este dado, avaliei diversas variáveis, tais como dados de mercado, tendências recentes e comportamento dos investidores."
+    ],
+    "cost": 3,
+    "keywords": ["setor", "como", "sentiment"]
   }
 }
