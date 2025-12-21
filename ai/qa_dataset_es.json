@@ -10265,5 +10265,35 @@
     "keywords": ["hv90", "hv", "90", "volatilidad histórica", "volatilidad"],
     "subquestions": {
       "¿Quieres saber también a qué nos referimos con el momentum de un activo?": "momentum_info"}
+  },
+   "momentum_ranking": {
+    "questions": [
+      "¿Cuál es la clasificación del momentum?",
+      "¿Quién tiene el momentum más alto?",
+      "¿Qué activos tienen el momentum más fuerte?",
+      "Muéstrame la clasificación de los momentum",
+      "¿Cuáles son los momentum más altos?",
+      "¿Quiénes son los top momentum?",
+      "Activos con el momentum más elevado",
+      "¿Quién lidera el momentum en este momento?",
+      "¿Dónde puedo ver la clasificación del momentum?",
+      "¿Cuál es el ranking de los momentum?",
+      "¿Quiénes son los mejores por momentum?",
+      "¿Cuáles son los mejores momentum hoy?",
+      "Déjame ver los momentum más fuertes",
+      "Dame el top momentum",
+      "¿Cuál es el activo con el momentum más alto?"
+    ],
+    "answers": [
+      "Puedes encontrar la *clasificación del momentum* directamente en el panel superior de la *página de inicio* 🏠.\nDentro del panel donde ves *Top Gainers* y *Top Losers*, pulsa en el icono de la flecha ⬆️ para visualizar los activos con el momentum más alto.",
+      "La clasificación del momentum está disponible en el panel superior de la *página de inicio*.\nSolo tienes que hacer clic en la flecha ⬆️ en el panel dedicado a *Top Gainers* y *Top Losers* para ver qué activos muestran el momentum más alto.",
+      "To find out who has the highest momentum, you can check the top panel on the *home page*, dedicated to *top gainers* and *top losers*.\nUsa el símbolo de la flecha ⬆️ para acceder a la clasificación del momentum y comparar rápidamente los activos.",
+      "El ranking del momentum no se muestra directamente en el chat, pero se puede consultar fácilmente desde la *página de inicio*.\nConsulta el panel *Top Gainers / Top Losers* y pulsa en la flecha ⬆️ para ver la clasificación completa del momentum."
+    ],
+    "cost": 0,
+    "keywords": ["momentum", "clasificación", "ranking", "top momentum", "liderazgo"],
+    "subquestions": {
+      "Si quieres, ¿puedo decirte ahora mismo el momentum de [TOPIC]?": "momentum",
+      "Si lo deseas, ¿puedo darte ya el momentum de [FAVOURITE]?": "momentum"}
   }
 }
