@@ -10066,5 +10066,104 @@
     ],
     "cost": 3,
     "keywords": ["sektor", "bagaimana", "sentimen"]
+  },
+    "asset_sector_score": {
+    "questions": [
+      "Bagaimana perkembangan sektor [TOPIC]?",
+      "Bagaimana kinerja sektor [TOPIC]?",
+      "Apa sentimen untuk sektor [TOPIC]?",
+      "Beri tahu saya bagaimana kondisi sektor tempat [TOPIC] berada",
+      "Bagaimana kemajuan sektor yang mencakup [TOPIC]?",
+      "Bagaimana kondisi sektor asal [TOPIC]?",
+      "Masuk ke sektor mana [TOPIC] dan bagaimana kinerjanya?",
+      "Apa tren dari sektor [TOPIC]?",
+      "Bagaimana kondisi sektor tempat [TOPIC] beroperasi?",
+      "Bagaimana kondisi pasar referensi [TOPIC]?",
+      "Apakah sektor [TOPIC] berjalan dengan baik?"
+    ],
+    "answers": [
+      "Menurut perhitungan algoritma saya, sektor [SECTOR] saat ini memiliki sentimen umum sebesar [SECTOR_SCORE]",
+      "Sejauh yang saya tahu, sentimen umum pada [SECTOR] adalah [SECTOR_SCORE]",
+      "Sektor [SECTOR] memiliki sentimen keseluruhan sebesar [SECTOR_SCORE]",
+      "Berikut adalah sentimen umum untuk sektor [SECTOR]: [SECTOR_SCORE]"
+    ],
+    "cost": 3,
+    "keywords": ["sektor", "bidang", "sentimen", "pasar"],
+    "subquestions": {
+      "Apakah Anda juga ingin tahu sentimen umum sektor [FAVOURITE]?": "asset_sector_score",
+      "Apakah Anda juga tertarik dengan sentimen umum pada sektor [FAVOURITE]?": "asset_sector_score",
+      "Apakah Anda ingin saya memberi tahu juga bagaimana kinerja sektor [FAVOURITE]?": "asset_sector_score"
+    }
+  },
+  "momentum": {
+    "questions": [
+      "Apa momentum dari [TOPIC]?",
+      "Bagaimana momentum [TOPIC] saat ini?",
+      "Berapa momentum yang dihitung untuk [TOPIC]?",
+      "Momentum [TOPIC]",
+      "Berikan saya momentum [TOPIC]",
+      "Bisakah Anda memberi tahu momentum untuk [TOPIC]?",
+      "Bisakah Anda memberikan kekuatan prediksi Anda pada [TOPIC]?",
+      "Seberapa kuat prediksi Anda untuk [TOPIC]?",
+      "Seberapa kuat sentimen yang dihitung pada [TOPIC]?",
+      "Seberapa andal prediksi Anda tentang [TOPIC]?",
+      "Seberapa besar saya bisa mempercayai prediksi ini?"
+    ],
+    "answers": [
+      "Momentum [TOPIC] saat ini adalah *[MOMENTUM]* 📊.\n\nMomentum mewakili *kekuatan prediksi secara keseluruhan*, yang dihitung dengan menggabungkan tren pasar, data historis, indikator, dan perilaku harga terkini. Nilai yang lebih tinggi menunjukkan prediksi yang lebih solid dan konsisten dengan data yang tersedia.\nPenting untuk diingat bahwa momentum tinggi sekalipun *tidak pernah menjamin hasil yang pasti 100%*, tetapi memberikan indikasi tentang probabilitas dan kualitas sinyal.",
+      "Untuk [TOPIC], perkiraan momentumnya adalah *[MOMENTUM]*.\n\nNilai ini mengukur seberapa besar prediksi didukung oleh data pasar: semakin tinggi momentum, semakin besar kekuatan sinyal dan konsistensi di antara indikator yang dianalisis.\n⚠️ Namun, saya ingatkan bahwa momentum *bukanlah kepastian mutlak*, melainkan alat bantu pengambilan keputusan yang harus selalu digunakan bersama dengan manajemen risiko yang tepat.",
+      "Tingkat momentum [TOPIC] adalah *[MOMENTUM]* 🔍.\n\nMomentum menunjukkan *kepercayaan statistik dari prediksi*, berdasarkan model matematika dan analisis data riil. Nilai yang lebih tinggi menunjukkan prediksi yang lebih stabil, sementara nilai yang lebih rendah menunjukkan ketidakpastian yang lebih besar.\n✋ Namun, bahkan dengan momentum yang baik, saya menyarankan untuk selalu mempertimbangkan konteks pasar dan tidak hanya mengandalkan satu indikator saja.",
+      "Saat ini [TOPIC] menunjukkan momentum sebesar *[MOMENTUM]*.\n\nParameter ini menyatakan *kekuatan sentimen dan prediksi*, dengan mempertimbangkan tren, volatilitas, dan konfirmasi teknis. Momentum tinggi menandakan prediksi yang lebih meyakinkan dari sudut pandang data.\n‼️ Tetap mendasar untuk diingat bahwa momentum *tidak menghilangkan risiko 100%*, tetapi membantu mengevaluasi kualitas sinyal dengan lebih baik.",
+      "Momentum yang terkait dengan [TOPIC] adalah *[MOMENTUM]*.\n\nSingkatnya, momentum berguna untuk memahami *seberapa kuat dan andal suatu prediksi*. Semakin tinggi nilainya, semakin kuat prediksi tersebut didukung.\n✋ Namun, saya ingin berterus terang bahwa *tidak ada nilai momentum yang mewakili jaminan mutlak*: ini selalu merupakan alat probabilitas dan bukan kepastian."
+    ],
+    "cost": 3,
+    "keywords": ["momentum", "kekuatan", "kuat", "andal", "percaya", "prediksi"],
+    "subquestions": {
+      "Apakah Anda juga ingin tahu sentimen umum sektor [TOPIC]?": "asset_sector_score",
+      "Apakah Anda juga tertarik dengan momentum [FAVOURITE]?": "momentum",
+      "Apakah Anda juga tertarik dengan volatilitas HV90 dari [TOPIC]?": "volatility",
+      "Untuk gambaran yang lebih luas, saya bisa memberi tahu Anda perkembangan sektor [TOPIC]. Mau saya beri tahu?": "asset_sector_score",
+      "Jika ingin menganalisis lebih banyak data, saya bisa membawa Anda ke analisis lengkap [TOPIC]. Apakah Anda ingin saya lanjutkan?": "asset_analysis_open"
+    }
+  },
+  "volatility": {
+    "questions": [
+      "Berapa volatilitas HV90 dari [TOPIC]?",
+      "Bagaimana volatilitas [TOPIC]?",
+      "Berapa volatilitas yang dihitung untuk [TOPIC]?",
+      "Volatilitas HV90 [TOPIC]",
+      "Volatilitas historis 90 hari untuk [TOPIC]",
+      "Historical Volatility 90 dari [TOPIC]",
+      "Berikan saya volatilitas [TOPIC]",
+      "Berikan saya HV90 dari [TOPIC]",
+      "HV90 untuk [TOPIC]",
+      "Bisakah Anda memberi tahu volatilitas untuk [TOPIC]?",
+      "Berapa volatilitas pada [TOPIC]?",
+      "Seberapa volatil [TOPIC]?",
+      "Apakah [TOPIC] terlalu volatil?",
+      "Seberapa berisiko berinvestasi di [TOPIC]?",
+      "Apa risiko pada [TOPIC]?",
+      "Risiko jika saya berinvestasi di [TOPIC]?",
+      "Berikan saya risiko yang dihitung untuk [TOPIC]",
+      "Beri tahu saya seberapa berisiko [TOPIC] sekarang",
+      "Seberapa tidak stabil [TOPIC] saat ini?",
+      "Seberapa tidak stabil prediksinya?",
+      "Apakah [TOPIC] banyak berfluktuasi?",
+      "Apakah [TOPIC] sedang sangat berfluktuasi?"
+    ],
+    "answers": [
+      "Volatilitas [TOPIC] adalah sebesar *[VOLATILITY]*.\n\nSecara umum, volatilitas yang lebih tinggi menunjukkan pergerakan harga yang lebih lebar dan tingkat risiko yang berpotensi lebih besar.\n⚠️ Saya ingin mengingatkan bahwa volatilitas rendah tidak berarti nol risiko.",
+      "Saat ini [TOPIC] menunjukkan volatilitas sebesar *[VOLATILITY]*.\n\nNilai yang tinggi menunjukkan ketidakstabilan yang lebih besar, sedangkan nilai yang lebih rendah menunjukkan pergerakan yang lebih terbatas.\n‼️ Harap dicatat bahwa volatilitas yang berkurang tidak menghilangkan risiko: peristiwa tak terduga tetap dapat memengaruhi harga.",
+      "Tingkat volatilitas [TOPIC] diperkirakan sekitar *[VOLATILITY]*.\n\nIni adalah alat bantu yang berguna untuk mengevaluasi profil risiko secara keseluruhan, tetapi Anda harus selalu ingat bahwa meskipun volatilitas terkendali, *risiko tidak pernah nol* dan harus selalu dikontekstualisasikan dalam strategi.",
+      "Untuk [TOPIC], volatilitas saat ini adalah *[VOLATILITY]*.\n\nData ini membantu memahami tingkat fluktuasi harga: semakin tinggi, semakin cepat aset dapat bergerak ke kedua arah.\n⚠️ Namun, selalu ingat bahwa aset dengan volatilitas rendah sekalipun dapat mengalami pergerakan mendadak.",
+      "Volatilitas yang tercatat untuk [TOPIC] adalah *[VOLATILITY]*.\n\nDalam istilah umum, volatilitas HV90 memberikan indikasi risiko terkait dengan mengukur fluktuasi harga.\n⚠️ Ingatlah bahwa *volatilitas rendah tidak menjamin keamanan total* dan harus selalu dikontekstualisasikan."
+    ],
+    "cost": 3,
+    "keywords": ["volatilitas", "volatility", "volatil", "hv90", "tidak stabil", "ketidakstabilan", "fluktuasi", "berfluktuasi", "risiko", "berisiko"],
+    "subquestions": {
+      "Apakah Anda ingin saya memberi tahu juga sentimen umum sektor [TOPIC]?": "asset_sector_score",
+      "Apakah Anda juga tertarik mengetahui momentum [TOPIC]?": "momentum",
+      "Apakah Anda juga tertarik dengan volatilitas HV90 dari [FAVOURITE]?": "volatility",
+      "Jika ingin gambaran yang lebih luas, saya bisa membuatkan analisis lengkap [TOPIC]. Apakah Anda ingin saya lanjutkan?": "asset_analysis_open"}
   }
 }
