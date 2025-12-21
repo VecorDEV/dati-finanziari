@@ -10190,5 +10190,51 @@
       "Interessiert es dich, auch das Momentum von [TOPIC] zu erfahren?": "momentum",
       "Interessiert dich auch die HV90-Volatilität von [FAVOURITE]?": "volatility",
       "Für einen breiteren Überblick kann ich die vollständige Analyse von [TOPIC] erstellen. Soll ich fortfahren?": "asset_analysis_open"}
+  },
+    "momentum_info": {
+    "questions": [
+      "Was bedeutet Momentum?",
+      "Was meinst du mit Momentum?",
+      "Erklärst du mir, was Momentum ist?",
+      "Wie soll ich das Momentum eines Assets interpretieren?",
+      "Wie wird das Momentum interpretiert?",
+      "Was gibt das Momentum an?",
+      "Wozu dient das Momentum im Finanzwesen?",
+      "Warum ist das Momentum bei Vorhersagen wichtig?",
+      "Gibt das Momentum die Stärke einer Vorhersage an?"
+    ],
+    "answers": [
+      "Das *Momentum* gibt die Stärke einer Vorhersage oder den Trend eines Assets über einen bestimmten Zeitraum an. Ein höherer Wert deutet darauf hin, dass der beobachtete Trend stärker ist, garantiert jedoch nicht, dass sich die Bewegung fortsetzt.",
+      "Im Finanzwesen stellt das *Momentum* dar, wie viel Kraft ein Asset in der Preisbewegung oder in den Vorhersagen zeigt. Hohe Werte deuten auf eine größere Überzeugung hinsichtlich des Trends hin.",
+      "Das *Momentum* dient dazu, die relative Stärke eines Assets im Vergleich zu seiner jüngsten Entwicklung zu messen. Wenn es hoch ist, bedeutet dies, dass der aktuelle Trend robust ist; wenn es niedrig ist, ist die Bewegung schwächer."
+    ],
+    "cost": 0,
+    "keywords": ["Momentum", "Stärke", "Kraft"],
+    "subquestions": {
+      "Möchtest du auch wissen, was man unter der Volatilität eines Assets versteht?": "volatility_info"
+    }
+  },
+  "hv90_info": {
+    "questions": [
+      "Was bedeutet HV90?",
+      "Was meinst du mit HV 90?",
+      "Was ist die HV90-Volatilität?",
+      "Was ist historische Volatilität?",
+      "Erkläre mir HV90",
+      "Wozu dient die HV90?",
+      "Wozu dient die historische Volatilität?",
+      "Wie soll ich HV90 im Finanzwesen interpretieren?",
+      "Warum verwendet man die HV90?",
+      "Was bedeutet die Abkürzung HV90?"
+    ],
+    "answers": [
+      "Die *HV90* gibt die historische Volatilität an, die über die letzten 90 Tage berechnet wurde. Sie hilft zu verstehen, wie stark die Preise eines Assets in jüngster Zeit geschwankt haben, und gibt einen Hinweis auf das damit verbundene Risiko. ⚠️ Eine niedrige Volatilität bedeutet kein Nullrisiko.",
+      "HV90 ist die *historische 90-Tage-Volatilität* und misst das Ausmaß vergangener Preisbewegungen. Je höher sie ist, desto höher ist das wahrgenommene Risiko; je niedriger sie ist, desto weniger bewegt sich der Preis, was das Risiko jedoch nicht eliminiert.",
+      "Die HV90 (*historische 90-Tage-Volatilität*) hilft dabei, das Risikoprofil eines Assets zu bewerten, indem sie die Preisveränderungen der letzten 3 Monate betrachtet. Sie ist nützlich, um Assets zu vergleichen und Trading- oder Investitionsstrategien zu planen."
+    ],
+    "cost": 0,
+    "keywords": ["hv90", "hv", "90", "historische Volatilität", "Volatilität"],
+    "subquestions": {
+      "Möchtest du auch wissen, was man unter dem Momentum eines Assets versteht?": "momentum_info"}
   }
 }
