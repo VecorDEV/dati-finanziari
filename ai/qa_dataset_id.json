@@ -10165,5 +10165,51 @@
       "Apakah Anda juga tertarik mengetahui momentum [TOPIC]?": "momentum",
       "Apakah Anda juga tertarik dengan volatilitas HV90 dari [FAVOURITE]?": "volatility",
       "Jika ingin gambaran yang lebih luas, saya bisa membuatkan analisis lengkap [TOPIC]. Apakah Anda ingin saya lanjutkan?": "asset_analysis_open"}
+  },
+    "momentum_info": {
+    "questions": [
+      "Apa arti momentum?",
+      "Apa yang dimaksud dengan momentum?",
+      "Bisa jelaskan apa itu momentum?",
+      "Bagaimana cara menginterpretasikan momentum suatu aset?",
+      "Bagaimana cara membaca momentum?",
+      "Apa yang diindikasikan oleh momentum?",
+      "Apa kegunaan momentum dalam keuangan?",
+      "Mengapa momentum penting dalam prediksi?",
+      "Apakah momentum menunjukkan kekuatan suatu prediksi?"
+    ],
+    "answers": [
+      "*Momentum* menunjukkan kekuatan suatu prediksi atau tren aset dalam periode tertentu. Nilai yang lebih tinggi menunjukkan bahwa tren yang diamati lebih kuat, tetapi tidak menjamin bahwa pergerakan tersebut akan terus berlanjut.",
+      "Dalam keuangan, *momentum* mewakili seberapa besar kekuatan yang ditunjukkan aset dalam pergerakan harga atau prediksi. Nilai yang tinggi menunjukkan keyakinan yang lebih besar pada tren tersebut.",
+      "*Momentum* berfungsi untuk mengukur kekuatan relatif suatu aset dibandingkan dengan evolusi terbarunya. Jika tinggi, berarti tren saat ini kuat; jika rendah, pergerakannya lebih lemah."
+    ],
+    "cost": 0,
+    "keywords": ["momentum", "kekuatan"],
+    "subquestions": {
+      "Apakah Anda juga ingin tahu apa yang dimaksud dengan volatilitas aset?": "volatility_info"
+    }
+  },
+  "hv90_info": {
+    "questions": [
+      "Apa arti HV90?",
+      "Apa yang dimaksud dengan HV 90?",
+      "Apa itu volatilitas HV90?",
+      "Apa itu volatilitas historis?",
+      "Jelaskan kepada saya tentang HV90",
+      "Apa kegunaan HV90?",
+      "Apa kegunaan volatilitas historis?",
+      "Bagaimana cara menginterpretasikan HV90 dalam keuangan?",
+      "Mengapa HV90 digunakan?",
+      "Apa kepanjangan dari HV90?"
+    ],
+    "answers": [
+      "*HV90* menunjukkan volatilitas historis yang dihitung selama 90 hari terakhir. Ini berguna untuk memahami seberapa besar fluktuasi harga aset baru-baru ini dan memberikan indikasi risiko terkait. ⚠️ Volatilitas rendah bukan berarti nol risiko.",
+      "HV90 adalah *volatilitas historis 90 hari* yang mengukur besarnya pergerakan harga di masa lalu. Semakin tinggi nilainya, semakin tinggi risiko yang dirasakan; semakin rendah nilainya, harga bergerak lebih sedikit, namun tidak menghilangkan risiko.",
+      "HV90 (*volatilitas historis 90 hari*) membantu mengevaluasi profil risiko aset dengan mengamati variasi harga dalam 3 bulan terakhir. Ini berguna untuk membandingkan aset dan merencanakan strategi perdagangan atau investasi."
+    ],
+    "cost": 0,
+    "keywords": ["hv90", "hv", "90", "volatilitas historis", "volatilitas"],
+    "subquestions": {
+      "Apakah Anda juga ingin tahu apa yang dimaksud dengan momentum aset?": "momentum_info"}
   }
 }
