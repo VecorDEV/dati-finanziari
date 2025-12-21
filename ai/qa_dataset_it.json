@@ -10103,5 +10103,25 @@
   ],
   "cost": 3,
   "keywords": ["settore", "come", "sentiment"]
+},
+  "asset_sector_score": {
+  "questions": [
+    "Come procede il settore di [TOPIC]?",
+    "Come sta andando il settore di [TOPIC]?",
+    "Qual è il sentiment sul settore di [TOPIC]?",
+    "Come va il settore in cui c'è [TOPIC]?"
+  ],
+  "answers": [
+    "Secondo i calcoli del mio algoritmo il settore [SECTOR] attualmente ha un sentiment generale pari a [SECTOR_SCORE]",
+    "Da quel che mi risulta, il sentiment generale su [SECTOR] risulta [SECTOR_SCORE]",
+    "Il settore [SECTOR] ha un sentiment complessivo del [SECTOR_SCORE]",
+    "Ecco il sentiment generale per il settore [SECTOR]: [SECTOR_SCORE]"
+  ],
+  "cost": 3,
+  "keywords": ["settore", "settore di", "sentiment"],
+  "subquestions": {
+    "Vuoi sapere anche il sentiment generale del settore di [FAVOURITE]?": "asset_sector_score",
+    "Ti interessa anche il sentiment generale sul settore di [FAVOURITE]?": "asset_sector_score",
+    "Vuoi che ti dica anche come sta andando il settore di [FAVOURITE]?": "asset_sector_score"}
 }
 }
