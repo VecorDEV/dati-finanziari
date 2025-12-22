@@ -10304,5 +10304,38 @@
       "Se vuoi ti posso dire il sentiment della categoria delle Big-Tech. Vuoi che procedo?": "sector_big_tech",
       "Se vuoi posso darti il sentiment della categoria precious metals & materials. Ti interessa?": "sector_metals_materials",
       "Ti interessa sapere il sentiment sul settore Crypto?": "sector_crypto"}
-  }
+  },
+    "future_chart": {
+    "questions": [
+      "Fammi vedere il grafico futuro di [TOPIC]",
+      "Fammi vedere come andrà [TOPIC] nel futuro",
+      "Mostrami graficamente come andrà [TOPIC]",
+      "Mostrami graficamente il futuro di [TOPIC]",
+      "Mostrami il possibile andamento futuro di [TOPIC]",
+      "Dammi il grafico previsionale di [TOPIC]",
+      "Dammi la previsione grafica per [TOPIC]",
+      "Vorrei vedere il grafico futuro di [TOPIC]",
+      "Puoi mostrarmi l’andamento grafico futuro di [TOPIC]?",
+      "C’è una previsione grafica per [TOPIC]?",
+      "Grafico futuro [TOPIC]",
+      "Disegna il futuro di [TOPIC]",
+      "Andamento grafico futuro di [TOPIC]",
+      "Come vedi [TOPIC] nei prossimi giorni sul grafico?",
+      "Mi sai tracciare il grafico per i prossimi giorni di [TOPIC]?",
+      "Traccia l'andamento futuro di [TOPIC]",
+      "Continua il grafico di [TOPIC] e fammi vedere come andrà",
+      "Fammi vedere le proiezioni grafiche future di [TOPIC]",
+      "Proiezione grafica di [TOPIC]"
+    ],
+    "answers": [
+      "Ti ho preparato l’analisi di *[TOPIC]*, dove potrai anche vedere il probabile andamento futuro:",
+      "Ho preparato un’analisi dedicata a *[TOPIC]* che mostra anche il possibile scenario futuro:",
+      "Trovi l’analisi di *[TOPIC]* con una probabile proiezione del suo andamento futuro:",
+      "Ho pronto il pannello di analisi di *[TOPIC]*, dove è anche illustrato graficamente il probabile movimento futuro:",
+      "È disponibile l’analisi di *[TOPIC]* che evidenzia anche il possibile andamento grafico nei prossimi periodi:"
+    ],
+    "cost": 3,
+    "keywords": ["grafico futuro", "previsione grafico", "andamento futuro", "scenario futuro", "forecast grafico"],
+    "tag": "ultra"
+}
 }
