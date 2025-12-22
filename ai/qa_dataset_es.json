@@ -10295,5 +10295,129 @@
     "subquestions": {
       "Si quieres, ¿puedo decirte ahora mismo el momentum de [TOPIC]?": "momentum",
       "Si lo deseas, ¿puedo darte ya el momentum de [FAVOURITE]?": "momentum"}
+  },
+   "sectors_overview": {
+    "questions": [
+      "¿Cuántos sectores hay?",
+      "¿Cuáles son los sectores que analizas?",
+      "¿Qué sectores cubre TradeGPT?",
+      "¿Qué sectores analizas?",
+      "¿Cuáles son los sectores disponibles?",
+      "¿Qué categorías de mercado existen?",
+      "¿Puedes enumerarme los sectores?",
+      "¿En qué sectores dividís el mercado?",
+      "¿En qué categorías se puede dividir el mercado?",
+      "¿Cuáles son las principales categorías?",
+      "¿Qué sectores puedo analizar?",
+      "¿Qué activos hay en el sector?",
+      "¿Qué tickers hay en ese sector?",
+      "Dime los activos del sector"
+    ],
+    "answers": [
+      "TradeGPT organiza el mercado en varios sectores principales para ofrecer una visión clara y estructurada.\n\nAquí tienes los sectores disponibles con algunos ejemplos representativos:\n\n• *Big Tech (software e internet)*: incluyendo Microsoft, Apple\n• *Semiconductors & AI*: incluyendo NVIDIA, ARM\n• *Financial Services*: incluyendo JPMorgan, Visa, PayPal\n• *Automotive & Mobility*: incluyendo Tesla, Stellantis\n• *Healthcare & Pharma*: incluyendo Eli Lilly, Pfizer\n• *Consumer Goods & Retail*: incluyendo Walmart, McDonald’s\n• *Industrials & Defense*: incluyendo Caterpillar, Leonardo\n• *Energy (Oil & Gas)*: incluyendo petróleo, gas natural\n• *Utilities & Green*: incluyendo Iberdrola, American Electric Power\n• *Precious Metals & Materials*: incluyendo oro, Vale\n• *Media & Telecom*: incluyendo Netflix, AT&T\n• *Indices (global)*: incluyendo S&P 500, Nasdaq\n• *Forex (currencies)*: incluyendo EUR/USD, GBP/USD\n• *Crypto Assets*: incluyendo Bitcoin, Ethereum\n\nEsta subdivisión ayuda a comprender mejor el contexto del mercado y el sentimiento general de cada compartimento.",
+      "TradeGPT subdivide el mercado en sectores principales para facilitar el análisis y la comprensión de los diferentes compartimentos.\n\nAquí tienes los sectores disponibles con algunos ejemplos representativos:\n\n• *Big Tech (software e internet)*: Microsoft, Apple\n• *Semiconductors & AI*: NVIDIA, ARM\n• *Financial Services*: JPMorgan, Visa, PayPal\n• *Automotive & Mobility*: Tesla, Stellantis\n• *Healthcare & Pharma*: Eli Lilly, Pfizer\n• *Consumer Goods & Retail*: Walmart, McDonald’s\n• *Industrials & Defense*: Caterpillar, Leonardo\n• *Energy (Oil & Gas)*: petróleo, gas natural\n• *Utilities & Green*: Iberdrola, American Electric Power\n• *Precious Metals & Materials*: oro, Vale\n• *Media & Telecom*: Netflix, AT&T\n• *Indices (global)*: S&P 500, Nasdaq\n• *Forex (currencies)*: EUR/USD, GBP/USD\n• *Crypto Assets*: Bitcoin, Ethereum\n\nEsta clasificación permite evaluar mejor el contexto del mercado y el sentimiento asociado a cada sector.",
+      "Para ofrecer una visión más clara de los mercados, TradeGPT organiza los activos en varios sectores clave.\n\nA continuación encontrarás la lista de sectores con algunos ejemplos para cada uno:\n\n• *Big Tech (software e internet)*: Microsoft, Apple\n• *Semiconductors & AI*: NVIDIA, ARM\n• *Financial Services*: JPMorgan, Visa, PayPal\n• *Automotive & Mobility*: Tesla, Stellantis\n• *Healthcare & Pharma*: Eli Lilly, Pfizer\n• *Consumer Goods & Retail*: Walmart, McDonald’s\n• *Industrials & Defense*: Caterpillar, Leonardo\n• *Energy (Oil & Gas)*: petróleo, gas natural\n• *Utilities & Green*: Iberdrola, American Electric Power\n• *Precious Metals & Materials*: oro, Vale\n• *Media & Telecom*: Netflix, AT&T\n• *Indices (global)*: S&P 500, Nasdaq\n• *Forex (currencies)*: EUR/USD, GBP/USD\n• *Crypto Assets*: Bitcoin, Ethereum\n\nEsta subdivisión ayuda a interpretar mejor la tendencia de los mercados y a comparar activos pertenecientes al mismo compartimento."
+    ],
+    "cost": 0,
+    "keywords": ["cuáles", "cuántos", "sectores", "categorías", "activos", "compartimentos"],
+    "subquestions": {
+      "Si quieres, puedo decirte el sentimiento de la categoría Big Tech. ¿Quieres que proceda?": "sector_big_tech",
+      "Si quieres, puedo darte el sentimiento de la categoría precious metals & materials. ¿Te interesa?": "sector_metals_materials",
+      "¿Te interesa saber el sentimiento sobre el sector Crypto?": "sector_crypto"}
+  },
+  "future_chart": {
+    "questions": [
+      "Muéstrame el gráfico futuro de [TOPIC]",
+      "Muéstrame cómo irá [TOPIC] en el futuro",
+      "Muéstrame gráficamente cómo irá [TOPIC]",
+      "Muéstrame gráficamente el futuro de [TOPIC]",
+      "Muéstrame la posible tendencia futura de [TOPIC]",
+      "Dame el gráfico previsional de [TOPIC]",
+      "Dame la previsión gráfica para [TOPIC]",
+      "Quisiera ver el gráfico futuro de [TOPIC]",
+      "¿Puedes mostrarme la tendencia gráfica futura de [TOPIC]?",
+      "¿Hay una previsión gráfica para [TOPIC]?",
+      "Gráfico futuro [TOPIC]",
+      "Dibuja el futuro de [TOPIC]",
+      "Tendencia gráfica futura de [TOPIC]",
+      "¿Cómo ves a [TOPIC] en los próximos días en el gráfico?",
+      "¿Sabes trazar el gráfico para los próximos días de [TOPIC]?",
+      "Traza la tendencia futura de [TOPIC]",
+      "Continúa el gráfico de [TOPIC] y muéstrame cómo irá",
+      "Muéstrame las proyecciones gráficas futuras de [TOPIC]",
+      "Proyección gráfica de [TOPIC]"
+    ],
+    "answers": [
+      "He preparado el análisis de *[TOPIC]*, donde también podrás ver la probable tendencia futura:",
+      "He preparado un análisis dedicado a *[TOPIC]* que también muestra el posible escenario futuro:",
+      "Encontrarás el análisis de *[TOPIC]* con una probable proyección de su tendencia futura:",
+      "Tengo listo el panel de análisis de *[TOPIC]*, donde también se ilustra gráficamente el probable movimiento futuro:",
+      "Está disponible el análisis de *[TOPIC]* que destaca también la posible tendencia gráfica en los próximos periodos:"
+    ],
+    "cost": 3,
+    "keywords": ["gráfico", "futuro", "previsión", "futura", "tendencia", "escenario", "proyecciones", "futuras"],
+    "tag": "ultra"
+  },
+  "future_graph_free": {
+    "questions": [
+      "Muéstrame el gráfico futuro de [TOPIC]",
+      "Muéstrame cómo irá [TOPIC] en el futuro",
+      "Muéstrame gráficamente cómo irá [TOPIC]",
+      "Muéstrame gráficamente el futuro de [TOPIC]",
+      "Muéstrame la posible tendencia futura de [TOPIC]",
+      "Dame el gráfico previsional de [TOPIC]",
+      "Dame la previsión gráfica para [TOPIC]",
+      "Quisiera ver el gráfico futuro de [TOPIC]",
+      "¿Puedes mostrarme la tendencia gráfica futura de [TOPIC]?",
+      "¿Hay una previsión gráfica para [TOPIC]?",
+      "Gráfico futuro [TOPIC]",
+      "Dibuja el futuro de [TOPIC]",
+      "Tendencia gráfica futura de [TOPIC]",
+      "¿Cómo ves a [TOPIC] en los próximos días en el gráfico?",
+      "¿Sabes trazar el gráfico para los próximos días de [TOPIC]?",
+      "Traza la tendencia futura de [TOPIC]",
+      "Continúa el gráfico de [TOPIC] y muéstrame cómo irá",
+      "Muéstrame las proyecciones gráficas futuras de [TOPIC]",
+      "Proyección gráfica de [TOPIC]"
+    ],
+    "answers": [
+      "Lo siento, pero para acceder a esta función se necesita un *plan Ultra* 😓.\n\nTe invito a considerar la idea de actualizar tu cuenta para acceder a esta función exclusiva y desbloquear otras herramientas avanzadas para traders expertos 🤩.",
+      "Lamentablemente, esta funcionalidad solo está disponible con el *plan Ultra* 😭.\n\nCon la actualización podrías acceder a esta función y utilizar otras herramientas exclusivas para evaluar mejor el mercado 😎.",
+      "En este momento, esta herramienta está reservada para usuarios con *plan Ultra* 😓.\n\nPasando a Ultra podrás acceder a esta función y aprovechar funcionalidades avanzadas de un verdadero trader profesional 🤩."
+    ],
+    "cost": 0,
+    "keywords": ["gráfico", "futuro", "previsión", "futura", "tendencia", "escenario", "proyecciones", "futuras"],
+    "tag": "only_free"
+  },
+  "future_graph_premium": {
+    "questions": [
+      "Muéstrame el gráfico futuro de [TOPIC]",
+      "Muéstrame cómo irá [TOPIC] en el futuro",
+      "Muéstrame gráficamente cómo irá [TOPIC]",
+      "Muéstrame gráficamente el futuro de [TOPIC]",
+      "Muéstrame la posible tendencia futura de [TOPIC]",
+      "Dame el gráfico previsional de [TOPIC]",
+      "Dame la previsión gráfica para [TOPIC]",
+      "Quisiera ver el gráfico futuro de [TOPIC]",
+      "¿Puedes mostrarme la tendencia gráfica futura de [TOPIC]?",
+      "¿Hay una previsión gráfica para [TOPIC]?",
+      "Gráfico futuro [TOPIC]",
+      "Dibuja el futuro de [TOPIC]",
+      "Tendencia gráfica futura de [TOPIC]",
+      "¿Cómo ves a [TOPIC] en los próximos días en el gráfico?",
+      "¿Sabes trazar el gráfico para los próximos días de [TOPIC]?",
+      "Traza la tendencia futura de [TOPIC]",
+      "Continúa el gráfico de [TOPIC] y muéstrame cómo irá",
+      "Muéstrame las proyecciones gráficas futuras de [TOPIC]",
+      "Proyección gráfica de [TOPIC]"
+    ],
+    "answers": [
+      "Lo siento, pero para acceder a esta función se necesita un *plan Ultra* 😓.\n\nTe invito a considerar la idea de actualizar tu cuenta para acceder a esta función exclusiva y desbloquear otras herramientas avanzadas para traders expertos 🤩.",
+      "Lamentablemente, esta funcionalidad solo está disponible con el *plan Ultra* 😭.\n\nCon la actualización podrías acceder a esta función y utilizar otras herramientas exclusivas para evaluar mejor el mercado 😎.",
+      "En este momento, esta herramienta está reservada para usuarios con *plan Ultra* 😓.\n\nPasando a Ultra podrás acceder a esta función y aprovechar funcionalidades avanzadas de un verdadero trader profesional 🤩."
+    ],
+    "cost": 0,
+    "keywords": ["gráfico", "futuro", "previsión", "futura", "tendencia", "escenario", "proyecciones", "futuras"],
+    "tag": "premium"
   }
 }
