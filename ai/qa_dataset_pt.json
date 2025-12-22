@@ -10126,8 +10126,8 @@
     "cost": 0,
     "keywords": ["momentum", "força", "impulso"],
     "subquestions": {
-      "Queres saber também o que se entende por volatilidade de um ativo?": "volatility_info"
-    }
+      "Queres saber também o que se entende por volatilidade de um ativo?": "volatility_info",
+      "Você quer saber o momentum de [TOPIC]?": "momentum"}
   },
   "hv90_info": {
     "questions": [
@@ -10150,7 +10150,8 @@
     "cost": 0,
     "keywords": ["hv90", "hv", "90", "volatilidade histórica", "volatilidade"],
     "subquestions": {
-      "Queres saber também o que se entende por momentum de um ativo?": "momentum_info"}
+      "Queres saber também o que se entende por momentum de um ativo?": "momentum_info",
+      "Você quer saber a volatilidade HV90 de [TOPIC]?": "volatility"}
   },
     "momentum_classifica": {
     "questions": [
