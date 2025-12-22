@@ -10266,5 +10266,129 @@
     "subquestions": {
       "Wenn du möchtest, kann ich dir sofort das Momentum von [TOPIC] nennen?": "momentum",
       "Soll ich dir direkt das Momentum von [FAVOURITE] geben?": "momentum"}
+  },
+    "sectors_overview": {
+    "questions": [
+      "Wie viele Sektoren gibt es?",
+      "Welche Sektoren analysierst du?",
+      "Welche Sektoren deckt TradeGPT ab?",
+      "Welche Sektoren analysierst du?",
+      "Welche Sektoren sind verfügbar?",
+      "Welche Marktkategorien gibt es?",
+      "Kannst du mir die Sektoren auflisten?",
+      "In welche Sektoren unterteilt ihr den Markt?",
+      "In welche Kategorien kann man den Markt unterteilen?",
+      "Was sind die Hauptkategorien?",
+      "Welche Sektoren kann ich analysieren?",
+      "Welche Assets gibt es in diesem Sektor?",
+      "Welche Ticker gibt es in diesem Sektor?",
+      "Nenne mir die Assets des Sektors"
+    ],
+    "answers": [
+      "TradeGPT organisiert den Markt in mehrere Hauptsektoren, um eine klare und strukturierte Sicht zu bieten.\n\nHier sind die verfügbaren Sektoren mit einigen repräsentativen Beispielen:\n\n• *Big Tech (Software und Internet)*: darunter Microsoft, Apple\n• *Semiconductors & AI*: darunter NVIDIA, ARM\n• *Financial Services*: darunter JPMorgan, Visa, PayPal\n• *Automotive & Mobility*: darunter Tesla, Stellantis\n• *Healthcare & Pharma*: darunter Eli Lilly, Pfizer\n• *Consumer Goods & Retail*: darunter Walmart, McDonald’s\n• *Industrials & Defense*: darunter Caterpillar, Leonardo\n• *Energy (Oil & Gas)*: darunter Erdöl, Erdgas\n• *Utilities & Green*: darunter Iberdrola, American Electric Power\n• *Precious Metals & Materials*: darunter Gold, Vale\n• *Media & Telecom*: darunter Netflix, AT&T\n• *Indices (global)*: darunter S&P 500, Nasdaq\n• *Forex (Währungen)*: darunter EUR/USD, GBP/USD\n• *Crypto Assets*: darunter Bitcoin, Ethereum\n\nDiese Unterteilung hilft, den Marktkontext und das allgemeine Sentiment jedes Bereichs besser zu verstehen.",
+      "TradeGPT unterteilt den Markt in Hauptsektoren, um die Analyse und das Verständnis der verschiedenen Bereiche zu erleichtern.\n\nHier sind die verfügbaren Sektoren mit einigen repräsentativen Beispielen:\n\n• *Big Tech (Software und Internet)*: Microsoft, Apple\n• *Semiconductors & AI*: NVIDIA, ARM\n• *Financial Services*: JPMorgan, Visa, PayPal\n• *Automotive & Mobility*: Tesla, Stellantis\n• *Healthcare & Pharma*: Eli Lilly, Pfizer\n• *Consumer Goods & Retail*: Walmart, McDonald’s\n• *Industrials & Defense*: Caterpillar, Leonardo\n• *Energy (Oil & Gas)*: Erdöl, Erdgas\n• *Utilities & Green*: Iberdrola, American Electric Power\n• *Precious Metals & Materials*: Gold, Vale\n• *Media & Telecom*: Netflix, AT&T\n• *Indices (global)*: S&P 500, Nasdaq\n• *Forex (Währungen)*: EUR/USD, GBP/USD\n• *Crypto Assets*: Bitcoin, Ethereum\n\nDiese Klassifizierung ermöglicht es, den Marktkontext und das mit jedem Sektor verbundene Sentiment besser zu bewerten.",
+      "Um eine klarere Sicht auf die Märkte zu bieten, organisiert TradeGPT die Assets in mehreren Schlüsselsektoren.\n\nUnten findest du die Liste der Sektoren mit einigen Beispielen für jeden:\n\n• *Big Tech (Software und Internet)*: Microsoft, Apple\n• *Semiconductors & AI*: NVIDIA, ARM\n• *Financial Services*: JPMorgan, Visa, PayPal\n• *Automotive & Mobility*: Tesla, Stellantis\n• *Healthcare & Pharma*: Eli Lilly, Pfizer\n• *Consumer Goods & Retail*: Walmart, McDonald’s\n• *Industrials & Defense*: Caterpillar, Leonardo\n• *Energy (Oil & Gas)*: Erdöl, Erdgas\n• *Utilities & Green*: Iberdrola, American Electric Power\n• *Precious Metals & Materials*: Gold, Vale\n• *Media & Telecom*: Netflix, AT&T\n• *Indices (global)*: S&P 500, Nasdaq\n• *Forex (Währungen)*: EUR/USD, GBP/USD\n• *Crypto Assets*: Bitcoin, Ethereum\n\nDiese Unterteilung hilft, die Marktentwicklung besser zu interpretieren und Assets innerhalb desselben Bereichs zu vergleichen."
+    ],
+    "cost": 0,
+    "keywords": ["welche", "wie viele", "Sektoren", "Kategorien", "Assets", "Bereiche"],
+    "subquestions": {
+      "Wenn du möchtest, kann ich dir das Sentiment der Big-Tech-Kategorie nennen. Soll ich fortfahren?": "sector_big_tech",
+      "Ich kann dir das Sentiment der Kategorie Precious Metals & Materials geben. Interessiert dich das?": "sector_metals_materials",
+      "Möchtest du das Sentiment im Crypto-Sektor wissen?": "sector_crypto"}
+  },
+  "future_chart": {
+    "questions": [
+      "Zeig mir den zukünftigen Chart von [TOPIC]",
+      "Zeig mir, wie sich [TOPIC] in Zukunft entwickeln wird",
+      "Zeig mir grafisch, wie es mit [TOPIC] weitergeht",
+      "Zeig mir grafisch die Zukunft von [TOPIC]",
+      "Zeig mir den möglichen zukünftigen Verlauf von [TOPIC]",
+      "Gib mir den Prognose-Chart von [TOPIC]",
+      "Gib mir die grafische Vorhersage für [TOPIC]",
+      "Ich möchte den zukünftigen Chart von [TOPIC] sehen",
+      "Kannst du mir den zukünftigen grafischen Verlauf von [TOPIC] zeigen?",
+      "Gibt es eine grafische Vorhersage für [TOPIC]?",
+      "Zukunfts-Chart [TOPIC]",
+      "Zeichne die Zukunft von [TOPIC]",
+      "Zukünftiger grafischer Verlauf von [TOPIC]",
+      "Wie siehst du [TOPIC] in den nächsten Tagen auf dem Chart?",
+      "Kannst du mir den Chart für die nächsten Tage von [TOPIC] zeichnen?",
+      "Verfolge die zukünftige Entwicklung von [TOPIC]",
+      "Setze den Chart von [TOPIC] fort und zeig mir, wie es weitergeht",
+      "Zeig mir die zukünftigen grafischen Projektionen von [TOPIC]",
+      "Grafische Projektion von [TOPIC]"
+    ],
+    "answers": [
+      "Ich habe die Analyse von *[TOPIC]* vorbereitet, in der du auch den wahrscheinlichen zukünftigen Verlauf sehen kannst:",
+      "Ich habe eine spezielle Analyse für *[TOPIC]* erstellt, die auch das mögliche Zukunftsszenario zeigt:",
+      "Hier findest du die Analyse von *[TOPIC]* mit einer wahrscheinlichen Projektion des zukünftigen Verlaufs:",
+      "Das Analyse-Panel für *[TOPIC]* ist bereit, in dem die wahrscheinliche zukünftige Bewegung auch grafisch dargestellt wird:",
+      "Die Analyse von *[TOPIC]* ist verfügbar und hebt auch den möglichen grafischen Verlauf in den kommenden Zeiträumen hervor:"
+    ],
+    "cost": 3,
+    "keywords": ["Chart", "Zukunft", "Vorhersage", "zukünftig", "Verlauf", "Szenario", "Projektionen", "Zukunftsprojektionen"],
+    "tag": "ultra"
+  },
+  "future_graph_free": {
+    "questions": [
+      "Zeig mir den zukünftigen Chart von [TOPIC]",
+      "Zeig mir, wie sich [TOPIC] in Zukunft entwickeln wird",
+      "Zeig mir grafisch, wie es mit [TOPIC] weitergeht",
+      "Zeig mir grafisch die Zukunft von [TOPIC]",
+      "Zeig mir den möglichen zukünftigen Verlauf von [TOPIC]",
+      "Gib mir den Prognose-Chart von [TOPIC]",
+      "Gib mir die grafische Vorhersage für [TOPIC]",
+      "Ich möchte den zukünftigen Chart von [TOPIC] sehen",
+      "Kannst du mir den zukünftigen grafischen Verlauf von [TOPIC] zeigen?",
+      "Gibt es eine grafische Vorhersage für [TOPIC]?",
+      "Zukunfts-Chart [TOPIC]",
+      "Zeichne die Zukunft von [TOPIC]",
+      "Zukünftiger grafischer Verlauf von [TOPIC]",
+      "Wie siehst du [TOPIC] in den nächsten Tagen auf dem Chart?",
+      "Kannst du mir den Chart für die nächsten Tage von [TOPIC] zeichnen?",
+      "Verfolge die zukünftige Entwicklung von [TOPIC]",
+      "Setze den Chart von [TOPIC] fort und zeig mir, wie es weitergeht",
+      "Zeig mir die zukünftigen grafischen Projektionen von [TOPIC]",
+      "Grafische Projektion von [TOPIC]"
+    ],
+    "answers": [
+      "Es tut mir leid, aber für diese Funktion ist ein *Ultra-Plan* erforderlich 😓.\n\nIch lade dich ein, über ein Upgrade nachzudenken, damit du auf diese exklusive Funktion zugreifen und weitere fortgeschrittene Tools für erfahrene Trader freischalten kannst 🤩.",
+      "Leider ist diese Funktion nur mit dem *Ultra-Plan* verfügbar 😭.\n\nMit dem Upgrade könntest du auf diese Funktion zugreifen und andere exklusive Tools nutzen, um den Markt besser zu bewerten 😎.",
+      "Momentan ist dieses Tool Nutzern mit einem *Ultra-Plan* vorbehalten 😓.\n\nDurch den Wechsel zu Ultra kannst du auf diese Funktion zugreifen und von fortgeschrittenen Funktionen für echte Profi-Trader profitieren 🤩."
+    ],
+    "cost": 0,
+    "keywords": ["Chart", "Zukunft", "Vorhersage", "zukünftig", "Verlauf", "Szenario", "Projektionen", "Zukunftsprojektionen"],
+    "tag": "only_free"
+  },
+  "future_graph_premium": {
+    "questions": [
+      "Zeig mir den zukünftigen Chart von [TOPIC]",
+      "Zeig mir, wie sich [TOPIC] in Zukunft entwickeln wird",
+      "Zeig mir grafisch, wie es mit [TOPIC] weitergeht",
+      "Zeig mir grafisch die Zukunft von [TOPIC]",
+      "Zeig mir den möglichen zukünftigen Verlauf von [TOPIC]",
+      "Gib mir den Prognose-Chart von [TOPIC]",
+      "Gib mir die grafische Vorhersage für [TOPIC]",
+      "Ich möchte den zukünftigen Chart von [TOPIC] sehen",
+      "Kannst du mir den zukünftigen grafischen Verlauf von [TOPIC] zeigen?",
+      "Gibt es eine grafische Vorhersage für [TOPIC]?",
+      "Zukunfts-Chart [TOPIC]",
+      "Zeichne die Zukunft von [TOPIC]",
+      "Zukünftiger grafischer Verlauf von [TOPIC]",
+      "Wie siehst du [TOPIC] in den nächsten Tagen auf dem Chart?",
+      "Kannst du mir den Chart für die nächsten Tage von [TOPIC] zeichnen?",
+      "Verfolge die zukünftige Entwicklung von [TOPIC]",
+      "Setze den Chart von [TOPIC] fort und zeig mir, wie es weitergeht",
+      "Zeig mir die zukünftigen grafischen Projektionen von [TOPIC]",
+      "Grafische Projektion von [TOPIC]"
+    ],
+    "answers": [
+      "Es tut mir leid, aber für diese Funktion ist ein *Ultra-Plan* erforderlich 😓.\n\nIch lade dich ein, über ein Upgrade nachzudenken, damit du auf diese exklusive Funktion zugreifen und weitere fortgeschrittene Tools für erfahrene Trader freischalten kannst 🤩.",
+      "Leider ist diese Funktion nur mit dem *Ultra-Plan* verfügbar 😭.\n\nMit dem Upgrade könntest du auf diese Funktion zugreifen und andere exklusive Tools nutzen, um den Markt besser zu bewerten 😎.",
+      "Momentan ist dieses Tool Nutzern mit einem *Ultra-Plan* vorbehalten 😓.\n\nDurch den Wechsel zu Ultra kannst du auf diese Funktion zugreifen und von fortgeschrittenen Funktionen für echte Profi-Trader profitieren 🤩."
+    ],
+    "cost": 0,
+    "keywords": ["Chart", "Zukunft", "Vorhersage", "zukünftig", "Verlauf", "Szenario", "Projektionen", "Zukunftsprojektionen"],
+    "tag": "premium"
   }
 }
