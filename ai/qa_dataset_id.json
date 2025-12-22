@@ -10186,8 +10186,8 @@
     "cost": 0,
     "keywords": ["momentum", "kekuatan"],
     "subquestions": {
-      "Apakah Anda juga ingin tahu apa yang dimaksud dengan volatilitas aset?": "volatility_info"
-    }
+      "Apakah Anda juga ingin tahu apa yang dimaksud dengan volatilitas aset?": "volatility_info",
+      "Kamu mau tahu momentum dari [TOPIC]?": "momentum"}
   },
   "hv90_info": {
     "questions": [
@@ -10210,7 +10210,8 @@
     "cost": 0,
     "keywords": ["hv90", "hv", "90", "volatilitas historis", "volatilitas"],
     "subquestions": {
-      "Apakah Anda juga ingin tahu apa yang dimaksud dengan momentum aset?": "momentum_info"}
+      "Apakah Anda juga ingin tahu apa yang dimaksud dengan momentum aset?": "momentum_info",
+      "Kamu mau cek volatilitas HV90 dari [TOPIC]?": "volatility"}
   },
     "momentum_classifica": {
     "questions": [
