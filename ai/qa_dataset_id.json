@@ -10241,5 +10241,129 @@
     "subquestions": {
       "Jika mau, saya bisa langsung memberi tahu Anda momentum dari [TOPIC]?": "momentum",
       "Jika Anda mau, saya bisa segera memberikan momentum dari [FAVOURITE]?": "momentum"}
+  },
+    "sectors_overview": {
+    "questions": [
+      "Ada berapa sektor yang tersedia?",
+      "Apa saja sektor yang Anda analisis?",
+      "Sektor apa saja yang dicakup oleh TradeGPT?",
+      "Sektor apa yang Anda analisis?",
+      "Apa saja sektor yang tersedia?",
+      "Kategori pasar apa saja yang ada?",
+      "Bisakah Anda membuatkan daftar sektornya?",
+      "Ke dalam sektor apa Anda membagi pasar?",
+      "Ke dalam kategori apa pasar dapat dibagi?",
+      "Apa saja kategori utamanya?",
+      "Sektor mana saja yang bisa saya analisis?",
+      "Aset apa saja yang ada di sektor ini?",
+      "Ticker apa saja yang ada di sektor tersebut?",
+      "Sebutkan aset-aset dalam sektor ini"
+    ],
+    "answers": [
+      "TradeGPT mengelola pasar ke dalam beberapa sektor utama untuk memberikan pandangan yang jelas dan terstruktur.\n\nBerikut adalah sektor-sektor yang tersedia beserta beberapa contoh representatifnya:\n\n• *Big Tech (perangkat lunak dan internet)*: termasuk Microsoft, Apple\n• *Semiconductors & AI*: termasuk NVIDIA, ARM\n• *Financial Services*: termasuk JPMorgan, Visa, PayPal\n• *Automotive & Mobility*: termasuk Tesla, Stellantis\n• *Healthcare & Pharma*: termasuk Eli Lilly, Pfizer\n• *Consumer Goods & Retail*: termasuk Walmart, McDonald’s\n• *Industrials & Defense*: termasuk Caterpillar, Leonardo\n• *Energy (Oil & Gas)*: termasuk minyak bumi, gas alam\n• *Utilities & Green*: termasuk Iberdrola, American Electric Power\n• *Precious Metals & Materials*: termasuk emas, Vale\n• *Media & Telecom*: termasuk Netflix, AT&T\n• *Indices (global)*: termasuk S&P 500, Nasdaq\n• *Forex (mata uang)*: termasuk EUR/USD, GBP/USD\n• *Crypto Assets*: termasuk Bitcoin, Ethereum\n\nPembagian ini membantu untuk memahami konteks pasar dan sentimen umum di setiap kompartemen dengan lebih baik.",
+      "TradeGPT membagi pasar ke dalam sektor-sektor utama untuk mempermudah analisis dan pemahaman tentang berbagai segmen.\n\nBerikut adalah sektor-sektor yang tersedia beserta beberapa contoh representatifnya:\n\n• *Big Tech (perangkat lunak dan internet)*: Microsoft, Apple\n• *Semiconductors & AI*: NVIDIA, ARM\n• *Financial Services*: JPMorgan, Visa, PayPal\n• *Automotive & Mobility*: Tesla, Stellantis\n• *Healthcare & Pharma*: Eli Lilly, Pfizer\n• *Consumer Goods & Retail*: Walmart, McDonald’s\n• *Industrials & Defense*: Caterpillar, Leonardo\n• *Energy (Oil & Gas)*: minyak bumi, gas alam\n• *Utilities & Green*: Iberdrola, American Electric Power\n• *Precious Metals & Materials*: emas, Vale\n• *Media & Telecom*: Netflix, AT&T\n• *Indices (global)*: S&P 500, Nasdaq\n• *Forex (mata uang)*: EUR/USD, GBP/USD\n• *Crypto Assets*: Bitcoin, Ethereum\n\nKlasifikasi ini memungkinkan evaluasi yang lebih baik terhadap konteks pasar dan sentimen yang terkait dengan setiap sektor.",
+      "Untuk memberikan pandangan pasar yang lebih jelas, TradeGPT mengatur aset ke dalam beberapa sektor utama.\n\nDi bawah ini Anda akan menemukan daftar sektor beserta contoh untuk masing-masing sektor:\n\n• *Big Tech (perangkat lunak dan internet)*: Microsoft, Apple\n• *Semiconductors & AI*: NVIDIA, ARM\n• *Financial Services*: JPMorgan, Visa, PayPal\n• *Automotive & Mobility*: Tesla, Stellantis\n• *Healthcare & Pharma*: Eli Lilly, Pfizer\n• *Consumer Goods & Retail*: Walmart, McDonald’s\n• *Industrials & Defense*: Caterpillar, Leonardo\n• *Energy (Oil & Gas)*: minyak bumi, gas alam\n• *Utilities & Green*: Iberdrola, American Electric Power\n• *Precious Metals & Materials*: emas, Vale\n• *Media & Telecom*: Netflix, AT&T\n• *Indices (global)*: S&P 500, Nasdaq\n• *Forex (mata uang)*: EUR/USD, GBP/USD\n• *Crypto Assets*: Bitcoin, Ethereum\n\nPembagian ini membantu untuk menginterpretasikan tren pasar dengan lebih baik dan membandingkan aset yang termasuk dalam kompartemen yang sama."
+    ],
+    "cost": 0,
+    "keywords": ["yang mana", "berapa banyak", "sektor", "kategori", "aset", "kompartemen"],
+    "subquestions": {
+      "Jika mau, saya bisa memberi tahu Anda sentimen untuk kategori Big-Tech. Apakah Anda ingin saya melanjutkan?": "sector_big_tech",
+      "Jika mau, saya bisa memberikan sentimen untuk kategori logam mulia & material (precious metals & materials). Apakah Anda tertarik?": "sector_metals_materials",
+      "Apakah Anda tertarik untuk mengetahui sentimen pada sektor Kripto?": "sector_crypto"}
+  },
+  "future_chart": {
+    "questions": [
+      "Tunjukkan grafik masa depan dari [TOPIC]",
+      "Tunjukkan kepada saya bagaimana performa [TOPIC] di masa depan",
+      "Tunjukkan secara grafis bagaimana performa [TOPIC] nantinya",
+      "Tunjukkan secara grafis masa depan dari [TOPIC]",
+      "Tunjukkan kemungkinan tren masa depan dari [TOPIC]",
+      "Berikan saya grafik prediksi dari [TOPIC]",
+      "Berikan saya prakiraan grafis untuk [TOPIC]",
+      "Saya ingin melihat grafik masa depan dari [TOPIC]",
+      "Bisakah Anda menunjukkan tren grafis masa depan dari [TOPIC]?",
+      "Apakah ada prediksi grafis untuk [TOPIC]?",
+      "Grafik masa depan [TOPIC]",
+      "Gambarkan masa depan dari [TOPIC]",
+      "Tren grafis masa depan dari [TOPIC]",
+      "Bagaimana Anda melihat [TOPIC] di grafik dalam beberapa hari ke depan?",
+      "Dapatkah Anda membuatkan grafik untuk [TOPIC] dalam beberapa hari ke depan?",
+      "Lacak tren masa depan dari [TOPIC]",
+      "Lanjutkan grafik dari [TOPIC] dan tunjukkan bagaimana hasilnya",
+      "Tunjukkan proyeksi grafis masa depan dari [TOPIC]",
+      "Proyeksi grafis dari [TOPIC]"
+    ],
+    "answers": [
+      "Saya telah menyiapkan analisis untuk *[TOPIC]*, di mana Anda juga dapat melihat kemungkinan tren masa depan:",
+      "Saya telah menyiapkan analisis khusus untuk *[TOPIC]* yang juga menunjukkan kemungkinan skenario masa depan:",
+      "Anda dapat menemukan analisis *[TOPIC]* dengan proyeksi kemungkinan tren masa depannya di sini:",
+      "Saya sudah menyiapkan panel analisis untuk *[TOPIC]*, di mana pergerakan masa depan yang mungkin terjadi juga diilustrasikan secara grafis:",
+      "Analisis untuk *[TOPIC]* sudah tersedia, yang juga menyoroti kemungkinan tren grafis pada periode mendatang:"
+    ],
+    "cost": 3,
+    "keywords": ["grafik", "masa depan", "prediksi", "prakiraan", "tren", "skenario", "proyeksi"],
+    "tag": "ultra"
+  },
+  "future_graph_free": {
+    "questions": [
+      "Tunjukkan grafik masa depan dari [TOPIC]",
+      "Tunjukkan kepada saya bagaimana performa [TOPIC] di masa depan",
+      "Tunjukkan secara grafis bagaimana performa [TOPIC] nantinya",
+      "Tunjukkan secara grafis masa depan dari [TOPIC]",
+      "Tunjukkan kemungkinan tren masa depan dari [TOPIC]",
+      "Berikan saya grafik prediksi dari [TOPIC]",
+      "Berikan saya prakiraan grafis untuk [TOPIC]",
+      "Saya ingin melihat grafik masa depan dari [TOPIC]",
+      "Bisakah Anda menunjukkan tren grafis masa depan dari [TOPIC]?",
+      "Apakah ada prediksi grafis untuk [TOPIC]?",
+      "Grafik masa depan [TOPIC]",
+      "Gambarkan masa depan dari [TOPIC]",
+      "Tren grafis masa depan dari [TOPIC]",
+      "Bagaimana Anda melihat [TOPIC] di grafik dalam beberapa hari ke depan?",
+      "Dapatkah Anda membuatkan grafik untuk [TOPIC] dalam beberapa hari ke depan?",
+      "Lacak tren masa depan dari [TOPIC]",
+      "Lanjutkan grafik dari [TOPIC] dan tunjukkan bagaimana hasilnya",
+      "Tunjukkan proyeksi grafis masa depan dari [TOPIC]",
+      "Proyeksi grafis dari [TOPIC]"
+    ],
+    "answers": [
+      "Maaf, Anda memerlukan *paket Ultra* untuk mengakses fitur ini 😓.\n\nSaya sarankan Anda untuk melakukan pemutakhiran (upgrade), sehingga Anda dapat mengakses fitur eksklusif ini dan membuka alat canggih lainnya untuk trader berpengalaman 🤩.",
+      "Sayangnya, fungsi ini hanya tersedia dengan *paket Ultra* 😭.\n\nDengan pemutakhiran, Anda dapat mengakses fungsi ini dan menggunakan alat eksklusif lainnya untuk mengevaluasi pasar dengan lebih baik 😎.",
+      "Saat ini alat ini khusus untuk pengguna dengan *paket Ultra* 😓.\n\nDengan beralih ke Ultra, Anda dapat mengakses fungsi ini dan memanfaatkan fungsionalitas canggih sebagai trader profesional sejati 🤩."
+    ],
+    "cost": 0,
+    "keywords": ["grafik", "masa depan", "prediksi", "prakiraan", "tren", "skenario", "proyeksi"],
+    "tag": "only_free"
+  },
+  "future_graph_premium": {
+    "questions": [
+      "Tunjukkan grafik masa depan dari [TOPIC]",
+      "Tunjukkan kepada saya bagaimana performa [TOPIC] di masa depan",
+      "Tunjukkan secara grafis bagaimana performa [TOPIC] nantinya",
+      "Tunjukkan secara grafis masa depan dari [TOPIC]",
+      "Tunjukkan kemungkinan tren masa depan dari [TOPIC]",
+      "Berikan saya grafik prediksi dari [TOPIC]",
+      "Berikan saya prakiraan grafis untuk [TOPIC]",
+      "Saya ingin melihat grafik masa depan dari [TOPIC]",
+      "Bisakah Anda menunjukkan tren grafis masa depan dari [TOPIC]?",
+      "Apakah ada prediksi grafis untuk [TOPIC]?",
+      "Grafik masa depan [TOPIC]",
+      "Gambarkan masa depan dari [TOPIC]",
+      "Tren grafis masa depan dari [TOPIC]",
+      "Bagaimana Anda melihat [TOPIC] di grafik dalam beberapa hari ke depan?",
+      "Dapatkah Anda membuatkan grafik untuk [TOPIC] dalam beberapa hari ke depan?",
+      "Lacak tren masa depan dari [TOPIC]",
+      "Lanjutkan grafik dari [TOPIC] dan tunjukkan bagaimana hasilnya",
+      "Tunjukkan proyeksi grafis masa depan dari [TOPIC]",
+      "Proyeksi grafis dari [TOPIC]"
+    ],
+    "answers": [
+      "Maaf, Anda memerlukan *paket Ultra* untuk mengakses fitur ini 😓.\n\nSaya sarankan Anda untuk melakukan pemutakhiran (upgrade), sehingga Anda dapat mengakses fitur eksklusif ini dan membuka alat canggih lainnya untuk trader berpengalaman 🤩.",
+      "Sayangnya, fungsi ini hanya tersedia dengan *paket Ultra* 😭.\n\nDengan pemutakhiran, Anda dapat mengakses fungsi ini dan menggunakan alat eksklusif lainnya untuk mengevaluasi pasar dengan lebih baik 😎.",
+      "Saat ini alat ini khusus untuk pengguna dengan *paket Ultra* 😓.\n\nDengan beralih ke Ultra, Anda dapat mengakses fungsi ini dan memanfaatkan fungsionalitas canggih sebagai trader profesional sejati 🤩."
+    ],
+    "cost": 0,
+    "keywords": ["grafik", "masa depan", "prediksi", "prakiraan", "tren", "skenario", "proyeksi"],
+    "tag": "premium"
   }
 }
