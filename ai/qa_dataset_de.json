@@ -10211,8 +10211,8 @@
     "cost": 0,
     "keywords": ["Momentum", "Stärke", "Kraft"],
     "subquestions": {
-      "Möchtest du auch wissen, was man unter der Volatilität eines Assets versteht?": "volatility_info"
-    }
+      "Möchtest du auch wissen, was man unter der Volatilität eines Assets versteht?": "volatility_info",
+      "Willst du wissen, wie das Momentum von [TOPIC] aussieht?": "momentum"}
   },
   "hv90_info": {
     "questions": [
@@ -10235,7 +10235,8 @@
     "cost": 0,
     "keywords": ["hv90", "hv", "90", "historische Volatilität", "Volatilität"],
     "subquestions": {
-      "Möchtest du auch wissen, was man unter dem Momentum eines Assets versteht?": "momentum_info"}
+      "Möchtest du auch wissen, was man unter dem Momentum eines Assets versteht?": "momentum_info",
+      "Willst du die HV90-Volatilität von [TOPIC] checken?": "volatility"}
   },
     "momentum_classifica": {
     "questions": [
