@@ -10179,5 +10179,129 @@
     "subquestions": {
       "If you'd like, I can tell you the momentum of [TOPIC] right away?": "momentum",
       "If you want, I can give you the momentum of [FAVOURITE] now?": "momentum"}
+  },
+    "sectors_overview": {
+    "questions": [
+      "How many sectors are there?",
+      "Which sectors do you analyze?",
+      "What sectors does TradeGPT cover?",
+      "Which sectors do you analyze?",
+      "What are the available sectors?",
+      "What market categories are there?",
+      "Can you list the sectors for me?",
+      "Into which sectors do you divide the market?",
+      "Into which categories can the market be divided?",
+      "What are the main categories?",
+      "Which sectors can I analyze?",
+      "What assets are in the sector?",
+      "What tickers are in that sector?",
+      "Tell me the assets of the sector"
+    ],
+    "answers": [
+      "TradeGPT organizes the market into several main sectors to provide a clear and structured view.\n\nHere are the available sectors with some representative examples:\n\n• *Big Tech (software and internet)*: including Microsoft, Apple\n• *Semiconductors & AI*: including NVIDIA, ARM\n• *Financial Services*: including JPMorgan, Visa, PayPal\n• *Automotive & Mobility*: including Tesla, Stellantis\n• *Healthcare & Pharma*: including Eli Lilly, Pfizer\n• *Consumer Goods & Retail*: including Walmart, McDonald’s\n• *Industrials & Defense*: including Caterpillar, Leonardo\n• *Energy (Oil & Gas)*: including oil, natural gas\n• *Utilities & Green*: including Iberdrola, American Electric Power\n• *Precious Metals & Materials*: including gold, Vale\n• *Media & Telecom*: including Netflix, AT&T\n• *Indices (global)*: including S&P 500, Nasdaq\n• *Forex (currencies)*: including EUR/USD, GBP/USD\n• *Crypto Assets*: including Bitcoin, Ethereum\n\nThis subdivision helps to better understand the market context and the general sentiment of each segment.",
+      "TradeGPT subdivides the market into main sectors to make analysis and understanding of the different segments easier.\n\nHere are the available sectors with some representative examples:\n\n• *Big Tech (software and internet)*: Microsoft, Apple\n• *Semiconductors & AI*: NVIDIA, ARM\n• *Financial Services*: JPMorgan, Visa, PayPal\n• *Automotive & Mobility*: Tesla, Stellantis\n• *Healthcare & Pharma*: Eli Lilly, Pfizer\n• *Consumer Goods & Retail*: Walmart, McDonald’s\n• *Industrials & Defense*: Caterpillar, Leonardo\n• *Energy (Oil & Gas)*: oil, natural gas\n• *Utilities & Green*: Iberdrola, American Electric Power\n• *Precious Metals & Materials*: gold, Vale\n• *Media & Telecom*: Netflix, AT&T\n• *Indices (global)*: S&P 500, Nasdaq\n• *Forex (currencies)*: EUR/USD, GBP/USD\n• *Crypto Assets*: Bitcoin, Ethereum\n\nThis classification allows for a better evaluation of the market context and the sentiment associated with each sector.",
+      "To offer a clearer view of the markets, TradeGPT organizes assets into several key sectors.\n\nBelow you will find the list of sectors with some examples for each:\n\n• *Big Tech (software and internet)*: Microsoft, Apple\n• *Semiconductors & AI*: NVIDIA, ARM\n• *Financial Services*: JPMorgan, Visa, PayPal\n• *Automotive & Mobility*: Tesla, Stellantis\n• *Healthcare & Pharma*: Eli Lilly, Pfizer\n• *Consumer Goods & Retail*: Walmart, McDonald’s\n• *Industrials & Defense*: Caterpillar, Leonardo\n• *Energy (Oil & Gas)*: oil, natural gas\n• *Utilities & Green*: Iberdrola, American Electric Power\n• *Precious Metals & Materials*: gold, Vale\n• *Media & Telecom*: Netflix, AT&T\n• *Indices (global)*: S&P 500, Nasdaq\n• *Forex (currencies)*: EUR/USD, GBP/USD\n• *Crypto Assets*: Bitcoin, Ethereum\n\nThis subdivision helps to better interpret market trends and compare assets belonging to the same segment."
+    ],
+    "cost": 0,
+    "keywords": ["which", "how many", "sectors", "categories", "assets", "compartments"],
+    "subquestions": {
+      "If you want, I can tell you the sentiment of the Big-Tech category. Should I proceed?": "sector_big_tech",
+      "If you want, I can give you the sentiment of the precious metals & materials category. Interested?": "sector_metals_materials",
+      "Are you interested in knowing the sentiment on the Crypto sector?": "sector_crypto"}
+  },
+  "future_chart": {
+    "questions": [
+      "Show me the future chart of [TOPIC]",
+      "Show me how [TOPIC] will go in the future",
+      "Show me graphically how [TOPIC] will perform",
+      "Show me graphically the future of [TOPIC]",
+      "Show me the possible future trend of [TOPIC]",
+      "Give me the predictive chart of [TOPIC]",
+      "Give me the graphical forecast for [TOPIC]",
+      "I would like to see the future chart of [TOPIC]",
+      "Can you show me the future graphical trend of [TOPIC]?",
+      "Is there a graphical forecast for [TOPIC]?",
+      "Future chart [TOPIC]",
+      "Draw the future of [TOPIC]",
+      "Future graphical trend of [TOPIC]",
+      "How do you see [TOPIC] in the coming days on the chart?",
+      "Can you plot the chart for the next few days of [TOPIC]?",
+      "Trace the future trend of [TOPIC]",
+      "Continue the chart of [TOPIC] and show me how it will go",
+      "Show me the future graphical projections of [TOPIC]",
+      "Graphical projection of [TOPIC]"
+    ],
+    "answers": [
+      "I have prepared the analysis of *[TOPIC]*, where you can also see the probable future trend:",
+      "I have prepared a dedicated analysis for *[TOPIC]* that also shows the possible future scenario:",
+      "You can find the analysis of *[TOPIC]* with a probable projection of its future trend:",
+      "I have the analysis panel for *[TOPIC]* ready, where the probable future movement is also illustrated graphically:",
+      "The analysis of *[TOPIC]* is available, which also highlights the possible graphical trend in the next periods:"
+    ],
+    "cost": 3,
+    "keywords": ["chart", "future", "forecast", "future-trend", "trend", "scenario", "projections", "future-projections"],
+    "tag": "ultra"
+  },
+  "future_graph_free": {
+    "questions": [
+      "Show me the future chart of [TOPIC]",
+      "Show me how [TOPIC] will go in the future",
+      "Show me graphically how [TOPIC] will perform",
+      "Show me graphically the future of [TOPIC]",
+      "Show me the possible future trend of [TOPIC]",
+      "Give me the predictive chart of [TOPIC]",
+      "Give me the graphical forecast for [TOPIC]",
+      "I would like to see the future chart of [TOPIC]",
+      "Can you show me the future graphical trend of [TOPIC]?",
+      "Is there a graphical forecast for [TOPIC]?",
+      "Future chart [TOPIC]",
+      "Draw the future of [TOPIC]",
+      "Future graphical trend of [TOPIC]",
+      "How do you see [TOPIC] in the coming days on the chart?",
+      "Mi sai tracciare il grafico per i prossimi giorni di [TOPIC]?",
+      "Trace the future trend of [TOPIC]",
+      "Continue the chart of [TOPIC] and show me how it will go",
+      "Show me the future graphical projections of [TOPIC]",
+      "Graphical projection of [TOPIC]"
+    ],
+    "answers": [
+      "I'm sorry, but an *Ultra plan* is required to access this feature 😓.\n\nI invite you to consider upgrading, so you can access this exclusive feature and unlock other advanced tools for expert traders 🤩.",
+      "Unfortunately, this functionality is only available with the *Ultra plan* 😭.\n\nWith the upgrade, you could access this function and use other exclusive tools to better evaluate the market 😎.",
+      "At the moment, this tool is reserved for users with an *Ultra plan* 😓.\n\nBy switching to Ultra, you can access this feature and take advantage of advanced functionalities as a true professional trader 🤩."
+    ],
+    "cost": 0,
+    "keywords": ["chart", "future", "forecast", "future-trend", "trend", "scenario", "projections", "future-projections"],
+    "tag": "only_free"
+  },
+  "future_graph_premium": {
+    "questions": [
+      "Show me the future chart of [TOPIC]",
+      "Show me how [TOPIC] will go in the future",
+      "Show me graphically how [TOPIC] will perform",
+      "Show me graphically the future of [TOPIC]",
+      "Show me the possible future trend of [TOPIC]",
+      "Give me the predictive chart of [TOPIC]",
+      "Give me the graphical forecast for [TOPIC]",
+      "I would like to see the future chart of [TOPIC]",
+      "Can you show me the future graphical trend of [TOPIC]?",
+      "Is there a graphical forecast for [TOPIC]?",
+      "Future chart [TOPIC]",
+      "Draw the future of [TOPIC]",
+      "Future graphical trend of [TOPIC]",
+      "How do you see [TOPIC] in the coming days on the chart?",
+      "Can you plot the chart for the next few days of [TOPIC]?",
+      "Trace the future trend of [TOPIC]",
+      "Continue the chart of [TOPIC] and show me how it will go",
+      "Show me the future graphical projections of [TOPIC]",
+      "Graphical projection of [TOPIC]"
+    ],
+    "answers": [
+      "I'm sorry, but an *Ultra plan* is required to access this feature 😓.\n\nI invite you to consider upgrading, so you can access this exclusive feature and unlock other advanced tools for expert traders 🤩.",
+      "Unfortunately, this functionality is only available with the *Ultra plan* 😭.\n\nWith the upgrade, you could access this function and use other exclusive tools to better evaluate the market 😎.",
+      "At the moment, this tool is reserved for users with an *Ultra plan* 😓.\n\nBy switching to Ultra, you can access this feature and take advantage of advanced functionalities as a true professional trader 🤩."
+    ],
+    "cost": 0,
+    "keywords": ["chart", "future", "forecast", "future-trend", "trend", "scenario", "projections", "future-projections"],
+    "tag": "premium"
   }
 }
