@@ -10275,5 +10275,34 @@
     "subquestions": {
       "Se vuoi ti posso dire subito il momentum di [TOPIC]?": "momentum",
       "Se vuoi posso darti subito il momentum di [FAVOURITE]?": "momentum"}
+  },
+    "sectors_overview": {
+    "questions": [
+      "Quanti settori ci sono?",
+      "Quali sono i settori che analizzi?",
+      "Quali settori copre TradeGPT?",
+      "Che settori analizzi?",
+      "Quali sono i settori disponibili?",
+      "Che categorie di mercato ci sono?",
+      "Puoi elencarmi i settori?",
+      "In quali settori dividete il mercato?",
+      "In quali categorie si può dividere il mercato?",
+      "Quali sono le principali categorie?",
+      "Quali settori posso analizzare?",
+      "Quali asset ci sono nel settore?",
+      "Quali ticker ci sono in quel settore?",
+      "Dimmi gli asset del settore"
+    ],
+    "answers": [
+      "TradeGPT organizza il mercato in diversi settori principali per offrire una visione chiara e strutturata.\n\nEcco i settori disponibili con alcuni esempi rappresentativi:\n\n• *Big Tech (software e internet)*: tra cui Microsoft, Apple\n• *Semiconductors & AI*: tra cui NVIDIA, ARM\n• *Financial Services*: tra cui JPMorgan, Visa, PayPal\n• *Automotive & Mobility*: tra cui Tesla, Stellantis\n• *Healthcare & Pharma*: tra cui Eli Lilly, Pfizer\n• *Consumer Goods & Retail*: tra cui Walmart, McDonald’s\n• *Industrials & Defense*: tra cui Caterpillar, Leonardo\n• *Energy (Oil & Gas)*: tra cui petrolio, gas naturale\n• *Utilities & Green*: tra cui Iberdrola, American Electric Power\n• *Precious Metals & Materials*: tra cui oro, Vale\n• *Media & Telecom*: tra cui Netflix, AT&T\n• *Indices (global)*: tra cui S&P 500, Nasdaq\n• *Forex (currencies)*: tra cui EUR/USD, GBP/USD\n• *Crypto Assets*: tra cui Bitcoin, Ethereum\n\nQuesta suddivisione aiuta a comprendere meglio il contesto di mercato e il sentiment generale di ciascun comparto.",
+      "TradeGPT suddivide il mercato in settori principali per rendere più semplice l’analisi e la comprensione dei diversi comparti.\n\nEcco i settori disponibili con alcuni esempi rappresentativi:\n\n• *Big Tech (software e internet)*: Microsoft, Apple\n• *Semiconductors & AI*: NVIDIA, ARM\n• *Financial Services*: JPMorgan, Visa, PayPal\n• *Automotive & Mobility*: Tesla, Stellantis\n• *Healthcare & Pharma*: Eli Lilly, Pfizer\n• *Consumer Goods & Retail*: Walmart, McDonald’s\n• *Industrials & Defense*: Caterpillar, Leonardo\n• *Energy (Oil & Gas)*: petrolio, gas naturale\n• *Utilities & Green*: Iberdrola, American Electric Power\n• *Precious Metals & Materials*: oro, Vale\n• *Media & Telecom*: Netflix, AT&T\n• *Indices (global)*: S&P 500, Nasdaq\n• *Forex (currencies)*: EUR/USD, GBP/USD\n• *Crypto Assets*: Bitcoin, Ethereum\n\nQuesta classificazione permette di valutare meglio il contesto di mercato e il sentiment associato a ciascun settore.",
+      "Per offrire una visione più chiara dei mercati, TradeGPT organizza gli asset in diversi settori chiave.\n\nDi seguito trovi l’elenco dei settori con alcuni esempi per ciascuno:\n\n• *Big Tech (software e internet)*: Microsoft, Apple\n• *Semiconductors & AI*: NVIDIA, ARM\n• *Financial Services*: JPMorgan, Visa, PayPal\n• *Automotive & Mobility*: Tesla, Stellantis\n• *Healthcare & Pharma*: Eli Lilly, Pfizer\n• *Consumer Goods & Retail*: Walmart, McDonald’s\n• *Industrials & Defense*: Caterpillar, Leonardo\n• *Energy (Oil & Gas)*: petrolio, gas naturale\n• *Utilities & Green*: Iberdrola, American Electric Power\n• *Precious Metals & Materials*: oro, Vale\n• *Media & Telecom*: Netflix, AT&T\n• *Indices (global)*: S&P 500, Nasdaq\n• *Forex (currencies)*: EUR/USD, GBP/USD\n• *Crypto Assets*: Bitcoin, Ethereum\n\nQuesta suddivisione aiuta a interpretare meglio l’andamento dei mercati e a confrontare asset appartenenti allo stesso comparto."
+    ],
+    "cost": 0,
+    "keywords": ["quali", "quanti", "settori", "categorie", "asset", "comparti"],
+    "subquestions": {
+      "Se vuoi ti posso dire il sentiment della categoria delle Big-Tech. Vuoi che procedo?": "sector_big_tech",
+      "Se vuoi posso darti il sentiment della categoria precious metals & materials. Ti interessa?": "sector_metals_materials",
+      "Ti interessa sapere il sentiment sul settore Crypto?": "sector_crypto"}
   }
 }
