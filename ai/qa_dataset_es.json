@@ -10363,5 +10363,33 @@
     "cost": 3,
     "keywords": ["gráfico", "futuro", "previsión", "futura", "tendencia", "escenario", "proyecciones", "futuras"],
     "tag": "ultra"
+  },
+    "what_is_tradegpt": {
+    "questions": [
+      "¿Qué es TradeGPT?",
+      "¿Qué es esta app?",
+      "¿Puedes explicarme qué es TradeGPT?",
+      "¿Para qué sirve TradeGPT?",
+      "¿Cómo funciona TradeGPT?",
+      "¿Qué tipo de app es TradeGPT?",
+      "¿TradeGPT qué es?",
+      "¿Me explicas qué hace TradeGPT?",
+      "¿Qué hace TradeGPT?",
+      "¿De qué se ocupa TradeGPT?",
+      "¿Cómo funciona esta app?",
+      "¿Qué hace esta aplicación?",
+      "¿Por qué debería usar TradeGPT?",
+      "¿Por qué debería confiar en TradeGPT?",
+      "¿Por qué debería confiar en esta app?"
+    ],
+    "answers": [
+      "TradeGPT es una app diseñada para analizar en detalle el mercado financiero y ofrecer predicciones probabilísticas sobre el posible rumbo futuro de un activo. Utiliza un algoritmo avanzado que combina datos históricos, indicadores técnicos y datos fundamentales, integrándolos con la inteligencia artificial para ofrecer análisis más potentes y precisos a los usuarios.",
+      "TradeGPT es una plataforma de análisis financiero evolucionada que permite interpretar el mercado de manera clara y estructurada. En poco tiempo ha logrado hacerse un hueco frente a la competencia, convirtiéndose en una app muy valorada por traders de todo el mundo gracias a su fiabilidad. Su algoritmo eficiente une datos históricos, técnicos y fundamentales con la IA, aumentando la calidad de los análisis y ayudando a los usuarios a tomar decisiones más informadas."
+    ],
+    "cost": 0,
+    "keywords": ["tradegpt", "qué es", "trade gpt", "trade", "gpt"],
+    "subquestions": {
+      "Puedo enseñarte lo que TradeGPT puede ofrecerte generando el análisis completo de [FAVOURITE]. ¿Quieres que proceda?": "asset_analysis_open",
+      "Para demostrarte cómo funciona TradeGPT, puedo darte el análisis detallado de [TOPIC]. ¿Quieres que te lo dé?": "asset_analysis_open"}
   }
 }
