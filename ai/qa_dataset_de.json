@@ -10334,5 +10334,33 @@
     "cost": 3,
     "keywords": ["Chart", "Zukunft", "Vorhersage", "zukünftig", "Verlauf", "Szenario", "Projektionen", "Zukunftsprojektionen"],
     "tag": "ultra"
+  },
+      "what_is_tradegpt": {
+    "questions": [
+      "Was ist TradeGPT?",
+      "Was ist das für eine App?",
+      "Kannst du mir erklären, was TradeGPT ist?",
+      "Wofür ist TradeGPT gut?",
+      "Wie funktioniert TradeGPT?",
+      "Was für eine Art von App ist TradeGPT?",
+      "TradeGPT, was ist das?",
+      "Erklärst du mir, was TradeGPT macht?",
+      "Was macht TradeGPT genau?",
+      "Womit beschäftigt sich TradeGPT?",
+      "Wie funktioniert diese App?",
+      "Was macht diese Anwendung?",
+      "Warum sollte ich TradeGPT nutzen?",
+      "Warum sollte ich TradeGPT vertrauen?",
+      "Warum sollte ich mich auf diese App verlassen?"
+    ],
+    "answers": [
+      "TradeGPT ist eine App, die darauf spezialisiert ist, den Finanzmarkt detailliert zu analysieren und probabilistische Prognosen über die mögliche zukünftige Entwicklung eines Assets zu erstellen. Sie nutzt einen fortschrittlichen Algorithmus, der historische Daten, technische Indikatoren und Fundamentaldaten kombiniert und mit künstlicher Intelligenz integriert, um den Nutzern leistungsstarke und präzise Analysen zu bieten.",
+      "TradeGPT ist eine hochentwickelte Finanzanalyse-Plattform, die es ermöglicht, den Markt klar und strukturiert zu interpretieren. In kurzer Zeit hat sie sich gegenüber der Konkurrenz behauptet und ist dank ihrer Zuverlässigkeit bei Tradern weltweit sehr beliebt geworden. Ihr effizienter Algorithmus verbindet historische, technische und fundamentale Daten mit KI, wodurch die Qualität der Analysen gesteigert und die Nutzer dabei unterstützt werden, fundiertere Entscheidungen zu treffen."
+    ],
+    "cost": 0,
+    "keywords": ["tradegpt", "was ist", "trade gpt", "trade", "gpt"],
+    "subquestions": {
+      "Ich kann dir zeigen, was TradeGPT dir bieten kann, indem ich eine vollständige Analyse von [FAVOURITE] erstelle. Soll ich loslegen?": "asset_analysis_open",
+      "Um dir zu zeigen, wie TradeGPT funktioniert, kann ich dir eine detaillierte Analyse von [TOPIC] geben. Möchtest du sie haben?": "asset_analysis_open"}
   }
 }
