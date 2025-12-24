@@ -10249,5 +10249,33 @@
     "cost": 3,
     "keywords": ["gráfico", "futuro", "previsão", "futura", "tendência", "cenário", "projeções", "futuras"],
     "tag": "ultra"
+  },
+    "what_is_tradegpt": {
+    "questions": [
+      "O que é o TradeGPT?",
+      "O que é esta app?",
+      "Podes explicar-me o que é o TradeGPT?",
+      "Para que serve o TradeGPT?",
+      "Como funciona o TradeGPT?",
+      "Que tipo de app é o TradeGPT?",
+      "TradeGPT o que é?",
+      "Explicas-me o que faz o TradeGPT?",
+      "O que faz o TradeGPT?",
+      "De que é que o TradeGPT trata?",
+      "Como funciona esta app?",
+      "O que faz esta aplicação?",
+      "Porque deveria usar o TradeGPT?",
+      "Porque deveria confiar no TradeGPT?",
+      "Porque é que me haveria de confiar nesta app?"
+    ],
+    "answers": [
+      "O TradeGPT é uma app pensada para analisar detalhadamente o mercado financeiro e fornecer previsões probabilísticas sobre a possível tendência futura de um ativo. Utiliza um algoritmo avançado que combina dados históricos, indicadores técnicos e dados fundamentais, integrando-os com inteligência artificial para oferecer análises mais poderosas e precisas aos utilizadores.",
+      "O TradeGPT é uma plataforma de análise financeira evoluída que permite interpretar o mercado de forma clara e estruturada. Em pouco tempo, conseguiu destacar-se da concorrência, tornando-se uma app muito apreciada por traders de todo o mundo graças à sua fiabilidade. O seu algoritmo eficiente une dados históricos, técnicos e fundamentais à IA, aumentando a qualidade das análises e ajudando os utilizadores a tomar decisões mais conscientes."
+    ],
+    "cost": 0,
+    "keywords": ["tradegpt", "o que é", "trade gpt", "trade", "gpt"],
+    "subquestions": {
+      "Posso mostrar-te o que o TradeGPT te pode oferecer ao gerar a análise completa de [FAVOURITE]. Queres que avance?": "asset_analysis_open",
+      "Para te demonstrar como funciona o TradeGPT, posso dar-te a análise detalhada de [TOPIC]. Queres que ta dê?": "asset_analysis_open"}
   }
 }
