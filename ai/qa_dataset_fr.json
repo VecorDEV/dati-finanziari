@@ -10265,5 +10265,32 @@
     "cost": 3,
     "keywords": ["graphique", "futur", "prévision", "future", "évolution", "scénario", "projections", "futures"],
     "tag": "ultra"
+  },
+    "what_is_tradegpt": {
+    "questions": [
+      "Qu'est-ce que TradeGPT ?",
+      "C'est quoi cette appli ?",
+      "Tu peux m'expliquer ce qu'est TradeGPT ?",
+      "À quoi ça sert TradeGPT ?",
+      "Comment ça marche TradeGPT ?",
+      "C'est quel genre d'appli TradeGPT ?",
+      "TradeGPT, c'est quoi ?",
+      "Tu m'expliques ce que fait TradeGPT ?",
+      "C'est quoi le but de TradeGPT ?",
+      "Comment fonctionne cette appli ?",
+      "Elle fait quoi cette application ?",
+      "Pourquoi je devrais utiliser TradeGPT ?",
+      "Pourquoi je devrais faire confiance à TradeGPT ?",
+      "Pourquoi je devrais choisir cette appli ?"
+    ],
+    "answers": [
+      "TradeGPT est une appli conçue pour analyser en détail le marché financier et te donner des prévisions probabilistes sur l'évolution future d'un actif. Elle utilise un algorithme avancé qui combine données historiques, indicateurs techniques et fondamentales, en les intégrant à l'intelligence artificielle pour t'offrir des analyses plus puissantes et précises.",
+      "TradeGPT est une plateforme d'analyse financière évoluée qui permet d'interpréter le marché de manière claire et structurée. En peu de temps, elle a réussi à se faire une place face à la concurrence, devenant une appli très appréciée par les traders du monde entier grâce à sa fiabilité. Son algorithme efficace unit données historiques, techniques et fondamentales à l'IA, augmentant la qualité des analyses et t'aidant à prendre des décisions plus éclairées."
+    ],
+    "cost": 0,
+    "keywords": ["tradegpt", "c'est quoi", "trade gpt", "trade", "gpt"],
+    "subquestions": {
+      "Je peux te montrer ce que TradeGPT peut t'offrir en générant l'analyse complète de [FAVOURITE]. Tu veux que je commence ?": "asset_analysis_open",
+      "Pour te montrer comment ça marche, je peux te donner l'analyse détaillée de [TOPIC]. Tu veux que je te la sorte ?": "asset_analysis_open"}
   }
 }
