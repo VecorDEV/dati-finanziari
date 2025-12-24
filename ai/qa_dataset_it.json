@@ -10344,5 +10344,33 @@
     "cost": 3,
     "keywords": ["grafico", "futuro", "previsione", "futura", "andamento", "scenario", "proiezioni", "future"],
     "tag": "ultra"
-}
+},
+  "what_is_tradegpt": {
+    "questions": [
+      "Cos’è TradeGPT?",
+      "Che cos’è questa app?",
+      "Puoi spiegarmi cos’è TradeGPT?",
+      "A cosa serve TradeGPT?",
+      "Come funziona TradeGPT?",
+      "Che tipo di app è TradeGPT?",
+      "TradeGPT cos’è?",
+      "Mi spieghi cos'è TradeGPT?",
+      "Cosa fa TradeGPT?",
+      "Di cosa si occupa TradeGPT?",
+      "Come funziona questa app?",
+      "Cosa fa questa applicazione?",
+      "Perché dovrei usare TradeGPT?",
+      "Perché mi dovrei affidare a TradeGPT?",
+      "Perché mai dovrei affidarmi a questa app?"
+    ],
+    "answers": [
+      "TradeGPT è un’app pensata per analizzare in modo dettagliato il mercato finanziario e fornire previsioni probabilistiche sul possibile andamento futuro di un asset. Utilizza un algoritmo avanzato che combina dati storici, indicatori tecnici e dati fondamentali, integrandoli con l’intelligenza artificiale per offrire analisi più potenti e precise agli utenti.",
+      "TradeGPT è una piattaforma di analisi finanziaria evoluta che permette di interpretare il mercato in maniera chiara e strutturata. In poco tempo è riuscita a farsi spazio tra la concorrenza, diventando un’app molto apprezzata da trader di tutto il mondo grazie alla sua affidabilità. Il suo algoritmo efficiente unisce dati storici, tecnici e fondamentali all’AI, aumentando la qualità delle analisi e aiutando gli utenti a prendere decisioni più consapevoli."
+    ],
+    "cost": 0,
+    "keywords": ["tradegpt", "cos'è", "trade gpt", "trade", "gpt"],
+    "subquestions": {
+      "Posso farti vedere quello che TradeGPT può offrirti generandoti l'analisi completa di [FAVOURITE]. Vuoi che procedo?": "asset_analysis_open",
+      "Per dimostrarti come funziona TradeGPT, ti posso fornire l'analisi dettagliata di [TOPIC]. Vuoi che te la dia?": "asset_analysis_open"}
+  }
 }
