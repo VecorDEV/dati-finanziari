@@ -10309,5 +10309,33 @@
     "cost": 3,
     "keywords": ["grafik", "masa depan", "prediksi", "prakiraan", "tren", "skenario", "proyeksi"],
     "tag": "ultra"
+  },
+    "what_is_tradegpt": {
+    "questions": [
+      "Apa itu TradeGPT?",
+      "Apa sih aplikasi ini?",
+      "Bisa jelaskan apa itu TradeGPT?",
+      "TradeGPT buat apa ya?",
+      "Gimana cara kerja TradeGPT?",
+      "TradeGPT itu jenis aplikasi apa?",
+      "TradeGPT apa sih?",
+      "Bisa jelaskan ke aku apa yang dilakukan TradeGPT?",
+      "Apa fungsinya TradeGPT?",
+      "TradeGPT fokus di bidang apa?",
+      "Gimana cara kerja aplikasi ini?",
+      "Apa yang dilakukan aplikasi ini?",
+      "Kenapa aku harus pakai TradeGPT?",
+      "Kenapa aku harus percaya sama TradeGPT?",
+      "Kenapa aku harus mengandalkan aplikasi ini?"
+    ],
+    "answers": [
+      "TradeGPT adalah aplikasi yang dirancang untuk menganalisis pasar keuangan secara mendalam dan memberikan prediksi probabilitas mengenai arah masa depan suatu aset. Aplikasi ini menggunakan algoritma canggih yang menggabungkan data historis, indikator teknis, dan data fundamental, yang semuanya diintegrasikan dengan kecerdasan buatan (AI) untuk menawarkan analisis yang lebih kuat dan presisi bagi para penggunanya.",
+      "TradeGPT adalah platform analisis keuangan mutakhir yang memungkinkanmu menginterpretasikan pasar secara jelas dan terstruktur. Dalam waktu singkat, TradeGPT berhasil bersaing dan menjadi aplikasi yang sangat dihargai oleh para trader di seluruh dunia berkat keandalannya. Algoritmanya yang efisien menyatukan data historis, teknis, dan fundamental dengan AI, sehingga meningkatkan kualitas analisis dan membantumu mengambil keputusan yang lebih tepat."
+    ],
+    "cost": 0,
+    "keywords": ["tradegpt", "apa itu", "trade gpt", "trade", "gpt"],
+    "subquestions": {
+      "Aku bisa tunjukkan apa yang TradeGPT tawarkan dengan membuatkan analisis lengkap buat [FAVOURITE]. Mau aku lanjut?": "asset_analysis_open",
+      "Untuk mendemonstrasikan cara kerja TradeGPT, aku bisa kasih analisis detail tentang [TOPIC]. Mau aku kirim?": "asset_analysis_open"}
   }
 }
