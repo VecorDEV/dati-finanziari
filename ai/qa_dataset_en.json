@@ -10250,5 +10250,32 @@
     "cost": 3,
     "keywords": ["chart", "future", "forecast", "future-trend", "trend", "scenario", "projections", "future-projections"],
     "tag": "ultra"
+  },
+    "what_is_tradegpt": {
+    "questions": [
+      "What is TradeGPT?",
+      "What is this app?",
+      "Can you explain what TradeGPT is?",
+      "What is TradeGPT used for?",
+      "How does TradeGPT work?",
+      "What kind of app is TradeGPT?",
+      "TradeGPT what is it?",
+      "Can you tell me more about TradeGPT?",
+      "What does TradeGPT do?",
+      "How does this app function?",
+      "What is the purpose of this application?",
+      "Why should I use TradeGPT?",
+      "Why should I trust TradeGPT?",
+      "Why should I rely on this app?"
+    ],
+    "answers": [
+      "TradeGPT is an app designed to analyze the financial market in detail and provide probabilistic forecasts on the possible future trend of an asset. It uses an advanced algorithm that combines historical data, technical indicators, and fundamental data, integrating them with artificial intelligence to offer more powerful and precise analyses to users.",
+      "TradeGPT is an evolved financial analysis platform that allows you to interpret the market in a clear and structured way. In a short time, it has managed to stand out from the competition, becoming a highly appreciated app by traders worldwide thanks to its reliability. Its efficient algorithm combines historical, technical, and fundamental data with AI, increasing the quality of analysis and helping users make more informed decisions."
+    ],
+    "cost": 0,
+    "keywords": ["tradegpt", "what is", "trade gpt", "trade", "gpt"],
+    "subquestions": {
+      "I can show you what TradeGPT can offer by generating a full analysis of [FAVOURITE]. Should I proceed?": "asset_analysis_open",
+      "To demonstrate how TradeGPT works, I can provide a detailed analysis of [TOPIC]. Would you like me to give it to you?": "asset_analysis_open"}
   }
 }
