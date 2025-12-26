@@ -7,19 +7,19 @@ on:
     # Nota: L'Italia è UTC+1 (inverno) o UTC+2 (estate)
     
     # 1. Notte fonda / Apertura Asia (Esistente)
-    #- cron: '30 23 * * *'  
+    - cron: '30 23 * * *'  
     
     # 2. Mattina presto (NUOVO - circa 05:00 IT)
-    #- cron: '0 4 * * *'    
+    - cron: '0 4 * * *'    
     
     # 3. Apertura Europa (Esistente)
     #- cron: '30 6 * * *'   
     
     # 4. Metà mattina Europa (NUOVO - circa 11:00 IT)
-    #- cron: '0 10 * * *'    
+    - cron: '0 10 * * *'    
     
     # 5. Pre-market USA / Pranzo (NUOVO - circa 13:30 IT)
-    #- cron: '30 12 * * *'   
+    - cron: '30 12 * * *'   
     
     # 6. Apertura USA (Esistente)
     - cron: '0 14 * * *'   
