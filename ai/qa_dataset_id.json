@@ -6308,6 +6308,22 @@
       "Saya juga dapat memberi Anda korelasi yang ditemukan untuk [TOPIC]. Apakah Anda ingin mengetahuinya?": "correlazioni_asset",
       "Apakah Anda juga ingin tahu informative sells tentang [FAVOURITE]?": "informative_sells"}
   },
+    "informative_sells_not_available": {
+    "questions": [],
+    "answers": [
+      "Data mengenai *informative sells* tidak tersedia untuk *[TOPIC]*.\n\nJenis informasi ini hanya disediakan untuk aset tertentu; faktanya, data ini tidak tersedia untuk kategori seperti *forex, mata uang kripto, indeks, komoditas*, dan untuk *beberapa saham tertentu*.",
+      "Mohon maaf, untuk *[TOPIC]* tidak tersedia data *informative sells*.\n\nInformasi mengenai penjualan insider tidak tersedia untuk aset seperti *forex, kripto, indeks, komoditas*, dan untuk *saham-saham tertentu*.",
+      "Untuk *[TOPIC]*, data *informative sells* tidak ditemukan.\n\nHal ini dikarenakan data tersebut memang tidak tersedia untuk beberapa kelas aset, termasuk mata uang, mata uang kripto, indeks, komoditas, dan beberapa instrumen ekuitas.",
+      "Saya tidak dapat memberikan data *informative sells* pada *[TOPIC]*.\n\nJenis informasi ini terbatas pada aset tertentu saja, sedangkan untuk aset lainnya (forex, kripto, indeks, komoditas, dan beberapa saham), data tersebut tidak tersedia.",
+      "Data *informative sells* untuk *[TOPIC]* tidak ditemukan.\n\nData ini tidak digunakan untuk kategori seperti forex, mata uang kripto, indeks, komoditas, dan beberapa saham tertentu."
+    ],
+    "cost": 0,
+    "tag": "ultra",
+    "subquestions": {
+      "Apakah Anda ingin tahu apa itu informative sells?": "informative_sells_info",
+      "Saya dapat memberikan korelasi yang ditemukan untuk [TOPIC]. Apakah Anda ingin mengetahuinya?": "correlazioni_asset",
+      "Apakah Anda ingin tahu korelasi pasar yang telah saya analisis untuk [FAVOURITE]?": "informative_sells"}
+  },
   "informative_sells_info": {
     "questions": [
       "Apa arti informative sells?",
