@@ -6316,6 +6316,22 @@
       "Je peux également vous fournir les corrélations trouvées pour [TOPIC]. Voulez-vous les connaître ?": "correlazioni_asset",
       "Voulez-vous aussi connaître les 'informative sells' sur [FAVOURITE] ?": "informative_sells"}
   },
+    "informative_sells_not_available": {
+    "questions": [],
+    "answers": [
+      "Les données sur les *informative sells* ne sont pas disponibles pour *[TOPIC]*.\n\nCe genre d'info n'est fournie que pour certains actifs précis. Ça n'existe pas pour les catégories comme le *forex, les cryptos, les indices, les matières premières* ni pour *certaines actions*.",
+      "Désolé, mais pour *[TOPIC]*, il n'y a pas d'*informative sells* disponibles.\n\nLes infos sur les ventes d'initiés (insider selling) n'existent pas pour des actifs comme le *forex, la crypto, les indices, les matières premières* ou *certaines actions*.",
+      "Il n'y a pas d'*informative sells* pour *[TOPIC]*.\n\nC'est parce que ces données n'existent tout simplement pas pour certaines classes d'actifs, notamment les devises, les cryptos, les indices, les matières premières et certains titres boursiers.",
+      "Je ne peux pas te donner d'*informative sells* pour *[TOPIC]*.\n\nCe type d'information est limité à quelques actifs, alors que pour d'autres (forex, crypto, indices, matières premières et certains stocks), ça n'existe pas.",
+      "Les *informative sells* pour *[TOPIC]* n'existent pas.\n\nCette donnée n'est pas utilisée pour les catégories comme le forex, les cryptos, les indices, les matières premières et certaines actions."
+    ],
+    "cost": 0,
+    "tag": "ultra",
+    "subquestions": {
+      "Tu veux savoir ce que sont les informative sells ?": "informative_sells_info",
+      "Je peux te donner le détail des corrélations trouvées pour [TOPIC]. Ça t'intéresse ?": "correlazioni_asset",
+      "Tu veux connaître les corrélations de marché que j'ai analysées pour [FAVOURITE] ?": "informative_sells"}
+  },
   "informative_sells_info": {
     "questions": [
       "Que signifie 'informative sells' ?",
