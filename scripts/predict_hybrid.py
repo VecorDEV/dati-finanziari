@@ -883,38 +883,100 @@ def get_sentiment_for_all_symbols(symbol_list):
                 hist['Date'] = hist.index.strftime('%Y-%m-%d')
                 dati_storici_html = hist[['Date','Close','High','Low','Open','Volume']].to_html(index=False, border=1)
 
-                # --- INSIDER SELLS COMPLETO ---
+                # --- INSIDER SELLS (LOGICA A CASCATA: OPENINSIDER -> YFINANCE) ---
+                sells_data = None
+        
+                # 1. TENTATIVO PRINCIPALE: OPENINSIDER (Ottimizzato per USA)
                 try:
-                    url = f"http://openinsider.com/screener?s={symbol}&o=&cnt=1000"
-                    tables = pd.read_html(url)
-                    insider_trades = max(tables, key=lambda t: t.shape[0])
-                    insider_trades['Value_clean'] = insider_trades['Value'].replace(r'[\$,]', '', regex=True).astype(float)
-                    sells = insider_trades[insider_trades['Trade\xa0Type'].str.contains("Sale", na=False)].copy()
-                    sells['Trade Date'] = pd.to_datetime(insider_trades['Trade\xa0Date'])
-                    daily_sells = sells.groupby('Trade Date')['Value_clean'].sum().abs().sort_index()
-
-                    last_day = daily_sells.index.max() if not daily_sells.empty else None
-                    last_value = daily_sells[last_day] if last_day is not None else 0
-                    max_daily = daily_sells.max() if not daily_sells.empty else 0
-                    percent_of_max = (last_value / max_daily * 100) if max_daily != 0 else 0
-                    num_sells_last_day = len(sells[sells['Trade Date'] == last_day]) if last_day is not None else 0
-
-                    # Calcolo Variazione rispetto al giorno di vendita precedente (come nel secondo codice)
-                    variance = 0
-                    if len(daily_sells) >= 2:
-                        prev_val = daily_sells.iloc[-2]
-                        if prev_val > 0:
-                            variance = ((last_value - prev_val) / prev_val) * 100
-
-                    sells_data = {
-                        'Last Day': last_day.strftime('%Y-%m-%d') if last_day else "N/A",
-                        'Last Day Total Sells ($)': f"{last_value:,.2f}",
-                        'Last vs Max (%)': percent_of_max,
-                        'Number of Sells Last Day': num_sells_last_day,
-                        'Variance': variance 
-                    }
+                    # Filtro: Usiamo OpenInsider solo se sembra un'azione USA standard.
+                    # Scartiamo simboli con =, ^, -USD (Crypto/Indici) e suffissi europei (.MI, .PA, ecc)
+                    is_likely_us_stock = not any(x in str(adjusted_symbol) for x in ["=", "^", "-USD", ".MI", ".PA", ".DE", ".L", ".MC", ".HE", ".LS"])
+                    
+                    if is_likely_us_stock:
+                        # Usa adjusted_symbol per evitare errori su ticker ambigui
+                        url = f"http://openinsider.com/screener?s={adjusted_symbol}&o=&cnt=1000"
+                        tables = pd.read_html(url)
+                        
+                        if len(tables) > 0:
+                            insider_trades = max(tables, key=lambda t: t.shape[0])
+                            # Pulizia Dati
+                            insider_trades['Value_clean'] = insider_trades['Value'].replace(r'[\$,]', '', regex=True).astype(float)
+                            sells = insider_trades[insider_trades['Trade\xa0Type'].str.contains("Sale", na=False)].copy()
+                            
+                            if not sells.empty:
+                                sells['Trade Date'] = pd.to_datetime(insider_trades['Trade\xa0Date'])
+                                daily_sells = sells.groupby('Trade Date')['Value_clean'].sum().abs().sort_index()
+        
+                                # Calcoli (Identici alla logica originale)
+                                last_day = daily_sells.index.max()
+                                last_value = daily_sells[last_day]
+                                max_daily = daily_sells.max()
+                                percent_of_max = (last_value / max_daily * 100) if max_daily != 0 else 0
+                                num_sells_last_day = len(sells[sells['Trade Date'] == last_day])
+        
+                                variance = 0
+                                if len(daily_sells) >= 2:
+                                    prev_val = daily_sells.iloc[-2]
+                                    if prev_val > 0:
+                                        variance = ((last_value - prev_val) / prev_val) * 100
+        
+                                # OUTPUT DIZIONARIO (Formato Standard)
+                                sells_data = {
+                                    'Last Day': last_day.strftime('%Y-%m-%d'),
+                                    'Last Day Total Sells ($)': f"{last_value:,.2f}",
+                                    'Last vs Max (%)': percent_of_max,
+                                    'Number of Sells Last Day': num_sells_last_day,
+                                    'Variance': variance 
+                                }
                 except Exception:
-                    sells_data = None
+                    pass # Se fallisce, prosegue al fallback
+        
+                # 2. TENTATIVO FALLBACK: YAHOO FINANCE (Per Europa e resto del mondo)
+                # Esegue solo se il primo tentativo non ha prodotto risultati
+                if sells_data is None:
+                    try:
+                        # Scarica transazioni da yfinance
+                        ticker_obj = yf.Ticker(adjusted_symbol)
+                        insider_df = ticker_obj.insider_transactions
+                        
+                        if not insider_df.empty:
+                            # Cerca colonne che contengono la descrizione (Text o Transaction)
+                            col_text = next((c for c in insider_df.columns if 'Text' in c or 'Transaction' in c), None)
+                            
+                            if col_text:
+                                # Filtra per "Sale" o "Sold"
+                                sells = insider_df[insider_df[col_text].astype(str).str.contains("Sale|Sold", case=False, na=False)].copy()
+                                
+                                # Verifica esistenza colonne necessarie ('Value' e 'Start Date')
+                                if not sells.empty and 'Value' in sells.columns and 'Start Date' in sells.columns:
+                                    sells['Value'] = sells['Value'].fillna(0).astype(float)
+                                    sells['Trade Date'] = pd.to_datetime(sells['Start Date'])
+                                    
+                                    daily_sells = sells.groupby('Trade Date')['Value'].sum().abs().sort_index()
+                                    
+                                    if not daily_sells.empty:
+                                        last_day = daily_sells.index.max()
+                                        last_value = daily_sells[last_day]
+                                        max_daily = daily_sells.max()
+                                        percent_of_max = (last_value / max_daily * 100) if max_daily != 0 else 0
+                                        num_sells_last_day = len(sells[sells['Trade Date'] == last_day])
+                                        
+                                        variance = 0
+                                        if len(daily_sells) >= 2:
+                                            prev_val = daily_sells.iloc[-2]
+                                            if prev_val > 0:
+                                                variance = ((last_value - prev_val) / prev_val) * 100
+        
+                                        # OUTPUT DIZIONARIO (Stesso Formato Standard)
+                                        sells_data = {
+                                            'Last Day': last_day.strftime('%Y-%m-%d'),
+                                            'Last Day Total Sells ($)': f"{last_value:,.2f}",
+                                            'Last vs Max (%)': percent_of_max,
+                                            'Number of Sells Last Day': num_sells_last_day,
+                                            'Variance': variance 
+                                        }
+                    except Exception:
+                        pass
 
         except Exception as e: print(f"Err {symbol}: {e}")
         
