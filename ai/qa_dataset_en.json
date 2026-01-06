@@ -6218,6 +6218,22 @@
     "I can also provide you the correlations found for [TOPIC]. Do you want to know them?": "correlazioni_asset",
     "Do you want to know the informative sells on [FAVOURITE] as well?": "informative_sells"}
 },
+    "informative_sells_not_available": {
+    "questions": [],
+    "answers": [
+      "Data on *informative sells* are not available for *[TOPIC]*.\n\nThis type of information is provided only for specific assets; in fact, it does not exist for categories such as *forex, cryptocurrencies, indices, commodities*, and for *certain stocks*.",
+      "I'm sorry, but *informative sells* are not available for *[TOPIC]*.\n\nInsider selling information does not exist for assets such as *forex, crypto, indices, commodities*, and for *certain shares*.",
+      "There are no *informative sells* available for *[TOPIC]*.\n\nThis is because such data do not exist for some asset classes, including currencies, cryptocurrencies, indices, commodities, and some equity securities.",
+      "I cannot provide *informative sells* on *[TOPIC]*.\n\nThis type of information is limited to certain assets, while for others (forex, crypto, indices, commodities, and some stocks) it does not exist.",
+      "The *informative sells* for *[TOPIC]* do not exist.\n\nThis data is not used for categories such as forex, cryptocurrencies, indices, commodities, and certain stocks."
+    ],
+    "cost": 0,
+    "tag": "ultra",
+    "subquestions": {
+      "Do you want to know what informative sells are?": "informative_sells_info",
+      "I can provide you with the correlations found for [TOPIC]. Do you want to know them?": "correlazioni_asset",
+      "Do you want to know the market correlations I analyzed for [FAVOURITE]?": "informative_sells"}
+  },
   "informative_sells_info": {
   "questions": [
     "What does informative sells mean?",
