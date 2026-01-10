@@ -592,6 +592,107 @@ class HistoryManager:
         final_delta = 50 + (raw_delta * multiplier)
         return max(min(final_delta, 100), 0)
 
+
+# ==============================================================================
+# CLASSE PATTERN ANALYZER (PROFESSIONALE)
+# ==============================================================================
+class PatternAnalyzer:
+    def __init__(self, df):
+        if isinstance(df.columns, pd.MultiIndex):
+            self.o = df['Open'].iloc[:, 0].values
+            self.h = df['High'].iloc[:, 0].values
+            self.l = df['Low'].iloc[:, 0].values
+            self.c = df['Close'].iloc[:, 0].values
+        else:
+            self.o = df['Open'].values
+            self.h = df['High'].values
+            self.l = df['Low'].values
+            self.c = df['Close'].values
+
+    def get_pattern_score(self):
+        """
+        Returns a score between -1.0 (Strong Bearish) and +1.0 (Strong Bullish).
+        Used for mathematical calculation in HybridScorer.
+        """
+        score, _ = self._analyze_logic()
+        return score
+
+    def get_pattern_info(self):
+        """
+        Returns: (Numeric Score, String with English pattern names)
+        Used for HTML display and App text.
+        """
+        score, patterns = self._analyze_logic()
+        # Se la lista è vuota, restituisce stringa inglese
+        pattern_text = ", ".join(patterns) if patterns else "No significant patterns"
+        return score, pattern_text
+
+    def _analyze_logic(self):
+        """
+        Internal logic to avoid code duplication between score and info.
+        """
+        score = 0.0
+        patterns_found = []
+        limit = len(self.c)
+        
+        if limit < 20: return 0.0, ["Insufficient Data"]
+        
+        # --- A. CANDLESTICK ANALYSIS (Last 3 days) ---
+        i = limit - 1
+        c1, c2, c3 = self.c[i-2], self.c[i-1], self.c[i]
+        o1, o2, o3 = self.o[i-2], self.o[i-1], self.o[i]
+        h3, l3 = self.h[i], self.l[i]
+        body3 = abs(c3 - o3)
+        range3 = h3 - l3 if h3 != l3 else 0.0001
+
+        # 1. Bullish Engulfing
+        if c2 < o2 and c3 > o3 and c3 > o2 and o3 < c2: 
+            score += 0.4
+            patterns_found.append("Bullish Engulfing")
+        
+        # 2. Bearish Engulfing
+        if c2 > o2 and c3 < o3 and c3 < o2 and o3 > c2: 
+            score -= 0.4
+            patterns_found.append("Bearish Engulfing")
+
+        # 3. Hammer
+        lower_shadow = min(c3, o3) - l3
+        if lower_shadow > (body3 * 2) and (h3 - max(c3, o3)) < body3: 
+            score += 0.3
+            patterns_found.append("Hammer")
+
+        # 4. Shooting Star
+        upper_shadow = h3 - max(c3, o3)
+        if upper_shadow > (body3 * 2) and (min(c3, o3) - l3) < body3: 
+            score -= 0.3
+            patterns_found.append("Shooting Star")
+
+        # 5. Three White Soldiers
+        if c1 > o1 and c2 > o2 and c3 > o3 and c3 > c2 > c1: 
+            score += 0.3
+            patterns_found.append("3 White Soldiers")
+
+        # --- B. SUPPORT & RESISTANCE (Structural) ---
+        curr_price = c3
+        lookback = 126 
+        recent_h = self.h[-lookback:]
+        recent_l = self.l[-lookback:]
+        threshold = 0.02
+        
+        # At Support?
+        if abs(curr_price - np.min(recent_l)) / curr_price <= threshold:
+            score += 0.4
+            patterns_found.append("At Support Level")
+
+        # At Resistance?
+        if abs(curr_price - np.max(recent_h)) / curr_price <= threshold:
+            score -= 0.4
+            patterns_found.append("At Resistance Level")
+
+        final_score = max(min(score, 1.0), -1.0)
+        return final_score, patterns_found
+
+
 class HybridScorer:
     def _calculate_rsi(self, series, period=14):
         delta = series.diff(1)
@@ -602,36 +703,75 @@ class HybridScorer:
         return 100 - (100 / (1 + rs))
 
     def _get_technical_score(self, df):
-        if len(df) < 30: return 0.0
+        # Questo è il tuo vecchio metodo (RSI + SMA)
+        # Lo teniamo come "Trend Score" di base
+        if len(df) < 50: return 0.0
+        
+        # Gestione MultiIndex se necessario
         close = df['Close']
+        if isinstance(close, pd.DataFrame): close = close.iloc[:, 0]
+        
         try:
             sma = float(close.rolling(window=50).mean().iloc[-1])
             curr = float(close.iloc[-1])
             rsi = float(self._calculate_rsi(close).iloc[-1])
         except: return 0.0
+        
         score = 0.0
         if curr > sma: score += 0.5
         else: score -= 0.5
+        
+        # Nota: RSI qui serve per Ipercomprato/Ipervenduto generico
         if rsi < 30: score += 0.5 
         elif rsi > 70: score -= 0.5 
         return max(min(score, 1.0), -1.0)
 
     def calculate_probability(self, df, sent_raw, news_n, lead, is_lead, delta_score):
-        tech = self._get_technical_score(df)
+        # 1. Analisi Tecnica Standard (RSI, SMA)
+        tech_score = self._get_technical_score(df)
+        
+        # 2. Analisi Pattern Avanzata (Nuova aggiunta)
+        analyzer = PatternAnalyzer(df)
+        pattern_score = analyzer.get_pattern_score()
+
         curr_lead = 0.0 if is_lead else lead
         delta_factor = (delta_score - 50) / 50.0 
         
+        # --- DEFINIZIONE PESI (WEIGHTS) ---
+        # w_n = News Sentiment
+        # w_t = Technical Trend (SMA/RSI)
+        # w_p = Pattern (Candele + Supporti) -> NUOVO
+        # w_l = Leader di settore
+        # w_d = Delta Momentum (Hype recente)
+
         if is_lead:
-            if news_n == 0: w_n, w_l, w_t, w_d = 0.0, 0.0, 0.9, 0.1
-            elif news_n <= 3: w_n, w_l, w_t, w_d = 0.25, 0.0, 0.60, 0.15
-            else: w_n, w_l, w_t, w_d = 0.50, 0.0, 0.30, 0.20
+            if news_n == 0:     
+                # Senza news, ci affidiamo a Tecnica, Pattern e Momentum
+                w_n, w_l, w_t, w_p, w_d = 0.00, 0.00, 0.40, 0.40, 0.20
+            elif news_n <= 3:   
+                w_n, w_l, w_t, w_p, w_d = 0.20, 0.00, 0.35, 0.30, 0.15
+            else:               
+                # Con tante news, il Sentiment pesa di più
+                w_n, w_l, w_t, w_p, w_d = 0.40, 0.00, 0.25, 0.20, 0.15
         else:
-            if news_n == 0: w_n, w_l, w_t, w_d = 0.0, 0.30, 0.60, 0.10
-            elif news_n <= 3: w_n, w_l, w_t, w_d = 0.15, 0.25, 0.50, 0.10
-            else: w_n, w_l, w_t, w_d = 0.45, 0.15, 0.25, 0.15
+            if news_n == 0:     
+                w_n, w_l, w_t, w_p, w_d = 0.00, 0.20, 0.35, 0.35, 0.10
+            elif news_n <= 3:   
+                w_n, w_l, w_t, w_p, w_d = 0.15, 0.20, 0.30, 0.25, 0.10
+            else:               
+                w_n, w_l, w_t, w_p, w_d = 0.35, 0.15, 0.20, 0.20, 0.10
         
-        final = (sent_raw * w_n) + (tech * w_t) + (curr_lead * w_l) + (delta_factor * w_d)
+        # Calcolo Finale Ponderato
+        final = (sent_raw * w_n) + \
+                (tech_score * w_t) + \
+                (pattern_score * w_p) + \
+                (curr_lead * w_l) + \
+                (delta_factor * w_d)
+        
+        # Limita tra -1 e 1
         final = max(min(final, 1.0), -1.0)
+        
+        # Converte in scala 0-100
         return round(50 + (final * 50), 2)
 
     def get_signal(self, score):
@@ -798,7 +938,21 @@ def get_sentiment_for_all_symbols(symbol_list):
                 high = data['High']
                 low = data['Low']
                 dati_storici_all[symbol] = data.copy()
+
+                # Estrazione Pattern per HTML (usiamo PatternAnalyzer esplicitamente per ottenere il TESTO)
+                analyzer = PatternAnalyzer(data)
+                pat_score_val, pat_text_names = analyzer.get_pattern_info()
                 
+                # Logica Colori e Stati (In Inglese per output internazionale)
+                pat_sentiment_str = "NEUTRAL"
+                pat_color = "black"
+                if pat_score_val >= 0.3: 
+                    pat_sentiment_str = "BULLISH"
+                    pat_color = "green"
+                elif pat_score_val <= -0.3: 
+                    pat_sentiment_str = "BEARISH"
+                    pat_color = "red"
+                    
                 # Calcolo Hybrid Score
                 hybrid_prob = scorer.calculate_probability(data, s7_raw, news_count_7, leader_val, is_leader, delta_val)
                 percentuali_combine[symbol] = hybrid_prob 
@@ -986,6 +1140,10 @@ def get_sentiment_for_all_symbols(symbol_list):
             f"<html><head><title>{symbol} Forecast</title></head><body>",
             f"<h1>Report: {symbol}</h1>",
             f"<h2 style='color:{sig_col}'>{signal_str} (Hybrid Score: {hybrid_prob}%)</h2>",
+            "<hr>",
+            "<h3>Price Action Analysis (Patterns)</h3>",
+            f"<p><strong>Detected Patterns:</strong> {pat_text_names}</p>",
+            f"<p><strong>Chart Sentiment:</strong> <span style='color:{pat_color}'><b>{pat_sentiment_str}</b></span> (Score: {pat_score_val:.2f})</p>",
             "<hr>",
             "<h3>Analisi Hybrid (AI + Tech + Delta)</h3>",
             f"<p><strong>Settore:</strong> {sector} (Trend Leader: {'UP' if leader_val>0 else 'DOWN'})</p>",
