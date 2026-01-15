@@ -25,7 +25,7 @@ on:
     - cron: '0 14 * * *'   
     
     # 7. Chiusura Europa / Metà seduta USA (Esistente)
-    #- cron: '30 16 * * *'  
+    - cron: '30 16 * * *'  
     
     # 8. Chiusura USA (NUOVO - circa 21:30 IT)
     - cron: '30 20 * * *'   
