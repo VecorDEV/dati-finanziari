@@ -18,6 +18,7 @@ import argostranslate.package
 import argostranslate.translate
 import nltk
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
+from financial_lexicon import LEXICON
 
 # Indicatori tecnici e statistica
 from ta.momentum import RSIIndicator, StochasticOscillator, WilliamsRIndicator
@@ -41,51 +42,10 @@ try:
 except:
     print("Spacy model not found, proceeding without lemmatization for compatibility.")
 
-# Inizializziamo VADER
+# AGGIORNA IL LESSICO UNA VOLTA SOLA
 sia = SentimentIntensityAnalyzer()
+sia.lexicon.update(LEXICON)
 
-# ==============================================================================
-# "TURBO-VADER" CONFIGURATION
-# Questo dizionario sovrascrive e amplia il lessico standard per la finanza.
-# Risolve errori comuni (es. "vice president" visto come negativo) e aumenta
-# la sensibilità alle parole di hype (es. "surge", "plummet").
-# ==============================================================================
-financial_lexicon = {
-    # --- FORTI INDICATORI POSITIVI (Hype & Growth) ---
-    'surge': 3.5, 'jump': 2.5, 'soar': 3.5, 'rocket': 4.0, 'rally': 3.0,
-    'beat': 2.5, 'outperform': 3.0, 'upgrade': 3.0, 'buy': 2.5, 'strong': 2.0,
-    'growth': 2.0, 'profit': 2.0, 'revenue': 1.5, 'gain': 2.0, 'bull': 2.5,
-    'bullish': 2.5, 'record': 2.5, 'high': 1.5, 'top': 1.5, 'breakthrough': 3.0,
-    'boom': 3.0, 'milestone': 2.5, 'partnership': 2.0, 'positive': 2.0,
-    'success': 2.5, 'win': 2.5, 'rebound': 2.5, 'recover': 2.0, 'reward': 2.0,
-    'dividend': 1.5, 'merger': 1.5, 'acquisition': 1.5, 'approval': 2.0,
-    
-    # --- FORTI INDICATORI NEGATIVI (Crash & Risk) ---
-    'plunge': -3.5, 'crash': -4.0, 'dive': -3.0, 'tumble': -3.0, 'slump': -3.0,
-    'miss': -2.5, 'underperform': -3.0, 'downgrade': -3.0, 'sell': -2.0,
-    'bear': -2.5, 'bearish': -2.5, 'drop': -2.5, 'fall': -2.0, 'loss': -2.5,
-    'weak': -2.0, 'low': -1.5, 'debt': -1.5, 'risk': -2.0, 'fail': -3.0,
-    'warning': -2.5, 'bankrupt': -4.0, 'bankruptcy': -4.0, 'cut': -2.0,
-    'collapse': -4.0, 'crisis': -3.0, 'recession': -3.5, 'inflation': -2.0,
-    'lawsuit': -2.5, 'investigation': -2.5, 'scandal': -3.5, 'fraud': -4.0,
-    'volatile': -1.5, 'uncertainty': -1.5, 'headwind': -2.0, 'halt': -2.5,
-    
-    # --- CORREZIONI (Parole neutre spesso fraintese da VADER) ---
-    'vice': 0.0,      # "Vice President" (VADER originale: negativo)
-    'gross': 0.0,     # "Gross Margin" (VADER orig: negativo 'disgustoso')
-    'mine': 0.0,      # "Gold Mine" (VADER orig: possessivo/negativo)
-    'share': 0.0,     # "Share price" (VADER orig: positivo sociale)
-    'bond': 0.0,      # "Treasury Bond" (VADER orig: positivo affettivo)
-    'security': 0.0,  # "Securities" (VADER orig: positivo sicurezza)
-    'crude': 0.0,     # "Crude Oil" (VADER orig: negativo 'grezzo')
-    'tank': -2.5,     # "Stock tanked" (VADER orig: neutro 'serbatoio')
-    'fed': 0.0,       # "Fed Reserve" (VADER orig: neutro/positivo 'nutrito')
-    'yield': 0.0,     # "Bond Yield" (VADER orig: positivo 'cedere/produrre')
-    'liability': -1.0 # Termine contabile, leggermente negativo ma non tragico
-}
-
-# Aggiorniamo il lessico di VADER
-sia.lexicon.update(financial_lexicon)
 
 
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
