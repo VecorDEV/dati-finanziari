@@ -30,7 +30,7 @@ from statsmodels.stats.multitest import multipletests
 from statsmodels.regression.linear_model import OLS
 import statsmodels.api as sm
 
-# --- SETUP AI (VADER & SPACY) ---
+# --- SETUP AI: TURBO-VADER (VADER + Expanded Financial Lexicon) ---
 try:
     nltk.data.find('vader_lexicon')
 except LookupError:
@@ -40,6 +40,53 @@ try:
     nlp = spacy.load("en_core_web_sm")
 except:
     print("Spacy model not found, proceeding without lemmatization for compatibility.")
+
+# Inizializziamo VADER
+sia = SentimentIntensityAnalyzer()
+
+# ==============================================================================
+# "TURBO-VADER" CONFIGURATION
+# Questo dizionario sovrascrive e amplia il lessico standard per la finanza.
+# Risolve errori comuni (es. "vice president" visto come negativo) e aumenta
+# la sensibilità alle parole di hype (es. "surge", "plummet").
+# ==============================================================================
+financial_lexicon = {
+    # --- FORTI INDICATORI POSITIVI (Hype & Growth) ---
+    'surge': 3.5, 'jump': 2.5, 'soar': 3.5, 'rocket': 4.0, 'rally': 3.0,
+    'beat': 2.5, 'outperform': 3.0, 'upgrade': 3.0, 'buy': 2.5, 'strong': 2.0,
+    'growth': 2.0, 'profit': 2.0, 'revenue': 1.5, 'gain': 2.0, 'bull': 2.5,
+    'bullish': 2.5, 'record': 2.5, 'high': 1.5, 'top': 1.5, 'breakthrough': 3.0,
+    'boom': 3.0, 'milestone': 2.5, 'partnership': 2.0, 'positive': 2.0,
+    'success': 2.5, 'win': 2.5, 'rebound': 2.5, 'recover': 2.0, 'reward': 2.0,
+    'dividend': 1.5, 'merger': 1.5, 'acquisition': 1.5, 'approval': 2.0,
+    
+    # --- FORTI INDICATORI NEGATIVI (Crash & Risk) ---
+    'plunge': -3.5, 'crash': -4.0, 'dive': -3.0, 'tumble': -3.0, 'slump': -3.0,
+    'miss': -2.5, 'underperform': -3.0, 'downgrade': -3.0, 'sell': -2.0,
+    'bear': -2.5, 'bearish': -2.5, 'drop': -2.5, 'fall': -2.0, 'loss': -2.5,
+    'weak': -2.0, 'low': -1.5, 'debt': -1.5, 'risk': -2.0, 'fail': -3.0,
+    'warning': -2.5, 'bankrupt': -4.0, 'bankruptcy': -4.0, 'cut': -2.0,
+    'collapse': -4.0, 'crisis': -3.0, 'recession': -3.5, 'inflation': -2.0,
+    'lawsuit': -2.5, 'investigation': -2.5, 'scandal': -3.5, 'fraud': -4.0,
+    'volatile': -1.5, 'uncertainty': -1.5, 'headwind': -2.0, 'halt': -2.5,
+    
+    # --- CORREZIONI (Parole neutre spesso fraintese da VADER) ---
+    'vice': 0.0,      # "Vice President" (VADER originale: negativo)
+    'gross': 0.0,     # "Gross Margin" (VADER orig: negativo 'disgustoso')
+    'mine': 0.0,      # "Gold Mine" (VADER orig: possessivo/negativo)
+    'share': 0.0,     # "Share price" (VADER orig: positivo sociale)
+    'bond': 0.0,      # "Treasury Bond" (VADER orig: positivo affettivo)
+    'security': 0.0,  # "Securities" (VADER orig: positivo sicurezza)
+    'crude': 0.0,     # "Crude Oil" (VADER orig: negativo 'grezzo')
+    'tank': -2.5,     # "Stock tanked" (VADER orig: neutro 'serbatoio')
+    'fed': 0.0,       # "Fed Reserve" (VADER orig: neutro/positivo 'nutrito')
+    'yield': 0.0,     # "Bond Yield" (VADER orig: positivo 'cedere/produrre')
+    'liability': -1.0 # Termine contabile, leggermente negativo ma non tragico
+}
+
+# Aggiorniamo il lessico di VADER
+sia.lexicon.update(financial_lexicon)
+
 
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 REPO_NAME = "VecorDEV/dati-finanziari"
@@ -834,31 +881,39 @@ def get_stock_news(symbol):
     return {"last_90_days": news_90_days, "last_30_days": news_30_days, "last_7_days": news_7_days}
 
 def calculate_sentiment_vader(news_items, return_raw=False):
-    sia = SentimentIntensityAnalyzer()
-    sia.lexicon.update({
-        'surge': 4.0, 'jump': 2.0, 'rally': 3.5, 'soar': 4.0, 'bull': 3.0, 'buy': 2.0,
-        'plunge': -4.0, 'crash': -4.0, 'drop': -3.0, 'bear': -3.0, 'sell': -2.0,
-        'miss': -2.0, 'beat': 2.0, 'strong': 1.5, 'weak': -1.5, 'record': 2.0,
-        'high': 1.0, 'low': -1.0, 'gain': 2.0, 'loss': -2.0, 'up': 1.0, 'down': -1.0,
-        'warning': -2.0, 'positive': 2.0, 'negative': -2.0, 'growth': 2.5,
-        'profit': 2.5, 'revenue': 2.0, 'success': 2.5, 'fail': -2.5,
-        'crisis': -3.0, 'risk': -1.5, 'safe': 1.5, 'win': 2.5, 'lose': -2.5,
-        'upgrade': 3.0, 'downgrade': -3.0, 'outperform': 3.0, 'underperform': -3.0
-    })
-    
-    if not news_items: return 0.5 if not return_raw else 0.0
+    """
+    Calcola il sentiment usando Turbo-VADER.
+    Mantiene il peso temporale per dare più importanza alle news recenti.
+    """
+    # Se non ci sono news, neutro
+    if not news_items: 
+        return 0.5 if not return_raw else 0.0
+
     scores = []
     now = datetime.utcnow()
+    
     for item in news_items:
         title = item[0]
         date = item[1]
-        score = sia.polarity_scores(title)['compound'] # -1 a +1
+        
+        # Analisi Sentiment
+        # 'compound' è il punteggio aggregato (-1 molto negativo, +1 molto positivo)
+        score = sia.polarity_scores(title)['compound']
+        
+        # Peso temporale: le notizie di oggi pesano più di quelle di 3 mesi fa
+        # Formula: e^(-0.03 * giorni_passati)
         days = (now - date).days
         weight = math.exp(-0.03 * days)
+        
         scores.append(score * weight)
         
+    # Media ponderata
     avg = sum(scores) / len(scores) if scores else 0
-    if return_raw: return avg
+    
+    if return_raw: 
+        return avg # Restituisce da -1 a 1 (per calcoli matematici)
+        
+    # Normalizzazione finale da [-1, 1] a [0, 1] (per percentuali 0-100%)
     return (avg + 1) / 2
 
 # ==============================================================================
