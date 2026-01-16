@@ -4,7 +4,7 @@ import feedparser
 import os
 from datetime import datetime, timedelta
 import math
-import spacy
+#import spacy
 import yfinance as yf
 import ta
 import pandas as pd
