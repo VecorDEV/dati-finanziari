@@ -347,5 +347,43 @@
       "La valutazione dei key fundamental evidenzia una configurazione negativa: la combinazione dei dati finanziari principali indica che [TOPIC] non mostra segnali di forza e che i fondamentali sono in difficoltà.",
       "Analizzando le metriche fondamentali, emerge una percentuale negativa: la maggior parte degli indicatori principali mostra criticità, suggerendo una fase in cui [TOPIC] non si trova supportato da fondamentali solidi."
     ]
+  },
+    "sector_sentiment": {
+    "positive": [
+      "[TOPIC] è stato associato al settore [SECTOR], che mostra un sentiment complessivo positivo, suggerendoci che le informazioni recenti trasmettono fiducia e un orientamento generalmente favorevole per questo settore.",
+      "[TOPIC] appartiene al settore [SECTOR], il quale presenta un sentiment positivo: le notizie più recenti evidenziano toni ottimistici, indicando una percezione incoraggiante dell’intero comparto.",
+      "[TOPIC] è incluso nel settore [SECTOR], che registra un sentiment positivo. L’analisi delle notizie recenti mostra come la maggioranza dei contenuti trasmetta fiducia e segnali favorevoli per il settore.",
+      "[TOPIC] è parte del settore [SECTOR], il cui sentiment complessivo è positivo, suggerendo che le informazioni più recenti delineano un quadro incoraggiante e ottimistico per il comparto.",
+      "[TOPIC] è stato associato al settore [SECTOR], che evidenzia un sentiment positivo: la lettura aggregata delle notizie mostra come prevalgano toni favorevoli e fiducia nell’andamento del settore.",
+      "[TOPIC] appartiene al settore [SECTOR], il quale presenta un sentiment positivo. La maggior parte dei contenuti recenti indica un orientamento favorevole, segnalando fiducia generale nel comparto.",
+      "[TOPIC] è inserito nel settore [SECTOR], che mostra un sentiment positivo: l’analisi delle informazioni recenti evidenzia ottimismo e percezione incoraggiante per il comparto.",
+      "[TOPIC] è stato associato al settore [SECTOR], con un sentiment complessivo positivo. Le notizie analizzate mostrano che l’opinione generale è favorevole e trasmette fiducia sul comparto.",
+      "[TOPIC] appartiene al settore [SECTOR], il cui sentiment è positivo: la lettura dei contenuti recenti evidenzia toni ottimistici e segnali incoraggianti sul settore.",
+      "[TOPIC] è parte del settore [SECTOR], che registra un sentiment positivo, suggerendoci che le informazioni disponibili contribuiscono a una percezione favorevole e fiduciosa del settore."
+    ],
+    "neutral": [
+      "[TOPIC] è stato associato al settore [SECTOR], che mostra un sentiment complessivo neutro, suggerendoci che le notizie recenti non evidenziano né segnali positivi né negativi marcati, delineando un quadro equilibrato.",
+      "[TOPIC] appartiene al settore [SECTOR], il quale presenta un sentiment neutro: l’analisi delle informazioni disponibili evidenzia una percezione stabile e bilanciata del comparto.",
+      "[TOPIC] è incluso nel settore [SECTOR], che registra un sentiment neutro. Le notizie più recenti non mostrano predominanza di toni positivi o negativi, suggerendo una situazione informativa equilibrata.",
+      "[TOPIC] è parte del settore [SECTOR], il cui sentiment complessivo è neutro, indicando che i contenuti recenti riflettono una percezione bilanciata e priva di segnali marcati.",
+      "[TOPIC] è stato associato al settore [SECTOR], che evidenzia un sentiment neutro: le informazioni analizzate non presentano indicazioni predominanti né ottimistiche né pessimistiche.",
+      "[TOPIC] appartiene al settore [SECTOR], il quale mostra un sentiment neutro. L’aggregazione dei contenuti recenti segnala una percezione stabile e senza inclinazioni nette.",
+      "[TOPIC] è inserito nel settore [SECTOR], che presenta un sentiment complessivamente neutro: le notizie non evidenziano tendenze chiare verso il positivo o il negativo.",
+      "[TOPIC] è stato associato al settore [SECTOR], con un sentiment neutro. La lettura aggregata dei contenuti mostra un orientamento bilanciato, senza segnali predominanti.",
+      "[TOPIC] appartiene al settore [SECTOR], il cui sentiment è neutro: le informazioni recenti indicano un quadro stabile e senza segnali di eccessivo ottimismo o pessimismo.",
+      "[TOPIC] è parte del settore [SECTOR], che registra un sentiment neutro, suggerendoci che l’opinione generale sul comparto è equilibrata e non orientata in modo marcato."
+    ],
+    "negative": [
+      "[TOPIC] è stato associato al settore [SECTOR], che mostra un sentiment complessivo negativo, suggerendoci che le notizie recenti evidenziano preoccupazioni e toni sfavorevoli per il comparto.",
+      "[TOPIC] appartiene al settore [SECTOR], il quale presenta un sentiment negativo: l’analisi delle informazioni più recenti segnala criticità e una percezione meno favorevole del comparto.",
+      "[TOPIC] è incluso nel settore [SECTOR], che registra un sentiment negativo. Le notizie recenti mostrano toni pessimisti e segnali di debolezza nell’andamento complessivo del settore.",
+      "[TOPIC] è parte del settore [SECTOR], il cui sentiment complessivo è negativo, indicando che l’orientamento generale dei contenuti è sfavorevole e riflette preoccupazioni diffuse.",
+      "[TOPIC] è stato associato al settore [SECTOR], che evidenzia un sentiment negativo: la sintesi delle notizie più recenti mostra una predominanza di toni sfavorevoli e indicazioni preoccupanti.",
+      "[TOPIC] appartiene al settore [SECTOR], il quale mostra un sentiment negativo. L’analisi dei contenuti recenti segnala una percezione pessimistica e criticità diffuse nel comparto.",
+      "[TOPIC] è inserito nel settore [SECTOR], che presenta un sentiment complessivamente negativo: le informazioni disponibili evidenziano toni sfavorevoli e segnali di debolezza nel settore.",
+      "[TOPIC] è stato associato al settore [SECTOR], con un sentiment negativo. L’aggregazione dei contenuti più recenti mostra criticità e preoccupazioni generalizzate nel comparto.",
+      "[TOPIC] appartiene al settore [SECTOR], il cui sentiment è negativo: la lettura delle notizie recenti evidenzia toni sfavorevoli, suggerendo una percezione generale pessimistica del settore.",
+      "[TOPIC] è parte del settore [SECTOR], che registra un sentiment negativo, suggerendoci che le informazioni disponibili indicano criticità e un orientamento sfavorevole per il settore."
+    ]
   }
 }
