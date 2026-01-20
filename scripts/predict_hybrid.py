@@ -53,6 +53,8 @@ REPO_NAME = "VecorDEV/dati-finanziari"
 
 # --- CONFIGURAZIONE CARTELLA OUTPUT ---
 TARGET_FOLDER = "hybrid_results"
+TEST_FOLDER = "forward_testing"  # dedicata al test
+
 
 # Paths
 file_path = f"{TARGET_FOLDER}/classifica.html"
@@ -599,6 +601,155 @@ class HistoryManager:
         final_delta = 50 + (raw_delta * multiplier)
         return max(min(final_delta, 100), 0)
 
+class BacktestSystem:
+    def __init__(self, repo, folder_name="forward_testing"):
+        self.repo = repo
+        self.folder = folder_name
+        self.json_filename = f"{self.folder}/backtest_log.json"
+        self.html_filename = f"{self.folder}/reliability_curve.html"
+        self.data = self._load_data()
+        
+    def _load_data(self):
+        try:
+            # Tenta di caricare dal path specifico
+            contents = self.repo.get_contents(self.json_filename)
+            return json.loads(base64.b64decode(contents.content).decode('utf-8'))
+        except:
+            # Se non esiste, struttura vuota
+            return {"log": [], "stats": {}}
+
+    def save_data(self):
+        try:
+            # Mantiene il file snello (ultime 2000 entries)
+            self.data["log"] = sorted(self.data["log"], key=lambda x: x["date"], reverse=True)[:2000]
+            content = json.dumps(self.data, indent=2)
+            
+            try:
+                c = self.repo.get_contents(self.json_filename)
+                self.repo.update_file(self.json_filename, "Upd Backtest Data", content, c.sha)
+            except:
+                self.repo.create_file(self.json_filename, "Init Backtest Data", content)
+        except Exception as e:
+            print(f"Errore salvataggio JSON backtest: {e}")
+
+    def log_new_prediction(self, symbol, score, current_price):
+        """Salva o aggiorna l'ultima previsione di oggi (Logica 8 esecuzioni)"""
+        today_str = datetime.now().strftime("%Y-%m-%d")
+        entry_id = f"{symbol}_{today_str}"
+        
+        existing_entry = next((item for item in self.data["log"] if item.get("id") == entry_id), None)
+
+        if existing_entry:
+            # Aggiorna i dati esistenti con l'ultima esecuzione del giorno
+            existing_entry["score"] = score
+            existing_entry["start_price"] = float(current_price)
+        else:
+            # Crea nuova entry
+            new_entry = {
+                "id": entry_id,
+                "date": today_str,
+                "symbol": symbol,
+                "score": score,
+                "start_price": float(current_price),
+                "status": "active",
+                "daily_results": {} 
+            }
+            self.data["log"].append(new_entry)
+
+    def update_daily_tracking(self, current_prices_map):
+        """Calcola i risultati per i giorni successivi"""
+        today = datetime.now()
+        max_days = 20
+        
+        for entry in self.data["log"]:
+            if entry["status"] == "closed": continue
+            
+            symbol = entry["symbol"]
+            if symbol not in current_prices_map: continue
+            
+            entry_date = datetime.strptime(entry["date"], "%Y-%m-%d")
+            days_passed = (today - entry_date).days
+            
+            if days_passed == 0: continue 
+            if days_passed > max_days:
+                entry["status"] = "closed"
+                continue
+                
+            curr = current_prices_map[symbol]
+            start = entry["start_price"]
+            change = ((curr - start) / start) * 100
+            entry["daily_results"][str(days_passed)] = round(change, 2)
+
+        self._analyze_stats()
+
+    def _analyze_stats(self):
+        """Analisi statistica interna"""
+        stats_by_day = {}
+        for entry in self.data["log"]:
+            # Filtra solo segnali forti per le statistiche
+            score = entry["score"]
+            direction = 0
+            if score >= 55: direction = 1
+            elif score <= 45: direction = -1
+            else: continue 
+            
+            for day, val in entry["daily_results"].items():
+                if day not in stats_by_day: stats_by_day[day] = {"wins": 0, "total": 0, "ret": 0.0}
+                
+                is_win = (direction == 1 and val > 0.1) or (direction == -1 and val < -0.1)
+                stats_by_day[day]["total"] += 1
+                if is_win: stats_by_day[day]["wins"] += 1
+                stats_by_day[day]["ret"] += val
+
+        curve = []
+        best_day = "N/A"
+        best_acc = 0.0
+        
+        for d in sorted(stats_by_day.keys(), key=lambda x: int(x)):
+            data = stats_by_day[d]
+            if data["total"] < 5: continue
+            acc = round((data["wins"]/data["total"])*100, 1)
+            avg_ret = round(data["ret"]/data["total"], 2)
+            curve.append({"day": int(d), "accuracy": acc, "avg_return": avg_ret})
+            
+            if acc > best_acc:
+                best_acc = acc
+                best_day = d
+                
+        self.data["stats"] = {"best_day": best_day, "best_acc": best_acc, "curve": curve}
+
+    def generate_report(self):
+        """Genera e salva il report HTML nella cartella dedicata"""
+        stats = self.data.get("stats", {})
+        curve = stats.get("curve", [])
+        
+        html = [
+            "<html><head><title>Forward Testing</title>",
+            "<style>body{font-family:Arial;padding:20px;} .bar{height:20px;color:white;text-align:right;padding-right:5px;} .g{background:#28a745;} .r{background:#dc3545;} .y{background:#ffc107;color:black;}</style>",
+            "</head><body>",
+            "<h1>🧪 Forward Testing (Real-time Validation)</h1>",
+            f"<p>Analisi basata su segnali reali salvati in passato. Cartella: <i>{self.folder}</i></p>",
+            f"<h3>Picco Affidabilità: Giorno {stats.get('best_day','-')} ({stats.get('best_acc',0)}%)</h3>",
+            "<table border='1' width='100%' style='border-collapse:collapse;'><tr><th>Giorno</th><th>Win Rate</th><th>Profitto Medio</th></tr>"
+        ]
+        
+        for p in curve:
+            d, acc, ret = p['day'], p['accuracy'], p['avg_return']
+            color = "g" if acc > 55 else ("y" if acc > 48 else "r")
+            html.append(f"<tr><td>Day {d}</td><td><div class='bar {color}' style='width:{max(acc,10)}%'>{acc}%</div></td><td>{ret}%</td></tr>")
+            
+        html.append("</table></body></html>")
+        
+        try:
+            full_html = "\n".join(html)
+            try:
+                c = self.repo.get_contents(self.html_filename)
+                self.repo.update_file(self.html_filename, "Upd Report", full_html, c.sha)
+            except:
+                self.repo.create_file(self.html_filename, "Cre Report", full_html)
+        except Exception as e:
+            print(f"Errore report HTML backtest: {e}")
+
 
 # ==============================================================================
 # CLASSE PATTERN ANALYZER (PROFESSIONALE)
@@ -883,6 +1034,13 @@ def calculate_sentiment_vader(news_items, return_raw=False):
 def get_sentiment_for_all_symbols(symbol_list):
     history_mgr = HistoryManager(repo, history_path)
     scorer = HybridScorer()
+
+    # --- SETUP BACKTESTER (Cartella Separata) ---
+    # Questo inizializza il sistema puntando a "forward_testing/"
+    # Se la cartella non esiste, GitHub la creerà col primo file.
+    backtester = BacktestSystem(repo, folder_name=TEST_FOLDER)
+    current_prices_map = {} # Serve per il controllo bulk finale
+    # --------------------------------------------
     
     sentiment_results = {}
     percentuali_combine = {} 
@@ -973,6 +1131,15 @@ def get_sentiment_for_all_symbols(symbol_list):
                 percentuali_combine[symbol] = hybrid_prob 
                 signal_str, sig_col = scorer.get_signal(hybrid_prob)
 
+                current_price = float(close.iloc[-1])
+                current_prices_map[symbol] = current_price
+    
+                # --- LOGGING SILENZIOSO ---
+                # Questo salva i dati in memoria, non tocca file, non stampa nulla.
+                # Non influenza i tuoi report "classifica.html" o altro.
+                backtester.log_new_prediction(symbol, hybrid_prob, current_price)
+                # --------------------------
+            
                 # Crescita Settimanale
                 try:
                     # 1. Prezzo Attuale
@@ -1200,7 +1367,15 @@ def get_sentiment_for_all_symbols(symbol_list):
             sia = SentimentIntensityAnalyzer()
             sc = (sia.polarity_scores(title)['compound'] + 1) / 2
             all_news_entries.append((symbol, title, sc, link, src, img))
-            
+
+    
+    # --- SALVATAGGIO TEST (Alla fine del loop, prima del return) ---
+    print("Elaborazione Forward Testing in corso...")
+    backtester.update_daily_tracking(current_prices_map) # Calcola risultati
+    backtester.save_data()       # Scrive il JSON in forward_testing/
+    backtester.generate_report() # Scrive l'HTML in forward_testing/
+    # ---------------------------------------------------------------
+
     history_mgr.save_data_to_github()
     return (sentiment_results, percentuali_combine, all_news_entries, 
             indicator_data, fundamental_data, crescita_settimanale, dati_storici_all, momentum_results)
