@@ -611,135 +611,147 @@ class BacktestSystem:
         
     def _load_data(self):
         try:
-            # Scarica il file attuale
             contents = self.repo.get_contents(self.json_filename)
+            # Legge il file (anche se è su una sola riga, json.loads lo gestisce perfettamente)
             raw_data = json.loads(base64.b64decode(contents.content).decode('utf-8'))
             
-            # --- MIGRAZIONE AUTOMATICA E INTELLIGENTE ---
-            # Se trova la vecchia chiave "log" (lista piatta), converte tutto
+            new_db = {}
+            migrated = False
+
+            # CASO 1: Vecchio formato a LISTA ("log": [...])
             if "log" in raw_data and isinstance(raw_data["log"], list):
-                print(f"⚠️ Rilevato vecchio formato ({len(raw_data['log'])} righe). Avvio migrazione e compressione...")
-                new_structure = {}
-                
+                print(f"⚠️ Migrazione: Convertendo {len(raw_data['log'])} righe da LISTA a DIZIONARIO...")
                 for entry in raw_data["log"]:
                     sym = entry["symbol"]
-                    if sym not in new_structure: new_structure[sym] = []
+                    date = entry["date"]
+                    if sym not in new_db: new_db[sym] = {}
                     
-                    # Evita duplicati durante la migrazione (stessa data nello stesso asset)
-                    date_exists = any(x["d"] == entry["date"] for x in new_structure[sym])
-                    if not date_exists:
-                        # Crea record compatto
-                        compact_entry = {
-                            "d": entry["date"],          # Data
-                            "s": entry["score"],         # Score
-                            "p": entry["start_price"],   # Prezzo Start
-                            "r": entry["daily_results"], # Results
-                            "st": entry.get("status", "active")
+                    new_db[sym][date] = {
+                        "score": entry["score"],
+                        "price": entry["start_price"],
+                        "results": entry["daily_results"],
+                        "status": entry.get("status", "active")
+                    }
+                migrated = True
+
+            # CASO 2: Formato intermedio "ASSETS" (quello di ieri con liste compresse)
+            elif "assets" in raw_data and isinstance(raw_data["assets"], dict):
+                print("⚠️ Migrazione: Recupero dati dal formato 'ASSETS' intermedio...")
+                for sym, entries in raw_data["assets"].items():
+                    if sym not in new_db: new_db[sym] = {}
+                    for e in entries:
+                        # Mappa le chiavi corte (d, s, p) alle chiavi estese
+                        date = e["d"]
+                        new_db[sym][date] = {
+                            "score": e["s"],
+                            "price": e["p"],
+                            "results": e["r"],
+                            "status": e.get("st", "active")
                         }
-                        new_structure[sym].append(compact_entry)
-                
-                print("✅ Migrazione completata. I dati sono salvi e ottimizzati.")
-                return {"assets": new_structure, "stats": raw_data.get("stats", {})}
+                migrated = True
+
+            # CASO 3: Già nel formato corretto (Dizionario pulito)
+            elif isinstance(raw_data, dict) and "log" not in raw_data and "assets" not in raw_data:
+                return raw_data # È già perfetto
+
+            if migrated:
+                print("✅ Migrazione completata con successo.")
+                return new_db
             
-            # Se è già nel nuovo formato, ritorna così com'è
-            return raw_data
+            return {} # Se non trova nulla di noto
+            
         except Exception as e:
-            print(f"Nessun dato precedente trovato o errore caricamento: {e}")
-            return {"assets": {}, "stats": {}}
+            print(f"Nessun dato precedente o errore lettura: {e}")
+            return {}
 
     def save_data(self):
         try:
-            # Mantiene pulito: Ordina per data decrescente e tiene max 100 giorni per asset
-            for sym in self.data["assets"]:
-                self.data["assets"][sym] = sorted(self.data["assets"][sym], key=lambda x: x["d"], reverse=True)[:100]
+            # Ordina le date all'interno di ogni asset (dalla più recente alla più vecchia)
+            # Questo assicura che il file sia sempre ordinato quando lo apri
+            for sym in self.data:
+                # Ordina le chiavi (date)
+                sorted_dates = sorted(self.data[sym].keys(), reverse=True)
+                self.data[sym] = {k: self.data[sym][k] for k in sorted_dates}
 
-            content = json.dumps(self.data, indent=None, separators=(',', ':')) # Minificazione JSON (rimuove spazi inutili)
+            # --- SALVATAGGIO LEGGIBILE ---
+            # indent=4 è il comando che trasforma la "riga unica" in un file verticale ben formattato
+            content = json.dumps(self.data, indent=4)
             
             try:
                 c = self.repo.get_contents(self.json_filename)
-                self.repo.update_file(self.json_filename, "Upd Optimized Data", content, c.sha)
+                self.repo.update_file(self.json_filename, "Upd Backtest Data", content, c.sha)
             except:
-                self.repo.create_file(self.json_filename, "Init Optimized Data", content)
+                self.repo.create_file(self.json_filename, "Init Backtest Data", content)
         except Exception as e:
-            print(f"Errore salvataggio JSON backtest: {e}")
+            print(f"Errore salvataggio JSON: {e}")
 
     def log_new_prediction(self, symbol, score, current_price):
-        """Salva o aggiorna nella nuova struttura compatta"""
+        """Salva/Aggiorna nella struttura Dizionario [SIMBOLO][DATA]"""
         today_str = datetime.now().strftime("%Y-%m-%d")
         
-        # Inizializza lista asset se non esiste
-        if symbol not in self.data["assets"]:
-            self.data["assets"][symbol] = []
+        if symbol not in self.data:
+            self.data[symbol] = {}
             
-        history = self.data["assets"][symbol]
-        
-        # Cerca se esiste già una entry per OGGI
-        existing_entry = next((item for item in history if item["d"] == today_str), None)
-
-        if existing_entry:
-            # SOVRASCRRITTURA: Aggiorna l'entry di oggi con i dati più recenti (es. esecuzione delle 16:00)
-            existing_entry["s"] = score
-            existing_entry["p"] = float(current_price)
+        # Accesso diretto O(1) -> Velocissimo
+        if today_str in self.data[symbol]:
+            # ESISTE GIÀ: Aggiorna i valori (sovrascrittura intelligente)
+            self.data[symbol][today_str]["score"] = score
+            self.data[symbol][today_str]["price"] = float(current_price)
         else:
-            # NUOVA ENTRY: Aggiungi in cima alla lista
-            new_entry = {
-                "d": today_str,
-                "s": score,
-                "p": float(current_price),
-                "r": {},
-                "st": "active"
+            # NUOVO GIORNO: Crea l'entry
+            self.data[symbol][today_str] = {
+                "score": score,
+                "price": float(current_price),
+                "results": {},
+                "status": "active"
             }
-            history.insert(0, new_entry)
 
     def update_daily_tracking(self, current_prices_map):
-        """Calcola i risultati navigando la nuova struttura a dizionario"""
+        """Calcola i risultati scorrendo il dizionario"""
         today = datetime.now()
         max_days = 20
         
-        # Itera su ogni asset nel dizionario
-        for symbol, history in self.data["assets"].items():
+        for symbol, dates_data in self.data.items():
             if symbol not in current_prices_map: continue
-            current_price = current_prices_map[symbol]
             
-            for entry in history:
-                if entry.get("st") == "closed": continue
+            for date_key, entry in dates_data.items():
+                if entry.get("status") == "closed": continue
                 
                 try:
-                    entry_date = datetime.strptime(entry["d"], "%Y-%m-%d")
+                    entry_date = datetime.strptime(date_key, "%Y-%m-%d")
                     days_passed = (today - entry_date).days
                     
-                    if days_passed == 0: continue # Salta oggi
+                    if days_passed == 0: continue 
                     if days_passed > max_days:
-                        entry["st"] = "closed"
+                        entry["status"] = "closed"
                         continue
                         
-                    start_price = entry["p"]
-                    change = ((current_price - start_price) / start_price) * 100
+                    start_price = entry["price"]
+                    curr_price = current_prices_map[symbol]
+                    change = ((curr_price - start_price) / start_price) * 100
                     
-                    # Salva risultato con chiave stringa corta (es. "3" per 3 giorni)
-                    entry["r"][str(days_passed)] = round(change, 2)
+                    entry["results"][str(days_passed)] = round(change, 2)
                 except: continue
 
         self._analyze_stats()
 
     def _analyze_stats(self):
-        """Genera statistiche dalla struttura a dizionario"""
+        """Statistiche per HTML"""
         stats_by_day = {}
         
-        for symbol, history in self.data["assets"].items():
-            for entry in history:
-                score = entry["s"]
+        for symbol, dates_data in self.data.items():
+            for date_key, entry in dates_data.items():
+                score = entry["score"]
                 
-                # Filtro Confidenza: Analizza solo se l'AI era decisa
+                # Filtro Confidenza (>55 o <45)
                 direction = 0
-                if score >= 55: direction = 1   # Long
-                elif score <= 45: direction = -1 # Short
+                if score >= 55: direction = 1
+                elif score <= 45: direction = -1
                 else: continue
                 
-                for day, val in entry["r"].items():
+                for day, val in entry["results"].items():
                     if day not in stats_by_day: stats_by_day[day] = {"wins": 0, "total": 0, "ret": 0.0}
                     
-                    # Logica Win: Direzione giusta E movimento significativo (>0.1%)
                     is_win = (direction == 1 and val > 0.1) or (direction == -1 and val < -0.1)
                     
                     stats_by_day[day]["total"] += 1
@@ -752,7 +764,7 @@ class BacktestSystem:
         
         for d in sorted(stats_by_day.keys(), key=lambda x: int(x)):
             data = stats_by_day[d]
-            if data["total"] < 5: continue # Ignora campioni statistici troppo piccoli
+            if data["total"] < 5: continue
             
             acc = round((data["wins"]/data["total"])*100, 1)
             avg_ret = round(data["ret"]/data["total"], 2)
@@ -762,59 +774,40 @@ class BacktestSystem:
                 best_acc = acc
                 best_day = d
                 
-        self.data["stats"] = {"best_day": best_day, "best_acc": best_acc, "curve": curve}
+        self.stats_cache = {"best_day": best_day, "best_acc": best_acc, "curve": curve}
 
     def generate_report(self):
-        """Genera report HTML usando i nuovi dati"""
-        stats = self.data.get("stats", {})
+        """Genera report HTML con lo stile ORIGINALE (Semplice)"""
+        if not hasattr(self, 'stats_cache'): self._analyze_stats()
+        stats = self.stats_cache
         curve = stats.get("curve", [])
         
-        # Calcolo Win Rate Totale (Media di tutti i giorni)
-        total_acc = 0
-        if curve:
-            total_acc = sum(x['accuracy'] for x in curve) / len(curve)
-
         html = [
             "<html><head><title>Forward Testing</title>",
-            "<style>body{font-family:Arial, sans-serif;padding:20px;background:#f4f4f9;} ",
-            ".card{background:white;padding:20px;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,0.1);margin-bottom:20px;} ",
-            ".bar-container{background:#eee;border-radius:4px;overflow:hidden;} ",
-            ".bar{height:24px;color:white;text-align:right;padding-right:10px;line-height:24px;font-size:0.9em;} ",
-            ".g{background:#28a745;} .r{background:#dc3545;} .y{background:#ffc107;color:black;} ",
-            "table{width:100%;border-collapse:collapse;} th,td{padding:10px;border-bottom:1px solid #ddd;text-align:left;} th{background:#fafafa;}</style>",
+            "<style>body{font-family:Arial;padding:20px;} .bar{height:20px;color:white;text-align:right;padding-right:5px;} .g{background:#28a745;} .r{background:#dc3545;} .y{background:#ffc107;color:black;}</style>",
             "</head><body>",
-            "<div class='card'>",
             "<h1>🧪 Forward Testing (Real-time Validation)</h1>",
-            f"<p>Analisi su segnali reali passati. <b>Struttura Dati Ottimizzata.</b></p>",
-            f"<p><b>Win Rate Medio (Direzione):</b> {total_acc:.1f}%</p>",
-            f"<p><b>Picco Affidabilità:</b> Giorno {stats.get('best_day','-')} con {stats.get('best_acc',0)}%</p>",
-            "</div>",
-            "<div class='card'><table><tr><th>Giorno</th><th>Win Rate (Direzione)</th><th>Profitto (Buy&Hold)</th></tr>"
+            f"<p>Analisi basata su segnali reali salvati in passato. Cartella: <i>{self.folder}</i></p>",
+            f"<h3>Picco Affidabilità: Giorno {stats.get('best_day','-')} ({stats.get('best_acc',0)}%)</h3>",
+            "<table border='1' width='100%' style='border-collapse:collapse;'><tr><th>Giorno</th><th>Win Rate</th><th>Profitto Medio</th></tr>"
         ]
         
         for p in curve:
             d, acc, ret = p['day'], p['accuracy'], p['avg_return']
             
-            # Colore barra
+            # Logica colori originale
             if acc >= 55: color = "g"
             elif acc >= 48: color = "y"
             else: color = "r"
             
-            # Larghezza barra (minimo 15% per visibilità)
             width = max(acc, 15)
             
-            # Colore testo profitto
-            profit_color = "green" if ret > 0 else "red"
+            html.append(f"<tr><td>Day {d}</td><td><div class='bar {color}' style='width:{width}%'>{acc}%</div></td><td>{ret}%</td></tr>")
             
-            html.append(f"<tr><td>Day {d}</td>"
-                        f"<td><div class='bar-container'><div class='bar {color}' style='width:{width}%'>{acc}%</div></div></td>"
-                        f"<td style='color:{profit_color};font-weight:bold;'>{ret:+.2f}%</td></tr>")
-            
-        html.append("</table></div></body></html>")
+        html.append("</table></body></html>")
         
         try:
             full_html = "\n".join(html)
-            # Tenta aggiornamento, altrimenti crea
             try:
                 c = self.repo.get_contents(self.html_filename)
                 self.repo.update_file(self.html_filename, "Upd Report", full_html, c.sha)
@@ -822,6 +815,7 @@ class BacktestSystem:
                 self.repo.create_file(self.html_filename, "Cre Report", full_html)
         except Exception as e:
             print(f"Errore report HTML: {e}")
+
 
 
 
