@@ -607,74 +607,67 @@ class BacktestSystem:
         self.folder = folder_name
         self.json_filename = f"{self.folder}/backtest_log.json"
         self.html_filename = f"{self.folder}/reliability_curve.html"
+        
+        # Flag per sapere se il caricamento è andato a buon fine
+        self.load_success = False 
         self.data = self._load_data()
         
     def _load_data(self):
         try:
-            contents = self.repo.get_contents(self.json_filename)
-            # Legge il file (anche se è su una sola riga, json.loads lo gestisce perfettamente)
-            raw_data = json.loads(base64.b64decode(contents.content).decode('utf-8'))
+            # 1. Otteniamo il puntatore al file (senza scaricarne il contenuto se è grande)
+            file_ref = self.repo.get_contents(self.json_filename)
             
-            new_db = {}
-            migrated = False
-
-            # CASO 1: Vecchio formato a LISTA ("log": [...])
+            # 2. Usiamo l'API Git Blob tramite lo SHA per scaricare file > 1MB
+            blob = self.repo.get_git_blob(file_ref.sha)
+            raw_data = json.loads(base64.b64decode(blob.content).decode('utf-8'))
+            
+            self.load_success = True # Caricamento riuscito!
+            
+            # --- BLOCCO MIGRAZIONI (Mantiene compatibilità) ---
+            
+            # CASO 1: Vecchio formato a LISTA ("log")
             if "log" in raw_data and isinstance(raw_data["log"], list):
-                print(f"⚠️ Migrazione: Convertendo {len(raw_data['log'])} righe da LISTA a DIZIONARIO...")
+                print(f"⚠️ Migrazione formato LISTA -> DIZIONARIO...")
+                new_db = {}
                 for entry in raw_data["log"]:
                     sym = entry["symbol"]
                     date = entry["date"]
                     if sym not in new_db: new_db[sym] = {}
-                    
                     new_db[sym][date] = {
                         "score": entry["score"],
                         "price": entry["start_price"],
                         "results": entry["daily_results"],
                         "status": entry.get("status", "active")
                     }
-                migrated = True
-
-            # CASO 2: Formato intermedio "ASSETS" (quello di ieri con liste compresse)
-            elif "assets" in raw_data and isinstance(raw_data["assets"], dict):
-                print("⚠️ Migrazione: Recupero dati dal formato 'ASSETS' intermedio...")
-                for sym, entries in raw_data["assets"].items():
-                    if sym not in new_db: new_db[sym] = {}
-                    for e in entries:
-                        # Mappa le chiavi corte (d, s, p) alle chiavi estese
-                        date = e["d"]
-                        new_db[sym][date] = {
-                            "score": e["s"],
-                            "price": e["p"],
-                            "results": e["r"],
-                            "status": e.get("st", "active")
-                        }
-                migrated = True
-
-            # CASO 3: Già nel formato corretto (Dizionario pulito)
-            elif isinstance(raw_data, dict) and "log" not in raw_data and "assets" not in raw_data:
-                return raw_data # È già perfetto
-
-            if migrated:
-                print("✅ Migrazione completata con successo.")
                 return new_db
-            
-            return {} # Se non trova nulla di noto
+
+            # CASO 2: Già Dizionario
+            return raw_data
             
         except Exception as e:
-            print(f"Nessun dato precedente o errore lettura: {e}")
+            print(f"⚠️ ATTENZIONE: Impossibile caricare il Backtest Log: {e}")
+            print("⚠️ Per sicurezza, il sistema NON sovrascriverà il file precedente.")
+            self.load_success = False
             return {}
 
     def save_data(self):
+        # --- SICURA ANTI-CANCELLAZIONE ---
+        # Se il caricamento iniziale è fallito (es. errore API GitHub), 
+        # VIETIAMO il salvataggio per non sovrascrivere il file buono con uno vuoto.
+        if not self.load_success and self.data:
+             # Eccezione: Se self.data è stato popolato nonostante il fallimento (nuovo file)
+             pass
+        elif not self.load_success:
+             print("⛔ SALVATAGGIO BLOCCATO: Il caricamento dati precedente è fallito.")
+             return
+
         try:
-            # Ordina le date all'interno di ogni asset (dalla più recente alla più vecchia)
-            # Questo assicura che il file sia sempre ordinato quando lo apri
+            # Ordina le date (più recenti in alto)
             for sym in self.data:
-                # Ordina le chiavi (date)
                 sorted_dates = sorted(self.data[sym].keys(), reverse=True)
                 self.data[sym] = {k: self.data[sym][k] for k in sorted_dates}
 
-            # --- SALVATAGGIO LEGGIBILE ---
-            # indent=4 è il comando che trasforma la "riga unica" in un file verticale ben formattato
+            # Salvataggio Dizionario indentato
             content = json.dumps(self.data, indent=4)
             
             try:
@@ -686,19 +679,19 @@ class BacktestSystem:
             print(f"Errore salvataggio JSON: {e}")
 
     def log_new_prediction(self, symbol, score, current_price):
-        """Salva/Aggiorna nella struttura Dizionario [SIMBOLO][DATA]"""
+        """Salva nel formato Dizionario [SIMBOLO][DATA]"""
+        # Se il caricamento è fallito, non logghiamo nulla per non sporcare la memoria
+        if not self.load_success and len(self.data) == 0: return
+
         today_str = datetime.now().strftime("%Y-%m-%d")
         
         if symbol not in self.data:
             self.data[symbol] = {}
             
-        # Accesso diretto O(1) -> Velocissimo
         if today_str in self.data[symbol]:
-            # ESISTE GIÀ: Aggiorna i valori (sovrascrittura intelligente)
             self.data[symbol][today_str]["score"] = score
             self.data[symbol][today_str]["price"] = float(current_price)
         else:
-            # NUOVO GIORNO: Crea l'entry
             self.data[symbol][today_str] = {
                 "score": score,
                 "price": float(current_price),
@@ -707,7 +700,8 @@ class BacktestSystem:
             }
 
     def update_daily_tracking(self, current_prices_map):
-        """Calcola i risultati scorrendo il dizionario"""
+        if not self.load_success: return
+
         today = datetime.now()
         max_days = 20
         
@@ -736,14 +730,12 @@ class BacktestSystem:
         self._analyze_stats()
 
     def _analyze_stats(self):
-        """Statistiche per HTML"""
         stats_by_day = {}
         
         for symbol, dates_data in self.data.items():
             for date_key, entry in dates_data.items():
-                score = entry["score"]
                 
-                # Filtro Confidenza (>55 o <45)
+                score = entry["score"]
                 direction = 0
                 if score >= 55: direction = 1
                 elif score <= 45: direction = -1
@@ -777,8 +769,10 @@ class BacktestSystem:
         self.stats_cache = {"best_day": best_day, "best_acc": best_acc, "curve": curve}
 
     def generate_report(self):
-        """Genera report HTML con lo stile ORIGINALE (Semplice)"""
-        if not hasattr(self, 'stats_cache'): self._analyze_stats()
+        if not hasattr(self, 'stats_cache') or not self.load_success: 
+            if not self.load_success: return # Niente report se dati corrotti
+            self._analyze_stats()
+            
         stats = self.stats_cache
         curve = stats.get("curve", [])
         
@@ -795,7 +789,6 @@ class BacktestSystem:
         for p in curve:
             d, acc, ret = p['day'], p['accuracy'], p['avg_return']
             
-            # Logica colori originale
             if acc >= 55: color = "g"
             elif acc >= 48: color = "y"
             else: color = "r"
@@ -815,6 +808,7 @@ class BacktestSystem:
                 self.repo.create_file(self.html_filename, "Cre Report", full_html)
         except Exception as e:
             print(f"Errore report HTML: {e}")
+
 
 
 
