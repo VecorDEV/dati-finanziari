@@ -7995,7 +7995,8 @@
   "keywords": ["abonnement", "abonniere", "abonnieren", "ich abonniere", "bezahlt", "bezahlend", "zahlung", "pago", "premium", "ultra"],
   "subquestions": {
     "Möchtest du wissen, welche Pläne TradeGPT anbietet?": "navigazione_piani",
-    "Ich kann dir die Pläne von TradeGPT nennen. Willst du sie wissen?": "navigazione_piani"}
+    "Ich kann dir die Pläne von TradeGPT nennen. Willst du sie wissen?": "navigazione_piani"
+  }
 },
   "supporto_resistenza": {
   "questions": [
@@ -8142,6 +8143,7 @@
   "subquestions": {
     "Möchten Sie, dass ich [FAVOURITE] analysiere und Ihnen das erfasste algorithmische Sentiment anzeige?": "sentiment",
     "Möchten Sie die für [FAVOURITE] berechneten technischen Projektionen einsehen?": "sentiment"
+  }
 },
   "subscription_issue": {
   "questions": [
@@ -8543,7 +8545,8 @@
     "Ich kann eine vollständige technische Analyse von [TOPIC] erstellen, um diese Levels zu bestätigen. Soll ich das tun?": "ta_general",
     "Möchtest du auch die Unterstützungs- und Widerstandspunkte für [TOPIC] sehen?": "supporto_resistenza",
     "Soll ich auch die Fundamentalanalyse von [TOPIC] vorbereiten, damit du einen vollständigen Überblick hast?": "fundamental_analysis",
-    "Ich kann zeigen, wie sich [TOP_GAINER] in den letzten Tagen entwickelt hat, um den Markt-Kontext besser zu verstehen. Soll ich das machen?": "graph_request"}
+    "Ich kann zeigen, wie sich [TOP_GAINER] in den letzten Tagen entwickelt hat, um den Markt-Kontext besser zu verstehen. Soll ich das machen?": "graph_request"
+  }
 },
   "leva_info": {
     "questions": [
@@ -9406,7 +9409,8 @@
     "subquestions": {
       "Wenn du willst, kann ich dir einen Überblick über den Trend von [TOPIC] aus technischer Sicht geben. Soll ich fortfahren?": "ta_general",
       "Ich kann dir sagen, was die Fundamentalanalyse nahelegt. Soll ich das tun?": "fundamental_analysis",
-      "Möchtest du, dass ich die vollständige Analyse zu [TOPIC] vorbereite, um zu sehen, was der Algorithmus vorschlägt?": "asset_analysis_open"}
+      "Möchtest du, dass ich die vollständige Analyse zu [TOPIC] vorbereite, um zu sehen, was der Algorithmus vorschlägt?": "asset_analysis_open"
+    }
   },
     "trust_and_reliability": {
     "questions": [
@@ -9443,7 +9447,8 @@
     "subquestions": {
       "Ich kann Ihnen objektiv sagen, was mein mathematischer Algorithmus zu den technischen Daten von [TOPIC] sagt. Auf diese Weise hätten Sie konkrete und zuverlässige Daten. Möchten Sie, dass ich fortfahre?": "ta_general",
       "Ich kann Ihnen sagen, was die Fundamentalanalyse zu [TOPIC] nahelegt. Dies wäre eine mathematische Verarbeitung aller mir zur Verfügung stehenden Fundamentaldaten zu [TOPIC]. Möchten Sie, dass ich das tue?": "fundamental_analysis",
-      "Möchten Sie, dass ich die vollständige Analyse von [TOPIC] vorbereite, um zu sehen, was der Algorithmus vorschlägt? So können Sie auf einen Blick alle Hauptdaten sehen, die mein mathematisches Modell zu [TOPIC] verarbeitet hat. Soll ich fortfahren?": "asset_analysis_open"}
+      "Möchten Sie, dass ich die vollständige Analyse von [TOPIC] vorbereite, um zu sehen, was der Algorithmus vorschlägt? So können Sie auf einen Blick alle Hauptdaten sehen, die mein mathematisches Modell zu [TOPIC] verarbeitet hat. Soll ich fortfahren?": "asset_analysis_open"
+    }
   },
   "financial_trust": {
   "questions": [
