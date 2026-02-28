@@ -1572,7 +1572,9 @@ for symbol, score in percentuali_combine.items():
     if symbol in dati_storici_all:
         df = dati_storici_all[symbol]
         try:
+            # Prendiamo gli ultimi 20 giorni (1 mese di trading)
             last_month = df.tail(20).copy()
+            # Calcolo: Prezzo * Volume
             liquidity_series = (last_month['Close'] * last_month['Volume']).fillna(0)
             avg_liquidity = liquidity_series.mean()
         except:
@@ -1591,14 +1593,13 @@ for symbol, score in percentuali_combine.items():
 sector_final_scores = []
 
 for sec, assets in sector_assets.items():
+    # Somma totale della liquidità del settore
     total_sector_liquidity = sum(a['liquidity'] for a in assets)
     
     weighted_score_sum = 0.0
     asset_count = len(assets)
     
-    # --- NUOVO DATO: Somma della liquidità totale del settore ---
-    total_sector_volume_money = total_sector_liquidity 
-    
+    # Trova il leader per liquidità
     top_asset = max(assets, key=lambda x: x['liquidity'])
     leader_name = top_asset['symbol']
     
@@ -1611,7 +1612,7 @@ for sec, assets in sector_assets.items():
         'avg': weighted_score_sum,
         'count': asset_count,
         'leader': leader_name,
-        'total_vol': total_sector_volume_money # Salvataggio per HTML
+        'total_vol_raw': total_sector_liquidity # Manteniamo il valore numerico puro
     })
 
 # 3. Ordinamento
@@ -1631,20 +1632,12 @@ html_sector = [
     "</head><body>",
     "<h1>📊 Performance Settoriale (Volume Weighted)</h1>",
     "<p>Classifica ponderata sulla <b>Liquidità (Dollar Volume)</b>. Gli asset che muovono più denaro influenzano maggiormente il punteggio del settore.</p>",
-    "<table><tr><th>Pos</th><th>Settore</th><th>Dominant Asset</th><th>Score Ponderato</th><th>Volume Movimentato</th><th>Asset</th><th>Trend</th></tr>"
+    "<table><tr><th>Pos</th><th>Settore</th><th>Dominant Asset</th><th>Score Ponderato</th><th>Asset</th><th>Trend</th><th>Volume Movimentato</th></tr>"
 ]
 
 for idx, item in enumerate(sorted_sectors, 1):
     avg = item['avg']
-    vol = item['total_vol']
-    
-    # Helper per formattare il volume in modo leggibile (B per miliardi, M per milioni)
-    if vol >= 1e9:
-        vol_fmt = f"{vol/1e9:.2f}B"
-    elif vol >= 1e6:
-        vol_fmt = f"{vol/1e6:.2f}M"
-    else:
-        vol_fmt = f"{vol:,.0f}"
+    vol_int = int(item['total_vol_raw']) # Convertiamo in intero puro, non formattato
     
     if avg >= 55:
         style_class = "bull"
@@ -1662,15 +1655,16 @@ for idx, item in enumerate(sorted_sectors, 1):
         style_class = "neutral"
         trend_label = "NEUTRAL"
     
+    # Inserimento dati: Volume Movimentato inserito come ULTIMO elemento del tr
     html_sector.append(
         f"<tr>"
         f"<td>{idx}</td>"
         f"<td><b>{item['sector']}</b></td>"
         f"<td>{item['leader']}</td>"
         f"<td class='{style_class}'>{avg:.2f}%</td>"
-        f"<td>{vol_fmt}</td>" # <--- NUOVA CELLA AGGIUNTA
         f"<td>{item['count']}</td>"
         f"<td class='{style_class}'>{trend_label}</td>"
+        f"<td>{vol_int}</td>"
         f"</tr>"
     )
 
@@ -1683,7 +1677,7 @@ try:
 except:
     repo.create_file(sector_path, "Cre Sector Rank Liquidity", "\n".join(html_sector))
 
-print("Classifica Settori (Liquidity) creata con successo!")
+print("Classifica Settori (Liquidity) aggiornata con successo!")
 
 
 
