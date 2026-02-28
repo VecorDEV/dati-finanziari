@@ -1264,6 +1264,7 @@ def get_sentiment_for_all_symbols(symbol_list):
                         return round(val, 4) if isinstance(val, (int, float)) else "N/A"
                     
                     fondamentali = {
+                        "Market Cap": info.get("marketCap", 0),
                         "Trailing P/E": safe_value("trailingPE"),
                         "Forward P/E": safe_value("forwardPE"),
                         "EPS Growth (YoY)": safe_value("earningsQuarterlyGrowth"),
@@ -1562,30 +1563,21 @@ print("Classifica Momentum creata con successo!")
 print("Generazione Classifica Settori (Liquidity Weighted)...")
 
 # 1. Raccogliamo i dati grezzi per calcolare i pesi relativi
-# Struttura: sector_assets[settore] = [ (score, dollar_volume), ... ]
 sector_assets = defaultdict(list)
 
 for symbol, score in percentuali_combine.items():
     sec = asset_sector_map.get(symbol, "Altro")
-    
-    # Calcolo della "Importanza" (Dollar Volume medio ultimi 30gg)
-    # Usiamo i dati storici che abbiamo già scaricato!
     avg_liquidity = 0.0
     
     if symbol in dati_storici_all:
         df = dati_storici_all[symbol]
         try:
-            # Prendiamo gli ultimi 20 giorni (1 mese di trading)
             last_month = df.tail(20).copy()
-            # Calcolo: Prezzo * Volume
-            # Nota: yfinance a volte ha volumi 0 o NaN, gestiamo con fillna
             liquidity_series = (last_month['Close'] * last_month['Volume']).fillna(0)
             avg_liquidity = liquidity_series.mean()
         except:
             avg_liquidity = 0.0
     
-    # Se il calcolo fallisce (es. dati mancanti), diamo un peso minimo simbolico (es. 1000$)
-    # per non escluderlo dalla media, ma contarlo pochissimo.
     if avg_liquidity <= 0 or pd.isna(avg_liquidity):
         avg_liquidity = 1000.0 
         
@@ -1599,28 +1591,27 @@ for symbol, score in percentuali_combine.items():
 sector_final_scores = []
 
 for sec, assets in sector_assets.items():
-    # Somma totale della liquidità del settore (Il "Market Cap" del nostro paniere)
     total_sector_liquidity = sum(a['liquidity'] for a in assets)
     
     weighted_score_sum = 0.0
     asset_count = len(assets)
     
-    # Trova il leader per liquidità (il più grosso del gruppo)
+    # --- NUOVO DATO: Somma della liquidità totale del settore ---
+    total_sector_volume_money = total_sector_liquidity 
+    
     top_asset = max(assets, key=lambda x: x['liquidity'])
     leader_name = top_asset['symbol']
     
     for asset in assets:
-        # Il peso è la percentuale di liquidità dell'asset rispetto al totale del settore
-        # Esempio: Se MSFT muove 8Mld e il settore muove 10Mld, MSFT pesa 0.8 (80%)
         weight = asset['liquidity'] / total_sector_liquidity
-        
         weighted_score_sum += (asset['score'] * weight)
         
     sector_final_scores.append({
         'sector': sec,
-        'avg': weighted_score_sum, # Questo è ora il Weighted Average reale
+        'avg': weighted_score_sum,
         'count': asset_count,
-        'leader': leader_name
+        'leader': leader_name,
+        'total_vol': total_sector_volume_money # Salvataggio per HTML
     })
 
 # 3. Ordinamento
@@ -1640,11 +1631,20 @@ html_sector = [
     "</head><body>",
     "<h1>📊 Performance Settoriale (Volume Weighted)</h1>",
     "<p>Classifica ponderata sulla <b>Liquidità (Dollar Volume)</b>. Gli asset che muovono più denaro influenzano maggiormente il punteggio del settore.</p>",
-    "<table><tr><th>Pos</th><th>Settore</th><th>Dominant Asset</th><th>Score Ponderato</th><th>Asset</th><th>Trend</th></tr>"
+    "<table><tr><th>Pos</th><th>Settore</th><th>Dominant Asset</th><th>Score Ponderato</th><th>Volume Movimentato</th><th>Asset</th><th>Trend</th></tr>"
 ]
 
 for idx, item in enumerate(sorted_sectors, 1):
     avg = item['avg']
+    vol = item['total_vol']
+    
+    # Helper per formattare il volume in modo leggibile (B per miliardi, M per milioni)
+    if vol >= 1e9:
+        vol_fmt = f"{vol/1e9:.2f}B"
+    elif vol >= 1e6:
+        vol_fmt = f"{vol/1e6:.2f}M"
+    else:
+        vol_fmt = f"{vol:,.0f}"
     
     if avg >= 55:
         style_class = "bull"
@@ -1668,6 +1668,7 @@ for idx, item in enumerate(sorted_sectors, 1):
         f"<td><b>{item['sector']}</b></td>"
         f"<td>{item['leader']}</td>"
         f"<td class='{style_class}'>{avg:.2f}%</td>"
+        f"<td>{vol_fmt}</td>" # <--- NUOVA CELLA AGGIUNTA
         f"<td>{item['count']}</td>"
         f"<td class='{style_class}'>{trend_label}</td>"
         f"</tr>"
