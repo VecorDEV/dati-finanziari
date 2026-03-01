@@ -1458,12 +1458,9 @@ sorted_symbols = sorted(percentuali_combine.items(), key=lambda x: x[1], reverse
 
 html_classifica = ["<html><head><title>Classifica dei Simboli</title></head><body>",
                    "<h1>Classifica dei Simboli (Hybrid Score)</h1>",
-                   "<table border='1'><tr><th>Simbolo</th><th>Probabilità</th><th>Market Cap</th><th>Variazione 1G</th></tr>"]
+                   "<table border='1'><tr><th>Simbolo</th><th>Probabilità</th><th>Variazione 1G</th></tr>"]
 
 for symbol, score in sorted_symbols:
-    # Recupero Market Cap salvata in precedenza
-    m_cap_val = fundamental_data.get(symbol, {}).get("Market Cap", "N/A")
-
     # Calcolo della variazione dell'ultimo giorno in modo sicuro
     variazione_str = "N/A"
     try:
@@ -1471,19 +1468,22 @@ for symbol, score in sorted_symbols:
             df = dati_storici_all[symbol]
             close_prices = df['Close']
             
+            # Gestione sicura nel caso in cui i dati siano in un MultiIndex DataFrame
             if isinstance(close_prices, pd.DataFrame):
                 close_prices = close_prices.iloc[:, 0]
             
+            # Ci assicuriamo di avere almeno 2 giorni di storico per fare il confronto
             if len(close_prices) >= 2:
                 oggi = close_prices.iloc[-1]
                 ieri = close_prices.iloc[-2]
                 variazione = ((oggi - ieri) / ieri) * 100
                 variazione_str = f"{variazione:+.2f}%"
     except Exception:
+        # Se per qualsiasi motivo manca il dato su YFinance per questo specifico asset,
+        # passa oltre lasciando "N/A" per non far crashare l'app.
         pass
 
-    # Aggiunta riga con Market Cap cruda
-    html_classifica.append(f"<tr><td>{symbol}</td><td>{score:.2f}%</td><td>{m_cap_val}</td><td>{variazione_str}</td></tr>")
+    html_classifica.append(f"<tr><td>{symbol}</td><td>{score:.2f}%</td><td>{variazione_str}</td></tr>")
 
 html_classifica.append("</table></body></html>")
 
