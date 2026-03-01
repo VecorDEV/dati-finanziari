@@ -1263,8 +1263,12 @@ def get_sentiment_for_all_symbols(symbol_list):
                         val = info.get(key)
                         return round(val, 4) if isinstance(val, (int, float)) else "N/A"
                     
+                    # Salviamo la Market Cap nei dati globali ma la teniamo fuori dalla tabella HTML singola
+                    m_cap_raw = info.get("marketCap", "N/A")
+                    fundamental_data[symbol] = {"Market Cap": m_cap_raw}
+
+                    # Dizionario per il file SINGOLO (senza Market Cap)
                     fondamentali = {
-                        "Market Cap": info.get("marketCap", 0),
                         "Trailing P/E": safe_value("trailingPE"),
                         "Forward P/E": safe_value("forwardPE"),
                         "EPS Growth (YoY)": safe_value("earningsQuarterlyGrowth"),
@@ -1273,7 +1277,6 @@ def get_sentiment_for_all_symbols(symbol_list):
                         "Debt to Equity": safe_value("debtToEquity"),
                         "Dividend Yield": safe_value("dividendYield")
                     }
-                    fundamental_data[symbol] = fondamentali
                     tabella_fondamentali = pd.DataFrame(fondamentali.items(), columns=["Fondamentale", "Valore"]).to_html(index=False, border=0)
                 except: pass
                 
@@ -1455,9 +1458,12 @@ sorted_symbols = sorted(percentuali_combine.items(), key=lambda x: x[1], reverse
 
 html_classifica = ["<html><head><title>Classifica dei Simboli</title></head><body>",
                    "<h1>Classifica dei Simboli (Hybrid Score)</h1>",
-                   "<table border='1'><tr><th>Simbolo</th><th>Probabilità</th><th>Variazione 1G</th></tr>"]
+                   "<table border='1'><tr><th>Simbolo</th><th>Probabilità</th><th>Market Cap</th><th>Variazione 1G</th></tr>"]
 
 for symbol, score in sorted_symbols:
+    # Recupero Market Cap salvata in precedenza
+    m_cap_val = fundamental_data.get(symbol, {}).get("Market Cap", "N/A")
+
     # Calcolo della variazione dell'ultimo giorno in modo sicuro
     variazione_str = "N/A"
     try:
@@ -1465,22 +1471,19 @@ for symbol, score in sorted_symbols:
             df = dati_storici_all[symbol]
             close_prices = df['Close']
             
-            # Gestione sicura nel caso in cui i dati siano in un MultiIndex DataFrame
             if isinstance(close_prices, pd.DataFrame):
                 close_prices = close_prices.iloc[:, 0]
             
-            # Ci assicuriamo di avere almeno 2 giorni di storico per fare il confronto
             if len(close_prices) >= 2:
                 oggi = close_prices.iloc[-1]
                 ieri = close_prices.iloc[-2]
                 variazione = ((oggi - ieri) / ieri) * 100
                 variazione_str = f"{variazione:+.2f}%"
     except Exception:
-        # Se per qualsiasi motivo manca il dato su YFinance per questo specifico asset,
-        # passa oltre lasciando "N/A" per non far crashare l'app.
         pass
 
-    html_classifica.append(f"<tr><td>{symbol}</td><td>{score:.2f}%</td><td>{variazione_str}</td></tr>")
+    # Aggiunta riga con Market Cap cruda
+    html_classifica.append(f"<tr><td>{symbol}</td><td>{score:.2f}%</td><td>{m_cap_val}</td><td>{variazione_str}</td></tr>")
 
 html_classifica.append("</table></body></html>")
 
