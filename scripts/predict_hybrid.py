@@ -1430,9 +1430,10 @@ def get_sentiment_for_all_symbols(symbol_list):
 
         # Raccolta News
         for title, date, link, src, img in news_data["last_90_days"]:
-            sia = SentimentIntensityAnalyzer()
+            # Calcolo sentiment usando l'oggetto 'sia' globale già inizializzato a inizio script
             sc = (sia.polarity_scores(title)['compound'] + 1) / 2
-            all_news_entries.append((symbol, title, sc, link, src, img))
+            # IMPORTANTE: Aggiungiamo 'date' alla fine della tupla salvata
+            all_news_entries.append((symbol, title, sc, link, src, img, date))
 
     
     # --- SALVATAGGIO TEST (Alla fine del loop, prima del return) ---
@@ -1708,27 +1709,36 @@ print("Classifica Settori (Liquidity) aggiornata con successo!")
 # --- NEWS HTML ---
 html_news = ["<html><head><title>Notizie e Sentiment</title></head><body>",
              "<h1>Notizie Finanziarie con Sentiment</h1>",
-             "<table border='1'><tr><th>Simbolo</th><th>Notizia</th><th>Fonte</th><th>Immagine</th><th>Sentiment</th><th>Link</th></tr>"]
+             "<table border='1'><tr><th>Simbolo</th><th>Notizia</th><th>Fonte</th><th>Immagine</th><th>Sentiment</th><th>Link</th><th>Data/Ora</th></tr>"]
 news_by_symbol = defaultdict(list)
-for symbol, title, sentiment, url, source, image in all_news_entries:
-    news_by_symbol[symbol].append((title, sentiment, url, source, image))
+
+# Estraiamo anche la 'date' dalla tupla appena aggiornata
+for symbol, title, sentiment, url, source, image, date in all_news_entries:
+    news_by_symbol[symbol].append((title, sentiment, url, source, image, date))
 
 for symbol, entries in news_by_symbol.items():
     sorted_entries = sorted(entries, key=lambda x: x[1])
     selected_entries = sorted_entries[:5] + sorted_entries[-5:]
     selected_entries = list(dict.fromkeys(selected_entries))
-    for title, sentiment, url, source, image in selected_entries:
+    
+    for title, sentiment, url, source, image, date in selected_entries:
         img_html = f"<img src='{image}' width='100'>" if image else "N/A"
-        html_news.append(f"<tr><td>{symbol}</td><td>{title}</td><td>{source}</td><td>{img_html}</td><td>{sentiment:.2f}</td><td><a href='{url}' target='_blank'>Leggi</a></td></tr>")
+        
+        # Formattazione della data in Anno-Mese-Giorno Ora:Minuto:Secondo
+        date_str = date.strftime("%Y-%m-%d %H:%M:%S") if hasattr(date, 'strftime') else "N/A"
+        
+        # Aggiunta della colonna data/ora in coda (7° colonna)
+        html_news.append(f"<tr><td>{symbol}</td><td>{title}</td><td>{source}</td><td>{img_html}</td><td>{sentiment:.2f}</td><td><a href='{url}' target='_blank'>Leggi</a></td><td>{date_str}</td></tr>")
+
 html_news.append("</table></body></html>")
 
 try:
     contents = repo.get_contents(news_path)
-    repo.update_file(contents.path, "Upd News", "\n".join(html_news), contents.sha)
+    repo.update_file(contents.path, "Upd News with Date", "\n".join(html_news), contents.sha)
 except:
-    repo.create_file(news_path, "Cre News", "\n".join(html_news))
+    repo.create_file(news_path, "Cre News with Date", "\n".join(html_news))
 
-print("News aggiornata!")
+print("News aggiornata (con data e ora)!")
 
 # --- CLASSIFICA FIRE ---
 sorted_crescita = sorted([(s, g) for s, g in crescita_settimanale.items() if g is not None], key=lambda x: (x[1], x[0]), reverse=True)
