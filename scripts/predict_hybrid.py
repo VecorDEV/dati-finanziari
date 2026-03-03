@@ -1456,34 +1456,55 @@ sentiment_for_symbols, percentuali_combine, all_news_entries, indicator_data, fu
 # --- CLASSIFICA PRINCIPALE (BASATA SU HYBRID SCORE) ---
 sorted_symbols = sorted(percentuali_combine.items(), key=lambda x: x[1], reverse=True)
 
+# L'intestazione è identica alla tua, ho solo aggiunto i due TH alla fine del TR
 html_classifica = ["<html><head><title>Classifica dei Simboli</title></head><body>",
                    "<h1>Classifica dei Simboli (Hybrid Score)</h1>",
-                   "<table border='1'><tr><th>Simbolo</th><th>Probabilità</th><th>Variazione 1G</th></tr>"]
+                   "<table border='1'><tr><th>Simbolo</th><th>Probabilità</th><th>Variazione 1G</th><th>Breakout 52W</th><th>Cross Down SMA</th></tr>"]
 
 for symbol, score in sorted_symbols:
-    # Calcolo della variazione dell'ultimo giorno in modo sicuro
     variazione_str = "N/A"
+    info_52w = "N/A"
+    cross_sma = "N/A"
+    
     try:
         if symbol in dati_storici_all:
             df = dati_storici_all[symbol]
-            close_prices = df['Close']
             
-            # Gestione sicura nel caso in cui i dati siano in un MultiIndex DataFrame
-            if isinstance(close_prices, pd.DataFrame):
-                close_prices = close_prices.iloc[:, 0]
+            # Estrazione sicura (mantiene la compatibilità con MultiIndex di yfinance)
+            close_p = df['Close'].iloc[:, 0] if isinstance(df['Close'], pd.DataFrame) else df['Close']
+            high_p = df['High'].iloc[:, 0] if isinstance(df['High'], pd.DataFrame) else df['High']
+            low_p = df['Low'].iloc[:, 0] if isinstance(df['Low'], pd.DataFrame) else df['Low']
             
-            # Ci assicuriamo di avere almeno 2 giorni di storico per fare il confronto
-            if len(close_prices) >= 2:
-                oggi = close_prices.iloc[-1]
-                ieri = close_prices.iloc[-2]
+            # 1. VARIAZIONE 1G (Logica originale preservata esattamente)
+            if len(close_p) >= 2:
+                oggi = close_p.iloc[-1]
+                ieri = close_p.iloc[-2]
                 variazione = ((oggi - ieri) / ieri) * 100
                 variazione_str = f"{variazione:+.2f}%"
+                
+            # 2. BREAKOUT 52 SETTIMANE (Valori numerici crudi)
+            if len(close_p) >= 252:
+                h_52 = high_p.tail(252).max()
+                l_52 = low_p.tail(252).min()
+                curr = close_p.iloc[-1]
+                if curr >= h_52 * 0.99: info_52w = f"Max: {h_52:.2f}"
+                elif curr <= l_52 * 1.01: info_52w = f"Min: {l_52:.2f}"
+                    
+            # 3. CROSS DOWN SMA (5 vs 20)
+            if len(close_p) >= 25:
+                s5 = close_p.rolling(window=5).mean()
+                s20 = close_p.rolling(window=20).mean()
+                if s5.iloc[-2] >= s20.iloc[-2] and s5.iloc[-1] < s20.iloc[-1]:
+                    cross_sma = f"SMA5 < SMA20 ({s20.iloc[-1]:.2f})"
+                elif close_p.iloc[-2] >= s20.iloc[-2] and close_p.iloc[-1] < s20.iloc[-1]:
+                    cross_sma = f"Price < SMA20 ({s20.iloc[-1]:.2f})"
+
     except Exception:
-        # Se per qualsiasi motivo manca il dato su YFinance per questo specifico asset,
-        # passa oltre lasciando "N/A" per non far crashare l'app.
         pass
 
-    html_classifica.append(f"<tr><td>{symbol}</td><td>{score:.2f}%</td><td>{variazione_str}</td></tr>")
+    # Questa riga ora è strutturalmente identica alla tua precedente per le prime 3 celle
+    # Ho aggiunto solo i due <td> extra alla fine.
+    html_classifica.append(f"<tr><td>{symbol}</td><td>{score:.2f}%</td><td>{variazione_str}</td><td>{info_52w}</td><td>{cross_sma}</td></tr>")
 
 html_classifica.append("</table></body></html>")
 
