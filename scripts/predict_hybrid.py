@@ -1457,10 +1457,10 @@ sentiment_for_symbols, percentuali_combine, all_news_entries, indicator_data, fu
 # --- CLASSIFICA PRINCIPALE (BASATA SU HYBRID SCORE) ---
 sorted_symbols = sorted(percentuali_combine.items(), key=lambda x: x[1], reverse=True)
 
-# L'intestazione è identica alla tua, ho solo aggiunto i due TH alla fine del TR
+# Ho aggiornato il nome delle due nuove intestazioni per riflettere la nuova logica
 html_classifica = ["<html><head><title>Classifica dei Simboli</title></head><body>",
                    "<h1>Classifica dei Simboli (Hybrid Score)</h1>",
-                   "<table border='1'><tr><th>Simbolo</th><th>Probabilità</th><th>Variazione 1G</th><th>Breakout 52W</th><th>Cross Down SMA</th></tr>"]
+                   "<table border='1'><tr><th>Simbolo</th><th>Probabilità</th><th>Variazione 1G</th><th>Max/Min (52W/5G)</th><th>Cross SMA</th></tr>"]
 
 for symbol, score in sorted_symbols:
     variazione_str = "N/A"
@@ -1471,40 +1471,72 @@ for symbol, score in sorted_symbols:
         if symbol in dati_storici_all:
             df = dati_storici_all[symbol]
             
-            # Estrazione sicura (mantiene la compatibilità con MultiIndex di yfinance)
+            # Estrazione sicura
             close_p = df['Close'].iloc[:, 0] if isinstance(df['Close'], pd.DataFrame) else df['Close']
             high_p = df['High'].iloc[:, 0] if isinstance(df['High'], pd.DataFrame) else df['High']
             low_p = df['Low'].iloc[:, 0] if isinstance(df['Low'], pd.DataFrame) else df['Low']
             
-            # 1. VARIAZIONE 1G (Logica originale preservata esattamente)
+            # 1. VARIAZIONE 1G
             if len(close_p) >= 2:
                 oggi = close_p.iloc[-1]
                 ieri = close_p.iloc[-2]
                 variazione = ((oggi - ieri) / ieri) * 100
                 variazione_str = f"{variazione:+.2f}%"
                 
-            # 2. BREAKOUT 52 SETTIMANE (Valori numerici crudi)
-            if len(close_p) >= 252:
-                h_52 = high_p.tail(252).max()
-                l_52 = low_p.tail(252).min()
-                curr = close_p.iloc[-1]
-                if curr >= h_52 * 0.99: info_52w = f"Max: {h_52:.2f}"
-                elif curr <= l_52 * 1.01: info_52w = f"Min: {l_52:.2f}"
+            # 2. NUOVO MAX/MIN (52 Settimane con fallback a 5 Giorni)
+            if len(close_p) >= 6:
+                high_today = high_p.iloc[-1]
+                low_today = low_p.iloc[-1]
+                trovato_52w = False
+                
+                # Test 52 settimane (252 giorni borsa)
+                # Calcola il max/min escludendo la candela di oggi, poi confronta
+                if len(close_p) >= 252:
+                    max_52w = high_p.iloc[-253:-1].max()
+                    min_52w = low_p.iloc[-253:-1].min()
+                    if high_today >= max_52w:
+                        info_52w = f"Nuovo Max 52W ({high_today:.2f})"
+                        trovato_52w = True
+                    elif low_today <= min_52w:
+                        info_52w = f"Nuovo Min 52W ({low_today:.2f})"
+                        trovato_52w = True
+                        
+                # Se non trovato a 52W (o se l'asset ha meno di 1 anno di vita), testa i 5 giorni
+                if not trovato_52w:
+                    max_5g = high_p.iloc[-6:-1].max()
+                    min_5g = low_p.iloc[-6:-1].min()
+                    if high_today >= max_5g:
+                        info_52w = f"Nuovo Max 5G ({high_today:.2f})"
+                    elif low_today <= min_5g:
+                        info_52w = f"Nuovo Min 5G ({low_today:.2f})"
                     
-            # 3. CROSS DOWN SMA (5 vs 20)
-            if len(close_p) >= 25:
+            # 3. CROSS DOWN / UP SMA (5 e 20)
+            if len(close_p) >= 21:
                 s5 = close_p.rolling(window=5).mean()
                 s20 = close_p.rolling(window=20).mean()
-                if s5.iloc[-2] >= s20.iloc[-2] and s5.iloc[-1] < s20.iloc[-1]:
-                    cross_sma = f"SMA5 < SMA20 ({s20.iloc[-1]:.2f})"
-                elif close_p.iloc[-2] >= s20.iloc[-2] and close_p.iloc[-1] < s20.iloc[-1]:
-                    cross_sma = f"Price < SMA20 ({s20.iloc[-1]:.2f})"
+                
+                p_ieri, p_oggi = close_p.iloc[-2], close_p.iloc[-1]
+                s5_ieri, s5_oggi = s5.iloc[-2], s5.iloc[-1]
+                s20_ieri, s20_oggi = s20.iloc[-2], s20.iloc[-1]
+                
+                # Logica incroci: <= prima e > dopo (UP) | >= prima e < dopo (DOWN)
+                if s5_ieri <= s20_ieri and s5_oggi > s20_oggi:
+                    cross_sma = "Cross UP (SMA5 > SMA20)"
+                elif s5_ieri >= s20_ieri and s5_oggi < s20_oggi:
+                    cross_sma = "Cross DOWN (SMA5 < SMA20)"
+                elif p_ieri <= s20_ieri and p_oggi > s20_oggi:
+                    cross_sma = "Cross UP (Price > SMA20)"
+                elif p_ieri >= s20_ieri and p_oggi < s20_oggi:
+                    cross_sma = "Cross DOWN (Price < SMA20)"
+                elif p_ieri <= s5_ieri and p_oggi > s5_oggi:
+                    cross_sma = "Cross UP (Price > SMA5)"
+                elif p_ieri >= s5_ieri and p_oggi < s5_oggi:
+                    cross_sma = "Cross DOWN (Price < SMA5)"
 
     except Exception:
         pass
 
-    # Questa riga ora è strutturalmente identica alla tua precedente per le prime 3 celle
-    # Ho aggiunto solo i due <td> extra alla fine.
+    # Aggiunta in tabella preservando i vecchi TD
     html_classifica.append(f"<tr><td>{symbol}</td><td>{score:.2f}%</td><td>{variazione_str}</td><td>{info_52w}</td><td>{cross_sma}</td></tr>")
 
 html_classifica.append("</table></body></html>")
@@ -1516,6 +1548,7 @@ except GithubException:
     repo.create_file(file_path, "Created classification", "\n".join(html_classifica))
 
 print("Classifica aggiornata con successo!")
+
 
 
 # --- CLASSIFICA PRO ---
