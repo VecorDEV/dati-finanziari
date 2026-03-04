@@ -3395,7 +3395,7 @@
     "Vuoi sapere anche quali sono stati i Top Fire della settimana?": "top_fire",
     "Vuoi che ti dica anche i Top Gainers stimati in base ai dati di oggi?": "top_gainers"}
 },
-    "top_fire": {
+  "top_fire": {
   "questions": [
     "Chi è cresciuto di più nell’ultima settimana?",
     "Quali asset sono saliti di più questa settimana?",
@@ -3435,15 +3435,22 @@
     "Quali asset stanno andando forte?",
     "[TOPIC] è un top fire?",
     "[TOPIC] si trova tra i top fire?",
-    "[TOPIC] è uno dei migliori della settimana?"
+    "[TOPIC] è uno dei migliori della settimana?",
+    "Quali sono gli asset in tendenza?",
+    "Dammi gli asset in tendenza",
+    "Cos'è in tendenza ora?",
+    "Chi è in tendenza per il momento?",
+    "Chi c'è in cima tra gli asset?",
+    "[TOPIC] è in tendenza?",
+    "[TOPIC] è tra gli asset in tendenza?"
   ],
   "answers": [
-    "Ecco i top fire dell’ultima settimana:\n\n[TOP_FIRE] con una variazione di [TOP_FIRE_CHANGE_1] 🏆\n\n[TOP_FIRE_2] con [TOP_FIRE_CHANGE_2]\n\n[TOP_FIRE_3] con [TOP_FIRE_CHANGE_3]",
+    "Ecco gli asset in tendenza nell’ultima settimana:\n\n[TOP_FIRE] con una variazione di [TOP_FIRE_CHANGE_1] 🏆\n\n[TOP_FIRE_2] con [TOP_FIRE_CHANGE_2]\n\n[TOP_FIRE_3] con [TOP_FIRE_CHANGE_3]",
     "Questi sono gli asset che hanno performato meglio negli ultimi 7 giorni:\n\n[TOP_FIRE] ([TOP_FIRE_CHANGE_1])\n\n[TOP_FIRE_2] ([TOP_FIRE_CHANGE_2])\n\n[TOP_FIRE_3] ([TOP_FIRE_CHANGE_3])",
     "I principali vincitori settimanali sono stati:\n\n1. [TOP_FIRE] – crescita [TOP_FIRE_CHANGE_1] 🔥\n\n2. [TOP_FIRE_2] – [TOP_FIRE_CHANGE_2]\n\n3. [TOP_FIRE_3] – [TOP_FIRE_CHANGE_3]",
     "Nell’ultima settimana i leader di mercato sono stati:\n\n[TOP_FIRE] con [TOP_FIRE_CHANGE_1]\n\n[TOP_FIRE_2] con [TOP_FIRE_CHANGE_2]\n\n[TOP_FIRE_3] con [TOP_FIRE_CHANGE_3]",
     "Ecco i tre asset che hanno registrato le migliori performance settimanali:\n\n[TOP_FIRE] ([TOP_FIRE_CHANGE_1])\n\n[TOP_FIRE_2] ([TOP_FIRE_CHANGE_2])\n\n[TOP_FIRE_3] ([TOP_FIRE_CHANGE_3])",
-    "Questi sono i top fire settimanali 🔥\n\n[TOP_FIRE] ha segnato [TOP_FIRE_CHANGE_1]\n\n[TOP_FIRE_2] ha chiuso con [TOP_FIRE_CHANGE_2]\n\n[TOP_FIRE_3] con una crescita di [TOP_FIRE_CHANGE_3]",
+    "Questi sono i migliori aumenti registrati questa settimana dal mio algoritmo 🔥\n\n[TOP_FIRE] ha segnato [TOP_FIRE_CHANGE_1]\n\n[TOP_FIRE_2] ha chiuso con [TOP_FIRE_CHANGE_2]\n\n[TOP_FIRE_3] con una crescita di [TOP_FIRE_CHANGE_3]",
     "La classifica dei migliori della settimana è la seguente:\n\n[TOP_FIRE] – [TOP_FIRE_CHANGE_1]\n\n[TOP_FIRE_2] – [TOP_FIRE_CHANGE_2]\n\n[TOP_FIRE_3] – [TOP_FIRE_CHANGE_3]"
   ],
     "cost": 1,
