@@ -3639,7 +3639,11 @@
     "Como foi [TOPIC] no último semestre?",
     "Como foi [TOPIC] no último ano?",
     "Como foi [TOPIC] nos últimos anos?",
-    "Como está se comportando [TOPIC]?"
+    "Como está se comportando [TOPIC]?",
+    "Dá-me o gráfico atual",
+    "Dá-me o gráfico",
+    "Dá-me o seu gráfico"
+
   ],
   "answers": [
     "Aqui está o gráfico referente aos últimos 3 meses de [TOPIC]:",
@@ -3654,7 +3658,7 @@
     "Este é o gráfico de 90 dias que mostra a variação de [TOPIC]:"
   ],
   "cost": 3,
-  "keywords": ["gráfico", "desenhe", "desenhar", "desenho", "andamento", "variação", "traçar", "trace", "tracar", "comportamento"],
+  "keywords": ["gráfico", "atual", "desenhe", "desenhar", "desenho", "andamento", "variação", "traçar", "trace", "tracar", "comportamento"],
   "tag": "free",
   "subquestions": {
     "Posso preparar a análise completa de [TOPIC]. Quer que eu prossiga?": "asset_analysis_open",
