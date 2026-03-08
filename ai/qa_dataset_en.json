@@ -3600,7 +3600,10 @@
     "Trend of [TOPIC] shown in a graph",
     "Graph showing the trend of [TOPIC]",
     "Graph of [TOPIC]’s performance",
-    "Performance trend of [TOPIC]"
+    "Performance trend of [TOPIC]",
+    "Give me the current chart",
+    "Give me the chart",
+    "Give me its chart"
   ],
   "answers": [
     "Here is the chart for the last 3 months of [TOPIC]:",
@@ -3615,7 +3618,7 @@
     "This is the 90-day chart showing the trend of [TOPIC]:"
   ],
   "cost": 3,
-  "keywords": ["chart", "draw", "trend", "plot", "graph", "graphic", "graphical"],
+  "keywords": ["chart", "actual", "current", "draw", "trend", "plot", "graph", "graphic", "graphical"],
   "tag": "free",
   "subquestions": {
     "I can prepare a full analysis on [TOPIC]. Should I proceed?": "asset_analysis_open",
