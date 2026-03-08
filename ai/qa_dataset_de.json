@@ -3578,7 +3578,11 @@
     "Wie ist [TOPIC] im letzten Halbjahr gelaufen?",
     "Wie ist [TOPIC] im letzten Jahr gelaufen?",
     "Wie hat sich [TOPIC] in den letzten Jahren entwickelt?",
-    "Wie verhält sich [TOPIC] aktuell?"
+    "Wie verhält sich [TOPIC] aktuell?",
+    "Gib mir den aktuellen Chart",
+    "Gib mir den Chart",
+    "Gib mir seinen Chart"
+
   ],
   "answers": [
     "Hier ist das Diagramm der letzten 3 Monate für [TOPIC]:",
@@ -3593,7 +3597,7 @@
     "Dies ist das 90-Tage-Diagramm, das den Verlauf von [TOPIC] zeigt:"
   ],
   "cost": 3,
-  "keywords": ["diagramm", "zeichnen", "zeichne", "zeichne mir", "zeichnen", "verlauf", "trage ein", "trage mir ein", "eintragen", "eintragen wir"],
+  "keywords": ["diagramm", "aktuellen", "aktuell", "zeichnen", "zeichne", "zeichne mir", "zeichnen", "verlauf", "trage ein", "trage mir ein", "eintragen", "eintragen wir"],
   "tag": "free",
   "subquestions": {
     "Ich kann eine vollständige Analyse zu [TOPIC] vorbereiten. Soll ich fortfahren?": "asset_analysis_open",
