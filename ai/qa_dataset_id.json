@@ -3664,7 +3664,11 @@
       "Bagaimana [TOPIC] berjalan dalam semester terakhir?",
       "Bagaimana [TOPIC] berjalan dalam setahun terakhir?",
       "Bagaimana [TOPIC] berjalan dalam beberapa tahun terakhir?",
-      "Bagaimana perilaku [TOPIC]?"
+      "Bagaimana perilaku [TOPIC]?",
+      "Beri saya grafik saat ini",
+      "Beri saya grafik",
+      "Beri saya grafiknya"
+
     ],
     "answers": [
       "Berikut adalah grafik yang mengacu pada 3 bulan terakhir untuk [TOPIC]:",
@@ -3679,7 +3683,7 @@
       "Ini adalah grafik 90 hari yang menunjukkan tren [TOPIC]:"
     ],
       "cost": 3,
-      "keywords": ["grafik", "gambar", "gambar", "gambarlah", "menggambar", "kita menggambar", "tren", "lacak", "lacaklah", "lacak", "melacak", "kita melacak"],
+      "keywords": ["grafik", "saat ini", "gambar", "gambar", "gambarlah", "menggambar", "kita menggambar", "tren", "lacak", "lacaklah", "lacak", "melacak", "kita melacak"],
       "tag": "free",
       "subquestions": {
         "Saya bisa menyiapkan analisis lengkap tentang [TOPIC]. Apakah Anda mau?": "asset_analysis_open",
