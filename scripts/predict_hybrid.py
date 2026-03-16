@@ -1951,6 +1951,98 @@ fpath_en = f"{TARGET_FOLDER}/daily_brief_en.html"
 try: repo.update_file(fpath_en, "Upd EN Brief", html_content_en, repo.get_contents(fpath_en).sha)
 except: repo.create_file(fpath_en, "Cre EN Brief", html_content_en)
 
+
+
+# ==============================================================================
+# 6. NEW DAILY BRIEF V2 (DATA EXPORT FOR ANDROID JSOUP)
+# ==============================================================================
+print("Generazione Daily Brief V2 Data...")
+
+def generate_technical_insight(symbol, rsi, pat_score, is_bullish):
+    if rsi > 70 and is_bullish: return f"Strong rally, but RSI is in overbought territory ({round(rsi, 1)}). Proceed with caution."
+    elif rsi < 30 and not is_bullish: return f"Heavy sell-off. RSI indicates oversold conditions ({round(rsi, 1)}). Watch for a technical bounce."
+    elif pat_score > 0.3: return "Solid price action. Technical patterns suggest accumulation and potential breakout."
+    elif pat_score < -0.3: return "Testing key support levels. Price action remains fragile under selling pressure."
+    else: return "Steady momentum following broader market trends. Volume analysis is key here."
+
+def calculate_support_resistance(df):
+    if len(df) < 20: return 0.0, 0.0
+    recent_low = df['Low'].tail(20).min()
+    recent_high = df['High'].tail(20).max()
+    return round(recent_low, 2), round(recent_high, 2)
+
+# Liste isolate per non toccare le vecchie
+v2_top_movers = []
+v2_watchlist = []
+v2_ai_power = []
+
+# 1. Trova i Top Movers significativi
+for sym, score in sorted_symbols:
+    if score > 55:
+        rsi = indicator_data.get(sym, {}).get("RSI (14)", 50)
+        pat_score, _ = PatternAnalyzer(dati_storici_all[sym]).get_pattern_info() if sym in dati_storici_all else (0, [])
+        if pat_score >= 0.3 or rsi < 30 or rsi > 70:
+            insight = generate_technical_insight(sym, rsi, pat_score, True)
+            v2_top_movers.append((sym, score, insight))
+        if len(v2_top_movers) == 2: break
+
+# Fallback se non ci sono asset con pattern specifici
+if len(v2_top_movers) < 2:
+    for sym, score in sorted_symbols[:2]:
+        if sym not in [t[0] for t in v2_top_movers]:
+            v2_top_movers.append((sym, score, "Solid positive momentum driven by volume and sentiment."))
+
+# 2. Trova la Watchlist significativa (dal peggiore a salire)
+for sym, score in reversed(sorted_symbols):
+    rsi = indicator_data.get(sym, {}).get("RSI (14)", 50)
+    pat_score, _ = PatternAnalyzer(dati_storici_all[sym]).get_pattern_info() if sym in dati_storici_all else (0, [])
+    if pat_score <= -0.3 or rsi > 70 or rsi < 30:
+        insight = generate_technical_insight(sym, rsi, pat_score, False)
+        v2_watchlist.append((sym, score, insight))
+        break
+
+# Se la lista è ancora vuota, prendi il peggiore in assoluto
+if not v2_watchlist and sorted_symbols:
+    worst_sym, worst_score = sorted_symbols[-1]
+    v2_watchlist.append((worst_sym, worst_score, "Strong bearish sentiment. Proceed with extreme caution."))
+
+# 3. AI Power Score (Prendiamo due leader forti)
+v2_ai_power = sorted_symbols[:2]
+
+# Generazione HTML Invisibile
+html_v2 = ["<html><body>"]
+
+# Costruiamo i tag HTML con i data-attributes
+for i, (sym, score, insight) in enumerate(v2_top_movers):
+    name = symbol_name_map.get(sym, [sym])[0]
+    html_v2.append(f"<div id='top_mover_{i}' data-ticker='${sym}' data-name='{name}' data-score='{int(score)}' data-insight='{insight}'></div>")
+
+if v2_watchlist:
+    sym_w, score_w, insight_w = v2_watchlist[0]
+    name_w = symbol_name_map.get(sym_w, [sym_w])[0]
+    html_v2.append(f"<div id='watchlist_focus' data-ticker='${sym_w}' data-name='{name_w}' data-score='{int(score_w)}' data-insight='{insight_w}'></div>")
+
+macro_text = "Dollar Index (DXY) and treasury yields fluctuations are currently driving the broader market momentum at the open."
+html_v2.append(f"<div id='macro_insight' data-text='{macro_text}'></div>")
+
+for i, (sym, score) in enumerate(v2_ai_power):
+    sup, res = calculate_support_resistance(dati_storici_all[sym]) if sym in dati_storici_all else (0, 0)
+    html_v2.append(f"<div id='ai_score_{i}' data-ticker='${sym}' data-intensity='{int(score)}' data-sup='${sup}' data-res='${res}'></div>")
+
+html_v2.append("</body></html>")
+
+# Salvataggio su GitHub del nuovo file isolato
+v2_path = f"{TARGET_FOLDER}/daily_brief_v2_data.html"
+try:
+    c = repo.get_contents(v2_path)
+    repo.update_file(v2_path, "Upd Daily Brief V2", "\n".join(html_v2), c.sha)
+except:
+    repo.create_file(v2_path, "Cre Daily Brief V2", "\n".join(html_v2))
+
+print("Daily Brief V2 Data salvato con successo!")
+
+
+
 # --- CORRELAZIONI STATISTICHE (COMPLETA) ---
 def calcola_correlazioni(dati_storici_all):
     returns = {sym: np.log(df["Close"]).diff().dropna() for sym, df in dati_storici_all.items() if "Close" in df.columns}
