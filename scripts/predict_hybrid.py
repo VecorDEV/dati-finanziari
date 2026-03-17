@@ -2033,7 +2033,7 @@ INSIGHT_DICT = {
         "pt": "Testando níveis de suporte cruciais. A ação do preço continua frágil.",
         "nl": "Test cruciale steunniveaus. Prijsactie blijft kwetsbaar.",
         "ar": "اختبار مستويات دعم حاسمة. حركة السعر لا تزال هشة.",
-        "hi": "महत्वपूर्ण समर्थन स्तरों का परीक्षण। मूल्य कार्रवाई नाजुक बनी हुई জ্ঞहै।",
+        "hi": "महत्वपूर्ण समर्थन स्तरों का परीक्षण। मूल्य कार्रवाई नाजुक बनी हुई है।",
         "id": "Menguji level support krusial. Aksi harga tetap rapuh.",
         "ja": "重要なサポートレベルをテスト中。プライスアクションは依然として不安定です。",
         "ko": "중요한 지지선을 테스트 중입니다. 가격 움직임이 여전히 불안정합니다.",
@@ -2192,12 +2192,22 @@ all_analyzed_assets = sorted(all_analyzed_assets, key=lambda x: x['anomaly_score
 # ==============================================================================
 html_v2 = ["<html><body>"]
 
+# Helper corretto per GitHub Actions (evita SyntaxError nelle f-string)
 def get_lang_attributes(trait):
     lang_data = INSIGHT_DICT.get(trait, INSIGHT_DICT["generic_bull"])
-    return " ".join([f"data-{lang}='{text.replace('\'', '&apos;')}'" for lang, text in lang_data.items()])
+    attrs = []
+    for lang, text in lang_data.items():
+        safe_text = text.replace("'", "&apos;")
+        attrs.append(f"data-{lang}='{safe_text}'")
+    return " ".join(attrs)
 
-# Macro Insight Multilingua
-macro_attrs = " ".join([f"data-{lang}='{text.replace('\'', '&apos;')}'" for lang, text in MACRO_DICT.items()])
+# Macro Insight Multilingua (corretto per GitHub Actions)
+macro_attrs_list = []
+for lang, text in MACRO_DICT.items():
+    safe_text = text.replace("'", "&apos;")
+    macro_attrs_list.append(f"data-{lang}='{safe_text}'")
+
+macro_attrs = " ".join(macro_attrs_list)
 html_v2.append(f"<div id='macro_insight' {macro_attrs}></div>")
 
 # GENERIAMO IL DATABASE DI TUTTI GLI ASSET
