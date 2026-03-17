@@ -1954,16 +1954,158 @@ except: repo.create_file(fpath_en, "Cre EN Brief", html_content_en)
 
 
 # ==============================================================================
-# 6. NEW DAILY BRIEF V2 (DATA EXPORT FOR ANDROID JSOUP)
+# 6. NEW DAILY BRIEF V2 (ANOMALY ENGINE & NATIVE MULTILINGUAL JSOUP)
 # ==============================================================================
 print("Generazione Daily Brief V2 Data...")
 
-def generate_technical_insight(symbol, rsi, pat_score, is_bullish):
-    if rsi > 70 and is_bullish: return f"Strong rally, but RSI is in overbought territory ({round(rsi, 1)}). Proceed with caution."
-    elif rsi < 30 and not is_bullish: return f"Heavy sell-off. RSI indicates oversold conditions ({round(rsi, 1)}). Watch for a technical bounce."
-    elif pat_score > 0.3: return "Solid price action. Technical patterns suggest accumulation and potential breakout."
-    elif pat_score < -0.3: return "Testing key support levels. Price action remains fragile under selling pressure."
-    else: return "Steady momentum following broader market trends. Volume analysis is key here."
+# --- DIZIONARIO INSIGHT PRE-TRADOTTI (14 Lingue) ---
+INSIGHT_DICT = {
+    "vol_breakout_bull": {
+        "en": "Massive volume surge driving a bullish breakout. Momentum is accelerating.",
+        "it": "Forte esplosione dei volumi a supporto del breakout rialzista. Momentum in accelerazione.",
+        "es": "Fuerte aumento de volumen apoyando la ruptura alcista. El impulso se acelera.",
+        "fr": "Forte augmentation des volumes soutenant la cassure haussière. Le momentum s'accélère.",
+        "de": "Massiver Volumenanstieg treibt den bullischen Ausbruch voran. Das Momentum beschleunigt sich.",
+        "pt": "Forte aumento de volume apoiando o rompimento de alta. O momento está acelerando.",
+        "nl": "Massieve volumestijging stimuleert de bullish uitbraak. Het momentum versnelt.",
+        "ar": "زيادة هائلة في الحجم تدفع الاختراق الصعودي. الزخم يتسارع.",
+        "hi": "भारी वॉल्यूम उछाल बुलिश ब्रेकआउट को चला रहा है। गति तेज हो रही है।",
+        "id": "Lonjakan volume besar mendorong penembusan bullish. Momentum semakin cepat.",
+        "ja": "大規模な取引量の急増が強気なブレイクアウトを推進しています。モメンタムが加速しています。",
+        "ko": "대규모 거래량 급증이 강세 돌파를 주도하고 있습니다. 모멘텀이 가속화되고 있습니다.",
+        "ru": "Резкий скачок объема поддерживает бычий прорыв. Импульс ускоряется.",
+        "zh-rCN": "巨大的交易量激增推动了看涨突破。势头正在加速。"
+    },
+    "vol_breakout_bear": {
+        "en": "Heavy selling pressure confirmed by unusually high trading volumes.",
+        "it": "Forte pressione in vendita confermata da volumi di scambio insolitamente alti.",
+        "es": "Fuerte presión de venta confirmada por volúmenes inusualmente altos.",
+        "fr": "Forte pression à la vente confirmée par des volumes d'échanges inhabituellement élevés.",
+        "de": "Starker Verkaufsdruck, bestätigt durch ungewöhnlich hohe Handelsvolumina.",
+        "pt": "Forte pressão de venda confirmada por volumes de negociação extraordinariamente altos.",
+        "nl": "Zware verkoopdruk bevestigd door ongebruikelijk hoge handelsvolumes.",
+        "ar": "ضغط بيع كثيف تؤكده أحجام تداول عالية بشكل غير عادي.",
+        "hi": "असामान्य रूप से उच्च ट्रेडिंग वॉल्यूम द्वारा भारी बिकवाली के दबाव की पुष्टि की गई।",
+        "id": "Tekanan jual yang berat dikonfirmasi oleh volume perdagangan yang sangat tinggi.",
+        "ja": "異常に高い取引量によって確認された強い売り圧力。",
+        "ko": "비정상적으로 높은 거래량으로 확인된 강한 매도 압력.",
+        "ru": "Сильное давление продавцов подтверждается необычно высокими объемами торгов.",
+        "zh-rCN": "异常高的交易量证实了沉重的抛售压力。"
+    },
+    "rsi_overbought": {
+        "en": "Strong rally, but RSI is in deep overbought territory. Vulnerable to pullbacks.",
+        "it": "Rally solido, ma l'RSI è in forte ipercomprato. Rischio di prese di beneficio.",
+        "es": "Fuerte repunte, pero el RSI está en sobrecompra. Vulnerable a retrocesos.",
+        "fr": "Fort rallye, mais le RSI est en surachat. Vulnérable aux replis.",
+        "de": "Starke Rallye, aber der RSI ist überkauft. Anfällig für Rücksetzer.",
+        "pt": "Forte rali, mas o RSI está sobrecomprado. Vulnerável a retrocessos.",
+        "nl": "Sterke rally, maar RSI is overgekocht. Kwetsbaar voor terugval.",
+        "ar": "ارتفاع قوي، لكن مؤشر القوة النسبية في منطقة ذروة الشراء. عرضة للتراجع.",
+        "hi": "मजबूत रैली, लेकिन आरएसआई ओवरबॉट क्षेत्र में है। पुलबैक की संभावना है।",
+        "id": "Reli kuat, tetapi RSI berada di wilayah overbought. Rentan terhadap penarikan kembali.",
+        "ja": "強い上昇ですが、RSIは買われ過ぎの水準にあります。反落に注意が必要です。",
+        "ko": "강력한 랠리지만 RSI가 과매수 상태입니다. 하락 조정에 취약합니다.",
+        "ru": "Сильное ралли, но RSI в зоне перекупленности. Возможен откат.",
+        "zh-rCN": "强劲反弹，但RSI处于严重超买区域。容易出现回调。"
+    },
+    "rsi_oversold": {
+        "en": "Asset is heavily oversold. Setup suggests a potential technical bounce.",
+        "it": "L'asset è in forte ipervenduto. Il setup suggerisce un potenziale rimbalzo tecnico.",
+        "es": "El activo está muy sobrevendido. Posible rebote técnico.",
+        "fr": "L'actif est fortement survendu. La configuration suggère un rebond technique potentiel.",
+        "de": "Der Vermögenswert ist stark überverkauft. Möglicher technischer Rebound.",
+        "pt": "O ativo está muito sobrevendido. Possível salto técnico.",
+        "nl": "Activa is zwaar oververkocht. Mogelijke technische opleving.",
+        "ar": "الأصل في منطقة ذروة البيع. قد يحدث ارتداد فني.",
+        "hi": "एसेट भारी ओवरसोल्ड है। सेटअप संभावित तकनीकी उछाल का सुझाव देता है।",
+        "id": "Aset sangat oversold. Setup menunjukkan potensi pantulan teknis.",
+        "ja": "資産は売られ過ぎです。テクニカルな反発の可能性があります。",
+        "ko": "자산이 심하게 과매도되었습니다. 기술적 반등의 가능성이 있습니다.",
+        "ru": "Актив сильно перепродан. Возможен технический отскок.",
+        "zh-rCN": "资产严重超卖。设定暗示潜在的技术性反弹。"
+    },
+    "support_test": {
+        "en": "Testing crucial support levels. Price action remains fragile.",
+        "it": "Test in corso su livelli di supporto cruciali. La price action resta fragile.",
+        "es": "Probando niveles de soporte cruciales. La acción del precio sigue frágil.",
+        "fr": "Test de niveaux de support cruciaux. L'action des prix reste fragile.",
+        "de": "Testet wichtige Unterstützungsniveaus. Die Preisaktion bleibt fragil.",
+        "pt": "Testando níveis de suporte cruciais. A ação do preço continua frágil.",
+        "nl": "Test cruciale steunniveaus. Prijsactie blijft kwetsbaar.",
+        "ar": "اختبار مستويات دعم حاسمة. حركة السعر لا تزال هشة.",
+        "hi": "महत्वपूर्ण समर्थन स्तरों का परीक्षण। मूल्य कार्रवाई नाजुक बनी हुई है।",
+        "id": "Menguji level support krusial. Aksi harga tetap rapuh.",
+        "ja": "重要なサポートレベルをテスト中。プライスアクションは依然として不安定です。",
+        "ko": "중요한 지지선을 테스트 중입니다. 가격 움직임이 여전히 불안정합니다.",
+        "ru": "Тестирование ключевых уровней поддержки. Динамика цен остается хрупкой.",
+        "zh-rCN": "正在测试关键支撑位。价格走势依然脆弱。"
+    },
+    "resistance_break": {
+        "en": "Testing key resistance with positive technical confluence.",
+        "it": "Test di resistenze chiave in corso con confluenza tecnica positiva.",
+        "es": "Probando resistencia clave con confluencia técnica positiva.",
+        "fr": "Test de résistance clé avec une confluence technique positive.",
+        "de": "Testet wichtige Widerstände mit positiver technischer Konfluenz.",
+        "pt": "Testando resistência chave com confluência técnica positiva.",
+        "nl": "Test belangrijke weerstand met positieve technische samenloop.",
+        "ar": "اختبار مقاومة رئيسية مع التقاء فني إيجابي.",
+        "hi": "सकारात्मक तकनीकी संगम के साथ प्रमुख प्रतिरोध का परीक्षण।",
+        "id": "Menguji resistensi kunci dengan konfluensi teknis positif.",
+        "ja": "ポジティブなテクニカルコンフルエンスを伴い、主要なレジスタンスをテスト中。",
+        "ko": "긍정적인 기술적 융합과 함께 주요 저항선을 테스트 중입니다.",
+        "ru": "Тестирование ключевого сопротивления с положительным техническим слиянием.",
+        "zh-rCN": "在积极的技术汇合下测试关键阻力位。"
+    },
+    "generic_bull": {
+        "en": "Solid positive momentum driven by a favorable technical setup.",
+        "it": "Solido momentum positivo guidato da un setup tecnico favorevole.",
+        "es": "Sólido impulso positivo impulsado por una configuración técnica favorable.",
+        "fr": "Solide momentum positif soutenu par une configuration technique favorable.",
+        "de": "Solides positives Momentum, angetrieben durch ein günstiges technisches Setup.",
+        "pt": "Forte momento positivo impulsionado por uma configuração técnica favorável.",
+        "nl": "Solide positief momentum gedreven door een gunstige technische opzet.",
+        "ar": "زخم إيجابي قوي مدفوع بإعداد فني مناسب.",
+        "hi": "अनुकूल तकनीकी सेटअप द्वारा संचालित ठोस सकारात्मक गति।",
+        "id": "Momentum positif yang solid didorong oleh pengaturan teknis yang menguntungkan.",
+        "ja": "良好なテクニカルセットアップによる強固なポジティブモメンタム。",
+        "ko": "유리한 기술적 설정에 의해 주도되는 견고한 상승 모멘텀.",
+        "ru": "Уверенный позитивный импульс, обусловленный благоприятной технической картиной.",
+        "zh-rCN": "在有利的技术设定推动下，呈现稳健的积极势头。"
+    },
+    "generic_bear": {
+        "en": "Trend remains bearish. Indicators suggest ongoing weakness.",
+        "it": "Il trend rimane ribassista. Gli indicatori suggeriscono debolezza persistente.",
+        "es": "La tendencia sigue siendo bajista. Los indicadores sugieren debilidad continua.",
+        "fr": "La tendance reste baissière. Les indicateurs suggèrent une faiblesse continue.",
+        "de": "Trend bleibt bärisch. Indikatoren deuten auf anhaltende Schwäche hin.",
+        "pt": "A tendência continua de baixa. Os indicadores sugerem fraqueza contínua.",
+        "nl": "Trend blijft bearish. Indicatoren wijzen op aanhoudende zwakte.",
+        "ar": "الاتجاه لا يزال هبوطيًا. المؤشرات تشير إلى ضعف مستمر.",
+        "hi": "प्रवृत्ति मंदी की बनी हुई है। संकेतक निरंतर कमजोरी का सुझाव देते हैं।",
+        "id": "Tren tetap bearish. Indikator menunjukkan pelemahan yang berkelanjutan.",
+        "ja": "トレンドは依然として弱気です。指標は継続的な弱さを示唆しています。",
+        "ko": "하락 추세가 지속되고 있습니다. 지표들은 지속적인 약세를 시사합니다.",
+        "ru": "Тренд остается медвежьим. Индикаторы указывают на сохраняющуюся слабость.",
+        "zh-rCN": "趋势依然看跌。指标表明持续疲软。"
+    }
+}
+
+MACRO_DICT = {
+    "en": "Dollar Index (DXY) and treasury yields fluctuations are currently driving the broader market momentum at the open.",
+    "it": "Le fluttuazioni del Dollar Index (DXY) e dei rendimenti obbligazionari stanno guidando il momentum dei mercati.",
+    "es": "Las fluctuaciones del Índice del Dólar (DXY) y de los rendimientos de los bonos están impulsando el impulso del mercado.",
+    "fr": "Les fluctuations du Dollar Index (DXY) et des rendements obligataires dirigent la dynamique du marché.",
+    "de": "Schwankungen des Dollar-Index (DXY) und der Anleiherenditen treiben das Marktmomentum an.",
+    "pt": "As flutuações do Índice do Dólar (DXY) e dos rendimentos dos títulos estão impulsionando o momento do mercado.",
+    "nl": "Schommelingen in de Dollar Index (DXY) en obligatierendementen sturen momenteel het marktmomentum.",
+    "ar": "تقلبات مؤشر الدولار وعوائد السندات تقود حالياً زخم السوق الأوسع عند الافتتاح.",
+    "hi": "डॉलर इंडेक्स (DXY) और ट्रेजरी यील्ड में उतार-चढ़ाव बाजार की गति को संचालित कर रहे हैं।",
+    "id": "Fluktuasi Indeks Dolar (DXY) dan imbal hasil treasury saat ini mendorong momentum pasar secara lebih luas.",
+    "ja": "ドルインデックス（DXY）と国債利回りの変動が現在、より広範な市場のモメンタムを牽引しています。",
+    "ko": "달러 인덱스(DXY)와 국채 수익률 변동이 현재 시장 전반의 모멘텀을 주도하고 있습니다.",
+    "ru": "Колебания индекса доллара (DXY) и доходности казначейских облигаций в настоящее время определяют динамику широкого рынка.",
+    "zh-rCN": "美元指数 (DXY) 和国债收益率的波动正在推动开盘时更广泛的市场势头。"
+}
 
 def calculate_support_resistance(df):
     if len(df) < 20: return 0.0, 0.0
@@ -1971,67 +2113,149 @@ def calculate_support_resistance(df):
     recent_high = df['High'].tail(20).max()
     return round(recent_low, 2), round(recent_high, 2)
 
-# Liste isolate per non toccare le vecchie
-v2_top_movers = []
-v2_watchlist = []
-v2_ai_power = []
+# --- CACCIA ALLE ANOMALIE (ANOMALY SCORE) ---
+bullish_candidates = []
+bearish_candidates = []
 
-# 1. Trova i Top Movers significativi
-for sym, score in sorted_symbols:
-    if score > 55:
-        rsi = indicator_data.get(sym, {}).get("RSI (14)", 50)
-        pat_score, _ = PatternAnalyzer(dati_storici_all[sym]).get_pattern_info() if sym in dati_storici_all else (0, [])
-        if pat_score >= 0.3 or rsi < 30 or rsi > 70:
-            insight = generate_technical_insight(sym, rsi, pat_score, True)
-            v2_top_movers.append((sym, score, insight))
-        if len(v2_top_movers) == 2: break
-
-# Fallback se non ci sono asset con pattern specifici
-if len(v2_top_movers) < 2:
-    for sym, score in sorted_symbols[:2]:
-        if sym not in [t[0] for t in v2_top_movers]:
-            v2_top_movers.append((sym, score, "Solid positive momentum driven by volume and sentiment."))
-
-# 2. Trova la Watchlist significativa (dal peggiore a salire)
-for sym, score in reversed(sorted_symbols):
+for sym, score in percentuali_combine.items():
+    if sym not in dati_storici_all: continue
+    df = dati_storici_all[sym]
+    if len(df) < 20: continue
+    
+    # Dati grezzi
+    vol_today = df['Volume'].iloc[-1]
+    vol_avg = df['Volume'].tail(20).mean()
+    vol_surge = vol_today / vol_avg if vol_avg > 0 else 1.0
     rsi = indicator_data.get(sym, {}).get("RSI (14)", 50)
-    pat_score, _ = PatternAnalyzer(dati_storici_all[sym]).get_pattern_info() if sym in dati_storici_all else (0, [])
-    if pat_score <= -0.3 or rsi > 70 or rsi < 30:
-        insight = generate_technical_insight(sym, rsi, pat_score, False)
-        v2_watchlist.append((sym, score, insight))
-        break
+    pat_score, _ = PatternAnalyzer(df).get_pattern_info()
+    sup, res = calculate_support_resistance(df)
+    current_price = df['Close'].iloc[-1]
+    
+    # Distanza dai supporti/resistenze
+    dist_to_sup = abs(current_price - sup) / current_price if sup > 0 else 1.0
+    dist_to_res = abs(current_price - res) / current_price if res > 0 else 1.0
 
-# Se la lista è ancora vuota, prendi il peggiore in assoluto
-if not v2_watchlist and sorted_symbols:
-    worst_sym, worst_score = sorted_symbols[-1]
-    v2_watchlist.append((worst_sym, worst_score, "Strong bearish sentiment. Proceed with extreme caution."))
+    # CALCOLO ANOMALY SCORE
+    anomaly_score = 0
+    dominant_trait = ""
+    
+    # 1. Volumi estremi
+    if vol_surge > 2.0: 
+        anomaly_score += 4
+        dominant_trait = "vol_breakout"
+    elif vol_surge > 1.5: 
+        anomaly_score += 2
+        dominant_trait = "vol_breakout"
+        
+    # 2. RSI Estremo
+    if rsi > 75 or rsi < 25: 
+        anomaly_score += 3
+        if not dominant_trait: dominant_trait = "rsi_overbought" if rsi > 75 else "rsi_oversold"
+    elif rsi > 70 or rsi < 30: 
+        anomaly_score += 1
+        
+    # 3. Prossimità a Livelli Chiave (entro 1.5%)
+    if dist_to_res < 0.015:
+        anomaly_score += 3
+        if not dominant_trait: dominant_trait = "resistance_break"
+    elif dist_to_sup < 0.015:
+        anomaly_score += 3
+        if not dominant_trait: dominant_trait = "support_test"
+        
+    # 4. Pattern Candlestick
+    if abs(pat_score) >= 0.4:
+        anomaly_score += 2
 
-# 3. AI Power Score (Prendiamo due leader forti)
-v2_ai_power = sorted_symbols[:2]
+    # Se c'è anomalia lo analizziamo
+    if anomaly_score > 0 or score > 60 or score < 40:
+        macd_line = indicator_data.get(sym, {}).get("MACD Line", 0)
+        macd_sig = indicator_data.get(sym, {}).get("MACD Signal", 0)
+        macd_trend = "Bull" if macd_line > macd_sig else "Bear"
+        confluence = f"RSI: {round(rsi)} | MACD: {macd_trend} | Vol: {round(vol_surge, 1)}x"
+        volatility = "High" if vol_surge > 1.5 or rsi > 70 or rsi < 30 else "Normal"
+        
+        # Risoluzione frase
+        if not dominant_trait: 
+            dominant_trait = "generic_bull" if score > 50 else "generic_bear"
+        elif dominant_trait == "vol_breakout":
+            dominant_trait = "vol_breakout_bull" if score > 50 else "vol_breakout_bear"
 
-# Generazione HTML Invisibile
+        asset_data = {
+            'sym': sym, 'score': score, 'anomaly_score': anomaly_score, 
+            'trait': dominant_trait, 'confluence': confluence, 
+            'volatility': volatility, 'expected_move': "1-3 Days",
+            'sup': sup, 'res': res
+        }
+        
+        if score >= 50: bullish_candidates.append(asset_data)
+        else: bearish_candidates.append(asset_data)
+
+# Ordinamento puro per "Punteggio di Anomalia" (chi sta muovendo il mercato ORA)
+v2_top_movers = sorted(bullish_candidates, key=lambda x: x['anomaly_score'], reverse=True)[:2]
+v2_watchlist = sorted(bearish_candidates, key=lambda x: x['anomaly_score'], reverse=True)[:1]
+
+# Fallback se non si sono verificate anomalie (giornata piatta)
+if len(v2_top_movers) < 2:
+    for sym, score in sorted_symbols:
+        if score >= 50 and sym not in [c['sym'] for c in v2_top_movers]:
+            sup, res = calculate_support_resistance(dati_storici_all.get(sym, pd.DataFrame()))
+            v2_top_movers.append({
+                'sym': sym, 'score': score, 'trait': "generic_bull", 'confluence': "Normal conditions", 
+                'volatility': "Normal", 'expected_move': "Mid-Term", 'sup': sup, 'res': res
+            })
+        if len(v2_top_movers) >= 2: break
+
+if len(v2_watchlist) < 1:
+    for sym, score in reversed(sorted_symbols):
+        if score < 50 and sym not in [c['sym'] for c in v2_watchlist]:
+            sup, res = calculate_support_resistance(dati_storici_all.get(sym, pd.DataFrame()))
+            v2_watchlist.append({
+                'sym': sym, 'score': score, 'trait': "generic_bear", 'confluence': "Normal conditions", 
+                'volatility': "Normal", 'expected_move': "Mid-Term", 'sup': sup, 'res': res
+            })
+        if len(v2_watchlist) >= 1: break
+
+
+# ==============================================================================
+# GENERAZIONE HTML CON DATA-ATTRIBUTES MULTILINGUA
+# ==============================================================================
 html_v2 = ["<html><body>"]
 
-# Costruiamo i tag HTML con i data-attributes
-for i, (sym, score, insight) in enumerate(v2_top_movers):
+# Helper per generare i data-attributes delle lingue
+def get_lang_attributes(trait):
+    lang_data = INSIGHT_DICT.get(trait, INSIGHT_DICT["generic_bull"])
+    # Crea una stringa tipo: data-en='...' data-it='...' data-es='...'
+    return " ".join([f"data-{lang}='{text.replace('\'', '&apos;')}'" for lang, text in lang_data.items()])
+
+# 1. Top Movers
+for i, cand in enumerate(v2_top_movers):
+    sym = cand['sym']
     name = symbol_name_map.get(sym, [sym])[0]
-    html_v2.append(f"<div id='top_mover_{i}' data-ticker='${sym}' data-name='{name}' data-score='{int(score)}' data-insight='{insight}'></div>")
+    lang_attrs = get_lang_attributes(cand['trait'])
+    
+    html_v2.append(f"<div id='top_mover_{i}' data-ticker='${sym}' data-name='{name}' data-score='{int(cand['score'])}' {lang_attrs} data-confluence='{cand['confluence']}' data-volatility='{cand['volatility']}' data-move='{cand['expected_move']}' data-sup='${cand['sup']}' data-res='${cand['res']}'></div>")
 
+# 2. Watchlist Focus
 if v2_watchlist:
-    sym_w, score_w, insight_w = v2_watchlist[0]
-    name_w = symbol_name_map.get(sym_w, [sym_w])[0]
-    html_v2.append(f"<div id='watchlist_focus' data-ticker='${sym_w}' data-name='{name_w}' data-score='{int(score_w)}' data-insight='{insight_w}'></div>")
+    cand = v2_watchlist[0]
+    sym = cand['sym']
+    name = symbol_name_map.get(sym, [sym])[0]
+    lang_attrs = get_lang_attributes(cand['trait'])
+    
+    html_v2.append(f"<div id='watchlist_focus' data-ticker='${sym}' data-name='{name}' data-score='{int(cand['score'])}' {lang_attrs} data-confluence='{cand['confluence']}' data-volatility='{cand['volatility']}' data-move='{cand['expected_move']}' data-sup='${cand['sup']}' data-res='${cand['res']}'></div>")
 
-macro_text = "Dollar Index (DXY) and treasury yields fluctuations are currently driving the broader market momentum at the open."
-html_v2.append(f"<div id='macro_insight' data-text='{macro_text}'></div>")
+# 3. Macro Insight Multilingua
+macro_attrs = " ".join([f"data-{lang}='{text.replace('\'', '&apos;')}'" for lang, text in MACRO_DICT.items()])
+html_v2.append(f"<div id='macro_insight' {macro_attrs}></div>")
 
-for i, (sym, score) in enumerate(v2_ai_power):
+# 4. Fallback per la sezione AI Power (Mantiene la card separata per backup)
+for i, (sym, score) in enumerate(sorted_symbols[:2]):
     sup, res = calculate_support_resistance(dati_storici_all[sym]) if sym in dati_storici_all else (0, 0)
     html_v2.append(f"<div id='ai_score_{i}' data-ticker='${sym}' data-intensity='{int(score)}' data-sup='${sup}' data-res='${res}'></div>")
 
 html_v2.append("</body></html>")
 
-# Salvataggio su GitHub del nuovo file isolato
+# Salvataggio su GitHub
 v2_path = f"{TARGET_FOLDER}/daily_brief_v2_data.html"
 try:
     c = repo.get_contents(v2_path)
@@ -2039,7 +2263,7 @@ try:
 except:
     repo.create_file(v2_path, "Cre Daily Brief V2", "\n".join(html_v2))
 
-print("Daily Brief V2 Data salvato con successo!")
+print("Daily Brief V2 (Multilingual) salvato con successo!")
 
 
 
