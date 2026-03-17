@@ -1954,7 +1954,7 @@ except: repo.create_file(fpath_en, "Cre EN Brief", html_content_en)
 
 
 # ==============================================================================
-# 6. NEW DAILY BRIEF V2 (ANOMALY ENGINE & NATIVE MULTILINGUAL JSOUP)
+# 6. NEW DAILY BRIEF V2 (FULL DATABASE EXPORT FOR ANDROID JSOUP)
 # ==============================================================================
 print("Generazione Daily Brief V2 Data...")
 
@@ -2033,7 +2033,7 @@ INSIGHT_DICT = {
         "pt": "Testando níveis de suporte cruciais. A ação do preço continua frágil.",
         "nl": "Test cruciale steunniveaus. Prijsactie blijft kwetsbaar.",
         "ar": "اختبار مستويات دعم حاسمة. حركة السعر لا تزال هشة.",
-        "hi": "महत्वपूर्ण समर्थन स्तरों का परीक्षण। मूल्य कार्रवाई नाजुक बनी हुई है।",
+        "hi": "महत्वपूर्ण समर्थन स्तरों का परीक्षण। मूल्य कार्रवाई नाजुक बनी हुई জ্ঞहै।",
         "id": "Menguji level support krusial. Aksi harga tetap rapuh.",
         "ja": "重要なサポートレベルをテスト中。プライスアクションは依然として不安定です。",
         "ko": "중요한 지지선을 테스트 중입니다. 가격 움직임이 여전히 불안정합니다.",
@@ -2113,16 +2113,14 @@ def calculate_support_resistance(df):
     recent_high = df['High'].tail(20).max()
     return round(recent_low, 2), round(recent_high, 2)
 
-# --- CACCIA ALLE ANOMALIE (ANOMALY SCORE) ---
-bullish_candidates = []
-bearish_candidates = []
+all_analyzed_assets = []
 
+# Analizziamo TUTTI gli asset per creare il database completo
 for sym, score in percentuali_combine.items():
     if sym not in dati_storici_all: continue
     df = dati_storici_all[sym]
     if len(df) < 20: continue
     
-    # Dati grezzi
     vol_today = df['Volume'].iloc[-1]
     vol_avg = df['Volume'].tail(20).mean()
     vol_surge = vol_today / vol_avg if vol_avg > 0 else 1.0
@@ -2131,7 +2129,6 @@ for sym, score in percentuali_combine.items():
     sup, res = calculate_support_resistance(df)
     current_price = df['Close'].iloc[-1]
     
-    # Distanza dai supporti/resistenze
     dist_to_sup = abs(current_price - sup) / current_price if sup > 0 else 1.0
     dist_to_res = abs(current_price - res) / current_price if res > 0 else 1.0
 
@@ -2139,7 +2136,6 @@ for sym, score in percentuali_combine.items():
     anomaly_score = 0
     dominant_trait = ""
     
-    # 1. Volumi estremi
     if vol_surge > 2.0: 
         anomaly_score += 4
         dominant_trait = "vol_breakout"
@@ -2147,14 +2143,12 @@ for sym, score in percentuali_combine.items():
         anomaly_score += 2
         dominant_trait = "vol_breakout"
         
-    # 2. RSI Estremo
     if rsi > 75 or rsi < 25: 
         anomaly_score += 3
         if not dominant_trait: dominant_trait = "rsi_overbought" if rsi > 75 else "rsi_oversold"
     elif rsi > 70 or rsi < 30: 
         anomaly_score += 1
         
-    # 3. Prossimità a Livelli Chiave (entro 1.5%)
     if dist_to_res < 0.015:
         anomaly_score += 3
         if not dominant_trait: dominant_trait = "resistance_break"
@@ -2162,96 +2156,58 @@ for sym, score in percentuali_combine.items():
         anomaly_score += 3
         if not dominant_trait: dominant_trait = "support_test"
         
-    # 4. Pattern Candlestick
     if abs(pat_score) >= 0.4:
         anomaly_score += 2
 
-    # Se c'è anomalia lo analizziamo
-    if anomaly_score > 0 or score > 60 or score < 40:
-        macd_line = indicator_data.get(sym, {}).get("MACD Line", 0)
-        macd_sig = indicator_data.get(sym, {}).get("MACD Signal", 0)
-        macd_trend = "Bull" if macd_line > macd_sig else "Bear"
-        confluence = f"RSI: {round(rsi)} | MACD: {macd_trend} | Vol: {round(vol_surge, 1)}x"
-        volatility = "High" if vol_surge > 1.5 or rsi > 70 or rsi < 30 else "Normal"
-        
-        # Risoluzione frase
-        if not dominant_trait: 
-            dominant_trait = "generic_bull" if score > 50 else "generic_bear"
-        elif dominant_trait == "vol_breakout":
-            dominant_trait = "vol_breakout_bull" if score > 50 else "vol_breakout_bear"
+    # Se non ci sono anomalie estreme, calcoliamo la rilevanza basata sulla forza del trend
+    if anomaly_score == 0:
+        anomaly_score = abs(score - 50) / 10.0
 
-        asset_data = {
-            'sym': sym, 'score': score, 'anomaly_score': anomaly_score, 
-            'trait': dominant_trait, 'confluence': confluence, 
-            'volatility': volatility, 'expected_move': "1-3 Days",
-            'sup': sup, 'res': res
-        }
-        
-        if score >= 50: bullish_candidates.append(asset_data)
-        else: bearish_candidates.append(asset_data)
+    # Prepariamo gli extra premium
+    macd_line = indicator_data.get(sym, {}).get("MACD Line", 0)
+    macd_sig = indicator_data.get(sym, {}).get("MACD Signal", 0)
+    macd_trend = "Bull" if macd_line > macd_sig else "Bear"
+    confluence = f"RSI: {round(rsi)} | MACD: {macd_trend} | Vol: {round(vol_surge, 1)}x"
+    volatility = "High" if vol_surge > 1.5 or rsi > 70 or rsi < 30 else "Normal"
+    
+    # Risolviamo il testo base
+    if not dominant_trait: 
+        dominant_trait = "generic_bull" if score >= 50 else "generic_bear"
+    elif dominant_trait == "vol_breakout":
+        dominant_trait = "vol_breakout_bull" if score >= 50 else "vol_breakout_bear"
 
-# Ordinamento puro per "Punteggio di Anomalia" (chi sta muovendo il mercato ORA)
-v2_top_movers = sorted(bullish_candidates, key=lambda x: x['anomaly_score'], reverse=True)[:2]
-v2_watchlist = sorted(bearish_candidates, key=lambda x: x['anomaly_score'], reverse=True)[:1]
+    all_analyzed_assets.append({
+        'sym': sym, 'score': score, 'anomaly_score': anomaly_score, 
+        'trait': dominant_trait, 'confluence': confluence, 
+        'volatility': volatility, 'expected_move': "1-3 Days",
+        'sup': sup, 'res': res
+    })
 
-# Fallback se non si sono verificate anomalie (giornata piatta)
-if len(v2_top_movers) < 2:
-    for sym, score in sorted_symbols:
-        if score >= 50 and sym not in [c['sym'] for c in v2_top_movers]:
-            sup, res = calculate_support_resistance(dati_storici_all.get(sym, pd.DataFrame()))
-            v2_top_movers.append({
-                'sym': sym, 'score': score, 'trait': "generic_bull", 'confluence': "Normal conditions", 
-                'volatility': "Normal", 'expected_move': "Mid-Term", 'sup': sup, 'res': res
-            })
-        if len(v2_top_movers) >= 2: break
-
-if len(v2_watchlist) < 1:
-    for sym, score in reversed(sorted_symbols):
-        if score < 50 and sym not in [c['sym'] for c in v2_watchlist]:
-            sup, res = calculate_support_resistance(dati_storici_all.get(sym, pd.DataFrame()))
-            v2_watchlist.append({
-                'sym': sym, 'score': score, 'trait': "generic_bear", 'confluence': "Normal conditions", 
-                'volatility': "Normal", 'expected_move': "Mid-Term", 'sup': sup, 'res': res
-            })
-        if len(v2_watchlist) >= 1: break
+# ORDINAMENTO FONDAMENTALE: Dal più anomalo/impatto al più piatto
+all_analyzed_assets = sorted(all_analyzed_assets, key=lambda x: x['anomaly_score'], reverse=True)
 
 
 # ==============================================================================
-# GENERAZIONE HTML CON DATA-ATTRIBUTES MULTILINGUA
+# GENERAZIONE HTML CON DATA-ATTRIBUTES MULTILINGUA (IL DATABASE PER JSOUP)
 # ==============================================================================
 html_v2 = ["<html><body>"]
 
-# Helper per generare i data-attributes delle lingue
 def get_lang_attributes(trait):
     lang_data = INSIGHT_DICT.get(trait, INSIGHT_DICT["generic_bull"])
-    # Crea una stringa tipo: data-en='...' data-it='...' data-es='...'
     return " ".join([f"data-{lang}='{text.replace('\'', '&apos;')}'" for lang, text in lang_data.items()])
 
-# 1. Top Movers
-for i, cand in enumerate(v2_top_movers):
-    sym = cand['sym']
-    name = symbol_name_map.get(sym, [sym])[0]
-    lang_attrs = get_lang_attributes(cand['trait'])
-    
-    html_v2.append(f"<div id='top_mover_{i}' data-ticker='${sym}' data-name='{name}' data-score='{int(cand['score'])}' {lang_attrs} data-confluence='{cand['confluence']}' data-volatility='{cand['volatility']}' data-move='{cand['expected_move']}' data-sup='${cand['sup']}' data-res='${cand['res']}'></div>")
-
-# 2. Watchlist Focus
-if v2_watchlist:
-    cand = v2_watchlist[0]
-    sym = cand['sym']
-    name = symbol_name_map.get(sym, [sym])[0]
-    lang_attrs = get_lang_attributes(cand['trait'])
-    
-    html_v2.append(f"<div id='watchlist_focus' data-ticker='${sym}' data-name='{name}' data-score='{int(cand['score'])}' {lang_attrs} data-confluence='{cand['confluence']}' data-volatility='{cand['volatility']}' data-move='{cand['expected_move']}' data-sup='${cand['sup']}' data-res='${cand['res']}'></div>")
-
-# 3. Macro Insight Multilingua
+# Macro Insight Multilingua
 macro_attrs = " ".join([f"data-{lang}='{text.replace('\'', '&apos;')}'" for lang, text in MACRO_DICT.items()])
 html_v2.append(f"<div id='macro_insight' {macro_attrs}></div>")
 
-# 4. Fallback per la sezione AI Power (Mantiene la card separata per backup)
-for i, (sym, score) in enumerate(sorted_symbols[:2]):
-    sup, res = calculate_support_resistance(dati_storici_all[sym]) if sym in dati_storici_all else (0, 0)
-    html_v2.append(f"<div id='ai_score_{i}' data-ticker='${sym}' data-intensity='{int(score)}' data-sup='${sup}' data-res='${res}'></div>")
+# GENERIAMO IL DATABASE DI TUTTI GLI ASSET
+for cand in all_analyzed_assets:
+    sym = cand['sym']
+    name = symbol_name_map.get(sym, [sym])[0]
+    lang_attrs = get_lang_attributes(cand['trait'])
+    
+    # Stampiamo ogni singolo asset con la classe 'asset_data'
+    html_v2.append(f"<div class='asset_data' data-ticker='${sym}' data-clean-ticker='{sym}' data-name='{name}' data-score='{int(cand['score'])}' data-anomaly='{cand['anomaly_score']}' {lang_attrs} data-confluence='{cand['confluence']}' data-volatility='{cand['volatility']}' data-move='{cand['expected_move']}' data-sup='${cand['sup']}' data-res='${cand['res']}'></div>")
 
 html_v2.append("</body></html>")
 
@@ -2263,7 +2219,7 @@ try:
 except:
     repo.create_file(v2_path, "Cre Daily Brief V2", "\n".join(html_v2))
 
-print("Daily Brief V2 (Multilingual) salvato con successo!")
+print("Daily Brief V2 (Full Database) salvato con successo!")
 
 
 
