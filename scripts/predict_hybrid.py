@@ -2516,7 +2516,7 @@ for cand in all_analyzed_assets:
     # Per ogni asset genera un copy dinamico richiamando l'helper
     lang_attrs = get_randomized_lang_attributes(cand['trait'], INSIGHT_DICT)
     
-    html_v2.append(f"<div class='asset_data' data-ticker='${sym}' data-clean-ticker='{sym}' data-name='{name}' data-score='{int(cand['score'])}' data-anomaly='{cand['anomaly_score']}' {lang_attrs} data-confluence='{cand['confluence']}' data-volatility='{cand['volatility']}' data-move='{cand['expected_move']}' data-sup='${cand['sup']}' data-res='${cand['res']}'></div>")
+    html_v2.append(f"<div class='asset_data' data-ticker='${sym}' data-clean-ticker='{sym}' data-name='{name}' data-score='{int(cand['score'])}' data-anomaly='{cand['anomaly_score']}' {lang_attrs} data-confluence='{cand['confluence']}' data-volatility='{cand['volatility']}' data-move='{cand['expected_move']}' data-sup='{cand['sup']}' data-res='{cand['res']}'></div>")
 
 html_v2.append("</body></html>")
 
