@@ -1676,8 +1676,28 @@ for symbol, score in percentuali_combine.items():
         try:
             # Prendiamo gli ultimi 20 giorni (1 mese di trading)
             last_month = df.tail(20).copy()
-            # Calcolo: Prezzo * Volume
-            liquidity_series = (last_month['Close'] * last_month['Volume']).fillna(0)
+            
+            # --- CORREZIONE ERRORE VOLUMI MACROECONOMICI ---
+            if "Crypto" in sec:
+                # Le Crypto su YF hanno già il volume in Dollari. Non moltiplichiamo per il prezzo!
+                liquidity_series = last_month['Volume'].fillna(0)
+                
+            elif "Forex" in sec:
+                # Il Forex su YF ha volume fittizio (quasi zero). Assegniamo un proxy reale 
+                # per le major (es. 400 miliardi di media giornaliera per singola coppia).
+                liquidity_series = pd.Series([400_000_000_000] * len(last_month))
+                
+            elif "Indices" in sec:
+                # Molti indici puri (es. ^GSPC) hanno volume 0 su YF. 
+                # Proviamo a calcolarlo, ma se è zero/finto usiamo un proxy (es. 150 miliardi per i futures).
+                liquidity_series = (last_month['Close'] * last_month['Volume']).fillna(0)
+                if liquidity_series.mean() < 10000: 
+                    liquidity_series = pd.Series([150_000_000_000] * len(last_month))
+                    
+            else:
+                # Azioni standard, Big Tech, Energy, ecc: Prezzo * Numero Azioni
+                liquidity_series = (last_month['Close'] * last_month['Volume']).fillna(0)
+
             avg_liquidity = liquidity_series.mean()
         except:
             avg_liquidity = 0.0
