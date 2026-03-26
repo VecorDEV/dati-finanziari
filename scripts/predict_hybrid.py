@@ -2409,9 +2409,22 @@ for sym, score in percentuali_combine.items():
     df = dati_storici_all[sym]
     if len(df) < 20: continue
     
+    # 1. Estrai l'ultimo volume disponibile
     vol_today = df['Volume'].iloc[-1]
-    vol_avg = df['Volume'].tail(20).mean()
-    vol_surge = vol_today / vol_avg if vol_avg > 0 else 1.0
+    
+    # 2. Controllo Mercato Chiuso / Dati Assenti
+    if vol_today == 0 and len(df) >= 2:
+        # Prendi il volume di ieri (ultima sessione valida)
+        vol_today = df['Volume'].iloc[-2]
+        # Calcola la media dei 20 giorni saltando la giornata odierna "vuota"
+        vol_avg = df['Volume'].iloc[-21:-1].mean() if len(df) > 20 else df['Volume'].iloc[:-1].mean()
+    else:
+        # Se il volume c'è, calcola normalmente
+        vol_avg = df['Volume'].tail(20).mean()
+        
+    # 3. Calcolo finale del Volume Relativo (RVOL)
+    vol_surge = (vol_today / vol_avg) if vol_avg > 0 else 1.0
+    
     rsi = indicator_data.get(sym, {}).get("RSI (14)", 50)
     pat_score, _ = PatternAnalyzer(df).get_pattern_info()
     sup, res = calculate_support_resistance(df)
