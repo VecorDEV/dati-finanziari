@@ -1661,72 +1661,72 @@ except:
 print("Classifica Momentum creata con successo!")
 
 
-# --- CLASSIFICA SETTORI (LIQUIDITY WEIGHTED) ---
-print("Generazione Classifica Settori (Liquidity Weighted)...")
+# --- CLASSIFICA SETTORI (RVOL & RETRO-COMPATIBILITA') ---
+print("Generazione Classifica Settori (RVOL Weighted)...")
 
-# 1. Raccogliamo i dati grezzi per calcolare i pesi relativi
+# 1. Raccogliamo i dati grezzi per calcolare i pesi
 sector_assets = defaultdict(list)
 
 for symbol, score in percentuali_combine.items():
     sec = asset_sector_map.get(symbol, "Altro")
-    avg_liquidity = 0.0
+    
+    avg_liquidity_old = 0.0
+    rvol = 1.0 # Default neutro
     
     if symbol in dati_storici_all:
         df = dati_storici_all[symbol]
         try:
-            # Prendiamo gli ultimi 20 giorni (1 mese di trading)
+            # Prendiamo gli ultimi 20 giorni
             last_month = df.tail(20).copy()
             
-            # --- CORREZIONE ERRORE VOLUMI MACROECONOMICI ---
-            if "Crypto" in sec:
-                # Le Crypto su YF hanno già il volume in Dollari. Non moltiplichiamo per il prezzo!
-                liquidity_series = last_month['Volume'].fillna(0)
+            # --- VECCHIO CALCOLO (Mantenuto per NON far crashare l'app in produzione) ---
+            liquidity_series = (last_month['Close'] * last_month['Volume']).fillna(0)
+            avg_liquidity_old = liquidity_series.mean()
+            if avg_liquidity_old <= 0 or pd.isna(avg_liquidity_old):
+                avg_liquidity_old = 1000.0 
                 
-            elif "Forex" in sec:
-                # Il Forex su YF ha volume fittizio (quasi zero). Assegniamo un proxy reale 
-                # per le major (es. 400 miliardi di media giornaliera per singola coppia).
-                liquidity_series = pd.Series([400_000_000_000] * len(last_month))
-                
-            elif "Indices" in sec:
-                # Molti indici puri (es. ^GSPC) hanno volume 0 su YF. 
-                # Proviamo a calcolarlo, ma se è zero/finto usiamo un proxy (es. 150 miliardi per i futures).
-                liquidity_series = (last_month['Close'] * last_month['Volume']).fillna(0)
-                if liquidity_series.mean() < 10000: 
-                    liquidity_series = pd.Series([150_000_000_000] * len(last_month))
-                    
-            else:
-                # Azioni standard, Big Tech, Energy, ecc: Prezzo * Numero Azioni
-                liquidity_series = (last_month['Close'] * last_month['Volume']).fillna(0)
-
-            avg_liquidity = liquidity_series.mean()
+            # --- NUOVO CALCOLO PROFESSIONALE (RVOL) ---
+            vol_today = last_month['Volume'].iloc[-1]
+            vol_mean = last_month['Volume'].mean()
+            if pd.notna(vol_today) and vol_mean > 0:
+                rvol = vol_today / vol_mean
+            # Limitiamo gli eccessi tra 0.1 e 10.0 per evitare distorsioni matematiche
+            rvol = max(0.1, min(rvol, 10.0))
+            
         except:
-            avg_liquidity = 0.0
-    
-    if avg_liquidity <= 0 or pd.isna(avg_liquidity):
-        avg_liquidity = 1000.0 
+            avg_liquidity_old = 1000.0
+            rvol = 1.0
+    else:
+        avg_liquidity_old = 1000.0
+        rvol = 1.0
         
     sector_assets[sec].append({
         'symbol': symbol,
         'score': score,
-        'liquidity': avg_liquidity
+        'liquidity_old': avg_liquidity_old,
+        'rvol': rvol
     })
 
 # 2. Calcolo Score Ponderato per Settore
 sector_final_scores = []
 
 for sec, assets in sector_assets.items():
-    # Somma totale della liquidità del settore
-    total_sector_liquidity = sum(a['liquidity'] for a in assets)
+    # Somma della VECCHIA liquidità (per la colonna letta dalla vecchia App)
+    total_sector_liquidity_old = sum(a['liquidity_old'] for a in assets)
+    
+    # Somma del NUOVO RVOL (Per la nuova colonna e per il calcolo dello score)
+    total_sector_rvol = sum(a['rvol'] for a in assets)
     
     weighted_score_sum = 0.0
     asset_count = len(assets)
     
-    # Trova il leader per liquidità
-    top_asset = max(assets, key=lambda x: x['liquidity'])
+    # Trova il leader in base a chi sta spingendo di più oggi (RVOL)
+    top_asset = max(assets, key=lambda x: x['rvol'])
     leader_name = top_asset['symbol']
     
     for asset in assets:
-        weight = asset['liquidity'] / total_sector_liquidity
+        # Ponderiamo il settore sul NUOVO RVOL (molto più professionale e veritiero)
+        weight = asset['rvol'] / total_sector_rvol if total_sector_rvol > 0 else (1.0 / asset_count)
         weighted_score_sum += (asset['score'] * weight)
         
     sector_final_scores.append({
@@ -1734,7 +1734,8 @@ for sec, assets in sector_assets.items():
         'avg': weighted_score_sum,
         'count': asset_count,
         'leader': leader_name,
-        'total_vol_raw': total_sector_liquidity # Manteniamo il valore numerico puro
+        'total_vol_old': total_sector_liquidity_old,
+        'sector_rvol': round((total_sector_rvol / asset_count), 2)
     })
 
 # 3. Ordinamento
@@ -1752,14 +1753,15 @@ html_sector = [
     ".neutral {color: #333;}",
     "</style>",
     "</head><body>",
-    "<h1>📊 Performance Settoriale (Volume Weighted)</h1>",
-    "<p>Classifica ponderata sulla <b>Liquidità (Dollar Volume)</b>. Gli asset che muovono più denaro influenzano maggiormente il punteggio del settore.</p>",
-    "<table><tr><th>Pos</th><th>Settore</th><th>Dominant Asset</th><th>Score Ponderato</th><th>Asset</th><th>Trend</th><th>Volume Movimentato</th></tr>"
+    "<h1>📊 Performance Settoriale (RVOL Weighted)</h1>",
+    "<p>Classifica ponderata sul <b>Volume Relativo (RVOL)</b>. I settori con volumi in accelerazione rispetto alla media dominano il punteggio.</p>",
+    "<table><tr><th>Pos</th><th>Settore</th><th>Dominant Asset</th><th>Score Ponderato</th><th>Asset</th><th>Trend</th><th>Volume Movimentato</th><th>RVOL (Nuovo)</th></tr>"
 ]
 
 for idx, item in enumerate(sorted_sectors, 1):
     avg = item['avg']
-    vol_int = int(item['total_vol_raw']) # Convertiamo in intero puro, non formattato
+    vol_int = int(item['total_vol_old']) # Il vecchio valore per non far crashare l'App!
+    rvol_val = item['sector_rvol']
     
     if avg >= 55:
         style_class = "bull"
@@ -1777,7 +1779,8 @@ for idx, item in enumerate(sorted_sectors, 1):
         style_class = "neutral"
         trend_label = "NEUTRAL"
     
-    # Inserimento dati: Volume Movimentato inserito come ULTIMO elemento del tr
+    # Attenzione all'ordine dei td: Volume Movimentato resta il 7° elemento (indice 6 in java)
+    # RVOL viene aggiunto alla fine come 8° elemento (indice 7 in java)
     html_sector.append(
         f"<tr>"
         f"<td>{idx}</td>"
@@ -1787,6 +1790,7 @@ for idx, item in enumerate(sorted_sectors, 1):
         f"<td>{item['count']}</td>"
         f"<td class='{style_class}'>{trend_label}</td>"
         f"<td>{vol_int}</td>"
+        f"<td><b>{rvol_val}x</b></td>"
         f"</tr>"
     )
 
@@ -1799,7 +1803,7 @@ try:
 except:
     repo.create_file(sector_path, "Cre Sector Rank Liquidity", "\n".join(html_sector))
 
-print("Classifica Settori (Liquidity) aggiornata con successo!")
+print("Classifica Settori (RVOL) aggiornata con successo in totale sicurezza!")
 
 
 
