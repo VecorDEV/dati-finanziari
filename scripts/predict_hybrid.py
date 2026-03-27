@@ -1325,7 +1325,7 @@ def get_sentiment_for_all_symbols(symbol_list):
                 except: pass
                 
                 # Storico HTML
-                hist = data.tail(1260).copy()
+                hist = data.copy()
                 hist['Date'] = hist.index.strftime('%Y-%m-%d')
                 dati_storici_html = hist[['Date','Close','High','Low','Open','Volume']].to_html(index=False, border=1)
 
