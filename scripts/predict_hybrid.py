@@ -1206,7 +1206,7 @@ def get_sentiment_for_all_symbols(symbol_list):
 
         try:
             ticker = str(adjusted_symbol).strip().upper()
-            data = yf.download(ticker, period="3y", auto_adjust=True, progress=False)
+            data = yf.download(ticker, period="5y", auto_adjust=True, progress=False)
 
             if not data.empty:
                 if isinstance(data.columns, pd.MultiIndex):
@@ -1325,7 +1325,7 @@ def get_sentiment_for_all_symbols(symbol_list):
                 except: pass
                 
                 # Storico HTML
-                hist = data.tail(400).copy()
+                hist = data.tail(1260).copy()
                 hist['Date'] = hist.index.strftime('%Y-%m-%d')
                 dati_storici_html = hist[['Date','Close','High','Low','Open','Volume']].to_html(index=False, border=1)
 
