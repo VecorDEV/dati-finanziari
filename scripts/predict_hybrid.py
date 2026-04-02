@@ -1172,6 +1172,18 @@ def get_sentiment_for_all_symbols(symbol_list):
             else: leader_trends[ticker] = 0.0
         except: leader_trends[ticker] = 0.0
 
+    # --- SETUP CACHE INSIDER (Eseguito una sola volta) ---
+    import os
+    CACHE_FILE = "insider_cache.json"
+    oggi_str = datetime.now().strftime("%Y-%m-%d")
+    insider_cache = {}
+    if os.path.exists(CACHE_FILE):
+        try:
+            with open(CACHE_FILE, "r") as f:
+                insider_cache = json.load(f)
+        except Exception: pass
+    # -----------------------------------------------------
+    
     # Loop Principale
     for symbol, adjusted_symbol in zip(symbol_list, symbol_list_for_yfinance):
         # 1. News & Sentiment
@@ -1329,100 +1341,135 @@ def get_sentiment_for_all_symbols(symbol_list):
                 hist['Date'] = hist.index.strftime('%Y-%m-%d')
                 dati_storici_html = hist[['Date','Close','High','Low','Open','Volume']].to_html(index=False, border=1)
 
-                # --- INSIDER SELLS (LOGICA A CASCATA: OPENINSIDER -> YFINANCE) ---
+                # --- INSIDER TRADING (SELLS & BUYS CON CACHE GIORNALIERA) ---
                 sells_data = None
-        
-                # 1. TENTATIVO PRINCIPALE: OPENINSIDER (Ottimizzato per USA)
-                try:
-                    # Filtro: Usiamo OpenInsider solo se sembra un'azione USA standard.
-                    # Scartiamo simboli con =, ^, -USD (Crypto/Indici) e suffissi europei (.MI, .PA, ecc)
-                    is_likely_us_stock = not any(x in str(adjusted_symbol) for x in ["=", "^", "-USD", ".MI", ".PA", ".DE", ".L", ".MC", ".HE", ".LS"])
+                buys_data = None
+                dati_da_cache = False
+
+                # 1. CONTROLLO CACHE
+                if adjusted_symbol in insider_cache and insider_cache[adjusted_symbol].get("date") == oggi_str:
+                    sells_data = insider_cache[adjusted_symbol].get("sells")
+                    buys_data = insider_cache[adjusted_symbol].get("buys")
+                    dati_da_cache = True
+
+                # 2. SCARICAMENTO (Solo se non in cache)
+                if not dati_da_cache:
+                    # Categorizziamo l'asset per non sprecare chiamate API
+                    is_crypto_forex_index = any(x in str(adjusted_symbol) for x in ["=", "^", "-USD"])
+                    is_us_stock = not is_crypto_forex_index and not any(x in str(adjusted_symbol) for x in [".MI", ".PA", ".DE", ".L", ".MC", ".HE", ".LS"])
                     
-                    if is_likely_us_stock:
-                        # Usa adjusted_symbol per evitare errori su ticker ambigui
-                        url = f"http://openinsider.com/screener?s={adjusted_symbol}&o=&cnt=1000"
-                        tables = pd.read_html(url)
-                        
-                        if len(tables) > 0:
-                            insider_trades = max(tables, key=lambda t: t.shape[0])
-                            # Pulizia Dati
-                            insider_trades['Value_clean'] = insider_trades['Value'].replace(r'[\$,]', '', regex=True).astype(float)
-                            sells = insider_trades[insider_trades['Trade\xa0Type'].str.contains("Sale", na=False)].copy()
-                            
-                            if not sells.empty:
-                                sells['Trade Date'] = pd.to_datetime(insider_trades['Trade\xa0Date'])
-                                daily_sells = sells.groupby('Trade Date')['Value_clean'].sum().abs().sort_index()
-        
-                                # Calcoli (Identici alla logica originale)
-                                last_day = daily_sells.index.max()
-                                last_value = daily_sells[last_day]
-                                max_daily = daily_sells.max()
-                                percent_of_max = (last_value / max_daily * 100) if max_daily != 0 else 0
-                                num_sells_last_day = len(sells[sells['Trade Date'] == last_day])
-        
-                                variance = 0
-                                if len(daily_sells) >= 2:
-                                    prev_val = daily_sells.iloc[-2]
-                                    if prev_val > 0:
-                                        variance = ((last_value - prev_val) / prev_val) * 100
-        
-                                # OUTPUT DIZIONARIO (Formato Standard)
-                                sells_data = {
-                                    'Last Day': last_day.strftime('%Y-%m-%d'),
-                                    'Last Day Total Sells ($)': f"{last_value:,.2f}",
-                                    'Last vs Max (%)': percent_of_max,
-                                    'Number of Sells Last Day': num_sells_last_day,
-                                    'Variance': variance 
-                                }
-                except Exception:
-                    pass # Se fallisce, prosegue al fallback
-        
-                # 2. TENTATIVO FALLBACK: YAHOO FINANCE (Per Europa e resto del mondo)
-                # Esegue solo se il primo tentativo non ha prodotto risultati
-                if sells_data is None:
-                    try:
-                        # Scarica transazioni da yfinance
-                        ticker_obj = yf.Ticker(adjusted_symbol)
-                        insider_df = ticker_obj.insider_transactions
-                        
-                        if not insider_df.empty:
-                            # Cerca colonne che contengono la descrizione (Text o Transaction)
-                            col_text = next((c for c in insider_df.columns if 'Text' in c or 'Transaction' in c), None)
-                            
-                            if col_text:
-                                # Filtra per "Sale" o "Sold"
-                                sells = insider_df[insider_df[col_text].astype(str).str.contains("Sale|Sold", case=False, na=False)].copy()
+                    if is_crypto_forex_index:
+                        # Crypto, Forex e Indici NON hanno insider trading.
+                        pass # Non facciamo nulla, sells e buys restano None.
+
+                    elif is_us_stock:
+                        # --- A. SOLO OPENINSIDER (Asset USA) ---
+                        # Per gli USA usiamo solo questo. Se manca un dato, significa che non c'è. Non chiamiamo l'API.
+                        try:
+                            url = f"http://openinsider.com/screener?s={adjusted_symbol}&o=&cnt=1000"
+                            tables = pd.read_html(url)
+                            if len(tables) > 0:
+                                insider_trades = max(tables, key=lambda t: t.shape[0])
+                                insider_trades['Value_clean'] = insider_trades['Value'].replace(r'[\$,]', '', regex=True).astype(float)
                                 
-                                # Verifica esistenza colonne necessarie ('Value' e 'Start Date')
-                                if not sells.empty and 'Value' in sells.columns and 'Start Date' in sells.columns:
-                                    sells['Value'] = sells['Value'].fillna(0).astype(float)
-                                    sells['Trade Date'] = pd.to_datetime(sells['Start Date'])
-                                    
-                                    daily_sells = sells.groupby('Trade Date')['Value'].sum().abs().sort_index()
-                                    
-                                    if not daily_sells.empty:
-                                        last_day = daily_sells.index.max()
-                                        last_value = daily_sells[last_day]
-                                        max_daily = daily_sells.max()
-                                        percent_of_max = (last_value / max_daily * 100) if max_daily != 0 else 0
-                                        num_sells_last_day = len(sells[sells['Trade Date'] == last_day])
-                                        
-                                        variance = 0
-                                        if len(daily_sells) >= 2:
-                                            prev_val = daily_sells.iloc[-2]
-                                            if prev_val > 0:
-                                                variance = ((last_value - prev_val) / prev_val) * 100
-        
-                                        # OUTPUT DIZIONARIO (Stesso Formato Standard)
-                                        sells_data = {
-                                            'Last Day': last_day.strftime('%Y-%m-%d'),
-                                            'Last Day Total Sells ($)': f"{last_value:,.2f}",
-                                            'Last vs Max (%)': percent_of_max,
-                                            'Number of Sells Last Day': num_sells_last_day,
-                                            'Variance': variance 
-                                        }
-                    except Exception:
-                        pass
+                                # Processa SELLS
+                                sells = insider_trades[insider_trades['Trade\xa0Type'].str.contains("Sale", na=False)].copy()
+                                if not sells.empty:
+                                    sells['Trade Date'] = pd.to_datetime(insider_trades['Trade\xa0Date'])
+                                    daily_sells = sells.groupby('Trade Date')['Value_clean'].sum().abs().sort_index()
+                                    last_day = daily_sells.index.max()
+                                    max_daily = daily_sells.max()
+                                    variance = ((daily_sells[last_day] - daily_sells.iloc[-2]) / daily_sells.iloc[-2] * 100) if len(daily_sells) >= 2 and daily_sells.iloc[-2] > 0 else 0
+                                    sells_data = {
+                                        'Last Day': last_day.strftime('%Y-%m-%d'),
+                                        'Last Day Total Sells ($)': f"{daily_sells[last_day]:,.2f}",
+                                        'Last vs Max (%)': (daily_sells[last_day] / max_daily * 100) if max_daily else 0,
+                                        'Number of Sells Last Day': len(sells[sells['Trade Date'] == last_day]),
+                                        'Variance': variance 
+                                    }
+
+                                # Processa BUYS
+                                buys = insider_trades[insider_trades['Trade\xa0Type'].str.contains("Purchase", na=False)].copy()
+                                if not buys.empty:
+                                    buys['Trade Date'] = pd.to_datetime(insider_trades['Trade\xa0Date'])
+                                    daily_buys = buys.groupby('Trade Date')['Value_clean'].sum().abs().sort_index()
+                                    last_day_b = daily_buys.index.max()
+                                    max_daily_b = daily_buys.max()
+                                    variance_b = ((daily_buys[last_day_b] - daily_buys.iloc[-2]) / daily_buys.iloc[-2] * 100) if len(daily_buys) >= 2 and daily_buys.iloc[-2] > 0 else 0
+                                    buys_data = {
+                                        'Last Day': last_day_b.strftime('%Y-%m-%d'),
+                                        'Last Day Total Buys ($)': f"{daily_buys[last_day_b]:,.2f}",
+                                        'Last vs Max (%)': (daily_buys[last_day_b] / max_daily_b * 100) if max_daily_b else 0,
+                                        'Number of Buys Last Day': len(buys[buys['Trade Date'] == last_day_b]),
+                                        'Variance': variance_b 
+                                    }
+                        except Exception: pass
+
+                    else:
+                        # --- B. SOLO API PROFESSIONALE (Europa, Asia, ecc.) ---
+                        try:
+                            API_KEY = FMP_API_KEY
+                            if not API_KEY:
+                                print("ATTENZIONE: Chiave FMP mancante!")
+                            url_api = f"https://financialmodelingprep.com/api/v4/insider-trading?symbol={adjusted_symbol}&page=0&apikey={API_KEY}"
+                            
+                            import requests
+                            response = requests.get(url_api)
+                            
+                            if response.status_code == 200 and len(response.json()) > 0:
+                                api_df = pd.DataFrame(response.json())
+                                
+                                if 'transactionDate' in api_df.columns and 'transactionType' in api_df.columns:
+                                    api_df['Trade Date'] = pd.to_datetime(api_df['transactionDate'])
+                                    if 'securitiesTransacted' in api_df.columns and 'price' in api_df.columns:
+                                        api_df['Value_clean'] = api_df['securitiesTransacted'] * api_df['price']
+                                    else:
+                                        api_df['Value_clean'] = 0.0 
+
+                                    # Processa SELLS 
+                                    sells = api_df[api_df['transactionType'].astype(str).str.contains("Sale|S-Sale", case=False, na=False)].copy()
+                                    if not sells.empty:
+                                        daily_sells = sells.groupby('Trade Date')['Value_clean'].sum().abs().sort_index()
+                                        if not daily_sells.empty:
+                                            last_day = daily_sells.index.max()
+                                            max_daily = daily_sells.max()
+                                            variance = ((daily_sells[last_day] - daily_sells.iloc[-2]) / daily_sells.iloc[-2] * 100) if len(daily_sells) >= 2 and daily_sells.iloc[-2] > 0 else 0
+                                            sells_data = {
+                                                'Last Day': last_day.strftime('%Y-%m-%d'),
+                                                'Last Day Total Sells ($)': f"{daily_sells[last_day]:,.2f}",
+                                                'Last vs Max (%)': (daily_sells[last_day] / max_daily * 100) if max_daily else 0,
+                                                'Number of Sells Last Day': len(sells[sells['Trade Date'] == last_day]),
+                                                'Variance': variance 
+                                            }
+
+                                    # Processa BUYS
+                                    buys = api_df[api_df['transactionType'].astype(str).str.contains("Buy|P-Purchase", case=False, na=False)].copy()
+                                    if not buys.empty:
+                                        daily_buys = buys.groupby('Trade Date')['Value_clean'].sum().abs().sort_index()
+                                        if not daily_buys.empty:
+                                            last_day_b = daily_buys.index.max()
+                                            max_daily_b = daily_buys.max()
+                                            variance_b = ((daily_buys[last_day_b] - daily_buys.iloc[-2]) / daily_buys.iloc[-2] * 100) if len(daily_buys) >= 2 and daily_buys.iloc[-2] > 0 else 0
+                                            buys_data = {
+                                                'Last Day': last_day_b.strftime('%Y-%m-%d'),
+                                                'Last Day Total Buys ($)': f"{daily_buys[last_day_b]:,.2f}",
+                                                'Last vs Max (%)': (daily_buys[last_day_b] / max_daily_b * 100) if max_daily_b else 0,
+                                                'Number of Buys Last Day': len(buys[buys['Trade Date'] == last_day_b]),
+                                                'Variance': variance_b 
+                                            }
+                        except Exception as e:
+                            print(f"Errore API per {adjusted_symbol}: {e}")
+
+                    # 3. SALVA IN CACHE
+                    insider_cache[adjusted_symbol] = {
+                        "date": oggi_str,
+                        "sells": sells_data,
+                        "buys": buys_data
+                    }
+                    try:
+                        with open(CACHE_FILE, "w") as f:
+                            json.dump(insider_cache, f)
+                    except Exception: pass
 
         except Exception as e: print(f"Err {symbol}: {e}")
         
@@ -1448,6 +1495,7 @@ def get_sentiment_for_all_symbols(symbol_list):
             "<h2>Informative Sells</h2>"
         ]
         
+        # RENDERING SELLS
         if sells_data:
             html_content += [
                 f"<p><strong>Ultimo giorno registrato:</strong> {sells_data['Last Day']}</p>",
@@ -1458,6 +1506,19 @@ def get_sentiment_for_all_symbols(symbol_list):
             ]
         else:
             html_content.append("<p>Informative Sells non disponibili.</p>")
+
+        # RENDERING BUYS (NUOVO BLOCCO SEPARATO)
+        html_content.append("<h2>Informative Buys</h2>")
+        if buys_data:
+            html_content += [
+                f"<p><strong>Ultimo giorno registrato:</strong> {buys_data['Last Day']}</p>",
+                f"<p><strong>Totale acquisti ultimo giorno ($):</strong> {buys_data['Last Day Total Buys ($)']}</p>",
+                f"<p><strong>% rispetto al massimo storico giornaliero:</strong> {buys_data['Last vs Max (%)']:.2f}%</p>",
+                f"<p><strong>Transazioni recenti:</strong> {buys_data['Number of Buys Last Day']}</p>",
+                f"<p><strong>Variazione:</strong> {buys_data['Variance']:.2f}%</p>"
+            ]
+        else:
+            html_content.append("<p>Informative Buys non disponibili.</p>")
             
         html_content.append("<h2>Dati Storici (ultimi 90 giorni)</h2>")
         html_content.append(dati_storici_html if dati_storici_html else "<p>N/A</p>")
