@@ -1354,17 +1354,18 @@ def get_sentiment_for_all_symbols(symbol_list):
 
                 # 2. SCARICAMENTO (Solo se non in cache)
                 if not dati_da_cache:
-                    # Categorizziamo l'asset per non sprecare chiamate API
+                    # --- LOGICA DI SMISTAMENTO BLINDATA ---
                     is_crypto_forex_index = any(x in str(adjusted_symbol) for x in ["=", "^", "-USD"])
-                    is_us_stock = not is_crypto_forex_index and not any(x in str(adjusted_symbol) for x in [".MI", ".PA", ".DE", ".L", ".MC", ".HE", ".LS"])
+                    # Un'azione USA tipicamente NON ha punti nel ticker (es: AAPL, MSFT, TSLA)
+                    # Le azioni internazionali hanno sempre il suffisso dopo il punto (es: ISP.MI, SAP.DE)
+                    is_international = "." in str(adjusted_symbol) and not is_crypto_forex_index
                     
                     if is_crypto_forex_index:
-                        # Crypto, Forex e Indici NON hanno insider trading.
-                        pass # Non facciamo nulla, sells e buys restano None.
+                        # SKIP TOTALE: Crypto, Forex e Indici NON hanno insider trading.
+                        pass
 
-                    elif is_us_stock:
-                        # --- A. SOLO OPENINSIDER (Asset USA) ---
-                        # Per gli USA usiamo solo questo. Se manca un dato, significa che non c'è. Non chiamiamo l'API.
+                    elif not is_international:
+                        # --- A. SOLO OPENINSIDER (Azioni USA) ---
                         try:
                             url = f"http://openinsider.com/screener?s={adjusted_symbol}&o=&cnt=1000"
                             tables = pd.read_html(url)
@@ -1507,7 +1508,7 @@ def get_sentiment_for_all_symbols(symbol_list):
         else:
             html_content.append("<p>Informative Sells non disponibili.</p>")
 
-        # RENDERING BUYS (NUOVO BLOCCO SEPARATO)
+        # RENDERING BUYS
         html_content.append("<h2>Informative Buys</h2>")
         if buys_data:
             html_content += [
