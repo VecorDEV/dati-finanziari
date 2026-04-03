@@ -855,14 +855,12 @@ class BacktestSystem:
 
 
 
-
-
 # ==============================================================================
 # CLASSE PATTERN ANALYZER (PROFESSIONALE)
 # ==============================================================================
 class PatternAnalyzer:
     def __init__(self, df):
-        if isinstance(df.columns, pd.MultiIndex):
+        if hasattr(df.columns, 'levels'): # Check più sicuro per MultiIndex
             self.o = df['Open'].iloc[:, 0].values
             self.h = df['High'].iloc[:, 0].values
             self.l = df['Low'].iloc[:, 0].values
@@ -876,7 +874,6 @@ class PatternAnalyzer:
     def get_pattern_score(self):
         """
         Returns a score between -1.0 (Strong Bearish) and +1.0 (Strong Bullish).
-        Used for mathematical calculation in HybridScorer.
         """
         score, _ = self._analyze_logic()
         return score
@@ -884,75 +881,125 @@ class PatternAnalyzer:
     def get_pattern_info(self):
         """
         Returns: (Numeric Score, String with English pattern names)
-        Used for HTML display and App text.
         """
         score, patterns = self._analyze_logic()
-        # Se la lista è vuota, restituisce stringa inglese
         pattern_text = ", ".join(patterns) if patterns else "No significant patterns"
         return score, pattern_text
 
     def _analyze_logic(self):
-        """
-        Internal logic to avoid code duplication between score and info.
-        """
         score = 0.0
         patterns_found = []
         limit = len(self.c)
         
         if limit < 20: return 0.0, ["Insufficient Data"]
         
-        # --- A. CANDLESTICK ANALYSIS (Last 3 days) ---
+        # --- A. CONTEXT & TREND IDENTIFICATION ---
         i = limit - 1
+        
+        # Simple trend detection (10 periods lookback)
+        sma_10 = np.mean(self.c[i-9:i+1])
+        trend_up = self.c[i] > sma_10 and self.c[i-1] > self.c[i-5]
+        trend_down = self.c[i] < sma_10 and self.c[i-1] < self.c[i-5]
+
+        # Current and previous candles
         c1, c2, c3 = self.c[i-2], self.c[i-1], self.c[i]
         o1, o2, o3 = self.o[i-2], self.o[i-1], self.o[i]
-        h3, l3 = self.h[i], self.l[i]
+        h1, h2, h3 = self.h[i-2], self.h[i-1], self.h[i]
+        l1, l2, l3 = self.l[i-2], self.l[i-1], self.l[i]
+        
+        body1 = abs(c1 - o1)
+        body2 = abs(c2 - o2)
         body3 = abs(c3 - o3)
-        range3 = h3 - l3 if h3 != l3 else 0.0001
+        
+        # --- B. CANDLESTICK PATTERNS (Context-Aware) ---
 
-        # 1. Bullish Engulfing
-        if c2 < o2 and c3 > o3 and c3 > o2 and o3 < c2: 
+        # 1. Bullish Engulfing (Valid only in Downtrend)
+        if trend_down and c2 < o2 and c3 > o3 and c3 > o2 and o3 < c2: 
             score += 0.4
             patterns_found.append("Bullish Engulfing")
         
-        # 2. Bearish Engulfing
-        if c2 > o2 and c3 < o3 and c3 < o2 and o3 > c2: 
+        # 2. Bearish Engulfing (Valid only in Uptrend)
+        if trend_up and c2 > o2 and c3 < o3 and c3 < o2 and o3 > c2: 
             score -= 0.4
             patterns_found.append("Bearish Engulfing")
 
-        # 3. Hammer
-        lower_shadow = min(c3, o3) - l3
-        if lower_shadow > (body3 * 2) and (h3 - max(c3, o3)) < body3: 
-            score += 0.3
-            patterns_found.append("Hammer")
+        # 3. Hammer & Hanging Man
+        lower_shadow3 = min(c3, o3) - l3
+        upper_shadow3 = h3 - max(c3, o3)
+        if lower_shadow3 > (body3 * 2.0) and upper_shadow3 < (body3 * 0.5):
+            if trend_down:
+                score += 0.3
+                patterns_found.append("Hammer")
+            elif trend_up:
+                score -= 0.3
+                patterns_found.append("Hanging Man")
 
-        # 4. Shooting Star
-        upper_shadow = h3 - max(c3, o3)
-        if upper_shadow > (body3 * 2) and (min(c3, o3) - l3) < body3: 
-            score -= 0.3
-            patterns_found.append("Shooting Star")
+        # 4. Shooting Star & Inverted Hammer
+        if upper_shadow3 > (body3 * 2.0) and lower_shadow3 < (body3 * 0.5):
+            if trend_up:
+                score -= 0.3
+                patterns_found.append("Shooting Star")
+            elif trend_down:
+                score += 0.3
+                patterns_found.append("Inverted Hammer")
 
-        # 5. Three White Soldiers
-        if c1 > o1 and c2 > o2 and c3 > o3 and c3 > c2 > c1: 
-            score += 0.3
+        # 5. Morning Star (Strong Bullish Reversal)
+        if trend_down and c1 < o1 and body1 > (self.h[i-2]-self.l[i-2])*0.5: # 1st red, strong
+            if body2 < body1 * 0.3: # 2nd small body (star)
+                if c3 > o3 and c3 > (o1 + c1) / 2: # 3rd green, pierces 1st
+                    score += 0.5
+                    patterns_found.append("Morning Star")
+
+        # 6. Evening Star (Strong Bearish Reversal)
+        if trend_up and c1 > o1 and body1 > (self.h[i-2]-self.l[i-2])*0.5: 
+            if body2 < body1 * 0.3: 
+                if c3 < o3 and c3 < (o1 + c1) / 2: 
+                    score -= 0.5
+                    patterns_found.append("Evening Star")
+
+        # 7. Three White Soldiers / Three Black Crows
+        if c1 > o1 and c2 > o2 and c3 > o3 and c3 > c2 > c1 and trend_down:
+            score += 0.4
             patterns_found.append("3 White Soldiers")
+        elif c1 < o1 and c2 < o2 and c3 < o3 and c3 < c2 < c1 and trend_up:
+            score -= 0.4
+            patterns_found.append("3 Black Crows")
 
-        # --- B. SUPPORT & RESISTANCE (Structural) ---
+        # 8. Doji (Indecision)
+        if body3 <= (h3 - l3) * 0.1 and (h3 - l3) > 0:
+            patterns_found.append("Doji")
+            # Doji non dà punteggio da sola, indica solo indecisione
+
+        # --- C. STRUCTURAL PATTERNS & S/R ---
         curr_price = c3
-        lookback = 126 
+        lookback = min(126, limit) 
         recent_h = self.h[-lookback:]
         recent_l = self.l[-lookback:]
+        max_h = np.max(recent_h)
+        min_l = np.np.min(recent_l)
         threshold = 0.02
         
-        # At Support?
-        if abs(curr_price - np.min(recent_l)) / curr_price <= threshold:
-            score += 0.4
-            patterns_found.append("At Support Level")
+        # Double Top / Double Bottom Detection (Simplified for backend scoring)
+        # Check if current price is near the max, but we've seen a drop in between
+        if abs(curr_price - max_h) / curr_price <= threshold:
+            # Siamo vicino ai massimi. È un Double Top?
+            if trend_up and self.h[i-1] < max_h * 0.98: # C'è stato un ritracciamento recente
+                score -= 0.5
+                patterns_found.append("Double Top Resistance")
+            else:
+                score -= 0.3
+                patterns_found.append("At Resistance Level")
 
-        # At Resistance?
-        if abs(curr_price - np.max(recent_h)) / curr_price <= threshold:
-            score -= 0.4
-            patterns_found.append("At Resistance Level")
+        elif abs(curr_price - min_l) / curr_price <= threshold:
+            # Siamo vicino ai minimi. È un Double Bottom?
+            if trend_down and self.l[i-1] > min_l * 1.02: # C'è stato un rimbalzo recente
+                score += 0.5
+                patterns_found.append("Double Bottom Support")
+            else:
+                score += 0.3
+                patterns_found.append("At Support Level")
 
+        # Normalizza il punteggio finale tra -1.0 e 1.0
         final_score = max(min(score, 1.0), -1.0)
         return final_score, patterns_found
 
