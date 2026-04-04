@@ -976,7 +976,7 @@ class PatternAnalyzer:
         recent_h = self.h[-lookback:]
         recent_l = self.l[-lookback:]
         max_h = np.max(recent_h)
-        min_l = np.np.min(recent_l)
+        min_l = np.min(recent_l)
         threshold = 0.02
         
         # Double Top / Double Bottom Detection (Simplified for backend scoring)
@@ -1252,11 +1252,16 @@ def get_sentiment_for_all_symbols(symbol_list):
         hybrid_prob = 50.0
         signal_str = "HOLD"
         sig_col = "black"
-        
         tabella_indicatori = None
         dati_storici_html = None
         tabella_fondamentali = None
+        holders_html = "<p>Dati sulla struttura azionaria non disponibili.</p>"
+        pat_text_names = "No significant patterns"
+        pat_sentiment_str = "NEUTRAL"
+        pat_color = "black"
+        pat_score_val = 0.0
         sells_data = None
+        buys_data = None
         
         sector = asset_sector_map.get(symbol, "General")
         leader_sym = sector_leaders.get(sector, "SPX500")
