@@ -1277,6 +1277,15 @@ def get_sentiment_for_all_symbols(symbol_list):
                      try: data = data.xs(ticker, axis=1, level=1)
                      except: pass
                 
+                # --- PULIZIA DATI (Elimina gli Zeri e riempie i buchi) ---
+                # 1. Sostituisce eventuali zeri (0) con NaN (Not a Number) in tutte le colonne
+                data = data.replace(0, np.nan)
+                # 2. Usa il "forward fill" (ffill) per copiare l'ultimo dato valido noto al posto del NaN
+                data = data.ffill()
+                # 3. Se per assurdo i primissimi giorni fossero NaN, usa il "backward fill" (bfill)
+                data = data.bfill()
+                # ---------------------------------------------------------
+                
                 close = data['Close']
                 high = data['High']
                 low = data['Low']
