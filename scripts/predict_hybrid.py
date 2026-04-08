@@ -1380,6 +1380,22 @@ def get_sentiment_for_all_symbols(symbol_list):
                     def safe_value(key):
                         val = info.get(key)
                         return round(val, 4) if isinstance(val, (int, float)) else "N/A"
+
+                    # --- DATI ISTITUZIONALI ---
+                    def safe_pct(key):
+                        val = info.get(key)
+                        return f"{round(val * 100, 2)}%" if isinstance(val, (int, float)) else "N/A"
+
+                    target_mean = info.get("targetMeanPrice", "N/A")
+                    dati_alternativi = {
+                        "Consensus Analisti": info.get("recommendationKey", "N/A").replace("_", " ").title(),
+                        "Target Price Medio": f"${target_mean}" if target_mean != "N/A" else "N/A",
+                        "N. Analisti": info.get("numberOfAnalystOpinions", "N/A"),
+                        "Proprietà Istituzionale": safe_pct("heldPercentInstitutions"),
+                        "Proprietà Insider": safe_pct("heldPercentInsiders"),
+                        "Azioni Shortate (Pessimismo)": safe_pct("shortPercentOfFloat")
+                    }
+                    # --- FINE DATI ISTITUZIONALI ---
                     
                     # Salviamo la Market Cap nei dati globali ma la teniamo fuori dalla tabella HTML singola
                     m_cap_raw = info.get("marketCap", "N/A")
@@ -1582,7 +1598,22 @@ def get_sentiment_for_all_symbols(symbol_list):
             ]
         else:
             html_content.append("<p>Informative Buys non disponibili.</p>")
-            
+
+        # --- TABELLA HTML ISTITUZIONALE ---
+        html_content.append("<h2>Analisi Istituzionale & Sentiment</h2>")
+        
+        # Usiamo try-except nel caso in cui i dati alternativi non siano stati valorizzati per un errore API
+        try:
+            html_content.append("<table border='1' style='border-collapse:collapse; width:100%; text-align:left;'>")
+            for chiave, valore in dati_alternativi.items():
+                # Evitiamo di stampare le righe vuote se Yahoo non ha i dati
+                if valore != "N/A" and valore != "N/A%":
+                    html_content.append(f"<tr><td style='padding:8px;'><strong>{chiave}:</strong></td><td style='padding:8px;'>{valore}</td></tr>")
+            html_content.append("</table>")
+        except NameError:
+            html_content.append("<p>Dati istituzionali non disponibili.</p>")
+        # --- FINE TABELLA ISTITUZIONALE ---
+        
         html_content.append("<h2>Dati Storici (ultimi 90 giorni)</h2>")
         html_content.append(dati_storici_html if dati_storici_html else "<p>N/A</p>")
         html_content.append("</body></html>")
