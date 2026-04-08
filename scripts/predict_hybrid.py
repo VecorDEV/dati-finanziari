@@ -63,6 +63,7 @@ history_path = f"{TARGET_FOLDER}/history.json"
 fire_path = f"{TARGET_FOLDER}/fire.html"
 pro_path = f"{TARGET_FOLDER}/classificaPRO.html"
 corr_path = f"{TARGET_FOLDER}/correlations.html"
+corr_pro_path = f"{TARGET_FOLDER}/correlations_pro.html"
 mom_path = f"{TARGET_FOLDER}/classifica_momentum.html"
 sector_path = f"{TARGET_FOLDER}/classifica_settori.html"
 
@@ -2700,47 +2701,157 @@ def calcola_correlazioni(dati_storici_all):
     assets = list(returns.keys())
     
     for asset1 in assets:
-        candidates = []
+        all_candidates = []
+        s1 = returns[asset1]
+        
         for asset2 in assets:
             if asset1 == asset2: continue
             
-            # Allineamento serie temporali
-            s1, s2 = returns[asset1], returns[asset2]
+            s2 = returns[asset2]
+            # Allineamento serie temporali standard
             common = s1.index.intersection(s2.index)
-            if len(common) < 30: continue
             
-            x, y = s1.loc[common], s2.loc[common]
+            # Filtro robustezza: servono almeno 60 giorni di borsa in comune
+            if len(common) < 60: continue
             
-            # Pearson & Spearman
-            try: p_r, _ = pearsonr(x, y)
-            except: p_r = 0
+            x = s1.loc[common]
+            y = s2.loc[common]
+            
+            # --- 1. GESTIONE EFFETTO LAG (Ritardo Fusi Orari) ---
+            # Calcolo Pearson standard
+            try: p_r_std, _ = pearsonr(x, y)
+            except: p_r_std = 0.0
+            
+            # Calcolo Pearson con Lag di 1 giorno per l'Asset 2
+            y_lagged = s2.shift(1).loc[common].dropna()
+            x_aligned = x.loc[y_lagged.index]
+            try:
+                if len(x_aligned) > 30:
+                    p_r_lag, _ = pearsonr(x_aligned, y_lagged)
+                else:
+                    p_r_lag = 0.0
+            except: p_r_lag = 0.0
+            
+            # Il sistema sceglie automaticamente la correlazione più forte
+            if abs(p_r_lag) > abs(p_r_std):
+                p_r = p_r_lag
+                lag_usato = True
+            else:
+                p_r = p_r_std
+                lag_usato = False
+
+            # Spearman (calcolato sulla serie standard)
             try: s_r, _ = spearmanr(x, y)
-            except: s_r = 0
+            except: s_r = 0.0
             
-            # Direzionalità (Concordanza segno)
+            # --- 2. VALORE ASSOLUTO E DIREZIONALITÀ ---
             conc = (np.sign(x) == np.sign(y)).mean() * 100
+            # Mappa la concordanza da [0, 100] a [-1.0, 1.0] per il punteggio combinato
+            conc_mapped = (conc / 50.0) - 1.0
             
-            score = (abs(p_r) + abs(s_r) + (conc/100)) / 3
+            # Score finale combinato che rispetta la direzione (da -1.0 a +1.0)
+            score = (p_r + s_r + conc_mapped) / 3.0
             
-            candidates.append({
+            # --- 3. CORRELAZIONE IN TEMPO DI CRISI (Downside Risk) ---
+            # Filtra solo i giorni in cui l'Asset 1 ha perso più dell'1.5%
+            giorni_di_crisi = x[x < -0.015].index
+            
+            if len(giorni_di_crisi) >= 5: # Requisito minimo statistico
+                x_crisi = x.loc[giorni_di_crisi]
+                y_crisi = y.loc[giorni_di_crisi]
+                try: pearson_crisi, _ = pearsonr(x_crisi, y_crisi)
+                except: pearson_crisi = None
+            else:
+                pearson_crisi = None # Non ci sono stati abbastanza crolli per calcolarla
+                
+            all_candidates.append({
                 "asset2": asset2,
+                "score": score,
                 "pearson": p_r,
                 "spearman": s_r,
                 "concordance": conc,
-                "score": score
+                "lag_usato": lag_usato,
+                "pearson_crisi": pearson_crisi
             })
             
-        results[asset1] = sorted(candidates, key=lambda x: x["score"], reverse=True)[:5]
+        # --- SUDDIVISIONE TOP 10 DIRETTE E INVERSE ---
+        all_candidates.sort(key=lambda item: item["score"], reverse=True)
+        
+        # Le 10 più forti in concordanza
+        top_direct = [c for c in all_candidates if c["score"] > 0][:10]
+        # Le 10 più forti in opposizione (dal più negativo verso lo zero)
+        top_inverse = sorted([c for c in all_candidates if c["score"] < 0], key=lambda item: item["score"])[:10]
+        
+        results[asset1] = {
+            "dirette": top_direct,
+            "inverse": top_inverse
+        }
+        
     return results
 
-def salva_correlazioni_html(correlazioni, repo, file_path=corr_path):
-    html_corr = ["<html><head><title>Correlazioni</title></head><body><h1>Correlazioni Statistiche</h1><table border='1'><tr><th>Asset</th><th>Partner</th><th>Pearson</th><th>Spearman</th><th>Direzionalità (%)</th></tr>"]
-    for sym, entries in correlazioni.items():
-        for info in entries:
-            html_corr.append(f"<tr><td>{sym}</td><td>{info['asset2']}</td><td>{info['pearson']:.2f}</td><td>{info['spearman']:.2f}</td><td>{info['concordance']:.1f}%</td></tr>")
-    html_corr.append("</table></body></html>")
-    try: repo.update_file(file_path, "Upd Corr", "\n".join(html_corr), repo.get_contents(file_path).sha)
-    except: repo.create_file(file_path, "Cre Corr", "\n".join(html_corr))
+
+def salva_correlazioni_html(correlazioni, repo, file_path=corr_pro_path):
+    html_corr = [
+        "<html><head><title>Correlazioni PRO</title>",
+        "<style>",
+        "body {font-family: Arial, sans-serif; padding: 20px; color: #333;}",
+        "table {border-collapse: collapse; width: 100%; margin-bottom: 40px; font-size: 14px;}",
+        "th, td {border: 1px solid #ddd; padding: 10px; text-align: center;}",
+        "th {background-color: #f8f9fa;}",
+        ".dir {color: #198754; font-weight: bold;}",
+        ".inv {color: #dc3545; font-weight: bold;}",
+        ".alert {color: #dc3545;}",
+        "h2 {margin-top: 50px; border-bottom: 2px solid #ccc; padding-bottom: 5px; color: #2c3e50;}",
+        "h3 {font-size: 16px; margin-bottom: 10px; color: #555;}",
+        "</style>",
+        "</head><body>",
+        "<h1>Analisi Correlazioni Statistiche Avanzate</h1>",
+        "<p>Punteggio da -1.0 (Inversa) a +1.0 (Diretta). Include compensazione Fusi Orari (Lag) e Stress Test durante i crolli di mercato (Drop > 1.5%).</p>"
+    ]
+    
+    for sym, data in correlazioni.items():
+        html_corr.append(f"<h2>Asset: {sym}</h2>")
+        
+        # --- TOP 10 DIRETTE ---
+        html_corr.append("<h3>🔥 Top 10 Dirette (Si muovono all'unisono)</h3>")
+        if data['dirette']:
+            html_corr.append("<table><tr><th>Partner</th><th>Score Combinato</th><th>Pearson</th><th>Spearman</th><th>Concordanza Direz.</th><th>Stress Test (Crisi)</th><th>Lag Rilevato</th></tr>")
+            for info in data['dirette']:
+                lag_str = "⚠️ Sì (1g)" if info['lag_usato'] else "No"
+                crisi_str = f"{info['pearson_crisi']:.2f}" if info['pearson_crisi'] is not None else "N/A"
+                html_corr.append(f"<tr><td><b>{info['asset2']}</b></td><td class='dir'>+{info['score']:.2f}</td><td>{info['pearson']:.2f}</td><td>{info['spearman']:.2f}</td><td>{info['concordance']:.1f}%</td><td>{crisi_str}</td><td>{lag_str}</td></tr>")
+            html_corr.append("</table>")
+        else:
+            html_corr.append("<p>Nessuna correlazione diretta rilevante.</p>")
+            
+        # --- TOP 10 INVERSE ---
+        html_corr.append("<h3>🛡️ Top 10 Inverse (Potenziale Hedging / Copertura)</h3>")
+        if data['inverse']:
+            html_corr.append("<table><tr><th>Partner</th><th>Score Combinato</th><th>Pearson</th><th>Spearman</th><th>Concordanza Direz.</th><th>Stress Test (Crisi)</th><th>Lag Rilevato</th></tr>")
+            for info in data['inverse']:
+                lag_str = "⚠️ Sì (1g)" if info['lag_usato'] else "No"
+                
+                # Formattazione per evidenziare se un asset inverso smette di esserlo durante le crisi
+                crisi_val = info['pearson_crisi']
+                if crisi_val is None:
+                    crisi_str = "N/A"
+                elif crisi_val > 0.3:
+                    crisi_str = f"<span class='alert'>{crisi_val:.2f} (Falso Sicuro)</span>"
+                else:
+                    crisi_str = f"{crisi_val:.2f}"
+                    
+                html_corr.append(f"<tr><td><b>{info['asset2']}</b></td><td class='inv'>{info['score']:.2f}</td><td>{info['pearson']:.2f}</td><td>{info['spearman']:.2f}</td><td>{info['concordance']:.1f}%</td><td>{crisi_str}</td><td>{lag_str}</td></tr>")
+            html_corr.append("</table>")
+        else:
+            html_corr.append("<p>Nessuna correlazione inversa rilevante.</p>")
+            
+    html_corr.append("</body></html>")
+    
+    try: 
+        c = repo.get_contents(file_path)
+        repo.update_file(file_path, "Upd Corr PRO", "\n".join(html_corr), c.sha)
+    except: 
+        repo.create_file(file_path, "Cre Corr PRO", "\n".join(html_corr))
 
 print("Calcolo Correlazioni...")
 correlazioni = calcola_correlazioni(dati_storici_all)
