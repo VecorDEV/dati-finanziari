@@ -98,10 +98,13 @@ sector_leaders = {
     "11. Media & Telecom": "NFLX",
     "12. Indices (Global)": "SPX500",
     "13. Forex (Currencies)": "EURUSD",
-    "14. Crypto Assets": "BTCUSD"
+    "14. Crypto Assets": "BTCUSD",
+    "15. ETFs & Funds": "SPY",                 # New: Leader per volume
+    "16. Agricultural Commodities": "CORN"     # New: Leader per scambi agricoli
 }
 
 asset_sector_map = {
+    # --- 1. Big Tech, Software & Internet ---
     "AAPL": "1. Big Tech, Software & Internet", "MSFT": "1. Big Tech, Software & Internet", 
     "GOOGL": "1. Big Tech, Software & Internet", "AMZN": "1. Big Tech, Software & Internet",
     "META": "1. Big Tech, Software & Internet", "ADBE": "1. Big Tech, Software & Internet",
@@ -114,11 +117,18 @@ asset_sector_map = {
     "DUOL": "1. Big Tech, Software & Internet", "JD": "1. Big Tech, Software & Internet",
     "NET": "1. Big Tech, Software & Internet", "PDD": "1. Big Tech, Software & Internet",
     "BTDR": "1. Big Tech, Software & Internet", "DDOG": "1. Big Tech, Software & Internet",
-    "ZM": "1. Big Tech, Software & Internet",
+    "ZM": "1. Big Tech, Software & Internet", "MELI": "1. Big Tech, Software & Internet",
+    "SAP.DE": "1. Big Tech, Software & Internet",
+
+    # --- 2. Semiconductors & AI ---
     "NVDA": "2. Semiconductors & AI", "INTC": "2. Semiconductors & AI",
     "QCOM": "2. Semiconductors & AI", "ADI": "2. Semiconductors & AI",
     "ARM": "2. Semiconductors & AI", "CSCO": "2. Semiconductors & AI",
     "ACN": "2. Semiconductors & AI", "FIS": "2. Semiconductors & AI",
+    "AVGO": "2. Semiconductors & AI", "STM.MI": "2. Semiconductors & AI",
+    "ASML.AS": "2. Semiconductors & AI", "TSM": "2. Semiconductors & AI",
+
+    # --- 3. Financial Services ---
     "JPM": "3. Financial Services", "V": "3. Financial Services", 
     "PYPL": "3. Financial Services", "MS": "3. Financial Services",
     "GS": "3. Financial Services", "AXP": "3. Financial Services",
@@ -129,19 +139,38 @@ asset_sector_map = {
     "TROW": "3. Financial Services", "USB": "3. Financial Services",
     "PSA": "3. Financial Services", "COIN": "3. Financial Services",
     "UCG.MI": "3. Financial Services", "PST.MI": "3. Financial Services",
-    "ISP.MI": "3. Financial Services",
+    "ISP.MI": "3. Financial Services", "MA": "3. Financial Services",
+    "BRK-B": "3. Financial Services", "RY": "3. Financial Services",
+    "G.MI": "3. Financial Services", "UNI.MI": "3. Financial Services",
+    "HDB": "3. Financial Services", "ALV.DE": "3. Financial Services",
+    "HSBA.L": "3. Financial Services", "BNP.PA": "3. Financial Services",
+    "SAN.MC": "3. Financial Services", "BBVA.MC": "3. Financial Services",
+    "ITUB": "3. Financial Services", "NU": "3. Financial Services",
+    "DIB.AE": "3. Financial Services", "EMIRATESNBD.AE": "3. Financial Services",
+
+    # --- 4. Automotive & Mobility ---
     "TSLA": "4. Automotive & Mobility", "GM": "4. Automotive & Mobility",
     "NIO": "4. Automotive & Mobility", "STLAM.MI": "4. Automotive & Mobility",
     "HTZ": "4. Automotive & Mobility", "LCID": "4. Automotive & Mobility",
     "RIVN": "4. Automotive & Mobility", "UBER": "4. Automotive & Mobility",
     "LYFT": "4. Automotive & Mobility", "NAAS": "4. Automotive & Mobility",
+    "BA": "4. Automotive & Mobility", "AIR.PA": "4. Automotive & Mobility",
+    "RACE.MI": "4. Automotive & Mobility", "P911.DE": "4. Automotive & Mobility",
+    "TM": "4. Automotive & Mobility", "VOW3.DE": "4. Automotive & Mobility",
+    "MBG.DE": "4. Automotive & Mobility",
+
+    # --- 5. Healthcare & Pharma ---
     "LLY": "5. Healthcare & Pharma", "JNJ": "5. Healthcare & Pharma",
     "PFE": "5. Healthcare & Pharma", "MRK": "5. Healthcare & Pharma",
     "ABT": "5. Healthcare & Pharma", "BMY": "5. Healthcare & Pharma",
     "AMGN": "5. Healthcare & Pharma", "CVS": "5. Healthcare & Pharma",
     "BDX": "5. Healthcare & Pharma", "ZTS": "5. Healthcare & Pharma",
     "EW": "5. Healthcare & Pharma", "LNTH": "5. Healthcare & Pharma",
-    "SYK": "5. Healthcare & Pharma",
+    "SYK": "5. Healthcare & Pharma", "UNH": "5. Healthcare & Pharma",
+    "NVO": "5. Healthcare & Pharma", "AZN.L": "5. Healthcare & Pharma",
+    "SAN.PA": "5. Healthcare & Pharma",
+
+    # --- 6. Consumer Goods & Retail ---
     "WMT": "6. Consumer Goods & Retail", "KO": "6. Consumer Goods & Retail",
     "PEP": "6. Consumer Goods & Retail", "MCD": "6. Consumer Goods & Retail",
     "NKE": "6. Consumer Goods & Retail", "HD": "6. Consumer Goods & Retail",
@@ -149,39 +178,44 @@ asset_sector_map = {
     "LOW": "6. Consumer Goods & Retail", "TGT": "6. Consumer Goods & Retail",
     "TJX": "6. Consumer Goods & Retail", "CL": "6. Consumer Goods & Retail",
     "EL": "6. Consumer Goods & Retail", "SCHL": "6. Consumer Goods & Retail",
-    "COCOA": "6. Consumer Goods & Retail",
+    "MONC.MI": "6. Consumer Goods & Retail", "ULVR.L": "6. Consumer Goods & Retail",
+    "MC.PA": "6. Consumer Goods & Retail", "OR.PA": "6. Consumer Goods & Retail",
+    "ITX.MC": "6. Consumer Goods & Retail", "ABEV": "6. Consumer Goods & Retail",
+
+    # --- 7. Industrials & Defense ---
     "CAT": "7. Industrials & Defense", "LMT": "7. Industrials & Defense",
     "ITW": "7. Industrials & Defense", "FDX": "7. Industrials & Defense",
     "NSC": "7. Industrials & Defense", "GE": "7. Industrials & Defense",
     "HON": "7. Industrials & Defense", "DE": "7. Industrials & Defense",
     "LDO.MI": "7. Industrials & Defense", "BKNG": "7. Industrials & Defense",
-    "BA": "4. Automotive & Mobility", "AIR.PA": "4. Automotive & Mobility",
+    "SIE.DE": "7. Industrials & Defense", "EMAAR.AE": "7. Industrials & Defense",
+
+    # --- 8. Energy (Oil & Gas) ---
     "OIL": "8. Energy (Oil & Gas)", "NATGAS": "8. Energy (Oil & Gas)",
     "XOM": "8. Energy (Oil & Gas)", "CVX": "8. Energy (Oil & Gas)",
     "PBR": "8. Energy (Oil & Gas)", "NRG": "8. Energy (Oil & Gas)",
+    "ENI.MI": "8. Energy (Oil & Gas)", "SHEL.L": "8. Energy (Oil & Gas)",
+    "BP.L": "8. Energy (Oil & Gas)", "TTE.PA": "8. Energy (Oil & Gas)",
+
+    # --- 9. Utilities & Green ---
     "SO": "9. Utilities & Green", "ENEL.MI": "9. Utilities & Green",
     "DUK": "9. Utilities & Green", "AEP": "9. Utilities & Green",
     "D": "9. Utilities & Green", "HE": "9. Utilities & Green",
-    "APD": "9. Utilities & Green",
+    "APD": "9. Utilities & Green", "IBE.MC": "9. Utilities & Green",
+
+    # --- 10. Precious Metals & Materials ---
     "GOLD": "10. Precious Metals & Materials", "SILVER": "10. Precious Metals & Materials",
-    "VALE": "10. Precious Metals & Materials",
+    "COPPER": "10. Precious Metals & Materials", "VALE": "10. Precious Metals & Materials",
+    "RIO.L": "10. Precious Metals & Materials",
+
+    # --- 11. Media & Telecom ---
     "NFLX": "11. Media & Telecom", "DIS": "11. Media & Telecom",
     "T": "11. Media & Telecom", "TMUS": "11. Media & Telecom",
     "AMX": "11. Media & Telecom", "ROKU": "11. Media & Telecom",
-    "SAP.DE": "1. Big Tech, Software & Internet", "SIE.DE": "7. Industrials & Defense",
-    "ALV.DE": "3. Financial Services", "VOW3.DE": "4. Automotive & Mobility",
-    "MBG.DE": "4. Automotive & Mobility", "DTE.DE": "11. Media & Telecom",
-    "SHEL.L": "8. Energy (Oil & Gas)", "BP.L": "8. Energy (Oil & Gas)",
-    "HSBA.L": "3. Financial Services", "AZN.L": "5. Healthcare & Pharma",
-    "ULVR.L": "6. Consumer Goods & Retail", "RIO.L": "10. Precious Metals & Materials",
-    "MC.PA": "6. Consumer Goods & Retail", "TTE.PA": "8. Energy (Oil & Gas)",
-    "OR.PA": "6. Consumer Goods & Retail", "SAN.PA": "5. Healthcare & Pharma",
-    "BNP.PA": "3. Financial Services", "SAN.MC": "3. Financial Services",
-    "IBE.MC": "9. Utilities & Green", "ITX.MC": "6. Consumer Goods & Retail",
-    "BBVA.MC": "3. Financial Services", "TEF.MC": "11. Media & Telecom",
-    "ITUB": "3. Financial Services", "NU": "3. Financial Services",
-    "ABEV": "6. Consumer Goods & Retail", "EMAAR.AE": "7. Industrials & Defense",
-    "DIB.AE": "3. Financial Services", "EMIRATESNBD.AE": "3. Financial Services",
+    "SONY": "11. Media & Telecom", "DTE.DE": "11. Media & Telecom",
+    "TEF.MC": "11. Media & Telecom",
+
+    # --- 12. Indices (Global) ---
     "SPX500": "12. Indices (Global)", "DJ30": "12. Indices (Global)",
     "NAS100": "12. Indices (Global)", "NASCOMP": "12. Indices (Global)",
     "RUS2000": "12. Indices (Global)", "VIX": "12. Indices (Global)",
@@ -192,6 +226,8 @@ asset_sector_map = {
     "JPN225": "12. Indices (Global)", "HKG50": "12. Indices (Global)",
     "CHN50": "12. Indices (Global)", "IND50": "12. Indices (Global)",
     "KOR200": "12. Indices (Global)",
+
+    # --- 13. Forex (Currencies) ---
     "EURUSD": "13. Forex (Currencies)", "USDJPY": "13. Forex (Currencies)",
     "GBPUSD": "13. Forex (Currencies)", "AUDUSD": "13. Forex (Currencies)",
     "USDCAD": "13. Forex (Currencies)", "USDCHF": "13. Forex (Currencies)",
@@ -202,6 +238,8 @@ asset_sector_map = {
     "EURNZD": "13. Forex (Currencies)", "EURCAD": "13. Forex (Currencies)",
     "EURCHF": "13. Forex (Currencies)", "GBPCHF": "13. Forex (Currencies)",
     "AUDCAD": "13. Forex (Currencies)",
+
+    # --- 14. Crypto Assets ---
     "BTCUSD": "14. Crypto Assets", "ETHUSD": "14. Crypto Assets",
     "LTCUSD": "14. Crypto Assets", "XRPUSD": "14. Crypto Assets",
     "BCHUSD": "14. Crypto Assets", "EOSUSD": "14. Crypto Assets",
@@ -224,6 +262,18 @@ asset_sector_map = {
     "SKYUSD": "14. Crypto Assets", "UNIUSD": "14. Crypto Assets",
     "AAVEUSD": "14. Crypto Assets", "ORCAUSD": "14. Crypto Assets",
     "DAIUSD": "14. Crypto Assets", "SHIBUSD": "14. Crypto Assets",
+
+    # --- 15. ETFs & Funds ---
+    "SPY": "15. ETFs & Funds", "QQQ": "15. ETFs & Funds",
+    "IWM": "15. ETFs & Funds", "EFA": "15. ETFs & Funds",
+    "EEM": "15. ETFs & Funds", "TLT": "15. ETFs & Funds",
+    "GLD": "15. ETFs & Funds", "XLF": "15. ETFs & Funds",
+    "XLK": "15. ETFs & Funds", "XLE": "15. ETFs & Funds",
+
+    # --- 16. Agricultural Commodities ---
+    "COCOA": "16. Agricultural Commodities", "WHEAT": "16. Agricultural Commodities",
+    "CORN": "16. Agricultural Commodities", "SOYBEANS": "16. Agricultural Commodities",
+    "SUGAR": "16. Agricultural Commodities"
 }
 
 TICKER_MAP = {
@@ -232,6 +282,7 @@ TICKER_MAP = {
     "NVDA": "NVDA", "PYPL": "PYPL", "DIS": "DIS", "NFLX": "NFLX", "NIO": "NIO",
     "NRG": "NRG", "ADBE": "ADBE", "INTC": "INTC", "CSCO": "CSCO", "PFE": "PFE",
     "KO": "KO", "PEP": "PEP", "MRK": "MRK", "ABT": "ABT", "XOM": "XOM",
+    "MA": "MA", "BRK-B": "BRK-B", "AVGO": "AVGO", "UNH": "UNH",
     "CVX": "CVX", "T": "T", "MCD": "MCD", "NKE": "NKE", "HD": "HD",
     "IBM": "IBM", "CRM": "CRM", "BMY": "BMY", "ORCL": "ORCL", "ACN": "ACN",
     "LLY": "LLY", "QCOM": "QCOM", "HON": "HON", "COST": "COST", "SBUX": "SBUX",
@@ -249,16 +300,22 @@ TICKER_MAP = {
     "DDOG": "DDOG", "HTZ": "HTZ", "JD": "JD", "LCID": "LCID", "LYFT": "LYFT", "NET": "NET",
     "PDD": "PDD", "PLTR": "PLTR", "RIVN": "RIVN", "ROKU": "ROKU", "SHOP": "SHOP",
     "SNOW": "SNOW", "TWLO": "TWLO", "UBER": "UBER",
-    "ZM": "ZM", "DUOL": "DUOL", "PBR": "PBR", "VALE": "VALE", "AMX": "AMX",
+    "ZM": "ZM", "DUOL": "DUOL", "PBR": "PBR", "VALE": "VALE", "AMX": "AMX", "MELI": "MELI", "RY": "RY",
     "ISP.MI": "ISP.MI", "ENEL.MI": "ENEL.MI", "STLAM.MI": "STLAM.MI",
     "LDO.MI": "LDO.MI", "PST.MI": "PST.MI", "UCG.MI": "UCG.MI",
-    "BA": "BA", "AIR.PA": "AIR.PA", "SAP.DE": "SAP.DE", "SIE.DE": "SIE.DE",
+    "ENI.MI": "ENI.MI", "G.MI": "G.MI", "UNI.MI": "UNI.MI", 
+    "MONC.MI": "MONC.MI", "STM.MI": "STM.MI", "RACE.MI": "RACE.MI",
+    "BA": "BA", "AIR.PA": "AIR.PA", "SAP.DE": "SAP.DE", "SIE.DE": "SIE.DE", "P911.DE": "P911.DE",
     "ALV.DE": "ALV.DE", "VOW3.DE": "VOW3.DE", "MBG.DE": "MBG.DE", "DTE.DE": "DTE.DE",
+    "ASML.AS": "ASML.AS", "NVO": "NVO",
     "SHEL.L": "SHEL.L", "BP.L": "BP.L", "HSBA.L": "HSBA.L", "AZN.L": "AZN.L",
     "ULVR.L": "ULVR.L", "RIO.L": "RIO.L", "MC.PA": "MC.PA", "TTE.PA": "TTE.PA",
     "OR.PA": "OR.PA", "SAN.PA": "SAN.PA", "BNP.PA": "BNP.PA", "SAN.MC": "SAN.MC",
     "IBE.MC": "IBE.MC", "ITX.MC": "ITX.MC", "BBVA.MC": "BBVA.MC", "TEF.MC": "TEF.MC",
     "ITUB": "ITUB", "NU": "NU", "ABEV": "ABEV", "EMAAR.AE": "EMAAR.AE", "DIB.AE": "DIB.AE", "EMIRATESNBD.AE": "EMIRATESNBD.AE",
+    "TSM": "TSM", "TM": "TM", "SONY": "SONY", "HDB": "HDB",
+    "SPY": "SPY", "QQQ": "QQQ", "IWM": "IWM", "EFA": "EFA", "EEM": "EEM", 
+    "TLT": "TLT", "GLD": "GLD", "XLF": "XLF", "XLK": "XLK", "XLE": "XLE",
     "EURUSD": "EURUSD=X", "USDJPY": "USDJPY=X", "GBPUSD": "GBPUSD=X",
     "AUDUSD": "AUDUSD=X", "USDCAD": "USDCAD=X", "USDCHF": "USDCHF=X",
     "NZDUSD": "NZDUSD=X", "EURGBP": "EURGBP=X", "EURJPY": "EURJPY=X",
@@ -286,7 +343,8 @@ TICKER_MAP = {
     "ARBUSD": "ARB11841-USD", "RENDERUSD": "RENDER-USD", "IMXUSD": "IMX10603-USD",
     "SKYUSD": "SKY33038-USD", "UNIUSD": "UNI7083-USD", "AAVEUSD": "AAVE-USD",
     "ORCAUSD": "ORCA-USD", "DAIUSD": "DAI-USD", "SHIBUSD": "SHIB-USD",
-    "COCOA": "CC=F", "GOLD": "GC=F", "SILVER": "SI=F", "OIL": "CL=F", "NATGAS": "NG=F"
+    "COCOA": "CC=F", "GOLD": "GC=F", "SILVER": "SI=F", "OIL": "CL=F", "NATGAS": "NG=F",
+    "COPPER": "HG=F", "WHEAT": "ZW=F", "CORN": "ZC=F", "SOYBEANS": "ZS=F", "SUGAR": "SB=F"
 }
 
 symbol_list = list(asset_sector_map.keys())
@@ -316,6 +374,10 @@ symbol_name_map = {
     "PFE": ["Pfizer"],
     "KO": ["Coca-Cola", "The Coca-Cola Company"],
     "PEP": ["Pepsi", "PepsiCo"],
+    "MA": ["Mastercard", "Mastercard Inc.", "Mastercard Incorporated", "Master Card"],
+    "BRK-B": ["Berkshire Hathaway", "Berkshire", "Warren Buffett company", "BRK.B", "BRK-B", "Berkshire Hathaway Inc."],
+    "AVGO": ["Broadcom", "Broadcom Inc.", "Broadcom Corporation"],
+    "UNH": ["UnitedHealth", "UnitedHealth Group", "United Health", "UNH"],
     "MRK": ["Merck"],
     "ABT": ["Abbott", "Abbott Laboratories"],
     "XOM": ["ExxonMobil", "Exxon"],
@@ -399,14 +461,18 @@ symbol_name_map = {
     "ENEL.MI": ["Enel", "Enel S.p.A.", "Gruppo Enel"],
     "STLAM.MI": ["Stellantis", "Stellantis N.V.", "Gruppo Stellantis", "Fiat Chrysler", "FCA", "PSA Group"],
     "LDO.MI": ["Leonardo", "Leonardo S.p.A.", "Leonardo Finmeccanica", "Gruppo Leonardo"],
+    "RACE.MI": ["Ferrari", "Ferrari N.V.", "Cavallino Rampante", "Maranello"],
     "BA": ["Boeing", "The Boeing Company"],
     "AIR.PA": ["Airbus", "Airbus SE"],
     "SAP.DE": ["SAP", "SAP SE"],
     "SIE.DE": ["Siemens", "Siemens AG"],
     "ALV.DE": ["Allianz", "Allianz SE"],
+    "P911.DE": ["Porsche", "Porsche AG", "Dr. Ing. h.c. F. Porsche AG", "Porsche Automobile"],
     "VOW3.DE": ["Volkswagen", "Volkswagen AG"],
     "MBG.DE": ["Mercedes-Benz", "Mercedes-Benz Group"],
     "DTE.DE": ["Deutsche Telekom", "Deutsche Telekom AG"],
+    "NVO": ["Novo Nordisk", "Novo", "Novo Nordisk A/S"],
+    "ASML.AS": ["ASML", "ASML Holding", "ASML NV", "ASML Holding N.V."],
     "SHEL.L": ["Shell", "Shell plc"],
     "BP.L": ["BP", "BP p.l.c."],
     "HSBA.L": ["HSBC", "HSBC Holdings"],
@@ -443,7 +509,25 @@ symbol_name_map = {
     "PBR": ["Petrobras", "Petróleo Brasileiro S.A.", "Petrobras S.A."],
     "VALE": ["Vale", "Vale S.A.", "Vale SA"],
     "AMX": ["America Movil", "América Móvil", "América Móvil S.A.B. de C.V."],
-
+    "MELI": ["MercadoLibre", "Mercado Libre", "MercadoPago", "MercadoLibre Inc."],
+    "RY": ["Royal Bank of Canada", "RBC", "RBC Bank", "RY stock"],
+    "TSM": ["TSMC", "Taiwan Semiconductor", "Taiwan Semiconductor Manufacturing", "Taiwan Semi"],
+    "TM": ["Toyota", "Toyota Motor", "Toyota Motor Corporation", "Toyota Motors"],
+    "SONY": ["Sony", "Sony Group", "Sony Corporation"],
+    "HDB": ["HDFC", "HDFC Bank", "Housing Development Finance Corporation"],
+    
+    # ETF
+    "SPY": ["SPY", "SPDR S&P 500", "SPY ETF", "SPDR ETF", "S&P 500 ETF"],
+    "QQQ": ["QQQ", "Invesco QQQ", "Nasdaq ETF", "QQQ ETF", "Triple Q", "Nasdaq 100 ETF"],
+    "IWM": ["IWM", "iShares Russell 2000", "Russell 2000 ETF", "IWM ETF", "Small Cap ETF"],
+    "EFA": ["EFA", "MSCI EAFE", "MSCI EAFE ETF", "iShares MSCI EAFE"],
+    "EEM": ["EEM", "Emerging Markets ETF", "MSCI Emerging Markets", "iShares EEM", "ETF Paesi Emergenti"],
+    "TLT": ["TLT", "20+ Year Treasury Bond ETF", "Treasury ETF", "Long-term Treasury", "iShares TLT", "ETF Titoli di Stato USA"],
+    "GLD": ["GLD", "SPDR Gold Shares", "Gold ETF", "GLD ETF", "ETF Oro"],
+    "XLF": ["XLF", "Financial Select Sector SPDR", "Financial ETF", "Bank ETF", "ETF Finanziario", "XLF ETF"],
+    "XLK": ["XLK", "Technology Select Sector SPDR", "Tech ETF", "Technology ETF", "ETF Tecnologico", "XLK ETF"],
+    "XLE": ["XLE", "Energy Select Sector SPDR", "Energy ETF", "ETF Energia", "XLE ETF"],
+    
     # Forex
     "EURUSD": ["EUR/USD", "Euro Dollar", "Euro vs USD"],
     "USDJPY": ["USD/JPY", "Dollar Yen", "USD vs JPY"],
@@ -537,7 +621,12 @@ symbol_name_map = {
     "GOLD": ["Gold", "XAU/USD", "Gold price", "Gold spot"],
     "SILVER": ["Silver", "XAG/USD", "Silver price", "Silver spot"],
     "OIL": ["Crude oil", "Oil price", "WTI", "Brent", "Brent oil", "WTI crude"],
-    "NATGAS": ["Natural gas", "Gas price", "Natgas", "Henry Hub", "NG=F", "Natural gas futures"]
+    "NATGAS": ["Natural gas", "Gas price", "Natgas", "Henry Hub", "NG=F", "Natural gas futures"],
+    "HG": ["Copper", "HG=F", "Rame", "Cobre", "Cuivre", "Kupfer", "Dr. Copper", "Copper Futures", "High Grade Copper"],
+    "ZW": ["Wheat", "ZW=F", "Grano", "Frumento", "Trigo", "Blé", "Weizen", "Wheat Futures", "Chicago Wheat"],
+    "ZC": ["Corn", "ZC=F", "Mais", "Maíz", "Maïs", "Corn Futures", "Granoturco"],
+    "ZS": ["Soybeans", "ZS=F", "Soia", "Soya", "Soja", "Soybean Futures", "Fagioli di soia"],
+    "SB": ["Sugar", "SB=F", "Zucchero", "Sucre", "Azúcar", "Zucker", "Sugar #11", "Sugar Futures"]
 }
 
 indicator_data = {}
