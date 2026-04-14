@@ -462,6 +462,11 @@ symbol_name_map = {
     "STLAM.MI": ["Stellantis", "Stellantis N.V.", "Gruppo Stellantis", "Fiat Chrysler", "FCA", "PSA Group"],
     "LDO.MI": ["Leonardo", "Leonardo S.p.A.", "Leonardo Finmeccanica", "Gruppo Leonardo"],
     "RACE.MI": ["Ferrari", "Ferrari N.V.", "Cavallino Rampante", "Maranello"],
+    "ENI.MI": ["Eni", "Eni S.p.A.", "Cane a sei zampe", "Eni gas e luce", "Plenitude"],
+    "G.MI": ["Generali", "Assicurazioni Generali", "Generali Group", "Leone di Trieste"],
+    "UNI.MI": ["Unipol", "Gruppo Unipol", "Unipol Gruppo", "UnipolSai"],
+    "MONC.MI": ["Moncler", "Moncler S.p.A.", "Piumini Moncler"],
+    "STM.MI": ["STM", "STMicroelectronics", "STMicro", "ST Microelectronics"],
     "BA": ["Boeing", "The Boeing Company"],
     "AIR.PA": ["Airbus", "Airbus SE"],
     "SAP.DE": ["SAP", "SAP SE"],
@@ -622,11 +627,11 @@ symbol_name_map = {
     "SILVER": ["Silver", "XAG/USD", "Silver price", "Silver spot"],
     "OIL": ["Crude oil", "Oil price", "WTI", "Brent", "Brent oil", "WTI crude"],
     "NATGAS": ["Natural gas", "Gas price", "Natgas", "Henry Hub", "NG=F", "Natural gas futures"],
-    "HG": ["Copper", "HG=F", "Rame", "Cobre", "Cuivre", "Kupfer", "Dr. Copper", "Copper Futures", "High Grade Copper"],
-    "ZW": ["Wheat", "ZW=F", "Grano", "Frumento", "Trigo", "Blé", "Weizen", "Wheat Futures", "Chicago Wheat"],
-    "ZC": ["Corn", "ZC=F", "Mais", "Maíz", "Maïs", "Corn Futures", "Granoturco"],
-    "ZS": ["Soybeans", "ZS=F", "Soia", "Soya", "Soja", "Soybean Futures", "Fagioli di soia"],
-    "SB": ["Sugar", "SB=F", "Zucchero", "Sucre", "Azúcar", "Zucker", "Sugar #11", "Sugar Futures"]
+    "COPPER": ["Copper", "Rame", "Cobre", "Cuivre", "Kupfer", "Dr. Copper", "Copper Futures", "High Grade Copper"],
+    "WHEAT": ["Wheat", "Grano", "Frumento", "Trigo", "Blé", "Weizen", "Wheat Futures", "Chicago Wheat"],
+    "CORN": ["Corn", "Mais", "Maíz", "Maïs", "Corn Futures", "Granoturco"],
+    "SOYBEANS": ["Soybeans", "Soia", "Soya", "Soja", "Soybean Futures", "Fagioli di soia"],
+    "SUGAR": ["Sugar", "Zucchero", "Sucre", "Azúcar", "Zucker", "Sugar #11", "Sugar Futures"]
 }
 
 indicator_data = {}
