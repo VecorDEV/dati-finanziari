@@ -264,7 +264,7 @@ asset_sector_map = {
     "DAIUSD": "14. Crypto Assets", "SHIBUSD": "14. Crypto Assets",
 
     # --- 15. ETFs & Funds ---
-    "SPY": "15. ETFs & Funds", "QQQ": "15. ETFs & Funds",
+    "SPY": "15. ETFs & Funds", "VOO": "15. ETFs & Funds", "QQQ": "15. ETFs & Funds",
     "IWM": "15. ETFs & Funds", "EFA": "15. ETFs & Funds",
     "EEM": "15. ETFs & Funds", "TLT": "15. ETFs & Funds",
     "GLD": "15. ETFs & Funds", "XLF": "15. ETFs & Funds",
@@ -314,7 +314,7 @@ TICKER_MAP = {
     "IBE.MC": "IBE.MC", "ITX.MC": "ITX.MC", "BBVA.MC": "BBVA.MC", "TEF.MC": "TEF.MC",
     "ITUB": "ITUB", "NU": "NU", "ABEV": "ABEV", "EMAAR.AE": "EMAAR.AE", "DIB.AE": "DIB.AE", "EMIRATESNBD.AE": "EMIRATESNBD.AE",
     "TSM": "TSM", "TM": "TM", "SONY": "SONY", "HDB": "HDB",
-    "SPY": "SPY", "QQQ": "QQQ", "IWM": "IWM", "EFA": "EFA", "EEM": "EEM", 
+    "SPY": "SPY", "VOO": "VOO", "QQQ": "QQQ", "IWM": "IWM", "EFA": "EFA", "EEM": "EEM", 
     "TLT": "TLT", "GLD": "GLD", "XLF": "XLF", "XLK": "XLK", "XLE": "XLE",
     "EURUSD": "EURUSD=X", "USDJPY": "USDJPY=X", "GBPUSD": "GBPUSD=X",
     "AUDUSD": "AUDUSD=X", "USDCAD": "USDCAD=X", "USDCHF": "USDCHF=X",
@@ -524,6 +524,7 @@ symbol_name_map = {
     # ETF
     "SPY": ["SPY", "SPDR S&P 500", "SPY ETF", "SPDR ETF", "S&P 500 ETF"],
     "QQQ": ["QQQ", "Invesco QQQ", "Nasdaq ETF", "QQQ ETF", "Triple Q", "Nasdaq 100 ETF"],
+    "VOO": ["VOO", "Vanguard S&P 500", "VOO ETF", "Vanguard ETF", "S&P 500 Vanguard", "Vanguard S&P 500 ETF"],
     "IWM": ["IWM", "iShares Russell 2000", "Russell 2000 ETF", "IWM ETF", "Small Cap ETF"],
     "EFA": ["EFA", "MSCI EAFE", "MSCI EAFE ETF", "iShares MSCI EAFE"],
     "EEM": ["EEM", "Emerging Markets ETF", "MSCI Emerging Markets", "iShares EEM", "ETF Paesi Emergenti"],
