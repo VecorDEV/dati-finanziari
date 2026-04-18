@@ -1,4 +1,4 @@
-from github import Github, GithubException
+from github import Github, GithubException, Auth
 import re
 import feedparser
 import os
@@ -49,6 +49,7 @@ sia.lexicon.update(LEXICON)
 
 
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
+FMP_API_KEY = os.getenv("FMP_API_KEY")
 REPO_NAME = "VecorDEV/dati-finanziari"
 
 # --- CONFIGURAZIONE CARTELLA OUTPUT ---
@@ -69,6 +70,7 @@ sector_path = f"{TARGET_FOLDER}/classifica_settori.html"
 
     
 # GitHub Connect
+auth = Auth.Token(GITHUB_TOKEN)
 github = Github(GITHUB_TOKEN)
 repo = github.get_repo(REPO_NAME)
 
@@ -1752,14 +1754,14 @@ def get_sentiment_for_all_symbols(symbol_list):
 
     history_mgr.save_data_to_github()
     return (sentiment_results, percentuali_combine, all_news_entries, 
-            indicator_data, fundamental_data, crescita_settimanale, dati_storici_all, momentum_results)
+            indicator_data, fundamental_data, crescita_settimanale, dati_storici_all, momentum_results, market_breadth_data)
 
 
 # ==============================================================================
 # 5. ESECUZIONE
 # ==============================================================================
 
-sentiment_for_symbols, percentuali_combine, all_news_entries, indicator_data, fundamental_data, crescita_settimanale, dati_storici_all, momentum_results = get_sentiment_for_all_symbols(symbol_list)
+sentiment_for_symbols, percentuali_combine, all_news_entries, indicator_data, fundamental_data, crescita_settimanale, dati_storici_all, momentum_results, market_breadth_data = get_sentiment_for_all_symbols(symbol_list)
 
 # --- CLASSIFICA PRINCIPALE (BASATA SU HYBRID SCORE) ---
 sorted_symbols = sorted(percentuali_combine.items(), key=lambda x: x[1], reverse=True)
