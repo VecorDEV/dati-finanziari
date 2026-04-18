@@ -1299,6 +1299,7 @@ def get_sentiment_for_all_symbols(symbol_list):
     indicator_data = {}
     fundamental_data = {}
     momentum_results = {}
+    market_breadth_data = {}
     
     # Pre-calcolo Leaders
     leader_trends = {}
@@ -1441,6 +1442,18 @@ def get_sentiment_for_all_symbols(symbol_list):
 
                 # --- INDICATORI TECNICI COMPLETI ---
                 rsi = RSIIndicator(close).rsi().iloc[-1]
+
+                try:
+                    sma50_val = close.rolling(window=50).mean().iloc[-1]
+                    sma200_val = close.rolling(window=200).mean().iloc[-1]
+                    market_breadth_data[symbol] = {
+                        "rsi": round(rsi, 2),
+                        "sma50": 1 if current_price > sma50_val else 0,
+                        "sma200": 1 if current_price > sma200_val else 0
+                    }
+                except:
+                    market_breadth_data[symbol] = {"rsi": 50.0, "sma50": 0, "sma200": 0}
+                
                 macd = MACD(close)
                 macd_line = macd.macd().iloc[-1]
                 macd_signal = macd.macd_signal().iloc[-1]
@@ -1830,8 +1843,9 @@ for symbol, score in sorted_symbols:
     except Exception:
         pass
 
-    # Aggiunta in tabella preservando i vecchi TD
-    html_classifica.append(f"<tr><td>{symbol}</td><td>{score:.2f}%</td><td>{variazione_str}</td><td>{info_52w}</td><td>{cross_sma}</td></tr>")
+    # Aggiunta in tabella preservando i vecchi TD, ma iniettando dati invisibili nel TR
+    mb = market_breadth_data.get(symbol, {"rsi": 50.0, "sma50": 0, "sma200": 0})
+    html_classifica.append(f"<tr data-rsi='{mb['rsi']}' data-sma50='{mb['sma50']}' data-sma200='{mb['sma200']}'><td>{symbol}</td><td>{score:.2f}%</td><td>{variazione_str}</td><td>{info_52w}</td><td>{cross_sma}</td></tr>")
 
 html_classifica.append("</table></body></html>")
 
