@@ -2084,11 +2084,13 @@ for symbol, title, sentiment, url, source, image, date in all_news_entries:
     news_by_symbol[symbol].append((title, sentiment, url, source, image, date))
 
 for symbol, entries in news_by_symbol.items():
+    # Ordina per sentiment (opzionale, ma mantiene la lista leggibile dal peggiore al migliore)
     sorted_entries = sorted(entries, key=lambda x: x[1])
-    selected_entries = sorted_entries[:5] + sorted_entries[-5:]
-    selected_entries = list(dict.fromkeys(selected_entries))
     
-    for title, sentiment, url, source, image, date in selected_entries:
+    # Rimuove i duplicati ma mantiene TUTTE le notizie, non solo le top/flop 5
+    all_entries_unique = list(dict.fromkeys(sorted_entries))
+    
+    for title, sentiment, url, source, image, date in all_entries_unique:
         img_html = f"<img src='{image}' width='100'>" if image else "N/A"
         
         # Formattazione della data in Anno-Mese-Giorno Ora:Minuto:Secondo
