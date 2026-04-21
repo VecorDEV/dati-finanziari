@@ -25,7 +25,7 @@ from financial_lexicon import LEXICON
 from ta.momentum import RSIIndicator, StochasticOscillator, WilliamsRIndicator
 from ta.trend import MACD, EMAIndicator, CCIIndicator
 from ta.volatility import BollingerBands
-from urllib.parse import quote_plus
+from urllib.parse import quote_plus, urlparse, urlunparse
 from collections import defaultdict
 from scipy.stats import spearmanr, pearsonr, binomtest
 from statsmodels.stats.multitest import multipletests
@@ -2074,47 +2074,78 @@ print("Classifica Settori (RVOL) aggiornata con successo in totale sicurezza!")
 
 
 
-# --- NEWS HTML (APP) & NEWS JSON (ARCHIVIO) ---
+# Funzione per ripulire i link di Google News dalla spazzatura di tracciamento
+def clean_google_news_url(url):
+    try:
+        parsed = urlparse(url)
+        # Rimuove i parametri di query (?hl=en&gl=US...) che non servono per il redirect
+        clean_url = urlunparse((parsed.scheme, parsed.netloc, parsed.path, '', '', parsed.fragment))
+        # Ritorna il link pulito solo se è effettivamente più corto
+        return clean_url if len(clean_url) < len(url) else url
+    except:
+        return url
+
+# --- NEWS HTML (APP) ---
 html_news = ["<html><head><title>Notizie e Sentiment</title></head><body>",
              "<h1>Notizie Finanziarie con Sentiment</h1>",
              "<table border='1'><tr><th>Simbolo</th><th>Notizia</th><th>Fonte</th><th>Immagine</th><th>Sentiment</th><th>Link</th><th>Data/Ora</th></tr>"]
 
 news_by_symbol = defaultdict(list)
-archive_data = {} # Dizionario che conterrà l'intero archivio strutturato
+ARCHIVE_FOLDER = f"{TARGET_FOLDER}/news_archive"
 
-# Estraiamo anche la 'date' dalla tupla appena aggiornata
+# Estraiamo anche la 'date' dalla tupla
 for symbol, title, sentiment, url, source, image, date in all_news_entries:
     news_by_symbol[symbol].append((title, sentiment, url, source, image, date))
 
 for symbol, entries in news_by_symbol.items():
-    # Ordina per sentiment
-    sorted_entries = sorted(entries, key=lambda x: x[1])
-    
-    # Rimuove i duplicati mantenendo TUTTE le notizie
-    all_entries_unique = list(dict.fromkeys(sorted_entries))
+    # 1. Rimuove eventuali doppioni basandosi sul titolo della notizia
+    unique_dict = {}
+    for entry in entries:
+        title = entry[0]
+        if title not in unique_dict:
+            unique_dict[title] = entry
+    all_entries_unique = list(unique_dict.values())
     
     # -------------------------------------------------------------
-    # 1. CREAZIONE DATI PER L'ARCHIVIO JSON (TUTTE LE NOTIZIE)
+    # 2. CREAZIONE E SALVATAGGIO JSON INDIVIDUALE (ARCHIVIO MAX 80 NEWS)
     # -------------------------------------------------------------
+    # Ordina cronologicamente dalla più recente
+    chronological_entries = sorted(all_entries_unique, key=lambda x: x[5] if hasattr(x[5], 'strftime') else datetime.min, reverse=True)
+    capped_entries = chronological_entries[:80] # Teniamo solo le ultime 80
+    
     symbol_archive = []
-    for title, sentiment, url, source, image, date in all_entries_unique:
+    for title, sentiment, url, source, image, date in capped_entries:
         date_str = date.strftime("%Y-%m-%d %H:%M:%S") if hasattr(date, 'strftime') else "N/A"
-        # Salviamo come array compatto per risparmiare spazio: [Titolo, Sentiment, Link, Fonte, Immagine, Data]
-        # Arrotondiamo il sentiment a 3 decimali per risparmiare ulteriori byte
-        symbol_archive.append([title, round(sentiment, 3), url, source, image, date_str])
+        short_url = clean_google_news_url(url)
         
-    archive_data[symbol] = symbol_archive
+        # Array compatto [Titolo, Sentiment, Link Pulito, Fonte, Data] - Nessuna immagine salvata!
+        symbol_archive.append([title, round(sentiment, 3), short_url, source, date_str])
+    
+    # Minifichiamo il JSON
+    archive_json_str = json.dumps(symbol_archive, separators=(',', ':'))
+    file_path_json = f"{ARCHIVE_FOLDER}/{symbol.upper()}.json"
+    
+    # Salvataggio su GitHub per il singolo Ticker
+    try:
+        c = repo.get_contents(file_path_json)
+        repo.update_file(file_path_json, f"Upd News Archive {symbol}", archive_json_str, c.sha)
+    except:
+        repo.create_file(file_path_json, f"Cre News Archive {symbol}", archive_json_str)
+
 
     # -------------------------------------------------------------
-    # 2. CREAZIONE DATI PER IL FILE HTML DELL'APP (SNELLO)
+    # 3. CREAZIONE DATI PER IL FILE HTML DELL'APP (SNELLO)
     # -------------------------------------------------------------
-    # Selezioniamo solo le 5 peggiori e le 5 migliori
-    if len(all_entries_unique) > 10:
-        app_entries = all_entries_unique[:5] + all_entries_unique[-5:]
-        # Doppia sicurezza per evitare sovrapposizioni se gli asset sono esatti
-        app_entries = list(dict.fromkeys(app_entries)) 
+    # Ordina per sentiment
+    sorted_by_sentiment = sorted(all_entries_unique, key=lambda x: x[1])
+    
+    if len(sorted_by_sentiment) > 10:
+        # Prende le 5 peggiori e le 5 migliori
+        app_entries = sorted_by_sentiment[:5] + sorted_by_sentiment[-5:]
+        # Doppia sicurezza per evitare sovrapposizioni
+        app_entries = list({v[0]:v for v in app_entries}.values()) 
     else:
-        app_entries = all_entries_unique
+        app_entries = sorted_by_sentiment
     
     for title, sentiment, url, source, image, date in app_entries:
         img_html = f"<img src='{image}' width='100'>" if image else "N/A"
@@ -2131,18 +2162,7 @@ try:
 except:
     repo.create_file(news_path, "Cre News HTML", "\n".join(html_news))
 
-# --- SALVATAGGIO FILE JSON (ARCHIVIO COMPLETO COMPRESSO) ---
-archive_path = f"{TARGET_FOLDER}/news_archive.json"
-# json.dumps con separators=(',', ':') elimina tutti gli spazi e gli a capo creando un file minificato
-archive_json_str = json.dumps(archive_data, separators=(',', ':'))
-
-try:
-    contents = repo.get_contents(archive_path)
-    repo.update_file(contents.path, "Upd News Archive JSON", archive_json_str, contents.sha)
-except:
-    repo.create_file(archive_path, "Cre News Archive JSON", archive_json_str)
-
-print("News aggiornate: HTML (snello) e JSON (archivio completo minificato) generati con successo!")
+print("News aggiornate: HTML snello generato e singoli file JSON salvati in 'news_archive'!")
 
 
 
