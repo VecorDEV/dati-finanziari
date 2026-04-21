@@ -4,6 +4,7 @@ import feedparser
 import os
 from datetime import datetime, timedelta
 import math
+import json
 #import spacy
 import yfinance as yf
 import ta
@@ -2073,8 +2074,6 @@ print("Classifica Settori (RVOL) aggiornata con successo in totale sicurezza!")
 
 
 
-import json # Assicurati di avere questo import in cima al file, se non c'è già
-
 # --- NEWS HTML (APP) & NEWS JSON (ARCHIVIO) ---
 html_news = ["<html><head><title>Notizie e Sentiment</title></head><body>",
              "<h1>Notizie Finanziarie con Sentiment</h1>",
@@ -2144,6 +2143,7 @@ except:
     repo.create_file(archive_path, "Cre News Archive JSON", archive_json_str)
 
 print("News aggiornate: HTML (snello) e JSON (archivio completo minificato) generati con successo!")
+
 
 
 # --- CLASSIFICA FIRE ---
