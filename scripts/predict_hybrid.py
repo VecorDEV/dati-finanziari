@@ -2073,41 +2073,78 @@ print("Classifica Settori (RVOL) aggiornata con successo in totale sicurezza!")
 
 
 
-# --- NEWS HTML ---
+import json # Assicurati di avere questo import in cima al file, se non c'è già
+
+# --- NEWS HTML (APP) & NEWS JSON (ARCHIVIO) ---
 html_news = ["<html><head><title>Notizie e Sentiment</title></head><body>",
              "<h1>Notizie Finanziarie con Sentiment</h1>",
              "<table border='1'><tr><th>Simbolo</th><th>Notizia</th><th>Fonte</th><th>Immagine</th><th>Sentiment</th><th>Link</th><th>Data/Ora</th></tr>"]
+
 news_by_symbol = defaultdict(list)
+archive_data = {} # Dizionario che conterrà l'intero archivio strutturato
 
 # Estraiamo anche la 'date' dalla tupla appena aggiornata
 for symbol, title, sentiment, url, source, image, date in all_news_entries:
     news_by_symbol[symbol].append((title, sentiment, url, source, image, date))
 
 for symbol, entries in news_by_symbol.items():
-    # Ordina per sentiment (opzionale, ma mantiene la lista leggibile dal peggiore al migliore)
+    # Ordina per sentiment
     sorted_entries = sorted(entries, key=lambda x: x[1])
     
-    # Rimuove i duplicati ma mantiene TUTTE le notizie, non solo le top/flop 5
+    # Rimuove i duplicati mantenendo TUTTE le notizie
     all_entries_unique = list(dict.fromkeys(sorted_entries))
     
+    # -------------------------------------------------------------
+    # 1. CREAZIONE DATI PER L'ARCHIVIO JSON (TUTTE LE NOTIZIE)
+    # -------------------------------------------------------------
+    symbol_archive = []
     for title, sentiment, url, source, image, date in all_entries_unique:
-        img_html = f"<img src='{image}' width='100'>" if image else "N/A"
+        date_str = date.strftime("%Y-%m-%d %H:%M:%S") if hasattr(date, 'strftime') else "N/A"
+        # Salviamo come array compatto per risparmiare spazio: [Titolo, Sentiment, Link, Fonte, Immagine, Data]
+        # Arrotondiamo il sentiment a 3 decimali per risparmiare ulteriori byte
+        symbol_archive.append([title, round(sentiment, 3), url, source, image, date_str])
         
-        # Formattazione della data in Anno-Mese-Giorno Ora:Minuto:Secondo
+    archive_data[symbol] = symbol_archive
+
+    # -------------------------------------------------------------
+    # 2. CREAZIONE DATI PER IL FILE HTML DELL'APP (SNELLO)
+    # -------------------------------------------------------------
+    # Selezioniamo solo le 5 peggiori e le 5 migliori
+    if len(all_entries_unique) > 10:
+        app_entries = all_entries_unique[:5] + all_entries_unique[-5:]
+        # Doppia sicurezza per evitare sovrapposizioni se gli asset sono esatti
+        app_entries = list(dict.fromkeys(app_entries)) 
+    else:
+        app_entries = all_entries_unique
+    
+    for title, sentiment, url, source, image, date in app_entries:
+        img_html = f"<img src='{image}' width='100'>" if image else "N/A"
         date_str = date.strftime("%Y-%m-%d %H:%M:%S") if hasattr(date, 'strftime') else "N/A"
         
-        # Aggiunta della colonna data/ora in coda (7° colonna)
         html_news.append(f"<tr><td>{symbol}</td><td>{title}</td><td>{source}</td><td>{img_html}</td><td>{sentiment:.2f}</td><td><a href='{url}' target='_blank'>Leggi</a></td><td>{date_str}</td></tr>")
 
 html_news.append("</table></body></html>")
 
+# --- SALVATAGGIO FILE HTML (PER L'APP) ---
 try:
     contents = repo.get_contents(news_path)
-    repo.update_file(contents.path, "Upd News with Date", "\n".join(html_news), contents.sha)
+    repo.update_file(contents.path, "Upd News HTML", "\n".join(html_news), contents.sha)
 except:
-    repo.create_file(news_path, "Cre News with Date", "\n".join(html_news))
+    repo.create_file(news_path, "Cre News HTML", "\n".join(html_news))
 
-print("News aggiornata (con data e ora)!")
+# --- SALVATAGGIO FILE JSON (ARCHIVIO COMPLETO COMPRESSO) ---
+archive_path = f"{TARGET_FOLDER}/news_archive.json"
+# json.dumps con separators=(',', ':') elimina tutti gli spazi e gli a capo creando un file minificato
+archive_json_str = json.dumps(archive_data, separators=(',', ':'))
+
+try:
+    contents = repo.get_contents(archive_path)
+    repo.update_file(contents.path, "Upd News Archive JSON", archive_json_str, contents.sha)
+except:
+    repo.create_file(archive_path, "Cre News Archive JSON", archive_json_str)
+
+print("News aggiornate: HTML (snello) e JSON (archivio completo minificato) generati con successo!")
+
 
 # --- CLASSIFICA FIRE ---
 sorted_crescita = sorted([(s, g) for s, g in crescita_settimanale.items() if g is not None], key=lambda x: (x[1], x[0]), reverse=True)
