@@ -1929,7 +1929,7 @@ print("Classifica Momentum creata con successo!")
 
 
 # --- CLASSIFICA SETTORI (RVOL & RETRO-COMPATIBILITA') ---
-print("Generazione Classifica Settori (RVOL Weighted)...")
+print("Generazione Classifica Settori (RVOL Weighted e Media Rendimenti)...")
 
 # 1. Raccogliamo i dati grezzi per calcolare i pesi
 sector_assets = defaultdict(list)
@@ -1940,13 +1940,18 @@ for symbol, score in percentuali_combine.items():
     avg_liquidity_old = 0.0
     rvol = 1.0 # Default neutro
     
+    # ----------------------------------------------------
+    # NUOVO DATO: Peschiamo il rendimento dell'asset
+    # ----------------------------------------------------
+    asset_growth = crescita_settimanale.get(symbol, 0.0)
+    
     if symbol in dati_storici_all:
         df = dati_storici_all[symbol]
         try:
             # Prendiamo gli ultimi 20 giorni
             last_month = df.tail(20).copy()
             
-            # --- VECCHIO CALCOLO (Mantenuto per NON far crashare l'app in produzione) ---
+            # --- VECCHIO CALCOLO ---
             liquidity_series = (last_month['Close'] * last_month['Volume']).fillna(0)
             avg_liquidity_old = liquidity_series.mean()
             if avg_liquidity_old <= 0 or pd.isna(avg_liquidity_old):
@@ -1957,7 +1962,7 @@ for symbol, score in percentuali_combine.items():
             vol_mean = last_month['Volume'].mean()
             if pd.notna(vol_today) and vol_mean > 0:
                 rvol = vol_today / vol_mean
-            # Limitiamo gli eccessi tra 0.1 e 10.0 per evitare distorsioni matematiche
+            # Limitiamo gli eccessi
             rvol = max(0.1, min(rvol, 10.0))
             
         except:
@@ -1971,28 +1976,31 @@ for symbol, score in percentuali_combine.items():
         'symbol': symbol,
         'score': score,
         'liquidity_old': avg_liquidity_old,
-        'rvol': rvol
+        'rvol': rvol,
+        'growth': asset_growth  # <--- Salviamo il rendimento nell'asset
     })
 
-# 2. Calcolo Score Ponderato per Settore
+# 2. Calcolo Score Ponderato e Media Rendimento per Settore
 sector_final_scores = []
 
 for sec, assets in sector_assets.items():
-    # Somma della VECCHIA liquidità (per la colonna letta dalla vecchia App)
     total_sector_liquidity_old = sum(a['liquidity_old'] for a in assets)
-    
-    # Somma del NUOVO RVOL (Per la nuova colonna e per il calcolo dello score)
     total_sector_rvol = sum(a['rvol'] for a in assets)
     
-    weighted_score_sum = 0.0
+    # ----------------------------------------------------
+    # NUOVO DATO: Somma e Media dei Rendimenti del Settore
+    # ----------------------------------------------------
+    total_sector_growth = sum(a['growth'] for a in assets)
     asset_count = len(assets)
+    avg_sector_growth = (total_sector_growth / asset_count) if asset_count > 0 else 0.0
     
-    # Trova il leader in base a chi sta spingendo di più oggi (RVOL)
+    weighted_score_sum = 0.0
+    
+    # Trova il leader
     top_asset = max(assets, key=lambda x: x['rvol'])
     leader_name = top_asset['symbol']
     
     for asset in assets:
-        # Ponderiamo il settore sul NUOVO RVOL (molto più professionale e veritiero)
         weight = asset['rvol'] / total_sector_rvol if total_sector_rvol > 0 else (1.0 / asset_count)
         weighted_score_sum += (asset['score'] * weight)
         
@@ -2002,7 +2010,8 @@ for sec, assets in sector_assets.items():
         'count': asset_count,
         'leader': leader_name,
         'total_vol_old': total_sector_liquidity_old,
-        'sector_rvol': round((total_sector_rvol / asset_count), 2)
+        'sector_rvol': round((total_sector_rvol / asset_count), 2),
+        'avg_growth': round(avg_sector_growth, 2) # <--- Salviamo la media finale
     })
 
 # 3. Ordinamento
@@ -2021,14 +2030,18 @@ html_sector = [
     "</style>",
     "</head><body>",
     "<h1>📊 Performance Settoriale (RVOL Weighted)</h1>",
-    "<p>Classifica ponderata sul <b>Volume Relativo (RVOL)</b>. I settori con volumi in accelerazione rispetto alla media dominano il punteggio.</p>",
-    "<table><tr><th>Pos</th><th>Settore</th><th>Dominant Asset</th><th>Score Ponderato</th><th>Asset</th><th>Trend</th><th>Volume Movimentato</th><th>RVOL (Nuovo)</th></tr>"
+    "<p>Classifica ponderata sul <b>Volume Relativo (RVOL)</b>.</p>",
+    # ----------------------------------------------------
+    # NUOVO DATO: Aggiunta la colonna "Media Rendimento" (Colonna numero 9)
+    # ----------------------------------------------------
+    "<table><tr><th>Pos</th><th>Settore</th><th>Dominant Asset</th><th>Score Ponderato</th><th>Asset</th><th>Trend</th><th>Volume Movimentato</th><th>RVOL (Nuovo)</th><th>Media Rendimento</th></tr>"
 ]
 
 for idx, item in enumerate(sorted_sectors, 1):
     avg = item['avg']
-    vol_int = int(item['total_vol_old']) # Il vecchio valore per non far crashare l'App!
+    vol_int = int(item['total_vol_old'])
     rvol_val = item['sector_rvol']
+    avg_growth_val = item['avg_growth'] # Estrazione
     
     if avg >= 55:
         style_class = "bull"
@@ -2045,9 +2058,10 @@ for idx, item in enumerate(sorted_sectors, 1):
     else:
         style_class = "neutral"
         trend_label = "NEUTRAL"
+        
+    # Classe CSS per il rendimento (verde se positivo, rosso se negativo)
+    growth_class = "bull" if avg_growth_val > 0 else ("bear" if avg_growth_val < 0 else "neutral")
     
-    # Attenzione all'ordine dei td: Volume Movimentato resta il 7° elemento (indice 6 in java)
-    # RVOL viene aggiunto alla fine come 8° elemento (indice 7 in java)
     html_sector.append(
         f"<tr>"
         f"<td>{idx}</td>"
@@ -2058,6 +2072,7 @@ for idx, item in enumerate(sorted_sectors, 1):
         f"<td class='{style_class}'>{trend_label}</td>"
         f"<td>{vol_int}</td>"
         f"<td><b>{rvol_val}x</b></td>"
+        f"<td class='{growth_class}'>{avg_growth_val:+.2f}%</td>" # <--- Questa è la cella che l'app andrà a leggere!
         f"</tr>"
     )
 
@@ -2070,7 +2085,7 @@ try:
 except:
     repo.create_file(sector_path, "Cre Sector Rank Liquidity", "\n".join(html_sector))
 
-print("Classifica Settori (RVOL) aggiornata con successo in totale sicurezza!")
+print("Classifica Settori (RVOL & Performance) aggiornata con successo in totale sicurezza!")
 
 
 
