@@ -1303,6 +1303,7 @@ def get_sentiment_for_all_symbols(symbol_list):
     fundamental_data = {}
     momentum_results = {}
     market_breadth_data = {}
+    calendario_economico_globale = []
     
     # Pre-calcolo Leaders
     leader_trends = {}
@@ -1524,6 +1525,48 @@ def get_sentiment_for_all_symbols(symbol_list):
                     }
                     tabella_fondamentali = pd.DataFrame(fondamentali.items(), columns=["Fondamentale", "Valore"]).to_html(index=False, border=0)
                 except: pass
+
+                # --- RECUPERO UTILI E CALENDARIO DIVIDENDI ---
+                tabella_utili = None
+                try:
+                    # Estrae le date degli utili (passate e future)
+                    utili_df = tk_obj.get_earnings_dates(limit=10)
+                    if utili_df is not None and not utili_df.empty:
+                        oggi_tz = pd.Timestamp.now(tz=utili_df.index.tz)
+
+                        # A. STORICO UTILI (Passati) per il file del singolo ticker
+                        utili_passati = utili_df[utili_df.index < oggi_tz].head(5)
+                        if not utili_passati.empty:
+                            utili_passati_html = utili_passati[['EPS Estimate', 'EPS Actual', 'Surprise(%)']].copy()
+                            utili_passati_html.index = utili_passati_html.index.strftime('%Y-%m-%d')
+                            tabella_utili = utili_passati_html.to_html(border=1)
+
+                        # B. CALENDARIO UTILI (Futuri) per il file globale
+                        utili_futuri = utili_df[utili_df.index >= oggi_tz]
+                        for idx, row in utili_futuri.iterrows():
+                            calendario_economico_globale.append({
+                                "Data": idx.strftime('%Y-%m-%d'),
+                                "Ticker": symbol,
+                                "Evento": "Rapporto Utili 📈",
+                                "Dettaglio": f"Stima EPS: {row.get('EPS Estimate', 'N/A')}"
+                            })
+                except Exception as e:
+                    pass
+
+                try:
+                    # C. CALENDARIO DIVIDENDI (Futuri) per il file globale
+                    cal = tk_obj.calendar
+                    if isinstance(cal, dict) and 'Dividend Date' in cal:
+                        div_date = cal['Dividend Date']
+                        if pd.notna(div_date):
+                            calendario_economico_globale.append({
+                                "Data": div_date.strftime('%Y-%m-%d'),
+                                "Ticker": symbol,
+                                "Evento": "Dividendo 💵",
+                                "Dettaglio": "Stacco Dividendo"
+                            })
+                except Exception as e:
+                    pass
                 
                 # Storico HTML
                 hist = data.copy()
@@ -1710,6 +1753,13 @@ def get_sentiment_for_all_symbols(symbol_list):
         else:
             html_content.append("<p>Informative Buys non disponibili.</p>")
 
+        # --- INIEZIONE STORICO UTILI ---
+        html_content.append("<h2>Storico Utili (Earnings)</h2>")
+        if tabella_utili:
+            html_content.append(tabella_utili)
+        else:
+            html_content.append("<p>Dati sugli utili recenti non disponibili.</p>")
+        
         # --- TABELLA HTML ISTITUZIONALE ---
         html_content.append("<h2>Analisi Istituzionale & Sentiment</h2>")
         
@@ -1745,6 +1795,27 @@ def get_sentiment_for_all_symbols(symbol_list):
             # IMPORTANTE: Aggiungiamo 'date' alla fine della tupla salvata
             all_news_entries.append((symbol, title, sc, link, src, img, date))
 
+    # --- SALVATAGGIO CALENDARIO ECONOMICO (SOLO JSON) ---
+    print("Generazione Calendario Economico JSON in corso...")
+    calendar_json_path = f"{TARGET_FOLDER}/calendario_economico.json"
+
+    if calendario_economico_globale:
+        df_cal = pd.DataFrame(calendario_economico_globale)
+        # Ordina per data crescente (i più imminenti in alto)
+        df_cal = df_cal.sort_values(by="Data").reset_index(drop=True)
+
+        # Salvataggio JSON (Ottimo per leggerlo dalla tua App)
+        try:
+            # orient="records" crea un array di oggetti JSON perfetti per l'app
+            cal_json = df_cal.to_json(orient="records", indent=4)
+            try:
+                c = repo.get_contents(calendar_json_path)
+                repo.update_file(calendar_json_path, "Upd Calendar JSON", cal_json, c.sha)
+            except:
+                repo.create_file(calendar_json_path, "Cre Calendar JSON", cal_json)
+        except Exception as e:
+            print(f"Errore salvataggio Calendar JSON: {e}")
+    # --- FINE SALVATAGGIO CALENDARIO ---
     
     # --- SALVATAGGIO TEST (Alla fine del loop, prima del return) ---
     print("Elaborazione Forward Testing in corso...")
