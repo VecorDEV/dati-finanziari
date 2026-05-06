@@ -1532,17 +1532,31 @@ def get_sentiment_for_all_symbols(symbol_list):
                     # Estrae le date degli utili (passate e future)
                     utili_df = tk_obj.get_earnings_dates(limit=10)
                     if utili_df is not None and not utili_df.empty:
-                        oggi_tz = pd.Timestamp.now(tz=utili_df.index.tz)
+                        # 1. Rimuoviamo i fusi orari per evitare conflitti (TypeError)
+                        if utili_df.index.tz is not None:
+                            utili_df.index = utili_df.index.tz_localize(None)
+                        oggi = pd.Timestamp.now().tz_localize(None)
 
                         # A. STORICO UTILI (Passati) per il file del singolo ticker
-                        utili_passati = utili_df[utili_df.index < oggi_tz].head(5)
+                        utili_passati = utili_df[utili_df.index < oggi].head(5)
                         if not utili_passati.empty:
-                            utili_passati_html = utili_passati[['EPS Estimate', 'EPS Actual', 'Surprise(%)']].copy()
+                            # 2. Check dinamico delle colonne (Evita il KeyError)
+                            colonne_disponibili = utili_passati.columns.tolist()
+                            colonne_da_mostrare = []
+                            if 'EPS Estimate' in colonne_disponibili: colonne_da_mostrare.append('EPS Estimate')
+                            
+                            # Cerchiamo Reported EPS o EPS Actual
+                            if 'Reported EPS' in colonne_disponibili: colonne_da_mostrare.append('Reported EPS')
+                            elif 'EPS Actual' in colonne_disponibili: colonne_da_mostrare.append('EPS Actual')
+                            
+                            if 'Surprise(%)' in colonne_disponibili: colonne_da_mostrare.append('Surprise(%)')
+
+                            utili_passati_html = utili_passati[colonne_da_mostrare].copy()
                             utili_passati_html.index = utili_passati_html.index.strftime('%Y-%m-%d')
                             tabella_utili = utili_passati_html.to_html(border=1)
 
                         # B. CALENDARIO UTILI (Futuri) per il file globale
-                        utili_futuri = utili_df[utili_df.index >= oggi_tz]
+                        utili_futuri = utili_df[utili_df.index >= oggi]
                         for idx, row in utili_futuri.iterrows():
                             calendario_economico_globale.append({
                                 "Data": idx.strftime('%Y-%m-%d'),
@@ -1551,7 +1565,8 @@ def get_sentiment_for_all_symbols(symbol_list):
                                 "Dettaglio": f"Stima EPS: {row.get('EPS Estimate', 'N/A')}"
                             })
                 except Exception as e:
-                    pass
+                    # Se c'è ancora un errore, ora lo stampiamo invece di nasconderlo
+                    print(f"Errore recupero utili per {symbol}: {e}")
 
                 try:
                     # C. CALENDARIO DIVIDENDI (Futuri) per il file globale
