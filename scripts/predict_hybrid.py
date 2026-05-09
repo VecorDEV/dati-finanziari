@@ -1529,43 +1529,74 @@ def get_sentiment_for_all_symbols(symbol_list):
                 # --- RECUPERO UTILI E CALENDARIO DIVIDENDI ---
                 tabella_utili = None
                 try:
-                    # Estrae le date degli utili (passate e future)
-                    utili_df = tk_obj.get_earnings_dates(limit=10)
-                    if utili_df is not None and not utili_df.empty:
-                        if utili_df.index.tz is not None:
-                            utili_df.index = utili_df.index.tz_localize(None)
-                        oggi = pd.Timestamp.now().tz_localize(None)
+                    # 1. TENTATIVO DI ESTRAZIONE STORICO UTILI
+                    try:
+                        utili_df = tk_obj.get_earnings_dates(limit=10)
+                        if utili_df is not None and not utili_df.empty:
+                            if utili_df.index.tz is not None:
+                                utili_df.index = utili_df.index.tz_localize(None)
+                            oggi = pd.Timestamp.now().tz_localize(None)
 
-                        # A. STORICO UTILI (Passati) per il file HTML del singolo ticker
-                        utili_passati = utili_df[utili_df.index < oggi].head(5)
-                        if not utili_passati.empty:
-                            colonne_disponibili = utili_passati.columns.tolist()
-                            colonne_da_mostrare = []
-                            if 'EPS Estimate' in colonne_disponibili: colonne_da_mostrare.append('EPS Estimate')
-                            
-                            if 'Reported EPS' in colonne_disponibili: colonne_da_mostrare.append('Reported EPS')
-                            elif 'EPS Actual' in colonne_disponibili: colonne_da_mostrare.append('EPS Actual')
-                            
-                            if 'Surprise(%)' in colonne_disponibili: colonne_da_mostrare.append('Surprise(%)')
-
-                            utili_passati_html = utili_passati[colonne_da_mostrare].copy()
-                            utili_passati_html.index = utili_passati_html.index.strftime('%Y-%m-%d')
-                            tabella_utili = utili_passati_html.to_html(border=1)
-
-                        # B. CALENDARIO UTILI (Futuri) per il JSON globale
-                        utili_futuri = utili_df[utili_df.index >= oggi]
-                        for idx, row in utili_futuri.iterrows():
-                            eps_est = row.get('EPS Estimate', 'N/A')
-                            # Arrotondiamo se è un numero
-                            if isinstance(eps_est, (int, float)) and not pd.isna(eps_est):
-                                eps_est = round(eps_est, 2)
+                            # A. STORICO UTILI (Passati) per il file HTML del singolo ticker
+                            utili_passati = utili_df[utili_df.index < oggi].head(5)
+                            if not utili_passati.empty:
+                                colonne_disponibili = utili_passati.columns.tolist()
+                                colonne_da_mostrare = []
+                                if 'EPS Estimate' in colonne_disponibili: colonne_da_mostrare.append('EPS Estimate')
                                 
-                            calendario_economico_globale.append({
-                                "Data": idx.strftime('%Y-%m-%d'),
-                                "Ticker": symbol,
-                                "Evento": "Rapporto Sugli Utili",
-                                "Dettaglio": f"Est. EPS: {eps_est}" # Formato standard pulito
-                            })
+                                if 'Reported EPS' in colonne_disponibili: colonne_da_mostrare.append('Reported EPS')
+                                elif 'EPS Actual' in colonne_disponibili: colonne_da_mostrare.append('EPS Actual')
+                                
+                                if 'Surprise(%)' in colonne_disponibili: colonne_da_mostrare.append('Surprise(%)')
+
+                                utili_passati_html = utili_passati[colonne_da_mostrare].copy()
+                                utili_passati_html.index = utili_passati_html.index.strftime('%Y-%m-%d')
+                                tabella_utili = utili_passati_html.to_html(border=1)
+
+                            # B1. CALENDARIO UTILI (Futuri) estratti dallo storico (a volte Yahoo li mette qui)
+                            utili_futuri = utili_df[utili_df.index >= oggi]
+                            for idx, row in utili_futuri.iterrows():
+                                eps_est = row.get('EPS Estimate', 'N/A')
+                                if isinstance(eps_est, (int, float)) and not pd.isna(eps_est):
+                                    eps_est = round(eps_est, 2)
+                                    
+                                calendario_economico_globale.append({
+                                    "Data": idx.strftime('%Y-%m-%d'),
+                                    "Ticker": symbol,
+                                    "Evento": "Rapporto Sugli Utili",
+                                    "Dettaglio": f"Est. EPS: {eps_est}"
+                                })
+                    except Exception as e:
+                        pass # Ignoriamo errori nello storico e passiamo al calendario ufficiale
+
+                    # B2. CALENDARIO UTILI (Futuri) ESTRATTI DAL CALENDARIO UFFICIALE (MOLTO PIÙ SICURO)
+                    cal = tk_obj.calendar
+                    if isinstance(cal, dict):
+                        # Controllo Earnings Date
+                        if 'Earnings Date' in cal:
+                            earnings_dates = cal['Earnings Date']
+                            # A volte è una lista, a volte una data singola
+                            if not isinstance(earnings_dates, list):
+                                earnings_dates = [earnings_dates]
+                                
+                            for e_date in earnings_dates:
+                                if pd.notna(e_date):
+                                    e_date_clean = pd.to_datetime(e_date).tz_localize(None).date()
+                                    if e_date_clean >= pd.Timestamp.now().tz_localize(None).date():
+                                        # Controlla se abbiamo già inserito questa data dal get_earnings_dates
+                                        gia_inserito = any(d['Data'] == e_date_clean.strftime('%Y-%m-%d') and d['Ticker'] == symbol and "Utili" in d['Evento'] for d in calendario_economico_globale)
+                                        
+                                        if not gia_inserito:
+                                            # Tenta di prendere le stime medie
+                                            est_avg = cal.get('Earnings Average', 'N/A')
+                                            dettaglio = f"Est. EPS: {est_avg}" if est_avg != 'N/A' else "Expected earnings report"
+                                            
+                                            calendario_economico_globale.append({
+                                                "Data": e_date_clean.strftime('%Y-%m-%d'),
+                                                "Ticker": symbol,
+                                                "Evento": "Rapporto Sugli Utili",
+                                                "Dettaglio": dettaglio
+                                            })
                 except Exception as e:
                     pass
 
@@ -1585,36 +1616,40 @@ def get_sentiment_for_all_symbols(symbol_list):
                                 "Data": idx.strftime('%Y-%m-%d'),
                                 "Ticker": symbol,
                                 "Evento": "Stacco Dividendo",
-                                "Dettaglio": f"Payout: ${valore_div}" # Valore reale!
+                                "Dettaglio": f"Payout: ${valore_div}"
                             })
                             
-                    # Integriamo anche con il calendario per pescare eventuali Payout Dates
+                    # Integriamo anche con il calendario ufficiale
                     cal = tk_obj.calendar
                     if isinstance(cal, dict):
                         # Giorno in cui pagano effettivamente i contanti
                         if 'Dividend Date' in cal and pd.notna(cal['Dividend Date']):
                             div_date = cal['Dividend Date']
-                            if div_date >= pd.Timestamp.now().tz_localize(None).date():
-                                calendario_economico_globale.append({
-                                    "Data": div_date.strftime('%Y-%m-%d'),
-                                    "Ticker": symbol,
-                                    "Evento": "Pagamento Dividendo",
-                                    "Dettaglio": "Payout Day"
-                                })
+                            # Assicurati che div_date sia convertibile in datetime prima di farci calcoli
+                            if isinstance(div_date, (pd.Timestamp, datetime, str)):
+                                div_date_clean = pd.to_datetime(div_date).tz_localize(None).date()
+                                if div_date_clean >= pd.Timestamp.now().tz_localize(None).date():
+                                    calendario_economico_globale.append({
+                                        "Data": div_date_clean.strftime('%Y-%m-%d'),
+                                        "Ticker": symbol,
+                                        "Evento": "Pagamento Dividendo",
+                                        "Dettaglio": "Payout Day"
+                                    })
                         
                         # Ex-Dividend Date dal calendario (solo se non lo abbiamo già preso sopra)
                         if 'Ex-Dividend Date' in cal and pd.notna(cal['Ex-Dividend Date']):
                             ex_date = cal['Ex-Dividend Date']
-                            if ex_date >= pd.Timestamp.now().tz_localize(None).date():
-                                # Controlliamo di non aver già inserito questa data per non duplicare
-                                gia_inserito = any(d['Data'] == ex_date.strftime('%Y-%m-%d') and d['Ticker'] == symbol and "Stacco" in d['Evento'] for d in calendario_economico_globale)
-                                if not gia_inserito:
-                                    calendario_economico_globale.append({
-                                        "Data": ex_date.strftime('%Y-%m-%d'),
-                                        "Ticker": symbol,
-                                        "Evento": "Stacco Dividendo",
-                                        "Dettaglio": "Ex-Dividend Date"
-                                    })
+                            if isinstance(ex_date, (pd.Timestamp, datetime, str)):
+                                ex_date_clean = pd.to_datetime(ex_date).tz_localize(None).date()
+                                if ex_date_clean >= pd.Timestamp.now().tz_localize(None).date():
+                                    gia_inserito = any(d['Data'] == ex_date_clean.strftime('%Y-%m-%d') and d['Ticker'] == symbol and "Stacco" in d['Evento'] for d in calendario_economico_globale)
+                                    if not gia_inserito:
+                                        calendario_economico_globale.append({
+                                            "Data": ex_date_clean.strftime('%Y-%m-%d'),
+                                            "Ticker": symbol,
+                                            "Evento": "Stacco Dividendo",
+                                            "Dettaglio": "Ex-Dividend Date"
+                                        })
                 except Exception as e:
                     pass
                 
