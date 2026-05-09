@@ -1600,16 +1600,19 @@ def get_sentiment_for_all_symbols(symbol_list):
                 except Exception as e:
                     pass
 
-                # C. CALENDARIO DIVIDENDI (Futuri) per il JSON globale
+                # C. CALENDARIO DIVIDENDI (Gestione flessibile delle date)
                 try:
-                    # Prima proviamo a estrarre dividendi imminenti dalle azioni storiche/future
+                    oggi_date = pd.Timestamp.now().tz_localize(None).date()
+                    # Tolleranza: prendiamo anche i dividendi degli ultimi 3 giorni
+                    limite_passato = oggi_date - timedelta(days=3)
+
+                    # 1. Da Storico/Azioni (Sicuro per Stacco e Importo)
                     actions = tk_obj.actions
                     if not actions.empty and 'Dividends' in actions.columns:
                         if actions.index.tz is not None:
                             actions.index = actions.index.tz_localize(None)
-                        oggi = pd.Timestamp.now().tz_localize(None)
                         
-                        futuri_divs = actions[(actions.index >= oggi) & (actions['Dividends'] > 0)]
+                        futuri_divs = actions[(actions.index >= pd.Timestamp(limite_passato)) & (actions['Dividends'] > 0)]
                         for idx, row in futuri_divs.iterrows():
                             valore_div = round(row['Dividends'], 4)
                             calendario_economico_globale.append({
@@ -1619,16 +1622,15 @@ def get_sentiment_for_all_symbols(symbol_list):
                                 "Dettaglio": f"Payout: ${valore_div}"
                             })
                             
-                    # Integriamo anche con il calendario ufficiale
+                    # 2. Dal Calendario Ufficiale
                     cal = tk_obj.calendar
                     if isinstance(cal, dict):
-                        # Giorno in cui pagano effettivamente i contanti
+                        # Payout Date
                         if 'Dividend Date' in cal and pd.notna(cal['Dividend Date']):
                             div_date = cal['Dividend Date']
-                            # Assicurati che div_date sia convertibile in datetime prima di farci calcoli
                             if isinstance(div_date, (pd.Timestamp, datetime, str)):
                                 div_date_clean = pd.to_datetime(div_date).tz_localize(None).date()
-                                if div_date_clean >= pd.Timestamp.now().tz_localize(None).date():
+                                if div_date_clean >= limite_passato:
                                     calendario_economico_globale.append({
                                         "Data": div_date_clean.strftime('%Y-%m-%d'),
                                         "Ticker": symbol,
@@ -1636,12 +1638,12 @@ def get_sentiment_for_all_symbols(symbol_list):
                                         "Dettaglio": "Payout Day"
                                     })
                         
-                        # Ex-Dividend Date dal calendario (solo se non lo abbiamo già preso sopra)
+                        # Ex-Dividend Date (Solo se manca l'importo da 'actions')
                         if 'Ex-Dividend Date' in cal and pd.notna(cal['Ex-Dividend Date']):
                             ex_date = cal['Ex-Dividend Date']
                             if isinstance(ex_date, (pd.Timestamp, datetime, str)):
                                 ex_date_clean = pd.to_datetime(ex_date).tz_localize(None).date()
-                                if ex_date_clean >= pd.Timestamp.now().tz_localize(None).date():
+                                if ex_date_clean >= limite_passato:
                                     gia_inserito = any(d['Data'] == ex_date_clean.strftime('%Y-%m-%d') and d['Ticker'] == symbol and "Stacco" in d['Evento'] for d in calendario_economico_globale)
                                     if not gia_inserito:
                                         calendario_economico_globale.append({
