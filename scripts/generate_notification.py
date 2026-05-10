@@ -1,15 +1,10 @@
 import os
-import google.generativeai as genai
 from datetime import datetime
+from google import genai
+from google.genai import types
 
-# Configura le API di Gemini usando la chiave salvata nei secrets di GitHub
-genai.configure(api_key=os.environ["GEMINI_API_KEY"])
-
-# Utilizziamo Gemini 1.5 Pro abilitando lo strumento di ricerca Google
-model = genai.GenerativeModel(
-    model_name='gemini-1.5-pro',
-    tools='google_search_retrieval'
-)
+# Inizializza il nuovo client usando la chiave API
+client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
 
 today_str = datetime.now().strftime("%B %Y").lower()
 notification_id = f"market_alert_{datetime.now().strftime('%d%m%Y_%H%M')}"
@@ -39,12 +34,12 @@ Template:
 
     <!-- Ripeti questo div per ogni lingua richiesta -->
     <div class="notification" 
-         id="{notification_id}" 
+         id="notification_id" 
          lang="CODICE_LINGUA" 
          data-target="all" 
          data-link="">
          
-        <h3>🚨 [TITOLO NELLA LINGUA SPECIFICA]</h3>
+        <h3>[TITOLO NELLA LINGUA SPECIFICA]</h3>
         <p>[TESTO NELLA LINGUA SPECIFICA]</p>
     </div>
 
@@ -53,25 +48,31 @@ Template:
 """
 
 try:
-    response = model.generate_content(prompt)
+    # Usiamo la nuova sintassi per generare il contenuto con grounding su Google Search
+    response = client.models.generate_content(
+        model='gemini-2.5-pro',
+        contents=prompt,
+        config=types.GenerateContentConfig(
+            tools=[{"google_search": {}}],
+        )
+    )
+    
     html_content = response.text.strip()
     
-    # Pulizia sicura (evita l'uso dei backtick diretti nel codice Python)
+    # Pulizia sicura del markdown
     html_content = html_content.replace('`' * 3 + 'html\n', '')
     html_content = html_content.replace('`' * 3 + 'html', '')
     html_content = html_content.replace('`' * 3, '')
     html_content = html_content.strip()
         
-    # Verifica che la cartella interact esista, altrimenti la crea
+    # Creazione cartella e salvataggio
     folder_path = "interact"
     if not os.path.exists(folder_path):
         os.makedirs(folder_path)
         print(f"📁 Cartella '{folder_path}' creata.")
 
-    # Percorso completo del file all'interno della cartella
     file_path = os.path.join(folder_path, "notifica_odierna.html")
         
-    # Salva o sovrascrive il risultato nel file HTML
     with open(file_path, "w", encoding="utf-8") as f:
         f.write(html_content)
         
