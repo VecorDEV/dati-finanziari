@@ -48,8 +48,8 @@ jobs:
           # Fai un pull per evitare conflitti nel caso di modifiche recenti al repo
           git pull origin main
           
-          # Aggiunge il file nella cartella interact
-          git add interact/notifica_odierna.html
+          # ECCO LA RIGA CORRETTA:
+          git add interact/push_notifications.html
           
           # Committa solo se ci sono effettive modifiche al file, altrimenti salta senza dare errore
           git commit -m "🔔 Market Alert: Aggiornamento automatico notifica [skip ci]" || echo "Nessuna modifica rilevata, salto il commit."
