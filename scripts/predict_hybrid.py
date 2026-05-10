@@ -1600,7 +1600,7 @@ def get_sentiment_for_all_symbols(symbol_list):
                 except Exception as e:
                     pass
 
-                # C. CALENDARIO DIVIDENDI (Gestione flessibile delle date)
+                # C. CALENDARIO DIVIDENDI (Gestione flessibile e SICURA)
                 try:
                     oggi_date = pd.Timestamp.now().tz_localize(None).date()
                     # Tolleranza: prendiamo anche i dividendi degli ultimi 3 giorni
@@ -1622,14 +1622,14 @@ def get_sentiment_for_all_symbols(symbol_list):
                                 "Dettaglio": f"Payout: ${valore_div}"
                             })
                             
-                    # 2. Dal Calendario Ufficiale
+                    # 2. Dal Calendario Ufficiale (Senza controlli limitanti sui tipi!)
                     cal = tk_obj.calendar
                     if isinstance(cal, dict):
+                        
                         # Payout Date
                         if 'Dividend Date' in cal and pd.notna(cal['Dividend Date']):
-                            div_date = cal['Dividend Date']
-                            if isinstance(div_date, (pd.Timestamp, datetime, str)):
-                                div_date_clean = pd.to_datetime(div_date).tz_localize(None).date()
+                            try:
+                                div_date_clean = pd.to_datetime(cal['Dividend Date']).tz_localize(None).date()
                                 if div_date_clean >= limite_passato:
                                     calendario_economico_globale.append({
                                         "Data": div_date_clean.strftime('%Y-%m-%d'),
@@ -1637,12 +1637,13 @@ def get_sentiment_for_all_symbols(symbol_list):
                                         "Evento": "Pagamento Dividendo",
                                         "Dettaglio": "Payout Day"
                                     })
+                            except Exception:
+                                pass # Ignora silenziosamente se il formato è davvero illeggibile
                         
                         # Ex-Dividend Date (Solo se manca l'importo da 'actions')
                         if 'Ex-Dividend Date' in cal and pd.notna(cal['Ex-Dividend Date']):
-                            ex_date = cal['Ex-Dividend Date']
-                            if isinstance(ex_date, (pd.Timestamp, datetime, str)):
-                                ex_date_clean = pd.to_datetime(ex_date).tz_localize(None).date()
+                            try:
+                                ex_date_clean = pd.to_datetime(cal['Ex-Dividend Date']).tz_localize(None).date()
                                 if ex_date_clean >= limite_passato:
                                     gia_inserito = any(d['Data'] == ex_date_clean.strftime('%Y-%m-%d') and d['Ticker'] == symbol and "Stacco" in d['Evento'] for d in calendario_economico_globale)
                                     if not gia_inserito:
@@ -1652,6 +1653,8 @@ def get_sentiment_for_all_symbols(symbol_list):
                                             "Evento": "Stacco Dividendo",
                                             "Dettaglio": "Ex-Dividend Date"
                                         })
+                            except Exception:
+                                pass
                 except Exception as e:
                     pass
                 
