@@ -7,10 +7,10 @@ from google.genai import types
 # 1. Configurazione Client
 client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
 
-# Generazione ID univoco
-current_alert_id = f"market_alert_{datetime.now().strftime('%d%m%Y_%H%M')}"
+# Generazione ID UNIVOCO (Nome + Timestamp al secondo)
+# Esempio: market_alert_10052026_220530
+unique_id = f"market_alert_{datetime.now().strftime('%d%m%Y_%H%M%S')}"
 
-# NOTA: Ora il prompt è una stringa normale, senza variabili. Gemini non può fare danni.
 prompt = """
 Agisci come un Senior Financial Editor e Localizzazione Expert.
 OBIETTIVO:
@@ -23,21 +23,20 @@ REGOLE DI SCRITTURA:
 - Contenuto: Fatti concreti, cifre se disponibili, impatto chiaro sui mercati.
 - Lunghezza: Titolo max 50 caratteri, Descrizione max 140 caratteri.
 - IMPORTANTE: Scrivi il TITOLO SEMPRE IN TUTTO MAIUSCOLO (ALL CAPS).
+- NON inserire emoji nei titoli o nelle descrizioni.
 
 REGOLE DI TRADUZIONE (LOCALIZATION):
-- Non tradurre letteralmente. Usa il gergo finanziario corretto per ogni lingua (es. in italiano usa 'azionario' o 'listini', non 'mercato dei titoli').
+- Non tradurre letteralmente. Usa il gergo finanziario corretto per ogni lingua.
 - Distingui chiaramente tra Portoghese Europeo (pt) e Brasiliano (pt-BR).
-- Per il mercato Arabo e Cinese, usa un tono formale e rispettoso delle convenzioni locali.
 
 LINGUE RICHIESTE:
 Italiano (it), Inglese (en), Spagnolo (es), Francese (fr), Tedesco (de), Portoghese EU (pt), Portoghese Brasiliano (pt-BR), Olandese (nl), Russo (ru), Ucraino (uk), Cinese Semplificato (zh-CN), Giapponese (ja), Coreano (ko), Indonesiano (id), Hindi (hi), Arabo (ar), Polacco (pl).
 
 OUTPUT RICHIESTO:
-Restituisci ESCLUSIVAMENTE il codice HTML. Non aggiungere commenti, non aggiungere ```html.
-Ogni lingua deve avere il suo div con l'attributo lang corrispondente.
+Restituisci ESCLUSIVAMENTE il codice HTML. Non aggiungere commenti o markdown.
 Assicurati che l'attributo data-type sia sempre impostato su "news".
 
-TEMPLATE DA SEGUIRE SCRUPOLOSAMENTE:
+TEMPLATE DA SEGUIRE SCRUPOLOSAMENTE (usa 'notification_id' come segnaposto):
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -59,7 +58,6 @@ def generate_with_retry(max_retries=5, initial_delay=10):
         try:
             print(f"🔄 Tentativo {attempt + 1}/{max_retries}...")
             
-            # Usiamo il modello che ti ha funzionato con successo!
             response = client.models.generate_content(
                 model='gemini-2.5-flash', 
                 contents=prompt,
@@ -77,7 +75,6 @@ def generate_with_retry(max_retries=5, initial_delay=10):
         except Exception as e:
             err_msg = str(e).upper()
             print(f"⚠️ Errore: {e}")
-            
             if any(x in err_msg for x in ["503", "429", "404", "UNAVAILABLE", "EXHAUSTED", "NONE"]):
                 if attempt < max_retries - 1:
                     print(f"🕒 Riprovo in {delay}s...")
@@ -99,9 +96,9 @@ try:
     
     html_content = clean_content.strip()
     
-    # 4. INIEZIONE SICURA DELL'ID: 
-    # Python prende la parola "notification_id" e la sostituisce con l'ID reale (es: market_alert_10052026_1526)
-    html_content = html_content.replace('id="notification_id"', f'id="{current_alert_id}"')
+    # 4. INIEZIONE DELL'ID IDENTICO PER TUTTI I DIV
+    # Sostituiamo tutte le occorrenze di notification_id con il nostro ID univoco al secondo
+    html_content = html_content.replace('id="notification_id"', f'id="{unique_id}"')
 
     # 5. Salvataggio
     folder_path = "interact"
@@ -113,7 +110,7 @@ try:
     with open(file_path, "w", encoding="utf-8") as f:
         f.write(html_content)
         
-    print(f"✅ Notifica '{current_alert_id}' pubblicata con successo.")
+    print(f"✅ File aggiornato con ID: {unique_id}")
 
 except Exception as e:
     print(f"❌ Errore critico finale: {e}")
