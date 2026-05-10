@@ -44,7 +44,7 @@ TEMPLATE DA SEGUIRE SCRUPOLOSAMENTE:
     <title>Repository Notifiche App</title>
 </head>
 <body>
-    <div class="notification" id="notification_id" lang="ISO_CODE" data-target="all" data-link="">
+    <div class="notification" id="notification_id" lang="ISO_CODE" data-target="all" data-type="news" data-link="">
         <h3>[TITOLO]</h3>
         <p>[DESCRIZIONE]</p>
     </div>
