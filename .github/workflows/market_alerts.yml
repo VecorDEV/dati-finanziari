@@ -27,12 +27,12 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: '3.12'  # Aggiornato per evitare avvisi di deprecazione
 
       - name: Installa dipendenze
         run: |
           python -m pip install --upgrade pip
-          pip install google-generativeai
+          pip install google-genai  # La nuova libreria ufficiale di Google
 
       - name: Esegui lo script Gemini
         env:
