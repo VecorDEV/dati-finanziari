@@ -75,7 +75,7 @@ try:
     if not os.path.exists(folder_path):
         os.makedirs(folder_path)
 
-    file_path = os.path.join(folder_path, "notifica_odierna.html")
+    file_path = os.path.join(folder_path, "push_notifications.html")
         
     with open(file_path, "w", encoding="utf-8") as f:
         f.write(html_content)
