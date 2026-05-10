@@ -3,27 +3,40 @@ from datetime import datetime
 from google import genai
 from google.genai import types
 
-# Inizializza il nuovo client usando la chiave API
+# Inizializza il client
 client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
 
-today_str = datetime.now().strftime("%B %Y").lower()
+# Genera un ID univoco basato su data e ora
 notification_id = f"market_alert_{datetime.now().strftime('%d%m%Y_%H%M')}"
 
+# Prompt evoluto per massima qualità e localizzazione
 prompt = f"""
-Sei un analista finanziario esperto e un copywriter per un'app internazionale.
-Cerca sul web la notizia finanziaria, macroeconomica o geopolitica più importante e impattante di OGGI. Deve essere un evento reale, accaduto nelle ultime ore (es. decisioni FED, dichiarazioni geopolitiche rilevanti, crolli/rally di settori o grandi aziende).
+Agisci come un Senior Financial Editor e Localizzazione Expert.
+OBIETTIVO:
+1. Trova la notizia finanziaria o geopolitica più impattante delle ultime 6 ore (Market Movers).
+2. Crea una notifica push "Breaking News" ad alto impatto. 
+3. Traduci e ADATTA la notifica per 17 mercati internazionali.
 
-Crea una notifica breve e accattivante (titolo + 1-2 frasi di descrizione) che spinga l'utente ad aprire l'app per controllare i settori influenzati.
+REGOLE DI SCRITTURA:
+- Tono: Professionale, urgente, autorevole (stile Bloomberg/Financial Times).
+- Contenuto: Fatti concreti, cifre se disponibili, impatto chiaro sui mercati.
+- Lunghezza: Titolo max 50 caratteri, Descrizione max 140 caratteri.
 
-Traduci la notifica in queste lingue:
+REGOLE DI TRADUZIONE (LOCALIZATION):
+- Non tradurre letteralmente. Usa il gergo finanziario corretto per ogni lingua (es. in italiano usa 'azionario' o 'listini', non 'mercato dei titoli').
+- Distingui chiaramente tra Portoghese Europeo (pt) e Brasiliano (pt-BR).
+- Per il mercato Arabo e Cinese, usa un tono formale e rispettoso delle convenzioni locali.
+
+ID UNIVOCO DA USARE: {notification_id}
+
+LINGUE RICHIESTE:
 Italiano (it), Inglese (en), Spagnolo (es), Francese (fr), Tedesco (de), Portoghese EU (pt), Portoghese Brasiliano (pt-BR), Olandese (nl), Russo (ru), Ucraino (uk), Cinese Semplificato (zh-CN), Giapponese (ja), Coreano (ko), Indonesiano (id), Hindi (hi), Arabo (ar), Polacco (pl).
 
-Restituisci ESCLUSIVAMENTE codice HTML valido, usando ESATTAMENTE questo template. 
-Devi generare un blocco <div class="notification"> PER OGNI LINGUA richiesta, tutti all'interno dello stesso tag <body>.
-Sostituisci solo il TITOLO, il TESTO DELLA NOTIFICA e l'attributo lang. Usa l'ID: {notification_id}. 
-IMPORTANTE: Restituisci SOLO codice puro, senza alcuna formattazione, blocchi di codice o tag markdown.
+OUTPUT RICHIESTO:
+Restituisci ESCLUSIVAMENTE il codice HTML. Non aggiungere commenti, non aggiungere ```html.
+Ogni lingua deve avere il suo div con l'attributo lang corrispondente.
 
-Template:
+TEMPLATE DA SEGUIRE SCRUPOLOSAMENTE:
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -31,53 +44,44 @@ Template:
     <title>Repository Notifiche App</title>
 </head>
 <body>
-
-    <!-- Ripeti questo div per ogni lingua richiesta -->
-    <div class="notification" 
-         id="notification_id" 
-         lang="CODICE_LINGUA" 
-         data-target="all" 
-         data-link="">
-         
-        <h3>[TITOLO NELLA LINGUA SPECIFICA]</h3>
-        <p>[TESTO NELLA LINGUA SPECIFICA]</p>
+    <div class="notification" id="notification_id" lang="ISO_CODE" data-target="all" data-link="">
+        <h3>[TITOLO]</h3>
+        <p>[DESCRIZIONE]</p>
     </div>
-
 </body>
 </html>
 """
 
 try:
-    # Usiamo la nuova sintassi per generare il contenuto con grounding su Google Search
+    # Usiamo gemini-2.0-flash per il perfetto equilibrio tra intelligenza e precisione nell'output
     response = client.models.generate_content(
-        model='gemini-2.5-pro',
+        model='gemini-2.5-flash', 
         contents=prompt,
         config=types.GenerateContentConfig(
             tools=[{"google_search": {}}],
+            temperature=0.3, # Bassa temperatura per maggiore coerenza e precisione tecnica
         )
     )
     
     html_content = response.text.strip()
     
-    # Pulizia sicura del markdown
-    html_content = html_content.replace('`' * 3 + 'html\n', '')
-    html_content = html_content.replace('`' * 3 + 'html', '')
-    html_content = html_content.replace('`' * 3, '')
+    # Pulizia avanzata per garantire HTML puro
+    for cleaner in ["```html", "```"]:
+        html_content = html_content.replace(cleaner, "")
     html_content = html_content.strip()
-        
-    # Creazione cartella e salvataggio
+
+    # Gestione file e cartelle
     folder_path = "interact"
     if not os.path.exists(folder_path):
         os.makedirs(folder_path)
-        print(f"📁 Cartella '{folder_path}' creata.")
 
     file_path = os.path.join(folder_path, "notifica_odierna.html")
         
     with open(file_path, "w", encoding="utf-8") as f:
         f.write(html_content)
         
-    print(f"✅ File HTML generato con successo e salvato in: {file_path}")
+    print(f"✅ Notifica '{notification_id}' generata con successo in 17 lingue.")
 
 except Exception as e:
-    print(f"❌ Errore durante la generazione: {e}")
+    print(f"❌ Errore critico: {e}")
     exit(1)
