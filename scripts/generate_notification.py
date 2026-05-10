@@ -1,6 +1,5 @@
 import os
 import time
-import shutil
 from datetime import datetime
 from google import genai
 from google.genai import types
@@ -9,7 +8,6 @@ from google.genai import types
 client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
 notification_id = f"market_alert_{datetime.now().strftime('%d%m%Y_%H%M')}"
 
-# Il tuo prompt (invariato come richiesto)
 prompt = f"""
 Agisci come un Senior Financial Editor e Localizzazione Expert.
 OBIETTIVO:
@@ -35,6 +33,7 @@ Italiano (it), Inglese (en), Spagnolo (es), Francese (fr), Tedesco (de), Portogh
 OUTPUT RICHIESTO:
 Restituisci ESCLUSIVAMENTE il codice HTML. Non aggiungere commenti, non aggiungere ```html.
 Ogni lingua deve avere il suo div con l'attributo lang corrispondente.
+Assicurati che l'attributo data-type sia sempre impostato su "news".
 
 TEMPLATE DA SEGUIRE SCRUPOLOSAMENTE:
 <!DOCTYPE html>
@@ -53,56 +52,66 @@ TEMPLATE DA SEGUIRE SCRUPOLOSAMENTE:
 """
 
 def generate_with_retry(max_retries=5, initial_delay=10):
-    """Esegue la chiamata a Gemini con logica di retry per errori 503 e 429."""
     delay = initial_delay
     for attempt in range(max_retries):
         try:
             print(f"🔄 Tentativo {attempt + 1}/{max_retries}...")
             
             response = client.models.generate_content(
-                model='gemini-2.5-flash', 
+                model='gemini-2.0-flash', 
                 contents=prompt,
                 config=types.GenerateContentConfig(
                     tools=[{"google_search": {}}],
                     temperature=0.3,
                 )
             )
+            
+            # GESTIONE ROBUSTA DELLA RISPOSTA
+            # Se la risposta è vuota o non ha testo, solleva un'eccezione per attivare il retry
+            if not response or not response.text:
+                raise ValueError("Risposta vuota dal modello")
+                
             return response.text.strip()
 
         except Exception as e:
             err_msg = str(e).upper()
-            # Se è un errore di disponibilità o quota, riprova
-            if "503" in err_msg or "429" in err_msg or "UNAVAILABLE" in err_msg or "EXHAUSTED" in err_msg:
+            print(f"⚠️ Errore durante il tentativo: {e}")
+            
+            # Se è un errore di disponibilità, quota o risposta vuota, riprova
+            if any(x in err_msg for x in ["503", "429", "UNAVAILABLE", "EXHAUSTED", "NONE"]):
                 if attempt < max_retries - 1:
-                    print(f"⚠️ Server occupato o limite raggiunto. Riprovo in {delay}s...")
+                    print(f"🕒 Riprovo in {delay}s...")
                     time.sleep(delay)
-                    delay *= 2 # Raddoppia l'attesa (Exponential Backoff)
+                    delay *= 2
                     continue
             raise e
 
 try:
     # 2. Generazione del contenuto
-    html_content = generate_with_retry()
+    html_raw = generate_with_retry()
     
     # 3. Pulizia stringhe markdown
-    for cleaner in ["```html", "```"]:
-        html_content = html_content.replace(cleaner, "")
-    html_content = html_content.strip()
+    # A volte Gemini mette il testo tra ```html ... ```
+    clean_content = html_raw
+    if "```html" in clean_content:
+        clean_content = clean_content.split("```html")[-1].split("```")[0]
+    elif "```" in clean_content:
+        clean_content = clean_content.split("```")[-1].split("```")[0]
+    
+    html_content = clean_content.strip()
 
-    # 4. Salvataggio sicuro nel file
+    # 4. Salvataggio
     folder_path = "interact"
     if not os.path.exists(folder_path):
         os.makedirs(folder_path)
-        print(f"📁 Cartella '{folder_path}' creata.")
 
-    # Nome file allineato a quello che si aspetta la tua app
     file_path = os.path.join(folder_path, "push_notifications.html")
         
     with open(file_path, "w", encoding="utf-8") as f:
         f.write(html_content)
         
-    print(f"✅ Notifica '{notification_id}' pubblicata con successo in {file_path}")
+    print(f"✅ Notifica '{notification_id}' pubblicata con successo.")
 
 except Exception as e:
-    print(f"❌ Errore critico dopo tutti i tentativi: {e}")
+    print(f"❌ Errore critico finale: {e}")
     exit(1)
