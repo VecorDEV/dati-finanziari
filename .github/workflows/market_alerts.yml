@@ -1,0 +1,59 @@
+name: Genera Notifiche Finanziarie
+
+on:
+  # Possibilità di lanciare lo script manualmente tramite bottone su GitHub
+  workflow_dispatch: 
+  
+  # Orari di esecuzione automatica (espressi in fuso orario UTC)
+  schedule:
+    - cron: '0 7 * * *'    # 07:00 UTC - Chiusura Asia / Pre-apertura Europa
+    - cron: '30 13 * * *'  # 13:30 UTC - Dati USA / Pre-apertura Wall Street
+    - cron: '0 21 * * *'   # 21:00 UTC - Chiusura Wall Street / After-hours
+
+jobs:
+  generate-and-publish-notification:
+    runs-on: ubuntu-latest
+    
+    # Permessi fondamentali per permettere al bot di scrivere nel tuo repository
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout del repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1 # Scarica solo l'ultimo commit per velocizzare l'azione
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Installa dipendenze
+        run: |
+          python -m pip install --upgrade pip
+          pip install google-generativeai
+
+      - name: Esegui lo script Gemini
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        # Sostituisci "script.py" con il nome esatto del tuo file python se diverso
+        run: python script.py 
+
+      - name: Committa e pusha le modifiche
+        run: |
+          # Configura l'identità del bot di GitHub
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "actions@github.com"
+          
+          # Fai un pull per evitare conflitti nel caso di modifiche recenti al repo
+          git pull origin main
+          
+          # Aggiunge il file nella cartella interact
+          git add interact/notifica_odierna.html
+          
+          # Committa solo se ci sono effettive modifiche al file, altrimenti salta senza dare errore
+          git commit -m "🔔 Market Alert: Aggiornamento automatico notifica [skip ci]" || echo "Nessuna modifica rilevata, salto il commit."
+          
+          # Invia le modifiche al repository
+          git push
