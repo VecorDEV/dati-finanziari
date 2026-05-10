@@ -4,11 +4,14 @@ from datetime import datetime
 from google import genai
 from google.genai import types
 
-# 1. Configurazione Iniziale
+# 1. Configurazione Client
 client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
-notification_id = f"market_alert_{datetime.now().strftime('%d%m%Y_%H%M')}"
 
-prompt = f"""
+# Generazione ID univoco
+current_alert_id = f"market_alert_{datetime.now().strftime('%d%m%Y_%H%M')}"
+
+# NOTA: Ora il prompt è una stringa normale, senza variabili. Gemini non può fare danni.
+prompt = """
 Agisci come un Senior Financial Editor e Localizzazione Expert.
 OBIETTIVO:
 1. Trova la notizia finanziaria o geopolitica più impattante delle ultime 6 ore (Market Movers).
@@ -19,13 +22,12 @@ REGOLE DI SCRITTURA:
 - Tono: Professionale, urgente, autorevole (stile Bloomberg/Financial Times).
 - Contenuto: Fatti concreti, cifre se disponibili, impatto chiaro sui mercati.
 - Lunghezza: Titolo max 50 caratteri, Descrizione max 140 caratteri.
+- IMPORTANTE: Scrivi il TITOLO SEMPRE IN TUTTO MAIUSCOLO (ALL CAPS).
 
 REGOLE DI TRADUZIONE (LOCALIZATION):
 - Non tradurre letteralmente. Usa il gergo finanziario corretto per ogni lingua (es. in italiano usa 'azionario' o 'listini', non 'mercato dei titoli').
 - Distingui chiaramente tra Portoghese Europeo (pt) e Brasiliano (pt-BR).
 - Per il mercato Arabo e Cinese, usa un tono formale e rispettoso delle convenzioni locali.
-
-ID UNIVOCO DA USARE: {notification_id}
 
 LINGUE RICHIESTE:
 Italiano (it), Inglese (en), Spagnolo (es), Francese (fr), Tedesco (de), Portoghese EU (pt), Portoghese Brasiliano (pt-BR), Olandese (nl), Russo (ru), Ucraino (uk), Cinese Semplificato (zh-CN), Giapponese (ja), Coreano (ko), Indonesiano (id), Hindi (hi), Arabo (ar), Polacco (pl).
@@ -44,7 +46,7 @@ TEMPLATE DA SEGUIRE SCRUPOLOSAMENTE:
 </head>
 <body>
     <div class="notification" id="notification_id" lang="ISO_CODE" data-target="all" data-type="news" data-link="">
-        <h3>[TITOLO]</h3>
+        <h3>[TITOLO IN TUTTO MAIUSCOLO]</h3>
         <p>[DESCRIZIONE]</p>
     </div>
 </body>
@@ -57,8 +59,9 @@ def generate_with_retry(max_retries=5, initial_delay=10):
         try:
             print(f"🔄 Tentativo {attempt + 1}/{max_retries}...")
             
+            # Usiamo il modello che ti ha funzionato con successo!
             response = client.models.generate_content(
-                model='gemini-1.5-flash', 
+                model='gemini-2.5-flash', 
                 contents=prompt,
                 config=types.GenerateContentConfig(
                     tools=[{"google_search": {}}],
@@ -66,8 +69,6 @@ def generate_with_retry(max_retries=5, initial_delay=10):
                 )
             )
             
-            # GESTIONE ROBUSTA DELLA RISPOSTA
-            # Se la risposta è vuota o non ha testo, solleva un'eccezione per attivare il retry
             if not response or not response.text:
                 raise ValueError("Risposta vuota dal modello")
                 
@@ -75,10 +76,9 @@ def generate_with_retry(max_retries=5, initial_delay=10):
 
         except Exception as e:
             err_msg = str(e).upper()
-            print(f"⚠️ Errore durante il tentativo: {e}")
+            print(f"⚠️ Errore: {e}")
             
-            # Se è un errore di disponibilità, quota o risposta vuota, riprova
-            if any(x in err_msg for x in ["503", "429", "UNAVAILABLE", "EXHAUSTED", "NONE"]):
+            if any(x in err_msg for x in ["503", "429", "404", "UNAVAILABLE", "EXHAUSTED", "NONE"]):
                 if attempt < max_retries - 1:
                     print(f"🕒 Riprovo in {delay}s...")
                     time.sleep(delay)
@@ -87,11 +87,10 @@ def generate_with_retry(max_retries=5, initial_delay=10):
             raise e
 
 try:
-    # 2. Generazione del contenuto
+    # 2. Generazione
     html_raw = generate_with_retry()
     
-    # 3. Pulizia stringhe markdown
-    # A volte Gemini mette il testo tra ```html ... ```
+    # 3. Pulizia Markdown
     clean_content = html_raw
     if "```html" in clean_content:
         clean_content = clean_content.split("```html")[-1].split("```")[0]
@@ -99,8 +98,12 @@ try:
         clean_content = clean_content.split("```")[-1].split("```")[0]
     
     html_content = clean_content.strip()
+    
+    # 4. INIEZIONE SICURA DELL'ID: 
+    # Python prende la parola "notification_id" e la sostituisce con l'ID reale (es: market_alert_10052026_1526)
+    html_content = html_content.replace('id="notification_id"', f'id="{current_alert_id}"')
 
-    # 4. Salvataggio
+    # 5. Salvataggio
     folder_path = "interact"
     if not os.path.exists(folder_path):
         os.makedirs(folder_path)
@@ -110,7 +113,7 @@ try:
     with open(file_path, "w", encoding="utf-8") as f:
         f.write(html_content)
         
-    print(f"✅ Notifica '{notification_id}' pubblicata con successo.")
+    print(f"✅ Notifica '{current_alert_id}' pubblicata con successo.")
 
 except Exception as e:
     print(f"❌ Errore critico finale: {e}")
