@@ -6,7 +6,6 @@ from datetime import datetime
 genai.configure(api_key=os.environ["GEMINI_API_KEY"])
 
 # Utilizziamo Gemini 1.5 Pro abilitando lo strumento di ricerca Google
-# per garantire che le notizie siano "freschissime" e di giornata.
 model = genai.GenerativeModel(
     model_name='gemini-1.5-pro',
     tools='google_search_retrieval'
@@ -26,7 +25,8 @@ Italiano (it), Inglese (en), Spagnolo (es), Francese (fr), Tedesco (de), Portogh
 
 Restituisci ESCLUSIVAMENTE codice HTML valido, usando ESATTAMENTE questo template. 
 Devi generare un blocco <div class="notification"> PER OGNI LINGUA richiesta, tutti all'interno dello stesso tag <body>.
-Sostituisci solo il TITOLO, il TESTO DELLA NOTIFICA e l'attributo lang. Usa l'ID: {notification_id}. Non aggiungere markdown (come ```html), solo il codice puro.
+Sostituisci solo il TITOLO, il TESTO DELLA NOTIFICA e l'attributo lang. Usa l'ID: {notification_id}. 
+IMPORTANTE: Restituisci SOLO codice puro, senza alcuna formattazione, blocchi di codice o tag markdown.
 
 Template:
 <!DOCTYPE html>
@@ -39,12 +39,12 @@ Template:
 
     <!-- Ripeti questo div per ogni lingua richiesta -->
     <div class="notification" 
-         id="notification_id" 
+         id="{notification_id}" 
          lang="CODICE_LINGUA" 
          data-target="all" 
          data-link="">
          
-        <h3>[TITOLO NELLA LINGUA SPECIFICA]</h3>
+        <h3>🚨 [TITOLO NELLA LINGUA SPECIFICA]</h3>
         <p>[TESTO NELLA LINGUA SPECIFICA]</p>
     </div>
 
@@ -56,17 +56,10 @@ try:
     response = model.generate_content(prompt)
     html_content = response.text.strip()
     
-    # Rimuove eventuali blocchi markdown se Gemini li inserisce per errore
-    if html_content.startswith("
-```html"):
-        html_content = html_content[7:]
-    elif html_content.startswith("```"):
-        html_content = html_content[3:]
-        
-    if html_content.endswith("
-```"):
-        html_content = html_content[:-3]
-        
+    # Pulizia sicura (evita l'uso dei backtick diretti nel codice Python)
+    html_content = html_content.replace('`' * 3 + 'html\n', '')
+    html_content = html_content.replace('`' * 3 + 'html', '')
+    html_content = html_content.replace('`' * 3, '')
     html_content = html_content.strip()
         
     # Verifica che la cartella interact esista, altrimenti la crea
