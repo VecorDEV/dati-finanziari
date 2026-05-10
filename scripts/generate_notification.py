@@ -58,7 +58,7 @@ def generate_with_retry(max_retries=5, initial_delay=10):
             print(f"🔄 Tentativo {attempt + 1}/{max_retries}...")
             
             response = client.models.generate_content(
-                model='gemini-2.0-flash', 
+                model='gemini-1.5-flash', 
                 contents=prompt,
                 config=types.GenerateContentConfig(
                     tools=[{"google_search": {}}],
