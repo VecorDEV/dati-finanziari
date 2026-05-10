@@ -37,8 +37,7 @@ jobs:
       - name: Esegui lo script Gemini
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        # Sostituisci "script.py" con il nome esatto del tuo file python se diverso
-        run: python script.py 
+        run: python scripts/generate_notification.py 
 
       - name: Committa e pusha le modifiche
         run: |
