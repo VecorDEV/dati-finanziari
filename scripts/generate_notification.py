@@ -87,13 +87,15 @@ try:
     # 2. Generazione
     html_raw = generate_with_retry()
     
-    # 3. Pulizia Markdown
+    # 3. Pulizia Markdown (A PROVA DI COPIA-INCOLLA)
     clean_content = html_raw
-    if "```html" in clean_content:
-        clean_content = clean_content.split("```html")[-1].split("```")[0]
-    elif "```" in clean_content:
-        clean_content = clean_content.split("
-```")[-1].split("```")[0]
+    md_start = "`" * 3 + "html"
+    md_end = "`" * 3
+    
+    if md_start in clean_content:
+        clean_content = clean_content.split(md_start)[-1].split(md_end)[0]
+    elif md_end in clean_content:
+        clean_content = clean_content.split(md_end)[-1].split(md_end)[0]
     
     html_content = clean_content.strip()
     
