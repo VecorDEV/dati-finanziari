@@ -1,5 +1,6 @@
 import os
 import time
+import re
 from datetime import datetime
 from google import genai
 from google.genai import types
@@ -8,7 +9,6 @@ from google.genai import types
 client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
 
 # Generazione ID UNIVOCO (Nome + Timestamp al secondo)
-# Esempio: market_alert_10052026_220530
 unique_id = f"market_alert_{datetime.now().strftime('%d%m%Y_%H%M%S')}"
 
 prompt = """
@@ -36,7 +36,7 @@ OUTPUT RICHIESTO:
 Restituisci ESCLUSIVAMENTE il codice HTML. Non aggiungere commenti o markdown.
 Assicurati che l'attributo data-type sia sempre impostato su "news".
 
-TEMPLATE DA SEGUIRE SCRUPOLOSAMENTE (usa 'notification_id' come segnaposto):
+TEMPLATE DA SEGUIRE SCRUPOLOSAMENTE:
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -44,7 +44,7 @@ TEMPLATE DA SEGUIRE SCRUPOLOSAMENTE (usa 'notification_id' come segnaposto):
     <title>Repository Notifiche App</title>
 </head>
 <body>
-    <div class="notification" id="notification_id" lang="ISO_CODE" data-target="all" data-type="news" data-link="">
+    <div class="notification" id="SEGNAPOSTO" lang="ISO_CODE" data-target="all" data-type="news" data-link="">
         <h3>[TITOLO IN TUTTO MAIUSCOLO]</h3>
         <p>[DESCRIZIONE]</p>
     </div>
@@ -92,13 +92,14 @@ try:
     if "```html" in clean_content:
         clean_content = clean_content.split("```html")[-1].split("```")[0]
     elif "```" in clean_content:
-        clean_content = clean_content.split("```")[-1].split("```")[0]
+        clean_content = clean_content.split("
+```")[-1].split("```")[0]
     
     html_content = clean_content.strip()
     
-    # 4. INIEZIONE DELL'ID IDENTICO PER TUTTI I DIV
-    # Sostituiamo tutte le occorrenze di notification_id con il nostro ID univoco al secondo
-    html_content = html_content.replace('id="notification_id"', f'id="{unique_id}"')
+    # 4. SOSTITUZIONE AGGRESSIVA DEGLI ID TRAMITE REGEX
+    # Trova qualsiasi cosa scritta come id="..." e la sovrascrive con il nostro ID univoco
+    html_content = re.sub(r'id="[^"]+"', f'id="{unique_id}"', html_content)
 
     # 5. Salvataggio
     folder_path = "interact"
@@ -110,7 +111,7 @@ try:
     with open(file_path, "w", encoding="utf-8") as f:
         f.write(html_content)
         
-    print(f"✅ File aggiornato con ID: {unique_id}")
+    print(f"✅ File aggiornato con l'ID identico per tutti: {unique_id}")
 
 except Exception as e:
     print(f"❌ Errore critico finale: {e}")
