@@ -45,14 +45,25 @@ jobs:
           git config --global user.name "GitHub Actions Bot"
           git config --global user.email "actions@github.com"
           
-          # Fai un pull per evitare conflitti nel caso di modifiche recenti al repo
-          git pull origin main
-          
-          # ECCO LA RIGA CORRETTA:
+          # Aggiunge il file nella cartella interact
           git add interact/push_notifications.html
           
-          # Committa solo se ci sono effettive modifiche al file, altrimenti salta senza dare errore
+          # Committa solo se ci sono effettive modifiche al file
           git commit -m "🔔 Market Alert: Aggiornamento automatico notifica [skip ci]" || echo "Nessuna modifica rilevata, salto il commit."
           
-          # Invia le modifiche al repository
-          git push
+          # Ciclo anti-conflitto per il Push (max 5 tentativi)
+          max_retries=5
+          attempt=1
+          until git push origin main; do
+            if [ $attempt -ge $max_retries ]; then
+              echo "❌ Errore critico: Impossibile pushare dopo $max_retries tentativi a causa di conflitti continui."
+              exit 1
+            fi
+            echo "⚠️ Conflitto o lock rilevato (Tentativo $attempt/$max_retries). Riprovo tra 5 secondi..."
+            sleep 5
+            
+            # Scarica le ultime modifiche degli altri script e applica la notifica in cima (rebase)
+            git pull --rebase origin main
+            
+            attempt=$((attempt+1))
+          done
