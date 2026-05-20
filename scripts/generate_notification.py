@@ -13,16 +13,14 @@ client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
 unique_id = f"market_alert_{datetime.now().strftime('%d%m%Y_%H%M%S')}"
 
 # 2. DEFINIZIONE DEI FOCUS DINAMICI
-# Questo array garantisce che le notifiche varino costantemente argomento
 focus_categories = [
-    "Titoli Tech e Intelligenza Artificiale (es. NVIDIA, Apple, Microsoft, TSMC, earnings report tech)",
+    "Titoli Tech e Intelligenza Artificiale (es. NVIDIA, Apple, Microsoft, TSM, Tesla, earnings report tech)",
     "Macroeconomia e Banche Centrali (Decisioni FED/BCE, dati su inflazione, tassi d'interesse, disoccupazione USA)",
     "Criptovalute e Blockchain (Bitcoin, Ethereum, approvazione ETF, regolamentazioni, movimenti anomali)",
     "Materie prime ed Energia (Petrolio, Oro, Gas naturale, o tensioni geopolitiche che influenzano direttamente questi prezzi)",
     "Azionario Globale e Finanza (Trimestrali sorprendenti di aziende non-tech, fusioni, acquisizioni, crolli bancari o di specifici settori)"
 ]
 
-# Python sceglie un argomento a caso per questa specifica esecuzione
 current_focus = random.choice(focus_categories)
 
 prompt = f"""
@@ -78,7 +76,7 @@ def generate_with_retry(max_retries=5, initial_delay=10):
                 contents=prompt,
                 config=types.GenerateContentConfig(
                     tools=[{"google_search": {}}],
-                    temperature=0.5, # Aumentato a 0.5 per consentire maggiore varietà nella scelta delle notizie
+                    temperature=0.5, 
                 )
             )
             
@@ -102,7 +100,7 @@ try:
     # 2. Generazione
     html_raw = generate_with_retry()
     
-    # 3. Pulizia Markdown (A PROVA DI COPIA-INCOLLA)
+    # 3. Pulizia Markdown 
     clean_content = html_raw
     md_start = "`" * 3 + "html"
     md_end = "`" * 3
@@ -114,7 +112,7 @@ try:
     
     html_content = clean_content.strip()
     
-    # 4. SOSTITUZIONE AGGRESSIVA DEGLI ID TRAMITE REGEX
+    # 4. SOSTITUZIONE AGGRESSIVA DEGLI ID
     html_content = re.sub(r'id="[^"]+"', f'id="{unique_id}"', html_content)
 
     # 5. Salvataggio
@@ -128,7 +126,10 @@ try:
         f.write(html_content)
         
     print(f"✅ File aggiornato con successo. Argomento trattato: {current_focus}")
+    
+    # SPEGNIMENTO D'EMERGENZA: Chiude il processo all'istante impedendo blocchi in GitHub Actions
+    os._exit(0)
 
 except Exception as e:
     print(f"❌ Errore critico finale: {e}")
-    exit(1)
+    os._exit(1)
