@@ -41,29 +41,29 @@ jobs:
 
       - name: Committa e pusha le modifiche
         run: |
-          # Configura l'identità del bot di GitHub
+          # 1. Configurazione identità
           git config --global user.name "GitHub Actions Bot"
           git config --global user.email "actions@github.com"
           
-          # Aggiunge il file nella cartella interact
+          # Evita che Git apra schermate che bloccano il terminale aspettando l'utente
+          git config --global core.pager cat
+          
+          # 2. Prepara il file
           git add interact/push_notifications.html
           
-          # Committa solo se ci sono effettive modifiche al file
+          # 3. Committa (se ci sono modifiche)
           git commit -m "🔔 Market Alert: Aggiornamento automatico notifica [skip ci]" || echo "Nessuna modifica rilevata, salto il commit."
           
-          # Ciclo anti-conflitto per il Push (max 5 tentativi)
-          max_retries=5
-          attempt=1
-          until git push origin main; do
-            if [ $attempt -ge $max_retries ]; then
-              echo "❌ Errore critico: Impossibile pushare dopo $max_retries tentativi a causa di conflitti continui."
-              exit 1
-            fi
-            echo "⚠️ Conflitto o lock rilevato (Tentativo $attempt/$max_retries). Riprovo tra 5 secondi..."
-            sleep 5
-            
-            # Scarica le ultime modifiche degli altri script e applica la notifica in cima (rebase)
-            git pull --rebase origin main
-            
-            attempt=$((attempt+1))
-          done
+          # 4. Push in modo sicuro (senza cicli while/until)
+          if ! git push origin main; then
+              echo "⚠️ Rilevato conflitto di competizione. Sincronizzo con il server..."
+              
+              # Ferma eventuali rebase rimasti "incastrati" in precedenza
+              git rebase --abort || true
+              
+              # Scarica le ultime modifiche degli altri script forzando la chiusura senza chiedere messaggi (--no-edit)
+              git pull origin main --rebase --no-edit
+              
+              # Ritenta il push. Se fallisce ora, l'azione darà errore rosso invece di girare all'infinito.
+              git push origin main
+          fi
