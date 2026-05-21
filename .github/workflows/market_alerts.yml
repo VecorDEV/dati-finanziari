@@ -1,20 +1,27 @@
 name: Genera Notifiche Finanziarie
 
 on:
-  # Possibilità di lanciare lo script manualmente tramite bottone su GitHub
-  workflow_dispatch: 
-  
-  # Orari di esecuzione automatica (espressi in fuso orario UTC)
+  # Avvio manuale da GitHub
+  workflow_dispatch:
+
+  # Esecuzioni automatiche (UTC)
   schedule:
-    - cron: '0 7 * * *'    # 07:00 UTC - Chiusura Asia / Pre-apertura Europa
-    - cron: '30 13 * * *'  # 13:30 UTC - Dati USA / Pre-apertura Wall Street
-    - cron: '0 21 * * *'   # 21:00 UTC - Chiusura Wall Street / After-hours
+    - cron: '0 7 * * *'    # 07:00 UTC
+    - cron: '30 13 * * *' # 13:30 UTC
+    - cron: '0 21 * * *'  # 21:00 UTC
+
+# Evita esecuzioni simultanee dello stesso workflow
+concurrency:
+  group: financial-notifications
+  cancel-in-progress: true
 
 jobs:
   generate-and-publish-notification:
     runs-on: ubuntu-latest
-    
-    # Permessi fondamentali per permettere al bot di scrivere nel tuo repository
+
+    # Evita workflow zombie infiniti
+    timeout-minutes: 10
+
     permissions:
       contents: write
 
@@ -22,48 +29,44 @@ jobs:
       - name: Checkout del repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 1 # Scarica solo l'ultimo commit per velocizzare l'azione
+          fetch-depth: 0
 
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'  # Aggiornato per evitare avvisi di deprecazione
+          python-version: '3.12'
 
       - name: Installa dipendenze
         run: |
           python -m pip install --upgrade pip
-          pip install google-genai  # La nuova libreria ufficiale di Google
+          pip install google-genai
 
       - name: Esegui lo script Gemini
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: python scripts/generate_notification.py 
-
-      - name: Committa e pusha le modifiche
         run: |
-          # 1. Configurazione identità
+          python scripts/generate_notification.py
+
+      - name: Configura Git
+        run: |
           git config --global user.name "GitHub Actions Bot"
           git config --global user.email "actions@github.com"
-          
-          # Evita che Git apra schermate che bloccano il terminale aspettando l'utente
           git config --global core.pager cat
-          
-          # 2. Prepara il file
+
+      - name: Aggiorna branch locale
+        run: |
+          git pull origin main --rebase
+
+      - name: Commit e Push modifiche
+        run: |
+          # Aggiunge il file modificato
           git add interact/push_notifications.html
-          
-          # 3. Committa (se ci sono modifiche)
-          git commit -m "🔔 Market Alert: Aggiornamento automatico notifica [skip ci]" || echo "Nessuna modifica rilevata, salto il commit."
-          
-          # 4. Push in modo sicuro (senza cicli while/until)
-          if ! git push origin main; then
-              echo "⚠️ Rilevato conflitto di competizione. Sincronizzo con il server..."
-              
-              # Ferma eventuali rebase rimasti "incastrati" in precedenza
-              git rebase --abort || true
-              
-              # Scarica le ultime modifiche degli altri script forzando la chiusura senza chiedere messaggi (--no-edit)
-              git pull origin main --rebase --no-edit
-              
-              # Ritenta il push. Se fallisce ora, l'azione darà errore rosso invece di girare all'infinito.
-              git push origin main
-          fi
+
+          # Esce se non ci sono modifiche reali
+          git diff --cached --quiet && echo "Nessuna modifica rilevata." && exit 0
+
+          # Commit
+          git commit -m "🔔 Market Alert: Aggiornamento automatico notifica [skip ci]"
+
+          # Push
+          git push origin main
