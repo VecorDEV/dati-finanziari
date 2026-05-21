@@ -1,32 +1,22 @@
 name: Genera Notifiche Finanziarie
 
 on:
-  # Avvio manuale da GitHub
   workflow_dispatch:
 
-  # Esecuzioni automatiche (UTC)
   schedule:
-    - cron: '0 7 * * *'    # 07:00 UTC
-    - cron: '30 13 * * *' # 13:30 UTC
-    - cron: '0 21 * * *'  # 21:00 UTC
-
-# Evita esecuzioni simultanee dello stesso workflow
-concurrency:
-  group: financial-notifications
-  cancel-in-progress: true
+    - cron: '0 7 * * *'
+    - cron: '30 13 * * *'
+    - cron: '0 21 * * *'
 
 jobs:
   generate-and-publish-notification:
     runs-on: ubuntu-latest
 
-    # Evita workflow zombie infiniti
-    timeout-minutes: 10
-
     permissions:
       contents: write
 
     steps:
-      - name: Checkout del repository
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
@@ -41,32 +31,35 @@ jobs:
           python -m pip install --upgrade pip
           pip install google-genai
 
-      - name: Esegui lo script Gemini
+      - name: Esegui script Gemini
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: |
-          python scripts/generate_notification.py
+        run: python scripts/generate_notification.py
 
-      - name: Configura Git
+      - name: Commit e push sicuro
         run: |
           git config --global user.name "GitHub Actions Bot"
           git config --global user.email "actions@github.com"
           git config --global core.pager cat
 
-      - name: Aggiorna branch locale
-        run: |
-          git pull origin main --rebase
+          # sincronizza prima di tutto
+          git pull origin main --rebase || true
 
-      - name: Commit e Push modifiche
-        run: |
-          # Aggiunge il file modificato
           git add interact/push_notifications.html
 
-          # Esce se non ci sono modifiche reali
-          git diff --cached --quiet && echo "Nessuna modifica rilevata." && exit 0
+          # evita commit inutili
+          if git diff --cached --quiet; then
+            echo "Nessuna modifica da committare"
+            exit 0
+          fi
 
-          # Commit
           git commit -m "🔔 Market Alert: Aggiornamento automatico notifica [skip ci]"
 
-          # Push
-          git push origin main
+          # push con retry semplice ma NON loop infinito
+          for i in 1 2 3; do
+            git push origin main && break
+
+            echo "Push fallito, retry $i..."
+
+            git pull origin main --rebase || true
+          done
