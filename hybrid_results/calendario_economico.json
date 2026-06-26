@@ -1,75 +1,9 @@
 [
     {
-        "Data":"2026-06-22",
-        "Ticker":"XLE",
-        "Evento":"Stacco Dividendo",
-        "Dettaglio":"Payout: $0.385"
-    },
-    {
-        "Data":"2026-06-22",
-        "Ticker":"ITUB",
-        "Evento":"Stacco Dividendo",
-        "Dettaglio":"Payout: $0.072"
-    },
-    {
-        "Data":"2026-06-22",
-        "Ticker":"PST.MI",
-        "Evento":"Stacco Dividendo",
-        "Dettaglio":"Payout: $0.85"
-    },
-    {
-        "Data":"2026-06-22",
-        "Ticker":"STM.MI",
-        "Evento":"Stacco Dividendo",
-        "Dettaglio":"Payout: $0.0792"
-    },
-    {
-        "Data":"2026-06-22",
-        "Ticker":"AVGO",
-        "Evento":"Stacco Dividendo",
-        "Dettaglio":"Payout: $0.65"
-    },
-    {
-        "Data":"2026-06-22",
-        "Ticker":"FDX",
-        "Evento":"Stacco Dividendo",
-        "Dettaglio":"Payout: $1.22"
-    },
-    {
-        "Data":"2026-06-22",
-        "Ticker":"LDO.MI",
-        "Evento":"Stacco Dividendo",
-        "Dettaglio":"Payout: $0.63"
-    },
-    {
-        "Data":"2026-06-22",
-        "Ticker":"XLK",
-        "Evento":"Stacco Dividendo",
-        "Dettaglio":"Payout: $0.228"
-    },
-    {
-        "Data":"2026-06-22",
-        "Ticker":"QQQ",
-        "Evento":"Stacco Dividendo",
-        "Dettaglio":"Payout: $0.813"
-    },
-    {
-        "Data":"2026-06-22",
-        "Ticker":"XLF",
-        "Evento":"Stacco Dividendo",
-        "Dettaglio":"Payout: $0.187"
-    },
-    {
         "Data":"2026-06-23",
         "Ticker":"UNH",
         "Evento":"Pagamento Dividendo",
         "Dettaglio":"Payout Day"
-    },
-    {
-        "Data":"2026-06-24",
-        "Ticker":"ABEV",
-        "Evento":"Stacco Dividendo",
-        "Dettaglio":"Payout: $0.009"
     },
     {
         "Data":"2026-06-24",
@@ -78,14 +12,20 @@
         "Dettaglio":"Payout: $1.01"
     },
     {
+        "Data":"2026-06-24",
+        "Ticker":"ABEV",
+        "Evento":"Stacco Dividendo",
+        "Dettaglio":"Payout: $0.009"
+    },
+    {
         "Data":"2026-06-25",
-        "Ticker":"META",
+        "Ticker":"PYPL",
         "Evento":"Pagamento Dividendo",
         "Dettaglio":"Payout Day"
     },
     {
         "Data":"2026-06-25",
-        "Ticker":"QCOM",
+        "Ticker":"CME",
         "Evento":"Pagamento Dividendo",
         "Dettaglio":"Payout Day"
     },
@@ -97,13 +37,13 @@
     },
     {
         "Data":"2026-06-25",
-        "Ticker":"PYPL",
+        "Ticker":"META",
         "Evento":"Pagamento Dividendo",
         "Dettaglio":"Payout Day"
     },
     {
         "Data":"2026-06-25",
-        "Ticker":"CME",
+        "Ticker":"QCOM",
         "Evento":"Pagamento Dividendo",
         "Dettaglio":"Payout Day"
     },
@@ -139,12 +79,6 @@
     },
     {
         "Data":"2026-06-30",
-        "Ticker":"DE",
-        "Evento":"Stacco Dividendo",
-        "Dettaglio":"Ex-Dividend Date"
-    },
-    {
-        "Data":"2026-06-30",
         "Ticker":"PEP",
         "Evento":"Pagamento Dividendo",
         "Dettaglio":"Payout Day"
@@ -157,27 +91,15 @@
     },
     {
         "Data":"2026-06-30",
-        "Ticker":"AVGO",
-        "Evento":"Pagamento Dividendo",
-        "Dettaglio":"Payout Day"
-    },
-    {
-        "Data":"2026-06-30",
-        "Ticker":"USB",
-        "Evento":"Stacco Dividendo",
-        "Dettaglio":"Ex-Dividend Date"
-    },
-    {
-        "Data":"2026-06-30",
         "Ticker":"PLD",
         "Evento":"Pagamento Dividendo",
         "Dettaglio":"Payout Day"
     },
     {
         "Data":"2026-06-30",
-        "Ticker":"PSA",
-        "Evento":"Pagamento Dividendo",
-        "Dettaglio":"Payout Day"
+        "Ticker":"DE",
+        "Evento":"Stacco Dividendo",
+        "Dettaglio":"Ex-Dividend Date"
     },
     {
         "Data":"2026-06-30",
@@ -187,15 +109,15 @@
     },
     {
         "Data":"2026-06-30",
-        "Ticker":"SYK",
+        "Ticker":"DIS",
         "Evento":"Stacco Dividendo",
         "Dettaglio":"Ex-Dividend Date"
     },
     {
         "Data":"2026-06-30",
-        "Ticker":"DIS",
-        "Evento":"Stacco Dividendo",
-        "Dettaglio":"Ex-Dividend Date"
+        "Ticker":"AVGO",
+        "Evento":"Pagamento Dividendo",
+        "Dettaglio":"Payout Day"
     },
     {
         "Data":"2026-06-30",
@@ -205,13 +127,25 @@
     },
     {
         "Data":"2026-06-30",
-        "Ticker":"BDX",
+        "Ticker":"SYK",
+        "Evento":"Stacco Dividendo",
+        "Dettaglio":"Ex-Dividend Date"
+    },
+    {
+        "Data":"2026-06-30",
+        "Ticker":"USB",
+        "Evento":"Stacco Dividendo",
+        "Dettaglio":"Ex-Dividend Date"
+    },
+    {
+        "Data":"2026-06-30",
+        "Ticker":"PSA",
         "Evento":"Pagamento Dividendo",
         "Dettaglio":"Payout Day"
     },
     {
-        "Data":"2026-07-01",
-        "Ticker":"KO",
+        "Data":"2026-06-30",
+        "Ticker":"BDX",
         "Evento":"Pagamento Dividendo",
         "Dettaglio":"Payout Day"
     },
@@ -220,6 +154,12 @@
         "Ticker":"APD",
         "Evento":"Stacco Dividendo",
         "Dettaglio":"Ex-Dividend Date"
+    },
+    {
+        "Data":"2026-07-01",
+        "Ticker":"KO",
+        "Evento":"Pagamento Dividendo",
+        "Dettaglio":"Payout Day"
     },
     {
         "Data":"2026-07-01",
@@ -259,6 +199,12 @@
     },
     {
         "Data":"2026-07-06",
+        "Ticker":"CSCO",
+        "Evento":"Stacco Dividendo",
+        "Dettaglio":"Ex-Dividend Date"
+    },
+    {
+        "Data":"2026-07-06",
         "Ticker":"IBE.MC",
         "Evento":"Stacco Dividendo",
         "Dettaglio":"Ex-Dividend Date"
@@ -266,12 +212,6 @@
     {
         "Data":"2026-07-06",
         "Ticker":"JPM",
-        "Evento":"Stacco Dividendo",
-        "Dettaglio":"Ex-Dividend Date"
-    },
-    {
-        "Data":"2026-07-06",
-        "Ticker":"CSCO",
         "Evento":"Stacco Dividendo",
         "Dettaglio":"Ex-Dividend Date"
     },
@@ -289,7 +229,7 @@
     },
     {
         "Data":"2026-07-09",
-        "Ticker":"MA",
+        "Ticker":"ACN",
         "Evento":"Stacco Dividendo",
         "Dettaglio":"Ex-Dividend Date"
     },
@@ -301,13 +241,25 @@
     },
     {
         "Data":"2026-07-09",
-        "Ticker":"ACN",
+        "Ticker":"INTU",
         "Evento":"Stacco Dividendo",
         "Dettaglio":"Ex-Dividend Date"
     },
     {
         "Data":"2026-07-09",
-        "Ticker":"INTU",
+        "Ticker":"MA",
+        "Evento":"Stacco Dividendo",
+        "Dettaglio":"Ex-Dividend Date"
+    },
+    {
+        "Data":"2026-07-10",
+        "Ticker":"ORCL",
+        "Evento":"Stacco Dividendo",
+        "Dettaglio":"Ex-Dividend Date"
+    },
+    {
+        "Data":"2026-07-10",
+        "Ticker":"T",
         "Evento":"Stacco Dividendo",
         "Dettaglio":"Ex-Dividend Date"
     },
@@ -318,16 +270,16 @@
         "Dettaglio":"Payout Day"
     },
     {
-        "Data":"2026-07-10",
-        "Ticker":"ORCL",
-        "Evento":"Stacco Dividendo",
-        "Dettaglio":"Ex-Dividend Date"
-    },
-    {
         "Data":"2026-07-13",
         "Ticker":"BABA",
         "Evento":"Pagamento Dividendo",
         "Dettaglio":"Payout Day"
+    },
+    {
+        "Data":"2026-07-14",
+        "Ticker":"GS",
+        "Evento":"Rapporto Sugli Utili",
+        "Dettaglio":"Est. EPS: 13.83534"
     },
     {
         "Data":"2026-07-14",
@@ -342,16 +294,10 @@
         "Dettaglio":"Est. EPS: 5.41087"
     },
     {
-        "Data":"2026-07-14",
-        "Ticker":"GS",
-        "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 13.83534"
-    },
-    {
         "Data":"2026-07-15",
-        "Ticker":"USB",
-        "Evento":"Pagamento Dividendo",
-        "Dettaglio":"Payout Day"
+        "Ticker":"MS",
+        "Evento":"Rapporto Sugli Utili",
+        "Dettaglio":"Est. EPS: 2.8141"
     },
     {
         "Data":"2026-07-15",
@@ -361,21 +307,15 @@
     },
     {
         "Data":"2026-07-15",
+        "Ticker":"USB",
+        "Evento":"Pagamento Dividendo",
+        "Dettaglio":"Payout Day"
+    },
+    {
+        "Data":"2026-07-15",
         "Ticker":"ABT",
         "Evento":"Stacco Dividendo",
         "Dettaglio":"Ex-Dividend Date"
-    },
-    {
-        "Data":"2026-07-15",
-        "Ticker":"JNJ",
-        "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 2.85337"
-    },
-    {
-        "Data":"2026-07-15",
-        "Ticker":"MS",
-        "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 2.8141"
     },
     {
         "Data":"2026-07-15",
@@ -384,16 +324,10 @@
         "Dettaglio":"Est. EPS: 6.84519"
     },
     {
-        "Data":"2026-07-16",
-        "Ticker":"ABT",
+        "Data":"2026-07-15",
+        "Ticker":"JNJ",
         "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 1.27626"
-    },
-    {
-        "Data":"2026-07-16",
-        "Ticker":"UNH",
-        "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 4.85119"
+        "Dettaglio":"Est. EPS: 2.85337"
     },
     {
         "Data":"2026-07-16",
@@ -403,9 +337,9 @@
     },
     {
         "Data":"2026-07-16",
-        "Ticker":"NFLX",
+        "Ticker":"GE",
         "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 0.78901"
+        "Dettaglio":"Est. EPS: 1.85093"
     },
     {
         "Data":"2026-07-16",
@@ -415,15 +349,27 @@
     },
     {
         "Data":"2026-07-16",
-        "Ticker":"GE",
+        "Ticker":"UNH",
         "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 1.85093"
+        "Dettaglio":"Est. EPS: 4.85119"
+    },
+    {
+        "Data":"2026-07-16",
+        "Ticker":"NFLX",
+        "Evento":"Rapporto Sugli Utili",
+        "Dettaglio":"Est. EPS: 0.78901"
     },
     {
         "Data":"2026-07-16",
         "Ticker":"TSM",
         "Evento":"Rapporto Sugli Utili",
         "Dettaglio":"Est. EPS: 3.80471"
+    },
+    {
+        "Data":"2026-07-16",
+        "Ticker":"ABT",
+        "Evento":"Rapporto Sugli Utili",
+        "Dettaglio":"Est. EPS: 1.27626"
     },
     {
         "Data":"2026-07-17",
@@ -439,7 +385,7 @@
     },
     {
         "Data":"2026-07-20",
-        "Ticker":"ZTS",
+        "Ticker":"CL",
         "Evento":"Stacco Dividendo",
         "Dettaglio":"Ex-Dividend Date"
     },
@@ -451,21 +397,39 @@
     },
     {
         "Data":"2026-07-20",
-        "Ticker":"CL",
+        "Ticker":"ENEL.MI",
         "Evento":"Stacco Dividendo",
         "Dettaglio":"Ex-Dividend Date"
     },
     {
         "Data":"2026-07-20",
-        "Ticker":"ENEL.MI",
+        "Ticker":"ZTS",
         "Evento":"Stacco Dividendo",
         "Dettaglio":"Ex-Dividend Date"
+    },
+    {
+        "Data":"2026-07-21",
+        "Ticker":"LMT",
+        "Evento":"Rapporto Sugli Utili",
+        "Dettaglio":"Est. EPS: 7.2024"
+    },
+    {
+        "Data":"2026-07-21",
+        "Ticker":"MMC",
+        "Evento":"Rapporto Sugli Utili",
+        "Dettaglio":"Est. EPS: 2.90191"
     },
     {
         "Data":"2026-07-21",
         "Ticker":"SCHW",
         "Evento":"Rapporto Sugli Utili",
         "Dettaglio":"Est. EPS: 1.50685"
+    },
+    {
+        "Data":"2026-07-21",
+        "Ticker":"KO",
+        "Evento":"Rapporto Sugli Utili",
+        "Dettaglio":"Est. EPS: 0.93466"
     },
     {
         "Data":"2026-07-21",
@@ -480,34 +444,10 @@
         "Dettaglio":"Est. EPS: 3.16527"
     },
     {
-        "Data":"2026-07-21",
-        "Ticker":"KO",
-        "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 0.93466"
-    },
-    {
-        "Data":"2026-07-21",
-        "Ticker":"MMC",
-        "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 2.90191"
-    },
-    {
-        "Data":"2026-07-21",
-        "Ticker":"LMT",
-        "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 7.2024"
-    },
-    {
         "Data":"2026-07-22",
         "Ticker":"DIS",
         "Evento":"Pagamento Dividendo",
         "Dettaglio":"Payout Day"
-    },
-    {
-        "Data":"2026-07-22",
-        "Ticker":"SAN.MC",
-        "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 0.26"
     },
     {
         "Data":"2026-07-22",
@@ -517,15 +457,15 @@
     },
     {
         "Data":"2026-07-22",
-        "Ticker":"TSLA",
-        "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 0.45489"
-    },
-    {
-        "Data":"2026-07-22",
         "Ticker":"IBM",
         "Evento":"Rapporto Sugli Utili",
         "Dettaglio":"Est. EPS: 3.02018"
+    },
+    {
+        "Data":"2026-07-22",
+        "Ticker":"T",
+        "Evento":"Rapporto Sugli Utili",
+        "Dettaglio":"Est. EPS: 0.58634"
     },
     {
         "Data":"2026-07-22",
@@ -541,15 +481,15 @@
     },
     {
         "Data":"2026-07-22",
-        "Ticker":"T",
+        "Ticker":"SAN.MC",
         "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 0.58634"
+        "Dettaglio":"Est. EPS: 0.26"
     },
     {
         "Data":"2026-07-22",
-        "Ticker":"MONC.MI",
+        "Ticker":"CME",
         "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 0.85184"
+        "Dettaglio":"Est. EPS: 2.98329"
     },
     {
         "Data":"2026-07-22",
@@ -559,9 +499,15 @@
     },
     {
         "Data":"2026-07-22",
-        "Ticker":"CME",
+        "Ticker":"MONC.MI",
         "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 2.98329"
+        "Dettaglio":"Est. EPS: 0.85184"
+    },
+    {
+        "Data":"2026-07-22",
+        "Ticker":"TSLA",
+        "Evento":"Rapporto Sugli Utili",
+        "Dettaglio":"Est. EPS: 0.45489"
     },
     {
         "Data":"2026-07-22",
@@ -577,15 +523,9 @@
     },
     {
         "Data":"2026-07-23",
-        "Ticker":"STM.MI",
+        "Ticker":"BNP.PA",
         "Evento":"Rapporto Sugli Utili",
         "Dettaglio":"Est. EPS: None"
-    },
-    {
-        "Data":"2026-07-23",
-        "Ticker":"GOOGL",
-        "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 2.8779"
     },
     {
         "Data":"2026-07-23",
@@ -595,15 +535,15 @@
     },
     {
         "Data":"2026-07-23",
-        "Ticker":"EW",
+        "Ticker":"NSC",
         "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 0.74239"
+        "Dettaglio":"Est. EPS: 3.20183"
     },
     {
         "Data":"2026-07-23",
-        "Ticker":"BNP.PA",
+        "Ticker":"EW",
         "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: None"
+        "Dettaglio":"Est. EPS: 0.74239"
     },
     {
         "Data":"2026-07-23",
@@ -613,15 +553,9 @@
     },
     {
         "Data":"2026-07-23",
-        "Ticker":"NSC",
+        "Ticker":"STM.MI",
         "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 3.20183"
-    },
-    {
-        "Data":"2026-07-23",
-        "Ticker":"TMUS",
-        "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 2.64667"
+        "Dettaglio":"Est. EPS: None"
     },
     {
         "Data":"2026-07-23",
@@ -631,27 +565,21 @@
     },
     {
         "Data":"2026-07-23",
+        "Ticker":"GOOGL",
+        "Evento":"Rapporto Sugli Utili",
+        "Dettaglio":"Est. EPS: 2.8779"
+    },
+    {
+        "Data":"2026-07-23",
         "Ticker":"HON",
         "Evento":"Rapporto Sugli Utili",
         "Dettaglio":"Est. EPS: 2.41719"
     },
     {
-        "Data":"2026-07-24",
-        "Ticker":"VOW3.DE",
+        "Data":"2026-07-23",
+        "Ticker":"TMUS",
         "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 5.03"
-    },
-    {
-        "Data":"2026-07-24",
-        "Ticker":"AON",
-        "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 3.80953"
-    },
-    {
-        "Data":"2026-07-24",
-        "Ticker":"PST.MI",
-        "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: None"
+        "Dettaglio":"Est. EPS: 2.64667"
     },
     {
         "Data":"2026-07-24",
@@ -661,9 +589,33 @@
     },
     {
         "Data":"2026-07-24",
+        "Ticker":"PFE",
+        "Evento":"Stacco Dividendo",
+        "Dettaglio":"Ex-Dividend Date"
+    },
+    {
+        "Data":"2026-07-24",
+        "Ticker":"VOW3.DE",
+        "Evento":"Rapporto Sugli Utili",
+        "Dettaglio":"Est. EPS: 5.03"
+    },
+    {
+        "Data":"2026-07-24",
         "Ticker":"AXP",
         "Evento":"Rapporto Sugli Utili",
         "Dettaglio":"Est. EPS: 4.40671"
+    },
+    {
+        "Data":"2026-07-24",
+        "Ticker":"PST.MI",
+        "Evento":"Rapporto Sugli Utili",
+        "Dettaglio":"Est. EPS: None"
+    },
+    {
+        "Data":"2026-07-24",
+        "Ticker":"AON",
+        "Evento":"Rapporto Sugli Utili",
+        "Dettaglio":"Est. EPS: 3.80953"
     },
     {
         "Data":"2026-07-27",
@@ -679,15 +631,15 @@
     },
     {
         "Data":"2026-07-28",
-        "Ticker":"BA",
-        "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: -0.27262"
-    },
-    {
-        "Data":"2026-07-28",
         "Ticker":"MBG.DE",
         "Evento":"Rapporto Sugli Utili",
         "Dettaglio":"Est. EPS: 1.33362"
+    },
+    {
+        "Data":"2026-07-28",
+        "Ticker":"BA",
+        "Evento":"Rapporto Sugli Utili",
+        "Dettaglio":"Est. EPS: -0.27262"
     },
     {
         "Data":"2026-07-28",
@@ -709,6 +661,12 @@
     },
     {
         "Data":"2026-07-29",
+        "Ticker":"P911.DE",
+        "Evento":"Rapporto Sugli Utili",
+        "Dettaglio":"Est. EPS: 0.48213"
+    },
+    {
+        "Data":"2026-07-29",
         "Ticker":"ITW",
         "Evento":"Rapporto Sugli Utili",
         "Dettaglio":"Est. EPS: 2.79344"
@@ -721,9 +679,9 @@
     },
     {
         "Data":"2026-07-29",
-        "Ticker":"P911.DE",
+        "Ticker":"AIR.PA",
         "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 0.48213"
+        "Dettaglio":"Est. EPS: 1.44735"
     },
     {
         "Data":"2026-07-29",
@@ -733,21 +691,15 @@
     },
     {
         "Data":"2026-07-29",
-        "Ticker":"AIR.PA",
+        "Ticker":"ISP.MI",
         "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 1.44735"
+        "Dettaglio":"Est. EPS: 0.1486"
     },
     {
         "Data":"2026-07-29",
         "Ticker":"MSFT",
         "Evento":"Rapporto Sugli Utili",
         "Dettaglio":"Est. EPS: 4.23745"
-    },
-    {
-        "Data":"2026-07-29",
-        "Ticker":"ISP.MI",
-        "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 0.1486"
     },
     {
         "Data":"2026-07-29",
@@ -775,9 +727,15 @@
     },
     {
         "Data":"2026-07-30",
-        "Ticker":"ABEV",
+        "Ticker":"AAPL",
         "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 0.03538"
+        "Dettaglio":"Est. EPS: 1.89429"
+    },
+    {
+        "Data":"2026-07-30",
+        "Ticker":"MA",
+        "Evento":"Rapporto Sugli Utili",
+        "Dettaglio":"Est. EPS: 4.76134"
     },
     {
         "Data":"2026-07-30",
@@ -793,15 +751,21 @@
     },
     {
         "Data":"2026-07-30",
-        "Ticker":"RACE.MI",
+        "Ticker":"CVS",
         "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 2.48333"
+        "Dettaglio":"Est. EPS: 1.82948"
     },
     {
         "Data":"2026-07-30",
-        "Ticker":"LDO.MI",
+        "Ticker":"ABEV",
         "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: None"
+        "Dettaglio":"Est. EPS: 0.03538"
+    },
+    {
+        "Data":"2026-07-30",
+        "Ticker":"BMY",
+        "Evento":"Rapporto Sugli Utili",
+        "Dettaglio":"Est. EPS: 1.60652"
     },
     {
         "Data":"2026-07-30",
@@ -811,21 +775,39 @@
     },
     {
         "Data":"2026-07-30",
+        "Ticker":"LDO.MI",
+        "Evento":"Rapporto Sugli Utili",
+        "Dettaglio":"Est. EPS: None"
+    },
+    {
+        "Data":"2026-07-30",
+        "Ticker":"SYK",
+        "Evento":"Rapporto Sugli Utili",
+        "Dettaglio":"Est. EPS: 3.48794"
+    },
+    {
+        "Data":"2026-07-30",
+        "Ticker":"SHEL.L",
+        "Evento":"Rapporto Sugli Utili",
+        "Dettaglio":"Est. EPS: 1.35406"
+    },
+    {
+        "Data":"2026-07-30",
         "Ticker":"SO",
         "Evento":"Rapporto Sugli Utili",
         "Dettaglio":"Est. EPS: 1.00676"
     },
     {
         "Data":"2026-07-30",
-        "Ticker":"MA",
-        "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 4.76134"
-    },
-    {
-        "Data":"2026-07-30",
         "Ticker":"ENEL.MI",
         "Evento":"Rapporto Sugli Utili",
         "Dettaglio":"Est. EPS: 0.16666"
+    },
+    {
+        "Data":"2026-07-30",
+        "Ticker":"BBVA.MC",
+        "Evento":"Rapporto Sugli Utili",
+        "Dettaglio":"Est. EPS: 0.50475"
     },
     {
         "Data":"2026-07-30",
@@ -853,75 +835,15 @@
     },
     {
         "Data":"2026-07-30",
+        "Ticker":"RACE.MI",
+        "Evento":"Rapporto Sugli Utili",
+        "Dettaglio":"Est. EPS: 2.48333"
+    },
+    {
+        "Data":"2026-07-30",
         "Ticker":"ROKU",
         "Evento":"Rapporto Sugli Utili",
         "Dettaglio":"Est. EPS: 0.56222"
-    },
-    {
-        "Data":"2026-07-30",
-        "Ticker":"SHEL.L",
-        "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 1.35406"
-    },
-    {
-        "Data":"2026-07-30",
-        "Ticker":"SYK",
-        "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 3.48794"
-    },
-    {
-        "Data":"2026-07-30",
-        "Ticker":"AAPL",
-        "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 1.89429"
-    },
-    {
-        "Data":"2026-07-30",
-        "Ticker":"BMY",
-        "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 1.60652"
-    },
-    {
-        "Data":"2026-07-30",
-        "Ticker":"BBVA.MC",
-        "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 0.50475"
-    },
-    {
-        "Data":"2026-07-30",
-        "Ticker":"CVS",
-        "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 1.82948"
-    },
-    {
-        "Data":"2026-07-31",
-        "Ticker":"SONY",
-        "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: None"
-    },
-    {
-        "Data":"2026-07-31",
-        "Ticker":"TROW",
-        "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 2.29993"
-    },
-    {
-        "Data":"2026-07-31",
-        "Ticker":"SYK",
-        "Evento":"Pagamento Dividendo",
-        "Dettaglio":"Payout Day"
-    },
-    {
-        "Data":"2026-07-31",
-        "Ticker":"JPM",
-        "Evento":"Pagamento Dividendo",
-        "Dettaglio":"Payout Day"
-    },
-    {
-        "Data":"2026-07-31",
-        "Ticker":"CL",
-        "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 0.94833"
     },
     {
         "Data":"2026-07-31",
@@ -931,9 +853,39 @@
     },
     {
         "Data":"2026-07-31",
+        "Ticker":"JPM",
+        "Evento":"Pagamento Dividendo",
+        "Dettaglio":"Payout Day"
+    },
+    {
+        "Data":"2026-07-31",
+        "Ticker":"TROW",
+        "Evento":"Rapporto Sugli Utili",
+        "Dettaglio":"Est. EPS: 2.29993"
+    },
+    {
+        "Data":"2026-07-31",
+        "Ticker":"SONY",
+        "Evento":"Rapporto Sugli Utili",
+        "Dettaglio":"Est. EPS: None"
+    },
+    {
+        "Data":"2026-07-31",
+        "Ticker":"SYK",
+        "Evento":"Pagamento Dividendo",
+        "Dettaglio":"Payout Day"
+    },
+    {
+        "Data":"2026-07-31",
         "Ticker":"CVX",
         "Evento":"Rapporto Sugli Utili",
         "Dettaglio":"Est. EPS: 5.22753"
+    },
+    {
+        "Data":"2026-07-31",
+        "Ticker":"CL",
+        "Evento":"Rapporto Sugli Utili",
+        "Dettaglio":"Est. EPS: 0.94833"
     },
     {
         "Data":"2026-08-01",
@@ -955,39 +907,15 @@
     },
     {
         "Data":"2026-08-04",
-        "Ticker":"MRK",
-        "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: -0.1533"
-    },
-    {
-        "Data":"2026-08-04",
-        "Ticker":"DUK",
-        "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 1.25137"
-    },
-    {
-        "Data":"2026-08-04",
-        "Ticker":"AMGN",
-        "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 5.59204"
-    },
-    {
-        "Data":"2026-08-04",
-        "Ticker":"HSBA.L",
-        "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 0.44571"
-    },
-    {
-        "Data":"2026-08-04",
-        "Ticker":"ITUB",
-        "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 0.22055"
-    },
-    {
-        "Data":"2026-08-04",
         "Ticker":"CAT",
         "Evento":"Rapporto Sugli Utili",
         "Dettaglio":"Est. EPS: 6.1604"
+    },
+    {
+        "Data":"2026-08-04",
+        "Ticker":"LCID",
+        "Evento":"Rapporto Sugli Utili",
+        "Dettaglio":"Est. EPS: -2.382"
     },
     {
         "Data":"2026-08-04",
@@ -997,27 +925,39 @@
     },
     {
         "Data":"2026-08-04",
+        "Ticker":"ITUB",
+        "Evento":"Rapporto Sugli Utili",
+        "Dettaglio":"Est. EPS: 0.22055"
+    },
+    {
+        "Data":"2026-08-04",
+        "Ticker":"DUK",
+        "Evento":"Rapporto Sugli Utili",
+        "Dettaglio":"Est. EPS: 1.25137"
+    },
+    {
+        "Data":"2026-08-04",
+        "Ticker":"MRK",
+        "Evento":"Rapporto Sugli Utili",
+        "Dettaglio":"Est. EPS: -0.1533"
+    },
+    {
+        "Data":"2026-08-04",
+        "Ticker":"AMGN",
+        "Evento":"Rapporto Sugli Utili",
+        "Dettaglio":"Est. EPS: 5.59204"
+    },
+    {
+        "Data":"2026-08-04",
         "Ticker":"PFE",
         "Evento":"Rapporto Sugli Utili",
         "Dettaglio":"Est. EPS: 0.67873"
     },
     {
         "Data":"2026-08-04",
-        "Ticker":"LCID",
+        "Ticker":"HSBA.L",
         "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: -2.382"
-    },
-    {
-        "Data":"2026-08-05",
-        "Ticker":"LLY",
-        "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 8.82258"
-    },
-    {
-        "Data":"2026-08-05",
-        "Ticker":"LNTH",
-        "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 1.30091"
+        "Dettaglio":"Est. EPS: 0.44571"
     },
     {
         "Data":"2026-08-05",
@@ -1027,27 +967,15 @@
     },
     {
         "Data":"2026-08-05",
+        "Ticker":"LNTH",
+        "Evento":"Rapporto Sugli Utili",
+        "Dettaglio":"Est. EPS: 1.30091"
+    },
+    {
+        "Data":"2026-08-05",
         "Ticker":"UBER",
         "Evento":"Rapporto Sugli Utili",
         "Dettaglio":"Est. EPS: 0.80184"
-    },
-    {
-        "Data":"2026-08-05",
-        "Ticker":"NVO",
-        "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 5.19567"
-    },
-    {
-        "Data":"2026-08-05",
-        "Ticker":"LYFT",
-        "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 0.40464"
-    },
-    {
-        "Data":"2026-08-05",
-        "Ticker":"DIS",
-        "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 1.8604"
     },
     {
         "Data":"2026-08-05",
@@ -1057,27 +985,39 @@
     },
     {
         "Data":"2026-08-05",
+        "Ticker":"LYFT",
+        "Evento":"Rapporto Sugli Utili",
+        "Dettaglio":"Est. EPS: 0.40464"
+    },
+    {
+        "Data":"2026-08-05",
         "Ticker":"SHOP",
         "Evento":"Rapporto Sugli Utili",
         "Dettaglio":"Est. EPS: 0.39755"
     },
     {
-        "Data":"2026-08-06",
-        "Ticker":"PBR",
+        "Data":"2026-08-05",
+        "Ticker":"NVO",
         "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: None"
+        "Dettaglio":"Est. EPS: 5.19567"
+    },
+    {
+        "Data":"2026-08-05",
+        "Ticker":"LLY",
+        "Evento":"Rapporto Sugli Utili",
+        "Dettaglio":"Est. EPS: 8.82258"
+    },
+    {
+        "Data":"2026-08-05",
+        "Ticker":"DIS",
+        "Evento":"Rapporto Sugli Utili",
+        "Dettaglio":"Est. EPS: 1.8604"
     },
     {
         "Data":"2026-08-06",
-        "Ticker":"HTZ",
+        "Ticker":"ZTS",
         "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: -0.20166"
-    },
-    {
-        "Data":"2026-08-06",
-        "Ticker":"SIE.DE",
-        "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 2.75473"
+        "Dettaglio":"Est. EPS: 1.86155"
     },
     {
         "Data":"2026-08-06",
@@ -1087,9 +1027,15 @@
     },
     {
         "Data":"2026-08-06",
-        "Ticker":"BDX",
+        "Ticker":"HTZ",
         "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 3.1305"
+        "Dettaglio":"Est. EPS: -0.20166"
+    },
+    {
+        "Data":"2026-08-06",
+        "Ticker":"TM",
+        "Evento":"Rapporto Sugli Utili",
+        "Dettaglio":"Est. EPS: None"
     },
     {
         "Data":"2026-08-06",
@@ -1105,15 +1051,15 @@
     },
     {
         "Data":"2026-08-06",
-        "Ticker":"ZTS",
+        "Ticker":"SIE.DE",
         "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 1.86155"
+        "Dettaglio":"Est. EPS: 2.75473"
     },
     {
         "Data":"2026-08-06",
-        "Ticker":"G.MI",
+        "Ticker":"PBR",
         "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 0.8366"
+        "Dettaglio":"Est. EPS: None"
     },
     {
         "Data":"2026-08-06",
@@ -1123,9 +1069,15 @@
     },
     {
         "Data":"2026-08-06",
-        "Ticker":"TM",
+        "Ticker":"BDX",
         "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: None"
+        "Dettaglio":"Est. EPS: 3.1305"
+    },
+    {
+        "Data":"2026-08-06",
+        "Ticker":"G.MI",
+        "Evento":"Rapporto Sugli Utili",
+        "Dettaglio":"Est. EPS: 0.8366"
     },
     {
         "Data":"2026-08-07",
@@ -1183,27 +1135,27 @@
     },
     {
         "Data":"2026-08-13",
-        "Ticker":"TJX",
-        "Evento":"Stacco Dividendo",
-        "Dettaglio":"Ex-Dividend Date"
-    },
-    {
-        "Data":"2026-08-13",
         "Ticker":"NU",
         "Evento":"Rapporto Sugli Utili",
         "Dettaglio":"Est. EPS: 0.21667"
     },
     {
-        "Data":"2026-08-14",
-        "Ticker":"ACN",
-        "Evento":"Pagamento Dividendo",
-        "Dettaglio":"Payout Day"
+        "Data":"2026-08-13",
+        "Ticker":"TJX",
+        "Evento":"Stacco Dividendo",
+        "Dettaglio":"Ex-Dividend Date"
     },
     {
         "Data":"2026-08-14",
         "Ticker":"LLY",
         "Evento":"Stacco Dividendo",
         "Dettaglio":"Ex-Dividend Date"
+    },
+    {
+        "Data":"2026-08-14",
+        "Ticker":"ACN",
+        "Evento":"Pagamento Dividendo",
+        "Dettaglio":"Payout Day"
     },
     {
         "Data":"2026-08-14",
@@ -1237,9 +1189,9 @@
     },
     {
         "Data":"2026-08-19",
-        "Ticker":"BIDU",
+        "Ticker":"TJX",
         "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 12.95232"
+        "Dettaglio":"Est. EPS: 1.18921"
     },
     {
         "Data":"2026-08-19",
@@ -1249,9 +1201,9 @@
     },
     {
         "Data":"2026-08-19",
-        "Ticker":"TJX",
+        "Ticker":"BIDU",
         "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 1.18921"
+        "Dettaglio":"Est. EPS: 12.95232"
     },
     {
         "Data":"2026-08-19",
@@ -1261,21 +1213,9 @@
     },
     {
         "Data":"2026-08-20",
-        "Ticker":"WMT",
+        "Ticker":"INTU",
         "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 0.74341"
-    },
-    {
-        "Data":"2026-08-20",
-        "Ticker":"DE",
-        "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 4.69232"
-    },
-    {
-        "Data":"2026-08-20",
-        "Ticker":"ZM",
-        "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 1.4752"
+        "Dettaglio":"Est. EPS: 3.58853"
     },
     {
         "Data":"2026-08-20",
@@ -1285,9 +1225,21 @@
     },
     {
         "Data":"2026-08-20",
-        "Ticker":"INTU",
+        "Ticker":"WMT",
         "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 3.58853"
+        "Dettaglio":"Est. EPS: 0.74341"
+    },
+    {
+        "Data":"2026-08-20",
+        "Ticker":"ZM",
+        "Evento":"Rapporto Sugli Utili",
+        "Dettaglio":"Est. EPS: 1.4752"
+    },
+    {
+        "Data":"2026-08-20",
+        "Ticker":"DE",
+        "Evento":"Rapporto Sugli Utili",
+        "Dettaglio":"Est. EPS: 4.69232"
     },
     {
         "Data":"2026-08-21",
@@ -1309,27 +1261,27 @@
     },
     {
         "Data":"2026-08-26",
-        "Ticker":"SNOW",
-        "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 0.44658"
-    },
-    {
-        "Data":"2026-08-26",
         "Ticker":"NVDA",
         "Evento":"Rapporto Sugli Utili",
         "Dettaglio":"Est. EPS: 2.07925"
     },
     {
-        "Data":"2026-08-27",
-        "Ticker":"RY",
+        "Data":"2026-08-26",
+        "Ticker":"SNOW",
         "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 4.03226"
+        "Dettaglio":"Est. EPS: 0.44658"
     },
     {
         "Data":"2026-08-27",
         "Ticker":"PBR",
         "Evento":"Pagamento Dividendo",
         "Dettaglio":"Payout Day"
+    },
+    {
+        "Data":"2026-08-27",
+        "Ticker":"RY",
+        "Evento":"Rapporto Sugli Utili",
+        "Dettaglio":"Est. EPS: 4.03226"
     },
     {
         "Data":"2026-08-28",
@@ -1363,27 +1315,21 @@
     },
     {
         "Data":"2026-09-03",
-        "Ticker":"AVGO",
-        "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 3.23823"
-    },
-    {
-        "Data":"2026-09-03",
         "Ticker":"TJX",
         "Evento":"Pagamento Dividendo",
         "Dettaglio":"Payout Day"
+    },
+    {
+        "Data":"2026-09-03",
+        "Ticker":"AVGO",
+        "Evento":"Rapporto Sugli Utili",
+        "Dettaglio":"Est. EPS: 3.23823"
     },
     {
         "Data":"2026-09-09",
         "Ticker":"ORCL",
         "Evento":"Rapporto Sugli Utili",
         "Dettaglio":"Est. EPS: 1.96241"
-    },
-    {
-        "Data":"2026-09-10",
-        "Ticker":"ADBE",
-        "Evento":"Rapporto Sugli Utili",
-        "Dettaglio":"Est. EPS: 5.81474"
     },
     {
         "Data":"2026-09-10",
@@ -1396,6 +1342,12 @@
         "Ticker":"MSFT",
         "Evento":"Pagamento Dividendo",
         "Dettaglio":"Payout Day"
+    },
+    {
+        "Data":"2026-09-10",
+        "Ticker":"ADBE",
+        "Evento":"Rapporto Sugli Utili",
+        "Dettaglio":"Est. EPS: 5.81474"
     },
     {
         "Data":"2026-09-16",
@@ -1453,13 +1405,13 @@
     },
     {
         "Data":"2027-01-11",
-        "Ticker":"ABEV",
+        "Ticker":"ITUB",
         "Evento":"Pagamento Dividendo",
         "Dettaglio":"Payout Day"
     },
     {
         "Data":"2027-01-11",
-        "Ticker":"ITUB",
+        "Ticker":"ABEV",
         "Evento":"Pagamento Dividendo",
         "Dettaglio":"Payout Day"
     }
