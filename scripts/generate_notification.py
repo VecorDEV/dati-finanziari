@@ -7,15 +7,19 @@ from datetime import datetime
 from google import genai
 from google.genai import types
 
-# 1. Configurazione Client
-client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
+# 1. Client: il tool google_search richiede l'API v1beta
+client = genai.Client(
+    api_key=os.environ["GEMINI_API_KEY"],
+    http_options=types.HttpOptions(api_version="v1beta"),
+)
 
-# Modelli da provare in ordine. Puoi forzarne uno con la variabile GEMINI_MODEL.
+# Modelli in ordine di preferenza (il primo è quello con quota confermata nel tuo progetto).
+# Puoi forzarne uno con la variabile d'ambiente GEMINI_MODEL.
 MODEL_CANDIDATES = [
-    "gemini-3.8-flash",
+    "gemini-2.5-flash",
+    "gemini-2.5-flash-lite",
     "gemini-3.5-flash",
     "gemini-3.1-flash-lite",
-    "gemini-2.5-flash",
 ]
 if os.environ.get("GEMINI_MODEL"):
     MODEL_CANDIDATES.insert(0, os.environ["GEMINI_MODEL"])
@@ -84,21 +88,14 @@ TEMPLATE DA SEGUIRE SCRUPOLOSAMENTE:
 """
 
 
-def is_model_missing(err_msg):
-    """Modello inesistente/ritirato: inutile riprovarlo, passa al prossimo."""
-    return "404" in err_msg or "NOT_FOUND" in err_msg or "NOT FOUND" in err_msg
+class SkipModel(Exception):
+    """Questo modello non è utilizzabile ora: passa al successivo."""
 
 
-def is_transient(err_msg):
-    """Errori temporanei: vale la pena riprovare con backoff."""
-    return any(x in err_msg for x in ["503", "429", "500", "UNAVAILABLE", "EXHAUSTED", "DEADLINE", "TIMEOUT"])
-
-
-def call_model(model, max_retries=4, initial_delay=10):
-    delay = initial_delay
-    for attempt in range(max_retries):
+def call_model(model, max_attempts=2, delay=20):
+    for attempt in range(1, max_attempts + 1):
         try:
-            log(f"Modello {model} - tentativo {attempt + 1}/{max_retries} (Focus: {current_focus})")
+            log(f"Modello {model} - tentativo {attempt}/{max_attempts} (Focus: {current_focus})")
             response = client.models.generate_content(
                 model=model,
                 contents=prompt,
@@ -108,19 +105,25 @@ def call_model(model, max_retries=4, initial_delay=10):
             )
             text = (response.text or "").strip() if response else ""
             if not text:
-                raise ValueError("EMPTY: risposta vuota dal modello")
+                raise ValueError("EMPTY")
             return text
         except Exception as e:
-            err_msg = str(e).upper()
+            err = str(e).upper()
             log(f"Errore con {model}: {e}")
-            if is_model_missing(err_msg):
-                raise  # gestito dal chiamante: prova il modello successivo
-            if (is_transient(err_msg) or "EMPTY" in err_msg) and attempt < max_retries - 1:
-                log(f"Riprovo in {delay}s...")
+
+            # Modello inesistente/ritirato, argomento non valido o quota esaurita
+            # (RPD): inutile insistere, si passa al modello successivo.
+            if "404" in err or "NOT_FOUND" in err or "INVALID_ARGUMENT" in err:
+                raise SkipModel(str(e))
+
+            # 429: potrebbe essere solo il limite al minuto (RPM), un solo retry
+            # dopo una pausa; se persiste si passa al modello successivo.
+            retryable = any(x in err for x in ["429", "RESOURCE_EXHAUSTED", "503", "500", "UNAVAILABLE", "DEADLINE", "EMPTY"])
+            if retryable and attempt < max_attempts:
+                log(f"Riprovo tra {delay}s...")
                 time.sleep(delay)
-                delay *= 2
                 continue
-            raise
+            raise SkipModel(str(e))
 
 
 def generate_with_fallback():
@@ -128,9 +131,9 @@ def generate_with_fallback():
     for model in MODEL_CANDIDATES:
         try:
             return call_model(model)
-        except Exception as e:
+        except SkipModel as e:
             last_error = e
-            log(f"Modello {model} non utilizzabile, passo al successivo.")
+            log(f"Modello {model} saltato, provo il successivo.")
     raise RuntimeError(f"Tutti i modelli hanno fallito. Ultimo errore: {last_error}")
 
 
@@ -145,8 +148,7 @@ def clean_html(raw):
 
 
 def main():
-    html_raw = generate_with_fallback()
-    html_content = clean_html(html_raw)
+    html_content = clean_html(generate_with_fallback())
 
     # Validazione: non committare mai un file incompleto
     count = html_content.count('class="notification"')
@@ -156,7 +158,7 @@ def main():
             f"Anteprima output:\n{html_content[:500]}"
         )
 
-    # Sostituzione ID
+    # Sostituzione ID univoco
     html_content = re.sub(r'id="[^"]+"', f'id="{unique_id}"', html_content)
 
     # Salvataggio
@@ -173,7 +175,7 @@ if __name__ == "__main__":
     try:
         main()
         sys.stdout.flush()
-        os._exit(0)  # evita blocchi di thread su GitHub Actions
+        os._exit(0)
     except Exception as e:
         log(f"Errore critico finale: {e}")
         sys.stdout.flush()
