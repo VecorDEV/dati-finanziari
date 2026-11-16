@@ -32,12 +32,13 @@ jobs:
       - name: Installa dipendenze
         run: |
           python -m pip install --upgrade pip
-          pip install google-genai  # La nuova libreria ufficiale di Google
+          pip install --upgrade google-genai
 
       - name: Esegui lo script Gemini
+        timeout-minutes: 10
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: python scripts/generate_notification.py 
+        run: python -u scripts/generate_notification.py
 
       - name: Committa e pusha le modifiche
         run: |
